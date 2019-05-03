@@ -93,7 +93,7 @@ manual:
 	# STORAGE
 	#
 	mkdir -p docs-source/source/manual/storage
-	cms man --kind=rst storage > docs-source/source/manual//storage/storage.rst
+	cms man --kind=rst storage > docs-source/source/manual/storage/storage.rst
 	cms man --kind=rst vdir > docs-source/source/manual/storage/vdir.rst
 	cms man --kind=rst objstorage > docs-source/source/manual/storage/objstorage.rst
 

@@ -1,3 +1,10 @@
+
+# ######################################################################
+# Arguments
+# ######################################################################
+# {'--kind': 'rst', '--noheader': False, 'COMMAND': 'vm'}
+# ######################################################################
+
 vm
 ==
 
@@ -5,13 +12,13 @@ vm
 
     Usage:
         vm ping [NAMES] [--cloud=CLOUDS] [--count=N] [--processors=PROCESSORS]
-        vm check [NAMES] [--cloud=CLOUDS] [--processors=PROCESSORS]
+        vm check [NAMES] [--cloud=CLOUDS] [--username=USERNAME] [--processors=PROCESSORS]
         vm status [NAMES] [--cloud=CLOUDS]
         vm console [NAME] [--force]
-        vm start [NAMES] [--cloud=CLOUD] [--dryrun]
-        vm stop [NAMES] [--cloud=CLOUD] [--dryrun]
-        vm terminate [NAMES] [--cloud=CLOUD] [--dryrun]
-        vm delete [NAMES] [--cloud=CLOUD] [--dryrun]
+        vm start [NAMES] [--cloud=CLOUD] [--parallel] [--processors=PROCESSORS] [--dryrun]
+        vm stop [NAMES] [--cloud=CLOUD] [--parallel] [--processors=PROCESSORS] [--dryrun]
+        vm terminate [NAMES] [--cloud=CLOUD] [--parallel] [--processors=PROCESSORS] [--dryrun]
+        vm delete [NAMES] [--cloud=CLOUD] [--parallel] [--processors=PROCESSORS] [--dryrun]
         vm refresh [--cloud=CLOUDS]
         vm list [NAMES]
                 [--cloud=CLOUDS]

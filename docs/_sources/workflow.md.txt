@@ -40,6 +40,45 @@ Where
 Finally, after execution the results are stored in MongoDB to be visualized or consumed
 by later functions in the series.
 
+## Database Objects
+
+There are two collections related to workflow objects. The first is for the definition of a flow, and the second for the status of a flow that is in progres.
+
+### Definition Collection
+When you define a workflow, a new collection is created for the definition. For a workflow named "test", this collection exists at "test-flow". This collection contains objects that look like the following:
+
+```json
+{
+    "name" : "pytesta",
+    "dependencies" : [],
+    "workflow" : "test",
+    "cm" : {
+        "kind" : "flow",
+        "cloud" : "test",
+        "name" : "pytesta",
+        "collection" : "test-flow",
+        "created" : "2019-05-02 00:32:11.034870",
+        "modified" : "2019-05-02 00:32:11.034870"
+    },
+    "kind" : "flow",
+    "cloud" : "test",
+    "status" : "defined"
+}
+```
+The salient features are `name`, which is the name of the node, and `dependencies` which is an array of other node names this node depends upon. All elements in a flow definition collection will have `status : "defined"`.
+
+### Running Flow Collection
+When a flow is started with `cms flow run`, a new collection is started with the suffix "-active" added at the end. For example, if your flowname is "test" and your nodes are defined in "test-flow", then the active collection in MongoDB will be "test-flow-active". Objects in this collection are similar to the above, with two changes:
+
+ 1. First, they have a `result` field attached, which holds the JSON value from the result of executing the node and
+ 2. They have a richer `status` field, with the following values:
+    - "pending" is the status when the flow starts
+    - "running" is the status when a node is being executed
+    - "finished" is the status when the node has executed
+    - "error" is the status when a node finished execution with a non-zero exit code
+    
+When interacting directly with the database, it is important to use the values from the definition collection unless you are explicitly interacting with a flow in progress. The running collection may not be up-to-date and may contain incorrect information. For example the `dependencies` array in the definition collection reflects the overall dependencies specified in the flow definition but in the running collection the array is continually modified whenever other nodes finish their work.
+
 ## Javascript Interface (proposed)
 
 We are looking for someone that would chose as its project to include a

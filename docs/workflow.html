@@ -114,9 +114,14 @@
 <p class="caption"><span class="caption-text">WORKFLOW</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">1. Infrastructure Workflow</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#javascript-interface-proposed">1.1. Javascript Interface (proposed)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#rest">1.2. REST</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#resources">1.3. Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#database-objects">1.1. Database Objects</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#definition-collection">1.1.1. Definition Collection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#running-flow-collection">1.1.2. Running Flow Collection</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#javascript-interface-proposed">1.2. Javascript Interface (proposed)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rest">1.3. REST</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#resources">1.4. Resources</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="jupyter.html">2. Jupyter Integration (proposed)</a></li>
@@ -293,8 +298,51 @@ write a specification for the sequence to execute your functions:</p>
 </ul>
 <p>Finally, after execution the results are stored in MongoDB to be visualized or consumed
 by later functions in the series.</p>
+<div class="section" id="database-objects">
+<h2>1.1. Database Objects<a class="headerlink" href="#database-objects" title="Permalink to this headline">¶</a></h2>
+<p>There are two collections related to workflow objects. The first is for the definition of a flow, and the second for the status of a flow that is in progres.</p>
+<div class="section" id="definition-collection">
+<h3>1.1.1. Definition Collection<a class="headerlink" href="#definition-collection" title="Permalink to this headline">¶</a></h3>
+<p>When you define a workflow, a new collection is created for the definition. For a workflow named “test”, this collection exists at “test-flow”. This collection contains objects that look like the following:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;pytesta&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;dependencies&quot;</span> <span class="p">:</span> <span class="p">[],</span>
+    <span class="nt">&quot;workflow&quot;</span> <span class="p">:</span> <span class="s2">&quot;test&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;cm&quot;</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;kind&quot;</span> <span class="p">:</span> <span class="s2">&quot;flow&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;cloud&quot;</span> <span class="p">:</span> <span class="s2">&quot;test&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;pytesta&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;collection&quot;</span> <span class="p">:</span> <span class="s2">&quot;test-flow&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;created&quot;</span> <span class="p">:</span> <span class="s2">&quot;2019-05-02 00:32:11.034870&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;modified&quot;</span> <span class="p">:</span> <span class="s2">&quot;2019-05-02 00:32:11.034870&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;kind&quot;</span> <span class="p">:</span> <span class="s2">&quot;flow&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;cloud&quot;</span> <span class="p">:</span> <span class="s2">&quot;test&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;status&quot;</span> <span class="p">:</span> <span class="s2">&quot;defined&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The salient features are <code class="docutils literal notranslate"><span class="pre">name</span></code>, which is the name of the node, and <code class="docutils literal notranslate"><span class="pre">dependencies</span></code> which is an array of other node names this node depends upon. All elements in a flow definition collection will have <code class="docutils literal notranslate"><span class="pre">status</span> <span class="pre">:</span> <span class="pre">&quot;defined&quot;</span></code>.</p>
+</div>
+<div class="section" id="running-flow-collection">
+<h3>1.1.2. Running Flow Collection<a class="headerlink" href="#running-flow-collection" title="Permalink to this headline">¶</a></h3>
+<p>When a flow is started with <code class="docutils literal notranslate"><span class="pre">cms</span> <span class="pre">flow</span> <span class="pre">run</span></code>, a new collection is started with the suffix “-active” added at the end. For example, if your flowname is “test” and your nodes are defined in “test-flow”, then the active collection in MongoDB will be “test-flow-active”. Objects in this collection are similar to the above, with two changes:</p>
+<ol class="simple">
+<li><p>First, they have a <code class="docutils literal notranslate"><span class="pre">result</span></code> field attached, which holds the JSON value from the result of executing the node and</p></li>
+<li><p>They have a richer <code class="docutils literal notranslate"><span class="pre">status</span></code> field, with the following values:</p>
+<ul class="simple">
+<li><p>“pending” is the status when the flow starts</p></li>
+<li><p>“running” is the status when a node is being executed</p></li>
+<li><p>“finished” is the status when the node has executed</p></li>
+<li><p>“error” is the status when a node finished execution with a non-zero exit code</p></li>
+</ul>
+</li>
+</ol>
+<p>When interacting directly with the database, it is important to use the values from the definition collection unless you are explicitly interacting with a flow in progress. The running collection may not be up-to-date and may contain incorrect information. For example the <code class="docutils literal notranslate"><span class="pre">dependencies</span></code> array in the definition collection reflects the overall dependencies specified in the flow definition but in the running collection the array is continually modified whenever other nodes finish their work.</p>
+</div>
+</div>
 <div class="section" id="javascript-interface-proposed">
-<h2>1.1. Javascript Interface (proposed)<a class="headerlink" href="#javascript-interface-proposed" title="Permalink to this headline">¶</a></h2>
+<h2>1.2. Javascript Interface (proposed)<a class="headerlink" href="#javascript-interface-proposed" title="Permalink to this headline">¶</a></h2>
 <p>We are looking for someone that would chose as its project to include a
 rendering of some DAG in javascript. The javascript library must be free to use.
 Nodes and edges must be able to be labeled.</p>
@@ -372,11 +420,11 @@ executing a command in teh vm ….</p>
 </div>
 </div>
 <div class="section" id="rest">
-<h2>1.2. REST<a class="headerlink" href="#rest" title="Permalink to this headline">¶</a></h2>
+<h2>1.3. REST<a class="headerlink" href="#rest" title="Permalink to this headline">¶</a></h2>
 <p>An OpenAPI specification for this is to be defined.</p>
 </div>
 <div class="section" id="resources">
-<h2>1.3. Resources<a class="headerlink" href="#resources" title="Permalink to this headline">¶</a></h2>
+<h2>1.4. Resources<a class="headerlink" href="#resources" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/xflr6/graphviz">https://github.com/xflr6/graphviz</a></p></li>
 <li><p><a class="reference external" href="http://visjs.org/examples/network/events/interactionEvents.html">http://visjs.org/examples/network/events/interactionEvents.html</a></p></li>
