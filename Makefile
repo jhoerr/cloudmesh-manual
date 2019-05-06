@@ -31,6 +31,7 @@ names-dir:
 	@cd ../cloudmesh-emr; git log | fgrep Author
 	@cd ../cloudmesh-cloud; git log | fgrep Author
 	@cd ../cloudmesh-storage; git log | fgrep Author
+	@cd ../cloudmesh-manual; git log | fgrep Author
 
 source:
 	cd ../cloudmesh.common; make source
