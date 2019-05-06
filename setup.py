@@ -36,6 +36,9 @@ requiers = """
 sphinxemoji
 sphinx_rtd_theme
 sphinxcontrib-fulltoc
+cloudmesh-common
+cloudmesh-cmd5
+cloudmesh-sys
 """.split("\n")
 
 # dependency_links = ['http://github.com/nicolaiarocci/eve.git@develop']
