@@ -79,6 +79,8 @@ need it for authentication purposes. We recommend storing it at
 ``~/.cloudmesh/box/config.json``. This will avoid that you conflict with
 another file called ``config.json``
 
+.. todo:: Box. A program is missing that adds the json key to the yaml file. This is the same as in Azure.
+
 References
 ----------
 
