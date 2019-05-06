@@ -8,6 +8,7 @@ Cloudmesh Version 4
 
    about
    contributors
+   todo
 
 .. toctree::
    :numbered:
