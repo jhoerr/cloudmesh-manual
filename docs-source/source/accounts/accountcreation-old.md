@@ -1,10 +1,14 @@
 # VM Providers (outdated)
 
-Cm4 works straight forward with a number of providers under the
-assumption you have accounts on these frameworks. We demonstrate hete
-how to start a singel vm on each of these providers and list the
-started vms. Defaults form the configuration file are used to select
-images and flavors. These defaults can naturally be changed.
+Cloudmesh works straight forward with a number of cloud providers under the
+assumption you have accounts on these clouds. We demonstrate here how to start a
+single vm on each of these providers and to test if they have been creatdd we
+will also list the vm on each of the clouds. Defaults form the a configuration
+file that is located in `~/.cloudmesh/cloudmesh4.yaml` are used to select images
+and flavors. These defaults can naturally be changed.
+
+In order for you to follow this example you will have to edit the yaml file and
+make appropriat emodifications.
 
 ## General Cloud Providers Access
 
@@ -47,7 +51,7 @@ $ cms vm start
 $ cms vm list
 
 $ cms flavor="medium"
-$ cms image="ubuntu18.04"
+$ cms image="ubuntu19.04"
 
 $ cms vm start
 ```
@@ -55,7 +59,7 @@ $ cms vm start
 ## Explicit Use with Options
 
 ```bash
-$ cms vm start --cloud=chameleon --image=ubuntu18.04 --flavor=medium --key=~/.ssh/id_rsa.bub
+$ cms vm start --cloud=chameleon --image=ubuntu19.04 --flavor=medium --key=~/.ssh/id_rsa.bub
 ```
 
 

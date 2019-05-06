@@ -59,7 +59,7 @@ one of them is Google Drive with 15 GB overall storage.
 
 After that we need to go through the Google Drive Quick start guide:
 
-<https://developers.google.com/drive/api/v3/quickstart/python >  
+<https://developers.google.com/drive/api/v3/quickstart/python>  
 
 There we can see Enable API option as shown in the next picture:  
 
