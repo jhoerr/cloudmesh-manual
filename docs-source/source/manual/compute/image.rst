@@ -11,7 +11,7 @@ image
 ::
 
     Usage:
-        image list [NAMES] [--cloud=CLOUD] [--refresh] [--output=OUTPUT]
+        image list [NAMES] [--cloud=CLOUD] [--refresh] [--output=OUTPUT] [--query=QUERY]
 
     Options:
        --output=OUTPUT  the output format [default: table]

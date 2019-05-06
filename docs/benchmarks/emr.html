@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>8. AWS EMR Benchmarking &mdash; Cloudmesh v4 alpha documentation</title>
+  <title>7. AWS EMR Benchmarking &mdash; Cloudmesh v4 alpha documentation</title>
   
 
   
@@ -37,8 +37,8 @@
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="1. Code Documentation" href="../code/code.html" />
-    <link rel="prev" title="5." href="box.html" /> 
+    <link rel="next" title="8. AWS EC2 Compute Database" href="test_compute_database.html" />
+    <link rel="prev" title="6. Benchmark results for box Storage" href="box.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -129,8 +129,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../reference-card.html">1. Reference Card (proposed)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual/commands.html">2. Commands</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual-cmd5.html">3. Manual Cmd5</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../manual-compute.html">4. Compute Manual Pages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../manual-storage.html">5. Storage Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-group.html">4. Manual Group</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-compute.html">5. Compute Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-storage.html">6. Storage Manual Pages</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Database</span></p>
 <ul>
@@ -140,12 +141,12 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="README.html">1. Benchmarks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="awsec2-vm-management-benchmark.html">2. AWS EC2 VM Management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="awss3-storage-benchmark.html">3. AWS S3 File Storage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="azure-storage-benchmark.html">4. Azure Blob Storage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="box.html">5. </a></li>
-<li class="toctree-l1"><a class="reference internal" href="box.html#benchmark-results-for-box-storage">6. Benchmark results for ‘box’ Storage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="box.html#id2">7. </a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">8. AWS EMR Benchmarking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="awsec2_benchmark_ubuntu.html">3. AWS EC2 VM Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="awss3-storage-benchmark.html">4. AWS S3 File Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="azure-storage-benchmark.html">5. Azure Blob Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="box.html">6. Benchmark results for box Storage</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">7. AWS EMR Benchmarking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test_compute_database.html">8. AWS EC2 Compute Database</a></li>
 </ul>
 <p class="caption"><span class="caption-text">CODE</span></p>
 <ul>
@@ -234,7 +235,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>8. AWS EMR Benchmarking</li>
+      <li>7. AWS EMR Benchmarking</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -254,12 +255,14 @@
            <div itemprop="articleBody">
             
   <div class="section" id="aws-emr-benchmarking">
-<h1>8. AWS EMR Benchmarking<a class="headerlink" href="#aws-emr-benchmarking" title="Permalink to this headline">¶</a></h1>
+<h1>7. AWS EMR Benchmarking<a class="headerlink" href="#aws-emr-benchmarking" title="Permalink to this headline">¶</a></h1>
 <p>Benchmark results for AWS EMR using cloudmesh-emr.</p>
-<p>Speedtest.net results:
-Ping: 14ms
-Download: 23.32 Mbps.
-Upload: 6.01 Mbps.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Speedtest</span><span class="o">.</span><span class="n">net</span> <span class="n">results</span><span class="p">:</span>
+<span class="n">Ping</span><span class="p">:</span> <span class="mi">14</span><span class="n">ms</span>
+<span class="n">Download</span><span class="p">:</span> <span class="mf">23.32</span> <span class="n">Mbps</span><span class="o">.</span>
+<span class="n">Upload</span><span class="p">:</span> <span class="mf">6.01</span> <span class="n">Mbps</span><span class="o">.</span>
+</pre></div>
+</div>
 <p>Benchmark results via StopWatch:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">+---------------------+------------------------------------------------------------------+</span>
 <span class="o">|</span> <span class="n">Machine</span> <span class="n">Arribute</span>    <span class="o">|</span> <span class="n">Time</span><span class="o">/</span><span class="n">s</span>                                                           <span class="o">|</span>
@@ -319,10 +322,10 @@ Upload: 6.01 Mbps.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../code/code.html" class="btn btn-neutral float-right" title="1. Code Documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="test_compute_database.html" class="btn btn-neutral float-right" title="8. AWS EC2 Compute Database" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="box.html" class="btn btn-neutral float-left" title="5." accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="box.html" class="btn btn-neutral float-left" title="6. Benchmark results for box Storage" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

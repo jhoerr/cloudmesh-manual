@@ -2,9 +2,11 @@
 
 Benchmark results for AWS S3 File storage under cloudmesh-storage.
 
+```
  PING ms : 3
  DOWNLOAD Mbps : 46.86
  UPLOAD Mbps : 35.13
+```
 
 ```
 +------------------+----------------------------------------------------+

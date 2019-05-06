@@ -129,8 +129,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../reference-card.html">1. Reference Card (proposed)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual/commands.html">2. Commands</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual-cmd5.html">3. Manual Cmd5</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../manual-compute.html">4. Compute Manual Pages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../manual-storage.html">5. Storage Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-group.html">4. Manual Group</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-compute.html">5. Compute Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-storage.html">6. Storage Manual Pages</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Database</span></p>
 <ul>
@@ -140,12 +141,12 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../benchmarks/README.html">1. Benchmarks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../benchmarks/awsec2-vm-management-benchmark.html">2. AWS EC2 VM Management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../benchmarks/awss3-storage-benchmark.html">3. AWS S3 File Storage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../benchmarks/azure-storage-benchmark.html">4. Azure Blob Storage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../benchmarks/box.html">5. </a></li>
-<li class="toctree-l1"><a class="reference internal" href="../benchmarks/box.html#benchmark-results-for-box-storage">6. Benchmark results for ‘box’ Storage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../benchmarks/box.html#id2">7. </a></li>
-<li class="toctree-l1"><a class="reference internal" href="../benchmarks/emr.html">8. AWS EMR Benchmarking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/awsec2_benchmark_ubuntu.html">3. AWS EC2 VM Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/awss3-storage-benchmark.html">4. AWS S3 File Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/azure-storage-benchmark.html">5. Azure Blob Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/box.html">6. Benchmark results for box Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/emr.html">7. AWS EMR Benchmarking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/test_compute_database.html">8. AWS EC2 Compute Database</a></li>
 </ul>
 <p class="caption"><span class="caption-text">CODE</span></p>
 <ul class="current">
@@ -154,11 +155,11 @@
 <li class="toctree-l1"><a class="reference internal" href="cmd5.html">3. CMD5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cloudmesh.html">4. Cloudmesh</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">5. Management</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#module-cloudmesh.management.configuration.config">5.1. Configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-cloudmesh.management.printer.Printer">5.2. Printer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-cloudmesh.management.configuration.name">5.3. Names</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-cloudmesh.management.script">5.4. Script</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-cloudmesh.management.debug">5.5. Debug</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuration">5.1. Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#printer">5.2. Printer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#names">5.3. Names</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#script">5.4. Script</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#debug">5.5. Debug</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="mongo.html">6. Mongo</a></li>
@@ -262,267 +263,20 @@
             
   <div class="section" id="management">
 <h1>5. Management<a class="headerlink" href="#management" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="module-cloudmesh.management.configuration.config">
-<span id="configuration"></span><h2>5.1. Configuration<a class="headerlink" href="#module-cloudmesh.management.configuration.config" title="Permalink to this headline">¶</a></h2>
-<span class="target" id="module-cloudmesh.management.configuration.counter"></span><dl class="class">
-<dt id="cloudmesh.management.configuration.counter.Counter">
-<em class="property">class </em><code class="descclassname">cloudmesh.management.configuration.counter.</code><code class="descname">Counter</code><span class="sig-paren">(</span><em>counter_file_path='~/.cloudmesh/counter.yaml'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/management/configuration/counter.html#Counter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.configuration.counter.Counter" title="Permalink to this definition">¶</a></dt>
-<dd><p>A counter is used to keep track of some value that can be increased
-and is associated with a user. Typically it is used to increment the
-vm id or the job id.</p>
-<dl class="method">
-<dt id="cloudmesh.management.configuration.counter.Counter.decr">
-<code class="descname">decr</code><span class="sig-paren">(</span><em>name='counter'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/management/configuration/counter.html#Counter.decr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.configuration.counter.Counter.decr" title="Permalink to this definition">¶</a></dt>
-<dd><p>increments the counter by one
-:return:</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.management.configuration.counter.Counter.get">
-<code class="descname">get</code><span class="sig-paren">(</span><em>name='counter'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/management/configuration/counter.html#Counter.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.configuration.counter.Counter.get" title="Permalink to this definition">¶</a></dt>
-<dd><p>returns the value of the counter
-:param name: name of the counter
-:return: the value of the counter</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.management.configuration.counter.Counter.incr">
-<code class="descname">incr</code><span class="sig-paren">(</span><em>name='counter'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/management/configuration/counter.html#Counter.incr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.configuration.counter.Counter.incr" title="Permalink to this definition">¶</a></dt>
-<dd><p>increments the counter by one
-:return:</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.management.configuration.counter.Counter.set">
-<code class="descname">set</code><span class="sig-paren">(</span><em>name='counter'</em>, <em>value=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/management/configuration/counter.html#Counter.set"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.configuration.counter.Counter.set" title="Permalink to this definition">¶</a></dt>
-<dd><p>sets a counter associated with a particular user
-:param name: name of the counter
-:param value: the value
-:return:</p>
-</dd></dl>
-
-</dd></dl>
-
-<span class="target" id="module-cloudmesh.management.configuration.generic_config"></span><span class="target" id="module-cloudmesh.management.configuration.name"></span><p>We use a uniform naming convention method. The name is defined by different kinds of objects. The name is a string
-its syntax is defined in a yaml file located at <code class="docutils literal notranslate"><span class="pre">~/.cloudmesh/name.yaml</span></code></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">order</span><span class="p">:</span>
-<span class="o">-</span> <span class="n">experiment</span>
-<span class="o">-</span> <span class="n">group</span>
-<span class="o">-</span> <span class="n">user</span>
-<span class="o">-</span> <span class="n">kind</span>
-<span class="o">-</span> <span class="n">counter</span>
-<span class="n">schema</span><span class="p">:</span> <span class="s1">&#39;</span><span class="si">{experiment}</span><span class="s1">-</span><span class="si">{group}</span><span class="s1">-</span><span class="si">{user}</span><span class="s1">-</span><span class="si">{kind}</span><span class="s1">-</span><span class="si">{counter}</span><span class="s1">&#39;</span>
-<span class="n">experiment</span><span class="p">:</span> <span class="n">exp</span>
-<span class="n">group</span><span class="p">:</span> <span class="n">grp</span>
-<span class="n">user</span><span class="p">:</span> <span class="n">gregor</span>
-<span class="n">kind</span><span class="p">:</span> <span class="n">container</span>
-<span class="n">counter</span><span class="p">:</span> <span class="mi">2</span>
-</pre></div>
+<div class="section" id="configuration">
+<h2>5.1. Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
 </div>
-<p>This file is automatically generated if it does not exists by a simple <cite>Name</cite> object that can include an ordered
-number of dictionary keys such as</p>
-<dl class="field-list simple">
-<dt class="field-odd">Experiment</dt>
-<dd class="field-odd"><p>is an experiment that all cloud objects can be placed under.</p>
-</dd>
-<dt class="field-even">Group</dt>
-<dd class="field-even"><p>A group formulates a number of objects that logically build an entity,
-such as a number of virtual machines building a cluster</p>
-</dd>
-<dt class="field-odd">User</dt>
-<dd class="field-odd"><p>A user name that may control the group</p>
-</dd>
-<dt class="field-even">Kind</dt>
-<dd class="field-even"><p>A kind that identifies which kind of resource this is</p>
-</dd>
-</dl>
-<p>The last is a counter which is always increased and written into this file in order to assure that the latest
-value is safely included in it.</p>
-<p>A typical use is</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="n">Name</span><span class="p">(</span><span class="n">experiment</span><span class="o">=</span><span class="s2">&quot;exp&quot;</span><span class="p">,</span>
-         <span class="n">group</span><span class="o">=</span><span class="s2">&quot;grp&quot;</span><span class="p">,</span>
-         <span class="n">user</span><span class="o">=</span><span class="s2">&quot;gregor&quot;</span><span class="p">,</span>
-         <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;vm&quot;</span><span class="p">,</span>
-         <span class="n">counter</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-
-<span class="n">n</span><span class="o">.</span><span class="n">incr</span><span class="p">()</span>
-<span class="n">counter</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-</pre></div>
+<div class="section" id="printer">
+<h2>5.2. Printer<a class="headerlink" href="#printer" title="Permalink to this headline">¶</a></h2>
 </div>
-<p>Which will return</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">-</span><span class="n">grp</span><span class="o">-</span><span class="n">gregor</span><span class="o">-</span><span class="n">vm</span><span class="o">-</span><span class="mi">1</span>
-</pre></div>
+<div class="section" id="names">
+<h2>5.3. Names<a class="headerlink" href="#names" title="Permalink to this headline">¶</a></h2>
 </div>
-<dl class="class">
-<dt id="cloudmesh.management.configuration.name.Name">
-<em class="property">class </em><code class="descclassname">cloudmesh.management.configuration.name.</code><code class="descname">Name</code><span class="sig-paren">(</span><em>order=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/management/configuration/name.html#Name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.configuration.name.Name" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<span class="target" id="module-cloudmesh.management.configuration.arguments"></span><span class="target" id="module-cloudmesh.management.configuration.operatingsystem"></span><span class="target" id="module-cloudmesh.management.configuration.SSHkey"></span><dl class="class">
-<dt id="cloudmesh.management.configuration.SSHkey.SSHkey">
-<em class="property">class </em><code class="descclassname">cloudmesh.management.configuration.SSHkey.</code><code class="descname">SSHkey</code><a class="reference internal" href="../_modules/cloudmesh/management/configuration/SSHkey.html#SSHkey"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.configuration.SSHkey.SSHkey" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="method">
-<dt id="cloudmesh.management.configuration.SSHkey.SSHkey.get_from_git">
-<code class="descname">get_from_git</code><span class="sig-paren">(</span><em>user</em>, <em>keyname=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/management/configuration/SSHkey.html#SSHkey.get_from_git"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.configuration.SSHkey.SSHkey.get_from_git" title="Permalink to this definition">¶</a></dt>
-<dd><p>gets the key from github</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>keyname</strong> – the keyname</p></li>
-<li><p><strong>user</strong> – the github username</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>an array of public keys</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)">list</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.management.configuration.SSHkey.SSHkey.set_permissions">
-<code class="descname">set_permissions</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/management/configuration/SSHkey.html#SSHkey.set_permissions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.configuration.SSHkey.SSHkey.set_permissions" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets the permissions of the path assuming the path is a public or private key
-:param path:
-:return:</p>
-</dd></dl>
-
-</dd></dl>
-
+<div class="section" id="script">
+<h2>5.4. Script<a class="headerlink" href="#script" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-cloudmesh.management.printer.Printer">
-<span id="printer"></span><h2>5.2. Printer<a class="headerlink" href="#module-cloudmesh.management.printer.Printer" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="module-cloudmesh.management.configuration.name">
-<span id="names"></span><h2>5.3. Names<a class="headerlink" href="#module-cloudmesh.management.configuration.name" title="Permalink to this headline">¶</a></h2>
-<p>We use a uniform naming convention method. The name is defined by different kinds of objects. The name is a string
-its syntax is defined in a yaml file located at <code class="docutils literal notranslate"><span class="pre">~/.cloudmesh/name.yaml</span></code></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">order</span><span class="p">:</span>
-<span class="o">-</span> <span class="n">experiment</span>
-<span class="o">-</span> <span class="n">group</span>
-<span class="o">-</span> <span class="n">user</span>
-<span class="o">-</span> <span class="n">kind</span>
-<span class="o">-</span> <span class="n">counter</span>
-<span class="n">schema</span><span class="p">:</span> <span class="s1">&#39;</span><span class="si">{experiment}</span><span class="s1">-</span><span class="si">{group}</span><span class="s1">-</span><span class="si">{user}</span><span class="s1">-</span><span class="si">{kind}</span><span class="s1">-</span><span class="si">{counter}</span><span class="s1">&#39;</span>
-<span class="n">experiment</span><span class="p">:</span> <span class="n">exp</span>
-<span class="n">group</span><span class="p">:</span> <span class="n">grp</span>
-<span class="n">user</span><span class="p">:</span> <span class="n">gregor</span>
-<span class="n">kind</span><span class="p">:</span> <span class="n">container</span>
-<span class="n">counter</span><span class="p">:</span> <span class="mi">2</span>
-</pre></div>
-</div>
-<p>This file is automatically generated if it does not exists by a simple <cite>Name</cite> object that can include an ordered
-number of dictionary keys such as</p>
-<dl class="field-list simple">
-<dt class="field-odd">Experiment</dt>
-<dd class="field-odd"><p>is an experiment that all cloud objects can be placed under.</p>
-</dd>
-<dt class="field-even">Group</dt>
-<dd class="field-even"><p>A group formulates a number of objects that logically build an entity,
-such as a number of virtual machines building a cluster</p>
-</dd>
-<dt class="field-odd">User</dt>
-<dd class="field-odd"><p>A user name that may control the group</p>
-</dd>
-<dt class="field-even">Kind</dt>
-<dd class="field-even"><p>A kind that identifies which kind of resource this is</p>
-</dd>
-</dl>
-<p>The last is a counter which is always increased and written into this file in order to assure that the latest
-value is safely included in it.</p>
-<p>A typical use is</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="n">Name</span><span class="p">(</span><span class="n">experiment</span><span class="o">=</span><span class="s2">&quot;exp&quot;</span><span class="p">,</span>
-         <span class="n">group</span><span class="o">=</span><span class="s2">&quot;grp&quot;</span><span class="p">,</span>
-         <span class="n">user</span><span class="o">=</span><span class="s2">&quot;gregor&quot;</span><span class="p">,</span>
-         <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;vm&quot;</span><span class="p">,</span>
-         <span class="n">counter</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-
-<span class="n">n</span><span class="o">.</span><span class="n">incr</span><span class="p">()</span>
-<span class="n">counter</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-</pre></div>
-</div>
-<p>Which will return</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="o">-</span><span class="n">grp</span><span class="o">-</span><span class="n">gregor</span><span class="o">-</span><span class="n">vm</span><span class="o">-</span><span class="mi">1</span>
-</pre></div>
-</div>
-<dl class="class">
-<dt>
-<em class="property">class </em><code class="descclassname">cloudmesh.management.configuration.name.</code><code class="descname">Name</code><span class="sig-paren">(</span><em>order=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/management/configuration/name.html#Name"><span class="viewcode-link">[source]</span></a></dt>
-<dd></dd></dl>
-
-</div>
-<div class="section" id="module-cloudmesh.management.script">
-<span id="script"></span><h2>5.4. Script<a class="headerlink" href="#module-cloudmesh.management.script" title="Permalink to this headline">¶</a></h2>
-<p>A convenient method to execute shell commands and return their output. Note:
-that this method requires that the command be completely executed before the
-output is returned. For many activities in cloudmesh this is sufficient.</p>
-<dl class="class">
-<dt id="cloudmesh.management.script.Script">
-<em class="property">class </em><code class="descclassname">cloudmesh.management.script.</code><code class="descname">Script</code><a class="reference internal" href="../_modules/cloudmesh/management/script.html#Script"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.script.Script" title="Permalink to this definition">¶</a></dt>
-<dd><p>Executing a script defined by a simple text parameter</p>
-<dl class="staticmethod">
-<dt id="cloudmesh.management.script.Script.run">
-<em class="property">static </em><code class="descname">run</code><span class="sig-paren">(</span><em>script</em>, <em>live=False</em>, <em>debug=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/management/script.html#Script.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.script.Script.run" title="Permalink to this definition">¶</a></dt>
-<dd><p>run the specified script line by line.</p>
-<p>TODO: at one point this should be moved to cloudmesh.common</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>script</strong> – The script</p></li>
-<li><p><strong>debug</strong> – If true the output of the script is printed</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p></p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="class">
-<dt id="cloudmesh.management.script.SystemPath">
-<em class="property">class </em><code class="descclassname">cloudmesh.management.script.</code><code class="descname">SystemPath</code><a class="reference internal" href="../_modules/cloudmesh/management/script.html#SystemPath"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.script.SystemPath" title="Permalink to this definition">¶</a></dt>
-<dd><p>Managing the System path in the .bashrc or .bash_profile files</p>
-<dl class="staticmethod">
-<dt id="cloudmesh.management.script.SystemPath.add">
-<em class="property">static </em><code class="descname">add</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/management/script.html#SystemPath.add"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.script.SystemPath.add" title="Permalink to this definition">¶</a></dt>
-<dd><p>Adds a path to the <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code> or <code class="docutils literal notranslate"><span class="pre">~/.bash_profile</span></code> files.</p>
-<p>TODO: Windows is not implemented yet.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>path</strong> – The path to be added</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p></p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="function">
-<dt id="cloudmesh.management.script.find_process">
-<code class="descclassname">cloudmesh.management.script.</code><code class="descname">find_process</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/management/script.html#find_process"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.script.find_process" title="Permalink to this definition">¶</a></dt>
-<dd><p>find a process by name</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>name</strong> – the name of the process</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>A list of dicts in which the attributes pid, command, and created are available and the name matches
-the specified name argument.</p>
-</dd>
-</dl>
-<p>TODO: at one point this should be moved to cloudmesh.common</p>
-<p>Return a list of processes matching ‘name’.</p>
-</dd></dl>
-
-</div>
-<div class="section" id="module-cloudmesh.management.debug">
-<span id="debug"></span><h2>5.5. Debug<a class="headerlink" href="#module-cloudmesh.management.debug" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="debug">
+<h2>5.5. Debug<a class="headerlink" href="#debug" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 

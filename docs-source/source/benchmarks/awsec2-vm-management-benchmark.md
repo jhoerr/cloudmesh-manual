@@ -2,9 +2,12 @@
 
 Benchmark results for AWS EC2 File vm management under cloudmesh-storage.
 
+```
  PING ms : 19
  DOWNLOAD Mbps : 54.05
  UPLOAD Mbps : 5.90
+```
+ 
 ```
 +------------------+--------------------------------------------------------------------------------------------------+
 | Machine Arribute | Time/s                                                                                           |

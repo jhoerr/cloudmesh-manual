@@ -63,6 +63,7 @@ MAMUAL PAGES
    reference-card
    manual/commands
    manual-cmd5
+   manual-group
    manual-compute
    manual-storage
 

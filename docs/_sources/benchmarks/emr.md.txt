@@ -2,10 +2,12 @@
 
 Benchmark results for AWS EMR using cloudmesh-emr.
 
+```
 Speedtest.net results:
 Ping: 14ms
 Download: 23.32 Mbps.
 Upload: 6.01 Mbps.
+```
 
 Benchmark results via StopWatch:
 

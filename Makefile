@@ -74,6 +74,11 @@ manual:
 	cms man --kind=rst var > docs-source/source/manual/cmd5/var.rst
 	cms man --kind=rst version > docs-source/source/manual/cmd5/version.rst
 	#
+	# GROUP
+	#
+	mkdir -p docs-source/source/manual/group
+	cms man --kind=rst group > docs-source/source/manual/group/group.rst
+	#
 	# COMPUTE
 	#
 	mkdir -p docs-source/source/manual/compute
@@ -95,7 +100,6 @@ manual:
 	mkdir -p docs-source/source/manual/storage
 	cms man --kind=rst storage > docs-source/source/manual/storage/storage.rst
 	cms man --kind=rst vdir > docs-source/source/manual/storage/vdir.rst
-	cms man --kind=rst objstorage > docs-source/source/manual/storage/objstorage.rst
 
 authors:
 	bin/authors.py > docs-source/source/authors.md
