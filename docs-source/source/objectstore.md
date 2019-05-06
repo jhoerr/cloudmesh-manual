@@ -24,8 +24,8 @@ pip install cloudmesh-installer
 #
 cloudmesh-installer clone storage
 cloudmesh-installer install storage -e
-git clone git@github.com:cloudmesh/cloudmesh-objstorage.git
-cd cloudmesh-objstorage
+git clone git@github.com:cloudmesh/cloudmesh-storage.git
+cd cloudmesh-storage
 pip install -e .
 ```
 
@@ -38,9 +38,9 @@ for use via commandline.
 
 Follow the below steps:
 
-- Modify `cloudmesh4.yaml` config file in 'cloudmesh-objstorage' section. User need to add required object storage parameters to communicate with cloud(AWS S3)
+- Modify `cloudmesh4.yaml` config file in 'cloudmesh-storage' section. User need to add required object storage parameters to communicate with cloud(AWS S3)
 
-- In the credentials section under awss3, add the parameter values of access_key_id and secret_access_key, these credentials will be gained from appropriate cloud vendor(For ex: AWS), in the case of AWS, these will be available which will be available in the AWS console under 
+- In the credentials section under `awsobjectstore`, add the parameter values of access_key_id and secret_access_key, these credentials will be gained from appropriate cloud vendor(For ex: AWS), in the case of AWS, these will be available which will be available in the AWS console under 
 `AWS IAM service` -> `Users` -> `Security Credentials`. 
 
 
@@ -49,19 +49,21 @@ Here is a sample.
 ```bash
 cloudmesh:
   ...
-  objstorage:
-    awss3:
+  storage:
+    objstore:
       cm:
-        heading: aws
-        host: amazon.aws.com
-        label: aws
-        kind: awss3
+        heading: AWS
+        host: aws.com
+        label: AWS
+        kind: awsobjectstore
         version: 1.0
       default:
         directory: AWS
       credentials:
-        access_key_id: *********
-        secret_access_key: *******
+        region: ""
+        access_key_id: ""
+        secret_access_key: "" 
+
 ```
 
 The Cloudmesh command line library offers several functions as part of objstorage command: 
@@ -87,7 +89,7 @@ cms>
 To view the docopt for objstorage command, type in 
 
 ```bash
-cms> help objstorage 
+cms> help storage 
 ```
 
 Help command gives a detail level understanding of what each command does and 
@@ -98,14 +100,14 @@ In this, default object storage invokes AWS S3 service, we need to pass awss3 as
 and suffix with the function call with the function parameters.
 
 ```bash
-cms> objstorage --objstorage='aws3' list ''
+cms> storage --storage='objstore' list ''
 ```
 
-Alternatively, objstorage command can also be called directly without starting the 
+Alternatively, objstore command can also be called directly without starting the 
 cms shell.
 
 ```bash
-$ cms objstorage --objstorage='awss3' list ''
+$ cms storage --storage='objstore' list ''
 ```
 
 ### Objstorage Functionality
@@ -117,7 +119,7 @@ This command helps to create a new bucket before storage an object on AWS S3. Yo
 full path of the new directory you would like to create. 
 
 ```bash
-$ cms objstorage --objstorage='awss3' create bucket_name /base_path/
+$ cms storage --storage='objstore' create /base_path/targetdir
 ```
 
 ## Put
@@ -125,7 +127,7 @@ $ cms objstorage --objstorage='awss3' create bucket_name /base_path/
 The put command uploads object from your local system to AWS S3 object storage 
 
 ```bash
-$ cms objstorage --objstorage='awss3' put ~/.cloudmesh/objstorage/src /base_path/dest --recursive
+$ cms storage --storage='objstore' put ~/.cloudmesh/objstore/sourcedir /base_path/targetdir --recursive
 ```
 
 
@@ -134,18 +136,9 @@ $ cms objstorage --objstorage='awss3' put ~/.cloudmesh/objstorage/src /base_path
 The put command retrieve or download a object from AWS S3 object storage 
 
 ```bash
-$ cms objstorage --objstorage='awss3' get /bucket_name/src ~/.cloudmesh/objstorage/dest --recursive
+$ cms storage --storage='objstore' get /bucket_name/src ~/.cloudmesh/objstore/dest --recursive
 ```
 
-
-## Search
-
-The advantage of search command to search a given object in specified bucket location
-
-
-```bash
-$ cms objstorage --objstorage='aws3' search //bucket_name/dest "<<objectname>>" --recursive
-```
 
 ## List
 
@@ -153,7 +146,7 @@ The list command lists all the contents of a cloud object details. If the recurs
 option is specified, it will list the contents of all the nested objects information 
 
 ```bash
-$ cms objstorage --objstorage='awss3' list /bucket_name/dest --recursive
+$ cms storage --storage='objstore' list /bucket_name/dest --recursive
 ```
 
 
@@ -164,5 +157,5 @@ Deleting a folder will delete its contents as well (including the
 sub-directories).
 
 ```bash
-$ cms objstorage --objstorage='awss3' delete /bucket_name/est --recursive
+$ cms storage --storage='objstore' delete /bucket_name/est --recursive
 ```
