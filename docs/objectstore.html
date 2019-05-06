@@ -119,9 +119,8 @@
 <li class="toctree-l2"><a class="reference internal" href="#create-object-directory">3.4. Create Object Directory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#put">3.5. Put</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#get">3.6. Get</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#search">3.7. Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#list">3.8. List</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#delete">3.9. Delete</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#list">3.7. List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#delete">3.8. Delete</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="README-storage-openapi.html">4. Cloudmesh Multi Cloud Open API Interface</a></li>
@@ -159,11 +158,9 @@
 <li class="toctree-l1"><a class="reference internal" href="benchmarks/awsec2_benchmark_ubuntu.html">3. AWS EC2 VM Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="benchmarks/awss3-storage-benchmark.html">4. AWS S3 File Storage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="benchmarks/azure-storage-benchmark.html">5. Azure Blob Storage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="benchmarks/box.html">6. </a></li>
-<li class="toctree-l1"><a class="reference internal" href="benchmarks/box.html#benchmark-results-for-box-storage">7. Benchmark results for ‘box’ Storage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="benchmarks/box.html#id2">8. </a></li>
-<li class="toctree-l1"><a class="reference internal" href="benchmarks/emr.html">9. AWS EMR Benchmarking</a></li>
-<li class="toctree-l1"><a class="reference internal" href="benchmarks/test_compute_database.html">10. AWS EC2 Compute Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="benchmarks/box.html">6. Benchmark results for box Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="benchmarks/emr.html">7. AWS EMR Benchmarking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="benchmarks/test_compute_database.html">8. AWS EC2 Compute Database</a></li>
 </ul>
 <p class="caption"><span class="caption-text">CODE</span></p>
 <ul>
@@ -191,12 +188,12 @@
 </ul>
 <p class="caption"><span class="caption-text">Cloud Accounts</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="accounts/aws.html">1. Amazon Web Services (AWS) Account Creation Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="accounts/azureblob-storage.html">2. Azure Blob Storage and Account Creation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="accounts/box.html">3. Setting Up Your Box Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="accounts/storage-gdrive.html">4. Google Storage Providers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="accounts/aws.html">1. Amazon Web Services Account Creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="accounts/azure.html">2. Microsoft Cloud Computing Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="accounts/google.html">3. Google Storage Providers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="accounts/box.html">4. Setting Up Your Box Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="accounts/google-ufo.html">5. Google (What is this?)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="accounts/accountcreation.html">6. VM Providers (outdated)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="accounts/accountcreation-old.html">6. VM Providers (outdated)</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Outdated:</span></p>
 <ul>
@@ -291,8 +288,8 @@ pip install cloudmesh-installer
 <span class="c1">#</span>
 cloudmesh-installer clone storage
 cloudmesh-installer install storage -e
-git clone git@github.com:cloudmesh/cloudmesh-objstorage.git
-<span class="nb">cd</span> cloudmesh-objstorage
+git clone git@github.com:cloudmesh/cloudmesh-storage.git
+<span class="nb">cd</span> cloudmesh-storage
 pip install -e .
 </pre></div>
 </div>
@@ -305,26 +302,27 @@ pip install -e .
 for use via commandline.</p>
 <p>Follow the below steps:</p>
 <ul class="simple">
-<li><p>Modify <code class="docutils literal notranslate"><span class="pre">cloudmesh4.yaml</span></code> config file in ‘cloudmesh-objstorage’ section. User need to add required object storage parameters to communicate with cloud(AWS S3)</p></li>
-<li><p>In the credentials section under awss3, add the parameter values of access_key_id and secret_access_key, these credentials will be gained from appropriate cloud vendor(For ex: AWS), in the case of AWS, these will be available which will be available in the AWS console under
+<li><p>Modify <code class="docutils literal notranslate"><span class="pre">cloudmesh4.yaml</span></code> config file in ‘cloudmesh-storage’ section. User need to add required object storage parameters to communicate with cloud(AWS S3)</p></li>
+<li><p>In the credentials section under <code class="docutils literal notranslate"><span class="pre">awsobjectstore</span></code>, add the parameter values of access_key_id and secret_access_key, these credentials will be gained from appropriate cloud vendor(For ex: AWS), in the case of AWS, these will be available which will be available in the AWS console under
 <code class="docutils literal notranslate"><span class="pre">AWS</span> <span class="pre">IAM</span> <span class="pre">service</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">Users</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">Security</span> <span class="pre">Credentials</span></code>.</p></li>
 </ul>
 <p>Here is a sample.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cloudmesh:
   ...
-  objstorage:
-    awss3:
+  storage:
+    objstore:
       cm:
-        heading: aws
-        host: amazon.aws.com
-        label: aws
-        kind: awss3
+        heading: AWS
+        host: aws.com
+        label: AWS
+        kind: awsobjectstore
         version: <span class="m">1</span>.0
       default:
         directory: AWS
       credentials:
-        access_key_id: *********
-        secret_access_key: *******
+        region: <span class="s2">&quot;&quot;</span>
+        access_key_id: <span class="s2">&quot;&quot;</span>
+        secret_access_key: <span class="s2">&quot;&quot;</span> 
 </pre></div>
 </div>
 <p>The Cloudmesh command line library offers several functions as part of objstorage command:
@@ -346,7 +344,7 @@ cms&gt;
 </pre></div>
 </div>
 <p>To view the docopt for objstorage command, type in</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms&gt; <span class="nb">help</span> objstorage 
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms&gt; <span class="nb">help</span> storage 
 </pre></div>
 </div>
 <p>Help command gives a detail level understanding of what each command does and
@@ -354,12 +352,12 @@ how to use the command line to interact with different object storage providers 
 different parameters / options available in a particular command.</p>
 <p>In this, default object storage invokes AWS S3 service, we need to pass awss3 as parameter to storage
 and suffix with the function call with the function parameters.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms&gt; objstorage --objstorage<span class="o">=</span><span class="s1">&#39;aws3&#39;</span> list <span class="s1">&#39;&#39;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms&gt; storage --storage<span class="o">=</span><span class="s1">&#39;objstore&#39;</span> list <span class="s1">&#39;&#39;</span>
 </pre></div>
 </div>
-<p>Alternatively, objstorage command can also be called directly without starting the
+<p>Alternatively, objstore command can also be called directly without starting the
 cms shell.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms objstorage --objstorage<span class="o">=</span><span class="s1">&#39;awss3&#39;</span> list <span class="s1">&#39;&#39;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms storage --storage<span class="o">=</span><span class="s1">&#39;objstore&#39;</span> list <span class="s1">&#39;&#39;</span>
 </pre></div>
 </div>
 </div>
@@ -371,45 +369,38 @@ cms shell.</p>
 <h2>3.4. Create Object Directory<a class="headerlink" href="#create-object-directory" title="Permalink to this headline">¶</a></h2>
 <p>This command helps to create a new bucket before storage an object on AWS S3. You must specify the
 full path of the new directory you would like to create.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms objstorage --objstorage<span class="o">=</span><span class="s1">&#39;awss3&#39;</span> create bucket_name /base_path/
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms storage --storage<span class="o">=</span><span class="s1">&#39;objstore&#39;</span> create /base_path/targetdir
 </pre></div>
 </div>
 </div>
 <div class="section" id="put">
 <h2>3.5. Put<a class="headerlink" href="#put" title="Permalink to this headline">¶</a></h2>
 <p>The put command uploads object from your local system to AWS S3 object storage</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms objstorage --objstorage<span class="o">=</span><span class="s1">&#39;awss3&#39;</span> put ~/.cloudmesh/objstorage/src /base_path/dest --recursive
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms storage --storage<span class="o">=</span><span class="s1">&#39;objstore&#39;</span> put ~/.cloudmesh/objstore/sourcedir /base_path/targetdir --recursive
 </pre></div>
 </div>
 </div>
 <div class="section" id="get">
 <h2>3.6. Get<a class="headerlink" href="#get" title="Permalink to this headline">¶</a></h2>
 <p>The put command retrieve or download a object from AWS S3 object storage</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms objstorage --objstorage<span class="o">=</span><span class="s1">&#39;awss3&#39;</span> get /bucket_name/src ~/.cloudmesh/objstorage/dest --recursive
-</pre></div>
-</div>
-</div>
-<div class="section" id="search">
-<h2>3.7. Search<a class="headerlink" href="#search" title="Permalink to this headline">¶</a></h2>
-<p>The advantage of search command to search a given object in specified bucket location</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms objstorage --objstorage<span class="o">=</span><span class="s1">&#39;aws3&#39;</span> search //bucket_name/dest <span class="s2">&quot;&lt;&lt;objectname&gt;&gt;&quot;</span> --recursive
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms storage --storage<span class="o">=</span><span class="s1">&#39;objstore&#39;</span> get /bucket_name/src ~/.cloudmesh/objstore/dest --recursive
 </pre></div>
 </div>
 </div>
 <div class="section" id="list">
-<h2>3.8. List<a class="headerlink" href="#list" title="Permalink to this headline">¶</a></h2>
+<h2>3.7. List<a class="headerlink" href="#list" title="Permalink to this headline">¶</a></h2>
 <p>The list command lists all the contents of a cloud object details. If the recursive
 option is specified, it will list the contents of all the nested objects information</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms objstorage --objstorage<span class="o">=</span><span class="s1">&#39;awss3&#39;</span> list /bucket_name/dest --recursive
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms storage --storage<span class="o">=</span><span class="s1">&#39;objstore&#39;</span> list /bucket_name/dest --recursive
 </pre></div>
 </div>
 </div>
 <div class="section" id="delete">
-<h2>3.9. Delete<a class="headerlink" href="#delete" title="Permalink to this headline">¶</a></h2>
+<h2>3.8. Delete<a class="headerlink" href="#delete" title="Permalink to this headline">¶</a></h2>
 <p>The delete command can delete objects on cloud storage. Once object deletes it will never be rollback and delete applicable to nested objects when function <code class="docutils literal notranslate"><span class="pre">--recursive</span></code> used.
 Deleting a folder will delete its contents as well (including the
 sub-directories).</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms objstorage --objstorage<span class="o">=</span><span class="s1">&#39;awss3&#39;</span> delete /bucket_name/est --recursive
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms storage --storage<span class="o">=</span><span class="s1">&#39;objstore&#39;</span> delete /bucket_name/est --recursive
 </pre></div>
 </div>
 </div>

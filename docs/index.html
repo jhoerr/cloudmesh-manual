@@ -173,12 +173,12 @@
 </ul>
 <p class="caption"><span class="caption-text">Cloud Accounts</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="accounts/aws.html">1. Amazon Web Services (AWS) Account Creation Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="accounts/azureblob-storage.html">2. Azure Blob Storage and Account Creation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="accounts/box.html">3. Setting Up Your Box Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="accounts/storage-gdrive.html">4. Google Storage Providers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="accounts/aws.html">1. AWS Account Creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="accounts/azure.html">2. Azure Account Creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="accounts/google.html">3. Google Storage Providers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="accounts/box.html">4. Setting Up Your Box Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="accounts/google-ufo.html">5. Google (What is this?)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="accounts/accountcreation.html">6. VM Providers (outdated)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="accounts/accountcreation-old.html">6. VM Providers (outdated)</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Outdated:</span></p>
 <ul>
@@ -293,12 +293,13 @@
 <li class="toctree-l2"><a class="reference internal" href="configuration/configuration.html#compute-cloud-providers">3.2. Compute Cloud Providers</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="configuration/configuration.html#aws">3.2.1. AWS</a></li>
 <li class="toctree-l3"><a class="reference internal" href="configuration/configuration.html#azure">3.2.2. Azure</a></li>
-<li class="toctree-l3"><a class="reference internal" href="configuration/configuration.html#google">3.2.3. Google</a></li>
-<li class="toctree-l3"><a class="reference internal" href="configuration/configuration.html#openstack">3.2.4. OpenStack</a></li>
-<li class="toctree-l3"><a class="reference internal" href="configuration/configuration.html#virtual-box">3.2.5. Virtual Box</a></li>
-<li class="toctree-l3"><a class="reference internal" href="configuration/configuration.html#ssh">3.2.6. SSH</a></li>
-<li class="toctree-l3"><a class="reference internal" href="configuration/configuration.html#local">3.2.7. Local</a></li>
-<li class="toctree-l3"><a class="reference internal" href="configuration/configuration.html#docker">3.2.8. Docker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configuration/configuration.html#az">3.2.3. AZ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configuration/configuration.html#google">3.2.4. Google</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configuration/configuration.html#openstack">3.2.5. OpenStack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configuration/configuration.html#virtual-box">3.2.6. Virtual Box</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configuration/configuration.html#ssh">3.2.7. SSH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configuration/configuration.html#local">3.2.8. Local</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configuration/configuration.html#docker">3.2.9. Docker</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="configuration/configuration.html#storage-providers">3.3. Storage Providers</a><ul>
@@ -418,9 +419,8 @@
 <li class="toctree-l2"><a class="reference internal" href="objectstore.html#create-object-directory">3.4. Create Object Directory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="objectstore.html#put">3.5. Put</a></li>
 <li class="toctree-l2"><a class="reference internal" href="objectstore.html#get">3.6. Get</a></li>
-<li class="toctree-l2"><a class="reference internal" href="objectstore.html#search">3.7. Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="objectstore.html#list">3.8. List</a></li>
-<li class="toctree-l2"><a class="reference internal" href="objectstore.html#delete">3.9. Delete</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objectstore.html#list">3.7. List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objectstore.html#delete">3.8. Delete</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="README-storage-openapi.html">4. Cloudmesh Multi Cloud Open API Interface</a><ul>
@@ -720,32 +720,36 @@
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">Cloud Accounts</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="accounts/aws.html">1. Amazon Web Services (AWS) Account Creation Tutorial</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="accounts/aws.html">1. AWS Account Creation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="accounts/aws.html#step-by-step-guide">1.1. Step-by-Step Guide</a></li>
 <li class="toctree-l2"><a class="reference internal" href="accounts/aws.html#references">1.2. References</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="accounts/azureblob-storage.html">2. Azure Blob Storage and Account Creation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="accounts/azureblob-storage.html#azure-blob-storage">2.1. Azure Blob Storage</a></li>
-<li class="toctree-l2"><a class="reference internal" href="accounts/azureblob-storage.html#azure-storage-account-creation">2.2. Azure Storage account creation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="accounts/azureblob-storage.html#references">2.3. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="accounts/azure.html">2. Azure Account Creation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="accounts/azure.html#azure-account">2.1. Azure Account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accounts/azure.html#azure-cli">2.2. Azure CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accounts/azure.html#azure-resource-group-for-a-storage">2.3. Azure Resource Group (for a Storage)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accounts/azure.html#azure-resource-group-for-a-compute">2.4. Azure Resource Group (for a Compute)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accounts/azure.html#azure-resource-group-for-a-storage-and-compute">2.5. Azure Resource Group (for a Storage and Compute)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accounts/azure.html#faq">2.6. FAQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accounts/azure.html#references">2.7. References</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="accounts/box.html">3. Setting Up Your Box Account</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="accounts/box.html#sign-up">3.1. Sign up</a></li>
-<li class="toctree-l2"><a class="reference internal" href="accounts/box.html#creating-an-app">3.2. Creating an app</a></li>
-<li class="toctree-l2"><a class="reference internal" href="accounts/box.html#authentication-with-jwt">3.3. Authentication with JWT</a></li>
-<li class="toctree-l2"><a class="reference internal" href="accounts/box.html#references">3.4. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="accounts/google.html">3. Google Storage Providers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="accounts/google.html#google-drive">3.1. Google Drive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accounts/google.html#google-docs">3.2. Google Docs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accounts/google.html#python-google-drive-api">3.3. Python Google Drive API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="accounts/google.html#step-by-step-process">3.3.1. Step-by-step process</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="accounts/storage-gdrive.html">4. Google Storage Providers</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="accounts/storage-gdrive.html#google-drive">4.1. Google Drive</a></li>
-<li class="toctree-l2"><a class="reference internal" href="accounts/storage-gdrive.html#google-docs">4.2. Google Docs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="accounts/storage-gdrive.html#python-google-drive-api">4.3. Python Google Drive API</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="accounts/storage-gdrive.html#step-by-step-process">4.3.1. Step-by-step process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accounts/google.html#references">3.4. References</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="accounts/storage-gdrive.html#references">4.4. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="accounts/box.html">4. Setting Up Your Box Account</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="accounts/box.html#sign-up">4.1. Sign up</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accounts/box.html#creating-an-app">4.2. Creating an app</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accounts/box.html#authentication-with-jwt">4.3. Authentication with JWT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accounts/box.html#references">4.4. References</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="accounts/google-ufo.html">5. Google (What is this?)</a><ul>
@@ -753,24 +757,24 @@
 <li class="toctree-l2"><a class="reference internal" href="accounts/google-ufo.html#links">5.2. Links</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="accounts/accountcreation.html">6. VM Providers (outdated)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="accounts/accountcreation.html#general-cloud-providers-access">6.1. General Cloud Providers Access</a></li>
-<li class="toctree-l2"><a class="reference internal" href="accounts/accountcreation.html#general-interface">6.2. General Interface</a></li>
-<li class="toctree-l2"><a class="reference internal" href="accounts/accountcreation.html#explicit-use-with-options">6.3. Explicit Use with Options</a></li>
-<li class="toctree-l2"><a class="reference internal" href="accounts/accountcreation.html#vagrant">6.4. Vagrant</a></li>
-<li class="toctree-l2"><a class="reference internal" href="accounts/accountcreation.html#aws">6.5. AWS</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="accounts/accountcreation.html#setup-and-configuration">6.5.1. Setup and Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="accounts/accountcreation-old.html">6. VM Providers (outdated)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="accounts/accountcreation-old.html#general-cloud-providers-access">6.1. General Cloud Providers Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accounts/accountcreation-old.html#general-interface">6.2. General Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accounts/accountcreation-old.html#explicit-use-with-options">6.3. Explicit Use with Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accounts/accountcreation-old.html#vagrant">6.4. Vagrant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accounts/accountcreation-old.html#aws">6.5. AWS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="accounts/accountcreation-old.html#setup-and-configuration">6.5.1. Setup and Configuration</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="accounts/accountcreation.html#azure">6.6. Azure</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="accounts/accountcreation.html#id1">6.6.1. Setup and Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accounts/accountcreation-old.html#azure">6.6. Azure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="accounts/accountcreation-old.html#id1">6.6.1. Setup and Configuration</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="accounts/accountcreation.html#openstack">6.7. OpenStack</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="accounts/accountcreation.html#jetstream">6.7.1. Jetstream</a></li>
-<li class="toctree-l3"><a class="reference internal" href="accounts/accountcreation.html#chameleon-cloud">6.7.2. Chameleon Cloud</a></li>
-<li class="toctree-l3"><a class="reference internal" href="accounts/accountcreation.html#cybera">6.7.3. Cybera</a></li>
-<li class="toctree-l3"><a class="reference internal" href="accounts/accountcreation.html#devstack">6.7.4. DevStack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accounts/accountcreation-old.html#openstack">6.7. OpenStack</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="accounts/accountcreation-old.html#jetstream">6.7.1. Jetstream</a></li>
+<li class="toctree-l3"><a class="reference internal" href="accounts/accountcreation-old.html#chameleon-cloud">6.7.2. Chameleon Cloud</a></li>
+<li class="toctree-l3"><a class="reference internal" href="accounts/accountcreation-old.html#cybera">6.7.3. Cybera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="accounts/accountcreation-old.html#devstack">6.7.4. DevStack</a></li>
 </ul>
 </li>
 </ul>

@@ -125,11 +125,11 @@ Cloud Provider Accounts
    :caption: Cloud Accounts
 
    accounts/aws
-   accounts/azureblob-storage
+   accounts/azure
+   accounts/google
    accounts/box
-   accounts/storage-gdrive
    accounts/google-ufo
-   accounts/accountcreation
+   accounts/accountcreation-old
 
 
 Cloudmesh Outdated

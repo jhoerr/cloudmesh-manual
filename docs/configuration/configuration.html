@@ -100,12 +100,13 @@
 <li class="toctree-l2"><a class="reference internal" href="#compute-cloud-providers">3.2. Compute Cloud Providers</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#aws">3.2.1. AWS</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#azure">3.2.2. Azure</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#google">3.2.3. Google</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#openstack">3.2.4. OpenStack</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#virtual-box">3.2.5. Virtual Box</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#ssh">3.2.6. SSH</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#local">3.2.7. Local</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#docker">3.2.8. Docker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#az">3.2.3. AZ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#google">3.2.4. Google</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#openstack">3.2.5. OpenStack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#virtual-box">3.2.6. Virtual Box</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ssh">3.2.7. SSH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#local">3.2.8. Local</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#docker">3.2.9. Docker</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#storage-providers">3.3. Storage Providers</a><ul>
@@ -170,11 +171,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../benchmarks/awsec2_benchmark_ubuntu.html">3. AWS EC2 VM Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../benchmarks/awss3-storage-benchmark.html">4. AWS S3 File Storage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../benchmarks/azure-storage-benchmark.html">5. Azure Blob Storage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../benchmarks/box.html">6. </a></li>
-<li class="toctree-l1"><a class="reference internal" href="../benchmarks/box.html#benchmark-results-for-box-storage">7. Benchmark results for ‘box’ Storage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../benchmarks/box.html#id2">8. </a></li>
-<li class="toctree-l1"><a class="reference internal" href="../benchmarks/emr.html">9. AWS EMR Benchmarking</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../benchmarks/test_compute_database.html">10. AWS EC2 Compute Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/box.html">6. Benchmark results for box Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/emr.html">7. AWS EMR Benchmarking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/test_compute_database.html">8. AWS EC2 Compute Database</a></li>
 </ul>
 <p class="caption"><span class="caption-text">CODE</span></p>
 <ul>
@@ -202,12 +201,12 @@
 </ul>
 <p class="caption"><span class="caption-text">Cloud Accounts</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/aws.html">1. Amazon Web Services (AWS) Account Creation Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/azureblob-storage.html">2. Azure Blob Storage and Account Creation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/box.html">3. Setting Up Your Box Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/storage-gdrive.html">4. Google Storage Providers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/aws.html">1. Amazon Web Services Account Creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/azure.html">2. Microsoft Cloud Computing Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/google.html">3. Google Storage Providers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/box.html">4. Setting Up Your Box Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/google-ufo.html">5. Google (What is this?)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/accountcreation.html">6. VM Providers (outdated)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/accountcreation-old.html">6. VM Providers (outdated)</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Outdated:</span></p>
 <ul>
@@ -384,8 +383,34 @@ However we do provide a convenient documentation at <img alt="CONTRIBUTE" src="h
 </pre></div>
 </div>
 </div>
+<div class="section" id="az">
+<h3>3.2.3. AZ<a class="headerlink" href="#az" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cloudmesh</span>
+   <span class="o">...</span>
+   <span class="n">cloud</span><span class="p">:</span>
+     <span class="o">...</span>
+     <span class="n">az</span><span class="p">:</span>
+      <span class="n">cm</span><span class="p">:</span>
+        <span class="n">active</span><span class="p">:</span> <span class="kc">False</span>
+        <span class="n">heading</span><span class="p">:</span> <span class="n">AWS</span>
+        <span class="n">host</span><span class="p">:</span> <span class="n">azure</span><span class="o">.</span><span class="n">mocrosoft</span><span class="o">.</span><span class="n">com</span>
+        <span class="n">label</span><span class="p">:</span> <span class="n">Azure</span>
+        <span class="n">kind</span><span class="p">:</span> <span class="n">azure</span>
+        <span class="n">version</span><span class="p">:</span> <span class="n">TBD</span>
+      <span class="n">default</span><span class="p">:</span>
+        <span class="n">image</span><span class="p">:</span> <span class="s1">&#39;Canonical:UbuntuServer:16.04-LTS:latest&#39;</span>
+        <span class="n">size</span><span class="p">:</span> <span class="s1">&#39;Basic_A0&#39;</span>
+        <span class="n">resource_group</span><span class="p">:</span> <span class="s1">&#39;cloudmesh&#39;</span>
+        <span class="n">storage_account</span><span class="p">:</span> <span class="s1">&#39;cmdrive&#39;</span>
+        <span class="n">network</span><span class="p">:</span> <span class="s1">&#39;cmnetwork&#39;</span>
+      <span class="n">credentials</span><span class="p">:</span>
+        <span class="n">resourcegroup</span><span class="p">:</span> <span class="s2">&quot;test&quot;</span>
+        <span class="n">location</span><span class="p">:</span> <span class="s2">&quot;eastus&quot;</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="google">
-<h3>3.2.3. Google<a class="headerlink" href="#google" title="Permalink to this headline">¶</a></h3>
+<h3>3.2.4. Google<a class="headerlink" href="#google" title="Permalink to this headline">¶</a></h3>
 <p>It is beyond the scope of this manual to discuss how to get an account on Google.
 However we do provide a convenient documentation at <img alt="CONTRIBUTE" src="https://place-hold.it/150x24/red.png&amp;text=CONTRIBUTE" /></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cloudmesh</span><span class="p">:</span>
@@ -412,7 +437,7 @@ However we do provide a convenient documentation at <img alt="CONTRIBUTE" src="h
 </div>
 </div>
 <div class="section" id="openstack">
-<h3>3.2.4. OpenStack<a class="headerlink" href="#openstack" title="Permalink to this headline">¶</a></h3>
+<h3>3.2.5. OpenStack<a class="headerlink" href="#openstack" title="Permalink to this headline">¶</a></h3>
 <p>We provide an example on how to use an OpenStack based cloud in cloudmesh.
 Please ass the following to your <code class="docutils literal notranslate"><span class="pre">cloudmesh4.yaml</span></code> file and replace the values
 for <code class="docutils literal notranslate"><span class="pre">TBD</span></code>. Our example uses <a class="reference external" href="https://www.chameleoncloud.org/">Chameleon Cloud</a>.
@@ -459,7 +484,7 @@ credentials.</p></li>
 </div>
 </div>
 <div class="section" id="virtual-box">
-<h3>3.2.5. Virtual Box<a class="headerlink" href="#virtual-box" title="Permalink to this headline">¶</a></h3>
+<h3>3.2.6. Virtual Box<a class="headerlink" href="#virtual-box" title="Permalink to this headline">¶</a></h3>
 <p>Virtualbox has at this time limited functionality, but creation, ssh, and
 deletion of the virtual box is possible.</p>
 <p>You can also integrate virtualbox as part of cloudmesh while providing the
@@ -486,19 +511,19 @@ following description:</p>
 </div>
 </div>
 <div class="section" id="ssh">
-<h3>3.2.6. SSH<a class="headerlink" href="#ssh" title="Permalink to this headline">¶</a></h3>
+<h3>3.2.7. SSH<a class="headerlink" href="#ssh" title="Permalink to this headline">¶</a></h3>
 <blockquote>
 <div><p>STUDENT CONTRIBUTE HERE</p>
 </div></blockquote>
 </div>
 <div class="section" id="local">
-<h3>3.2.7. Local<a class="headerlink" href="#local" title="Permalink to this headline">¶</a></h3>
+<h3>3.2.8. Local<a class="headerlink" href="#local" title="Permalink to this headline">¶</a></h3>
 <blockquote>
 <div><p>STUDENT CONTRIBUTE HERE</p>
 </div></blockquote>
 </div>
 <div class="section" id="docker">
-<h3>3.2.8. Docker<a class="headerlink" href="#docker" title="Permalink to this headline">¶</a></h3>
+<h3>3.2.9. Docker<a class="headerlink" href="#docker" title="Permalink to this headline">¶</a></h3>
 <blockquote>
 <div><p>STUDENT CONTRIBUTE HERE</p>
 </div></blockquote>

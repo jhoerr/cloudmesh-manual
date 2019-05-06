@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>1. Amazon Web Services (AWS) Account Creation Tutorial &mdash; Cloudmesh v4 alpha documentation</title>
+  <title>1. AWS Account Creation &mdash; Cloudmesh v4 alpha documentation</title>
   
 
   
@@ -37,7 +37,7 @@
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="2. Azure Blob Storage and Account Creation" href="azureblob-storage.html" />
+    <link rel="next" title="2. Azure Account Creation" href="azure.html" />
     <link rel="prev" title="5. Pytest" href="../pytest.html" /> 
 </head>
 
@@ -144,11 +144,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../benchmarks/awsec2_benchmark_ubuntu.html">3. AWS EC2 VM Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../benchmarks/awss3-storage-benchmark.html">4. AWS S3 File Storage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../benchmarks/azure-storage-benchmark.html">5. Azure Blob Storage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../benchmarks/box.html">6. </a></li>
-<li class="toctree-l1"><a class="reference internal" href="../benchmarks/box.html#benchmark-results-for-box-storage">7. Benchmark results for ‘box’ Storage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../benchmarks/box.html#id2">8. </a></li>
-<li class="toctree-l1"><a class="reference internal" href="../benchmarks/emr.html">9. AWS EMR Benchmarking</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../benchmarks/test_compute_database.html">10. AWS EC2 Compute Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/box.html">6. Benchmark results for box Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/emr.html">7. AWS EMR Benchmarking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/test_compute_database.html">8. AWS EC2 Compute Database</a></li>
 </ul>
 <p class="caption"><span class="caption-text">CODE</span></p>
 <ul>
@@ -176,16 +174,16 @@
 </ul>
 <p class="caption"><span class="caption-text">Cloud Accounts</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">1. Amazon Web Services (AWS) Account Creation Tutorial</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">1. AWS Account Creation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#step-by-step-guide">1.1. Step-by-Step Guide</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#references">1.2. References</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="azureblob-storage.html">2. Azure Blob Storage and Account Creation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="box.html">3. Setting Up Your Box Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="storage-gdrive.html">4. Google Storage Providers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="azure.html">2. Azure Account Creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="google.html">3. Google Storage Providers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="box.html">4. Setting Up Your Box Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="google-ufo.html">5. Google (What is this?)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="accountcreation.html">6. VM Providers (outdated)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="accountcreation-old.html">6. VM Providers (outdated)</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Outdated:</span></p>
 <ul>
@@ -241,7 +239,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>1. Amazon Web Services (AWS) Account Creation Tutorial</li>
+      <li>1. AWS Account Creation</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -260,53 +258,87 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="amazon-web-services-aws-account-creation-tutorial">
-<h1>1. Amazon Web Services (AWS) Account Creation Tutorial<a class="headerlink" href="#amazon-web-services-aws-account-creation-tutorial" title="Permalink to this headline">¶</a></h1>
-<p>Amazon Web Services provides a wide variaty of cloud-based products including analytics, application integration, AR and VR, cost management, blockchain, business applications, compute, customer engagement, database, developer tools, end user computing, game tech, IoT, machine learning, management and governance, media services, migration and transfer, mobile, networking and content delivery, robotics, satellite, security, identity and compliance, and storage. Here at cloudmesh, we develop services through providers to support your utilization of many of these products.</p>
+  <div class="section" id="aws-account-creation">
+<h1>1. AWS Account Creation<a class="headerlink" href="#aws-account-creation" title="Permalink to this headline">¶</a></h1>
+<p>Amazon Web Services (AWS) provides a wide variaty of cloud-based products
+including analytics, application integration, AR and VR, cost management,
+blockchain, business applications, compute, customer engagement, database,
+developer tools, end user computing, game tech, IoT, machine learning,
+management and governance, media services, migration and transfer, mobile,
+networking and content delivery, robotics, satellite, security, identity and
+compliance, and storage. Here at cloudmesh, we develop services through
+providers to support your utilization of many of these products.</p>
+<p>Here we are especially interested in using the following services:</p>
 <ul class="simple">
-<li><p><strong>Amazon Elastic Compute Cloud (EC2)</strong> Amazon EC2 is web service that enables users to perform elastic web-scable computing while having complete control over instances. It is integrated with most AWS services such as Amazon S3, RDS, and VPC.</p></li>
-<li><p><strong>Amazon Simple Storage Service (S3)</strong> Amazon S3 an object storage service that offers a wide range of storage classes.</p></li>
+<li><p><strong>Amazon Elastic Compute Cloud (EC2)</strong> Amazon EC2 is web service that enables
+users to perform elastic web-scable computing while having complete control
+over instances. It is integrated with most AWS services such as Amazon S3,
+RDS, and VPC.</p></li>
+<li><p><strong>Amazon Simple Storage Service (S3)</strong> Amazon S3 an object storage service
+that offers a wide range of storage classes.</p></li>
 </ul>
-<p>This page is a step-by-step guide on how to create an AWS account through the AWS webpage.</p>
+<p>We provide a step-by-step guide on how to create an AWS account through the
+AWS webpage to utilize these services.</p>
 <div class="section" id="step-by-step-guide">
 <h2>1.1. Step-by-Step Guide<a class="headerlink" href="#step-by-step-guide" title="Permalink to this headline">¶</a></h2>
-<p>First, we go to the AWS website: <a class="reference external" href="https://aws.amazon.com">https://aws.amazon.com</a>. Click on <code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">an</span> <span class="pre">AWS</span> <span class="pre">Account</span></code>.</p>
-<p><img alt="../_images/image1.png" src="../_images/image1.png" />Image</p>
-<p>This will direct you to the account creation page. Fill out your information and click <code class="docutils literal notranslate"><span class="pre">Continue</span></code>.</p>
-<p><img alt="../_images/image2.png" src="../_images/image2.png" />Image</p>
-<p>At this page, you will need to fill out your contact information. You can choose <code class="docutils literal notranslate"><span class="pre">Professional</span></code> or <code class="docutils literal notranslate"><span class="pre">Personal</span></code> as your account type. Here in this tutorial, we selected <code class="docutils literal notranslate"><span class="pre">Personal</span></code>. Read the <em>AWS Customer Aggrement</em>, and check the box if agreed. Click on <code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">Account</span> <span class="pre">and</span> <span class="pre">Continue</span></code> to continue.</p>
-<p><img alt="../_images/image3.png" src="../_images/image3.png" />Image</p>
-<p>Fill out your payment information and proceed.</p>
+<p>First, we go to the AWS website</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://aws.amazon.com">https://aws.amazon.com</a></p></li>
+</ul>
+<p>and click on <code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">an</span> <span class="pre">AWS</span> <span class="pre">Account</span></code>.</p>
+<p><img alt="../_images/image1.png" src="../_images/image1.png" />Create Account</p>
+<p>This will direct you to the account creation page. Now we fill out your
+information and click <code class="docutils literal notranslate"><span class="pre">Continue</span></code>.</p>
+<p><img alt="../_images/image2.png" src="../_images/image2.png" />Continue</p>
+<p>Next, you will need to fill out your contact information. You can choose
+<code class="docutils literal notranslate"><span class="pre">Professional</span></code> or <code class="docutils literal notranslate"><span class="pre">Personal</span></code> as your account type. Here in this tutorial, we
+selected <code class="docutils literal notranslate"><span class="pre">Personal</span></code>. Read the <em>AWS Customer Agreement</em>, and check the box if
+agreed. Click on <code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">Account</span> <span class="pre">and</span> <span class="pre">Continue</span></code> to continue.</p>
+<p><img alt="../_images/image3.png" src="../_images/image3.png" />Contact Information</p>
+<p>Fill out your payment information and proceed. Dependent on your level of
+security, you may want to explore using a prepaid credit card if you do not want
+to use your regular credit card.</p>
+<p>If you just started using AWS, you will have a free account for a while as AWS
+will state:</p>
 <blockquote>
-<div><p>We will not charge you unless your usage exceeds the AWS Free Tier Limits.  - Amazon AWS</p>
+<div><p>We will not charge you unless your usage exceeds the AWS Free Tier Limits.  -
+Amazon AWS</p>
 </div></blockquote>
-<p><img alt="../_images/image4.png" src="../_images/image4.png" />Image</p>
-<p>Next your need to confirm your identity. You can choose either <code class="docutils literal notranslate"><span class="pre">Text</span> <span class="pre">message</span> <span class="pre">(SMS)</span></code> or <code class="docutils literal notranslate"><span class="pre">Voice</span> <span class="pre">call</span></code> to receive your verification code. Here we choose <code class="docutils literal notranslate"><span class="pre">Text</span> <span class="pre">message</span> <span class="pre">(SMS)</span></code>. Enter your phone number and the security check code and click <code class="docutils literal notranslate"><span class="pre">Send</span> <span class="pre">SMS</span></code>.</p>
-<p><img alt="../_images/image5.png" src="../_images/image5.png" />Image</p>
-<p>Enter the 4-digit verification code you received from your phone, and click on <code class="docutils literal notranslate"><span class="pre">Verify</span> <span class="pre">Code</span></code>.</p>
-<p><img alt="../_images/image6.png" src="../_images/image6.png" />Image</p>
-<p>If you entered the correct verification code, you will see this page. Click on <code class="docutils literal notranslate"><span class="pre">Continue</span></code>.</p>
-<p><img alt="../_images/image7.png" src="../_images/image7.png" />Image</p>
-<p>You will need to choose your support plan. For the tutorial, we chose Amazon’s free tier <code class="docutils literal notranslate"><span class="pre">Basic</span> <span class="pre">Plan</span></code>.</p>
-<p><img alt="../_images/image8.png" src="../_images/image8.png" />Image</p>
-<p>Congratulations! You have successully created an AWS account. Now you can click on <code class="docutils literal notranslate"><span class="pre">Sign</span> <span class="pre">In</span> <span class="pre">to</span> <span class="pre">the</span> <span class="pre">Console</span></code> to sign in.</p>
-<p><img alt="../_images/image9.png" src="../_images/image9.png" />Image</p>
+<p>Please review the terms of the free tier carefully.</p>
+<p><img alt="../_images/image4.png" src="../_images/image4.png" />Payment</p>
+<p>Next your need to confirm your identity. You can choose either <code class="docutils literal notranslate"><span class="pre">Text</span> <span class="pre">message</span> <span class="pre">(SMS)</span></code> or <code class="docutils literal notranslate"><span class="pre">Voice</span> <span class="pre">call</span></code> to receive your verification code. Here we choose <code class="docutils literal notranslate"><span class="pre">Text</span> <span class="pre">message</span> <span class="pre">(SMS)</span></code>. Enter your phone number and the security check code and click
+<code class="docutils literal notranslate"><span class="pre">Send</span> <span class="pre">SMS</span></code>.</p>
+<p><img alt="../_images/image5.png" src="../_images/image5.png" />Identity confirmation</p>
+<p>Enter the 4-digit verification code you received from your phone, and click on
+<code class="docutils literal notranslate"><span class="pre">Verify</span> <span class="pre">Code</span></code>.</p>
+<p><img alt="../_images/image6.png" src="../_images/image6.png" />Verification</p>
+<p>If you entered the correct verification code, you will see this page. Click on
+<code class="docutils literal notranslate"><span class="pre">Continue</span></code>.</p>
+<p><img alt="../_images/image7.png" src="../_images/image7.png" />Continue</p>
+<p>You will need to choose your support plan. We chose Amazon’s free tier <code class="docutils literal notranslate"><span class="pre">Basic</span> <span class="pre">Plan</span></code>.</p>
+<p><img alt="../_images/image8.png" src="../_images/image8.png" />Select a Plan</p>
+<p>Congratulations! You have successfully created an AWS account. Now you can click
+on <code class="docutils literal notranslate"><span class="pre">Sign</span> <span class="pre">In</span> <span class="pre">to</span> <span class="pre">the</span> <span class="pre">Console</span></code> to sign in.</p>
+<p><img alt="../_images/image9.png" src="../_images/image9.png" />Personalize</p>
 <p>Enter the email address you used for registration, and click on <code class="docutils literal notranslate"><span class="pre">Next</span></code>.</p>
-<p><img alt="../_images/image10.png" src="../_images/image10.png" />Image</p>
+<p><img alt="../_images/image10.png" src="../_images/image10.png" />email</p>
 <p>Enter the password you used for registration, and click on <code class="docutils literal notranslate"><span class="pre">Sign</span> <span class="pre">In</span></code>.</p>
-<p><img alt="../_images/image11.png" src="../_images/image11.png" />Image</p>
+<p><img alt="../_images/image11.png" src="../_images/image11.png" />Password</p>
 <p>Now you’ve successfully signed in to the AWS Management Console.</p>
-<p><img alt="../_images/image12.png" src="../_images/image12.png" />Image</p>
+<p><img alt="../_images/image12.png" src="../_images/image12.png" />AWS Services</p>
 <p>You can click on <code class="docutils literal notranslate"><span class="pre">Services</span></code> to explore AWS services through their webpage.</p>
-<p><img alt="../_images/image13.png" src="../_images/image13.png" />Image</p>
-<p>You can also start managing your account and instances through our cloudmesh services! :)</p>
+<p><img alt="../_images/image13.png" src="../_images/image13.png" />Explore services</p>
+<p>You can also start managing your account and instances through our cloudmesh
+services. This is especially of interest if you use cloudmesh to manage your
+storage and computational needs while laso being able to leverage other clouds.</p>
 </div>
 <div class="section" id="references">
 <h2>1.2. References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<p>Additional information about the services can be found at:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://aws.amazon.com/?nc2=h_lg">https://aws.amazon.com/?nc2=h_lg</a></p></li>
-<li><p><a class="reference external" href="https://aws.amazon.com/ec2/?nc2=h_m1">https://aws.amazon.com/ec2/?nc2=h_m1</a></p></li>
-<li><p><a class="reference external" href="https://aws.amazon.com/s3/?c=23&amp;pt=1">https://aws.amazon.com/s3/?c=23&amp;pt=1</a></p></li>
+<li><p>Open Distro for Elastic Search, <a class="reference external" href="https://aws.amazon.com/?nc2=h_lg">https://aws.amazon.com/?nc2=h_lg</a></p></li>
+<li><p>Amazon EC2, <a class="reference external" href="https://aws.amazon.com/ec2/?nc2=h_m1">https://aws.amazon.com/ec2/?nc2=h_m1</a></p></li>
+<li><p>Amazon S3, <a class="reference external" href="https://aws.amazon.com/s3/?c=23&amp;pt=1">https://aws.amazon.com/s3/?c=23&amp;pt=1</a></p></li>
 </ul>
 </div>
 </div>
@@ -319,7 +351,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="azureblob-storage.html" class="btn btn-neutral float-right" title="2. Azure Blob Storage and Account Creation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="azure.html" class="btn btn-neutral float-right" title="2. Azure Account Creation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../pytest.html" class="btn btn-neutral float-left" title="5. Pytest" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

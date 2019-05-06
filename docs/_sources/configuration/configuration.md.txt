@@ -116,6 +116,32 @@ cloudmesh:
         AZURE_REGION: 'northcentralus'
 ```
 
+### AZ
+
+```
+cloudmesh
+   ...
+   cloud:
+     ...
+     az:
+      cm:
+        active: False
+        heading: AWS
+        host: azure.mocrosoft.com
+        label: Azure
+        kind: azure
+        version: TBD
+      default:
+        image: 'Canonical:UbuntuServer:16.04-LTS:latest'
+        size: 'Basic_A0'
+        resource_group: 'cloudmesh'
+        storage_account: 'cmdrive'
+        network: 'cmnetwork'
+      credentials:
+        resourcegroup: "test"
+        location: "eastus"
+```
+
 ### Google
 
 It is beyond the scope of this manual to discuss how to get an account on Google.
