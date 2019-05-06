@@ -1,4 +1,4 @@
-# Amazon Web Services Account Creation
+# AWS Account Creation
 
 Amazon Web Services (AWS) provides a wide variaty of cloud-based products
 including analytics, application integration, AR and VR, cost management,
@@ -30,19 +30,19 @@ First, we go to the AWS website
 
 and click on `Create an AWS Account`.
 
-![Image](images/aws/image1.png)
+![Create Account](images/aws/image1.png)
 
 This will direct you to the account creation page. Now we fill out your
 information and click `Continue`.
 
-![Image](images/aws/image2.png)
+![Continue](images/aws/image2.png)
 
 Next, you will need to fill out your contact information. You can choose
 `Professional` or `Personal` as your account type. Here in this tutorial, we
 selected `Personal`. Read the *AWS Customer Agreement*, and check the box if
 agreed. Click on `Create Account and Continue` to continue.
 
-![Image](images/aws/image3.png)
+![Contact Information](images/aws/image3.png)
 
 Fill out your payment information and proceed. Dependent on your level of
 security, you may want to explore using a prepaid credit card if you do not want
@@ -56,50 +56,50 @@ Amazon AWS
 
 Please review the terms of the free tier carefully.
 
-![Image](images/aws/image4.png)
+![Payment](images/aws/image4.png)
 
 Next your need to confirm your identity. You can choose either `Text message
 (SMS)` or `Voice call` to receive your verification code. Here we choose `Text
 message (SMS)`. Enter your phone number and the security check code and click
 `Send SMS`.
 
-![Image](images/aws/image5.png)
+![Identity confirmation](images/aws/image5.png)
 
 Enter the 4-digit verification code you received from your phone, and click on
 `Verify Code`.
 
-![Image](images/aws/image6.png)
+![Verification](images/aws/image6.png)
 
 If you entered the correct verification code, you will see this page. Click on
 `Continue`.
 
-![Image](images/aws/image7.png)
+![Continue](images/aws/image7.png)
 
 You will need to choose your support plan. We chose Amazon's free tier `Basic
 Plan`.
 
-![Image](images/aws/image8.png)
+![Select a Plan](images/aws/image8.png)
 
 Congratulations! You have successfully created an AWS account. Now you can click
 on `Sign In to the Console` to sign in.
 
-![Image](images/aws/image9.png)
+![Personalize](images/aws/image9.png)
 
 Enter the email address you used for registration, and click on `Next`. 
 
-![Image](images/aws/image10.png)
+![email](images/aws/image10.png)
 
 Enter the password you used for registration, and click on `Sign In`. 
 
-![Image](images/aws/image11.png)
+![Password](images/aws/image11.png)
 
 Now you've successfully signed in to the AWS Management Console. 
 
-![Image](images/aws/image12.png)
+![AWS Services](images/aws/image12.png)
 
 You can click on `Services` to explore AWS services through their webpage. 
 
-![Image](images/aws/image13.png)
+![Explore services](images/aws/image13.png)
 
 You can also start managing your account and instances through our cloudmesh
 services. This is especially of interest if you use cloudmesh to manage your
