@@ -56,13 +56,11 @@ In a broader sense Google docs is just a subset of Google Drive.
 Getting the google json files
 -----------------------------
 
-.. todo:: Google account: the documentation on how to get the json files is missing
+.. todo:: Google account. the documentation on how to get the json files is missing
 
-.. todo:: Google account: A program that takes the json files and integrates them into
-          `cloudmesh4.yaml`
+.. todo:: Google account. A program that takes the json files and integrates them into `cloudmesh4.yaml`
 
-.. todo:: Google account:The documentation for getting access to google cloud is
-          incomplete, see related entries.
+.. todo:: Google account. The documentation for getting access to google cloud is incomplete, see related entries.
 
 
 
@@ -157,8 +155,7 @@ pipeline has bees completed).
    Authentication success
 
 
-.. todo:: Google: This documentation is a bit unstructured and repetitive. Yet errors
-          such as refernces to Authentication.py are conducted which does not exist.
+.. todo:: Google account. This documentation is a bit unstructured and repetitive. Yet errors such as refernces to Authentication.py are conducted which does not exist.
 
 
 If the authentication flow is completed then the Authentication.py will
@@ -174,12 +171,11 @@ So, now with the
 
 we can now use
 
-.. todo:: Google account creation: This documentation is a bit unstructured and repetitive. Yet errors
-          such as refernces to Authentication.py are conducted which does not exist.
+.. todo:: Google account. This documentation is a bit unstructured and repetitive. Yet errors such as refernces to Authentication.py are conducted which does not exist.
 
 -  ``Authentication.py`` and ``Provider.py``
 
-.. todo:: Google account creation: location of the file is missing
+.. todo:: Google account. location of the file is missing
 
 
 Once all these steps are done correctly, then we can use the Python

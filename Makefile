@@ -161,12 +161,14 @@ clean:
 	rm -rf *.zip
 	rm -rf *.egg-info
 	rm -rf *.eggs
-	rm -rf docs/build
+	rm -rf docs-source/build
 	rm -rf build
 	find . -name '__pycache__' -delete
 	find . -name '*.pyc' -delete
 	rm -rf .tox
 	rm -f *.whl
+	rm -f ./docs/_sources/todo.md.txt ./docs/_sources/todo.rst.txt
+	rm -f ./docs/todo.html
 
 
 ######################################################################

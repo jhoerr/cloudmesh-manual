@@ -154,15 +154,13 @@ leverage other clouds.
 Compute Service
 ---------------
 
-.. todo:: Aws EC2 account: describe here if there is anything to
-          be done for accessing EC2
+.. todo:: Aws EC2 account. Describe here if there is anything to be done for accessing EC2
 
 
 Storage Service
 ---------------
 
-.. todo:: Aws S3 account: describe here if there is anything to be done
-          for accessing S3
+.. todo:: Aws S3 account. Describe here if there is anything to be done for accessing S3
 
 
 References
