@@ -151,6 +151,20 @@ cloudmesh services. This is especially of interest if you use cloudmesh
 to manage your storage and computational needs while laso being able to
 leverage other clouds.
 
+Compute Service
+---------------
+
+.. todo:: Aws EC2 account: describe here if there is anything to
+          be done for accessing EC2
+
+
+Storage Service
+---------------
+
+.. todo:: Aws S3 account: describe here if there is anything to be done
+          for accessing S3
+
+
 References
 ----------
 

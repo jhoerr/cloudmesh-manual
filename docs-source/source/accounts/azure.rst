@@ -172,12 +172,12 @@ directory in a file system. A default ``Container`` should be set in the
 Azure Resource Group (for Compute)
 ------------------------------------
 
-.. todo:: **to be completed by student**
+.. todo:: Azure: Compute Resource Group. To be completed by students
 
 Azure Resource Group (for Storage and Compute)
 ------------------------------------------------
 
-.. todo:: **to be completed by student**
+.. todo:: Azure: Storage and Compute Resource Group. To be completed by students
 
 FAQ
 ---
@@ -185,7 +185,7 @@ FAQ
 Can the resource group be created with the az command? How is it done
 for storage, how is it done for compute?
 
-.. todo:: **to be completed by student**
+.. todo:: Azure: Compute and STorage FAQ: **to be completed by student**
 
 References
 ----------

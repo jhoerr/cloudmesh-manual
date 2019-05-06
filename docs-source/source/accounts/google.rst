@@ -56,10 +56,15 @@ In a broader sense Google docs is just a subset of Google Drive.
 Getting the google json files
 -----------------------------
 
-**the documentation on how to get the json files is missing**
+.. todo:: Google account: the documentation on how to get the json files is missing
 
-**a program that takes the json files and integrates them into
-cloudmesh4.yaml is missing**
+.. todo:: Google account: A program that takes the json files and integrates them into
+          `cloudmesh4.yaml`
+
+.. todo:: Google account:The documentation for getting access to google cloud is
+          incomplete, see related entries.
+
+
 
 -  ``client_secret.json``
 -  ``google-drive-credentials.json``
@@ -69,14 +74,15 @@ the required keys, tokens are taken from the ``cloudmesh4.yaml`` file
 and creates a ``client_secret.json`` file in the follwing path
 ``~/.cloudmesh/gdrive/``
 
-**This is outdated**
+
+.. todo:: The AUthentication.py program was removed, so this can not work.
 
 The ``Authentication.py`` creates a ``.credentials`` folder under the
 following path ``~/.cloudmesh/gdrive/`` if it doesn’t exist and creates
 a ``google-drive-credentials.json`` file under the following folder
 ``~/.cloudmesh/gdrive/.credentials/``
 
-So, for the **First time** browser will be opened up automatically and
+So, for the **first time** browser will be opened up automatically and
 asks for the Google Drive(gmail) credentials i.e., login email and
 password. If you provide these 2 then the Authentication step is
 completed and then it will create the ``google-drive-credentials.json``
@@ -94,7 +100,7 @@ services and one of them is Google Drive with 15 GB overall storage.
 
 After that we need to go through the Google Drive Quick start guide:
 
-https://developers.google.com/drive/api/v3/quickstart/python
+- https://developers.google.com/drive/api/v3/quickstart/python
 
 There we can see Enable API option as shown in the next picture:
 
@@ -130,7 +136,7 @@ file that is downloaded as ``client_id.json`` needs to be renamed as
 
    Rename the file
 
-After this we need to click Done otherwise it would not set the Google
+After this we need to click ``Done`` otherwise it would not set the Google
 Drive API.
 
 After this if we run Authentication.py we will be redirected to our
@@ -150,24 +156,33 @@ pipeline has bees completed).
 
    Authentication success
 
+
+.. todo:: Google: This documentation is a bit unstructured and repetitive. Yet errors
+          such as refernces to Authentication.py are conducted which does not exist.
+
+
 If the authentication flow is completed then the Authentication.py will
 create a ``google-drive-credentials.json`` file in ``.credentials``
 folder. This file can be used for future purposes. If we delete this
 file then the ``Authentication.py`` will again ask for login id and
 password and again create that file automatically.
 
-\**So, now with the
+So, now with the
 
 -  ``client_secret.json``,
 -  ``google-drive-credentials.json``
 
 we can now use
 
+.. todo:: Google account creation: This documentation is a bit unstructured and repetitive. Yet errors
+          such as refernces to Authentication.py are conducted which does not exist.
+
 **This no longer exists**
 
 -  ``Authentication.py`` and ``Provider.py``
 
-**location of the file is missing**
+.. todo:: Google account creation: location of the file is missing
+
 
 Once all these steps are done correctly, then we can use the Python
 program interface to transfer the files between our Python program and
