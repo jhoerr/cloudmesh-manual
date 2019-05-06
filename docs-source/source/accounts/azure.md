@@ -147,6 +147,13 @@ which are outlined
 
 **to be completed by student**
 
+## FAQ
+
+Can the resource group be created with the az command? How is it done for
+storage, how is it done for compute?
+
+**to be completed by student**
+
 ## References
 
 Additional references are included here
