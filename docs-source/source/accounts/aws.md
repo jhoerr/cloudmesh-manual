@@ -1,13 +1,15 @@
-# Amazon Web Services (AWS) Account Creation Tutorial
+# Amazon Web Services Account Creation
 
-Amazon Web Services provides a wide variaty of cloud-based products including
-analytics, application integration, AR and VR, cost management, blockchain,
-business applications, compute, customer engagement, database, developer tools,
-end user computing, game tech, IoT, machine learning, management and governance,
-media services, migration and transfer, mobile, networking and content delivery,
-robotics, satellite, security, identity and compliance, and storage. Here at
-cloudmesh, we develop services through providers to support your utilization of
-many of these products.
+Amazon Web Services (AWS) provides a wide variaty of cloud-based products
+including analytics, application integration, AR and VR, cost management,
+blockchain, business applications, compute, customer engagement, database,
+developer tools, end user computing, game tech, IoT, machine learning,
+management and governance, media services, migration and transfer, mobile,
+networking and content delivery, robotics, satellite, security, identity and
+compliance, and storage. Here at cloudmesh, we develop services through
+providers to support your utilization of many of these products.
+
+Here we are especially interested in using the following services:
 
 * **Amazon Elastic Compute Cloud (EC2)** Amazon EC2 is web service that enables
   users to perform elastic web-scable computing while having complete control
@@ -17,30 +19,42 @@ many of these products.
 * **Amazon Simple Storage Service (S3)** Amazon S3 an object storage service
   that offers a wide range of storage classes.
 
-This page is a step-by-step guide on how to create an AWS account through the
-AWS webpage.
+We provide a step-by-step guide on how to create an AWS account through the
+AWS webpage to utilize these services.
 
 ## Step-by-Step Guide
 
-First, we go to the AWS website: <https://aws.amazon.com>. Click on `Create an AWS Account`.
+First, we go to the AWS website 
+
+* <https://aws.amazon.com>
+
+and click on `Create an AWS Account`.
 
 ![Image](images/aws/image1.png)
 
-This will direct you to the account creation page. Fill out your information and
-click `Continue`.
+This will direct you to the account creation page. Now we fill out your
+information and click `Continue`.
 
 ![Image](images/aws/image2.png)
 
-At this page, you will need to fill out your contact information. You can choose
+Next, you will need to fill out your contact information. You can choose
 `Professional` or `Personal` as your account type. Here in this tutorial, we
-selected `Personal`. Read the *AWS Customer Aggrement*, and check the box if
+selected `Personal`. Read the *AWS Customer Agreement*, and check the box if
 agreed. Click on `Create Account and Continue` to continue.
 
 ![Image](images/aws/image3.png)
 
-Fill out your payment information and proceed. 
+Fill out your payment information and proceed. Dependent on your level of
+security, you may want to explore using a prepaid credit card if you do not want
+to use your regular credit card.
 
-> We will not charge you unless your usage exceeds the AWS Free Tier Limits.  - Amazon AWS
+If you just started using AWS, you will have a free account for a while as AWS
+will state:
+
+> We will not charge you unless your usage exceeds the AWS Free Tier Limits.  -
+Amazon AWS
+
+Please review the terms of the free tier carefully.
 
 ![Image](images/aws/image4.png)
 
@@ -61,12 +75,12 @@ If you entered the correct verification code, you will see this page. Click on
 
 ![Image](images/aws/image7.png)
 
-You will need to choose your support plan. For the tutorial, we chose Amazon's
-free tier `Basic Plan`.
+You will need to choose your support plan. We chose Amazon's free tier `Basic
+Plan`.
 
 ![Image](images/aws/image8.png)
 
-Congratulations! You have successully created an AWS account. Now you can click
+Congratulations! You have successfully created an AWS account. Now you can click
 on `Sign In to the Console` to sign in.
 
 ![Image](images/aws/image9.png)
@@ -88,9 +102,12 @@ You can click on `Services` to explore AWS services through their webpage.
 ![Image](images/aws/image13.png)
 
 You can also start managing your account and instances through our cloudmesh
-services!
+services. This is especially of interest if you use cloudmesh to manage your
+storage and computational needs while laso being able to leverage other clouds.
 
 ## References
+
+Additional information about the services can be found at:
 
 * Open Distro for Elastic Search, <https://aws.amazon.com/?nc2=h_lg>
 * Amazon EC2, <https://aws.amazon.com/ec2/?nc2=h_m1>
