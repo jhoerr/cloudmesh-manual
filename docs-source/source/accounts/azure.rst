@@ -112,7 +112,7 @@ in the browser.
 
 Now you are ready to use the ``az`` command to interact with Azure.
 
-Azure Resource Group (for a Storage)
+Azure Resource Group (for Storage)
 ------------------------------------
 
 To use any resource on Azure, you first need to create a resource group.
@@ -169,12 +169,12 @@ directory in a file system. A default ``Container`` should be set in the
 ``cloudmesh4.yaml`` file, details of which are outlined
 `here <https://github.com/cloudmesh/cloudmesh-manual/blob/master/docs-source/source/configuration/configuration.md>`__
 
-Azure Resource Group (for a Compute)
+Azure Resource Group (for Compute)
 ------------------------------------
 
 .. note:: **to be completed by student**
 
-Azure Resource Group (for a Storage and Compute)
+Azure Resource Group (for Storage and Compute)
 ------------------------------------------------
 
 .. note:: **to be completed by student**

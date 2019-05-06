@@ -46,7 +46,38 @@ to Google Docs.
   This google forms can be used to conduct surveys within a close group like
   teachers, students or employees.
 
-**In a broader sense Google docs is just a subset of Google Drive**  
+In a broader sense Google docs is just a subset of Google Drive.
+
+
+
+## Getting the google json files
+
+**the documentation on how to get the json files is missing**
+
+**a program that takes the json files and integrates them into cloudmesh4.yaml is missing**
+
+* `client_secret.json` 
+* `google-drive-credentials.json`  
+
+If we run the Google Drive `Provider.py` for the **First time** then the
+required keys, tokens are taken from the `cloudmesh4.yaml` file and creates a
+`client_secret.json` file in the follwing path `~/.cloudmesh/gdrive/`
+
+**This is outdated**
+
+The `Authentication.py` creates a `.credentials` folder under the following path
+`~/.cloudmesh/gdrive/` if it doesn't exist and creates a
+`google-drive-credentials.json` file under the following folder
+`~/.cloudmesh/gdrive/.credentials/`
+
+
+So, for the **First time** browser will be opened up automatically and asks for
+the Google Drive(gmail) credentials i.e., login email and  password. If you
+provide these 2 then the Authentication step is completed and then it will
+create the `google-drive-credentials.json` and place it in
+`~/.cloudmesh/gdrive/.credentials/` folder.
+
+
 
 
 ## Python Google Drive API
@@ -63,7 +94,7 @@ After that we need to go through the Google Drive Quick start guide:
 
 There we can see Enable API option as shown in the next picture:  
 
-![Image1](images/gdrive/image1.png)
+![Enable API](images/gdrive/image1.png)
 
 
 Once we enable that we will get credentials.json file where all of our
@@ -72,37 +103,36 @@ Drive through Python Interface.  After that, we will be redirected to a
 page where we need to create our own project as shown in the next picture:
 
 
-![image2](images/gdrive/image2.png)
+![Create a project](images/gdrive/image2.png)
 
 As we see next we need to select Google Drive API from here   
 
 
-![gd1](images/gdrive/image16.png)
+![Add credentials](images/gdrive/image16.png)
 
 
 After that, we need to obtain the client_secret file as shown next: (The
-file that is downloaded as client_id.json needs to be renamed as
-client_secret.json)  
+file that is downloaded as `client_id.json` needs to be renamed as
+`client_secret.json`)  
 
 
-![image3](images/gdrive/image18.png)
+![Rename the file](images/gdrive/image18.png)
 
-After this we need to click Done otherwise it would not set the Google Drive API
-
+After this we need to click Done otherwise it would not set the Google Drive API.
 
 After this if we run Authentication.py we will be redirected to our default
 browser to put our our login id and password and  after that it asks to
 authenticate our credentials. If we allow that as shown next:  
 
 
-![gd2](images/gdrive/image21.png)
+![Grant permissions](images/gdrive/image21.png)
 
 
 We will get the screen something like given next (as the authentication
 pipeline has bees completed).  
 
 
-![gd3](images/gdrive/image23.png)
+![Authentication success](images/gdrive/image23.png)
 
 If the authentication flow is completed then the Authentication.py will create a
 `google-drive-credentials.json` file in  `.credentials` folder. This file
@@ -110,20 +140,27 @@ can be used for future purposes. If we delete this file then the
 `Authentication.py`  will again ask for login id and password and again
 create that file automatically.  
 
-**So, now with the `client_secret.json`, 
-`google-drive-credentials.json`
-and with `Authentication.py` and `Provider.py` our setup is ready**
+**So, now with the 
+
+* `client_secret.json`, 
+* `google-drive-credentials.json`
+
+we can now use 
+
+**This no longer exists**
+
+* `Authentication.py` and `Provider.py`
+
+**location of the file is missing**
 
 Once all these steps are done correctly, then we can use the Python program
 interface to transfer the files  between our Python program and Google
 Drive.
 
 
-
-
-
-
 ## References
+
+For additional information, please visit:
 
 * <https://www.cloudwards.net/how-does-google-drive-work/>
 * <https://whatis.techtarget.com/definition/Google-Docs>
