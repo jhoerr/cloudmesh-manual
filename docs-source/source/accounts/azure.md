@@ -2,9 +2,9 @@
 
 ## Azure
 
-Microsoft Azure (formerly Windows Azure) is a cloud computing service created by
-Microsoft for building, testing, deploying, and managing applications and
-services through Microsoft-managed data centers.
+Microsoft Azure  is a cloud computing service created by Microsoft for building,
+testing, deploying, and managing applications and services through
+Microsoft-managed data centers.
 
 Azure has over 600 services, inclding compute, mobile sevice, storage service,
 data management, messaging and so on. In this case, Azure itself is a
@@ -24,69 +24,63 @@ account including $200 credit and free access to most popular Azure products for
 including $100 credit.
 
 If you want to create an azure account using your outlook email, you can go to
-the next site after creating an outlook email address:
+the next site after creating an outlook email address at:
 
-<https://azure.microsoft.com/en-us/>
+* <https://azure.microsoft.com/en-us/>
 
-Then you need to click the Start Free button showing in the next figure. By
-entering all required information, your account will be set up. However, the
-account will only be available for 30 days. After 30 days, you can continue
+Then you need to click the Start Free button as shown in the next screenshot.
+After entering all required information, your account will be set up. However,
+the account will only be available for 30 days. After 30 days, you can continue
 using your free products after you upgrade your account to a pay-as-you-go Azure
-subscription.
+subscription. If you forget to do so you will not be able to aceess Azure, So
+pleas add it to your calendar in order not to forget.
 
-![Image1](images/azure/image1.png)
+![Start free](images/azure/image1.png)
 
 If you want to create an azure account using your educational email, you can go
 to the next site if you already have an .edu email address:
 
-<https://azure.microsoft.com/en-us/free/students/>
+* <https://azure.microsoft.com/en-us/free/students/>
 
 Then you need to click the Activate now button showing in the next figure. By
 entering all required information, your account will be set up. If you use up
 all credits, you also need to upgrade your account to a pay-as-you-go Azure
 subscription to continue using other services.
 
-![Image2](images/azure/image2.png)
+![Activate now](images/azure/image2.png)
 
-To continue to use azure services after 30 days, you need to upgrade your
-account to a pay-as-you-go Azure subscription. In this case, you need to provide
-your information related to your credit card to complete the upgrade steps. Go
-to the next link and lick on Purchases now:
+As pointed out, to continue to use azure services after 30 days, you need to
+upgrade your account to a pay-as-you-go Azure subscription. In this case, you
+need to provide your information related to your credit card to complete the
+upgrade steps. Go to the next link and click on `Purchase now`:
 
-<https://azure.microsoft.com/en-us/offers/ms-azr-0003p/>
+* <https://azure.microsoft.com/en-us/offers/ms-azr-0003p/>
 
-##Azure CLI
+Concratulations, you can now use Azure. 
 
-The Azure CLI is a command-line tool providing a great experience for managing
-Azure resources. You can access all azure servies by just typing command on your
-local shell.
+## Azure CLI
 
-Before you begin to use this tool to communicate with azure, you first need to
-install Azure CLI on your own computer. The next link provide steps in greate
-detail about how to install it on Windows, macOS and Ubuntu system.
+Now that we have an account we want to test if it works. The most convenient way
+to test your access this from the command line is to install the azure command
+line client. You can access azure servies by just typing command on your local
+shell. It can be installed on on Windows, macOS and Linux systems.
 
-<https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest>
+For detailed instructions for your system of interrest we recommend you visit the page
 
-Here I will use Ubuntu system as an example to install Azure CLI. First you need
-to check if you have installed curl by typing the next command in your shell:
+* <https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest>
 
-```python
-$ curl --version
-```
+In the following steps we will only discuss how to install it on an 
+Ubuntu OS. First, make sure you have an up to date OS and that curl is installed with:
 
-If no error returns, you have successfully installed curl already. Otherwise,
-you need to run the next command to install curl first. After finishing, you are
-able to run the former command to check if you have installed curl successfully.
-
-```python
+```bash
 $ sudo apt-get update
 $ sudo apt-get install curl
 ```
 
-The Azure CLI offers and maintains a script which runs all of the installation
-commands in one step. You just need to run the next command as superuser:
+The instalation is conducted with the following command that you will have to
+run as superuser:
 
-```python
+```bash
 $ curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 ```
 
@@ -97,70 +91,46 @@ it to connect to your azure account. Type the next command in your bash:
 $ az login
 ```
 
-If the CLI can open your default browser, it will do so and load a sign-in
-page.Otherwise, you need to open a browser page and follow the instructions on
-the command line to enter an authorization code after navigating to
-<https://aka.ms/devicelogin> in your browser. After doing that, you need to sign
-in with your account credentials in the browser.
+It opens your default browser and to conduct a sign-in to azure. If it does not
+open, please go to <https://aka.ms/devicelogin> in your browser. Once the page
+is loaded, you can sign in with your account credentials in the browser.
 
-Once all these steps are done correctly, then we can use the Azure CLI interface
-to connect to our Azure account and manage our virutal machine.
+Now you are ready to use the `az` command to interact with Azure.
 
+## Azure Resource Group (for a Storage)
 
+To use any resource on Azure, you first need to create a resource group. This is
+potentially a confusing step as information in the internet may point you to
+outdated information. If you use other information from the internet. make sure
+it is up to date. loud services subscirption account. After you looged into the
+Azure portal at:
 
-## References
+* <https://portal.azure.com/>
 
-* <https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-apt?view=azure-cli-latest>
-* <https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest>
-* <https://www.luminanetworks.com/docs-lsc-610/Topics/SDN_Controller_Software_Installation_Guide/Appendix/Installing_cURL_for_Ubuntu_1.html>
-* <https://azure.microsoft.com/en-us/>
-
-
-# Azure Blob Storage and Account Creation
-
-## Azure Blob Storage
-
-Azure Storage is Microsoft's cloud storage solution for modern data 
-storage scenarios. Azure Blob storage is Microsoft's object storage 
-solution for the cloud. Blob storage is optimized for storing massive 
-amounts of data. 
-
-Blob storage offers three types of resources:
-
-* The storage account
-* A container in the storage account
-* A blob in a container
-
-## Azure Storage account creation
-
-Following are the steps to create Azure storage account
-
-* Prerequisites
-
-  Create a free Azure cloud services subscirption account.
-
-* Log in to the [Azure Portal](https://portal.azure.com/).
+You will be presented with a window such as 
 
 ![AZ-Portal](images/azure-portal.png){#fig:az-portal}
 
-* In the Azure portal, click on `Create a resource` on the top left corner.
+In the Azure window, click on `Create a resource` on the top left corner.
 
 ![AZ-Resource](images/azure-resource.png){#fig:az-resource}
 
-* Select `Storage Account` from the options shown
+Now, select `Storage Account` from the options shown
 
 ![AZ-Account](images/azure-account.png){#fig:az-account}
 
-* Select the subscription in which to create the storage account.
+Follow the following steps carefully:
 
-* Under the `Resource group` field, select Create new. Enter a name for your 
+1. Select the subscription in which to create the storage account.
+
+2. Under the `Resource group` field, select Create new. Enter a name for your 
   new resource group.
   
-* Next, enter a name for your storage account.
+3. Next, enter a name for your storage account.
 
-* Select a `location` for your storage account, or use the default location.
+4. Select a `location` for your storage account, or use the default location.
 
-* Select `create`
+5. Select `create`
 
 After the completion of above steps, Azure blob storage service will be ready 
 for use. As a first step, a `Container` should be created in the Blob storage. 
@@ -169,18 +139,23 @@ A default `Container` should be set in the `cloudmesh4.yaml` file, details  of
 which are outlined 
 [here](https://github.com/cloudmesh/cloudmesh-manual/blob/master/docs-source/source/configuration/configuration.md)
 
-**IMPORTANT NOTE:**
+## Azure Resource Group (for a Compute)
 
-The free Azure account needs to be upgrade to a pay-as-you-go subscription 
-after first 30 days to get continued access to free products—some for the 
-first 12 months.
+**to be completed by student**
 
-Refer to more details here - <https://azure.microsoft.com/en-us/free/>
+## Azure Resource Group (for a Storage and Compute)
+
+**to be completed by student**
 
 ## References
 
-* <https://docs.microsoft.com/en-us/azure/storage/common/storage-introduction>
+Additional references are included here
 
+* <https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-apt?view=azure-cli-latest>
+* <https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest>
+* <https://www.luminanetworks.com/docs-lsc-610/Topics/SDN_Controller_Software_Installation_Guide/Appendix/Installing_cURL_for_Ubuntu_1.html>
+* <https://azure.microsoft.com/en-us/>
+* <https://docs.microsoft.com/en-us/azure/storage/common/storage-introduction>
 * <https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blobs-overview>
 
 
