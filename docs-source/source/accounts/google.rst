@@ -177,8 +177,6 @@ we can now use
 .. todo:: Google account creation: This documentation is a bit unstructured and repetitive. Yet errors
           such as refernces to Authentication.py are conducted which does not exist.
 
-**This no longer exists**
-
 -  ``Authentication.py`` and ``Provider.py``
 
 .. todo:: Google account creation: location of the file is missing
