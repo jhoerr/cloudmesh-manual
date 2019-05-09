@@ -11,18 +11,19 @@ An example is given below.
 ```python
 from cloudmesh.flow.FlowDecorator import BaseWorkFlow
 
-
 class MyFlow(BaseWorkFlow):
+
     def a(self):
         print("in a!")
         time.sleep(5)
+
     def b(self):
         print("in b!")
         time.sleep(10)
+
     def c(self):
         print("in c!")
         time.sleep(10)
-
 ```
 
 This allows you to define functions in your workflow file. Then you can 
@@ -37,15 +38,20 @@ Where
 * `a ; b` is executed sequentially
 * `b || c` is executed in parallel.
 
-Finally, after execution the results are stored in MongoDB to be visualized or consumed
-by later functions in the series.
+Finally, after execution the results are stored in MongoDB to be visualized or
+consumed by later functions in the series.
 
 ## Database Objects
 
-There are two collections related to workflow objects. The first is for the definition of a flow, and the second for the status of a flow that is in progres.
+There are two collections related to workflow objects. The first is for the
+definition of a flow, and the second for the status of a flow that is in
+progres.
 
 ### Definition Collection
-When you define a workflow, a new collection is created for the definition. For a workflow named "test", this collection exists at "test-flow". This collection contains objects that look like the following:
+
+When you define a workflow, a new collection is created for the definition. For
+a workflow named "test", this collection exists at "test-flow". This collection
+contains objects that look like the following:
 
 ```json
 {
@@ -65,19 +71,41 @@ When you define a workflow, a new collection is created for the definition. For 
     "status" : "defined"
 }
 ```
-The salient features are `name`, which is the name of the node, and `dependencies` which is an array of other node names this node depends upon. All elements in a flow definition collection will have `status : "defined"`.
+
+The salient features are `name`, which is the name of the node, and
+`dependencies` which is an array of other node names this node depends upon. All
+elements in a flow definition collection will have `status : "defined"`.
 
 ### Running Flow Collection
-When a flow is started with `cms flow run`, a new collection is started with the suffix "-active" added at the end. For example, if your flowname is "test" and your nodes are defined in "test-flow", then the active collection in MongoDB will be "test-flow-active". Objects in this collection are similar to the above, with two changes:
 
- 1. First, they have a `result` field attached, which holds the JSON value from the result of executing the node and
+When a flow is started with 
+
+```bash
+cms flow run
+```
+
+A new collection is started with the suffix "-active" added at the end. For
+example, if your flowname is `test` and your nodes are defined in `test-flow`,
+then the active collection in MongoDB will be `test-flow-active`. Objects in
+this collection are similar to the above, with two changes:
+
+ 1. First, they have a `result` field attached, which holds the JSON value 
+    from the result of executing the node and
  2. They have a richer `status` field, with the following values:
-    - "pending" is the status when the flow starts
-    - "running" is the status when a node is being executed
-    - "finished" is the status when the node has executed
-    - "error" is the status when a node finished execution with a non-zero exit code
+
+    - `pending` is the status when the flow starts
+    - `running` is the status when a node is being executed
+    - `finished` is the status when the node has executed
+    - `error` is the status when a node finished execution with a non-zero 
+      exit code
     
-When interacting directly with the database, it is important to use the values from the definition collection unless you are explicitly interacting with a flow in progress. The running collection may not be up-to-date and may contain incorrect information. For example the `dependencies` array in the definition collection reflects the overall dependencies specified in the flow definition but in the running collection the array is continually modified whenever other nodes finish their work.
+When interacting directly with the database, it is important to use the values
+from the definition collection unless you are explicitly interacting with a flow
+in progress. The running collection may not be up-to-date and may contain
+incorrect information. For example the `dependencies` array in the definition
+collection reflects the overall dependencies specified in the flow definition
+but in the running collection the array is continually modified whenever other
+nodes finish their work.
 
 ## Javascript Interface (proposed)
 
@@ -110,7 +138,6 @@ dependencieas are specified via a simple graph string
 ```python
 
  
-
 def a (); print("a"); sleep(1) ; return {"status": "done", "color":"green", shape:"circle", label="a"}
 
 def b (); print("b"); sleep(2); return{"status": "done", "color":"green", shape:"circle", label="b"}
@@ -183,3 +210,4 @@ An OpenAPI specification for this is to be defined.
 
 * <https://github.com/xflr6/graphviz>
 * <http://visjs.org/examples/network/events/interactionEvents.html>
+* This work is influenced by <https://github.com/cloudmesh/workflow>
