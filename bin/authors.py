@@ -3,7 +3,7 @@ from __future__ import print_function
 import subprocess
 import textwrap
 
-debug = True
+debug = False
 
 names = []
 

@@ -1,0 +1,471 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2. Azure Account Creation &mdash; Cloudmesh v4 alpha documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3. Google Storage Providers" href="google.html" />
+    <link rel="prev" title="1. AWS Account Creation" href="aws.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Cloudmesh v4
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.0.28
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">PREFACE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">1. About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributors.html">2. Contributors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../todo.html">3. ToDo</a></li>
+</ul>
+<p class="caption"><span class="caption-text">INSTALLATION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">1. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">2. Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration/configuration.html">3. Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../yaml.html">4. Cloudmesh yaml file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mongo.html">5. Cloudmesh Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration/encryption.html">6. Cloudmesh Yaml file Encrytion (TODO)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">COMPUTE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../vm.html">1. Virtual Machine Management</a></li>
+</ul>
+<p class="caption"><span class="caption-text">STORAGE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../README-storage.html">1. Cloudmesh Multi Cloud Storage Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README-storage.html#cloudmesh-storage-module">2. Cloudmesh Storage Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../objectstore.html">3. Object Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README-storage-openapi.html">4. Cloudmesh Multi Cloud Open API Interface</a></li>
+</ul>
+<p class="caption"><span class="caption-text">WORKFLOW</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../workflow.html">1. Infrastructure Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter.html">2. Jupyter Integration (proposed)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">HPC</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../batch.html">1. Batch</a></li>
+</ul>
+<p class="caption"><span class="caption-text">cmd5</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cmd5.html">1. CMD5 Integartion</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference-card.html">1. Reference Card (proposed)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/commands.html">2. Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-cmd5.html">3. Manual Cmd5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-group.html">4. Manual Group</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-compute.html">5. Compute Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-storage.html">6. Storage Manual Pages</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Database</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../database.html">1. Cloudmesh Database</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Database</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/README.html">1. Benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/awsec2-vm-management-benchmark.html">2. AWS EC2 VM Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/awsec2_benchmark_ubuntu.html">3. AWS EC2 VM Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/awss3-storage-benchmark.html">4. AWS S3 File Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/azure-storage-benchmark.html">5. Azure Blob Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/box.html">6. Benchmark results for box Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/emr.html">7. AWS EMR Benchmarking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/test_compute_database.html">8. AWS EC2 Compute Database</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CODE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../code/code.html">1. Code Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code/common.html">2. Common</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code/cmd5.html">3. CMD5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code/cloudmesh.html">4. Cloudmesh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code/management.html">5. Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code/mongo.html">6. Mongo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code/commands.html">7. Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code/inventory.html">8. Inventory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code/storage.html">9. cloudmesh-storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code/objstorage.html">10. cloudmesh-objstorage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code/cloud.html">11. cloudmesh-cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code/batch.html">12. cloudmesh-batch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code/emr.html">13. cloudmesh-emr</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CONTRIBUTION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../conventions.html">1. Code Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../management.html">2. Code Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../management.html#documentation-management">3. Documentation Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../management.html#version-managemt">4. Version Managemt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pytest.html">5. Pytest</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Cloud Accounts</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="aws.html">1. AWS Account Creation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2. Azure Account Creation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#azure-account">2.1. Azure Account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#azure-cli">2.2. Azure CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#azure-resource-group-for-storage">2.3. Azure Resource Group (for Storage)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#azure-resource-group-for-compute">2.4. Azure Resource Group (for Compute)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#azure-resource-group-for-storage-and-compute">2.5. Azure Resource Group (for Storage and Compute)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#faq">2.6. FAQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#references">2.7. References</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="google.html">3. Google Storage Providers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="box.html">4. Setting Up Your Box Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="accountcreation-old.html">5. VM Providers (outdated)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Outdated:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../goal.html">1. Goal (outdated)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../goal.html#manual-cloudmesh-multi-service-data-access">2. Manual: Cloudmesh Multi Service Data Access</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vagrant.html">3. Vagrant (outdated)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CM4README.html">4. CM4 Details (outdated)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../aws.html">5. AWS cm (outdated)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ufo.html">6. REST Service (outdated)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vcluster.html">7. Virtual Cluster (in progress)</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Cloudmesh v4</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>2. Azure Account Creation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/accounts/azure.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="azure-account-creation">
+<h1>2. Azure Account Creation<a class="headerlink" href="#azure-account-creation" title="Permalink to this headline">¶</a></h1>
+<p>Microsoft Azure is a cloud computing service created by Microsoft for
+building, testing, deploying, and managing applications and services
+through Microsoft-managed data centers.</p>
+<p>Azure has over 600 services, inclding compute, mobile sevice, storage
+service, data management, messaging and so on. In this case, Azure
+itself is a multi-functional platform. As for the compute service, which
+is the core part for cloud computing, it provides virtual machines
+allowing users to launch general-purpose Microsoft Windows and Linux
+virtual machines, as well as preconfigured machine images for popular
+software packages. The app services environment lets developers easily
+publish and manage websites. Azure provides all its services to users
+based on website, so users do not need to install any kind of software
+in order to implement cloud computing or use other services;</p>
+<div class="section" id="azure-account">
+<h2>2.1. Azure Account<a class="headerlink" href="#azure-account" title="Permalink to this headline">¶</a></h2>
+<p>You can choose either using your outlook email address to create a free
+trial account including $200 credit and free access to most popular
+Azure products for 12 months, or using your euducational email adress to
+create a student account including $100 credit.</p>
+<p>If you want to create an azure account using your outlook email, you can
+go to the next site after creating an outlook email address at:</p>
+<ul class="simple">
+<li><p>&lt;<a class="reference external" href="https://azure.microsoft.com/en-us/">https://azure.microsoft.com/en-us/</a>&gt;</p></li>
+</ul>
+<p>Then you need to click the Start Free button as shown in the next
+screenshot. After entering all required information, your account will
+be set up. However, the account will only be available for 30 days.
+After 30 days, you can continue using your free products after you
+upgrade your account to a pay-as-you-go Azure subscription. If you
+forget to do so you will not be able to aceess Azure, So pleas add it to
+your calendar in order not to forget.</p>
+<p>![Start free](images/azure/image1.png)</p>
+<p>If you want to create an azure account using your educational email, you
+can go to the next site if you already have an .edu email address:</p>
+<ul class="simple">
+<li><p>&lt;<a class="reference external" href="https://azure.microsoft.com/en-us/free/students/">https://azure.microsoft.com/en-us/free/students/</a>&gt;</p></li>
+</ul>
+<p>Then you need to click the Activate now button showing in the next
+figure. By entering all required information, your account will be set
+up. If you use up all credits, you also need to upgrade your account to
+a pay-as-you-go Azure subscription to continue using other services.</p>
+<p>![Activate now](images/azure/image2.png)</p>
+<p>As pointed out, to continue to use azure services after 30 days, you
+need to upgrade your account to a pay-as-you-go Azure subscription. In
+this case, you need to provide your information related to your credit
+card to complete the upgrade steps. Go to the next link and click on
+`Purchase now`:</p>
+<ul class="simple">
+<li><p>&lt;<a class="reference external" href="https://azure.microsoft.com/en-us/offers/ms-azr-0003p/">https://azure.microsoft.com/en-us/offers/ms-azr-0003p/</a>&gt;</p></li>
+</ul>
+<p>Concratulations, you can now use Azure.</p>
+</div>
+<div class="section" id="azure-cli">
+<h2>2.2. Azure CLI<a class="headerlink" href="#azure-cli" title="Permalink to this headline">¶</a></h2>
+<p>Now that we have an account we want to test if it works. The most
+convenient way to test your access this from the command line is to
+install the azure command line client. You can access azure servies by
+just typing command on your local shell. It can be installed on on
+Windows, macOS and Linux systems.</p>
+<p>For detailed instructions for your system of interrest we recommend you
+visit the page</p>
+<ul class="simple">
+<li><p>&lt;<a class="reference external" href="https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest">https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest</a>&gt;</p></li>
+</ul>
+<p>In the following steps we will only discuss how to install it on an
+Ubuntu OS. First, make sure you have an up to date OS and that curl is
+installed with:</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span> <span class="pre">{.sourceCode</span> <span class="pre">.bash}</span> <span class="pre">$</span> <span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">update</span> <span class="pre">$</span> <span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">curl</span></code>`</p>
+<p>The instalation is conducted with the following command that you will
+have to run as superuser:</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span> <span class="pre">{.sourceCode</span> <span class="pre">.bash}</span> <span class="pre">$</span> <span class="pre">curl</span> <span class="pre">-sL</span> <span class="pre">https://aka.ms/InstallAzureCLIDeb</span> <span class="pre">|</span> <span class="pre">sudo</span> <span class="pre">bash</span></code>`</p>
+<p>When the installation is finished, you can test your az command by
+trying to use it to connect to your azure account. Type the next command
+in your bash:</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span> <span class="pre">{.sourceCode</span> <span class="pre">.python}</span> <span class="pre">$</span> <span class="pre">az</span> <span class="pre">login</span></code>`</p>
+<p>It opens your default browser and to conduct a sign-in to azure. If it
+does not open, please go to &lt;<a class="reference external" href="https://aka.ms/devicelogin">https://aka.ms/devicelogin</a>&gt; in your
+browser. Once the page is loaded, you can sign in with your account
+credentials in the browser.</p>
+<p>Now you are ready to use the [az]{.title-ref} command to interact with
+Azure.</p>
+</div>
+<div class="section" id="azure-resource-group-for-storage">
+<h2>2.3. Azure Resource Group (for Storage)<a class="headerlink" href="#azure-resource-group-for-storage" title="Permalink to this headline">¶</a></h2>
+<p>To use any resource on Azure, you first need to create a resource group.
+This is potentially a confusing step as information in the internet may
+point you to outdated information. If you use other information from the
+internet. make sure it is up to date. loud services subscirption
+account. After you looged into the Azure portal at:</p>
+<ul class="simple">
+<li><p>&lt;<a class="reference external" href="https://portal.azure.com/">https://portal.azure.com/</a>&gt;</p></li>
+</ul>
+<p>You will be presented with a window such as</p>
+<p>![AZ-Portal](images/azure-portal.png)</p>
+<p>In the Azure window, click on [Create a resource]{.title-ref} on the top
+left corner.</p>
+<p>![AZ-Resource](images/azure-resource.png)</p>
+<p>Now, select [Storage Account]{.title-ref} from the options shown</p>
+<p>![AZ-Account](images/azure-account.png)</p>
+<p>Follow the following steps carefully:</p>
+<ol class="simple">
+<li><p>Select the subscription in which to create the storage account.</p></li>
+<li><p>Under the [Resource group]{.title-ref} field, select Create new.
+Enter a name for your new resource group.</p></li>
+<li><p>Next, enter a name for your storage account.</p></li>
+<li><p>Select a [location]{.title-ref} for your storage account, or use the
+default location.</p></li>
+<li><p>Select [create]{.title-ref}</p></li>
+</ol>
+<p>After the completion of above steps, Azure blob storage service will be
+ready for use. As a first step, a [Container]{.title-ref} should be
+created in the Blob storage. A container organizes a set of blobs,
+similar to a directory in a file system. A default
+[Container]{.title-ref} should be set in the
+[cloudmesh4.yaml]{.title-ref} file, details of which are outlined
+[here](<a class="reference external" href="https://github.com/cloudmesh/cloudmesh-manual/blob/master/docs-source/source/configuration/configuration">https://github.com/cloudmesh/cloudmesh-manual/blob/master/docs-source/source/configuration/configuration.md</a>)</p>
+</div>
+<div class="section" id="azure-resource-group-for-compute">
+<h2>2.4. Azure Resource Group (for Compute)<a class="headerlink" href="#azure-resource-group-for-compute" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>[ ] TODO: Azure. Compute Resource Group. To be completed by
+students</p></li>
+</ul>
+</div>
+<div class="section" id="azure-resource-group-for-storage-and-compute">
+<h2>2.5. Azure Resource Group (for Storage and Compute)<a class="headerlink" href="#azure-resource-group-for-storage-and-compute" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>[ ] TODO: Azure. Storage and Compute Resource Group. To be
+completed by students</p></li>
+</ul>
+</div>
+<div class="section" id="faq">
+<h2>2.6. FAQ<a class="headerlink" href="#faq" title="Permalink to this headline">¶</a></h2>
+<p>Can the resource group be created with the az command? How is it done
+for storage, how is it done for compute?</p>
+<ul class="simple">
+<li><p>[ ] todo: Azure. Compute and STorage FAQ: <strong>to be completed by
+student</strong></p></li>
+</ul>
+</div>
+<div class="section" id="references">
+<h2>2.7. References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<p>Additional references are included here</p>
+<ul class="simple">
+<li><p>&lt;<a class="reference external" href="https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-apt?view=azure-cli-latest">https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-apt?view=azure-cli-latest</a>&gt;</p></li>
+<li><p>&lt;<a class="reference external" href="https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest">https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest</a>&gt;</p></li>
+<li><p>&lt;<a class="reference external" href="https://www.luminanetworks.com/docs-lsc-610/Topics/SDN_Controller_Software_Installation_Guide/Appendix/Installing_cURL_for_Ubuntu_1.html">https://www.luminanetworks.com/docs-lsc-610/Topics/SDN_Controller_Software_Installation_Guide/Appendix/Installing_cURL_for_Ubuntu_1.html</a>&gt;</p></li>
+<li><p>&lt;<a class="reference external" href="https://azure.microsoft.com/en-us/">https://azure.microsoft.com/en-us/</a>&gt;</p></li>
+<li><p>&lt;<a class="reference external" href="https://docs.microsoft.com/en-us/azure/storage/common/storage-introduction">https://docs.microsoft.com/en-us/azure/storage/common/storage-introduction</a>&gt;</p></li>
+<li><p>&lt;<a class="reference external" href="https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blobs-overview">https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blobs-overview</a>&gt;</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="google.html" class="btn btn-neutral float-right" title="3. Google Storage Providers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="aws.html" class="btn btn-neutral float-left" title="1. AWS Account Creation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018-2019, Cloudmesh Community
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

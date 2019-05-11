@@ -39,6 +39,7 @@ sphinxcontrib-fulltoc
 cloudmesh-common
 cloudmesh-cmd5
 cloudmesh-sys
+pygments
 """.split("\n")
 
 # dependency_links = ['http://github.com/nicolaiarocci/eve.git@develop']
