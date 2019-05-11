@@ -9,7 +9,7 @@ can then visualize the result of your workflow execution.
 An example is given below.
 
 ```python
-from cloudmesh.flow.FlowDecorator import BaseWorkFlow
+from cloudmesh.flow.WorkFlow import BaseWorkFlow
 
 class MyFlow(BaseWorkFlow):
 
