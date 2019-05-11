@@ -1,5 +1,4 @@
-Setting Up Your Box Account
-===========================
+# Setting Up Your Box Account
 
 Box provides a cloud file sharing service for buisinesses. CLients
 exists for Windows, MacOS, and Linux. To obtain an account you have to
@@ -7,8 +6,7 @@ first visit the box home page as
 
 -   <https://www.box.com/home>
 
-Sign up
--------
+## Sign up
 
 To sign up for the account, click on the top right hand corner of the
 box [homepage](https://www.box.com/home) on the `Get Started` button.
@@ -31,8 +29,7 @@ or click `Skip this and go straight to Box` below the `Next` button.
 
 ![Next](images/box/skip.png)
 
-Creating an app
----------------
+## Creating an app
 
 Navigate to the [developer
 console](https://app.box.com/developers/console)
@@ -48,8 +45,7 @@ profile button in the top right corner of the page, and go to
 `Require 2-step verification for unrecognized logins`, then follow the
 prompts.
 
-Authentication with JWT
------------------------
+## Authentication with JWT
 
 In the Configuration panel of the Developer Console, scroll down to the
 section titled `Add and Manage Public Keys` and click
@@ -67,8 +63,8 @@ another file called `config.json`
 - [ ] todo: Box. A program is missing that adds the json key to the yaml file. This
   is the same as in Azure.
 
-References
-----------
+## References
+
 
 More information about box can be found at:
 

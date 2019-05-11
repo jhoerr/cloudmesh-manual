@@ -1,8 +1,7 @@
-Google Storage Providers
-========================
+# Google Storage Providers
 
-Google Drive
-------------
+## Google Drive
+
 
 Google Drive is a file storing platform where an user can store all
 his/her files in the google drive. Here files can be of any form ranging
@@ -17,8 +16,7 @@ files then Google Drive is needed in this case as he can have access to
 his file as all his files are stored in the cloud. The user does not
 need to install any kind of software in order to view these files.
 
-Google Docs
------------
+## Google Docs
 
 Google docs is especially designed for viewing or editing or sharing the
 documents like Docs, Sheets, Slides, Forms. No need to install any
@@ -51,23 +49,18 @@ documents to Google Docs.
 
 In a broader sense Google docs is just a subset of Google Drive.
 
-Getting the google json files
------------------------------
+## Getting the google json files
 
-::: {.todo}
-Google account. the documentation on how to get the json files is
-missing
-:::
+- [ ] TODO: Google account. the documentation on how to get the json files is
+  missing
 
-::: {.todo}
-Google account. A program that takes the json files and integrates them
-into [cloudmesh4.yaml]{.title-ref}
-:::
 
-::: {.todo}
-Google account. The documentation for getting access to google cloud is
-incomplete, see related entries.
-:::
+- [ ] TODO: Google account. A program that takes the json files and integrates them
+  into [cloudmesh4.yaml]{.title-ref}
+
+- [ ] TODO: Google account. The documentation for getting access to google cloud is
+  incomplete, see related entries.
+
 
 -   `client_secret.json`
 -   `google-drive-credentials.json`
@@ -77,9 +70,8 @@ required keys, tokens are taken from the `cloudmesh4.yaml` file and
 creates a `client_secret.json` file in the follwing path
 `~/.cloudmesh/gdrive/`
 
-::: {.todo}
-The AUthentication.py program was removed, so this can not work.
-:::
+- [ ] TODO: The AUthentication.py program was removed, so this can not work.
+
 
 The `Authentication.py` creates a `.credentials` folder under the
 following path `~/.cloudmesh/gdrive/` if it doesn't exist and creates a
@@ -92,8 +84,8 @@ password. If you provide these 2 then the Authentication step is
 completed and then it will create the `google-drive-credentials.json`
 and place it in `~/.cloudmesh/gdrive/.credentials/` folder.
 
-Python Google Drive API
------------------------
+## Python Google Drive API
+
 
 ### Step-by-step process
 

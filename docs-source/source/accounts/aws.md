@@ -1,5 +1,4 @@
-AWS Account Creation
-====================
+# AWS Account Creation
 
 Amazon Web Services (AWS) provides a wide variaty of cloud-based
 products including analytics, application integration, AR and VR, cost
@@ -23,8 +22,7 @@ Here we are especially interested in using the following services:
 We provide a step-by-step guide on how to create an AWS account through
 the AWS webpage to utilize these services.
 
-Step-by-Step Guide
-------------------
+## Step-by-Step Guide
 
 First, we go to the AWS website
 
@@ -110,20 +108,17 @@ cloudmesh services. This is especially of interest if you use cloudmesh
 to manage your storage and computational needs while laso being able to
 leverage other clouds.
 
-Compute Service
----------------
+## Compute Service
 
 - [ ] TODO: Aws EC2 account. Describe here if there is anything to be done for
   accessing EC2
 
-Storage Service
----------------
+## Storage Service
 
 - [ ] TODO: Aws S3 account. Describe here if there is anything to be done for
   accessing S3
 
-References
-----------
+## References
 
 Additional information about the services can be found at:
 
