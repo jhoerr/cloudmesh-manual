@@ -2,25 +2,42 @@
 
 ## Prerequisites
 
-Before you install make sure that you have at minimum python 3.7.2
-installed. We recommend that you use a python virtualenv such as `venv`
-or `pyenv` to isolate the python installed packages as not to interfere
-with the system installation.
+Before you install make sure that you have at minimum python 3.7.3
+installed. Likely the code will work with earlier versions, but we do 
+the development in python 3.7.3.
+
+
+We recommend that you use a python virtualenv such as `venv` to make sure 
+you are not interfering with your system python. This is simple. For our purposes 
+we assume that you use the directory ~/ENV3. Follow these steps first:
+
+
+```bash
+$ python3 -m venv  ~/ENV3
+$ source  ~/ENV3/bin/activate
+```
+
+You can add at the end of your .bashrc or .bash_profile file the line
+
+```
+source ~/ENV3/bin/activate
+```
+
+so the environment is always loaded. Now you are ready to install cloudmesh.
 
 ### Installation via pip development
 
-The installation via pip is not yet supported for cloudmesh cm. Thus
-we recommend that you use the source installation instead.
 
-In future cloudmesh version 4 will be installed with
+The instalation can be done with pip. 
 
 ```bash
 $ pip install cloudmesh-cms
+$ pip install cloudmesh-sys
 $ pip install cloudmesh-cloud
 $ pip install cloudmesh-storage
 ```
 
-Additional packages will include
+Additional packages include but are not yet released:
 
 ```
 $ pip install cloudmesh-flow
@@ -29,13 +46,12 @@ $ pip install cloudmesh-batch
 $ pip install cloudmesh-openapi
 ```
 
-For the time being we recommend you conduct the source install.
+
 
 ### Source installation for development
 
-The best way to install cloudmesh from source is to use our installer:
-
-More documentation about it can be found at 
+As a developer you want o use our source instalation. For this reasone we wrote a cloudmesh-installer script that 
+conveniently downloads the needed repositories. More documentation about it can be found at 
 
 * <https://github.com/cloudmesh/cloudmesh-installer>
 
@@ -45,7 +61,7 @@ You install it with
 $ pip install cloudmesh-installer
 ```
 
-It is best to create an emty directory and decide which bundles to install
+It is best to create an empty directory and decide which bundles to install
 
 ```bash
 $ mkdir cm
@@ -62,9 +78,7 @@ $ cloudmesh-installer install storage -e
 ```
 
 It will take a while to install On newer machines 1 minte, on older significant
-longer.
-
-YOu can than test if 
+longer. You can than test if 
 
 ``` bash
 $ cms help 
