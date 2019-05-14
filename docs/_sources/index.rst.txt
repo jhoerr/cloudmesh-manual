@@ -14,8 +14,8 @@ Cloudmesh Version 4
    :numbered:
    :caption: INSTALLATION
 
-   install
-   quickstart
+   installation/install
+   installation/quickstart
    configuration/configuration
    yaml
    mongo

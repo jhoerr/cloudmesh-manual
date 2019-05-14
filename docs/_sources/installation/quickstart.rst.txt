@@ -31,6 +31,45 @@ also obtain it with
    cms open doc local
 
 
+Generating the Key and Certificate
+----------------------------------
+
+.. todo:: test if the key generation works
+
+
+We can encrypt and decrypt files using generated random key as follows:
+
+First, you need to create a public-private key with a passphrase. THis
+can be achieved with the ``cms key`` command it assumes that you have
+not jet created a key
+
+.. code:: bash
+
+   cms config ssh keygen
+
+Alternatively you can create a key as follows
+
+.. code:: bash
+
+   ssh-keygen -t rsa -m pem
+
+In case you need to convert your key, to a pem certificate you can do it
+as follows
+
+::
+
+   openssl rsa -in ~/.ssh/id_rsa -out ~/.ssh/id_rsa.pem
+
+Validate and verify the key
+---------------------------
+
+To validate the key please use the cms command
+
+.. code:: bash
+
+   cms config check
+   cms config verify
+
 Command line
 ------------
 
