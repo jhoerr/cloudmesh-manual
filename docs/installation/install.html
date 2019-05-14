@@ -96,8 +96,8 @@
 <li class="toctree-l2"><a class="reference internal" href="#prerequisites">1.1. Prerequisites</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#installation-with-pip">1.2. Installation with Pip</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#anaconda-and-conda">1.3. Anaconda and Conda</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#installation-of-mongod">1.4. Installation of mongod</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#source-installation-for-developers">1.5. Source Installation for Developers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#source-installation-for-developers">1.4. Source Installation for Developers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installation-of-mongod">1.5. Installation of mongod</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">2. Quickstart</a></li>
@@ -249,6 +249,7 @@
 <p>At this time we do not recommend the conda install, as the conda packages are outdated at this time.</p>
 <p>Please read a section in this manual completly, and understand the items explained. Do not just copy an past
 text in your terminal and execute it as it could have unexpected consequences.</p>
+<p>The mongo installation has to be done by everyone.</p>
 <div class="section" id="prerequisites">
 <h2>1.1. Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
@@ -320,8 +321,39 @@ uploaded. If you are interested in helping out with the conda packages, let
 us know. Please contact us if you need a new release. As conda supports alos
 pip, we recommend using pip for it also.</p>
 </div>
+<div class="section" id="source-installation-for-developers">
+<h2>1.4. Source Installation for Developers<a class="headerlink" href="#source-installation-for-developers" title="Permalink to this headline">¶</a></h2>
+<p>As a developer you want o use our source instalation. For this reasone we
+wrote a cloudmesh-installer script that conveniently downloads the needed
+repositories. More documentation about it can be found at</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/cloudmesh/cloudmesh-installer">https://github.com/cloudmesh/cloudmesh-installer</a></p></li>
+</ul>
+<p>First make sure you have a python virtual env as described in the pip section
+(see <a class="reference internal" href="#use-a-venv">Use a venv</a>). Instead of using the pip install method, please use the
+following.</p>
+<p>Now you can install it with</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install cloudmesh-installer
+</pre></div>
+</div>
+<p>It is best to create an empty directory and decide which bundles to
+install</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir cm
+<span class="nb">cd</span> cm
+cloudmesh-installer bundels
+</pre></div>
+</div>
+<p>Decide which bundels you like to install (let us assume you use storage)
+and simply say</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cloudmesh-installer git clone storage
+cloudmesh-installer install storage -e
+</pre></div>
+</div>
+<p>It will take a while to install On newer machines 1 minte, on older
+significant longer. You can than test if</p>
+</div>
 <div class="section" id="installation-of-mongod">
-<h2>1.4. Installation of mongod<a class="headerlink" href="#installation-of-mongod" title="Permalink to this headline">¶</a></h2>
+<h2>1.5. Installation of mongod<a class="headerlink" href="#installation-of-mongod" title="Permalink to this headline">¶</a></h2>
 <p>First, you will need to install a <code class="docutils literal notranslate"><span class="pre">cloudmesh4.yaml</span></code> file, if you have not
 done this before. The easieast way to do so is with the command</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms <span class="nb">help</span>
@@ -363,37 +395,6 @@ install it simply say.</p>
 <p>However, please remember that for cloudmesh to work properly, please start
 mongo. In case you need a different port you can configure that in the yaml
 file.</p>
-</div>
-<div class="section" id="source-installation-for-developers">
-<h2>1.5. Source Installation for Developers<a class="headerlink" href="#source-installation-for-developers" title="Permalink to this headline">¶</a></h2>
-<p>As a developer you want o use our source instalation. For this reasone we
-wrote a cloudmesh-installer script that conveniently downloads the needed
-repositories. More documentation about it can be found at</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/cloudmesh/cloudmesh-installer">https://github.com/cloudmesh/cloudmesh-installer</a></p></li>
-</ul>
-<p>First make sure you have a python virtual env as described in the pip section
-(see <a class="reference internal" href="#use-a-venv">Use a venv</a>). Instead of using the pip install method, please use the
-following.</p>
-<p>Now you can install it with</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install cloudmesh-installer
-</pre></div>
-</div>
-<p>It is best to create an empty directory and decide which bundles to
-install</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir cm
-<span class="nb">cd</span> cm
-cloudmesh-installer bundels
-</pre></div>
-</div>
-<p>Decide which bundels you like to install (let us assume you use storage)
-and simply say</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cloudmesh-installer git clone storage
-cloudmesh-installer install storage -e
-</pre></div>
-</div>
-<p>It will take a while to install On newer machines 1 minte, on older
-significant longer. You can than test if</p>
 </div>
 </div>
 

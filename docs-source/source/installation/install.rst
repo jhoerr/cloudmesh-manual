@@ -11,6 +11,8 @@ At this time we do not recommend the conda install, as the conda packages are ou
 Please read a section in this manual completly, and understand the items explained. Do not just copy an past
 text in your terminal and execute it as it could have unexpected consequences.
 
+The mongo installation has to be done by everyone.
+
 Prerequisites
 -------------
 
@@ -99,7 +101,48 @@ uploaded. If you are interested in helping out with the conda packages, let
 us know. Please contact us if you need a new release. As conda supports alos
 pip, we recommend using pip for it also.
 
-	  
+
+
+Source Installation for Developers
+----------------------------------
+
+As a developer you want o use our source instalation. For this reasone we
+wrote a cloudmesh-installer script that conveniently downloads the needed
+repositories. More documentation about it can be found at
+
+-  https://github.com/cloudmesh/cloudmesh-installer
+
+First make sure you have a python virtual env as described in the pip section
+(see `Use a venv`_). Instead of using the pip install method, please use the
+following.
+
+Now you can install it with
+
+.. code:: bash
+
+   pip install cloudmesh-installer
+
+It is best to create an empty directory and decide which bundles to
+install
+
+.. code:: bash
+
+   mkdir cm
+   cd cm
+   cloudmesh-installer bundels
+
+Decide which bundels you like to install (let us assume you use storage)
+and simply say
+
+.. code:: bash
+
+   cloudmesh-installer git clone storage
+   cloudmesh-installer install storage -e
+
+It will take a while to install On newer machines 1 minte, on older
+significant longer. You can than test if
+
+
 Installation of mongod
 ----------------------
 
@@ -161,44 +204,5 @@ However, please remember that for cloudmesh to work properly, please start
 mongo. In case you need a different port you can configure that in the yaml
 file.
 
-
-Source Installation for Developers
-----------------------------------
-
-As a developer you want o use our source instalation. For this reasone we
-wrote a cloudmesh-installer script that conveniently downloads the needed
-repositories. More documentation about it can be found at
-
--  https://github.com/cloudmesh/cloudmesh-installer
-
-First make sure you have a python virtual env as described in the pip section
-(see `Use a venv`_). Instead of using the pip install method, please use the
-following.
-
-Now you can install it with
-
-.. code:: bash
-
-   pip install cloudmesh-installer
-
-It is best to create an empty directory and decide which bundles to
-install
-
-.. code:: bash
-
-   mkdir cm
-   cd cm
-   cloudmesh-installer bundels
-
-Decide which bundels you like to install (let us assume you use storage)
-and simply say
-
-.. code:: bash
-
-   cloudmesh-installer git clone storage
-   cloudmesh-installer install storage -e
-
-It will take a while to install On newer machines 1 minte, on older
-significant longer. You can than test if
 
 
