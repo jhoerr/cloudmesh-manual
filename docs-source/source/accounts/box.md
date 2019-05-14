@@ -11,17 +11,17 @@ first visit the box home page as
 To sign up for the account, click on the top right hand corner of the
 box [homepage](https://www.box.com/home) on the `Get Started` button.
 
-![get\_started](images/box/get_started.png)
+![Get started](images/box/get_started.png)
 
 From the plans page, select the `Individual` tab and then click on the
 free option.
 
-![individual\_plan](images/box/individual_plan.png)
+![Individual plan](images/box/individual_plan.png)
 
 Fill out the required information and click `Submit`. You will receive a
 confirmation email with a link to verify your account.
 
-![information.png](images/box/information.png)
+![Ask for Information](images/box/information.png)
 
 Once you have verified your account and signed in, you will be taken to
 a page that asks you about how you are using Box. You may fill this out
@@ -31,8 +31,7 @@ or click `Skip this and go straight to Box` below the `Next` button.
 
 ## Creating an app
 
-Navigate to the [developer
-console](https://app.box.com/developers/console)
+Navigate to the [developer console](https://app.box.com/developers/console)
 
 -   <https://app.box.com/developers/console>
 
