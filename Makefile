@@ -171,6 +171,16 @@ clean:
 	rm -f ./docs/_sources/todo.md.txt ./docs/_sources/todo.rst.txt
 	rm -f ./docs/todo.html
 
+######################################################################
+# .cloudmesh
+######################################################################
+
+user:
+	echo "look at the makefile"
+#  - mkdir -p ~/.cloudmesh
+#  - wget -P ~/.cloudmesh https://raw.githubusercontent.com/cloudmesh/cloudmesh-common/master/cloudmesh/etc/cloudmesh.yaml
+#  - wget -P ~/.cloudmesh https://raw.githubusercontent.com/cloudmesh/cloudmesh-cloud/master/cloudmesh/etc/cloudmesh4.yaml
+#  - wget -P ~/.cloudmesh https://raw.githubusercontent.com/cloudmesh/cloudmesh-inventory/master/cloudmesh/inventory/etc/inventory.yaml
 
 ######################################################################
 # PYPI

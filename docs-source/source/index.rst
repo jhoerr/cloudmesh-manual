@@ -46,7 +46,7 @@ Cloudmesh Version 4
    :numbered:
    :caption: HPC
 
-   batch
+   hpc/batch
 
 .. toctree::
    :numbered:
