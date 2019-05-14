@@ -6,8 +6,8 @@ Cloudmesh Version 4
    :numbered:
    :caption: PREFACE
 
-   about
-   contributors
+   preface/about
+   preface/contributors
 
 .. toctree::
    :numbered:
@@ -16,42 +16,30 @@ Cloudmesh Version 4
    installation/install
    installation/quickstart
    configuration/configuration
-   yaml
-   mongo
+   installation/mongo
    configuration/encryption
-
-.. toctree::
-   :numbered:
-   :caption: COMPUTE
-
-   vm
-
-.. toctree::
-   :numbered:
-   :caption: STORAGE
-
-   README-storage.md
-   objectstore.md
-   README-storage-openapi.md
-
-.. toctree::
-   :numbered:
-   :caption: WORKFLOW
-
-   workflow
-   jupyter
-
-.. toctree::
-   :numbered:
-   :caption: HPC
-
-   batch
 
 .. toctree::
    :numbered:
    :caption: cmd5
 
    cmd5
+
+.. toctree::
+   :numbered:
+   :caption: SERVICES
+
+   group
+   vm/vm
+   vm/images
+   vm/flavor
+   storage/README-storage.md
+   storage/objectstore.md
+   storage/README-storage-openapi.md
+   workflow
+   jupyter
+   batch
+
 
 MAMUAL PAGES
 ============
@@ -112,10 +100,10 @@ CODE
    :numbered:
    :caption: CONTRIBUTION
 
-   conventions
-   management
-   pytest
-   todo	     
+   dev/conventions
+   dev/management
+   dev/pytest
+   dev/todo
 
 Cloud Provider Accounts
 ========================

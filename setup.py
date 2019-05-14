@@ -33,14 +33,12 @@ def readfile(filename):
 
 
 requiers = """
-sphinxemoji
+Pygments
 sphinx_rtd_theme
-sphinxcontrib-fulltoc
-sphinx-prompt
+recommonmark 
 cloudmesh-common
 cloudmesh-cmd5
 cloudmesh-sys
-pygments
 """.split("\n")
 
 # dependency_links = ['http://github.com/nicolaiarocci/eve.git@develop']

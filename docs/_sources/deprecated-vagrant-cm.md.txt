@@ -14,56 +14,45 @@ directories and Vagrantfiles in a bit inconvenient also fo us, so we
 provided wrappers and utelize the design of vagrant to our advantage
 while only exposing the needed functionality.
 
-Manual Page
------------
 
-    Usage:
-      cm-vbox version [--output=OUTPUT]
-      cm-vbox image list [--output=OUTPUT]
-      cm-vbox image find NAME
-      cm-vbox image add NAME
-      cm-vbox vm list [--output=OUTPUT] [-v]
-      cm-vbox vm delete NAME
-      cm-vbox vm config NAME
-      cm-vbox vm ip NAME [--all]
-      cm-vbox create NAME ([--memory=MEMORY]
-                           [--image=IMAGE]
-                           [--script=SCRIPT] | list)
-      cm-vbox vm boot NAME ([--memory=MEMORY]
-                            [--image=IMAGE]
-                            [--port=PORT]
-                            [--script=SCRIPT] | list)
-      cm-vbox vm ssh NAME [-e COMMAND]
-      cm-vbox -h | --help
+# Vagrant
 
-Source Code
------------
+This has to be reimplemented for Python 3
 
--   github.com/cloudmesh/vagrant
+```bash
+cms set cloud=vagrant
+```
 
-Prerequisits
-------------
 
-Make sure you have the python development libraries and pip installed
+For each named vbox a directory is created in whcih a Vagrant file is placed that than is used to interact with the virtual box
+The location of teh directory is ~/.cloudmesh/vagrant/NAME.
 
-### Ubuntu
 
-    sudo apt-get install python-dev
-    sudo apt-get install python-pip
+If you set however the cloud to vbox you can save yourself the vbox command in consecutive calls and just use
 
-Inastall from pip
------------------
 
-    pip install cloudmesh_vagrant
 
-Install from github
--------------------
 
-    mkdir cloudmesh
-    cd cloudmesh
-    git clone https://github.com/cloudmesh/vagrant
-    cd vagrant
-    python setup.py install
+```
+Usage:
+  cms version [--output=OUTPUT]
+  cms image list [--output=OUTPUT]
+  cms image find NAME
+  cms image add NAME
+  cms vm list [--output=OUTPUT] [-v]
+  cms vm delete NAME
+  cms vm config NAME
+  cms vm ip NAME [--all]
+  cms create NAME ([--memory=MEMORY]
+                       [--image=IMAGE]
+                       [--script=SCRIPT] | list)
+  cms vm boot NAME ([--memory=MEMORY]
+                        [--image=IMAGE]
+                        [--port=PORT]
+                        [--script=SCRIPT] | list)
+  cms vm ssh NAME [-e COMMAND]
+```
+
 
 Examples
 --------

@@ -1,6 +1,5 @@
-Jupyter Integration (proposed)
-==============================
-
+Jupyter Integration
+===================
 
 .. todo:: The jupyter integration was available in an earlier ersion of
           cloudmesh and we need to make sure that ut also works here.
@@ -14,11 +13,13 @@ Any cms command can be run via the shell
 
 .. code:: bash
 
-    [1] !cms set cloud=AWS
-    [2] !cms vm start
+   [1] !cms set cloud=AWS
+   [2] !cms vm star
 
-API command shell access (proposed)
+A Command Shells access (proposed)
 -----------------------------------
+
+.. todo:: Make sure the shell() command is implemented
 
 To use a more pythonic apporach you can do
 
@@ -33,15 +34,15 @@ To use a more pythonic apporach you can do
 
     cloudmesh.shell(script)
 
-API calls (ok)
---------------
+API calls
+---------
 
 To use the specific API calls, look at the manaul or the tests. To list
 for example the flavors of a cloud you can use:
 
 .. code:: python
 
-    from cloudmesh.compute.libcloud.Provider import Provider 
+    from cloudmesh.compute.libcloud.Provider import Provider
     from cloudmesh.common.Printer import Printer
     from pprint import pprint
 

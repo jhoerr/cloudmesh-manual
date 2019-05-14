@@ -11,28 +11,39 @@ Now you can create an empty database with
 
 .. code:: bash
 
-    $ cms admin mongo create
+    cms admin mongo create
 
 Next, you need to start it with the command
 
 .. code:: bash
 
-    $ cms admin mongo start
+    cms admin mongo start
 
 Now you can interact with it to find out the status, the stats, and the
 database listing with the commands
 
 .. code:: bash
 
-    $ cms admin mongo status
-    $ cms admin mongo stats
-    $ cms admin mongo list
+    cms admin mongo status
+    cms admin mongo stats
+    cms admin mongo list
 
 To stop it from running use the command
 
 .. code:: bash
 
-    $ cms admin mongo stop
+    cms admin mongo stop
+
+
+To backup and load from the backup you can use:
+
+.. todo:: the dmin backup needs to be tested.
+
+:: code:: bash
+
+    cms admin mongo save [--file=FILE]
+    cms admin mongo load [--file=FILE]
+
 
 The database will be started based-on the information as specified in
 ``~/.cloudmesh/cloudmesh4.yaml``. An example is
@@ -64,7 +75,7 @@ manually after install
 
 .. code:: bash
 
-    $ cms admin mongo install
+    cms admin mongo install
 
 Database Decorator
 ------------------

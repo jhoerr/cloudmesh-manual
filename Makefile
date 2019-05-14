@@ -103,7 +103,7 @@ manual:
 	cms man --kind=rst vdir > docs-source/source/manual/storage/vdir.rst
 
 authors:
-	bin/authors.py > docs-source/source/authors.md
+	bin/authors.py > docs-source/source/preface/authors.md
 
 doc: authors
 	mv ~/.cloudmesh/cloudmesh4.yaml ~/.cloudmesh/cloudmesh4.yaml-tmp 

@@ -6,8 +6,8 @@ Cloudmesh Version 4
    :numbered:
    :caption: PREFACE
 
-   about
-   contributors
+   preface/about
+   preface/contributors
 
 .. toctree::
    :numbered:
@@ -16,15 +16,17 @@ Cloudmesh Version 4
    installation/install
    installation/quickstart
    configuration/configuration
-   yaml
-   mongo
+   installation/mongo
    configuration/encryption
 
 .. toctree::
    :numbered:
-   :caption: COMPUTE
+   :caption: SERVICES
 
+   group
    vm
+   images
+   flavor
 
 .. toctree::
    :numbered:
@@ -112,10 +114,10 @@ CODE
    :numbered:
    :caption: CONTRIBUTION
 
-   conventions
-   management
-   pytest
-   todo	     
+   dev/conventions
+   dev/management
+   dev/pytest
+   dev/todo
 
 Cloud Provider Accounts
 ========================
