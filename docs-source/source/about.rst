@@ -18,18 +18,36 @@ needs by the user.
 Features
 --------
 
-- `useful common <https://github.com/cloudmesh/cloudmesh-common>`_ programming
-  library to make it easy to interface with the system
-- extensible command line and shell with
-  `cmd5 <https://github.com/cloudmesh/cloudmesh-cmd5>`_
-- convenient `installer <https://github.com/cloudmesh/cloudmesh-installer>`_
-  for developers
-- `MongoDB <https://github.com/cloudmesh/cloudmesh-cloud>`_ as a backend for caching
-- `Cloud Providers <https://github.com/cloudmesh/cloudmesh-cloud>`_ , AWS, Azure, Google, Openstack
--  A cloud `workflow plugin <https://github.com/cloudmesh/cloudmesh-workflow>`_
--  AWS `emr <https://github.com/cloudmesh/cloudmesh-emr>`_ plugin
--  A plugin for `Storage providers <https://github.com/cloudmesh/cloudmesh-storage>`_
--  OpenAPI based REST service interfaces
+.. list-table:: Shell
+   :widths: 25 75
+   :header-rows: 1
+
+   * - Library
+     - Description
+   * - Common
+     - `useful common <https://github.com/cloudmesh/cloudmesh-common>`_
+       programming library to make it easy to interface with the system
+   * - Shell
+     - cmd5 extensible command line and shell with
+       `cmd5 <https://github.com/cloudmesh/cloudmesh-cmd5>`_
+   * - Installer
+     - convenient `installer <https://github.com/cloudmesh/cloudmesh-installer>`_
+       for developers
+   * - Database
+     - `MongoDB <https://github.com/cloudmesh/cloudmesh-cloud>`_ as a
+       backend for caching
+   * - Cloud
+     - `Cloud Providers <https://github.com/cloudmesh/cloudmesh-cloud>`_ ,
+       AWS, Azure, Google, Openstack
+   * - Workflow
+     - A cloud `workflow plugin <https://github.com/cloudmesh/cloudmesh-workflow>`_
+   * - Map/Reduce
+     - AWS `emr <https://github.com/cloudmesh/cloudmesh-emr>`_
+       plugin
+   * - Storage
+     - A plugin for `Storage providers <https://github.com/cloudmesh/cloudmesh-storage>`_
+   * - OpenApi
+     - OpenAPI based REST service interfaces
 
 Roadmap for Future Activities
 -----------------------------
