@@ -7,7 +7,10 @@ from the templace located at
 
 -  https://github.com/cloudmesh/cloudmesh-cloud/blob/master/cloudmesh/etc/cloudmesh4.yaml
 
-You can customize the file in your local directory.
+You can customize the file.
+
+
+
 
 MongoDB
 -------
@@ -450,7 +453,7 @@ REST
 TBD
 
 Log File
--------------------
+--------
 
 .. note::  Previos versions of cloudmesh had a sophisticated logging feature.
            This version has this feature not yet made available. Implement it
@@ -460,3 +463,41 @@ Log files are stored by default in ``~/.cloudmesh/log`` The directory
 can be specified in the yaml file.
 
 
+
+Advanced Yaml Variables
+-----------------------
+
+One of the features of the cloudmesh yaml framework is that it allows you to
+use previously defined attributes in the yaml file itself. Thus if an
+attribute value contains for example  `"{cloudmesh.attribute}"` or andy
+environment variable, it will find the value for this dict entry in the yaml
+file and replace it
+with its value. For example. let us assume the yaml file contains:
+
+::
+
+    cloudmesh:
+      profile:
+        name: Gregor
+      cloud:
+        aws:
+          username: "{cloudmesh.profile.name}"
+          key: ~/.ssh/id_rsa
+          dir: $HOME
+          current: .
+
+cloudmesg will replace the will result be transformed with
+
+
+::
+    cloudmesh:
+      profile:
+        name: Gregor
+      cloud:
+        aws:
+          username: "Gregor"
+          key: /home/gergor/.ssh/id_rsa
+          dir: /home/gregor
+          current: /home/gregor/github/cm
+
+This feature is naturally very useful for creating templates for users
