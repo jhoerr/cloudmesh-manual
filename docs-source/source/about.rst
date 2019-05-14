@@ -18,27 +18,23 @@ needs by the user.
 Features
 --------
 
--  useful common programming library to make it easy to interface with
-   the system https://github.com/cloudmesh/cloudmesh-common
--  extensible cmondline and shell with cmd5
-   https://github.com/cloudmesh/cloudmesh-cmd5
--  convenient installer for developers
-   https://github.com/cloudmesh/cloudmesh-installer
--  MongoDB as a backend for caching
-   https://github.com/cloudmesh/cloudmesh-cloud
--  Cloud Providers, AWS, Azure, Google, Openstack
-   https://github.com/cloudmesh/cloudmesh-cloud
--  A cloud workflow plugin
-   https://github.com/cloudmesh/cloudmesh-workflow
--  AWS emr plugin https://github.com/cloudmesh/cloudmesh-emr
--  A plugin for Storage providers
-   https://github.com/cloudmesh/cloudmesh-storage
+- `useful common <https://github.com/cloudmesh/cloudmesh-common>`_ programming
+  library to make it easy to interface with the system
+- extensible command line and shell with
+  `cmd5 <https://github.com/cloudmesh/cloudmesh-cmd5>`_
+- convenient `installer <https://github.com/cloudmesh/cloudmesh-installer>`_
+  for developers
+- `MongoDB <https://github.com/cloudmesh/cloudmesh-cloud>`_ as a backend for caching
+- `Cloud Providers <https://github.com/cloudmesh/cloudmesh-cloud>`_ , AWS, Azure, Google, Openstack
+-  A cloud `workflow plugin <https://github.com/cloudmesh/cloudmesh-workflow>`_
+-  AWS `emr <https://github.com/cloudmesh/cloudmesh-emr>`_ plugin
+-  A plugin for `Storage providers <https://github.com/cloudmesh/cloudmesh-storage>`_
 -  OpenAPI based REST service interfaces
 
 Roadmap for Future Activities
 -----------------------------
 
--  A plugin for HPC systems https://github.com/cloudmesh/cloudmesh-batch
+-  A plugin for `HPC systems <https://github.com/cloudmesh/cloudmesh-batch>`_
 -  Storage: local provider
 -  Compute: virtual box, ssh, slurm
 -  A javascript based GUI
