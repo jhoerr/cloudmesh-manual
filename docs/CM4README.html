@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>4. CM4 Details (outdated) &mdash; Cloudmesh v4 alpha documentation</title>
+  <title>2. CM4 Details (outdated) &mdash; Cloudmesh v4 alpha documentation</title>
   
 
   
@@ -37,8 +37,8 @@
     <link rel="author" title="About these documents" href="about.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="5. AWS cm (outdated)" href="aws.html" />
-    <link rel="prev" title="3. Vagrant (outdated)" href="vagrant.html" /> 
+    <link rel="next" title="3. REST Service (outdated)" href="ufo.html" />
+    <link rel="prev" title="1. Vagrant (outdated)" href="vagrant.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -117,13 +117,9 @@
 <li class="toctree-l1"><a class="reference internal" href="workflow.html">1. Infrastructure Workflow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="jupyter.html">2. Jupyter Integration (proposed)</a></li>
 </ul>
-<p class="caption"><span class="caption-text">HPC</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="batch.html">1. Batch</a></li>
-</ul>
 <p class="caption"><span class="caption-text">cmd5</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="cmd5.html">1. CMD5 Integartion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cmd5.html">1. CMD5</a></li>
 </ul>
 <p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
 <ul>
@@ -160,17 +156,16 @@
 <li class="toctree-l1"><a class="reference internal" href="code/commands.html">7. Commands</a></li>
 <li class="toctree-l1"><a class="reference internal" href="code/inventory.html">8. Inventory</a></li>
 <li class="toctree-l1"><a class="reference internal" href="code/storage.html">9. cloudmesh-storage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="code/objstorage.html">10. cloudmesh-objstorage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="code/cloud.html">11. cloudmesh-cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="code/batch.html">12. cloudmesh-batch</a></li>
-<li class="toctree-l1"><a class="reference internal" href="code/emr.html">13. cloudmesh-emr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code/cloud.html">10. cloudmesh-cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code/batch.html">11. cloudmesh-batch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code/emr.html">12. cloudmesh-emr</a></li>
 </ul>
 <p class="caption"><span class="caption-text">CONTRIBUTION</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="conventions.html">1. Code Conventions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="management.html">2. Code Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="management.html#documentation-management">3. Documentation Management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="management.html#version-managemt">4. Version Managemt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="management.html#version-management">4. Version Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pytest.html">5. Pytest</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Cloud Accounts</span></p>
@@ -183,53 +178,191 @@
 </ul>
 <p class="caption"><span class="caption-text">Outdated:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="goal.html">1. Goal (outdated)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="goal.html#manual-cloudmesh-multi-service-data-access">2. Manual: Cloudmesh Multi Service Data Access</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vagrant.html">3. Vagrant (outdated)</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">4. CM4 Details (outdated)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#extra-vargrant">4.1. Extra: Vargrant</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#what-we-have-implemented">4.2. What we have implemented</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#the-preparation-for-installing-cloudmesh-david">4.2.1. The Preparation for installing cloudmesh (David)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#the-configuration-files-and-some-relative-function-classes-sachith">4.2.2. The Configuration files and some relative function classes (Sachith)</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#use-the-configurations-file">4.2.2.1. Use the Configurations file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vagrant.html">1. Vagrant (outdated)</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2. CM4 Details (outdated)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#extra-vargrant">2.1. Extra: Vargrant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-we-have-implemented">2.2. What we have implemented</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#the-preparation-for-installing-cloudmesh-david">2.2.1. The Preparation for installing cloudmesh (David)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#the-configuration-files-and-some-relative-function-classes-sachith">2.2.2. The Configuration files and some relative function classes (Sachith)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#use-the-configurations-file">2.2.2.1. Use the Configurations file</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#using-the-counter-file">4.2.3. Using the Counter file</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#using-the-counter">4.2.3.1. Using the counter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-the-counter-file">2.2.3. Using the Counter file</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#using-the-counter">2.2.3.1. Using the counter</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#the-mongodb-database-in-cloudmesh-yu">4.2.4. The MongoDB Database in <code class="docutils literal notranslate"><span class="pre">cloudmesh</span></code> (Yu)</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#data-scheme-in-mongodb">4.2.4.1. Data Scheme in MongoDB</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#security-in-mongodb">4.2.4.2. Security in MongoDB</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#install-mongodb-into-local">4.2.4.3. Install MongoDB Into Local</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#insert-and-update-documents-in-mongodb">4.2.4.4. Insert and Update Documents in MongoDB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#the-mongodb-database-in-cloudmesh-yu">2.2.4. The MongoDB Database in <code class="docutils literal notranslate"><span class="pre">cloudmesh</span></code> (Yu)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#data-scheme-in-mongodb">2.2.4.1. Data Scheme in MongoDB</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#security-in-mongodb">2.2.4.2. Security in MongoDB</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#install-mongodb-into-local">2.2.4.3. Install MongoDB Into Local</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#insert-and-update-documents-in-mongodb">2.2.4.4. Insert and Update Documents in MongoDB</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#the-virtual-machine-provider">4.2.5. The Virtual Machine Provider</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#execute-command-in-mongodb">4.2.5.1. Execute Command in  MongoDB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#the-virtual-machine-provider">2.2.5. The Virtual Machine Provider</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#execute-command-in-mongodb">2.2.5.1. Execute Command in  MongoDB</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#id1">4.2.6. 4. The Virtual Machine Provider</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#aws-vm-operations-yu">4.2.7. AWS VM Operations (Yu)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#azure-vm-operation-david">4.2.8. Azure VM Operation (David)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#chameleon-vm-operation-rui-and-kimball">4.2.9. Chameleon VM Operation (Rui and Kimball)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#vm-refactor-rui">4.2.10. VM Refactor (Rui)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">2.2.6. 4. The Virtual Machine Provider</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#aws-vm-operations-yu">2.2.7. AWS VM Operations (Yu)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#azure-vm-operation-david">2.2.8. Azure VM Operation (David)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#chameleon-vm-operation-rui-and-kimball">2.2.9. Chameleon VM Operation (Rui and Kimball)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vm-refactor-rui">2.2.10. VM Refactor (Rui)</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#flask-rest-api-sachith">4.3. Flask Rest API (Sachith)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#pre-requisites">4.3.1. Pre-requisites</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#how-to-run-the-rest-api">4.3.2. How to run the REST API</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#api">4.3.3. API</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#examples">4.3.4. Examples</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#dev-restricting-certain-ips-for-certain-rest-calls">4.3.5. Dev - restricting certain ips for certain rest calls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#flask-rest-api-sachith">2.3. Flask Rest API (Sachith)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pre-requisites">2.3.1. Pre-requisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-to-run-the-rest-api">2.3.2. How to run the REST API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#api">2.3.3. API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#examples">2.3.4. Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dev-restricting-certain-ips-for-certain-rest-calls">2.3.5. Dev - restricting certain ips for certain rest calls</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#extra-run-command-script-in-aws">4.4. Extra: Run Command/Script in AWS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#extra-run-command-script-in-aws">2.4. Extra: Run Command/Script in AWS</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="aws.html">5. AWS cm (outdated)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ufo.html">6. REST Service (outdated)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vcluster.html">7. Virtual Cluster (in progress)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ufo.html">3. REST Service (outdated)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vcluster.html">4. Virtual Cluster (in progress)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">PREFACE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="about.html">1. About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributors.html">2. Contributors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="todo.html">3. ToDo</a></li>
+</ul>
+<p class="caption"><span class="caption-text">INSTALLATION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation/install.html">1. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation/quickstart.html">2. Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration/configuration.html">3. Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="yaml.html">4. Cloudmesh yaml file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mongo.html">5. Cloudmesh Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration/encryption.html">6. Cloudmesh Yaml file Encrytion</a></li>
+</ul>
+<p class="caption"><span class="caption-text">COMPUTE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="vm.html">1. Virtual Machine Management</a></li>
+</ul>
+<p class="caption"><span class="caption-text">STORAGE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="README-storage.html">1. Cloudmesh Multi Cloud Storage Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="README-storage.html#cloudmesh-storage-module">2. Cloudmesh Storage Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="objectstore.html">3. Object Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="README-storage-openapi.html">4. Cloudmesh Multi Cloud Open API Interface</a></li>
+</ul>
+<p class="caption"><span class="caption-text">WORKFLOW</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="workflow.html">1. Infrastructure Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jupyter.html">2. Jupyter Integration (proposed)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">HPC</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="hpc/batch.html">1. Batch</a></li>
+</ul>
+<p class="caption"><span class="caption-text">cmd5</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="cmd5.html">1. CMD5</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="reference-card.html">1. Reference Card (proposed)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual/commands.html">2. Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual-cmd5.html">3. Manual Cmd5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual-group.html">4. Manual Group</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual-compute.html">5. Compute Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual-storage.html">6. Storage Manual Pages</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Database</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="database.html">1. Cloudmesh Database</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Database</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="benchmarks/README.html">1. Benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="benchmarks/awsec2-vm-management-benchmark.html">2. AWS EC2 VM Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="benchmarks/awsec2_benchmark_ubuntu.html">3. AWS EC2 VM Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="benchmarks/awss3-storage-benchmark.html">4. AWS S3 File Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="benchmarks/azure-storage-benchmark.html">5. Azure Blob Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="benchmarks/box.html">6. Benchmark results for box Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="benchmarks/emr.html">7. AWS EMR Benchmarking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="benchmarks/test_compute_database.html">8. AWS EC2 Compute Database</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CODE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="code/code.html">1. Code Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code/common.html">2. Common</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code/cmd5.html">3. CMD5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code/cloudmesh.html">4. Cloudmesh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code/management.html">5. Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code/mongo.html">6. Mongo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code/commands.html">7. Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code/inventory.html">8. Inventory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code/storage.html">9. cloudmesh-storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code/cloud.html">10. cloudmesh-cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code/batch.html">11. cloudmesh-batch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code/emr.html">12. cloudmesh-emr</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CONTRIBUTION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="conventions.html">1. Code Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="management.html">2. Code Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="management.html#documentation-management">3. Documentation Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="management.html#version-management">4. Version Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pytest.html">5. Pytest</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Cloud Accounts</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="accounts/aws.html">1. AWS Account Creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="accounts/azure.html">2. Azure Account Creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="accounts/google.html">3. Google Storage Providers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="accounts/box.html">4. Setting Up Your Box Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="accounts/accountcreation-old.html">5. VM Providers (outdated)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Outdated:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="vagrant.html">1. Vagrant (outdated)</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2. CM4 Details (outdated)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#extra-vargrant">2.1. Extra: Vargrant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-we-have-implemented">2.2. What we have implemented</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#the-preparation-for-installing-cloudmesh-david">2.2.1. The Preparation for installing cloudmesh (David)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#the-configuration-files-and-some-relative-function-classes-sachith">2.2.2. The Configuration files and some relative function classes (Sachith)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#use-the-configurations-file">2.2.2.1. Use the Configurations file</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#using-the-counter-file">2.2.3. Using the Counter file</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#using-the-counter">2.2.3.1. Using the counter</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#the-mongodb-database-in-cloudmesh-yu">2.2.4. The MongoDB Database in <code class="docutils literal notranslate"><span class="pre">cloudmesh</span></code> (Yu)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#data-scheme-in-mongodb">2.2.4.1. Data Scheme in MongoDB</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#security-in-mongodb">2.2.4.2. Security in MongoDB</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#install-mongodb-into-local">2.2.4.3. Install MongoDB Into Local</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#insert-and-update-documents-in-mongodb">2.2.4.4. Insert and Update Documents in MongoDB</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#the-virtual-machine-provider">2.2.5. The Virtual Machine Provider</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#execute-command-in-mongodb">2.2.5.1. Execute Command in  MongoDB</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">2.2.6. 4. The Virtual Machine Provider</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#aws-vm-operations-yu">2.2.7. AWS VM Operations (Yu)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#azure-vm-operation-david">2.2.8. Azure VM Operation (David)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#chameleon-vm-operation-rui-and-kimball">2.2.9. Chameleon VM Operation (Rui and Kimball)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vm-refactor-rui">2.2.10. VM Refactor (Rui)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#flask-rest-api-sachith">2.3. Flask Rest API (Sachith)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pre-requisites">2.3.1. Pre-requisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-to-run-the-rest-api">2.3.2. How to run the REST API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#api">2.3.3. API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#examples">2.3.4. Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dev-restricting-certain-ips-for-certain-rest-calls">2.3.5. Dev - restricting certain ips for certain rest calls</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#extra-run-command-script-in-aws">2.4. Extra: Run Command/Script in AWS</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ufo.html">3. REST Service (outdated)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vcluster.html">4. Virtual Cluster (in progress)</a></li>
 </ul>
 
             
@@ -275,7 +408,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>4. CM4 Details (outdated)</li>
+      <li>2. CM4 Details (outdated)</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -295,7 +428,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="cm4-details-outdated">
-<h1>4. CM4 Details (outdated)<a class="headerlink" href="#cm4-details-outdated" title="Permalink to this headline">¶</a></h1>
+<h1>2. CM4 Details (outdated)<a class="headerlink" href="#cm4-details-outdated" title="Permalink to this headline">¶</a></h1>
 <p>In cloudmesh, we are using the <strong>Python</strong> tool to implement a
 program that could remotely control cloud nodes provided by different
 organizations and run experiments in parallel.</p>
@@ -310,20 +443,20 @@ sending the commands from <em><code class="docutils literal notranslate"><span c
 NoSQL database <strong>MongoDB</strong> into cloudmesh for managing the nodes and
 experiments.</p>
 <div class="section" id="extra-vargrant">
-<h2>4.1. Extra: Vargrant<a class="headerlink" href="#extra-vargrant" title="Permalink to this headline">¶</a></h2>
+<h2>2.1. Extra: Vargrant<a class="headerlink" href="#extra-vargrant" title="Permalink to this headline">¶</a></h2>
 <p>TODO: update the link</p>
 <p>Please refer to <a class="reference external" href="https://github.com/cloudmesh/cloudmesh-cloud/tree/master/cloudmesh-cloud/vagrant/README">here</a> to see how to setup
 Vagrant with cloudmesh.</p>
 </div>
 <div class="section" id="what-we-have-implemented">
-<h2>4.2. What we have implemented<a class="headerlink" href="#what-we-have-implemented" title="Permalink to this headline">¶</a></h2>
+<h2>2.2. What we have implemented<a class="headerlink" href="#what-we-have-implemented" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>the function to install <code class="docutils literal notranslate"><span class="pre">cms</span></code> and its required packages</p></li>
 <li><p>the function to manage the virtual machines from cloud service providers (Azure, AWS, and Openstack)</p></li>
 <li><p>the function to use <em>MongoDB</em> for saving data</p></li>
 </ul>
 <div class="section" id="the-preparation-for-installing-cloudmesh-david">
-<h3>4.2.1. The Preparation for installing cloudmesh (David)<a class="headerlink" href="#the-preparation-for-installing-cloudmesh-david" title="Permalink to this headline">¶</a></h3>
+<h3>2.2.1. The Preparation for installing cloudmesh (David)<a class="headerlink" href="#the-preparation-for-installing-cloudmesh-david" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>requriements.txt : the required packages</p></li>
 <li><p>setup.py</p></li>
@@ -341,22 +474,22 @@ Usage:
 </div>
 </div>
 <div class="section" id="the-configuration-files-and-some-relative-function-classes-sachith">
-<h3>4.2.2. The Configuration files and some relative function classes (Sachith)<a class="headerlink" href="#the-configuration-files-and-some-relative-function-classes-sachith" title="Permalink to this headline">¶</a></h3>
+<h3>2.2.2. The Configuration files and some relative function classes (Sachith)<a class="headerlink" href="#the-configuration-files-and-some-relative-function-classes-sachith" title="Permalink to this headline">¶</a></h3>
 <p>The cloudmesh4.yaml file contains all the configurations required for CM4 to run.
 By default it’s located in the Cloudmesh home directory (~/.cloudmesh/cloudmesh4.yaml).</p>
 <div class="section" id="use-the-configurations-file">
-<h4>4.2.2.1. Use the Configurations file<a class="headerlink" href="#use-the-configurations-file" title="Permalink to this headline">¶</a></h4>
+<h4>2.2.2.1. Use the Configurations file<a class="headerlink" href="#use-the-configurations-file" title="Permalink to this headline">¶</a></h4>
 <p>To use the configurations in CM4, you need to import the Config class and use the config
 object provided by that class to access and manipulate the configuration file.</p>
 <div class="section" id="getting-the-config-object">
-<h5>4.2.2.1.1. Getting the config object<a class="headerlink" href="#getting-the-config-object" title="Permalink to this headline">¶</a></h5>
+<h5>2.2.2.1.1. Getting the config object<a class="headerlink" href="#getting-the-config-object" title="Permalink to this headline">¶</a></h5>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cloudmesh.cloud.configuration.config</span> <span class="kn">import</span> <span class="n">Config</span>
 <span class="n">config</span> <span class="o">=</span> <span class="n">Config</span><span class="p">()</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;cloudmesh&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="getting-values">
-<h5>4.2.2.1.2. Getting values<a class="headerlink" href="#getting-values" title="Permalink to this headline">¶</a></h5>
+<h5>2.2.2.1.2. Getting values<a class="headerlink" href="#getting-values" title="Permalink to this headline">¶</a></h5>
 <p>To get values from the configurations, you can call level by level from top-down config.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">MONGO_HOST</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="s2">&quot;mongo&quot;</span><span class="p">][</span><span class="s2">&quot;MONGO_HOST&quot;</span><span class="p">]</span>
 </pre></div>
@@ -365,20 +498,20 @@ object provided by that class to access and manipulate the configuration file.</
 </div>
 </div>
 <div class="section" id="using-the-counter-file">
-<h3>4.2.3. Using the Counter file<a class="headerlink" href="#using-the-counter-file" title="Permalink to this headline">¶</a></h3>
+<h3>2.2.3. Using the Counter file<a class="headerlink" href="#using-the-counter-file" title="Permalink to this headline">¶</a></h3>
 <p>CM4 keeps track of all the VMs running using counters for each VM.
 The counter file is located at</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>~/.cloudmesh/counter.yaml
 </pre></div>
 </div>
 <div class="section" id="using-the-counter">
-<h4>4.2.3.1. Using the counter<a class="headerlink" href="#using-the-counter" title="Permalink to this headline">¶</a></h4>
+<h4>2.2.3.1. Using the counter<a class="headerlink" href="#using-the-counter" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cloudmesh.cloud.configuration.counter</span> <span class="kn">import</span> <span class="n">Counter</span>
 <span class="n">counter</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">()</span>
 </pre></div>
 </div>
 <div class="section" id="incrementing-and-decrementing-the-counter-values">
-<h5>4.2.3.1.1. Incrementing and Decrementing the counter values<a class="headerlink" href="#incrementing-and-decrementing-the-counter-values" title="Permalink to this headline">¶</a></h5>
+<h5>2.2.3.1.1. Incrementing and Decrementing the counter values<a class="headerlink" href="#incrementing-and-decrementing-the-counter-values" title="Permalink to this headline">¶</a></h5>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># to update a specific VM counter</span>
 <span class="n">counter</span><span class="o">.</span><span class="n">incr</span><span class="p">(</span><span class="s2">&quot;&lt;VM_NAME&gt;&quot;</span><span class="p">)</span>
 <span class="n">counter</span><span class="o">.</span><span class="n">decr</span><span class="p">(</span><span class="s2">&quot;&lt;VM_NAME&gt;&quot;</span><span class="p">)</span>
@@ -390,7 +523,7 @@ The counter file is located at</p>
 </div>
 </div>
 <div class="section" id="getting-and-setting-the-counter-values">
-<h5>4.2.3.1.2. Getting and Setting the counter values<a class="headerlink" href="#getting-and-setting-the-counter-values" title="Permalink to this headline">¶</a></h5>
+<h5>2.2.3.1.2. Getting and Setting the counter values<a class="headerlink" href="#getting-and-setting-the-counter-values" title="Permalink to this headline">¶</a></h5>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># to update a specific VM counter</span>
 <span class="n">counter</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;&lt;VM_NAME&gt;&quot;</span><span class="p">)</span>
 <span class="n">counter</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;&lt;VM_NAME&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">)</span>
@@ -400,7 +533,7 @@ The counter file is located at</p>
 </div>
 </div>
 <div class="section" id="the-mongodb-database-in-cloudmesh-yu">
-<h3>4.2.4. The MongoDB Database in <code class="docutils literal notranslate"><span class="pre">cloudmesh</span></code> (Yu)<a class="headerlink" href="#the-mongodb-database-in-cloudmesh-yu" title="Permalink to this headline">¶</a></h3>
+<h3>2.2.4. The MongoDB Database in <code class="docutils literal notranslate"><span class="pre">cloudmesh</span></code> (Yu)<a class="headerlink" href="#the-mongodb-database-in-cloudmesh-yu" title="Permalink to this headline">¶</a></h3>
 <p>We add the database into <code class="docutils literal notranslate"><span class="pre">cloudmesh</span></code> with two reasons:</p>
 <ul class="simple">
 <li><p>provide the information of nodes in different providers.</p></li>
@@ -433,7 +566,7 @@ command, and the output.</p></li>
 </li>
 </ul>
 <div class="section" id="data-scheme-in-mongodb">
-<h4>4.2.4.1. Data Scheme in MongoDB<a class="headerlink" href="#data-scheme-in-mongodb" title="Permalink to this headline">¶</a></h4>
+<h4>2.2.4.1. Data Scheme in MongoDB<a class="headerlink" href="#data-scheme-in-mongodb" title="Permalink to this headline">¶</a></h4>
 <p>There are three types of documents in MongoDB:</p>
 <ul>
 <li><p>Node information in <code class="docutils literal notranslate"><span class="pre">cloud</span></code> collection.
@@ -471,7 +604,7 @@ The document in <code class="docutils literal notranslate"><span class="pre">sta
 </ul>
 </div>
 <div class="section" id="security-in-mongodb">
-<h4>4.2.4.2. Security in MongoDB<a class="headerlink" href="#security-in-mongodb" title="Permalink to this headline">¶</a></h4>
+<h4>2.2.4.2. Security in MongoDB<a class="headerlink" href="#security-in-mongodb" title="Permalink to this headline">¶</a></h4>
 <p>For data security purpose, we enable the MongoDB security functionality in <code class="docutils literal notranslate"><span class="pre">cms</span></code>.</p>
 <p>When users first time start the <em>MongoDB</em>, they have to add an account and open an port to access all database in MongoDB. Because we save all nodes’ information into MongoDB inclduing the <em>Authorization</em> information. If your MongoDB is open to everyone, it is easy for hacker to steal your information. So you are requried to set the <em>username</em> and <em>password</em> for the security purpose.</p>
 <p>If you want to learn more about the <em>Security</em> in MongoDB, you can visit this <a class="reference external" href="https://docs.mongodb.com/manual/security/">page</a> or visit the brief introduction about the MongoDB</p>
@@ -479,7 +612,7 @@ The document in <code class="docutils literal notranslate"><span class="pre">sta
 <a class="reference external" href="https://medium.com/&#64;raj_adroit/mongodb-enable-authentication-enable-access-control-e8a75a26d332">enable MongoDB Security</a> option.</p>
 </div>
 <div class="section" id="install-mongodb-into-local">
-<h4>4.2.4.3. Install MongoDB Into Local<a class="headerlink" href="#install-mongodb-into-local" title="Permalink to this headline">¶</a></h4>
+<h4>2.2.4.3. Install MongoDB Into Local<a class="headerlink" href="#install-mongodb-into-local" title="Permalink to this headline">¶</a></h4>
 <p>If you want to know how to install MongoDB into local, you can review <a class="reference external" href="https://docs.mongodb.com/manual/installation/">Install MongoDB</a></p>
 <p>And if you want to use <code class="docutils literal notranslate"><span class="pre">cms</span></code> to help you install MongoDB, you have to update the information required for installing MongoDB into [<code class="docutils literal notranslate"><span class="pre">cloudmesh4.yaml</span></code>] file.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">cloudmesh-cloud/cmmongo/MongoDBController.py</span></code> has the functions to install MongoDB for Linux and Darwin system.</p>
@@ -501,7 +634,7 @@ The document in <code class="docutils literal notranslate"><span class="pre">sta
 </div>
 </div>
 <div class="section" id="insert-and-update-documents-in-mongodb">
-<h4>4.2.4.4. Insert and Update Documents in MongoDB<a class="headerlink" href="#insert-and-update-documents-in-mongodb" title="Permalink to this headline">¶</a></h4>
+<h4>2.2.4.4. Insert and Update Documents in MongoDB<a class="headerlink" href="#insert-and-update-documents-in-mongodb" title="Permalink to this headline">¶</a></h4>
 <p>We have different documents in different collections. The operations in <code class="docutils literal notranslate"><span class="pre">cloudmesh-cloud/vm/Vm.py</span></code> will call <code class="docutils literal notranslate"><span class="pre">mongoDB.py</span></code> to accomplish
 inserting and updating the document.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>insert_cloud_document(document) : insert the document into &#39;cloud&#39; collection
@@ -522,9 +655,9 @@ delete_document(collection_name, key, value) : delete the document satisfied wit
 </div>
 </div>
 <div class="section" id="the-virtual-machine-provider">
-<h3>4.2.5. The Virtual Machine Provider<a class="headerlink" href="#the-virtual-machine-provider" title="Permalink to this headline">¶</a></h3>
+<h3>2.2.5. The Virtual Machine Provider<a class="headerlink" href="#the-virtual-machine-provider" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="execute-command-in-mongodb">
-<h4>4.2.5.1. Execute Command in  MongoDB<a class="headerlink" href="#execute-command-in-mongodb" title="Permalink to this headline">¶</a></h4>
+<h4>2.2.5.1. Execute Command in  MongoDB<a class="headerlink" href="#execute-command-in-mongodb" title="Permalink to this headline">¶</a></h4>
 <p>To grant users more power in manipulating their local MongoDB database, we also
 add functions for users to execute their customized mongoDB command as if they can
 use mongoDB client throught terminal by db_command(command) function.
@@ -538,7 +671,7 @@ db_connection: test connection to local mongoDB host
 </div>
 </div>
 <div class="section" id="id1">
-<h3>4.2.6. 4. The Virtual Machine Provider<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<h3>2.2.6. 4. The Virtual Machine Provider<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>In <code class="docutils literal notranslate"><span class="pre">cloudmesh</span></code>, we developed the <code class="docutils literal notranslate"><span class="pre">cloudmesh-cloud/vm/Vm.py</span></code> class to implement the operations for different virtual machines from AWS,
 Azure, and Chameleon by using the python library <a class="reference external" href="https://libcloud.apache.org"><em>Apache Libcloud</em></a> to interact with
 cloud service providers.</p>
@@ -559,7 +692,7 @@ cloud service providers.</p>
 <p>Below we list some sample of running these functions for virtual machines in  AWS, Azure and Openstack.</p>
 </div>
 <div class="section" id="aws-vm-operations-yu">
-<h3>4.2.7. AWS VM Operations (Yu)<a class="headerlink" href="#aws-vm-operations-yu" title="Permalink to this headline">¶</a></h3>
+<h3>2.2.7. AWS VM Operations (Yu)<a class="headerlink" href="#aws-vm-operations-yu" title="Permalink to this headline">¶</a></h3>
 <p>Before using the AWS Vm code, user has to update their AWS information into <code class="docutils literal notranslate"><span class="pre">cloudmesh4.yaml</span></code> file in <em>etc</em> folder.</p>
 <p>The <em>Libcloud</em> library has enough methods to support the operations for managing virtual machines in AWS. We use a
 <code class="docutils literal notranslate"><span class="pre">cloudmesh-cloud/vm/Aws.py</span></code> to create the driver based on the configuration to connect to AWS.</p>
@@ -641,10 +774,10 @@ True
 </div>
 </div>
 <div class="section" id="azure-vm-operation-david">
-<h3>4.2.8. Azure VM Operation (David)<a class="headerlink" href="#azure-vm-operation-david" title="Permalink to this headline">¶</a></h3>
+<h3>2.2.8. Azure VM Operation (David)<a class="headerlink" href="#azure-vm-operation-david" title="Permalink to this headline">¶</a></h3>
 </div>
 <div class="section" id="chameleon-vm-operation-rui-and-kimball">
-<h3>4.2.9. Chameleon VM Operation (Rui and Kimball)<a class="headerlink" href="#chameleon-vm-operation-rui-and-kimball" title="Permalink to this headline">¶</a></h3>
+<h3>2.2.9. Chameleon VM Operation (Rui and Kimball)<a class="headerlink" href="#chameleon-vm-operation-rui-and-kimball" title="Permalink to this headline">¶</a></h3>
 <p>Same as above, before using the VM Openstack functionalities,
 user has to update their Openstack information into the <code class="docutils literal notranslate"><span class="pre">cloudmesh4.yaml</span></code> file (~/.cloudmesh/cloudmesh.yaml by macOS convention).
 It is also important to notice that openstack has various providers.
@@ -670,7 +803,7 @@ Config has been updated.
 </div>
 </div>
 <div class="section" id="vm-refactor-rui">
-<h3>4.2.10. VM Refactor (Rui)<a class="headerlink" href="#vm-refactor-rui" title="Permalink to this headline">¶</a></h3>
+<h3>2.2.10. VM Refactor (Rui)<a class="headerlink" href="#vm-refactor-rui" title="Permalink to this headline">¶</a></h3>
 <p>In addition, in order to offer more flexibilities to our users, we also developed vmrefactor (<code class="docutils literal notranslate"><span class="pre">cloudmesh-cloud/vm/VmRefactor.py</span></code>)
 to allow users to customize the flavors of their running instances and services in different providers.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>1. resize(vm_name, size) : resize the virtual machine with specified size object
@@ -687,10 +820,10 @@ thier management tasks especially when they have many different tasks on the run
 </div>
 </div>
 <div class="section" id="flask-rest-api-sachith">
-<h2>4.3. Flask Rest API (Sachith)<a class="headerlink" href="#flask-rest-api-sachith" title="Permalink to this headline">¶</a></h2>
+<h2>2.3. Flask Rest API (Sachith)<a class="headerlink" href="#flask-rest-api-sachith" title="Permalink to this headline">¶</a></h2>
 <p>The cloudmesh REST Api is built using flask and provides the cloud information retrieval functionality through HTTP calls.</p>
 <div class="section" id="pre-requisites">
-<h3>4.3.1. Pre-requisites<a class="headerlink" href="#pre-requisites" title="Permalink to this headline">¶</a></h3>
+<h3>2.3.1. Pre-requisites<a class="headerlink" href="#pre-requisites" title="Permalink to this headline">¶</a></h3>
 <p>Use pip install to install the following packages.</p>
 <ul class="simple">
 <li><p>Flask</p></li>
@@ -698,7 +831,7 @@ thier management tasks especially when they have many different tasks on the run
 </ul>
 </div>
 <div class="section" id="how-to-run-the-rest-api">
-<h3>4.3.2. How to run the REST API<a class="headerlink" href="#how-to-run-the-rest-api" title="Permalink to this headline">¶</a></h3>
+<h3>2.3.2. How to run the REST API<a class="headerlink" href="#how-to-run-the-rest-api" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms admin rest status
 $ cms admin rest start
 $ cms admin rest stop
@@ -730,7 +863,7 @@ $ cms admin rest stop
 </div>
 </div>
 <div class="section" id="api">
-<h3>4.3.3. API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h3>
+<h3>2.3.3. API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">/vms/</span></code> : Provides information on all the VMs.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">/vms/stopped</span></code>  : Provides information on all the stopped VMs.</p></li>
@@ -738,7 +871,7 @@ $ cms admin rest stop
 </ul>
 </div>
 <div class="section" id="examples">
-<h3>4.3.4. Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h3>
+<h3>2.3.4. Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>Retrieve information about a VM</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl localhost:5000/vms/i-0fad7e92ffea8b345
@@ -748,7 +881,7 @@ $ cms admin rest stop
 </ul>
 </div>
 <div class="section" id="dev-restricting-certain-ips-for-certain-rest-calls">
-<h3>4.3.5. Dev - restricting certain ips for certain rest calls<a class="headerlink" href="#dev-restricting-certain-ips-for-certain-rest-calls" title="Permalink to this headline">¶</a></h3>
+<h3>2.3.5. Dev - restricting certain ips for certain rest calls<a class="headerlink" href="#dev-restricting-certain-ips-for-certain-rest-calls" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">abort</span><span class="p">,</span> <span class="n">request</span>
 <span class="kn">from</span> <span class="nn">cm4.flask_rest_api.app</span> <span class="kn">import</span> <span class="n">app</span>
 
@@ -762,7 +895,7 @@ $ cms admin rest stop
 </div>
 </div>
 <div class="section" id="extra-run-command-script-in-aws">
-<h2>4.4. Extra: Run Command/Script in AWS<a class="headerlink" href="#extra-run-command-script-in-aws" title="Permalink to this headline">¶</a></h2>
+<h2>2.4. Extra: Run Command/Script in AWS<a class="headerlink" href="#extra-run-command-script-in-aws" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">cloudmesh-cloud/aws/CommandAWS.py</span></code> contains some methods to run commands/scripts from local to remote AWS virtual machines.
 Any command/script operations executed by <code class="docutils literal notranslate"><span class="pre">CommandAWS.py</span></code> would be saved into MongoDB.</p>
 <p>In <code class="docutils literal notranslate"><span class="pre">cloudmesh-cloud</span></code>, we use python running <em>ssh</em> client to connect the AWS virtual machines. Before running the commands
@@ -815,10 +948,10 @@ Running command /Users/yuluo/Desktop/cm.shin Instance base-cloudmesh-yuluo-5:
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="aws.html" class="btn btn-neutral float-right" title="5. AWS cm (outdated)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="ufo.html" class="btn btn-neutral float-right" title="3. REST Service (outdated)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="vagrant.html" class="btn btn-neutral float-left" title="3. Vagrant (outdated)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="vagrant.html" class="btn btn-neutral float-left" title="1. Vagrant (outdated)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
