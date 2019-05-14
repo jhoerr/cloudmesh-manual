@@ -19,7 +19,7 @@ it in cleartext. So make sure tour ssh-key has a passphrase.
 Prerequisits
 ------------
 
-YOu have an ssh key
+You have an ssh key
 
 Encryption
 ----------
