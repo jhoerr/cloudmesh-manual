@@ -104,7 +104,6 @@ CODE
    code/commands
    code/inventory
    code/storage
-   code/objstorage
    code/cloud
    code/batch
    code/emr
