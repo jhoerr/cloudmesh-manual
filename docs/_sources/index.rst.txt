@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Cloudmesh Version 4
 ===============================
 
@@ -153,3 +154,161 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
+=======
+Cloudmesh Version 4
+===============================
+
+
+.. toctree::
+   :numbered:
+   :caption: PREFACE
+
+   about
+   contributors
+   todo
+
+.. toctree::
+   :numbered:
+   :caption: INSTALLATION
+
+   installation/install
+   installation/quickstart
+   configuration/configuration
+   yaml
+   mongo
+   configuration/encryption
+
+.. toctree::
+   :numbered:
+   :caption: COMPUTE
+
+   vm
+
+.. toctree::
+   :numbered:
+   :caption: STORAGE
+
+   README-storage.md
+   objectstore.md
+   README-storage-openapi.md
+
+.. toctree::
+   :numbered:
+   :caption: WORKFLOW
+
+   workflow
+   jupyter
+
+.. toctree::
+   :numbered:
+   :caption: HPC
+
+   batch
+
+.. toctree::
+   :numbered:
+   :caption: cmd5
+
+   cmd5
+
+MAMUAL PAGES
+============
+
+.. toctree::
+   :numbered:
+   :caption: MANUAL PAGES
+
+   reference-card
+   manual/commands
+   manual-cmd5
+   manual-group
+   manual-compute
+   manual-storage
+
+DATABASE OBJECTS
+================
+
+.. toctree::
+   :numbered:
+   :caption: Database
+
+   database
+
+BENCHMARKS
+==========
+
+.. toctree::
+   :glob:
+   :numbered:
+   :caption: Database
+
+   benchmarks/*
+
+
+CODE
+====
+
+.. toctree::
+   :numbered:
+   :caption: CODE
+
+   code/code
+   code/common
+   code/cmd5
+   code/cloudmesh
+   code/management
+   code/mongo
+   code/commands
+   code/inventory
+   code/storage
+   code/objstorage
+   code/cloud
+   code/batch
+   code/emr
+
+
+.. toctree::
+   :numbered:
+   :caption: CONTRIBUTION
+
+   conventions
+   management
+   pytest
+
+Cloud Provider Accounts
+========================
+
+.. toctree::
+   :numbered:
+   :caption: Cloud Accounts
+
+   accounts/aws
+   accounts/azure
+   accounts/google
+   accounts/box
+   accounts/google-ufo
+   accounts/accountcreation-old
+
+
+Cloudmesh Outdated
+===============================
+
+.. toctree::
+   :numbered:
+   :caption: Outdated:
+
+   goal
+   vmproviders
+   vagrant
+   CM4README
+   aws
+   ufo
+   vcluster
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
+>>>>>>> f0fcbb6a6993beb73490923c13747422c8f6d12e
