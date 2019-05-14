@@ -1,6 +1,16 @@
 Installation
 ============
 
+Cloudmesh is easy to install. Dependent on your preferences you can choose an install from
+
+* pip if you are a cloudmesh user
+* source install if you are a developer
+
+At this time we do not recommend the conda install, as the conda packages are outdated at this time.
+
+Please read a section in this manual completly, and understand the items explained. Do not just copy an past
+text in your terminal and execute it as it could have unexpected consequences.
+
 Prerequisites
 -------------
 
@@ -11,8 +21,6 @@ Prerequisites
 
 .. _Use a venv:
 
-Use a venv
-~~~~~~~~~~
 
 We highly recommend that you use a python virtualenv such as ``venv`` to
 make sure you are not interfering with your system python. This is
@@ -95,7 +103,7 @@ pip, we recommend using pip for it also.
 Installation of mongod
 ----------------------
 
-First, you will need to install a ``cloudmesh4.yaml``file, if you have not
+First, you will need to install a ``cloudmesh4.yaml`` file, if you have not
 done this before. The easieast way to do so is with the command
 
 .. code:: bash
@@ -152,8 +160,6 @@ In case you need to stop it you can use the command
 However, please remember that for cloudmesh to work properly, please start
 mongo. In case you need a different port you can configure that in the yaml
 file.
-
-
 
 
 Source Installation for Developers

@@ -93,10 +93,7 @@
 <p class="caption"><span class="caption-text">INSTALLATION</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">1. Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#prerequisites">1.1. Prerequisites</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#use-a-venv">1.1.1. Use a venv</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#prerequisites">1.1. Prerequisites</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#installation-with-pip">1.2. Installation with Pip</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#anaconda-and-conda">1.3. Anaconda and Conda</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#installation-of-mongod">1.4. Installation of mongod</a></li>
@@ -108,25 +105,19 @@
 <li class="toctree-l1"><a class="reference internal" href="mongo.html">4. Cloudmesh Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../configuration/encryption.html">5. Cloudmesh Yaml file Encrytion</a></li>
 </ul>
-<p class="caption"><span class="caption-text">COMPUTE</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../vm.html">1. Virtual Machine Management</a></li>
-</ul>
-<p class="caption"><span class="caption-text">STORAGE</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../README-storage.html">1. Cloudmesh Multi Cloud Storage Interface</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../README-storage.html#cloudmesh-storage-module">2. Cloudmesh Storage Module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../objectstore.html">3. Object Storage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../README-storage-openapi.html">4. Cloudmesh Multi Cloud Open API Interface</a></li>
-</ul>
-<p class="caption"><span class="caption-text">WORKFLOW</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../workflow.html">1. Infrastructure Workflow</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../jupyter.html">2. Jupyter Integration (proposed)</a></li>
-</ul>
 <p class="caption"><span class="caption-text">cmd5</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../cmd5.html">1. CMD5</a></li>
+</ul>
+<p class="caption"><span class="caption-text">SERVICES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../group.html">1. Group command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vm/vm.html">2. Virtual Machine Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../storage/README-storage.html">3. Cloudmesh Multi Cloud Storage Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../storage/README-storage.html#cloudmesh-storage-module">4. Cloudmesh Storage Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../storage/objectstore.html">5. Object Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workflow.html">6. Infrastructure Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter.html">7. Jupyter Integration</a></li>
 </ul>
 <p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
 <ul>
@@ -136,10 +127,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../manual-group.html">4. Manual Group</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual-compute.html">5. Compute Manual Pages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual-storage.html">6. Storage Manual Pages</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Database</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../database.html">1. Cloudmesh Database</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Database</span></p>
 <ul>
@@ -186,10 +173,8 @@
 </ul>
 <p class="caption"><span class="caption-text">Outdated:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../vagrant.html">1. Vagrant (outdated)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../CM4README.html">2. CM4 Details (outdated)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ufo.html">3. REST Service (outdated)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../vcluster.html">4. Virtual Cluster (in progress)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CM4README.html">1. CM4 Details (outdated)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vcluster.html">2. Virtual Cluster (in progress)</a></li>
 </ul>
 
             
@@ -256,6 +241,14 @@
             
   <div class="section" id="installation">
 <h1>1. Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<p>Cloudmesh is easy to install. Dependent on your preferences you can choose an install from</p>
+<ul class="simple">
+<li><p>pip if you are a cloudmesh user</p></li>
+<li><p>source install if you are a developer</p></li>
+</ul>
+<p>At this time we do not recommend the conda install, as the conda packages are outdated at this time.</p>
+<p>Please read a section in this manual completly, and understand the items explained. Do not just copy an past
+text in your terminal and execute it as it could have unexpected consequences.</p>
 <div class="section" id="prerequisites">
 <h2>1.1. Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
@@ -264,9 +257,7 @@
 installed. Likely the code will work with earlier versions, but we
 do the development in python 3.7.3.</p>
 </div>
-<div class="section" id="use-a-venv">
-<span id="id1"></span><h3>1.1.1. Use a venv<a class="headerlink" href="#use-a-venv" title="Permalink to this headline">¶</a></h3>
-<p>We highly recommend that you use a python virtualenv such as <code class="docutils literal notranslate"><span class="pre">venv</span></code> to
+<p id="use-a-venv">We highly recommend that you use a python virtualenv such as <code class="docutils literal notranslate"><span class="pre">venv</span></code> to
 make sure you are not interfering with your system python. This is
 simple. For our purposes we assume that you use the directory ~/ENV3.
 Follow these steps first:</p>
@@ -279,7 +270,6 @@ Follow these steps first:</p>
 </pre></div>
 </div>
 <p>so the environment is always loaded. Now you are ready to install cloudmesh.</p>
-</div>
 </div>
 <div class="section" id="installation-with-pip">
 <h2>1.2. Installation with Pip<a class="headerlink" href="#installation-with-pip" title="Permalink to this headline">¶</a></h2>
@@ -332,7 +322,7 @@ pip, we recommend using pip for it also.</p>
 </div>
 <div class="section" id="installation-of-mongod">
 <h2>1.4. Installation of mongod<a class="headerlink" href="#installation-of-mongod" title="Permalink to this headline">¶</a></h2>
-<p>First, you will need to install a <a href="#id2"><span class="problematic" id="id3">``</span></a>cloudmesh4.yaml``file, if you have not
+<p>First, you will need to install a <code class="docutils literal notranslate"><span class="pre">cloudmesh4.yaml</span></code> file, if you have not
 done this before. The easieast way to do so is with the command</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms <span class="nb">help</span>
 </pre></div>

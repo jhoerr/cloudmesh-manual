@@ -21,39 +21,25 @@ Cloudmesh Version 4
 
 .. toctree::
    :numbered:
-   :caption: SERVICES
-
-   group
-   vm
-   images
-   flavor
-
-.. toctree::
-   :numbered:
-   :caption: STORAGE
-
-   README-storage.md
-   objectstore.md
-   README-storage-openapi.md
-
-.. toctree::
-   :numbered:
-   :caption: WORKFLOW
-
-   workflow
-   jupyter
-
-.. toctree::
-   :numbered:
-   :caption: HPC
-
-   batch
-
-.. toctree::
-   :numbered:
    :caption: cmd5
 
    cmd5
+
+.. toctree::
+   :numbered:
+   :caption: SERVICES
+
+   group
+   vm/vm
+   vm/images
+   vm/flavor
+   storage/README-storage.md
+   storage/objectstore.md
+   storage/README-storage-openapi.md
+   workflow
+   jupyter
+   batch
+
 
 MAMUAL PAGES
 ============

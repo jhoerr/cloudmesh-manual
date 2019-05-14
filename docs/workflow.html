@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>1. Infrastructure Workflow &mdash; Cloudmesh v4 alpha documentation</title>
+  <title>6. Infrastructure Workflow &mdash; Cloudmesh v4 alpha documentation</title>
   
 
   
@@ -36,8 +36,8 @@
   <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="2. Jupyter Integration (proposed)" href="jupyter.html" />
-    <link rel="prev" title="4. Cloudmesh Multi Cloud Open API Interface" href="README-storage-openapi.html" /> 
+    <link rel="next" title="7. Jupyter Integration" href="jupyter.html" />
+    <link rel="prev" title="5. Object Storage" href="storage/objectstore.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -98,35 +98,29 @@
 <li class="toctree-l1"><a class="reference internal" href="installation/mongo.html">4. Cloudmesh Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="configuration/encryption.html">5. Cloudmesh Yaml file Encrytion</a></li>
 </ul>
-<p class="caption"><span class="caption-text">COMPUTE</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="vm.html">1. Virtual Machine Management</a></li>
-</ul>
-<p class="caption"><span class="caption-text">STORAGE</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="README-storage.html">1. Cloudmesh Multi Cloud Storage Interface</a></li>
-<li class="toctree-l1"><a class="reference internal" href="README-storage.html#cloudmesh-storage-module">2. Cloudmesh Storage Module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="objectstore.html">3. Object Storage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="README-storage-openapi.html">4. Cloudmesh Multi Cloud Open API Interface</a></li>
-</ul>
-<p class="caption"><span class="caption-text">WORKFLOW</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">1. Infrastructure Workflow</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#database-objects">1.1. Database Objects</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#definition-collection">1.1.1. Definition Collection</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#running-flow-collection">1.1.2. Running Flow Collection</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#javascript-interface-proposed">1.2. Javascript Interface (proposed)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#rest">1.3. REST</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#resources">1.4. Resources</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="jupyter.html">2. Jupyter Integration (proposed)</a></li>
-</ul>
 <p class="caption"><span class="caption-text">cmd5</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="cmd5.html">1. CMD5</a></li>
+</ul>
+<p class="caption"><span class="caption-text">SERVICES</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="group.html">1. Group command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vm/vm.html">2. Virtual Machine Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="storage/README-storage.html">3. Cloudmesh Multi Cloud Storage Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="storage/README-storage.html#cloudmesh-storage-module">4. Cloudmesh Storage Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="storage/objectstore.html">5. Object Storage</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">6. Infrastructure Workflow</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#database-objects">6.1. Database Objects</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#definition-collection">6.1.1. Definition Collection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#running-flow-collection">6.1.2. Running Flow Collection</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#javascript-interface-proposed">6.2. Javascript Interface (proposed)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rest">6.3. REST</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#resources">6.4. Resources</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="jupyter.html">7. Jupyter Integration</a></li>
 </ul>
 <p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
 <ul>
@@ -136,10 +130,6 @@
 <li class="toctree-l1"><a class="reference internal" href="manual-group.html">4. Manual Group</a></li>
 <li class="toctree-l1"><a class="reference internal" href="manual-compute.html">5. Compute Manual Pages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="manual-storage.html">6. Storage Manual Pages</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Database</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="database.html">1. Cloudmesh Database</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Database</span></p>
 <ul>
@@ -186,10 +176,8 @@
 </ul>
 <p class="caption"><span class="caption-text">Outdated:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="vagrant.html">1. Vagrant (outdated)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="CM4README.html">2. CM4 Details (outdated)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ufo.html">3. REST Service (outdated)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vcluster.html">4. Virtual Cluster (in progress)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CM4README.html">1. CM4 Details (outdated)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vcluster.html">2. Virtual Cluster (in progress)</a></li>
 </ul>
 
             
@@ -235,7 +223,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>1. Infrastructure Workflow</li>
+      <li>6. Infrastructure Workflow</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -255,7 +243,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="infrastructure-workflow">
-<h1>1. Infrastructure Workflow<a class="headerlink" href="#infrastructure-workflow" title="Permalink to this headline">¶</a></h1>
+<h1>6. Infrastructure Workflow<a class="headerlink" href="#infrastructure-workflow" title="Permalink to this headline">¶</a></h1>
 <p>Cloudmesh supports an infrastructure <a class="reference external" href="https://github.com/cloudmesh/cloudmesh-flow">workflow</a> where users can specify python
 functions and map their execution on cloud infrastructure. The workflow
 feature allows you to define Python functions on a workflow class, and
@@ -292,12 +280,12 @@ write a specification for the sequence to execute your functions:</p>
 <p>Finally, after execution the results are stored in MongoDB to be visualized or
 consumed by later functions in the series.</p>
 <div class="section" id="database-objects">
-<h2>1.1. Database Objects<a class="headerlink" href="#database-objects" title="Permalink to this headline">¶</a></h2>
+<h2>6.1. Database Objects<a class="headerlink" href="#database-objects" title="Permalink to this headline">¶</a></h2>
 <p>There are two collections related to workflow objects. The first is for the
 definition of a flow, and the second for the status of a flow that is in
 progres.</p>
 <div class="section" id="definition-collection">
-<h3>1.1.1. Definition Collection<a class="headerlink" href="#definition-collection" title="Permalink to this headline">¶</a></h3>
+<h3>6.1.1. Definition Collection<a class="headerlink" href="#definition-collection" title="Permalink to this headline">¶</a></h3>
 <p>When you define a workflow, a new collection is created for the definition. For
 a workflow named “test”, this collection exists at “test-flow”. This collection
 contains objects that look like the following:</p>
@@ -324,7 +312,7 @@ contains objects that look like the following:</p>
 elements in a flow definition collection will have <code class="docutils literal notranslate"><span class="pre">status</span> <span class="pre">:</span> <span class="pre">&quot;defined&quot;</span></code>.</p>
 </div>
 <div class="section" id="running-flow-collection">
-<h3>1.1.2. Running Flow Collection<a class="headerlink" href="#running-flow-collection" title="Permalink to this headline">¶</a></h3>
+<h3>6.1.2. Running Flow Collection<a class="headerlink" href="#running-flow-collection" title="Permalink to this headline">¶</a></h3>
 <p>When a flow is started with</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms flow run
 </pre></div>
@@ -356,7 +344,7 @@ nodes finish their work.</p>
 </div>
 </div>
 <div class="section" id="javascript-interface-proposed">
-<h2>1.2. Javascript Interface (proposed)<a class="headerlink" href="#javascript-interface-proposed" title="Permalink to this headline">¶</a></h2>
+<h2>6.2. Javascript Interface (proposed)<a class="headerlink" href="#javascript-interface-proposed" title="Permalink to this headline">¶</a></h2>
 <p>We are looking for someone that would chose as its project to include a
 rendering of some DAG in javascript. The javascript library must be free to use.
 Nodes and edges must be able to be labeled.</p>
@@ -433,11 +421,11 @@ executing a command in teh vm ….</p>
 </div>
 </div>
 <div class="section" id="rest">
-<h2>1.3. REST<a class="headerlink" href="#rest" title="Permalink to this headline">¶</a></h2>
+<h2>6.3. REST<a class="headerlink" href="#rest" title="Permalink to this headline">¶</a></h2>
 <p>An OpenAPI specification for this is to be defined.</p>
 </div>
 <div class="section" id="resources">
-<h2>1.4. Resources<a class="headerlink" href="#resources" title="Permalink to this headline">¶</a></h2>
+<h2>6.4. Resources<a class="headerlink" href="#resources" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/xflr6/graphviz">https://github.com/xflr6/graphviz</a></p></li>
 <li><p><a class="reference external" href="http://visjs.org/examples/network/events/interactionEvents.html">http://visjs.org/examples/network/events/interactionEvents.html</a></p></li>
@@ -454,10 +442,10 @@ executing a command in teh vm ….</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="jupyter.html" class="btn btn-neutral float-right" title="2. Jupyter Integration (proposed)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="jupyter.html" class="btn btn-neutral float-right" title="7. Jupyter Integration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="README-storage-openapi.html" class="btn btn-neutral float-left" title="4. Cloudmesh Multi Cloud Open API Interface" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="storage/objectstore.html" class="btn btn-neutral float-left" title="5. Object Storage" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
