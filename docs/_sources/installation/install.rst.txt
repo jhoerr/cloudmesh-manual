@@ -13,6 +13,8 @@ text in your terminal and execute it as it could have unexpected consequences.
 
 The mongo installation has to be done by everyone.
 
+.. note:: At this time we recommend that you do the source install as we have not yet uploaded all packages to pypi.
+
 Prerequisites
 -------------
 
