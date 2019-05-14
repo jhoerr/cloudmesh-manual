@@ -22,8 +22,6 @@ Here we are especially interested in using the following services:
 We provide a step-by-step guide on how to create an AWS account through
 the AWS webpage to utilize these services.
 
-## Step-by-Step Guide
-
 First, we go to the AWS website
 
 -   <https://aws.amazon.com>

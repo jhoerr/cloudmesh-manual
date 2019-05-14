@@ -75,6 +75,23 @@ in which you can find the configuration file:
           command ``cms setup`` that does not only the yaml file, but also the
           mongo password
 
+Anaconda and Conda
+------------------
+
+We also have the base packages available as conda packages on conda hub
+in the chanel ``laszewski``. This includes
+
+-  cloudmesh-common
+-  cloudmesh-cmd5
+-  cloudmesh-sys
+
+Note that the packages will always be a behind the packages on pypi and
+especially the source distribution. FUrthermore, other packages are not yet
+uploaded. If you are interested in helping out with the conda packages, let
+us know. Please contact us if you need a new release. As conda supports alos
+pip, we recommend using pip for it also.
+
+	  
 Installation of mongod
 ----------------------
 
@@ -136,22 +153,6 @@ However, please remember that for cloudmesh to work properly, please start
 mongo. In case you need a different port you can configure that in the yaml
 file.
 
-
-Anaconda and Conda
-------------------
-
-We also have the base packages available as conda packages on conda hub
-in the chanel ``laszewski``. This includes
-
--  cloudmesh-common
--  cloudmesh-cmd5
--  cloudmesh-sys
-
-Note that the packages will always be a behind the packages on pypi and
-especially the source distribution. FUrthermore, other packages are not yet
-uploaded. If you are interested in helping out with the conda packages, let
-us know. Please contact us if you need a new release. As conda supports alos
-pip, we recommend using pip for it also.
 
 
 

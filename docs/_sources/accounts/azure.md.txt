@@ -18,9 +18,9 @@ in order to implement cloud computing or use other services;
 ## Azure Account
 
 You can choose either using your outlook email address to create a free
-trial account including \$200 credit and free access to most popular
+trial account including $200 credit and free access to most popular
 Azure products for 12 months, or using your euducational email adress to
-create a student account including \$100 credit.
+create a student account including $100 credit.
 
 If you want to create an azure account using your outlook email, you can
 go to the next site after creating an outlook email address at:
@@ -35,7 +35,7 @@ upgrade your account to a pay-as-you-go Azure subscription. If you
 forget to do so you will not be able to aceess Azure, So pleas add it to
 your calendar in order not to forget.
 
-!\[Start free\](images/azure/image1.png)
+![Start free](images/azure/image1.png)
 
 If you want to create an azure account using your educational email, you
 can go to the next site if you already have an .edu email address:
@@ -47,13 +47,13 @@ figure. By entering all required information, your account will be set
 up. If you use up all credits, you also need to upgrade your account to
 a pay-as-you-go Azure subscription to continue using other services.
 
-!\[Activate now\](images/azure/image2.png)
+![Activate now](images/azure/image2.png)
 
 As pointed out, to continue to use azure services after 30 days, you
 need to upgrade your account to a pay-as-you-go Azure subscription. In
 this case, you need to provide your information related to your credit
 card to complete the upgrade steps. Go to the next link and click on
-\`Purchase now\`:
+`Purchase now`:
 
 -   <https://azure.microsoft.com/en-us/offers/ms-azr-0003p/>
 
@@ -115,16 +115,16 @@ account. After you looged into the Azure portal at:
 
 You will be presented with a window such as
 
-!\[AZ-Portal\](images/azure-portal.png)
+![AZ-Portal](images/azure-portal.png)
 
 In the Azure window, click on `Create a resource` on the top
 left corner.
 
-!\[AZ-Resource\](images/azure-resource.png)
+![AZ-Resource](images/azure-resource.png)
 
 Now, select `Storage Account` from the options shown
 
-!\[AZ-Account\](images/azure-account.png)
+![AZ-Account](images/azure-account.png)
 
 Follow the following steps carefully:
 
