@@ -202,7 +202,7 @@ pip install -e .
 
 or you can apply it an a bundle with 
 
-```buildoutcfg
+```
 cloudmesh-installer install storage -e
 ```
 
@@ -217,6 +217,84 @@ cloudmesh you can do
 cms help
 ```
 
+
+## Makefile
+
+* Install Linux subsystem
+* Install ubuntu
+
+```
+sudo apt update
+sudo apt install -y make
+sudo apt install -y emacs
+sudo apt install -y git
+sudo apt install -y software-properties-common
+sudo add-apt-repository -y ppa:deadsnakes/ppa
+sudo apt install -y python3.7
+python -m venv ENV3 --without-pip
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+python get-pip.py --user
+python3.7 --version
+pip --version
+```
+
+## Setup git
+
+Next configure your github identity. It is important you do this or your may 
+not get propper credit as we obtain user information form github
+
+```bash
+git config --global user.name "user_name"
+git config --global user.email "email_id"
+git config --global core.editor emacs
+```
+
+## .bashrc
+
+At the end of your .bashrac place the following lines so that your 
+environment will be always activated when you start a new ubuntu terminal.
+
+```
+emacs ~/.bashrc
+```
+
+Add the following line to it so whenever you start the 
+the ubuntu shell, it just jumps right into your 
+development directory and replace user with your username
+
+```
+# the default ls has some uggly colors, so lets improve this
+export LS_COLORS="$LS_COLORS:ow=1;34:tw=1;34:"
+# lets us make python 3.7 available via python
+alias python='python3.7'
+# let us cd to the cloudmesh working directory upon login 
+cd /mnt/c/Users/<USER>/cm                                                     
+# set ENV3 to be the default python
+alias ENV3="source ~/ENV3/bin/activate"
+ENV3
+```
+
+## Pycharm different terminal
+
+go to `Settings->tools->terminal`
+
+original:
+
+```
+cmd.exe
+```
+
+gitbash:
+
+```
+"C:\Users\USERNAME\AppData\Local\Programs\Git\bin\sh.exe " –login -i
+```
+
+ubuntu:
+
+```
+C:\Users\<my_user>\AppData\Local\Microsoft\WindowsApps\ubuntu.exe
+```
 
 
 
