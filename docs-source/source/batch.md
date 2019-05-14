@@ -6,17 +6,20 @@ tools assumes that the SLURM file is properly prepared by the user and
 does not modify the SLURM script in any way. Similar to other
 sub-commands `batch` has several sub-commands itself:
 
-    cms batch create-job JOB_NAME --slurm-script=SLURM_SCRIPT_PATH --input-type=INPUT_TYPE --slurm-cluster=SLURM_CLUSTER_NAME --job-script-path=SCRIPT_PATH --remote-path=REMOTE_PATH --local-path=LOCAL_PATH [--argfile-path=ARGUMENT_FILE_PATH] [--outfile-name=OUTPUT_FILE_NAME] [--suffix=SUFFIX] [--overwrite]
-    cms batch run-job JOB_NAME
-    cms batch fetch JOB_NAME
-    cms batch test-connection SLURM_CLUSTER_NAME
-    cms batch set-param slurm-cluster CLUSTER_NAME PARAMETER VALUE
-    cms batch set-param job-metadata JOB_NAME PARAMETER VALUE
-    cms batch list slurm-clusters [DEPTH [default:1]]
-    cms batch list jobs [DEPTH [default:1]]
-    cms batch remove slurm-cluster CLUSTER_NAME
-    cms batch remove job JOB_NAME
-    cms batch clean-remote JOB_NAME
+```batcht
+cms batch create-job JOB_NAME --slurm-script=SLURM_SCRIPT_PATH --input-type=INPUT_TYPE --slurm-cluster=SLURM_CLUSTER_NAME --job-script-path=SCRIPT_PATH --remote-path=REMOTE_PATH --local-path=LOCAL_PATH [--argfile-path=ARGUMENT_FILE_PATH] [--outfile-name=OUTPUT_FILE_NAME] [--suffix=SUFFIX] [--overwrite]
+cms batch run-job JOB_NAME
+cms batch fetch JOB_NAME
+cms batch test-connection SLURM_CLUSTER_NAME
+cms batch set-param slurm-cluster CLUSTER_NAME PARAMETER VALUE
+cms batch set-param job-metadata JOB_NAME PARAMETER VALUE
+cms batch list slurm-clusters [DEPTH [default:1]]
+cms batch list jobs [DEPTH [default:1]]
+cms batch remove slurm-cluster CLUSTER_NAME
+cms batch remove job JOB_NAME
+cms batch clean-remote JOB_NAME
+```
+
 
 The main options are: 
 
@@ -40,11 +43,20 @@ As can be seen, this sub-command has the most number of arguments and
 is the vital part of the `batch` tool. The parameters are all
 self-explanatory, but we will review the important ones here:
 
-* `--slurm-script`:  defines the path to the SLURM script that is going to be submitted to the SLURM cluster. 
-* `--input-type`: defines the type of input for the application that is going to be run on the cluster. This is important because if the program takes a file name as an argument, that file has to be transfered to the cluster as well. Possible values for this parameter is either `params` or `params+file`. Note that if you pass `params+file` then you have to specify the `--argfile-path` as well where you define the path to the argument file. 
-* `--slurm-cluster`: defines the name of the cluster that is previously defined in cloudmesh yaml file. 
-* `--job-script-path`: defines the path to the file that is going to be run on the SLURM cluster
-* `--remote-path`: defines the path on SLURM cluster on which the job files are going to be copied, run and collected. 
+* `--slurm-script`:  defines the path to the SLURM script that is going to be
+  submitted to the SLURM cluster.  
+* `--input-type`: defines the type of input for the application that is going 
+  to be run on the cluster. This is important because if the program takes a 
+  file name as an argument, that file has to be transfered to the cluster as 
+  well. Possible values for this parameter is either `params` or 
+  `params+file`. Note that if you pass `params+file` then you have to specify 
+  the `--argfile-path` as well where you define the path to the argument file. 
+* `--slurm-cluster`: defines the name of the cluster that is previously 
+  defined in cloudmesh yaml file.  
+* `--job-script-path`: defines the path to the file that is going to be run 
+  on the SLURM cluster 
+* `--remote-path`: defines the path on SLURM cluster on which the job files 
+  are going to be copied, run and collected.  
 * `--local-path`: defines the local path for saving the results. 
 
 Consider the following example :
@@ -53,7 +65,8 @@ Consider the following example :
 $ cms batch create-job SlurmTest1 --slurm-script=./1_argsin_stdout.slurm --input-type=params --slurm-cluster=slurm-taito --job-script-path=./1_argsin_stdout_script.sh --remote-path=~/tmp --local-path=../batch/sample_scripts/out --overwrite
 ```
 
-This will create a job that looks like this in the `slurm_batch` configuration file placed in the workspace directory: 
+This will create a job that looks like this in the `slurm_batch` 
+configuration file placed in the workspace directory:  
 
 ```
 slurm_cluster:
@@ -138,7 +151,8 @@ drwx------ 3  4096 Dec  7 02:35 ../
 
 ## Downloading the Results
 
-Now that the results are ready we can fetch the results using the following command: 
+Now that the results are ready we can fetch the results using the following 
+command:  
 
 ```
 $ cms batch fetch SlurmTest1
@@ -176,7 +190,9 @@ Job SlurmTest1 cleaned successfully.
 
 ## Get the list of the jobs and clusters
 
-Naturally after working with the `batch` for a while, several jobs and clusters will be accumulated in the configuration file. You can get the list of current jobs and clusters using the following commands: 
+Naturally after working with the `batch` for a while, several jobs and 
+clusters will be accumulated in the configuration file. You can get the list 
+of current jobs and clusters using the following commands: 
 
 ```
 $ cms batch list slurm-clusters
@@ -202,7 +218,8 @@ $ cms batch list jobs
 	 jobIDs
 ```
 
-It is also possible to increase the depth of the information by adding the desired depth as the next parameter: 
+It is also possible to increase the depth of the information by adding the 
+desired depth as the next parameter:
 
 ```
 $ cms batch list slurm-clusters 2
@@ -218,7 +235,10 @@ $ cms batch list slurm-clusters 2
 
 ## Modifying the Configuration by Setting Parameters
 
-In case you want to modify or add a configuration parameter, there is no need to directly modify the file. Indeed you can use the `set-param` command to set a key for both jobs and slurm-clusters. In the next example we will add a test-key and test-value parameter to the `slurm-taito` cluster: 
+In case you want to modify or add a configuration parameter, there is no need
+to directly modify the file. Indeed you can use the `set-param` command to 
+set a key for both jobs and slurm-clusters. In the next example we will add 
+a test-key and test-value parameter to the `slurm-taito` cluster:  
 
 ```
 $ cms batch set-param slurm-cluster slurm-taito test-key test-value
@@ -239,14 +259,16 @@ $ cms batch list slurm-clusters 2
 
 ## Removing jobs and clusters
 
-Finally, when you are done with a job, or when a cluster is not accessible anymore, you can easily remove them from the `batch` configuration file using the following: 
+Finally, when you are done with a job, or when a cluster is not accessible 
+anymore, you can easily remove them from the `batch` configuration file using
+the following:
 
 ```
 $ cms baremove slurm-cluster slurm-taito
 Slurm-cluster slurm-taito removeed successfully.
 ```
 
-similarly, you can remove a obsolete job using the following command: 
+Similarly, you can remove a obsolete job using the following command: 
 
 ```
 $ cms batch remove job SlurmTest1
