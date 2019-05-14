@@ -264,6 +264,7 @@
 <span class="kn">import</span> <span class="nn">subprocess</span>
 <span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">import</span> <span class="nn">yaml</span>
+<span class="kn">from</span> <span class="nn">pprint</span> <span class="k">import</span> <span class="n">pprint</span>
 
 <span class="kn">from</span> <span class="nn">cmd</span> <span class="k">import</span> <span class="n">Cmd</span>
 
@@ -284,6 +285,7 @@
 <span class="kn">from</span> <span class="nn">cloudmesh.shell.plugin</span> <span class="k">import</span> <span class="n">PluginManager</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.variables</span> <span class="k">import</span> <span class="n">Variables</span>
 
+<span class="kn">from</span> <span class="nn">cloudmesh.DEBUG</span> <span class="k">import</span> <span class="n">VERBOSE</span>
 
 <div class="viewcode-block" id="print_list"><a class="viewcode-back" href="../../../code/cmd5.html#cloudmesh.shell.shell.print_list">[docs]</a><span class="k">def</span> <span class="nf">print_list</span><span class="p">(</span><span class="n">elements</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
@@ -294,10 +296,36 @@
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;*&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span></div>
 
 
+<span class="k">def</span> <span class="nf">inheritors</span><span class="p">(</span><span class="n">klass</span><span class="p">):</span>
+    <span class="n">subclasses</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+    <span class="n">work</span> <span class="o">=</span> <span class="p">[</span><span class="n">klass</span><span class="p">]</span>
+    <span class="k">while</span> <span class="n">work</span><span class="p">:</span>
+        <span class="n">parent</span> <span class="o">=</span> <span class="n">work</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="n">parent</span><span class="o">.</span><span class="n">__subclasses__</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">child</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">subclasses</span><span class="p">:</span>
+                <span class="n">subclasses</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">child</span><span class="p">)</span>
+                <span class="n">work</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">child</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">subclasses</span>
+
+<span class="k">def</span> <span class="nf">get_class</span><span class="p">(</span><span class="nb">str</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">[</span><span class="vm">__name__</span><span class="p">],</span> <span class="nb">str</span><span class="p">)</span>
+
 <div class="viewcode-block" id="Plugin"><a class="viewcode-back" href="../../../code/cmd5.html#cloudmesh.shell.shell.Plugin">[docs]</a><span class="k">class</span> <span class="nc">Plugin</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Some simple methods to manage dynamic namespace plugins for cloudmesh.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">list</span><span class="p">():</span>
+        <span class="n">subclasses</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="n">work</span> <span class="o">=</span> <span class="p">[</span><span class="n">PluginCommand</span><span class="p">]</span>
+        <span class="k">while</span> <span class="n">work</span><span class="p">:</span>
+            <span class="n">parent</span> <span class="o">=</span> <span class="n">work</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="n">parent</span><span class="o">.</span><span class="n">__subclasses__</span><span class="p">():</span>
+                <span class="k">if</span> <span class="n">child</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">subclasses</span> <span class="ow">and</span> <span class="n">child</span><span class="o">.</span><span class="vm">__name__</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;CMShell&quot;</span><span class="p">,</span> <span class="s2">&quot;CommandProxyClass&quot;</span><span class="p">]:</span>
+                    <span class="n">subclasses</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">child</span><span class="p">)</span>
+                    <span class="n">work</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">child</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">subclasses</span>
 
 <div class="viewcode-block" id="Plugin.modules"><a class="viewcode-back" href="../../../code/cmd5.html#cloudmesh.shell.shell.Plugin.modules">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">modules</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
@@ -317,15 +345,18 @@
 <div class="viewcode-block" id="Plugin.classes"><a class="viewcode-back" href="../../../code/cmd5.html#cloudmesh.shell.shell.Plugin.classes">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">classes</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        list of the commands in the cloudmesh namespace under cloudmesh.ext.command</span>
+<span class="sd">        list of the commands in the cloudmesh namespace under cloudmesh.command</span>
 <span class="sd">        :return: list of the commands</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">module_list</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">modules</span><span class="p">()</span>
+        <span class="n">VERBOSE</span><span class="p">(</span><span class="n">module_list</span><span class="p">)</span>
         <span class="n">commands</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">module_name</span> <span class="ow">in</span> <span class="n">module_list</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">module_name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span>
                     <span class="s1">&#39;cloudmesh.&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="s1">&#39;.command.&#39;</span> <span class="ow">in</span> <span class="n">module_name</span><span class="p">:</span>
                 <span class="n">commands</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">module_name</span><span class="p">)</span>
+        <span class="n">VERBOSE</span><span class="p">(</span><span class="n">commands</span><span class="p">)</span>
+
         <span class="k">return</span> <span class="n">commands</span></div>
 
 <div class="viewcode-block" id="Plugin.name"><a class="viewcode-back" href="../../../code/cmd5.html#cloudmesh.shell.shell.Plugin.name">[docs]</a>    <span class="nd">@classmethod</span>
@@ -360,8 +391,8 @@
 <span class="sd">                         Otherwise the commands can be explicitly specified with</span>
 
 <span class="sd">                          commands = [</span>
-<span class="sd">                            &#39;cloudmesh.ext.command.bar.BarCommand&#39;,</span>
-<span class="sd">                            &#39;cloudmesh.ext.command.foo.FooCommand&#39;,</span>
+<span class="sd">                            &#39;cloudmesh.bar.command.bar.BarCommand&#39;,</span>
+<span class="sd">                            &#39;cloudmesh.foo.command.foo.FooCommand&#39;,</span>
 <span class="sd">                            ]</span>
 <span class="sd">                          A namespace package must exists. Foo and Bar ar just examples</span>
 
@@ -403,6 +434,45 @@
 <span class="s2">    |                  Cloudmesh CMD5 Shell                 |</span>
 <span class="s2">    +-------------------------------------------------------+</span>
 <span class="s2">    &quot;&quot;&quot;</span><span class="p">)</span>
+
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    # experimenting</span>
+<span class="sd">    @command</span>
+<span class="sd">    def do_commands(self, args, arguments):</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        ::</span>
+
+<span class="sd">          Usage:</span>
+<span class="sd">                commands</span>
+
+
+<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        arguments = dotdict(arguments)</span>
+
+<span class="sd">        for command in Plugin.list():</span>
+<span class="sd">            print(command)</span>
+
+<span class="sd">        names = self.get_names()</span>
+<span class="sd">        print(names)</span>
+
+<span class="sd">        for name in names:</span>
+<span class="sd">            if name[:3] == &#39;do_&#39;:</span>
+<span class="sd">                print(name)</span>
+
+<span class="sd">        d = []</span>
+<span class="sd">        for e in dir(cloudmesh):</span>
+<span class="sd">            if not e.startswith(&quot;__&quot;) and str(e) not in [&quot;etc&quot;, &quot;DEBUG&quot;]:</span>
+<span class="sd">                d.append(e)</span>
+<span class="sd">        print(d)</span>
+<span class="sd">        VERBOSE(inheritors(PluginCommand))</span>
+<span class="sd">        modules = Plugin.modules()</span>
+<span class="sd">        VERBOSE(modules)</span>
+<span class="sd">        for m in modules:</span>
+<span class="sd">            print (m)</span>
+<span class="sd">        for m in sys.modules:</span>
+<span class="sd">            if str(m).startswith(&quot;cloudmesh.&quot;) and :</span>
+<span class="sd">                print (m)</span>
+<span class="sd">    &#39;&#39;&#39;</span>
 
 <div class="viewcode-block" id="CMShell.precmd"><a class="viewcode-back" href="../../../code/cmd5.html#cloudmesh.shell.shell.CMShell.precmd">[docs]</a>    <span class="k">def</span> <span class="nf">precmd</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">line</span><span class="p">):</span>
         <span class="n">StopWatch</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="s2">&quot;command&quot;</span><span class="p">)</span>
@@ -733,6 +803,8 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="n">print_list</span><span class="p">(</span><span class="n">module_list</span><span class="p">)</span>
 
+
+
 <div class="viewcode-block" id="CMShell.preloop"><a class="viewcode-back" href="../../../code/cmd5.html#cloudmesh.shell.shell.CMShell.preloop">[docs]</a>    <span class="k">def</span> <span class="nf">preloop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;adds the banner to the preloop&quot;&quot;&quot;</span>
 
@@ -1020,19 +1092,7 @@
             <span class="n">Shell</span><span class="o">.</span><span class="n">check_python</span><span class="p">()</span></div>
 
 
-<span class="c1"># def main():</span>
-<span class="c1">#    CMShell().cmdloop()</span>
 
-<span class="k">def</span> <span class="nf">inheritors</span><span class="p">(</span><span class="n">klass</span><span class="p">):</span>
-    <span class="n">subclasses</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
-    <span class="n">work</span> <span class="o">=</span> <span class="p">[</span><span class="n">klass</span><span class="p">]</span>
-    <span class="k">while</span> <span class="n">work</span><span class="p">:</span>
-        <span class="n">parent</span> <span class="o">=</span> <span class="n">work</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
-        <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="n">parent</span><span class="o">.</span><span class="n">__subclasses__</span><span class="p">():</span>
-            <span class="k">if</span> <span class="n">child</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">subclasses</span><span class="p">:</span>
-                <span class="n">subclasses</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">child</span><span class="p">)</span>
-                <span class="n">work</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">child</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">subclasses</span>
 
 
 <span class="c1"># noinspection PyBroadException,PyUnusedLocal</span>

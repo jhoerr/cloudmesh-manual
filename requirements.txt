@@ -1,7 +1,7 @@
 sphinxemoji
 sphinx_rtd_theme
 sphinxcontrib-fulltoc
-recommonmark
+sphinx-prompt
 cloudmesh-common
 cloudmesh-cmd5
 cloudmesh-sys

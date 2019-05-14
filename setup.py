@@ -36,6 +36,7 @@ requiers = """
 sphinxemoji
 sphinx_rtd_theme
 sphinxcontrib-fulltoc
+sphinx-prompt
 cloudmesh-common
 cloudmesh-cmd5
 cloudmesh-sys

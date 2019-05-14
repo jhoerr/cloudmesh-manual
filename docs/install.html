@@ -96,12 +96,13 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">1. Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#prerequisites">1.1. Prerequisites</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#installation-via-pip-development">1.1.1. Installation via pip development</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#source-installation-for-development">1.1.2. Source installation for development</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#use-a-venv">1.1.1. Use a venv</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#installation-of-mongod">1.2. Installation of mongod</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#anaconda-and-conda">1.3. Anaconda and Conda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installation-with-pip">1.2. Installation with Pip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installation-of-mongod">1.3. Installation of mongod</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#anaconda-and-conda">1.4. Anaconda and Conda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#source-installation-for-developers">1.5. Source Installation for Developers</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">2. Quickstart</a></li>
@@ -250,7 +251,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/install.md.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/install.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -267,85 +268,76 @@
 <h1>1. Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="prerequisites">
 <h2>1.1. Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>Before you install make sure that you have at minimum python 3.7.3
-installed. Likely the code will work with earlier versions, but we do
-the development in python 3.7.3.</p>
-<p>We recommend that you use a python virtualenv such as <code class="docutils literal notranslate"><span class="pre">venv</span></code> to make sure
-you are not interfering with your system python. This is simple. For our purposes
-we assume that you use the directory ~/ENV3. Follow these steps first:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python3 -m venv  ~/ENV3
-$ <span class="nb">source</span>  ~/ENV3/bin/activate
+installed. Likely the code will work with earlier versions, but we
+do the development in python 3.7.3.</p>
+</div>
+<div class="section" id="use-a-venv">
+<span id="id1"></span><h3>1.1.1. Use a venv<a class="headerlink" href="#use-a-venv" title="Permalink to this headline">¶</a></h3>
+<p>We highly recommend that you use a python virtualenv such as <code class="docutils literal notranslate"><span class="pre">venv</span></code> to
+make sure you are not interfering with your system python. This is
+simple. For our purposes we assume that you use the directory ~/ENV3.
+Follow these steps first:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3.7 -m venv  ~/ENV3
+<span class="nb">source</span>  ~/ENV3/bin/activate
 </pre></div>
 </div>
 <p>You can add at the end of your .bashrc or .bash_profile file the line</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="o">~/</span><span class="n">ENV3</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">activate</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> ~/ENV3/bin/activate
 </pre></div>
 </div>
 <p>so the environment is always loaded. Now you are ready to install cloudmesh.</p>
-<div class="section" id="installation-via-pip-development">
-<h3>1.1.1. Installation via pip development<a class="headerlink" href="#installation-via-pip-development" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="installation-with-pip">
+<h2>1.2. Installation with Pip<a class="headerlink" href="#installation-with-pip" title="Permalink to this headline">¶</a></h2>
 <p>The instalation can be done with pip.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pip install cloudmesh-cms
-$ pip install cloudmesh-sys
-$ pip install cloudmesh-cloud
-$ pip install cloudmesh-storage
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install cloudmesh-cms
+pip install cloudmesh-sys
+pip install cloudmesh-cloud
+pip install cloudmesh-storage
 </pre></div>
 </div>
 <p>Additional packages include but are not yet released:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip install cloudmesh-flow
-$ pip install cloudmesh-emr
-$ pip install cloudmesh-batch
-$ pip install cloudmesh-openapi
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install cloudmesh-flow
+pip install cloudmesh-emr
+pip install cloudmesh-batch
+pip install cloudmesh-openapi
 </pre></div>
 </div>
-</div>
-<div class="section" id="source-installation-for-development">
-<h3>1.1.2. Source installation for development<a class="headerlink" href="#source-installation-for-development" title="Permalink to this headline">¶</a></h3>
-<p>As a developer you want o use our source instalation. For this reasone we wrote a cloudmesh-installer script that
-conveniently downloads the needed repositories. More documentation about it can be found at</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/cloudmesh/cloudmesh-installer">https://github.com/cloudmesh/cloudmesh-installer</a></p></li>
-</ul>
-<p>You install it with</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pip install cloudmesh-installer
+<p>Next you will need to test the cloudmesh command and at the same time create
+a configuration file. This is done by invoking the <cite>cms</cite> comamnd the first time.
+Thus, just type the command</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms <span class="nb">help</span>
 </pre></div>
 </div>
-<p>It is best to create an empty directory and decide which bundles to install</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ mkdir cm
-$ <span class="nb">cd</span> cm
-$ cloudmesh-installer bundels
+<p>in your terminal. It will create a directory <code class="docutils literal notranslate"><span class="pre">~/.cloudmesh</span></code>
+in which you can find the configuration file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">~/.</span><span class="n">cloudmesh</span><span class="o">/</span><span class="n">cloudmesh4</span><span class="o">.</span><span class="n">yaml</span>
 </pre></div>
 </div>
-<p>Decide which bundels you like to install (let us assume you use storage) and
-simply say</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cloudmesh-installer git clone storage
-$ cloudmesh-installer install storage -e
-</pre></div>
-</div>
-<p>It will take a while to install On newer machines 1 minte, on older significant
-longer. You can than test if</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms <span class="nb">help</span> 
-</pre></div>
-</div>
-<p>works. Make susre to stay up to date while issuing the pull command on your
-bundle</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cloudmesh-installer git pull bundle
-$ cloudmesh-installer install storage -e
-</pre></div>
-</div>
+<div class="admonition-todo admonition" id="index-0">
+<p class="admonition-title">Todo</p>
+<p>check if this realy works, it woudl be beneficial to implement a
+command <code class="docutils literal notranslate"><span class="pre">cms</span> <span class="pre">setup</span></code> that does not only the yaml file, but also the
+mongo password</p>
 </div>
 </div>
 <div class="section" id="installation-of-mongod">
-<h2>1.2. Installation of mongod<a class="headerlink" href="#installation-of-mongod" title="Permalink to this headline">¶</a></h2>
-<p>First, you will need to install a <code class="docutils literal notranslate"><span class="pre">cloudmesh4.yaml</span></code> file, if you have
-not done this before. The easieast way to do so is with the command</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms <span class="nb">help</span>
+<h2>1.3. Installation of mongod<a class="headerlink" href="#installation-of-mongod" title="Permalink to this headline">¶</a></h2>
+<p>First, you will need to install a <a href="#id2"><span class="problematic" id="id3">``</span></a>cloudmesh4.yaml``file, if you have not
+done this before. The easieast way to do so is with the command</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms <span class="nb">help</span>
 </pre></div>
 </div>
-<p>Now you will need to edit the file</p>
-<p><code class="docutils literal notranslate"><span class="pre">~/.cloudmesh/cloudmesh4.yaml</span></code></p>
-<p>and change the password of the mongo entry to something you like,
-e.g. change the TBD to a real strong password</p>
+<p>Now you will need to edit the configuration file</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">emacs</span> <span class="o">~/.</span><span class="n">cloudmesh</span><span class="o">/</span><span class="n">cloudmesh4</span><span class="o">.</span><span class="n">yaml</span>
+</pre></div>
+</div>
+<p>and change the password of the mongo entry to something you like, e.g. change
+the TBD to a real strong password</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MONGO_PASSWORD</span><span class="p">:</span> <span class="n">TBD</span>
 </pre></div>
 </div>
@@ -354,39 +346,74 @@ e.g. change the TBD to a real strong password</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MONGO_AUTOINSTALL</span><span class="p">:</span> <span class="kc">True</span>
 </pre></div>
 </div>
-<p>Now you can run the <code class="docutils literal notranslate"><span class="pre">admin</span> <span class="pre">mongo</span> <span class="pre">install</span></code> command. It will not only
-install mongo, but also add the path to your <code class="docutils literal notranslate"><span class="pre">.bash_*</span></code> file. In case
-of windows platform, you will have to set the PATH variable
-manually. To install it simply say.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms admin mongo install
+<p>Now you can run the <code class="docutils literal notranslate"><span class="pre">admin</span> <span class="pre">mongo</span> <span class="pre">install</span></code> command. It will not only install
+mongo, but also add the path to your <code class="docutils literal notranslate"><span class="pre">.bash_*</span></code> file. In case
+of windows platform, you will have to set the PATH variable manually. To
+install it simply say.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms admin mongo install
 </pre></div>
 </div>
-<p>To create a password protection you than run the command</p>
-<p><code class="docutils literal notranslate"><span class="pre">bash</span> <span class="pre">$</span> <span class="pre">cms</span> <span class="pre">admin</span> <span class="pre">mongo</span> <span class="pre">create</span> </code> In case of Windows platform, after
-executing above command, open a new cms session and execute below
-commands.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms admin mongo start
+<p>As we password protect mongo, you will need to first run the command</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms admin mongo create
 </pre></div>
 </div>
-<p>Once the mongo db is created it can be started and stoped with</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms admin mongo start
-$ cms admin mongo stop
+<p>Now you can start mongo for cloudmesh with</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms admin mongo start
 </pre></div>
 </div>
-<p>For cloudmesh to work properly, please start mongo.</p>
+<p>In case you need to stop it you can use the command</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms admin mongo stop
+</pre></div>
+</div>
+<p>However, please remember that for cloudmesh to work properly, please start
+mongo. In case you need a different port you can configure that in the yaml
+file.</p>
 </div>
 <div class="section" id="anaconda-and-conda">
-<h2>1.3. Anaconda and Conda<a class="headerlink" href="#anaconda-and-conda" title="Permalink to this headline">¶</a></h2>
-<p>We also have the base packages available as conda packages on conda hub in the
-chanel <code class="docutils literal notranslate"><span class="pre">laszewski</span></code>. This includes</p>
+<h2>1.4. Anaconda and Conda<a class="headerlink" href="#anaconda-and-conda" title="Permalink to this headline">¶</a></h2>
+<p>We also have the base packages available as conda packages on conda hub
+in the chanel <code class="docutils literal notranslate"><span class="pre">laszewski</span></code>. This includes</p>
 <ul class="simple">
 <li><p>cloudmesh-common</p></li>
 <li><p>cloudmesh-cmd5</p></li>
 <li><p>cloudmesh-sys</p></li>
 </ul>
-<p>Note that the packages will always be a little bit behind the packages on pypi
-and especially the source distribution. If you are interested in helping out
-with the conda packages, let us know.</p>
+<p>Note that the packages will always be a behind the packages on pypi and
+especially the source distribution. FUrthermore, other packages are not yet
+uploaded. If you are interested in helping out with the conda packages, let
+us know. Please contact us if you need a new release. As conda supports alos
+pip, we recommend using pip for it also.</p>
+</div>
+<div class="section" id="source-installation-for-developers">
+<h2>1.5. Source Installation for Developers<a class="headerlink" href="#source-installation-for-developers" title="Permalink to this headline">¶</a></h2>
+<p>As a developer you want o use our source instalation. For this reasone we
+wrote a cloudmesh-installer script that conveniently downloads the needed
+repositories. More documentation about it can be found at</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/cloudmesh/cloudmesh-installer">https://github.com/cloudmesh/cloudmesh-installer</a></p></li>
+</ul>
+<p>First make sure you have a python virtual env as described in the pip section
+(see <a class="reference internal" href="#use-a-venv">Use a venv</a>). Instead of using the pip install method, please use the
+following.</p>
+<p>Now you can install it with</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install cloudmesh-installer
+</pre></div>
+</div>
+<p>It is best to create an empty directory and decide which bundles to
+install</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir cm
+<span class="nb">cd</span> cm
+cloudmesh-installer bundels
+</pre></div>
+</div>
+<p>Decide which bundels you like to install (let us assume you use storage)
+and simply say</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cloudmesh-installer git clone storage
+cloudmesh-installer install storage -e
+</pre></div>
+</div>
+<p>It will take a while to install On newer machines 1 minte, on older
+significant longer. You can than test if</p>
 </div>
 </div>
 
