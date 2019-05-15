@@ -21,23 +21,22 @@ Cloudmesh Version 4
 
 .. toctree::
    :numbered:
-   :caption: cmd5
+   :caption: SOMMAND SHELL
 
    cmd5
 
 .. toctree::
    :numbered:
-   :caption: SERVICES
+   :caption: CLOUD SERVICES
 
    group
    vm/vm
-   vm/images
+   vm/image
    vm/flavor
    storage/storage
-   storage/objectstore
    workflow
    jupyter
-   batch
+   hpc/batch
 
 .. toctree::
    :numbered:
@@ -65,9 +64,9 @@ DATABASE OBJECTS
 
 .. toctree::
    :numbered:
-   :caption: Database
+   :caption: DATABASE
 
-   database
+   storage/database
 
 BENCHMARKS
 ==========
@@ -75,7 +74,7 @@ BENCHMARKS
 .. toctree::
    :glob:
    :numbered:
-   :caption: Database
+   :caption: BENCHMARKS
 
    benchmarks/*
 
@@ -115,13 +114,12 @@ Cloud Provider Accounts
 
 .. toctree::
    :numbered:
-   :caption: Cloud Accounts
+   :caption: CLOUD ACCOUNTS
 
    accounts/aws
    accounts/azure
    accounts/google
    accounts/box
-   accounts/google-ufo
    accounts/accountcreation-old
 
 
@@ -132,12 +130,7 @@ Cloudmesh Outdated
    :numbered:
    :caption: Outdated:
 
-   goal
-   vmproviders
-   vagrant
    CM4README
-   aws
-   ufo
    vcluster
 
 Indices and tables

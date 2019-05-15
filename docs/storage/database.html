@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Cloudmesh Database &mdash; Cloudmesh v4 alpha documentation</title>
+  <title>1. Cloudmesh Database &mdash; Cloudmesh v4 alpha documentation</title>
   
 
   
@@ -35,7 +35,9 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" /> 
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1. Benchmarks" href="../benchmarks/README.html" />
+    <link rel="prev" title="6.3. vdir" href="../manual/storage/vdir.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -96,18 +98,25 @@
 <li class="toctree-l1"><a class="reference internal" href="../installation/mongo.html">4. Cloudmesh Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../configuration/encryption.html">5. Cloudmesh Yaml file Encrytion</a></li>
 </ul>
-<p class="caption"><span class="caption-text">SERVICES</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../group.html">1. Group command</a></li>
-</ul>
-<p class="caption"><span class="caption-text">WORKFLOW</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../workflow.html">1. Infrastructure Workflow</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../jupyter.html">2. Jupyter Integration</a></li>
-</ul>
 <p class="caption"><span class="caption-text">cmd5</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../cmd5.html">1. CMD5</a></li>
+</ul>
+<p class="caption"><span class="caption-text">SERVICES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../group.html">1. Group command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vm/vm.html">2. Virtual Machine Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vm/image.html">3. Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vm/flavor.html">4. Flavors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="storage.html">5. Cloudmesh Multi Cloud Storage Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workflow.html">6. Infrastructure Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter.html">7. Jupyter Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hpc/batch.html">8. Batch</a></li>
+</ul>
+<p class="caption"><span class="caption-text">openapi</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../openapi/README-storage-openapi.html">1. Cloudmesh Multi Cloud Open API Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../openapi/ufo.html">2. REST Service (outdated)</a></li>
 </ul>
 <p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
 <ul>
@@ -117,6 +126,95 @@
 <li class="toctree-l1"><a class="reference internal" href="../manual-group.html">4. Manual Group</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual-compute.html">5. Compute Manual Pages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual-storage.html">6. Storage Manual Pages</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Database</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">1. Cloudmesh Database</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#virtual-machines">1.1. Virtual Machines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#openstack">1.1.1. Openstack</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#flavor">1.1.1.1. Flavor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#image">1.1.1.2. Image</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#vm">1.1.1.3. VM</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#azure-azprovider">1.2. Azure AzProvider</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">1.2.1. Flavor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">1.2.2. Image</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">1.2.3. VM</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#azure-ms-azure-library-provider">1.3. Azure MS Azure Library Provider</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4">1.3.1. Flavor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">1.3.2. Image</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">1.3.3. VM</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#aws-libcloud-provider">1.4. AWS Libcloud Provider</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id7">1.4.1. Flavor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">1.4.2. Image</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">1.4.3. VM</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#aws-boto3-provider">1.5. AWS Boto3 Provider</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id10">1.5.1. Flavor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">1.5.2. Image</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id12">1.5.3. VM</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#storage">1.6. Storage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#box">1.6.1. Box</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#directory">1.6.1.1. Directory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#file">1.6.1.2. File</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#azure-blob">1.6.2. Azure Blob</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id13">1.6.2.1. Directory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id14">1.6.2.2. File</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id15">1.6.2.3. Directory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id16">1.6.2.4. File</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#awss3-objectstore-provider">1.6.3. AWSS3 Objectstore Provider</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id17">1.6.3.1. Directory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id18">1.6.3.2. File</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#google-drive">1.6.4. Google Drive</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id19">1.6.4.1. Directory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id20">1.6.4.2. File</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#local">1.6.5. Local</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id21">1.6.5.1. Directory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id22">1.6.5.2. File</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#workflow">1.7. Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#emr">1.8. EMR</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#cluster-listing">1.8.1. Cluster Listing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#instance-listing">1.8.2. Instance Listing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cluster-description">1.8.3. Cluster Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#copy-file-request">1.8.4. Copy File Request</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#file-upload">1.8.5. File Upload</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#run-file-request">1.8.6. Run File Request</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#start-cluster-request">1.8.7. Start Cluster Request</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#stop-cluster-request">1.8.8. Stop Cluster Request</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-list">1.8.9. Step List</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#hpc">1.9. HPC</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#batch">1.9.1. Batch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#queue">1.9.2. Queue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#job">1.9.3. Job</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#keys">1.10. Keys</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption"><span class="caption-text">Database</span></p>
 <ul>
@@ -210,7 +308,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>Cloudmesh Database</li>
+      <li>1. Cloudmesh Database</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -230,7 +328,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="cloudmesh-database">
-<h1>Cloudmesh Database<a class="headerlink" href="#cloudmesh-database" title="Permalink to this headline">¶</a></h1>
+<h1>1. Cloudmesh Database<a class="headerlink" href="#cloudmesh-database" title="Permalink to this headline">¶</a></h1>
 <p>Cloudmesh has a database in whic a local copy of information about
 objects that are stored in the cloud is maintained. The objects contain
 all information of the cloud that can be retrieved with the raw provider
@@ -247,9 +345,9 @@ stored in the database.</p>
 </div>
 <p>We list in the next section examples of such data objects</p>
 <div class="section" id="virtual-machines">
-<h2>Virtual Machines<a class="headerlink" href="#virtual-machines" title="Permalink to this headline">¶</a></h2>
+<h2>1.1. Virtual Machines<a class="headerlink" href="#virtual-machines" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="openstack">
-<h3>Openstack<a class="headerlink" href="#openstack" title="Permalink to this headline">¶</a></h3>
+<h3>1.1.1. Openstack<a class="headerlink" href="#openstack" title="Permalink to this headline">¶</a></h3>
 <p>The compute provider kind is <code class="docutils literal notranslate"><span class="pre">openstack</span></code>. The Provider is located at</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/cloudmesh/cloudmesh-cloud/blob/master/cloudmesh/compute/virtualbox/Provider.py">https://github.com/cloudmesh/cloudmesh-cloud/blob/master/cloudmesh/compute/virtualbox/Provider.py</a></p></li>
@@ -260,7 +358,7 @@ provider at</p>
 <li><p><a class="reference external" href="https://github.com/cloudmesh/cloudmesh-cloud/blob/master/cloudmesh/compute/vm/Provider.py">https://github.com/cloudmesh/cloudmesh-cloud/blob/master/cloudmesh/compute/vm/Provider.py</a></p></li>
 </ul>
 <div class="section" id="flavor">
-<h4>Flavor<a class="headerlink" href="#flavor" title="Permalink to this headline">¶</a></h4>
+<h4>1.1.1.1. Flavor<a class="headerlink" href="#flavor" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;_id&quot;</span> <span class="p">:</span> <span class="n">ObjectId</span><span class="p">(</span><span class="s2">&quot;5ca798a7dc64f18b19e644e1&quot;</span><span class="p">),</span>
     <span class="s2">&quot;id&quot;</span> <span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
@@ -288,7 +386,7 @@ provider at</p>
 </div>
 </div>
 <div class="section" id="image">
-<h4>Image<a class="headerlink" href="#image" title="Permalink to this headline">¶</a></h4>
+<h4>1.1.1.2. Image<a class="headerlink" href="#image" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;_id&quot;</span> <span class="p">:</span> <span class="n">ObjectId</span><span class="p">(</span><span class="s2">&quot;5ca798abdc64f18b19e644e9&quot;</span><span class="p">),</span>
     <span class="s2">&quot;id&quot;</span> <span class="p">:</span> <span class="s2">&quot;4c8e6dac-97f0-4224-b7a2-0daef96b5c9f&quot;</span><span class="p">,</span>
@@ -327,7 +425,7 @@ provider at</p>
 </div>
 </div>
 <div class="section" id="vm">
-<h4>VM<a class="headerlink" href="#vm" title="Permalink to this headline">¶</a></h4>
+<h4>1.1.1.3. VM<a class="headerlink" href="#vm" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;_id&quot;</span> <span class="p">:</span> <span class="n">ObjectId</span><span class="p">(</span><span class="s2">&quot;5ca798acdc64f18b19e6454e&quot;</span><span class="p">),</span>
     <span class="s2">&quot;id&quot;</span> <span class="p">:</span> <span class="s2">&quot;f531d2df-c472-4b32-8239-0e3969d33ebb&quot;</span><span class="p">,</span>
@@ -392,7 +490,7 @@ provider at</p>
 </div>
 </div>
 <div class="section" id="azure-azprovider">
-<h2>Azure AzProvider<a class="headerlink" href="#azure-azprovider" title="Permalink to this headline">¶</a></h2>
+<h2>1.2. Azure AzProvider<a class="headerlink" href="#azure-azprovider" title="Permalink to this headline">¶</a></h2>
 <p>The compute provider kind is <code class="docutils literal notranslate"><span class="pre">azure</span></code>. The Provider is located at</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/cloudmesh/cloudmesh-cloud/blob/master/cloudmesh/compute/azure/AzProvider.py">https://github.com/cloudmesh/cloudmesh-cloud/blob/master/cloudmesh/compute/azure/AzProvider.py</a></p></li>
@@ -403,21 +501,21 @@ provider at</p>
 <li><p><a class="reference external" href="https://github.com/cloudmesh/cloudmesh-cloud/blob/master/cloudmesh/compute/vm/Provider.py">https://github.com/cloudmesh/cloudmesh-cloud/blob/master/cloudmesh/compute/vm/Provider.py</a></p></li>
 </ul>
 <div class="section" id="id1">
-<h3>Flavor<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<h3>1.2.1. Flavor<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <div class="admonition-todo admonition" id="index-0">
 <p class="admonition-title">Todo</p>
 <p>Azure - A detailed dict of the flavor is missing</p>
 </div>
 </div>
 <div class="section" id="id2">
-<h3>Image<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<h3>1.2.2. Image<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <div class="admonition-todo admonition" id="index-1">
 <p class="admonition-title">Todo</p>
 <p>Azure - A detailed dict of the image is missing</p>
 </div>
 </div>
 <div class="section" id="id3">
-<h3>VM<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<h3>1.2.3. VM<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;_id&quot;</span> <span class="p">:</span> <span class="n">ObjectId</span><span class="p">(</span><span class="s2">&quot;5cbe0513b6ac5a154ef64a26&quot;</span><span class="p">),</span>
     <span class="s2">&quot;additionalCapabilities&quot;</span> <span class="p">:</span> <span class="n">null</span><span class="p">,</span>
@@ -513,7 +611,7 @@ provider at</p>
 </div>
 </div>
 <div class="section" id="azure-ms-azure-library-provider">
-<h2>Azure MS Azure Library Provider<a class="headerlink" href="#azure-ms-azure-library-provider" title="Permalink to this headline">¶</a></h2>
+<h2>1.3. Azure MS Azure Library Provider<a class="headerlink" href="#azure-ms-azure-library-provider" title="Permalink to this headline">¶</a></h2>
 <p>This provider is written with the help of the Azure python libraries</p>
 <div class="admonition-todo admonition" id="index-2">
 <p class="admonition-title">Todo</p>
@@ -527,21 +625,21 @@ provider at</p>
 <li><p><a class="reference external" href="https://github.com/cloudmesh/cloudmesh-cloud/blob/master/cloudmesh/compute/vm/Provider.py">https://github.com/cloudmesh/cloudmesh-cloud/blob/master/cloudmesh/compute/vm/Provider.py</a></p></li>
 </ul>
 <div class="section" id="id4">
-<h3>Flavor<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<h3>1.3.1. Flavor<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <div class="admonition-todo admonition" id="index-3">
 <p class="admonition-title">Todo</p>
 <p>Azure Python - A detailed dict of the flavor is missing</p>
 </div>
 </div>
 <div class="section" id="id5">
-<h3>Image<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<h3>1.3.2. Image<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <div class="admonition-todo admonition" id="index-4">
 <p class="admonition-title">Todo</p>
 <p>Azure Python - A detailed dict of the image is missing</p>
 </div>
 </div>
 <div class="section" id="id6">
-<h3>VM<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<h3>1.3.3. VM<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
 <div class="admonition-todo admonition" id="index-5">
 <p class="admonition-title">Todo</p>
 <p>Azure Python - A detailed dict of the vm is missing</p>
@@ -549,7 +647,7 @@ provider at</p>
 </div>
 </div>
 <div class="section" id="aws-libcloud-provider">
-<h2>AWS Libcloud Provider<a class="headerlink" href="#aws-libcloud-provider" title="Permalink to this headline">¶</a></h2>
+<h2>1.4. AWS Libcloud Provider<a class="headerlink" href="#aws-libcloud-provider" title="Permalink to this headline">¶</a></h2>
 <p>The compute provider kind is <code class="docutils literal notranslate"><span class="pre">aws</span></code>. The Provider is located at</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/cloudmesh/cloudmesh-cloud/blob/master/cloudmesh/compute/aws/Provider.py">https://github.com/cloudmesh/cloudmesh-cloud/blob/master/cloudmesh/compute/aws/Provider.py</a></p></li>
@@ -560,7 +658,7 @@ provider at</p>
 <li><p><a class="reference external" href="https://github.com/cloudmesh/cloudmesh-cloud/blob/master/cloudmesh/compute/vm/Provider.py">https://github.com/cloudmesh/cloudmesh-cloud/blob/master/cloudmesh/compute/vm/Provider.py</a></p></li>
 </ul>
 <div class="section" id="id7">
-<h3>Flavor<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<h3>1.4.1. Flavor<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;bandwidth&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
  <span class="s1">&#39;cm&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;cloud&#39;</span><span class="p">:</span> <span class="s1">&#39;aws&#39;</span><span class="p">,</span>
         <span class="s1">&#39;created&#39;</span><span class="p">:</span> <span class="s1">&#39;2019-04-25 11:01:21.939851&#39;</span><span class="p">,</span>
@@ -577,7 +675,7 @@ provider at</p>
 </div>
 </div>
 <div class="section" id="id8">
-<h3>Image<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<h3>1.4.2. Image<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;cm&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;cloud&#39;</span><span class="p">:</span> <span class="s1">&#39;aws&#39;</span><span class="p">,</span>
          <span class="s1">&#39;created&#39;</span><span class="p">:</span> <span class="s1">&#39;2019-04-25 11:10:31.912143&#39;</span><span class="p">,</span>
          <span class="s1">&#39;driver&#39;</span><span class="p">:</span> <span class="s1">&#39;aws&#39;</span><span class="p">,</span>
@@ -592,7 +690,7 @@ provider at</p>
 </div>
 </div>
 <div class="section" id="id9">
-<h3>VM<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<h3>1.4.3. VM<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;cm&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;cloud&#39;</span><span class="p">:</span> <span class="s1">&#39;aws&#39;</span><span class="p">,</span>
          <span class="s1">&#39;created&#39;</span><span class="p">:</span> <span class="s1">&#39;2019-04-25 06:47:39+00:00&#39;</span><span class="p">,</span>
          <span class="s1">&#39;driver&#39;</span><span class="p">:</span> <span class="s1">&#39;aws&#39;</span><span class="p">,</span>
@@ -612,7 +710,7 @@ provider at</p>
 </div>
 </div>
 <div class="section" id="aws-boto3-provider">
-<h2>AWS Boto3 Provider<a class="headerlink" href="#aws-boto3-provider" title="Permalink to this headline">¶</a></h2>
+<h2>1.5. AWS Boto3 Provider<a class="headerlink" href="#aws-boto3-provider" title="Permalink to this headline">¶</a></h2>
 <p>The compute provider kind is <code class="docutils literal notranslate"><span class="pre">MISSING</span></code>. The Provider is located at</p>
 <ul class="simple">
 <li></li>
@@ -623,21 +721,21 @@ provider at</p>
 <li><p><a class="reference external" href="https://github.com/cloudmesh/cloudmesh-cloud/blob/master/cloudmesh/compute/vm/Provider.py">https://github.com/cloudmesh/cloudmesh-cloud/blob/master/cloudmesh/compute/vm/Provider.py</a></p></li>
 </ul>
 <div class="section" id="id10">
-<h3>Flavor<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<h3>1.5.1. Flavor<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
 <div class="admonition-todo admonition" id="index-6">
 <p class="admonition-title">Todo</p>
 <p>AWS Boto - A detailed dict of the flavor is missing</p>
 </div>
 </div>
 <div class="section" id="id11">
-<h3>Image<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<h3>1.5.2. Image<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
 <div class="admonition-todo admonition" id="index-7">
 <p class="admonition-title">Todo</p>
 <p>AWS Boto - A detailed dict of the image is missing</p>
 </div>
 </div>
 <div class="section" id="id12">
-<h3>VM<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<h3>1.5.3. VM<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
 <div class="admonition-todo admonition" id="index-8">
 <p class="admonition-title">Todo</p>
 <p>AWS Boto - A detailed dict of the flavor is missing</p>
@@ -645,9 +743,9 @@ provider at</p>
 </div>
 </div>
 <div class="section" id="storage">
-<h2>Storage<a class="headerlink" href="#storage" title="Permalink to this headline">¶</a></h2>
+<h2>1.6. Storage<a class="headerlink" href="#storage" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="box">
-<h3>Box<a class="headerlink" href="#box" title="Permalink to this headline">¶</a></h3>
+<h3>1.6.1. Box<a class="headerlink" href="#box" title="Permalink to this headline">¶</a></h3>
 <p>The storage provider kind is <code class="docutils literal notranslate"><span class="pre">box</span></code>. The Provider is located at</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/cloudmesh/cloudmesh-storage/blob/master/cloudmesh/storage/provider/box/Provider.py">https://github.com/cloudmesh/cloudmesh-storage/blob/master/cloudmesh/storage/provider/box/Provider.py</a></p></li>
@@ -658,7 +756,7 @@ provider at</p>
 <li><p><a class="reference external" href="https://github.com/cloudmesh/cloudmesh-storage/blob/master/cloudmesh/storage/Provider.py">https://github.com/cloudmesh/cloudmesh-storage/blob/master/cloudmesh/storage/Provider.py</a></p></li>
 </ul>
 <div class="section" id="directory">
-<h4>Directory<a class="headerlink" href="#directory" title="Permalink to this headline">¶</a></h4>
+<h4>1.6.1.1. Directory<a class="headerlink" href="#directory" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">{</span><span class="s1">&#39;_object_id&#39;</span>: <span class="s1">&#39;71983743142&#39;</span>,
     <span class="s1">&#39;cm&#39;</span>: <span class="o">{</span>
         <span class="s1">&#39;cloud&#39;</span>: <span class="s1">&#39;box&#39;</span>,
@@ -674,7 +772,7 @@ provider at</p>
 </div>
 </div>
 <div class="section" id="file">
-<h4>File<a class="headerlink" href="#file" title="Permalink to this headline">¶</a></h4>
+<h4>1.6.1.2. File<a class="headerlink" href="#file" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">{</span><span class="s1">&#39;_object_id&#39;</span>: <span class="s1">&#39;432543586295&#39;</span>,
   <span class="s1">&#39;cm&#39;</span>: <span class="o">{</span>
       <span class="s1">&#39;cloud&#39;</span>: <span class="s1">&#39;box&#39;</span>,
@@ -692,7 +790,7 @@ provider at</p>
 </div>
 </div>
 <div class="section" id="azure-blob">
-<h3>Azure Blob<a class="headerlink" href="#azure-blob" title="Permalink to this headline">¶</a></h3>
+<h3>1.6.2. Azure Blob<a class="headerlink" href="#azure-blob" title="Permalink to this headline">¶</a></h3>
 <p>The storage provider kind is <code class="docutils literal notranslate"><span class="pre">azureblob</span></code>. The Provider is located at</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/cloudmesh/cloudmesh-storage/blob/master/cloudmesh/storage/provider/azureblob/Provider.py">https://github.com/cloudmesh/cloudmesh-storage/blob/master/cloudmesh/storage/provider/azureblob/Provider.py</a></p></li>
@@ -703,7 +801,7 @@ provider at</p>
 <li><p><a class="reference external" href="https://github.com/cloudmesh/cloudmesh-storage/blob/master/cloudmesh/storage/Provider.py">https://github.com/cloudmesh/cloudmesh-storage/blob/master/cloudmesh/storage/Provider.py</a></p></li>
 </ul>
 <div class="section" id="id13">
-<h4>Directory<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h4>
+<h4>1.6.2.1. Directory<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h4>
 <p>Note that directory in Azure Blob storage is a virtual folder. An empty
 directory cannot be created and hence cloudmesh-storage creates a
 default marker file <code class="docutils literal notranslate"><span class="pre">dummy.txt</span></code> to create the directory.</p>
@@ -735,7 +833,7 @@ default marker file <code class="docutils literal notranslate"><span class="pre"
 </div>
 </div>
 <div class="section" id="id14">
-<h4>File<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h4>
+<h4>1.6.2.2. File<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">{</span><span class="s1">&#39;cm&#39;</span>: <span class="o">{</span><span class="s1">&#39;cloud&#39;</span>: <span class="s1">&#39;azureblob&#39;</span>,
          <span class="s1">&#39;created&#39;</span>: <span class="s1">&#39;2&#39;</span>,
          <span class="s1">&#39;kind&#39;</span>: <span class="s1">&#39;storage&#39;</span>,
@@ -779,14 +877,14 @@ provider at</p>
 </ul>
 </div>
 <div class="section" id="id15">
-<h4>Directory<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h4>
+<h4>1.6.2.3. Directory<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h4>
 <div class="admonition-todo admonition" id="index-10">
 <p class="admonition-title">Todo</p>
 <p>details of the AWSS3 provider directory is missing</p>
 </div>
 </div>
 <div class="section" id="id16">
-<h4>File<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h4>
+<h4>1.6.2.4. File<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h4>
 <div class="admonition-todo admonition" id="index-11">
 <p class="admonition-title">Todo</p>
 <p>details of the AWSS3 provider file is missing</p>
@@ -794,7 +892,7 @@ provider at</p>
 </div>
 </div>
 <div class="section" id="awss3-objectstore-provider">
-<h3>AWSS3 Objectstore Provider<a class="headerlink" href="#awss3-objectstore-provider" title="Permalink to this headline">¶</a></h3>
+<h3>1.6.3. AWSS3 Objectstore Provider<a class="headerlink" href="#awss3-objectstore-provider" title="Permalink to this headline">¶</a></h3>
 <p>It is unclear waht the difference to AWSS3 the one from cloudmesh-cloud
 is Please explain. If its the same, let us know and we shoudl merge</p>
 <p>The storage provider kind is <code class="docutils literal notranslate"><span class="pre">objstorage</span></code>. The Provider is located at</p>
@@ -811,14 +909,14 @@ provider at</p>
 <li><p><a class="reference external" href="https://github.com/cloudmesh/cloudmesh-storage/blob/master/cloudmesh/storage/Provider.py">https://github.com/cloudmesh/cloudmesh-storage/blob/master/cloudmesh/storage/Provider.py</a></p></li>
 </ul>
 <div class="section" id="id17">
-<h4>Directory<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h4>
+<h4>1.6.3.1. Directory<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h4>
 <div class="admonition-todo admonition" id="index-13">
 <p class="admonition-title">Todo</p>
 <p>details of the AWSS3 objectstore provider directory is missing</p>
 </div>
 </div>
 <div class="section" id="id18">
-<h4>File<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h4>
+<h4>1.6.3.2. File<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h4>
 <div class="admonition-todo admonition" id="index-14">
 <p class="admonition-title">Todo</p>
 <p>details of the AWSS3 objectstore provider file is missing</p>
@@ -826,7 +924,7 @@ provider at</p>
 </div>
 </div>
 <div class="section" id="google-drive">
-<h3>Google Drive<a class="headerlink" href="#google-drive" title="Permalink to this headline">¶</a></h3>
+<h3>1.6.4. Google Drive<a class="headerlink" href="#google-drive" title="Permalink to this headline">¶</a></h3>
 <p>The storage provider kind is <code class="docutils literal notranslate"><span class="pre">gdrive</span></code>. The Provider is located at</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/cloudmesh/cloudmesh-storage/blob/master/cloudmesh/storage/provider/gdrive/Provider.py">https://github.com/cloudmesh/cloudmesh-storage/blob/master/cloudmesh/storage/provider/gdrive/Provider.py</a></p></li>
@@ -837,14 +935,14 @@ provider at</p>
 <li><p><a class="reference external" href="https://github.com/cloudmesh/cloudmesh-storage/blob/master/cloudmesh/storage/Provider.py">https://github.com/cloudmesh/cloudmesh-storage/blob/master/cloudmesh/storage/Provider.py</a></p></li>
 </ul>
 <div class="section" id="id19">
-<h4>Directory<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h4>
+<h4>1.6.4.1. Directory<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h4>
 <div class="admonition-todo admonition" id="index-15">
 <p class="admonition-title">Todo</p>
 <p>details of the gogle storage provider directory is missing</p>
 </div>
 </div>
 <div class="section" id="id20">
-<h4>File<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h4>
+<h4>1.6.4.2. File<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h4>
 <div class="admonition-todo admonition" id="index-16">
 <p class="admonition-title">Todo</p>
 <p>details of the gogle storage provider file is missing</p>
@@ -852,7 +950,7 @@ provider at</p>
 </div>
 </div>
 <div class="section" id="local">
-<h3>Local<a class="headerlink" href="#local" title="Permalink to this headline">¶</a></h3>
+<h3>1.6.5. Local<a class="headerlink" href="#local" title="Permalink to this headline">¶</a></h3>
 <p>This has not been tested yet, so be careful as it could remove local dir
 trees. we may need ta add an option –force for this provider and always
 ask if we wnat to delete the files while shoing them first. This could
@@ -867,15 +965,15 @@ provider at</p>
 <li><p><a class="reference external" href="https://github.com/cloudmesh/cloudmesh-storage/blob/master/cloudmesh/storage/Provider.py">https://github.com/cloudmesh/cloudmesh-storage/blob/master/cloudmesh/storage/Provider.py</a></p></li>
 </ul>
 <div class="section" id="id21">
-<h4>Directory<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h4>
+<h4>1.6.5.1. Directory<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h4>
 </div>
 <div class="section" id="id22">
-<h4>File<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h4>
+<h4>1.6.5.2. File<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h4>
 </div>
 </div>
 </div>
 <div class="section" id="workflow">
-<h2>Workflow<a class="headerlink" href="#workflow" title="Permalink to this headline">¶</a></h2>
+<h2>1.7. Workflow<a class="headerlink" href="#workflow" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/*</span> <span class="mi">2</span> <span class="o">*/</span>
 <span class="p">{</span>
     <span class="s2">&quot;_id&quot;</span> <span class="p">:</span> <span class="n">ObjectId</span><span class="p">(</span><span class="s2">&quot;5cbc414e20b39a69d014efec&quot;</span><span class="p">),</span>
@@ -899,9 +997,9 @@ provider at</p>
 </div>
 </div>
 <div class="section" id="emr">
-<h2>EMR<a class="headerlink" href="#emr" title="Permalink to this headline">¶</a></h2>
+<h2>1.8. EMR<a class="headerlink" href="#emr" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="cluster-listing">
-<h3>Cluster Listing<a class="headerlink" href="#cluster-listing" title="Permalink to this headline">¶</a></h3>
+<h3>1.8.1. Cluster Listing<a class="headerlink" href="#cluster-listing" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;_id&quot;</span> <span class="p">:</span> <span class="n">ObjectId</span><span class="p">(</span><span class="s2">&quot;5cae2f2176cd490cac627e04&quot;</span><span class="p">),</span>
     <span class="s2">&quot;cm&quot;</span> <span class="p">:</span> <span class="p">{</span>
@@ -936,7 +1034,7 @@ provider at</p>
 </div>
 </div>
 <div class="section" id="instance-listing">
-<h3>Instance Listing<a class="headerlink" href="#instance-listing" title="Permalink to this headline">¶</a></h3>
+<h3>1.8.2. Instance Listing<a class="headerlink" href="#instance-listing" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;_id&quot;</span> <span class="p">:</span> <span class="n">ObjectId</span><span class="p">(</span><span class="s2">&quot;5cae36b976cd490de715a25a&quot;</span><span class="p">),</span>
     <span class="s2">&quot;cm&quot;</span> <span class="p">:</span> <span class="p">{</span>
@@ -988,7 +1086,7 @@ provider at</p>
 </div>
 </div>
 <div class="section" id="cluster-description">
-<h3>Cluster Description<a class="headerlink" href="#cluster-description" title="Permalink to this headline">¶</a></h3>
+<h3>1.8.3. Cluster Description<a class="headerlink" href="#cluster-description" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;_id&quot;</span> <span class="p">:</span> <span class="n">ObjectId</span><span class="p">(</span><span class="s2">&quot;5cae3acd76cd490f74997607&quot;</span><span class="p">),</span>
     <span class="s2">&quot;cm&quot;</span> <span class="p">:</span> <span class="p">{</span>
@@ -1051,7 +1149,7 @@ provider at</p>
 </div>
 </div>
 <div class="section" id="copy-file-request">
-<h3>Copy File Request<a class="headerlink" href="#copy-file-request" title="Permalink to this headline">¶</a></h3>
+<h3>1.8.4. Copy File Request<a class="headerlink" href="#copy-file-request" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;_id&quot;</span> <span class="p">:</span> <span class="n">ObjectId</span><span class="p">(</span><span class="s2">&quot;5cae3c7576cd49129fde9fd7&quot;</span><span class="p">),</span>
     <span class="s2">&quot;cm&quot;</span> <span class="p">:</span> <span class="p">{</span>
@@ -1083,7 +1181,7 @@ provider at</p>
 </div>
 </div>
 <div class="section" id="file-upload">
-<h3>File Upload<a class="headerlink" href="#file-upload" title="Permalink to this headline">¶</a></h3>
+<h3>1.8.5. File Upload<a class="headerlink" href="#file-upload" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;_id&quot;</span> <span class="p">:</span> <span class="n">ObjectId</span><span class="p">(</span><span class="s2">&quot;5cae3c3576cd49120a3a0513&quot;</span><span class="p">),</span>
     <span class="s2">&quot;cm&quot;</span> <span class="p">:</span> <span class="p">{</span>
@@ -1104,7 +1202,7 @@ provider at</p>
 </div>
 </div>
 <div class="section" id="run-file-request">
-<h3>Run File Request<a class="headerlink" href="#run-file-request" title="Permalink to this headline">¶</a></h3>
+<h3>1.8.6. Run File Request<a class="headerlink" href="#run-file-request" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;_id&quot;</span> <span class="p">:</span> <span class="n">ObjectId</span><span class="p">(</span><span class="s2">&quot;5cae3c8e76cd4913333930cc&quot;</span><span class="p">),</span>
     <span class="s2">&quot;cm&quot;</span> <span class="p">:</span> <span class="p">{</span>
@@ -1136,7 +1234,7 @@ provider at</p>
 </div>
 </div>
 <div class="section" id="start-cluster-request">
-<h3>Start Cluster Request<a class="headerlink" href="#start-cluster-request" title="Permalink to this headline">¶</a></h3>
+<h3>1.8.7. Start Cluster Request<a class="headerlink" href="#start-cluster-request" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;_id&quot;</span> <span class="p">:</span> <span class="n">ObjectId</span><span class="p">(</span><span class="s2">&quot;5cae3ba776cd4910291c2bbf&quot;</span><span class="p">),</span>
     <span class="s2">&quot;cm&quot;</span> <span class="p">:</span> <span class="p">{</span>
@@ -1156,7 +1254,7 @@ provider at</p>
 </div>
 </div>
 <div class="section" id="stop-cluster-request">
-<h3>Stop Cluster Request<a class="headerlink" href="#stop-cluster-request" title="Permalink to this headline">¶</a></h3>
+<h3>1.8.8. Stop Cluster Request<a class="headerlink" href="#stop-cluster-request" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;_id&quot;</span> <span class="p">:</span> <span class="n">ObjectId</span><span class="p">(</span><span class="s2">&quot;5cae3c9c76cd4913c74b5060&quot;</span><span class="p">),</span>
     <span class="s2">&quot;cm&quot;</span> <span class="p">:</span> <span class="p">{</span>
@@ -1175,7 +1273,7 @@ provider at</p>
 </div>
 </div>
 <div class="section" id="step-list">
-<h3>Step List<a class="headerlink" href="#step-list" title="Permalink to this headline">¶</a></h3>
+<h3>1.8.9. Step List<a class="headerlink" href="#step-list" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;_id&quot;</span> <span class="p">:</span> <span class="n">ObjectId</span><span class="p">(</span><span class="s2">&quot;5cae3ac276cd490f2ae1c8b7&quot;</span><span class="p">),</span>
     <span class="s2">&quot;cm&quot;</span> <span class="p">:</span> <span class="p">{</span>
@@ -1219,19 +1317,19 @@ provider at</p>
 </div>
 </div>
 <div class="section" id="hpc">
-<h2>HPC<a class="headerlink" href="#hpc" title="Permalink to this headline">¶</a></h2>
+<h2>1.9. HPC<a class="headerlink" href="#hpc" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="batch">
-<h3>Batch<a class="headerlink" href="#batch" title="Permalink to this headline">¶</a></h3>
+<h3>1.9.1. Batch<a class="headerlink" href="#batch" title="Permalink to this headline">¶</a></h3>
 </div>
 <div class="section" id="queue">
-<h3>Queue<a class="headerlink" href="#queue" title="Permalink to this headline">¶</a></h3>
+<h3>1.9.2. Queue<a class="headerlink" href="#queue" title="Permalink to this headline">¶</a></h3>
 </div>
 <div class="section" id="job">
-<h3>Job<a class="headerlink" href="#job" title="Permalink to this headline">¶</a></h3>
+<h3>1.9.3. Job<a class="headerlink" href="#job" title="Permalink to this headline">¶</a></h3>
 </div>
 </div>
 <div class="section" id="keys">
-<h2>Keys<a class="headerlink" href="#keys" title="Permalink to this headline">¶</a></h2>
+<h2>1.10. Keys<a class="headerlink" href="#keys" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;_id&quot;</span> <span class="p">:</span> <span class="n">ObjectId</span><span class="p">(</span><span class="s2">&quot;5ca79c92dc64f1905d924234&quot;</span><span class="p">),</span>
     <span class="s2">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;gregor&quot;</span><span class="p">,</span>
@@ -1259,6 +1357,15 @@ provider at</p>
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../benchmarks/README.html" class="btn btn-neutral float-right" title="1. Benchmarks" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../manual/storage/vdir.html" class="btn btn-neutral float-left" title="6.3. vdir" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

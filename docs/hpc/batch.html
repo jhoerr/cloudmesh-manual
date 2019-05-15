@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Batch &mdash; Cloudmesh v4 alpha documentation</title>
+  <title>8. Batch &mdash; Cloudmesh v4 alpha documentation</title>
   
 
   
@@ -35,7 +35,9 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" /> 
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1. Cloudmesh Multi Cloud Open API Interface" href="../openapi/README-storage-openapi.html" />
+    <link rel="prev" title="7. Jupyter Integration" href="../jupyter.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -96,25 +98,35 @@
 <li class="toctree-l1"><a class="reference internal" href="../installation/mongo.html">4. Cloudmesh Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../configuration/encryption.html">5. Cloudmesh Yaml file Encrytion</a></li>
 </ul>
-<p class="caption"><span class="caption-text">COMPUTE</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../vm.html">1. Virtual Machine Management</a></li>
-</ul>
-<p class="caption"><span class="caption-text">STORAGE</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../README-storage.html">1. Cloudmesh Multi Cloud Storage Interface</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../README-storage.html#cloudmesh-storage-module">2. Cloudmesh Storage Module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../objectstore.html">3. Object Storage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../README-storage-openapi.html">4. Cloudmesh Multi Cloud Open API Interface</a></li>
-</ul>
-<p class="caption"><span class="caption-text">WORKFLOW</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../workflow.html">1. Infrastructure Workflow</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../jupyter.html">2. Jupyter Integration (proposed)</a></li>
-</ul>
 <p class="caption"><span class="caption-text">cmd5</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../cmd5.html">1. CMD5</a></li>
+</ul>
+<p class="caption"><span class="caption-text">SERVICES</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../group.html">1. Group command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vm/vm.html">2. Virtual Machine Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vm/image.html">3. Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vm/flavor.html">4. Flavors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../storage/storage.html">5. Cloudmesh Multi Cloud Storage Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workflow.html">6. Infrastructure Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter.html">7. Jupyter Integration</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">8. Batch</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#creating-a-job-configuration">8.1. Creating a job configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#testing-the-connection">8.2. Testing the connection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#running-the-job">8.3. Running the Job</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#downloading-the-results">8.4. Downloading the Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cleaning-the-remote">8.5. Cleaning the remote</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#get-the-list-of-the-jobs-and-clusters">8.6. Get the list of the jobs and clusters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#modifying-the-configuration-by-setting-parameters">8.7. Modifying the Configuration by Setting Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#removing-jobs-and-clusters">8.8. Removing jobs and clusters</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">openapi</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../openapi/README-storage-openapi.html">1. Cloudmesh Multi Cloud Open API Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../openapi/ufo.html">2. REST Service (outdated)</a></li>
 </ul>
 <p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
 <ul>
@@ -127,7 +139,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Database</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../database.html">1. Cloudmesh Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../storage/database.html">1. Cloudmesh Database</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Database</span></p>
 <ul>
@@ -174,10 +186,8 @@
 </ul>
 <p class="caption"><span class="caption-text">Outdated:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../vagrant.html">1. Vagrant (outdated)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../CM4README.html">2. CM4 Details (outdated)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ufo.html">3. REST Service (outdated)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../vcluster.html">4. Virtual Cluster (in progress)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CM4README.html">1. CM4 Details (outdated)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vcluster.html">2. Virtual Cluster (in progress)</a></li>
 </ul>
 
             
@@ -223,7 +233,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>Batch</li>
+      <li>8. Batch</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -243,7 +253,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="batch">
-<h1>Batch<a class="headerlink" href="#batch" title="Permalink to this headline">¶</a></h1>
+<h1>8. Batch<a class="headerlink" href="#batch" title="Permalink to this headline">¶</a></h1>
 <p>The purpose of this sub-command is to facilitate job submission on
 clusters that use SLURM as their workload manager. Note that this tools
 assumes that the SLURM file is properly prepared by the user and does
@@ -282,7 +292,7 @@ cluster</p></li>
 <p>Each of these sub-commands are reviewed in the following sections with
 examples.</p>
 <div class="section" id="creating-a-job-configuration">
-<h2>Creating a job configuration<a class="headerlink" href="#creating-a-job-configuration" title="Permalink to this headline">¶</a></h2>
+<h2>8.1. Creating a job configuration<a class="headerlink" href="#creating-a-job-configuration" title="Permalink to this headline">¶</a></h2>
 <p>As can be seen, this sub-command has the most number of arguments and is
 the vital part of the <code class="docutils literal notranslate"><span class="pre">batch</span></code> tool. The parameters are all
 self-explanatory, but we will review the important ones here:</p>
@@ -339,7 +349,7 @@ configuration file placed in the workspace directory:</p>
 </div>
 </div>
 <div class="section" id="testing-the-connection">
-<h2>Testing the connection<a class="headerlink" href="#testing-the-connection" title="Permalink to this headline">¶</a></h2>
+<h2>8.2. Testing the connection<a class="headerlink" href="#testing-the-connection" title="Permalink to this headline">¶</a></h2>
 <p>Note that the cluster information is already extracted and added to this
 file. Therefore unlike <code class="docutils literal notranslate"><span class="pre">vcluster</span></code>, there is no need to add the cluster
 manually. So far, we have just added and updated the configuration and
@@ -351,7 +361,7 @@ let’s try to test our connection to the cluster:</p>
 </div>
 </div>
 <div class="section" id="running-the-job">
-<h2>Running the Job<a class="headerlink" href="#running-the-job" title="Permalink to this headline">¶</a></h2>
+<h2>8.3. Running the Job<a class="headerlink" href="#running-the-job" title="Permalink to this headline">¶</a></h2>
 <p>Now that we are sure that the ssh connection works fine, let’s try to
 run the job:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms batch run-job SlurmTest1
@@ -385,7 +395,7 @@ drwx------ <span class="m">3</span>  <span class="m">4096</span> Dec  <span clas
 </div>
 </div>
 <div class="section" id="downloading-the-results">
-<h2>Downloading the Results<a class="headerlink" href="#downloading-the-results" title="Permalink to this headline">¶</a></h2>
+<h2>8.4. Downloading the Results<a class="headerlink" href="#downloading-the-results" title="Permalink to this headline">¶</a></h2>
 <p>Now that the results are ready we can fetch the results using the
 following command:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms batch fetch SlurmTest1
@@ -408,7 +418,7 @@ drwxr-xr-x <span class="m">3</span> corriel 1M Dec  <span class="m">6</span> <sp
 </div>
 </div>
 <div class="section" id="cleaning-the-remote">
-<h2>Cleaning the remote<a class="headerlink" href="#cleaning-the-remote" title="Permalink to this headline">¶</a></h2>
+<h2>8.5. Cleaning the remote<a class="headerlink" href="#cleaning-the-remote" title="Permalink to this headline">¶</a></h2>
 <p>Now that you are done, you can easily clean the remote using:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms batch clean-remote SlurmTest1
 Job SlurmTest1 cleaned successfully.
@@ -416,7 +426,7 @@ Job SlurmTest1 cleaned successfully.
 </div>
 </div>
 <div class="section" id="get-the-list-of-the-jobs-and-clusters">
-<h2>Get the list of the jobs and clusters<a class="headerlink" href="#get-the-list-of-the-jobs-and-clusters" title="Permalink to this headline">¶</a></h2>
+<h2>8.6. Get the list of the jobs and clusters<a class="headerlink" href="#get-the-list-of-the-jobs-and-clusters" title="Permalink to this headline">¶</a></h2>
 <p>Naturally after working with the <code class="docutils literal notranslate"><span class="pre">batch</span></code> for a while, several jobs and
 clusters will be accumulated in the configuration file. You can get the
 list of current jobs and clusters using the following commands:</p>
@@ -456,7 +466,7 @@ the desired depth as the next parameter:</p>
 </div>
 </div>
 <div class="section" id="modifying-the-configuration-by-setting-parameters">
-<h2>Modifying the Configuration by Setting Parameters<a class="headerlink" href="#modifying-the-configuration-by-setting-parameters" title="Permalink to this headline">¶</a></h2>
+<h2>8.7. Modifying the Configuration by Setting Parameters<a class="headerlink" href="#modifying-the-configuration-by-setting-parameters" title="Permalink to this headline">¶</a></h2>
 <p>In case you want to modify or add a configuration parameter, there is no
 need to directly modify the file. Indeed you can use the <code class="docutils literal notranslate"><span class="pre">set-param</span></code>
 command to set a key for both jobs and slurm-clusters. In the next
@@ -478,7 +488,7 @@ cms batch list slurm-clusters <span class="m">2</span>
 </div>
 </div>
 <div class="section" id="removing-jobs-and-clusters">
-<h2>Removing jobs and clusters<a class="headerlink" href="#removing-jobs-and-clusters" title="Permalink to this headline">¶</a></h2>
+<h2>8.8. Removing jobs and clusters<a class="headerlink" href="#removing-jobs-and-clusters" title="Permalink to this headline">¶</a></h2>
 <p>Finally, when you are done with a job, or when a cluster is not
 accessible anymore, you can easily remove them from the <code class="docutils literal notranslate"><span class="pre">batch</span></code>
 configuration file using the following:</p>
@@ -499,6 +509,15 @@ Job SlurmTest1 removeed successfully.
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../openapi/README-storage-openapi.html" class="btn btn-neutral float-right" title="1. Cloudmesh Multi Cloud Open API Interface" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../jupyter.html" class="btn btn-neutral float-left" title="7. Jupyter Integration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

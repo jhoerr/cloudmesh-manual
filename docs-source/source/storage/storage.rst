@@ -154,7 +154,7 @@ Create Object Directory
 
 .. code:: bash
 
-   $ cms storage --storage='objstore' create /base_path/targetdir
+   cms storage create /base_path/targetdir
 
 Put
 ---
@@ -164,7 +164,7 @@ storage
 
 .. code:: bash
 
-   $ cms storage --storage='objstore' put ~/.cloudmesh/objstore/sourcedir /base_path/targetdir --recursive
+   cms storage put ~/.cloudmesh/objstore/sourcedir /base_path/targetdir --recursive
 
 Get
 ---
@@ -173,7 +173,7 @@ The put command retrieve or download a object from AWS S3 object storage
 
 .. code:: bash
 
-   $ cms storage --storage='objstore' get /bucket_name/src ~/.cloudmesh/objstore/dest --recursive
+   cms storage get /bucket_name/src ~/.cloudmesh/objstore/dest --recursive
 
 List
 ----
@@ -184,7 +184,7 @@ nested objects information
 
 .. code:: bash
 
-   $ cms storage --storage='objstore' list /bucket_name/dest --recursive
+   cms storage list /bucket_name/dest --recursive
 
 Delete
 ------
@@ -196,7 +196,7 @@ delete its contents as well (including the sub-directories).
 
 .. code:: bash
 
-   $ cms storage --storage='objstore' delete /bucket_name/est --recursive
+   cms storage delete /bucket_name/est --recursive
 
 Storage functions overview
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -209,7 +209,7 @@ the full path of the new directory you would like to create.
 
 .. code:: bash
 
-   $ cms storage --storage='aws' create dir /base_path/targetdir
+   cms storage --storage='aws' create dir /base_path/targetdir
 
 .. _put-1:
 
@@ -220,7 +220,7 @@ The put command uploads files from your local host to the S3.
 
 .. code:: bash
 
-   $ cms storage --storage='aws' put ~/.cloudmesh/storage/sourcedir /base_path/targetdir --recursive
+   cms storage put ~/.cloudmesh/storage/sourcedir /base_path/targetdir --recursive
 
 Source for this command could be either a file or directory.
 
@@ -243,7 +243,7 @@ The get command downloads files from S3 to your local host.
 
 .. code:: bash
 
-   $ cms storage --storage='aws' get /base_container/sourcedir ~/.cloudmesh/storage/targetdir --recursive
+   cms storage get /base_container/sourcedir ~/.cloudmesh/storage/targetdir --recursive
 
 Source for this command could be either a file or directory.
 
@@ -273,7 +273,7 @@ target dir.
 
 .. code:: bash
 
-   $ cms storage --storage='aws' search /base_path/targetdir testfile.txt --recursive
+   cms storage search /base_path/targetdir testfile.txt --recursive
 
 Note that for the Box storage provider, objects are only indexed every 5
 to 10 minutes and will not show up in a search until they have been
@@ -290,7 +290,7 @@ sub-directories as well.
 
 .. code:: bash
 
-   $ cms storage --storage='aws' list /base_path/targetdir --recursive
+   cms storage list /base_path/targetdir --recursive
 
 .. _delete-1:
 
@@ -303,7 +303,7 @@ the sub-directories).
 
 .. code:: bash
 
-   $ cms storage --storage='aws' delete /base_path/targetdir --recursive
+   cms storage delete /base_path/targetdir --recursive
 
 Pytests
 -------
@@ -321,17 +321,17 @@ be invoked as follows
 
 .. code:: bash
 
-   $ cms set storage=box
-   $ pytest -v --capture=no tests/test_storage.py
+   cms set storage=box
+   pytest -v --capture=no tests/test_storage.py
 
-   $ cms set storage=azure
-   $ pytest -v --capture=no tests/test_storage.py
+   cms set storage=azure
+   pytest -v --capture=no tests/test_storage.py
 
-   $ cms set storage=gdrive
-   $ pytest -v --capture=no tests/test_storage.py
+   cms set storage=gdrive
+   pytest -v --capture=no tests/test_storage.py
 
-   $ cms set storage=awss3
-   $ pytest -v --capture=no tests/test_storage.py
+   cms set storage=awss3
+   pytest -v --capture=no tests/test_storage.py
 
 Provider Specific Pytests
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -341,9 +341,9 @@ the following command to run pytests:
 
 .. code:: bash
 
-   $ pytest -v --capture=no tests/test_storage_box.py
-   $ pytest -v --capture=no tests/test_azure.py
-   $ pytest -v --capture=no tests/test_storage_aws.py
+   pytest -v --capture=no tests/test_storage_box.py
+   pytest -v --capture=no tests/test_azure.py
+   pytest -v --capture=no tests/test_storage_aws.py
 
 TODO: rename to
 
@@ -364,8 +364,8 @@ TBD
 
 .. code:: bash
 
-   $ cms set storage=azure
-   $ cms storage list
+   cms set storage=azure
+   cms storage list
 
 Programming Interface
 ~~~~~~~~~~~~~~~~~~~~~
@@ -404,7 +404,7 @@ TODO rename to test_storage_gdrive.py
 
 .. code:: bash
 
-   $ pytest -v --capture=no tests/test_gdrive.py
+   pytest -v --capture=no tests/test_gdrive.py
 
 Virtual Directory
 -----------------
@@ -428,7 +428,7 @@ The vdir command can be tested as follows:
 
 .. code:: bash
 
-   $ pytest -v --capture=no tests/test_vdir.py
+   pytest -v --capture=no tests/test_vdir.py
 
 Google drive
 ------------

@@ -1,4 +1,4 @@
-# Setting Up Your Box Account
+# Box Account
 
 Box provides a cloud file sharing service for buisinesses. CLients
 exists for Windows, MacOS, and Linux. To obtain an account you have to

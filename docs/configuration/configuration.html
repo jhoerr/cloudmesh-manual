@@ -124,25 +124,25 @@
 <li class="toctree-l1"><a class="reference internal" href="../installation/mongo.html">4. Cloudmesh Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="encryption.html">5. Cloudmesh Yaml file Encrytion</a></li>
 </ul>
-<p class="caption"><span class="caption-text">COMPUTE</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../vm.html">1. Virtual Machine Management</a></li>
-</ul>
-<p class="caption"><span class="caption-text">STORAGE</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../README-storage.html">1. Cloudmesh Multi Cloud Storage Interface</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../README-storage.html#cloudmesh-storage-module">2. Cloudmesh Storage Module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../objectstore.html">3. Object Storage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../README-storage-openapi.html">4. Cloudmesh Multi Cloud Open API Interface</a></li>
-</ul>
-<p class="caption"><span class="caption-text">WORKFLOW</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../workflow.html">1. Infrastructure Workflow</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../jupyter.html">2. Jupyter Integration (proposed)</a></li>
-</ul>
 <p class="caption"><span class="caption-text">cmd5</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../cmd5.html">1. CMD5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cmd5.html">1. Cmd5</a></li>
+</ul>
+<p class="caption"><span class="caption-text">SERVICES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../group.html">1. Group command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vm/vm.html">2. Virtual Machine Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vm/image.html">3. Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vm/flavor.html">4. Flavors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../storage/storage.html">5. Cloudmesh Multi Cloud Storage Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workflow.html">6. Infrastructure Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter.html">7. Jupyter Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hpc/batch.html">8. Batch</a></li>
+</ul>
+<p class="caption"><span class="caption-text">openapi</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../openapi/README-storage-openapi.html">1. Cloudmesh Multi Cloud Open API Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../openapi/ufo.html">2. REST Service (outdated)</a></li>
 </ul>
 <p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
 <ul>
@@ -155,7 +155,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Database</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../database.html">1. Cloudmesh Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../storage/database.html">1. Cloudmesh Database</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Database</span></p>
 <ul>
@@ -197,15 +197,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../accounts/aws.html">1. AWS Account Creation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/azure.html">2. Azure Account Creation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/google.html">3. Google Storage Providers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/box.html">4. Setting Up Your Box Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/box.html">4. Box Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/accountcreation-old.html">5. VM Providers (outdated)</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Outdated:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../vagrant.html">1. Vagrant (outdated)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../CM4README.html">2. CM4 Details (outdated)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ufo.html">3. REST Service (outdated)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../vcluster.html">4. Virtual Cluster (in progress)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CM4README.html">1. CM4 Details (outdated)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vcluster.html">2. Virtual Cluster (in progress)</a></li>
 </ul>
 
             
@@ -313,12 +311,8 @@ We list each template next.</p>
 <div class="section" id="aws">
 <h3>3.2.1. AWS<a class="headerlink" href="#aws" title="Permalink to this headline">¶</a></h3>
 <p>It is beyond the scope of this manual to discuss how to get an account
-on Aws. However we do provide a convenient documentation at ??</p>
-<div class="admonition-todo admonition" id="index-0">
-<p class="admonition-title">Todo</p>
-<p>provide a link to the aws account creation documentation in
-this manual</p>
-</div>
+on Aws. However we do provide a convenient documentation at
+<a class="reference internal" href="../accounts/aws.html"><span class="doc">AWS Account Creation</span></a>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cloudmesh</span><span class="p">:</span>
   <span class="o">...</span>
   <span class="n">cloud</span><span class="p">:</span>
@@ -347,12 +341,8 @@ this manual</p>
 <div class="section" id="azure">
 <h3>3.2.2. Azure<a class="headerlink" href="#azure" title="Permalink to this headline">¶</a></h3>
 <p>It is beyond the scope of this manual to discuss how to get an account
-on Azure. However we do provide a convenient documentation at ??</p>
-<div class="admonition-todo admonition" id="index-1">
-<p class="admonition-title">Todo</p>
-<p>provide a link to the azure account creation documentation in
-this manual</p>
-</div>
+on Azure. However we do provide a convenient documentation at
+<a class="reference internal" href="../accounts/azure.html"><span class="doc">Azure Account Creation</span></a>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cloudmesh</span><span class="p">:</span>
   <span class="o">...</span>
   <span class="n">cloud</span><span class="p">:</span>
@@ -411,12 +401,8 @@ this manual</p>
 <div class="section" id="google">
 <h3>3.2.4. Google<a class="headerlink" href="#google" title="Permalink to this headline">¶</a></h3>
 <p>It is beyond the scope of this manual to discuss how to get an account
-on Google. However we do provide a convenient documentation at ??</p>
-<div class="admonition-todo admonition" id="index-2">
-<p class="admonition-title">Todo</p>
-<p>provide a link to the google account creation documentation in
-this manual</p>
-</div>
+on Google. However we do provide a convenient documentation at
+<a class="reference internal" href="../accounts/google.html"><span class="doc">Google Storage Providers</span></a>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cloudmesh</span><span class="p">:</span>
   <span class="o">...</span>
   <span class="n">cloud</span><span class="p">:</span>
@@ -517,21 +503,21 @@ the following description:</p>
 </div>
 <div class="section" id="ssh">
 <h3>3.2.7. SSH<a class="headerlink" href="#ssh" title="Permalink to this headline">¶</a></h3>
-<div class="admonition-todo admonition" id="index-3">
+<div class="admonition-todo admonition" id="index-0">
 <p class="admonition-title">Todo</p>
 <p>SSH,  STUDENT CONTRIBUTE HERE</p>
 </div>
 </div>
 <div class="section" id="local">
 <h3>3.2.8. Local<a class="headerlink" href="#local" title="Permalink to this headline">¶</a></h3>
-<div class="admonition-todo admonition" id="index-4">
+<div class="admonition-todo admonition" id="index-1">
 <p class="admonition-title">Todo</p>
 <p>Local,  STUDENT CONTRIBUTE HERE</p>
 </div>
 </div>
 <div class="section" id="docker">
 <h3>3.2.9. Docker<a class="headerlink" href="#docker" title="Permalink to this headline">¶</a></h3>
-<div class="admonition-todo admonition" id="index-5">
+<div class="admonition-todo admonition" id="index-2">
 <p class="admonition-title">Todo</p>
 <p>Docker,  STUDENT CONTRIBUTE HERE</p>
 </div>
@@ -544,12 +530,8 @@ the following description:</p>
 <div class="section" id="aws-s3">
 <h3>3.3.1. AWS S3<a class="headerlink" href="#aws-s3" title="Permalink to this headline">¶</a></h3>
 <p>It is beyond the scope of this manual to discuss how to get an account
-on Google. However we do provide a convenient documentation at ??</p>
-<div class="admonition-todo admonition" id="index-6">
-<p class="admonition-title">Todo</p>
-<p>provide a link to the aws account creation documentation in
-this manual</p>
-</div>
+on Google. However we do provide a convenient documentation at
+<a class="reference internal" href="../accounts/aws.html"><span class="doc">AWS Account Creation</span></a>.</p>
 <p>In the <code class="docutils literal notranslate"><span class="pre">cloudmesh4.yaml</span></code> file, the ‘aws’ section under ‘storage’
 describes an example configuration or a AWS S3 storage provider. In the
 credentials section under aws, specify the access key id and secret
@@ -581,14 +563,10 @@ resource for that geographic area. Here is a sample.</p>
 <div class="section" id="azure-1">
 <span id="id1"></span><h3>3.3.2. Azure<a class="headerlink" href="#azure-1" title="Permalink to this headline">¶</a></h3>
 <p>It is beyond the scope of this manual to discuss how to get an account
-on Google. However we do provide a convenient documentation at ??</p>
-<div class="admonition-todo admonition" id="index-7">
-<p class="admonition-title">Todo</p>
-<p>provide a link to the azure  account creation documentation in
-this manual. amke sure it works for vms and storage</p>
-</div>
+on Google. However we do provide a convenient documentation at
+<a class="reference internal" href="../accounts/azure.html"><span class="doc">Azure Account Creation</span></a>.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">cloudmesh4.yaml</span></code> file needs to be set up as follows for the
-‘azureblob’ section under ‘storage’.</p>
+‘azureblob’ section under ‘storage’:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cloudmesh</span><span class="p">:</span>
   <span class="o">.........</span>
   <span class="n">storage</span><span class="p">:</span>
@@ -626,8 +604,11 @@ the Azure blob storage account.</p></li>
 <p>Due to bugs in the requirements of the google driver code, we have not
 yet included it in the Provider code. This needs to be fixed before we
 can do this.</p>
+<p>It is beyond the scope of this manual to discuss how to get an account
+on Google. However we do provide a convenient documentation at
+<a class="reference internal" href="../accounts/google.html"><span class="doc">Google Storage Providers</span></a>.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">cloudmesh4.yaml</span></code> file needs to be set up as follows for the
-‘gdrive’ section under ‘storage’.</p>
+‘gdrive’ section under ‘storage’:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">storge</span><span class="p">:</span>
     <span class="n">gdrive</span><span class="p">:</span>
       <span class="n">cm</span><span class="p">:</span>
@@ -658,12 +639,8 @@ can do this.</p>
 <div class="section" id="box">
 <h3>3.3.4. Box<a class="headerlink" href="#box" title="Permalink to this headline">¶</a></h3>
 <p>It is beyond the scope of this manual to discuss how to get an account
-on Google. However we do provide a convenient documentation at ??</p>
-<div class="admonition-todo admonition" id="index-8">
-<p class="admonition-title">Todo</p>
-<p>provide a link to the box account creation documentation in
-this manual</p>
-</div>
+on Google. However we do provide a convenient documentation at
+<a class="reference internal" href="../accounts/box.html"><span class="doc">Box Account</span></a>.</p>
 <p>In the <code class="docutils literal notranslate"><span class="pre">cloudmesh4.yaml</span></code> file, find the ‘box’ section under ‘storage’.
 Under credentials, set <code class="docutils literal notranslate"><span class="pre">config_path</span></code> to the path of the configuration
 file you created as described in the Box chapter:</p>
@@ -684,7 +661,7 @@ file you created as described in the Box chapter:</p>
 </div>
 <div class="section" id="batch">
 <h2>3.4. Batch<a class="headerlink" href="#batch" title="Permalink to this headline">¶</a></h2>
-<div class="admonition-todo admonition" id="index-9">
+<div class="admonition-todo admonition" id="index-3">
 <p class="admonition-title">Todo</p>
 <p>batch, student contribute here</p>
 </div>
@@ -723,25 +700,18 @@ with its value. For example. let us assume the yaml file contains:</p>
       current: .
 </pre></div>
 </div>
-<p>cloudmesg will replace the will result be transformed with</p>
-<dl class="simple">
-<dt>::</dt><dd><dl class="simple">
-<dt>cloudmesh:</dt><dd><dl class="simple">
-<dt>profile:</dt><dd><p>name: Gregor</p>
-</dd>
-<dt>cloud:</dt><dd><dl class="simple">
-<dt>aws:</dt><dd><p>username: “Gregor”
-key: /home/gergor/.ssh/id_rsa
-dir: /home/gregor
-current: /home/gregor/github/cm</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd>
-</dl>
+<p>cloudmesg will replace the will result be transformed with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cloudmesh</span><span class="p">:</span>
+  <span class="n">profile</span><span class="p">:</span>
+    <span class="n">name</span><span class="p">:</span> <span class="n">Gregor</span>
+  <span class="n">cloud</span><span class="p">:</span>
+    <span class="n">aws</span><span class="p">:</span>
+      <span class="n">username</span><span class="p">:</span> <span class="s2">&quot;Gregor&quot;</span>
+      <span class="n">key</span><span class="p">:</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">gergor</span><span class="o">/.</span><span class="n">ssh</span><span class="o">/</span><span class="n">id_rsa</span>
+      <span class="nb">dir</span><span class="p">:</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">gregor</span>
+      <span class="n">current</span><span class="p">:</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">gregor</span><span class="o">/</span><span class="n">github</span><span class="o">/</span><span class="n">cm</span>
+</pre></div>
+</div>
 <p>This feature is naturally very useful for creating templates for users</p>
 </div>
 </div>

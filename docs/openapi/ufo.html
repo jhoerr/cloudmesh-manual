@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>REST Service (outdated) &mdash; Cloudmesh v4 alpha documentation</title>
+  <title>2. REST Service (outdated) &mdash; Cloudmesh v4 alpha documentation</title>
   
 
   
@@ -35,7 +35,9 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" /> 
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1. Reference Card (proposed)" href="../reference-card.html" />
+    <link rel="prev" title="1. Cloudmesh Multi Cloud Open API Interface" href="README-storage-openapi.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -96,25 +98,29 @@
 <li class="toctree-l1"><a class="reference internal" href="../installation/mongo.html">4. Cloudmesh Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../configuration/encryption.html">5. Cloudmesh Yaml file Encrytion</a></li>
 </ul>
-<p class="caption"><span class="caption-text">SERVICES</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../group.html">1. Group command</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../vm.html">2. Virtual Machine Management</a></li>
-</ul>
-<p class="caption"><span class="caption-text">STORAGE</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../README-storage.html">1. Cloudmesh Multi Cloud Storage Interface</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../README-storage.html#cloudmesh-storage-module">2. Cloudmesh Storage Module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../objectstore.html">3. Object Storage</a></li>
-</ul>
-<p class="caption"><span class="caption-text">WORKFLOW</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../workflow.html">1. Infrastructure Workflow</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../jupyter.html">2. Jupyter Integration</a></li>
-</ul>
 <p class="caption"><span class="caption-text">cmd5</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../cmd5.html">1. CMD5</a></li>
+</ul>
+<p class="caption"><span class="caption-text">SERVICES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../group.html">1. Group command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vm/vm.html">2. Virtual Machine Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../storage/storage.html">3. Cloudmesh Multi Cloud Storage Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workflow.html">4. Infrastructure Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter.html">5. Jupyter Integration</a></li>
+</ul>
+<p class="caption"><span class="caption-text">openapi</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="README-storage-openapi.html">1. Cloudmesh Multi Cloud Open API Interface</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2. REST Service (outdated)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#pre-requisites">2.1. Pre-requisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-run-the-rest-api">2.2. How to run the REST API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#api">2.3. API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#examples">2.4. Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dev-restricting-certain-ips-for-certain-rest-calls">2.5. Dev - restricting certain ips for certain rest calls</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
 <ul>
@@ -124,10 +130,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../manual-group.html">4. Manual Group</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual-compute.html">5. Compute Manual Pages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual-storage.html">6. Storage Manual Pages</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Database</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../database.html">1. Cloudmesh Database</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Database</span></p>
 <ul>
@@ -221,7 +223,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>REST Service (outdated)</li>
+      <li>2. REST Service (outdated)</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -241,11 +243,11 @@
            <div itemprop="articleBody">
             
   <div class="section" id="rest-service-outdated">
-<h1>REST Service (outdated)<a class="headerlink" href="#rest-service-outdated" title="Permalink to this headline">¶</a></h1>
+<h1>2. REST Service (outdated)<a class="headerlink" href="#rest-service-outdated" title="Permalink to this headline">¶</a></h1>
 <p>The REST Api is built using flask and provides the cloud
 information retrieval functionality through HTTP calls.</p>
 <div class="section" id="pre-requisites">
-<h2>Pre-requisites<a class="headerlink" href="#pre-requisites" title="Permalink to this headline">¶</a></h2>
+<h2>2.1. Pre-requisites<a class="headerlink" href="#pre-requisites" title="Permalink to this headline">¶</a></h2>
 <p>Use pip install to install the following packages.</p>
 <ul class="simple">
 <li><p>Flask</p></li>
@@ -253,7 +255,7 @@ information retrieval functionality through HTTP calls.</p>
 </ul>
 </div>
 <div class="section" id="how-to-run-the-rest-api">
-<h2>How to run the REST API<a class="headerlink" href="#how-to-run-the-rest-api" title="Permalink to this headline">¶</a></h2>
+<h2>2.2. How to run the REST API<a class="headerlink" href="#how-to-run-the-rest-api" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Navigate to the cm directory. example:</p></li>
 </ul>
@@ -280,7 +282,7 @@ information retrieval functionality through HTTP calls.</p>
 </div>
 </div>
 <div class="section" id="api">
-<h2>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h2>
+<h2>2.3. API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">/vms/</span></code> : Provides information on all the VMs.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">/vms/stopped</span></code>  : Provides information on all the stopped VMs.</p></li>
@@ -288,7 +290,7 @@ information retrieval functionality through HTTP calls.</p>
 </ul>
 </div>
 <div class="section" id="examples">
-<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<h2>2.4. Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <ul>
 <li><p>Retrieve information about a VM</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl localhost:5000/vms/i-0fad7e92ffea8b345
@@ -298,7 +300,7 @@ information retrieval functionality through HTTP calls.</p>
 </ul>
 </div>
 <div class="section" id="dev-restricting-certain-ips-for-certain-rest-calls">
-<h2>Dev - restricting certain ips for certain rest calls<a class="headerlink" href="#dev-restricting-certain-ips-for-certain-rest-calls" title="Permalink to this headline">¶</a></h2>
+<h2>2.5. Dev - restricting certain ips for certain rest calls<a class="headerlink" href="#dev-restricting-certain-ips-for-certain-rest-calls" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">abort</span><span class="p">,</span> <span class="n">request</span>
 <span class="kn">from</span> <span class="nn">cm4.flask_rest_api.app</span> <span class="kn">import</span> <span class="n">app</span>
 
@@ -317,6 +319,15 @@ information retrieval functionality through HTTP calls.</p>
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../reference-card.html" class="btn btn-neutral float-right" title="1. Reference Card (proposed)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="README-storage-openapi.html" class="btn btn-neutral float-left" title="1. Cloudmesh Multi Cloud Open API Interface" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

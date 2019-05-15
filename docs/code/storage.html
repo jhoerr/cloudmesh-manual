@@ -98,19 +98,25 @@
 <li class="toctree-l1"><a class="reference internal" href="../installation/mongo.html">4. Cloudmesh Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../configuration/encryption.html">5. Cloudmesh Yaml file Encrytion</a></li>
 </ul>
-<p class="caption"><span class="caption-text">cmd5</span></p>
+<p class="caption"><span class="caption-text">SOMMAND SHELL</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../cmd5.html">1. CMD5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cmd5.html">1. Cmd5</a></li>
 </ul>
-<p class="caption"><span class="caption-text">SERVICES</span></p>
+<p class="caption"><span class="caption-text">CLOUD SERVICES</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../group.html">1. Group command</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../vm/vm.html">2. Virtual Machine Management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../storage/README-storage.html">3. Cloudmesh Multi Cloud Storage Interface</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../storage/README-storage.html#cloudmesh-storage-module">4. Cloudmesh Storage Module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../storage/objectstore.html">5. Object Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vm/image.html">3. Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vm/flavor.html">4. Flavors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../storage/storage.html">5. Cloudmesh Multi Cloud Storage Interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../workflow.html">6. Infrastructure Workflow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../jupyter.html">7. Jupyter Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hpc/batch.html">8. Batch</a></li>
+</ul>
+<p class="caption"><span class="caption-text">openapi</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../openapi/README-storage-openapi.html">1. Cloudmesh Multi Cloud Open API Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../openapi/ufo.html">2. REST Service (outdated)</a></li>
 </ul>
 <p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
 <ul>
@@ -121,7 +127,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../manual-compute.html">5. Compute Manual Pages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual-storage.html">6. Storage Manual Pages</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Database</span></p>
+<p class="caption"><span class="caption-text">DATABASE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../storage/database.html">1. Cloudmesh Database</a></li>
+</ul>
+<p class="caption"><span class="caption-text">BENCHMARKS</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../benchmarks/README.html">1. Benchmarks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../benchmarks/awsec2-vm-management-benchmark.html">2. AWS EC2 VM Management</a></li>
@@ -156,12 +166,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../dev/pytest.html">5. Pytest</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev/todo.html">6. ToDo</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Cloud Accounts</span></p>
+<p class="caption"><span class="caption-text">CLOUD ACCOUNTS</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/aws.html">1. AWS Account Creation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/azure.html">2. Azure Account Creation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/google.html">3. Google Storage Providers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/box.html">4. Setting Up Your Box Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/box.html">4. Box Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/accountcreation-old.html">5. VM Providers (outdated)</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Outdated:</span></p>
@@ -232,9 +242,181 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="cloudmesh-storage">
-<h1>9. cloudmesh-storage<a class="headerlink" href="#cloudmesh-storage" title="Permalink to this headline">¶</a></h1>
-</div>
+  <div class="section" id="module-cloudmesh.storage.Provider">
+<span id="cloudmesh-storage"></span><h1>9. cloudmesh-storage<a class="headerlink" href="#module-cloudmesh.storage.Provider" title="Permalink to this headline">¶</a></h1>
+<span class="target" id="module-cloudmesh.storage.spec.tests.test_openapi_storage"></span><dl class="class">
+<dt id="cloudmesh.storage.spec.tests.test_openapi_storage.Test_cloud_storage">
+<em class="property">class </em><code class="descclassname">cloudmesh.storage.spec.tests.test_openapi_storage.</code><code class="descname">Test_cloud_storage</code><a class="reference internal" href="../_modules/cloudmesh/storage/spec/tests/test_openapi_storage.html#Test_cloud_storage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.spec.tests.test_openapi_storage.Test_cloud_storage" title="Permalink to this definition">¶</a></dt>
+<dd><p>see: <a class="reference external" href="https://github.com/cloudmesh/cloudmesh-common/blob/master/cloudmesh/common/run/background.py">https://github.com/cloudmesh/cloudmesh-common/blob/master/cloudmesh/common/run/background.py</a>
+the code in thel link has not bean tested
+make this s function execute the server in the back ground not in a terminal,
+get the pid and kill it after the test is done
+UNAME := $(shell uname)
+ifeq ($(UNAME), Darwin)
+define terminal</p>
+<blockquote>
+<div><p>osascript -e ‘tell application “Terminal” to do script “cd $(PWD); $1”’</p>
+</div></blockquote>
+<p>endef
+endif
+ifeq ($(UNAME), Linux)
+define terminal</p>
+<blockquote>
+<div><p>gnome-terminal –command ‘bash -c “cd $(PWD); $1”’</p>
+</div></blockquote>
+<p>endef
+endif</p>
+</dd></dl>
+
+<span class="target" id="module-cloudmesh.storage.spec.cloudmesh.storage"></span><span class="target" id="module-cloudmesh.storage.provider.box.Provider"></span><span class="target" id="module-cloudmesh.storage.provider.gdrive.Provider"></span><span class="target" id="module-cloudmesh.storage.provider.azureblob.Provider"></span><span class="target" id="module-cloudmesh.storage.provider.local.Provider"></span><dl class="class">
+<dt id="cloudmesh.storage.provider.local.Provider.Provider">
+<em class="property">class </em><code class="descclassname">cloudmesh.storage.provider.local.Provider.</code><code class="descname">Provider</code><span class="sig-paren">(</span><em>service=None</em>, <em>config='~/.cloudmesh/cloudmesh4.yaml'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/local/Provider.html#Provider"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.local.Provider.Provider" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>cloudmesh:</dt><dd><dl class="simple">
+<dt>a:</dt><dd><dl class="simple">
+<dt>cm:</dt><dd><p>active: False
+heading: Local A
+host: localhost
+label: local_a
+kind: local
+version: 1.0</p>
+</dd>
+<dt>default:</dt><dd><p>directory: .</p>
+</dd>
+<dt>credentials:</dt><dd><p>directory: ~/.cloudmesh/storage/a</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>default location is credentials.directory / default.directory</p>
+<dl class="method">
+<dt id="cloudmesh.storage.provider.local.Provider.Provider.create_dir">
+<code class="descname">create_dir</code><span class="sig-paren">(</span><em>directory=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/local/Provider.html#Provider.create_dir"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.local.Provider.Provider.create_dir" title="Permalink to this definition">¶</a></dt>
+<dd><p>creates a directory</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>directory</strong> – the name of the directory</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.storage.provider.local.Provider.Provider.create_dir_from_filename">
+<code class="descname">create_dir_from_filename</code><span class="sig-paren">(</span><em>filename=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/local/Provider.html#Provider.create_dir_from_filename"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.local.Provider.Provider.create_dir_from_filename" title="Permalink to this definition">¶</a></dt>
+<dd><p>creates a directory</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>directory</strong> – the name of the directory for the filename</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.storage.provider.local.Provider.Provider.delete">
+<code class="descname">delete</code><span class="sig-paren">(</span><em>source=None</em>, <em>recusrive=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/local/Provider.html#Provider.delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.local.Provider.Provider.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>deletes the source</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>source</strong> – the source which either can be a directory or file</p></li>
+<li><p><strong>recursive</strong> – in case of directory the recursive referes to all
+subdirectories in the specified source</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.storage.provider.local.Provider.Provider.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>source=None</em>, <em>destination=None</em>, <em>recusrive=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/local/Provider.html#Provider.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.local.Provider.Provider.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>gets the source and copies it in destination</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>source</strong> – the source which either can be a directory or file</p></li>
+<li><p><strong>destination</strong> – the destination which either can be a directory or
+file</p></li>
+<li><p><strong>recursive</strong> – in case of directory the recursive referes to all
+subdirectories in the specified source</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.storage.provider.local.Provider.Provider.put">
+<code class="descname">put</code><span class="sig-paren">(</span><em>source=None</em>, <em>destination=None</em>, <em>recusrive=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/local/Provider.html#Provider.put"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.local.Provider.Provider.put" title="Permalink to this definition">¶</a></dt>
+<dd><p>puts the source on the service</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>source</strong> – the source which either can be a directory or file</p></li>
+<li><p><strong>destination</strong> – the destination which either can be a directory or
+file</p></li>
+<li><p><strong>recursive</strong> – in case of directory the recursive referes to all
+subdirectories in the specified source</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.storage.provider.local.Provider.Provider.search">
+<code class="descname">search</code><span class="sig-paren">(</span><em>directory=None</em>, <em>filename=None</em>, <em>recursive=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/local/Provider.html#Provider.search"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.local.Provider.Provider.search" title="Permalink to this definition">¶</a></dt>
+<dd><p>gets the destination and copies it in source</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>service</strong> – the name of the service in the yaml file</p></li>
+<li><p><strong>directory</strong> – the directory which either can be a directory or file</p></li>
+<li><p><strong>recursive</strong> – in case of directory the recursive referes to all
+subdirectories in the specified source</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.storage.provider.local.Provider.Provider.tree">
+<code class="descname">tree</code><span class="sig-paren">(</span><em>directory=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/local/Provider.html#Provider.tree"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.local.Provider.Provider.tree" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prints a fisual representation of the files and directories
+:param directory:
+:type directory:
+:return:
+:rtype:</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="cloudmesh.storage.provider.local.Provider.creation_date">
+<code class="descclassname">cloudmesh.storage.provider.local.Provider.</code><code class="descname">creation_date</code><span class="sig-paren">(</span><em>path_to_file</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/local/Provider.html#creation_date"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.local.Provider.creation_date" title="Permalink to this definition">¶</a></dt>
+<dd><p>Try to get the date that a file was created, falling back to when it was
+last modified if that isn’t possible.
+See <a class="reference external" href="http://stackoverflow.com/a/39501288/1709587">http://stackoverflow.com/a/39501288/1709587</a> for explanation.</p>
+</dd></dl>
+
+<span class="target" id="module-cloudmesh.storage.provider.storage"></span><span class="target" id="module-cloudmesh.storage.provider.awss3.Provider"></span><span class="target" id="module-cloudmesh.storage.StorageABC"></span><span class="target" id="module-cloudmesh.storage.command.storage"></span><span class="target" id="module-cloudmesh.vdir.api.manager"></span><span class="target" id="module-cloudmesh.vdir.command.vdir"></span></div>
 
 
            </div>

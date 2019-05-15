@@ -57,12 +57,8 @@ AWS
 ~~~
 
 It is beyond the scope of this manual to discuss how to get an account
-on Aws. However we do provide a convenient documentation at ??
-
-.. todo:: provide a link to the aws account creation documentation in
-          this manual
-
-::
+on Aws. However we do provide a convenient documentation at
+:doc:`../accounts/aws`::
 
    cloudmesh:
      ...
@@ -91,14 +87,8 @@ Azure
 ~~~~~
 
 It is beyond the scope of this manual to discuss how to get an account
-on Azure. However we do provide a convenient documentation at ??
-
-.. todo:: provide a link to the azure account creation documentation in
-          this manual
-
-
-
-::
+on Azure. However we do provide a convenient documentation at
+:doc:`../accounts/azure`::
 
    cloudmesh:
      ...
@@ -158,12 +148,8 @@ Google
 ~~~~~~
 
 It is beyond the scope of this manual to discuss how to get an account
-on Google. However we do provide a convenient documentation at ??
-
-.. todo:: provide a link to the google account creation documentation in
-          this manual
-
-::
+on Google. However we do provide a convenient documentation at
+:doc:`../accounts/google`::
 
    cloudmesh:
      ...
@@ -243,9 +229,7 @@ Virtualbox has at this time limited functionality, but creation, ssh,
 and deletion of the virtual box is possible.
 
 You can also integrate virtualbox as part of cloudmesh while providing
-the following description:
-
-::
+the following description::
 
    cloudmesh:
      ...
@@ -291,10 +275,8 @@ AWS S3
 ~~~~~~
 
 It is beyond the scope of this manual to discuss how to get an account
-on Google. However we do provide a convenient documentation at ??
-
-.. todo:: provide a link to the aws account creation documentation in
-          this manual
+on Google. However we do provide a convenient documentation at
+:doc:`../accounts/aws`.
 
 
 In the ``cloudmesh4.yaml`` file, the ‘aws’ section under ‘storage’
@@ -333,15 +315,11 @@ Azure
 ~~~~~
 
 It is beyond the scope of this manual to discuss how to get an account
-on Google. However we do provide a convenient documentation at ??
-
-.. todo:: provide a link to the azure  account creation documentation in
-          this manual. amke sure it works for vms and storage
+on Google. However we do provide a convenient documentation at
+:doc:`../accounts/azure`.
 
 The ``cloudmesh4.yaml`` file needs to be set up as follows for the
-‘azureblob’ section under ‘storage’.
-
-::
+‘azureblob’ section under ‘storage’::
 
    cloudmesh:
      .........
@@ -382,10 +360,12 @@ Due to bugs in the requirements of the google driver code, we have not
 yet included it in the Provider code. This needs to be fixed before we
 can do this.
 
-The ``cloudmesh4.yaml`` file needs to be set up as follows for the
-‘gdrive’ section under ‘storage’.
+It is beyond the scope of this manual to discuss how to get an account
+on Google. However we do provide a convenient documentation at
+:doc:`../accounts/google`.
 
-::
+The ``cloudmesh4.yaml`` file needs to be set up as follows for the
+‘gdrive’ section under ‘storage’::
 
    storge:
        gdrive: 
@@ -416,17 +396,13 @@ Box
 ~~~
 
 It is beyond the scope of this manual to discuss how to get an account
-on Google. However we do provide a convenient documentation at ??
-
-.. todo:: provide a link to the box account creation documentation in
-          this manual
+on Google. However we do provide a convenient documentation at
+:doc:`../accounts/box`.
 
 
 In the ``cloudmesh4.yaml`` file, find the ‘box’ section under ‘storage’.
 Under credentials, set ``config_path`` to the path of the configuration
-file you created as described in the Box chapter:
-
-::
+file you created as described in the Box chapter::
 
    box:
      cm:
@@ -472,9 +448,7 @@ use previously defined attributes in the yaml file itself. Thus if an
 attribute value contains for example  `"{cloudmesh.attribute}"` or andy
 environment variable, it will find the value for this dict entry in the yaml
 file and replace it
-with its value. For example. let us assume the yaml file contains:
-
-::
+with its value. For example. let us assume the yaml file contains::
 
     cloudmesh:
       profile:
@@ -486,10 +460,8 @@ with its value. For example. let us assume the yaml file contains:
           dir: $HOME
           current: .
 
-cloudmesg will replace the will result be transformed with
+cloudmesg will replace the will result be transformed with::
 
-
-::
     cloudmesh:
       profile:
         name: Gregor
