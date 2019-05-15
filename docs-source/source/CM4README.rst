@@ -202,10 +202,12 @@ Here are some samples for running these operations by using
 
 First, user would create the virtual machine in AWS.
 
-.. code:: commandline
+.. code:: bash
 
    $ cms vm create
-   Collection(Database(MongoClient(host=['127.0.0.1:27017'], document_class=dict, tz_aware=False, connect=True), 'cloudmesh'), 'cloud')
+   Collection(Database(MongoClient(host=['127.0.0.1:27017'],
+              document_class=dict, tz_aware=False, connect=True),
+              'cloudmesh'), 'cloud')
    Thread: updating the status of node
    Created base-cloudmesh-yuluo-4
    PING 52.39.13.229 (52.39.13.229): 56 data bytes

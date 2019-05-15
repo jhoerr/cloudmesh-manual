@@ -36,37 +36,7 @@ cloudmesh-cloud
       
 .. automodule:: cloudmesh.admin.command.admin
    :members:
-      
-.. automodule:: cloudmesh.management.configuration.config
-   :members:
-      
-.. automodule:: cloudmesh.management.configuration.generic_config
-   :members:
-      
-.. automodule:: cloudmesh.management.configuration.arguments
-   :members:
-      
-.. automodule:: cloudmesh.management.configuration.SSHkey
-   :members:
-      
-.. automodule:: cloudmesh.management.configuration.operatingsystem
-   :members:
-      
-.. automodule:: cloudmesh.management.configuration.name
-   :members:
-      
-.. automodule:: cloudmesh.management.configuration.counter
-   :members:
-      
-.. automodule:: cloudmesh.management.printer.Printer
-   :members:
-      
-.. automodule:: cloudmesh.management.debug
-   :members:
-      
-.. automodule:: cloudmesh.management.script
-   :members:
-      
+
 .. automodule:: cloudmesh.secgroup.api.manager
    :members:
       

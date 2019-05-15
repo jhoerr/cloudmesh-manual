@@ -5,4 +5,4 @@ Manual Other
    :caption: Other
 
    manual/flow/flow
-   manual/opemapi/openapi
+   manual/openapi/openapi

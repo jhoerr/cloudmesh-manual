@@ -58,7 +58,7 @@ MAMUAL PAGES
    manual-group
    manual-compute
    manual-storage
-   manual-orther
+   manual-other
 
 DATABASE OBJECTS
 ================

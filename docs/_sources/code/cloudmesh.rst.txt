@@ -1,6 +1,0 @@
-Cloudmesh
-=========
-
-.. automodule:: cloudmesh
-   :members:
-
