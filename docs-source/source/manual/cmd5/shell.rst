@@ -19,3 +19,4 @@ shell
    Description:
         shell COMMAND  executes the command
 
+Timer: 0.0131s (man --kind=rst shell)

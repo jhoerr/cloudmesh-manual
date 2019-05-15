@@ -60,3 +60,4 @@ vdir
          locates the file with the name on a storage provider,
          and fetches it from there.
 
+Timer: 0.0084s (man --kind=rst vdir)

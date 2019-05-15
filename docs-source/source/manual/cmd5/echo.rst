@@ -22,3 +22,4 @@ echo
 
     Prints a text in the given color
 
+Timer: 0.0147s (man --kind=rst echo)

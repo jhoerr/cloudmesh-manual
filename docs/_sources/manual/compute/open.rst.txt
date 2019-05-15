@@ -42,3 +42,4 @@ open
         open chameleon vm
             starts horizon for virtual machines
 
+Timer: 0.0134s (man --kind=rst open)

@@ -15,3 +15,4 @@ sleep
 
   Clears the screen.
 
+Timer: 0.0150s (man --kind=rst sleep)

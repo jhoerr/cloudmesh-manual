@@ -24,3 +24,4 @@ vbox
     vbox vm boot [NAME] ([--memory=MEMORY] [--image=IMAGE] [--port=PORT] [--script=SCRIPT] | list)
     vbox vm ssh [NAME] [-e COMMAND]
 
+Timer: 0.0093s (man --kind=rst vbox)

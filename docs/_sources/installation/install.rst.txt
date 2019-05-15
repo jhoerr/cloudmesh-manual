@@ -21,7 +21,7 @@ Prerequisites
 
 .. note:: Before you install make sure that you have at minimum python 3.7.3
           installed. Likely the code will work with earlier versions, but we
-          do the development in python 3.7.3.
+          do the development in python 3.7.3 from https://www.python.org/downloads/.
 
 .. _Use a venv:
 

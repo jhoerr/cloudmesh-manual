@@ -29,3 +29,4 @@ plugin
     plugin uninstall
         uninstalls the given plugin
 
+Timer: 0.0132s (man --kind=rst plugin)

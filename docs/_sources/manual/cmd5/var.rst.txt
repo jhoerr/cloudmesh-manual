@@ -47,3 +47,4 @@ var
         The previous command copy the value from b to a. The val command
         was added to avoid quoting.
 
+Timer: 0.0140s (man --kind=rst var)

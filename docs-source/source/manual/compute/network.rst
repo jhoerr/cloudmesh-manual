@@ -66,3 +66,4 @@ network
         network list floating pool --cloud=india
         network create cluster --group=demo_group
 
+Timer: 0.0084s (man --kind=rst network)

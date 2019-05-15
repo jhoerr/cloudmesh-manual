@@ -13,7 +13,7 @@ group
     Usage:
         group list [GROUPNAME] [--format=FORMAT]
         group remove NAMES [--group=GROUPNAME]
-        group add NAMES [--type=TYPE] [--group=GROUPNAME]
+        group add NAMES [--type=TYPE] [--group=GROUPNAME] [--format=FORMAT]
         group delete GROUPS
         group copy FROM TO
         group merge GROUPA GROUPB MERGEDGROUP
@@ -31,7 +31,7 @@ group
         MERGEDGROUP  name of a group
 
     Options:
-        --format=FORMAT     the output format
+        --format=FORMAT     the output format [default: table]
         --type=TYPE         the resource type
         --name=NAME         the name of the group
         --id=IDS            the ID(s) to add to the group
@@ -65,3 +65,4 @@ group
         group delete --name=mygroup
             deletes all objects in the group
 
+Timer: 0.0137s (man --kind=rst group)

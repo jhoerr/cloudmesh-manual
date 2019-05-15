@@ -14,6 +14,7 @@ stopwatch
     stopwatch start TIMER
     stopwatch stop TIMER
     stopwatch print [TIMER]
+    stopwatch benchmark
 
   Arguments:
     TIMER  the name of the timer
@@ -22,3 +23,4 @@ stopwatch
     THIS IS NOT YET WORKING
     starts and stops named timers and prints them
 
+Timer: 0.0083s (man --kind=rst stopwatch)

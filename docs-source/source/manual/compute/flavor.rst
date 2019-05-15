@@ -32,3 +32,4 @@ flavor
         please remember that a uuid or the falvor name can be used to
         identify a flavor.
 
+Timer: 0.0150s (man --kind=rst flavor)

@@ -77,3 +77,4 @@ secgroup
             This will synchronize the changes (add/delete on security
             groups, rules) made locally to the remote cloud(s).
 
+Timer: 0.0153s (man --kind=rst secgroup)

@@ -147,3 +147,4 @@ key
         If a key is included in multiple groups they will be added
         to the grouplist of the key
 
+Timer: 0.0126s (man --kind=rst key)
