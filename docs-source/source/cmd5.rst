@@ -122,13 +122,9 @@ example we can set default images for a cloud. General defaults are
 placed in the context ``general``. To set the default cloud you can
 use::
 
-::
-
    cms default cloud=kilo
 
 To List the defaults use::
-
-::
 
     cms default list
 
@@ -304,23 +300,17 @@ You can create the image with::
 
    make image
 
-You can run teh image and enter a shell with
-
-::
+You can run teh image and enter a shell with::
 
    make shell
 
 This allows you to try things out in the image from bash which is good
 for development and debugging. You can directly enter the cloudmesh
-shell ``cms`` with
-
-::
+shell ``cms`` with::
 
    make cms
 
-or say
-
-::
+or say::
 
    docker run -it cloudmesh/cmd5:1.0
 

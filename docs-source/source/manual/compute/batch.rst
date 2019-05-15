@@ -99,4 +99,4 @@ batch
         [--outfile-name=OUTPUT_FILE_NAME]
         [--suffix=SUFFIX] [--overwrite]
 
-Timer: 0.0132s (man --kind=rst batch)
+Timer: 0.0125s (man --kind=rst batch)

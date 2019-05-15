@@ -244,30 +244,6 @@
             
   <div class="section" id="module-cloudmesh.storage.Provider">
 <span id="cloudmesh-storage"></span><h1>9. cloudmesh-storage<a class="headerlink" href="#module-cloudmesh.storage.Provider" title="Permalink to this headline">¶</a></h1>
-<span class="target" id="module-cloudmesh.storage.spec.tests.test_openapi_storage"></span><dl class="class">
-<dt id="cloudmesh.storage.spec.tests.test_openapi_storage.Test_cloud_storage">
-<em class="property">class </em><code class="descclassname">cloudmesh.storage.spec.tests.test_openapi_storage.</code><code class="descname">Test_cloud_storage</code><a class="reference internal" href="../_modules/cloudmesh/storage/spec/tests/test_openapi_storage.html#Test_cloud_storage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.spec.tests.test_openapi_storage.Test_cloud_storage" title="Permalink to this definition">¶</a></dt>
-<dd><p>see: <a class="reference external" href="https://github.com/cloudmesh/cloudmesh-common/blob/master/cloudmesh/common/run/background.py">https://github.com/cloudmesh/cloudmesh-common/blob/master/cloudmesh/common/run/background.py</a>
-the code in thel link has not bean tested
-make this s function execute the server in the back ground not in a terminal,
-get the pid and kill it after the test is done
-UNAME := $(shell uname)
-ifeq ($(UNAME), Darwin)
-define terminal</p>
-<blockquote>
-<div><p>osascript -e ‘tell application “Terminal” to do script “cd $(PWD); $1”’</p>
-</div></blockquote>
-<p>endef
-endif
-ifeq ($(UNAME), Linux)
-define terminal</p>
-<blockquote>
-<div><p>gnome-terminal –command ‘bash -c “cd $(PWD); $1”’</p>
-</div></blockquote>
-<p>endef
-endif</p>
-</dd></dl>
-
 <span class="target" id="module-cloudmesh.storage.spec.cloudmesh.storage"></span><span class="target" id="module-cloudmesh.storage.provider.box.Provider"></span><span class="target" id="module-cloudmesh.storage.provider.gdrive.Provider"></span><span class="target" id="module-cloudmesh.storage.provider.azureblob.Provider"></span><span class="target" id="module-cloudmesh.storage.provider.local.Provider"></span><dl class="class">
 <dt id="cloudmesh.storage.provider.local.Provider.Provider">
 <em class="property">class </em><code class="descclassname">cloudmesh.storage.provider.local.Provider.</code><code class="descname">Provider</code><span class="sig-paren">(</span><em>service=None</em>, <em>config='~/.cloudmesh/cloudmesh4.yaml'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/storage/provider/local/Provider.html#Provider"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.storage.provider.local.Provider.Provider" title="Permalink to this definition">¶</a></dt>

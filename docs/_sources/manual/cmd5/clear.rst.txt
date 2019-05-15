@@ -17,4 +17,4 @@ clear
 
   Clears the screen.
 
-Timer: 0.0133s (man --kind=rst clear)
+Timer: 0.0149s (man --kind=rst clear)

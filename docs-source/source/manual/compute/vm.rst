@@ -175,4 +175,4 @@ vm
 
         Azure: rename is not supported
 
-Timer: 0.0136s (man --kind=rst vm)
+Timer: 0.0140s (man --kind=rst vm)

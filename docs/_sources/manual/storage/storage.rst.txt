@@ -84,4 +84,4 @@ storage
     is the same as
     storage --storage=azureblob put SOURCE DESTINATION --recursive
 
-Timer: 0.0143s (man --kind=rst storage)
+Timer: 0.0196s (man --kind=rst storage)

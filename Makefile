@@ -46,6 +46,12 @@ install:
 	cd ../cloudmesh-emr ; git pull; pip install -e .
 
 
+manual-new:
+	mkdir -p docs-source/source/manual/flow
+	cms man --kind=rst flow > docs-source/source/manual/flow/flow.rst
+	mkdir -p docs-source/source/manual/openapi
+	cms man --kind=rst openapi > docs-source/source/manual/openapi/openapi.rst
+
 
 manual:
 	mkdir -p docs-source/source/manual

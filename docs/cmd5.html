@@ -372,19 +372,13 @@ the HOME variable from the shell, try it with:</p>
 example we can set default images for a cloud. General defaults are
 placed in the context <code class="docutils literal notranslate"><span class="pre">general</span></code>. To set the default cloud you can
 use:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">::</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cms</span> <span class="n">default</span> <span class="n">cloud</span><span class="o">=</span><span class="n">kilo</span>
 </pre></div>
 </div>
-<blockquote>
-<div><p>cms default cloud=kilo</p>
-</div></blockquote>
 <p>To List the defaults use:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">::</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cms</span> <span class="n">default</span> <span class="nb">list</span>
 </pre></div>
 </div>
-<blockquote>
-<div><p>cms default list</p>
-</div></blockquote>
 <div class="admonition-todo admonition" id="index-0">
 <p class="admonition-title">Todo</p>
 <p>cmd5 default - add the ability to define the defaukts also with a . notation.</p>
@@ -527,17 +521,17 @@ also in our makefile.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">image</span>
 </pre></div>
 </div>
-<p>You can run teh image and enter a shell with</p>
+<p>You can run teh image and enter a shell with:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">shell</span>
 </pre></div>
 </div>
 <p>This allows you to try things out in the image from bash which is good
 for development and debugging. You can directly enter the cloudmesh
-shell <code class="docutils literal notranslate"><span class="pre">cms</span></code> with</p>
+shell <code class="docutils literal notranslate"><span class="pre">cms</span></code> with:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">cms</span>
 </pre></div>
 </div>
-<p>or say</p>
+<p>or say:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">-</span><span class="n">it</span> <span class="n">cloudmesh</span><span class="o">/</span><span class="n">cmd5</span><span class="p">:</span><span class="mf">1.0</span>
 </pre></div>
 </div>

@@ -57,4 +57,4 @@ ssh
                     conducts an ssh login to myhost if it is defined in
                     ~/.ssh/config file
 
-Timer: 0.0133s (man --kind=rst ssh)
+Timer: 0.0137s (man --kind=rst ssh)

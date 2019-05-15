@@ -23,4 +23,4 @@ stopwatch
     THIS IS NOT YET WORKING
     starts and stops named timers and prints them
 
-Timer: 0.0083s (man --kind=rst stopwatch)
+Timer: 0.0148s (man --kind=rst stopwatch)

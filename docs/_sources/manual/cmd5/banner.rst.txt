@@ -28,4 +28,4 @@ banner
 
     Prints a banner form a one line text message.
 
-Timer: 0.0135s (man --kind=rst banner)
+Timer: 0.0128s (man --kind=rst banner)

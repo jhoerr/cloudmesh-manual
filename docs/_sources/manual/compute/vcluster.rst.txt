@@ -36,4 +36,4 @@ vcluster
   Options:
       -f      specify the file
 
-Timer: 0.0142s (man --kind=rst vcluster)
+Timer: 0.0138s (man --kind=rst vcluster)
