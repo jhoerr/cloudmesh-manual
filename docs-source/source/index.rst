@@ -33,13 +33,18 @@ Cloudmesh Version 4
    vm/vm
    vm/images
    vm/flavor
-   storage/README-storage.md
-   storage/objectstore.md
-   storage/README-storage-openapi.md
+   storage/storage
+   storage/objectstore
    workflow
    jupyter
    batch
 
+.. toctree::
+   :numbered:
+   :caption: openapi
+
+   openapi/README-storage-openapi
+   openapi/ufo
 
 MAMUAL PAGES
 ============

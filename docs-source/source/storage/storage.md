@@ -1,18 +1,14 @@
 # Cloudmesh Multi Cloud Storage Interface
 
-Cloudmesh multiple cloud storage services is independent of the APIs and
-interfaces used to access these services. In other words, an abstraction layer
-between data and the proprietary APIs is used to place that data in any given
-cloud storage service.
+Cloudmesh supports multiple cloud storage services. You can access them via commandline, 
+an API or REST services. A simple abstraction layer between cloud services and you local computer 
+makes it possible that the services are accessed the same way. This includes AwsS3, Azure, Google, 
+and box.
 
-Provides a interface to manage all cloud storage in one place. it helps you
-access and search all of your files in one place so you don't need to sign into
-several accounts.
+The code is availabe a cloudmesh module at 
 
+* <https://github.com/cloudmesh/cloudmesh-storage> 
 
-# Cloudmesh Storage Module
-
-**Note: Do not modify the shield, once we release the storage module they will work**
 
 [![Version](https://img.shields.io/pypi/v/cloudmesh-storage.svg)](https://pypi.python.org/pypi/cloudmesh-storage)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/cloudmesh/cloudmesh-storage/blob/master/LICENSE)
@@ -21,24 +17,14 @@ several accounts.
 [![Format](https://img.shields.io/pypi/status/cloudmesh-storage.svg)](https://pypi.python.org/pypi/cloudmesh-storage)
 [![Travis](https://travis-ci.com/cloudmesh/cloudmesh-storage.svg?branch=master)](https://travis-ci.com/cloudmesh/cloudmesh-storage)
 
-## Requirements
+## General Storage Command
 
-Please note that several packages are available which are pointed to in the
-installation documentation.
+TODO: the pip install is not yet enabled.
 
-|  | Links |
-|---------------|-------|
-| Documentation | <https://cloudmesh.github.io/cloudmesh-manual> |
-| Code | <https://github.com/cloudmesh/cloudmesh-storage> |
-| Instalation Instructions | <https://github.com/cloudmesh-installer> |
+The storage module can be
 
-An dynamically extensible CMD based command shell. For en extensive
-documentation please see
 
-* <https://github.com/cloudmesh-community/book/blob/master/vonLaszewski-cloud.epub?raw=true>
-
-where we also document how to use pyenv virtualenv.
-
+## Ccnfiguration
 
 ## AWSS3 Cloudmesh Integration
 
@@ -78,9 +64,9 @@ cloudmesh:
         region: Specfiy the default region eg us-east-1
 ```
 
-The Cloudmesh command line library offers six functions under storage command: 
+The Cloudmesh command line library offers several functions including 
 get, put, search, list, create directory, and delete. 
-Once you have installed Cloudmesh, type `cms` into the command line to start the
+Once you have installed Cloudmesh storage, type `cms` into the command line to start the
 cms shell. 
 
 ```bash
@@ -119,6 +105,112 @@ cms shell.
 
 ```bash
 $ cms storage --storage='aws' list ''
+```
+
+
+Help command gives a detail level understanding of what each command does and 
+how to use the command line to interact with different object storage providers and 
+different parameters / options available in a particular command. 
+
+In this, default object storage invokes AWS S3 service, we need to pass awss3 as parameter to storage 
+and suffix with the function call with the function parameters.
+
+```bash
+cms> storage --storage='objstore' list ''
+```
+
+Alternatively, objstore command can also be called directly without starting the 
+cms shell.
+
+```bash
+$ cms storage --storage='objstore' list ''
+```
+
+
+
+## Cloudmesh AWS Object Storage Interfaces
+
+
+Object Storage is one of the feature in AWS S3 and this feature integrated with cloudmesh library and is available 
+for use via commandline. 
+
+Follow the below steps:
+
+- Modify `cloudmesh4.yaml` config file in 'cloudmesh-storage' section. User need to add required object storage parameters to communicate with cloud(AWS S3)
+
+- In the credentials section under `awsobjectstore`, add the parameter values of access_key_id and secret_access_key, these credentials will be gained from appropriate cloud vendor(For ex: AWS), in the case of AWS, these will be available which will be available in the AWS console under 
+`AWS IAM service` -> `Users` -> `Security Credentials`. 
+
+
+Here is a sample.
+
+```bash
+cloudmesh:
+  ...
+  storage:
+    objstore:
+      cm:
+        heading: AWS
+        host: aws.com
+        label: AWS
+        kind: awsobjectstore
+        version: 1.0
+      default:
+        directory: AWS
+      credentials:
+        region: ""
+        access_key_id: ""
+        secret_access_key: "" 
+
+```
+
+
+
+
+
+## Create Object Directory 
+
+
+```bash
+$ cms storage --storage='objstore' create /base_path/targetdir
+```
+
+## Put
+
+The put command uploads object from your local system to AWS S3 object storage 
+
+```bash
+$ cms storage --storage='objstore' put ~/.cloudmesh/objstore/sourcedir /base_path/targetdir --recursive
+```
+
+
+## Get
+
+The put command retrieve or download a object from AWS S3 object storage 
+
+```bash
+$ cms storage --storage='objstore' get /bucket_name/src ~/.cloudmesh/objstore/dest --recursive
+```
+
+
+## List
+
+The list command lists all the contents of a cloud object details. If the recursive 
+option is specified, it will list the contents of all the nested objects information 
+
+```bash
+$ cms storage --storage='objstore' list /bucket_name/dest --recursive
+```
+
+
+## Delete
+
+The delete command can delete objects on cloud storage. Once object deletes it will never be rollback and delete applicable to nested objects when function `--recursive` used. 
+Deleting a folder will delete its contents as well (including the 
+sub-directories).
+
+```bash
+$ cms storage --storage='objstore' delete /bucket_name/est --recursive
 ```
 
 ### Storage functions overview
