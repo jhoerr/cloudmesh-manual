@@ -95,9 +95,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../installation/install.html">1. Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation/quickstart.html">2. Quickstart</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">3. Configuration</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#mongodb">3.1. MongoDB</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#cloudmesh-yaml-file-object-definitions">3.2. Cloudmesh Yaml File Object definitions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#setting-values">3.3. Setting values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cloudmesh-yaml-file-object-definitions">3.1. Cloudmesh Yaml File Object definitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#setting-values">3.2. Setting values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#advanced-yaml-variables">3.3. Advanced Yaml Variables</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#profile">3.4. Profile</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#default">3.5. Default</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#general-service-attributes">3.6. General Service Attributes</a><ul>
@@ -128,7 +128,8 @@
 <li class="toctree-l2"><a class="reference internal" href="#batch">3.9. Batch</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#rest">3.10. REST</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#log-file">3.11. Log File</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#advanced-yaml-variables">3.12. Advanced Yaml Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mongo">3.12. Mongo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mongodb">3.13. MongoDB</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../installation/mongo.html">4. Cloudmesh Database</a></li>
@@ -288,48 +289,50 @@ from the template located at</p>
 <li><p><a class="reference external" href="https://github.com/cloudmesh/cloudmesh-cloud/blob/master/cloudmesh/etc/cloudmesh4.yaml">https://github.com/cloudmesh/cloudmesh-cloud/blob/master/cloudmesh/etc/cloudmesh4.yaml</a></p></li>
 </ul>
 <p>You can customize the file while editing it.</p>
-<div class="section" id="mongodb">
-<h2>3.1. MongoDB<a class="headerlink" href="#mongodb" title="Permalink to this headline">¶</a></h2>
-<p>The cache of cloudmesh is managed in a mongo db database with various
-collections. However the user does not have to manage thes collections
-as this is done for the user through cloudmesh. Before you can use it it
-mongo does need to be installed.</p>
-<p>If you have not installed mongo, you may try</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms admin mongo install
-</pre></div>
-</div>
-<p>However, to install it with cms, you must also make sure the following values are
-installed in the cloudmesh yaml file:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">...</span>
-<span class="n">MONGO_PASSWORD</span><span class="p">:</span> <span class="n">TBD</span>
-<span class="o">...</span>
-<span class="n">MONGO_AUTOINSTALL</span><span class="p">:</span> <span class="kc">True</span>
-</pre></div>
-</div>
-<p>The value for the password must not be <code class="docutils literal notranslate"><span class="pre">TBD</span></code>.</p>
-<p>Next you create the database template with authentication with</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms admin mongo create
-</pre></div>
-</div>
-<p>Now you are ready to use it in cloudmesh. The mongo db can be started
-and stoped with the command</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">$cms</span> admin mongo start
-<span class="nv">$cms</span> admin mongo stop
-</pre></div>
-</div>
-<p>The configuration detals are included in the yaml file.</p>
-</div>
 <div class="section" id="cloudmesh-yaml-file-object-definitions">
-<h2>3.2. Cloudmesh Yaml File Object definitions<a class="headerlink" href="#cloudmesh-yaml-file-object-definitions" title="Permalink to this headline">¶</a></h2>
+<h2>3.1. Cloudmesh Yaml File Object definitions<a class="headerlink" href="#cloudmesh-yaml-file-object-definitions" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="setting-values">
-<h2>3.3. Setting values<a class="headerlink" href="#setting-values" title="Permalink to this headline">¶</a></h2>
+<h2>3.2. Setting values<a class="headerlink" href="#setting-values" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-todo admonition" id="index-0">
 <p class="admonition-title">Todo</p>
 <p>we need to locate the command that allows us to set the values in the config file. We have such a command ;-)
 create a link to this command from here. explain how to set arbitrary values</p>
 <p>look for the command config …</p>
 </div>
+</div>
+<div class="section" id="advanced-yaml-variables">
+<h2>3.3. Advanced Yaml Variables<a class="headerlink" href="#advanced-yaml-variables" title="Permalink to this headline">¶</a></h2>
+<p>One of the features of the cloudmesh yaml framework is that it allows you to
+use previously defined attributes in the yaml file itself. Thus if an
+attribute value contains for example  <cite>“{cloudmesh.attribute}”</cite> or andy
+environment variable, it will find the value for this dict entry in the yaml
+file and replace it
+with its value. For example. let us assume the yaml file contains:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>cloudmesh:
+  profile:
+    name: Gregor
+  cloud:
+    aws:
+      username: &quot;{cloudmesh.profile.name}&quot;
+      key: ~/.ssh/id_rsa
+      dir: $HOME
+      current: .
+</pre></div>
+</div>
+<p>cloudmesg will replace the will result be transformed with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cloudmesh</span><span class="p">:</span>
+  <span class="n">profile</span><span class="p">:</span>
+    <span class="n">name</span><span class="p">:</span> <span class="n">Gregor</span>
+  <span class="n">cloud</span><span class="p">:</span>
+    <span class="n">aws</span><span class="p">:</span>
+      <span class="n">username</span><span class="p">:</span> <span class="s2">&quot;Gregor&quot;</span>
+      <span class="n">key</span><span class="p">:</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">gergor</span><span class="o">/.</span><span class="n">ssh</span><span class="o">/</span><span class="n">id_rsa</span>
+      <span class="nb">dir</span><span class="p">:</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">gregor</span>
+      <span class="n">current</span><span class="p">:</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">gregor</span><span class="o">/</span><span class="n">github</span><span class="o">/</span><span class="n">cm</span>
+</pre></div>
+</div>
+<p>This feature is naturally very useful for creating templates for users</p>
 </div>
 <div class="section" id="profile">
 <h2>3.4. Profile<a class="headerlink" href="#profile" title="Permalink to this headline">¶</a></h2>
@@ -392,7 +395,19 @@ based on its name how to interact with the service.</p>
 </dd>
 <dt>host</dt><dd><p>This field is used to identif wheer to find information aboout the service provider</p>
 </dd>
+<dt>service</dt><dd><p>The type of service. valid values are <code class="docutils literal notranslate"><span class="pre">compute</span></code>, <code class="docutils literal notranslate"><span class="pre">storage</span></code>.</p>
+</dd>
 </dl>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cm</span><span class="p">:</span>
+    <span class="n">active</span><span class="p">:</span> <span class="kc">False</span>
+    <span class="n">heading</span><span class="p">:</span> <span class="n">AWS</span>
+    <span class="n">host</span><span class="p">:</span> <span class="n">aws</span><span class="o">.</span><span class="n">amazon</span><span class="o">.</span><span class="n">com</span>
+    <span class="n">label</span><span class="p">:</span> <span class="n">aws</span>
+    <span class="n">kind</span><span class="p">:</span> <span class="n">aws</span>
+    <span class="n">version</span><span class="p">:</span> <span class="mf">1.0</span>
+    <span class="n">service</span><span class="p">:</span> <span class="n">compute</span>
+</pre></div>
+</div>
 </div>
 </div>
 <div class="section" id="compute-cloud-providers">
@@ -449,6 +464,7 @@ Future versions of cloudmesh will encrypt the information by default.</p>
         <span class="n">label</span><span class="p">:</span> <span class="n">aws</span>
         <span class="n">kind</span><span class="p">:</span> <span class="n">aws</span>
         <span class="n">version</span><span class="p">:</span> <span class="n">TBD</span>
+        <span class="n">service</span><span class="p">:</span> <span class="n">compute</span>
       <span class="n">default</span><span class="p">:</span>
         <span class="n">image</span><span class="p">:</span> <span class="s1">&#39;ami-0f65671a86f061fcd&#39;</span>
         <span class="n">size</span><span class="p">:</span> <span class="s1">&#39;t2.micro&#39;</span>
@@ -482,6 +498,7 @@ Future versions of cloudmesh will encrypt the information by default.</p>
         <span class="n">label</span><span class="p">:</span> <span class="n">Azure</span>
         <span class="n">kind</span><span class="p">:</span> <span class="n">azure_arm</span>
         <span class="n">version</span><span class="p">:</span> <span class="n">TBD</span>
+        <span class="n">service</span><span class="p">:</span> <span class="n">compute</span>
       <span class="n">default</span><span class="p">:</span>
         <span class="n">image</span><span class="p">:</span> <span class="s1">&#39;Canonical:UbuntuServer:16.04-LTS:latest&#39;</span>
         <span class="n">size</span><span class="p">:</span> <span class="s1">&#39;Basic_A0&#39;</span>
@@ -520,6 +537,7 @@ Future versions of cloudmesh will encrypt the information by default.</p>
         <span class="n">label</span><span class="p">:</span> <span class="n">Azure</span>
         <span class="n">kind</span><span class="p">:</span> <span class="n">azure</span>
         <span class="n">version</span><span class="p">:</span> <span class="n">TBD</span>
+        <span class="n">service</span><span class="p">:</span> <span class="n">compute</span>
       <span class="n">default</span><span class="p">:</span>
         <span class="n">image</span><span class="p">:</span> <span class="s1">&#39;Canonical:UbuntuServer:16.04-LTS:latest&#39;</span>
         <span class="n">size</span><span class="p">:</span> <span class="s1">&#39;Basic_A0&#39;</span>
@@ -548,6 +566,7 @@ Future versions of cloudmesh will encrypt the information by default.</p>
         <span class="n">label</span><span class="p">:</span> <span class="n">google</span>
         <span class="n">kind</span><span class="p">:</span> <span class="n">google</span>
         <span class="n">version</span><span class="p">:</span> <span class="n">TBD</span>
+        <span class="n">service</span><span class="p">:</span> <span class="n">compute</span>
       <span class="n">default</span><span class="p">:</span>
         <span class="n">image</span><span class="p">:</span> <span class="s1">&#39;Image Name&#39;</span>
         <span class="n">size</span><span class="p">:</span> <span class="s1">&#39;n1-standard-4&#39;</span>
@@ -570,12 +589,9 @@ template. We have successfully used also clouds in Canada (Cybera),
 Germany (KIT), Indiana University (jetstream). TO get started you can
 even install your local cloud with devstack and make adjustements.
 Please remember you can have multiple clouds in the <code class="docutils literal notranslate"><span class="pre">cloudmesh4.yaml</span></code>
-file so you could if you have access to them integrate all of them.</p>
-<p>Example for chameleon cloud:</p>
-<ul class="simple">
-<li><p>You will need access to a project and add your project nump=ber to
-the credentials.</p></li>
-</ul>
+file so you could if you have access to them integrate all of them.
+You will need access to a project and add your project nump=ber to. the credentials.
+Example for chameleon cloud:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cloudmesh</span><span class="p">:</span>
   <span class="o">...</span>
   <span class="n">cloud</span><span class="p">:</span>
@@ -588,6 +604,7 @@ the credentials.</p></li>
         <span class="n">label</span><span class="p">:</span> <span class="n">chameleon</span>
         <span class="n">kind</span><span class="p">:</span> <span class="n">openstack</span>
         <span class="n">version</span><span class="p">:</span> <span class="n">liberty</span>
+        <span class="n">service</span><span class="p">:</span> <span class="n">compute</span>
       <span class="n">credentials</span><span class="p">:</span>
         <span class="n">OS_AUTH_URL</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">openstack</span><span class="o">.</span><span class="n">tacc</span><span class="o">.</span><span class="n">chameleoncloud</span><span class="o">.</span><span class="n">org</span><span class="p">:</span><span class="mi">5000</span><span class="o">/</span><span class="n">v2</span><span class="o">.</span><span class="mi">0</span><span class="o">/</span><span class="n">tokens</span>
         <span class="n">OS_USERNAME</span><span class="p">:</span> <span class="n">TBD</span>
@@ -625,6 +642,7 @@ the following description:</p>
         <span class="n">label</span><span class="p">:</span> <span class="n">vbox</span>
         <span class="n">kind</span><span class="p">:</span> <span class="n">vagrant</span>
         <span class="n">version</span><span class="p">:</span> <span class="n">TBD</span>
+        <span class="n">service</span><span class="p">:</span> <span class="n">compute</span>
       <span class="n">default</span><span class="p">:</span>
         <span class="n">path</span><span class="p">:</span> <span class="o">~/.</span><span class="n">cloudmesh</span><span class="o">/</span><span class="n">vagrant</span>
         <span class="n">image</span><span class="p">:</span> <span class="s2">&quot;generic/ubuntu1810&quot;</span>
@@ -673,9 +691,10 @@ access key which will be available in the AWS console under AWS IAM
 default Bucket which will be used to store the files in AWS S3. Region
 is the geographic area like <code class="docutils literal notranslate"><span class="pre">us-east-1</span></code> which contains the bucket.
 Region is required to get a connection handle on the S3 Client or
-resource for that geographic area. Here is a sample.</p>
-<p>TODO: Make credentials more uniform between compute and data</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">storage</span><span class="p">:</span>
+resource for that geographic area. Here is a sample:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cloudmesh</span><span class="p">:</span>
+  <span class="o">...</span>
+  <span class="n">storage</span><span class="p">:</span>
     <span class="n">aws</span><span class="p">:</span>
       <span class="n">cm</span><span class="p">:</span>
         <span class="n">heading</span><span class="p">:</span> <span class="n">aws</span>
@@ -683,6 +702,7 @@ resource for that geographic area. Here is a sample.</p>
         <span class="n">label</span><span class="p">:</span> <span class="n">aws</span>
         <span class="n">kind</span><span class="p">:</span> <span class="n">awsS3</span>
         <span class="n">version</span><span class="p">:</span> <span class="n">TBD</span>
+        <span class="n">service</span><span class="p">:</span> <span class="n">storage</span>
       <span class="n">default</span><span class="p">:</span>
         <span class="n">directory</span><span class="p">:</span> <span class="o">/</span>
       <span class="n">credentials</span><span class="p">:</span>
@@ -691,6 +711,10 @@ resource for that geographic area. Here is a sample.</p>
         <span class="n">container</span><span class="p">:</span> <span class="n">name</span> <span class="n">of</span> <span class="n">bucket</span> <span class="n">that</span> <span class="n">you</span> <span class="n">want</span> <span class="n">user</span> <span class="n">to</span> <span class="n">be</span> <span class="n">contained</span> <span class="ow">in</span><span class="o">.</span>
         <span class="n">region</span><span class="p">:</span> <span class="n">Specfiy</span> <span class="n">the</span> <span class="n">default</span> <span class="n">region</span> <span class="n">eg</span> <span class="n">us</span><span class="o">-</span><span class="n">east</span><span class="o">-</span><span class="mi">1</span>
 </pre></div>
+</div>
+<div class="admonition-todo admonition" id="index-7">
+<p class="admonition-title">Todo</p>
+<p>Make credentials more uniform between compute and data</p>
 </div>
 </div>
 <div class="section" id="azure-1">
@@ -701,7 +725,7 @@ on Google. However we do provide a convenient documentation at
 <p>The <code class="docutils literal notranslate"><span class="pre">cloudmesh4.yaml</span></code> file needs to be set up as follows for the
 ‘azureblob’ section under ‘storage’:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cloudmesh</span><span class="p">:</span>
-  <span class="o">.........</span>
+  <span class="o">...</span>
   <span class="n">storage</span><span class="p">:</span>
     <span class="n">azureblob</span><span class="p">:</span>
       <span class="n">cm</span><span class="p">:</span>
@@ -710,6 +734,7 @@ on Google. However we do provide a convenient documentation at
         <span class="n">label</span><span class="p">:</span> <span class="n">Azure</span>
         <span class="n">kind</span><span class="p">:</span> <span class="n">azureblob</span>
         <span class="n">version</span><span class="p">:</span> <span class="n">TBD</span>
+        <span class="n">service</span><span class="p">:</span> <span class="n">storage</span>
       <span class="n">default</span><span class="p">:</span>
         <span class="n">directory</span><span class="p">:</span> <span class="o">/</span>
       <span class="n">credentials</span><span class="p">:</span>
@@ -742,7 +767,9 @@ on Google. However we do provide a convenient documentation at
 <a class="reference internal" href="../accounts/google.html"><span class="doc">Google Storage Providers</span></a>.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">cloudmesh4.yaml</span></code> file needs to be set up as follows for the
 ‘gdrive’ section under ‘storage’:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">storge</span><span class="p">:</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cloudmesh</span><span class="p">:</span>
+  <span class="o">...</span>
+  <span class="n">storge</span><span class="p">:</span>
     <span class="n">gdrive</span><span class="p">:</span>
       <span class="n">cm</span><span class="p">:</span>
         <span class="n">heading</span><span class="p">:</span> <span class="n">GDrive</span>
@@ -750,6 +777,7 @@ on Google. However we do provide a convenient documentation at
         <span class="n">kind</span><span class="p">:</span> <span class="n">gdrive</span>
         <span class="n">label</span><span class="p">:</span> <span class="n">GDrive</span>
         <span class="n">version</span><span class="p">:</span> <span class="n">TBD</span>
+        <span class="n">service</span><span class="p">:</span> <span class="n">storage</span>
       <span class="n">credentials</span><span class="p">:</span>
         <span class="n">auth_host_name</span><span class="p">:</span> <span class="n">localhost</span>
         <span class="n">auth_host_port</span><span class="p">:</span>
@@ -777,24 +805,27 @@ on Google. However we do provide a convenient documentation at
 <p>In the <code class="docutils literal notranslate"><span class="pre">cloudmesh4.yaml</span></code> file, find the ‘box’ section under ‘storage’.
 Under credentials, set <code class="docutils literal notranslate"><span class="pre">config_path</span></code> to the path of the configuration
 file you created as described in the Box chapter:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">box</span><span class="p">:</span>
-  <span class="n">cm</span><span class="p">:</span>
-    <span class="n">heading</span><span class="p">:</span> <span class="n">Box</span>
-    <span class="n">host</span><span class="p">:</span> <span class="n">box</span><span class="o">.</span><span class="n">com</span>
-    <span class="n">label</span><span class="p">:</span> <span class="n">Box</span>
-    <span class="n">kind</span><span class="p">:</span> <span class="n">box</span>
-    <span class="n">version</span><span class="p">:</span> <span class="n">TBD</span>
-  <span class="n">default</span><span class="p">:</span>
-    <span class="n">directory</span><span class="p">:</span> <span class="o">/</span>
-  <span class="n">credentials</span><span class="p">:</span>
-    <span class="n">config_path</span><span class="p">:</span> <span class="o">******************************</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cloudmesh</span><span class="p">:</span>
+  <span class="o">...</span>
+  <span class="n">box</span><span class="p">:</span>
+    <span class="n">cm</span><span class="p">:</span>
+      <span class="n">heading</span><span class="p">:</span> <span class="n">Box</span>
+      <span class="n">host</span><span class="p">:</span> <span class="n">box</span><span class="o">.</span><span class="n">com</span>
+      <span class="n">label</span><span class="p">:</span> <span class="n">Box</span>
+      <span class="n">kind</span><span class="p">:</span> <span class="n">box</span>
+      <span class="n">version</span><span class="p">:</span> <span class="n">TBD</span>
+      <span class="n">service</span><span class="p">:</span> <span class="n">storage</span>
+    <span class="n">default</span><span class="p">:</span>
+      <span class="n">directory</span><span class="p">:</span> <span class="o">/</span>
+    <span class="n">credentials</span><span class="p">:</span>
+      <span class="n">config_path</span><span class="p">:</span> <span class="o">******************************</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="batch">
 <h2>3.9. Batch<a class="headerlink" href="#batch" title="Permalink to this headline">¶</a></h2>
-<div class="admonition-todo admonition" id="index-7">
+<div class="admonition-todo admonition" id="index-8">
 <p class="admonition-title">Todo</p>
 <p>batch, student contribute here</p>
 </div>
@@ -814,38 +845,60 @@ and make avialable. At this time it is not our highest priority.</p>
 <p>Log files are stored by default in <code class="docutils literal notranslate"><span class="pre">~/.cloudmesh/log</span></code> The directory
 can be specified in the yaml file.</p>
 </div>
-<div class="section" id="advanced-yaml-variables">
-<h2>3.12. Advanced Yaml Variables<a class="headerlink" href="#advanced-yaml-variables" title="Permalink to this headline">¶</a></h2>
-<p>One of the features of the cloudmesh yaml framework is that it allows you to
-use previously defined attributes in the yaml file itself. Thus if an
-attribute value contains for example  <cite>“{cloudmesh.attribute}”</cite> or andy
-environment variable, it will find the value for this dict entry in the yaml
-file and replace it
-with its value. For example. let us assume the yaml file contains:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>cloudmesh:
-  profile:
-    name: Gregor
-  cloud:
-    aws:
-      username: &quot;{cloudmesh.profile.name}&quot;
-      key: ~/.ssh/id_rsa
-      dir: $HOME
-      current: .
+<div class="section" id="mongo">
+<h2>3.12. Mongo<a class="headerlink" href="#mongo" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="mongodb">
+<h2>3.13. MongoDB<a class="headerlink" href="#mongodb" title="Permalink to this headline">¶</a></h2>
+<p>The cache of cloudmesh is managed in a mongo db database with various
+collections. However the user does not have to manage thes collections
+as this is done for the user through cloudmesh. Before you can use it it
+mongo does need to be installed.</p>
+<p>If you have not installed mongo, you may try</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms admin mongo install
 </pre></div>
 </div>
-<p>cloudmesg will replace the will result be transformed with:</p>
+<p>However, to install it with cms, you must also make sure the following values are
+installed in the cloudmesh yaml file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">...</span>
+<span class="n">MONGO_PASSWORD</span><span class="p">:</span> <span class="n">TBD</span>
+<span class="o">...</span>
+<span class="n">MONGO_AUTOINSTALL</span><span class="p">:</span> <span class="kc">True</span>
+</pre></div>
+</div>
+<p>The value for the password must not be <code class="docutils literal notranslate"><span class="pre">TBD</span></code>.</p>
+<p>Next you create the database template with authentication with</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms admin mongo create
+</pre></div>
+</div>
+<p>Now you are ready to use it in cloudmesh. The mongo db can be started
+and stoped with the command</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">$cms</span> admin mongo start
+<span class="nv">$cms</span> admin mongo stop
+</pre></div>
+</div>
+<p>The configuration detals are included in the yaml file and looks like:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cloudmesh</span><span class="p">:</span>
-  <span class="n">profile</span><span class="p">:</span>
-    <span class="n">name</span><span class="p">:</span> <span class="n">Gregor</span>
-  <span class="n">cloud</span><span class="p">:</span>
-    <span class="n">aws</span><span class="p">:</span>
-      <span class="n">username</span><span class="p">:</span> <span class="s2">&quot;Gregor&quot;</span>
-      <span class="n">key</span><span class="p">:</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">gergor</span><span class="o">/.</span><span class="n">ssh</span><span class="o">/</span><span class="n">id_rsa</span>
-      <span class="nb">dir</span><span class="p">:</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">gregor</span>
-      <span class="n">current</span><span class="p">:</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">gregor</span><span class="o">/</span><span class="n">github</span><span class="o">/</span><span class="n">cm</span>
+  <span class="o">...</span>
+     <span class="n">mongo</span><span class="p">:</span>
+       <span class="n">MONGO_AUTOINSTALL</span><span class="p">:</span> <span class="kc">False</span>
+       <span class="n">MONGO_BREWINSTALL</span><span class="p">:</span> <span class="kc">False</span>
+       <span class="n">LOCAL</span><span class="p">:</span> <span class="o">~/</span><span class="n">local</span>
+       <span class="n">MONGO_HOME</span><span class="p">:</span> <span class="o">~/</span><span class="n">local</span><span class="o">/</span><span class="n">mongo</span>
+       <span class="n">MONGO_PATH</span><span class="p">:</span> <span class="o">~/.</span><span class="n">cloudmesh</span><span class="o">/</span><span class="n">mongodb</span>
+       <span class="n">MONGO_LOG</span><span class="p">:</span> <span class="o">~/.</span><span class="n">cloudmesh</span><span class="o">/</span><span class="n">mongodb</span><span class="o">/</span><span class="n">log</span>
+       <span class="n">MONGO_DBNAME</span><span class="p">:</span> <span class="s1">&#39;cloudmesh&#39;</span>
+       <span class="n">MONGO_HOST</span><span class="p">:</span> <span class="s1">&#39;127.0.0.1&#39;</span>
+       <span class="n">MONGO_PORT</span><span class="p">:</span> <span class="s1">&#39;27017&#39;</span>
+       <span class="n">MONGO_USERNAME</span><span class="p">:</span> <span class="s1">&#39;admin&#39;</span>
+       <span class="n">MONGO_PASSWORD</span><span class="p">:</span> <span class="n">TBD</span>
+       <span class="n">MONGO_DOWNLOAD</span><span class="p">:</span>
+         <span class="n">darwin</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">fastdl</span><span class="o">.</span><span class="n">mongodb</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">osx</span><span class="o">/</span><span class="n">mongodb</span><span class="o">-</span><span class="n">osx</span><span class="o">-</span><span class="n">ssl</span><span class="o">-</span><span class="n">x86_64</span><span class="o">-</span><span class="mf">4.0</span><span class="o">.</span><span class="mf">4.</span><span class="n">tgz</span>
+         <span class="n">linux</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">fastdl</span><span class="o">.</span><span class="n">mongodb</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">linux</span><span class="o">/</span><span class="n">mongodb</span><span class="o">-</span><span class="n">linux</span><span class="o">-</span><span class="n">x86_64</span><span class="o">-</span><span class="mf">4.0</span><span class="o">.</span><span class="mf">4.</span><span class="n">tgz</span>
+         <span class="n">win32</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">fastdl</span><span class="o">.</span><span class="n">mongodb</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">win32</span><span class="o">/</span><span class="n">mongodb</span><span class="o">-</span><span class="n">win32</span><span class="o">-</span><span class="n">x86_64</span><span class="o">-</span><span class="mi">2008</span><span class="n">plus</span><span class="o">-</span><span class="n">ssl</span><span class="o">-</span><span class="mf">4.0</span><span class="o">.</span><span class="mi">4</span><span class="o">-</span><span class="n">signed</span><span class="o">.</span><span class="n">msi</span>
+         <span class="n">redhat</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">repo</span><span class="o">.</span><span class="n">mongodb</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">yum</span><span class="o">/</span><span class="n">redhat</span><span class="o">/</span><span class="mi">7</span><span class="o">/</span><span class="n">mongodb</span><span class="o">-</span><span class="n">org</span><span class="o">/</span><span class="mf">4.0</span><span class="o">/</span><span class="n">x86_64</span><span class="o">/</span><span class="n">RPMS</span><span class="o">/</span><span class="n">mongodb</span><span class="o">-</span><span class="n">org</span><span class="o">-</span><span class="n">server</span><span class="o">-</span><span class="mf">4.0</span><span class="o">.</span><span class="mi">4</span><span class="o">-</span><span class="mf">1.</span><span class="n">el7</span><span class="o">.</span><span class="n">x86_64</span><span class="o">.</span><span class="n">rpm</span>
 </pre></div>
 </div>
-<p>This feature is naturally very useful for creating templates for users</p>
 </div>
 </div>
 

@@ -11,45 +11,6 @@ You can customize the file while editing it.
 
 
 
-MongoDB
--------
-
-The cache of cloudmesh is managed in a mongo db database with various
-collections. However the user does not have to manage thes collections
-as this is done for the user through cloudmesh. Before you can use it it
-mongo does need to be installed.
-
-If you have not installed mongo, you may try
-
-.. code:: bash
-
-   cms admin mongo install
-
-However, to install it with cms, you must also make sure the following values are
-installed in the cloudmesh yaml file::
-
-    ...
-    MONGO_PASSWORD: TBD
-    ...
-    MONGO_AUTOINSTALL: True
-
-The value for the password must not be ``TBD``.
-
-Next you create the database template with authentication with
-
-.. code:: bash
-
-   cms admin mongo create
-
-Now you are ready to use it in cloudmesh. The mongo db can be started
-and stoped with the command
-
-.. code:: bash
-
-   $cms admin mongo start
-   $cms admin mongo stop
-
-The configuration detals are included in the yaml file.
 
 
 Cloudmesh Yaml File Object definitions
@@ -62,6 +23,42 @@ Setting values
           create a link to this command from here. explain how to set arbitrary values
 
           look for the command config ...
+
+
+Advanced Yaml Variables
+-----------------------
+
+One of the features of the cloudmesh yaml framework is that it allows you to
+use previously defined attributes in the yaml file itself. Thus if an
+attribute value contains for example  `"{cloudmesh.attribute}"` or andy
+environment variable, it will find the value for this dict entry in the yaml
+file and replace it
+with its value. For example. let us assume the yaml file contains::
+
+    cloudmesh:
+      profile:
+        name: Gregor
+      cloud:
+        aws:
+          username: "{cloudmesh.profile.name}"
+          key: ~/.ssh/id_rsa
+          dir: $HOME
+          current: .
+
+cloudmesg will replace the will result be transformed with::
+
+    cloudmesh:
+      profile:
+        name: Gregor
+      cloud:
+        aws:
+          username: "Gregor"
+          key: /home/gergor/.ssh/id_rsa
+          dir: /home/gregor
+          current: /home/gregor/github/cm
+
+This feature is naturally very useful for creating templates for users
+
 
 Profile
 -------
@@ -135,6 +132,19 @@ kind
 host
     This field is used to identif wheer to find information aboout the service provider
 
+service
+    The type of service. valid values are ``compute``, ``storage``.
+
+::
+
+    cm:
+        active: False
+        heading: AWS
+        host: aws.amazon.com
+        label: aws
+        kind: aws
+        version: 1.0
+        service: compute
 
 Compute Cloud Providers
 -----------------------
@@ -200,6 +210,7 @@ To obtain an account on AWS you can follow our instructions at
            label: aws
            kind: aws
            version: TBD
+           service: compute
          default:
            image: 'ami-0f65671a86f061fcd'
            size: 't2.micro'
@@ -232,6 +243,7 @@ To obtain an account on Azure you can follow our instructions at
            label: Azure
            kind: azure_arm
            version: TBD
+           service: compute
          default:
            image: 'Canonical:UbuntuServer:16.04-LTS:latest'
            size: 'Basic_A0'
@@ -269,6 +281,7 @@ To obtain an account on Azure you can follow our instructions at
            label: Azure
            kind: azure
            version: TBD
+           service: compute
          default:
            image: 'Canonical:UbuntuServer:16.04-LTS:latest'
            size: 'Basic_A0'
@@ -298,6 +311,7 @@ To obtain an account on Google you can follow our instructions at
            label: google
            kind: google
            version: TBD
+           service: compute
          default:
            image: 'Image Name'
            size: 'n1-standard-4'
@@ -320,13 +334,8 @@ Germany (KIT), Indiana University (jetstream). TO get started you can
 even install your local cloud with devstack and make adjustements.
 Please remember you can have multiple clouds in the ``cloudmesh4.yaml``
 file so you could if you have access to them integrate all of them.
-
-Example for chameleon cloud:
-
--  You will need access to a project and add your project nump=ber to
-   the credentials.
-
-::
+You will need access to a project and add your project nump=ber to. the credentials.
+Example for chameleon cloud::
 
    cloudmesh:
      ...
@@ -340,6 +349,7 @@ Example for chameleon cloud:
            label: chameleon
            kind: openstack
            version: liberty
+           service: compute
          credentials:
            OS_AUTH_URL: https://openstack.tacc.chameleoncloud.org:5000/v2.0/tokens
            OS_USERNAME: TBD
@@ -378,6 +388,7 @@ the following description::
            label: vbox
            kind: vagrant
            version: TBD
+           service: compute
          default:
            path: ~/.cloudmesh/vagrant
            image: "generic/ubuntu1810"
@@ -422,13 +433,11 @@ access key which will be available in the AWS console under AWS IAM
 default Bucket which will be used to store the files in AWS S3. Region
 is the geographic area like ``us-east-1`` which contains the bucket.
 Region is required to get a connection handle on the S3 Client or
-resource for that geographic area. Here is a sample.
+resource for that geographic area. Here is a sample::
 
-TODO: Make credentials more uniform between compute and data
-
-::
-
-   storage:
+   cloudmesh:
+     ...
+     storage:
        aws:
          cm:
            heading: aws
@@ -436,6 +445,7 @@ TODO: Make credentials more uniform between compute and data
            label: aws
            kind: awsS3
            version: TBD
+           service: storage
          default:
            directory: /
          credentials:
@@ -443,6 +453,9 @@ TODO: Make credentials more uniform between compute and data
            secret_access_key: *******
            container: name of bucket that you want user to be contained in.
            region: Specfiy the default region eg us-east-1
+
+.. todo:: Make credentials more uniform between compute and data
+
 
 .. _azure-1:
 
@@ -457,7 +470,7 @@ The ``cloudmesh4.yaml`` file needs to be set up as follows for the
 ‘azureblob’ section under ‘storage’::
 
    cloudmesh:
-     .........
+     ...
      storage:
        azureblob:
          cm:
@@ -466,6 +479,7 @@ The ``cloudmesh4.yaml`` file needs to be set up as follows for the
            label: Azure
            kind: azureblob
            version: TBD
+           service: storage
          default:
            directory: /
          credentials:
@@ -502,7 +516,9 @@ on Google. However we do provide a convenient documentation at
 The ``cloudmesh4.yaml`` file needs to be set up as follows for the
 ‘gdrive’ section under ‘storage’::
 
-   storge:
+   cloudmesh:
+     ...
+     storge:
        gdrive: 
          cm: 
            heading: GDrive
@@ -510,7 +526,8 @@ The ``cloudmesh4.yaml`` file needs to be set up as follows for the
            kind: gdrive
            label: GDrive
            version: TBD
-         credentials: 
+           service: storage
+         credentials:
            auth_host_name: localhost
            auth_host_port: 
              - ****
@@ -539,17 +556,20 @@ In the ``cloudmesh4.yaml`` file, find the ‘box’ section under ‘storage’.
 Under credentials, set ``config_path`` to the path of the configuration
 file you created as described in the Box chapter::
 
-   box:
-     cm:
-       heading: Box
-       host: box.com
-       label: Box
-       kind: box
-       version: TBD
-     default:
-       directory: /
-     credentials:
-       config_path: ******************************
+   cloudmesh:
+     ...
+     box:
+       cm:
+         heading: Box
+         host: box.com
+         label: Box
+         kind: box
+         version: TBD
+         service: storage
+       default:
+         directory: /
+       credentials:
+         config_path: ******************************
 
 
 Batch
@@ -574,37 +594,67 @@ Log files are stored by default in ``~/.cloudmesh/log`` The directory
 can be specified in the yaml file.
 
 
+Mongo
+-----
 
-Advanced Yaml Variables
------------------------
+MongoDB
+-------
 
-One of the features of the cloudmesh yaml framework is that it allows you to
-use previously defined attributes in the yaml file itself. Thus if an
-attribute value contains for example  `"{cloudmesh.attribute}"` or andy
-environment variable, it will find the value for this dict entry in the yaml
-file and replace it
-with its value. For example. let us assume the yaml file contains::
+The cache of cloudmesh is managed in a mongo db database with various
+collections. However the user does not have to manage thes collections
+as this is done for the user through cloudmesh. Before you can use it it
+mongo does need to be installed.
 
-    cloudmesh:
-      profile:
-        name: Gregor
-      cloud:
-        aws:
-          username: "{cloudmesh.profile.name}"
-          key: ~/.ssh/id_rsa
-          dir: $HOME
-          current: .
+If you have not installed mongo, you may try
 
-cloudmesg will replace the will result be transformed with::
+.. code:: bash
 
-    cloudmesh:
-      profile:
-        name: Gregor
-      cloud:
-        aws:
-          username: "Gregor"
-          key: /home/gergor/.ssh/id_rsa
-          dir: /home/gregor
-          current: /home/gregor/github/cm
+   cms admin mongo install
 
-This feature is naturally very useful for creating templates for users
+However, to install it with cms, you must also make sure the following values are
+installed in the cloudmesh yaml file::
+
+    ...
+    MONGO_PASSWORD: TBD
+    ...
+    MONGO_AUTOINSTALL: True
+
+The value for the password must not be ``TBD``.
+
+Next you create the database template with authentication with
+
+.. code:: bash
+
+   cms admin mongo create
+
+Now you are ready to use it in cloudmesh. The mongo db can be started
+and stoped with the command
+
+.. code:: bash
+
+   $cms admin mongo start
+   $cms admin mongo stop
+
+The configuration detals are included in the yaml file and looks like::
+
+   cloudmesh:
+     ...
+        mongo:
+          MONGO_AUTOINSTALL: False
+          MONGO_BREWINSTALL: False
+          LOCAL: ~/local
+          MONGO_HOME: ~/local/mongo
+          MONGO_PATH: ~/.cloudmesh/mongodb
+          MONGO_LOG: ~/.cloudmesh/mongodb/log
+          MONGO_DBNAME: 'cloudmesh'
+          MONGO_HOST: '127.0.0.1'
+          MONGO_PORT: '27017'
+          MONGO_USERNAME: 'admin'
+          MONGO_PASSWORD: TBD
+          MONGO_DOWNLOAD:
+            darwin: https://fastdl.mongodb.org/osx/mongodb-osx-ssl-x86_64-4.0.4.tgz
+            linux: https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-4.0.4.tgz
+            win32: https://fastdl.mongodb.org/win32/mongodb-win32-x86_64-2008plus-ssl-4.0.4-signed.msi
+            redhat: https://repo.mongodb.org/yum/redhat/7/mongodb-org/4.0/x86_64/RPMS/mongodb-org-server-4.0.4-1.el7.x86_64.rpm
+
+
