@@ -35,6 +35,18 @@ Will set the firstname in the profiles to Gregor
 
 This command at thsi time does not work on dicts, so you need to define eacxh attribute.
 
+Editing Values
+--------------
+
+IN case the values in the yaml file are having a TBD the can also be editit with our build in command that required you
+tospecify the dict in which such values occur.
+
+For example, letus assume the value in cloudmesh.provil.firstname is TBD then, the command
+
+
+    cms config edit cloudmesh.profile
+
+Can be used to change it.
 
 Advanced Yaml Variables
 -----------------------
