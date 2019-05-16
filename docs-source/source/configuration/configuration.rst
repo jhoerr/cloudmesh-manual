@@ -27,7 +27,7 @@ attribute and just prints out the attribute and its value.
 Setting values
 --------------
 
-In addition if you need to set quickly a value in the configuration file you can do this with
+In addition if you need to set quickly a value in the configuration file you can do this with::
 
     cms config get cloudmesh.profile.firstname=Gregor
 
@@ -41,8 +41,7 @@ Editing Values
 IN case the values in the yaml file are having a TBD the can also be editit with our build in command that required you
 tospecify the dict in which such values occur.
 
-For example, letus assume the value in cloudmesh.provil.firstname is TBD then, the command
-
+For example, letus assume the value in cloudmesh.provil.firstname is TBD then, the command::
 
     cms config edit cloudmesh.profile
 
