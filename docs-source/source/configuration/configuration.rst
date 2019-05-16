@@ -3,12 +3,11 @@ Configuration
 
 The Configuration of cloudmesh is controled with a yaml file that is
 placed in ``~/.clloudmesh/cloudmesh4.yaml``. It is created automatically
-from the templace located at
+from the template located at
 
 -  https://github.com/cloudmesh/cloudmesh-cloud/blob/master/cloudmesh/etc/cloudmesh4.yaml
 
-You can customize the file.
-
+You can customize the file while editing it.
 
 
 
@@ -26,6 +25,16 @@ If you have not installed mongo, you may try
 
    cms admin mongo install
 
+However, to install it with cms, you must also make sure the following values are
+installed in the cloudmesh yaml file::
+
+    ...
+    MONGO_PASSWORD: TBD
+    ...
+    MONGO_AUTOINSTALL: True
+
+The value for the password must not be ``TBD``.
+
 Next you create the database template with authentication with
 
 .. code:: bash
@@ -42,6 +51,53 @@ and stoped with the command
 
 The configuration detals are included in the yaml file.
 
+
+Cloudmesh Yaml File Object definitions
+--------------------------------------
+
+
+Profile
+-------
+
+.. todo:: write about the profile
+
+General Service Attributes
+-------------------
+
+Each cloudmesh service must have an attribute ``cm`` with the following fields. if an attribute contains the value TBD
+it need sto be updated. YOu only have to update the providers you like to use, you can delete the other if you like.
+
+cm
+~~
+
+In the ``cm` portion we define elementary information that identifies the service. This includes
+The following information
+
+active
+    if set to Tru, this cloud is going to be used in cloudmesh, if it is set to False it is not activated.
+    This has the advantage that you do not have to remove
+    the service from the yaml file if you do not use it
+
+heading
+    This field is currently not used, but in future releases this field will be use in table or GUIs to be printed
+    when list functions are used
+
+label
+    This field is typically the same as the entry under which the cloud service is filed. IN our case it is aws. It is
+    a convenient abbreviation that can be used in your programs.
+
+kind
+    This field is the most important field that identified what kind of service your cloud is and it will determine
+    based on its name how to interact with the service.
+
+    For compute services the following kinds are valid: ``aws``, ``azure``, ``google``, ``openstack``
+
+    For storage services the following kinds are valid: ``aws``, ``azure``, ``google``, ``openstack``, ``box``
+
+host
+    This field is used to identif wheer to find information aboout the service provider
+
+
 Compute Cloud Providers
 -----------------------
 
@@ -53,12 +109,46 @@ templates for Jetstream and Chameleopn cloud are included in the example
 `cloudmesh4.yaml <https://github.com/cloudmesh/cloudmesh-cloud/blob/master/cloudmesh/etc/cloudmesh4.yaml>`__.
 We list each template next.
 
+We explain in more detail the fetures of the configuration files for cloud services.
+
+First all cloud services are listed under the key ``cloud``. You can add arbitrary compute cloud services
+with a name you like. You can even create multiple names that refer to the same cloud but may have different parameters.
+We like to focus on the example for ``aws`` and explain this in a bit more detail.
+
+
+The cloudmesh entry for a compute service is devided into three portions:
+``cm``, ``default``, and ``credentials``. The format of the ``cm`` is explained previously.
+
+
+Default
+~~~~~~~
+
+The next category are defaults thatcan be preset for each cloud. However defaults are overwritten by the cloudmesh shell
+variables. So they are only used once at startup if these defaults are not already defined by cloudmesh shell. Typically
+we use them to for example define values for images and sizes or flafors of images
+
+image
+    The name of the default image
+
+size
+    The size of the default image
+
+credentials
+~~~~~~~~~~~
+
+The credentials are dependent on the kind of the cloud and include all information needed for authenticate and use the
+cloud service.
+
+As the infromation is sensitive the file in .cloudmesh holding thsi information must be properly protected.
+
+.. note:: We even have a project that encrypts the cloudmesh.yaml file, but it is not fully integrated yet.
+          Future versions of cloudmesh will encrypt the information by default.
+
 AWS
 ~~~
 
-It is beyond the scope of this manual to discuss how to get an account
-on Aws. However we do provide a convenient documentation at
-:doc:`../accounts/aws`::
+To obtain an account on AWS you can follow our instructions at
+:doc:`../accounts/aws`. THe configuration file containes the following::
 
    cloudmesh:
      ...
@@ -86,9 +176,11 @@ on Aws. However we do provide a convenient documentation at
 Azure
 ~~~~~
 
-It is beyond the scope of this manual to discuss how to get an account
-on Azure. However we do provide a convenient documentation at
-:doc:`../accounts/azure`::
+.. todo:: az arm provider this has to be verified. We will likely deprecate thsi for a more elaborate provider
+
+To obtain an account on Azure you can follow our instructions at
+:doc:`../accounts/azure`. THe configuration file containes the following::
+
 
    cloudmesh:
      ...
@@ -120,7 +212,12 @@ on Azure. However we do provide a convenient documentation at
 AZ
 ~~
 
-::
+.. todo:: AzProvider. Verify it works
+
+This provider leverages the "az" command. and is the prefered az provider at this time. It has npt yet been fully verified.
+
+To obtain an account on Azure you can follow our instructions at
+:doc:`../accounts/azure`. THe configuration file containes the following::
 
    cloudmesh
       ...
@@ -147,9 +244,9 @@ AZ
 Google
 ~~~~~~
 
-It is beyond the scope of this manual to discuss how to get an account
-on Google. However we do provide a convenient documentation at
-:doc:`../accounts/google`::
+
+To obtain an account on Google you can follow our instructions at
+:doc:`../accounts/gooogle`. THe configuration file containes the following::
 
    cloudmesh:
      ...

@@ -148,8 +148,8 @@ to all vms set name and cloud to all
    cms set name=all
    cms set cloud=all
 
-Interactive shell (proposed)
-----------------------------
+Interactive shell
+-----------------
 
 Cloudmesh uses cmd5 for its shell implementation and thus all commands
 that are typed in in the terminal can also be typed in into a shell that
@@ -215,3 +215,8 @@ To switch it off you can say
    cms set refresh=False
 
 .. todo:: check if refresh=True this is implemented.
+
+Using quotes
+------------
+
+.. warning:: In case you need to use quotes in the command line you need to mask them with a bakslash.
