@@ -163,7 +163,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../dev/management.html#documentation-management">3. Documentation Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../dev/management.html#version-management">4. Version Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../dev/pytest.html">5. Pytest</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../dev/todo.html">6. ToDo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/manual.html">6. Manual Creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/todo.html">7. ToDo</a></li>
 </ul>
 <p class="caption"><span class="caption-text">CLOUD ACCOUNTS</span></p>
 <ul>
@@ -256,7 +257,9 @@
 <span class="kn">from</span> <span class="nn">cloudmesh.common.dotdict</span> <span class="k">import</span> <span class="n">dotdict</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.variables</span> <span class="k">import</span> <span class="n">Variables</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.console</span> <span class="k">import</span> <span class="n">Console</span>
+<span class="kn">from</span> <span class="nn">pprint</span> <span class="k">import</span> <span class="n">pprint</span>
 
+<span class="c1"># see also https://github.com/cloudmesh/client/blob/master/cloudmesh_client/cloud/register.py</span>
 
 <div class="viewcode-block" id="Active"><a class="viewcode-back" href="../../../../code/management.html#cloudmesh.management.configuration.config.Active">[docs]</a><span class="k">class</span> <span class="nc">Active</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 
@@ -404,6 +407,7 @@
 <span class="sd">        :return:</span>
 <span class="sd">        :rtype:</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="n">path_expand</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">backup</span><span class="p">:</span>
             <span class="n">destination</span> <span class="o">=</span> <span class="n">backup_name</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
             <span class="n">shutil</span><span class="o">.</span><span class="n">copyfile</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">destination</span><span class="p">)</span>
@@ -592,7 +596,39 @@
             <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
-            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span></div>
+            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Config.edit"><a class="viewcode-back" href="../../../../code/management.html#cloudmesh.management.configuration.config.Config.edit">[docs]</a>    <span class="k">def</span> <span class="nf">edit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attribute</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        edits the dict specified by the attribute and filles out all TBD values.</span>
+<span class="sd">        :param attribute:</span>
+<span class="sd">        :type attribute: string</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">Console</span><span class="o">.</span><span class="n">ok</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Filling out: </span><span class="si">{attribute}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">config</span> <span class="o">=</span> <span class="n">Config</span><span class="p">()</span>
+            <span class="n">values</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="n">attribute</span><span class="p">]</span>
+
+            <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Editing the values for </span><span class="si">{attribute}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+            <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Current Values:&quot;</span><span class="p">)</span>
+
+            <span class="nb">print</span> <span class="p">(</span><span class="n">yaml</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+
+            <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">values</span><span class="p">:</span>
+
+                <span class="k">if</span> <span class="n">values</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;TBD&quot;</span><span class="p">:</span>
+                    <span class="n">result</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Please enter new value for </span><span class="si">{key}</span><span class="s2">: &quot;</span><span class="p">)</span>
+                    <span class="n">values</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span>
+
+            <span class="n">config</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+            <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;could not find the attribute &#39;</span><span class="si">{attribute}</span><span class="s2">&#39; in the yaml file.&quot;</span><span class="p">)</span></div></div>
+
 </pre></div>
 
            </div>
