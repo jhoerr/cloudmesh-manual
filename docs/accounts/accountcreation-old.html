@@ -1,0 +1,521 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>5. VM Providers (outdated) &mdash; Cloudmesh v4 alpha documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1. CM4 Details (outdated)" href="../CM4README.html" />
+    <link rel="prev" title="4. Box Account" href="box.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Cloudmesh v4
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.0.28
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">PREFACE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../preface/about.html">1. About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preface/contributors.html">2. Contributors</a></li>
+</ul>
+<p class="caption"><span class="caption-text">INSTALLATION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/install.html">1. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/quickstart.html">2. Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration/configuration.html">3. Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/mongo.html">4. Cloudmesh Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration/encryption.html">5. Cloudmesh Yaml file Encrytion</a></li>
+</ul>
+<p class="caption"><span class="caption-text">SOMMAND SHELL</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cmd5.html">1. Cmd5</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CLOUD SERVICES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../group.html">1. Group command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vm/vm.html">2. Virtual Machine Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vm/image.html">3. Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vm/flavor.html">4. Flavors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../storage/storage.html">5. Cloudmesh Multi Cloud Storage Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workflow.html">6. Infrastructure Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter.html">7. Jupyter Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hpc/batch.html">8. Batch</a></li>
+</ul>
+<p class="caption"><span class="caption-text">openapi</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../openapi/README-storage-openapi.html">1. Cloudmesh Multi Cloud Open API Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../openapi/ufo.html">2. REST Service (outdated)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference-card.html">1. Reference Card (proposed)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/commands.html">2. Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-cmd5.html">3. Manual Cmd5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-group.html">4. Manual Group</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-compute.html">5. Compute Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-storage.html">6. Storage Manual Pages</a></li>
+</ul>
+<p class="caption"><span class="caption-text">DATABASE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../storage/database.html">1. Cloudmesh Database</a></li>
+</ul>
+<p class="caption"><span class="caption-text">BENCHMARKS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/README.html">1. Benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/awsec2-vm-management-benchmark.html">2. AWS EC2 VM Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/awsec2_benchmark_ubuntu.html">3. AWS EC2 VM Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/awss3-storage-benchmark.html">4. AWS S3 File Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/azure-storage-benchmark.html">5. Azure Blob Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/box.html">6. Benchmark results for box Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/emr.html">7. AWS EMR Benchmarking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/test_compute_database.html">8. AWS EC2 Compute Database</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CODE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../code/code.html">1. Code Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code/common.html">2. Common</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code/cmd5.html">3. CMD5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code/cloudmesh.html">4. Cloudmesh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code/management.html">5. Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code/mongo.html">6. Mongo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code/commands.html">7. Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code/inventory.html">8. Inventory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code/storage.html">9. cloudmesh-storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code/cloud.html">10. cloudmesh-cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code/batch.html">11. cloudmesh-batch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code/emr.html">12. cloudmesh-emr</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CONTRIBUTION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dev/conventions.html">1. Code Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/management.html">2. Code Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/management.html#documentation-management">3. Documentation Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/management.html#version-management">4. Version Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/pytest.html">5. Pytest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/todo.html">6. ToDo</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CLOUD ACCOUNTS</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="aws.html">1. AWS Account Creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="azure.html">2. Azure Account Creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="google.html">3. Google Storage Providers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="box.html">4. Box Account</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">5. VM Providers (outdated)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#general-cloud-providers-access">5.1. General Cloud Providers Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#general-interface">5.2. General Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#explicit-use-with-options">5.3. Explicit Use with Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#vagrant">5.4. Vagrant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#aws">5.5. AWS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#setup-and-configuration">5.5.1. Setup and Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#azure">5.6. Azure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">5.6.1. Setup and Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#openstack">5.7. OpenStack</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#jetstream">5.7.1. Jetstream</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#chameleon-cloud">5.7.2. Chameleon Cloud</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cybera">5.7.3. Cybera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#devstack">5.7.4. DevStack</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Outdated:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../CM4README.html">1. CM4 Details (outdated)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vcluster.html">2. Virtual Cluster (in progress)</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Cloudmesh v4</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>5. VM Providers (outdated)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/accounts/accountcreation-old.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="vm-providers-outdated">
+<h1>5. VM Providers (outdated)<a class="headerlink" href="#vm-providers-outdated" title="Permalink to this headline">¶</a></h1>
+<p>Cloudmesh works straight forward with a number of cloud providers under the
+assumption you have accounts on these clouds. We demonstrate here how to start a
+single vm on each of these providers and to test if they have been creatdd we
+will also list the vm on each of the clouds. Defaults form the a configuration
+file that is located in <code class="docutils literal notranslate"><span class="pre">~/.cloudmesh/cloudmesh4.yaml</span></code> are used to select images
+and flavors. These defaults can naturally be changed.</p>
+<p>In order for you to follow this example you will have to edit the yaml file and
+make appropriat emodifications.</p>
+<div class="section" id="general-cloud-providers-access">
+<h2>5.1. General Cloud Providers Access<a class="headerlink" href="#general-cloud-providers-access" title="Permalink to this headline">¶</a></h2>
+<p>We are using the python library
+<a class="reference external" href="https://libcloud.apache.org">Apache Libcloud</a> to interact with
+cloud service providers. Currently, in <code class="docutils literal notranslate"><span class="pre">cms</span></code>, we could access:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://aws.amazon.com">AWS</a></p></li>
+<li><p><a class="reference external" href="https://azure.microsoft.com/en-us/">AZURE</a></p></li>
+<li><p>any cloud service providers using <em>OpenStack</em>.
+For example, <a class="reference external" href="https://www.chameleoncloud.org">Chameleon</a> and
+<a class="reference external" href="https://jetstream-cloud.org">Jetstream</a></p></li>
+</ul>
+<p>By using the <em>Apache Libcloud</em> API, we could do these operations for
+nodes in above cloud service providers:</p>
+<ul class="simple">
+<li><p>Start the node</p></li>
+<li><p>Stop the node</p></li>
+<li><p>Resume the node</p></li>
+<li><p>Suspend the node</p></li>
+<li><p>Destory the node</p></li>
+<li><p>Create the node</p></li>
+</ul>
+<p><strong>Improvement</strong>: Sometimes adjustments to nodes are necessary (switch
+between different images/OS and service sizes).  Cm4 also allow users
+to customize their instances across multiple providers by using
+refactor functions to support their management tasks.</p>
+<ul class="simple">
+<li><p>Resize the node</p></li>
+<li><p>Rebuild(with different image) the node</p></li>
+<li><p>Rename the node</p></li>
+<li><p>Revert previous operations to the node</p></li>
+</ul>
+</div>
+<div class="section" id="general-interface">
+<h2>5.2. General Interface<a class="headerlink" href="#general-interface" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms <span class="nb">set</span> <span class="nv">cloud</span><span class="o">=</span>&lt;cloudname as defined in the ~/.cloudmesh/cloudmesh4.yaml&gt;
+$ cms vm start
+$ cms vm list
+
+$ cms <span class="nv">flavor</span><span class="o">=</span><span class="s2">&quot;medium&quot;</span>
+$ cms <span class="nv">image</span><span class="o">=</span><span class="s2">&quot;ubuntu19.04&quot;</span>
+
+$ cms vm start
+</pre></div>
+</div>
+</div>
+<div class="section" id="explicit-use-with-options">
+<h2>5.3. Explicit Use with Options<a class="headerlink" href="#explicit-use-with-options" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms vm start --cloud<span class="o">=</span>chameleon --image<span class="o">=</span>ubuntu19.04 --flavor<span class="o">=</span>medium --key<span class="o">=</span>~/.ssh/id_rsa.bub
+</pre></div>
+</div>
+</div>
+<div class="section" id="vagrant">
+<h2>5.4. Vagrant<a class="headerlink" href="#vagrant" title="Permalink to this headline">¶</a></h2>
+<p>TODO</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms <span class="nb">set</span> <span class="nv">cloud</span><span class="o">=</span>vagrant
+$ cms vm start
+$ cms vm list
+</pre></div>
+</div>
+</div>
+<div class="section" id="aws">
+<h2>5.5. AWS<a class="headerlink" href="#aws" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="setup-and-configuration">
+<h3>5.5.1. Setup and Configuration<a class="headerlink" href="#setup-and-configuration" title="Permalink to this headline">¶</a></h3>
+<p>Amazon Web Service (<strong>AWS</strong>) provided by Amazon is a secure cloud
+service platform, users could start any instances with selected
+images.</p>
+<p>Before users use the <strong>cms</strong> platform to access <strong>EC2</strong>, they have to finish these preparations:</p>
+<ol>
+<li><p>EC2 account, more information is
+<a class="reference external" href="https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/">here</a></p></li>
+<li><p>Log in the EC2 account, update your <strong>Access Key</strong>.</p>
+<p><strong>Access Keys</strong> has two parts: <strong>Access Key ID</strong> and <strong>Secret
+Access Key</strong>. These <strong>Access Keys</strong> are the only way you could
+authentically access the AWS though AWS API requests.  (create new
+Access Key: Account (right upper corner) &gt; My Security Credentials</p>
+<blockquote>
+<div><p>Access Keys &gt; Create New Access Key)</p>
+</div></blockquote>
+</li>
+<li><p><strong>Private Key file</strong> is a key pairs to encrypt and decrypt login
+information. While using <strong>Private Key file</strong>, there is no need to
+use username or password to login the instance of AWS. For sshing
+the instance, the ssh client would use the <strong>private key file</strong>
+instead of credential information. (create new key pairs: Network &amp;
+Security (left column bar) &gt; Key Pairs &gt; Create Key Pair)</p></li>
+<li><p><strong>Security Group</strong> acts as a virtual firewall for the instance.
+When you launch a instance, we have to attach the <strong>Security
+Group</strong> to it for controlling the traffic in and out. So before you
+are using any nodes in AWS, you have to pre-define the <strong>Security
+Group</strong> that you will use.  (create new Security Group: Network $
+Security (left column bar) &gt; Security Group &gt; Create Security
+Group)</p></li>
+<li><p><strong>Region</strong> is the service location where you start the instance.
+AWS hosts services in different regions, you should select the
+region where you want to start you instance.</p></li>
+</ol>
+<p>When you finish all above things, you should update information into
+the block ‘aws’ of <strong>cloudmesh4.yaml</strong> file in <strong>ETC</strong> folder</p>
+<p><strong>EC2</strong> provides On-Demand Pricing cloud services based on different
+CPU, Memory and Storage selections. Please visit this
+<a class="reference external" href="https://aws.amazon.com/ec2/pricing/on-demand/">page</a> for more
+information. In default setting, we use the latest <strong>Ubuntu</strong> image
+filled in default.image field. If you want to use other images, please
+update the Image ID into it.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms <span class="nb">set</span> <span class="nv">cloud</span><span class="o">=</span>aws
+$ cms vm start
+$ cms vm list
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="azure">
+<h2>5.6. Azure<a class="headerlink" href="#azure" title="Permalink to this headline">¶</a></h2>
+<p>Uses <a class="reference external" href="https://libcloud.readthedocs.io/en/latest/compute/drivers/azure_arm.html">LibCloud’s Azure ARM Compute Driver</a></p>
+<div class="section" id="id1">
+<h3>5.6.1. Setup and Configuration<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p><strong>Install Azure CLI</strong></p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest">Download and install according to your platform.</a></p>
+<p><strong>Make sure subscription is registered for compute services</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">az</span> <span class="n">provider</span> <span class="n">register</span> <span class="o">--</span><span class="n">namespace</span> <span class="n">Microsoft</span><span class="o">.</span><span class="n">Compute</span>
+</pre></div>
+</div>
+<p><strong>Service principal</strong></p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest">Full documentation on creating service principals.</a>
+The Azure ARM Driver does not appear to support certificate based
+principals at this time.</p>
+<p>Create Principal</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">az</span> <span class="n">ad</span> <span class="n">sp</span> <span class="n">create</span><span class="o">-</span><span class="k">for</span><span class="o">-</span><span class="n">rbac</span> <span class="o">--</span><span class="n">name</span> <span class="n">cm</span><span class="o">-</span><span class="n">admin</span><span class="o">-</span><span class="n">pw</span> <span class="o">--</span><span class="n">password</span> <span class="o">&lt;</span><span class="n">SECRET</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Add <code class="docutils literal notranslate"><span class="pre">Owner</span></code> role.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">az</span> <span class="n">role</span> <span class="n">assignment</span> <span class="n">create</span> <span class="o">--</span><span class="n">assignee</span> <span class="o">&lt;</span><span class="n">APP_ID</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">role</span> <span class="n">Owner</span>
+</pre></div>
+</div>
+<p><em>Note:</em> <code class="docutils literal notranslate"><span class="pre">&lt;APP_ID&gt;</span></code> is provided in the output when the principal is created</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms <span class="nb">set</span> <span class="nv">cloud</span><span class="o">=</span>azure
+$ cms vm start
+$ cms vm list
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="openstack">
+<h2>5.7. OpenStack<a class="headerlink" href="#openstack" title="Permalink to this headline">¶</a></h2>
+<p>OpenStack is an Infrastructure service that allows users to utilize
+computing resource in cloud service platform through virtual
+environments.</p>
+<p><a class="reference external" href="https://www.chameleoncloud.org/">Chameleon Cloud</a> provides an
+OpenStack installation of version 2015.1 (Kilo) using the KVM
+virtualization technology at the KVM&#64;TACC site. It is important to
+make sure you are visiting the
+<a class="reference external" href="https://openstack.tacc.chameleoncloud.org/">KVM&#64;TACC</a> site so as to
+get proper installation. Learn more
+<a class="reference external" href="https://chameleoncloud.readthedocs.io/en/latest/technical/kvm.html">here</a>
+to properly set up yout account before proceed to your journey with
+<strong>cms</strong>.</p>
+<div class="section" id="jetstream">
+<h3>5.7.1. Jetstream<a class="headerlink" href="#jetstream" title="Permalink to this headline">¶</a></h3>
+<p>TODO</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms <span class="nb">set</span> <span class="nv">cloud</span><span class="o">=</span>jetstream
+$ cms vm start
+$ cms vm list
+</pre></div>
+</div>
+</div>
+<div class="section" id="chameleon-cloud">
+<h3>5.7.2. Chameleon Cloud<a class="headerlink" href="#chameleon-cloud" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms <span class="nb">set</span> <span class="nv">cloud</span><span class="o">=</span>chameleon
+$ cms vm start
+$ cms vm list
+</pre></div>
+</div>
+</div>
+<div class="section" id="cybera">
+<h3>5.7.3. Cybera<a class="headerlink" href="#cybera" title="Permalink to this headline">¶</a></h3>
+<p>TODO</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms <span class="nb">set</span> <span class="nv">cloud</span><span class="o">=</span>cybera
+$ cms vm start
+$ cms vm list
+</pre></div>
+</div>
+</div>
+<div class="section" id="devstack">
+<h3>5.7.4. DevStack<a class="headerlink" href="#devstack" title="Permalink to this headline">¶</a></h3>
+<p>TODO</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms <span class="nb">set</span> <span class="nv">cloud</span><span class="o">=</span>devstack
+$ cms vm start
+$ cms vm list
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../CM4README.html" class="btn btn-neutral float-right" title="1. CM4 Details (outdated)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="box.html" class="btn btn-neutral float-left" title="4. Box Account" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018-2019, Cloudmesh Community
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
