@@ -147,8 +147,8 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="code.html">1. Code Documentation</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">2. Common</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#module-cloudmesh.DEBUG">2.1. DEBUG</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#variable">2.2. Variable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-cloudmesh.common.debug">2.1. Debug</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-cloudmesh.common.variables">2.2. Variables</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-cloudmesh.common.util">2.3. Util</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-cloudmesh.common.dotdict">2.4. Dotdict</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-cloudmesh.common.locations">2.5. Locations</a></li>
@@ -266,11 +266,46 @@
 <p>cloudmesh-common contains a number of useful methods that you can reuse to
 develop your code. They avoid reimplementation and duplication among the
 different contributors. Please use these methods instead of reimplementing them.</p>
-<div class="section" id="module-cloudmesh.DEBUG">
-<span id="debug"></span><h2>2.1. DEBUG<a class="headerlink" href="#module-cloudmesh.DEBUG" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-cloudmesh.common.debug">
+<span id="debug"></span><h2>2.1. Debug<a class="headerlink" href="#module-cloudmesh.common.debug" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cloudmesh.common.debug.VERBOSE">
+<code class="descclassname">cloudmesh.common.debug.</code><code class="descname">VERBOSE</code><span class="sig-paren">(</span><em>msg</em>, <em>label=None</em>, <em>color='BLUE'</em>, <em>verbose=9</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/debug.html#VERBOSE"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.debug.VERBOSE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prints a data structure in verbose mode</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>msg</strong> – the msg to be printed, can be a datastructure suc as a dict</p></li>
+<li><p><strong>label</strong> – the  label to be used, defaults to the name of the msg variable</p></li>
+<li><p><strong>color</strong> – the color</p></li>
+<li><p><strong>verbose</strong> – indicates when to print it. If verbose in cloudmesh is higher than the speified value it is printed</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
-<div class="section" id="variable">
-<h2>2.2. Variable<a class="headerlink" href="#variable" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-cloudmesh.common.variables">
+<span id="variables"></span><h2>2.2. Variables<a class="headerlink" href="#module-cloudmesh.common.variables" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cloudmesh.common.variables.Variables">
+<em class="property">class </em><code class="descclassname">cloudmesh.common.variables.</code><code class="descname">Variables</code><span class="sig-paren">(</span><em>filename=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/variables.html#Variables"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.variables.Variables" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="method">
+<dt id="cloudmesh.common.variables.Variables.clear">
+<code class="descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/variables.html#Variables.clear"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.variables.Variables.clear" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.common.variables.Variables.close">
+<code class="descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/variables.html#Variables.close"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.variables.Variables.close" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
 <div class="section" id="module-cloudmesh.common.util">
 <span id="util"></span><h2>2.3. Util<a class="headerlink" href="#module-cloudmesh.common.util" title="Permalink to this headline">¶</a></h2>
@@ -499,13 +534,16 @@ String matching only, does not do REs as currently implemented.</p>
 </div>
 <div class="section" id="module-cloudmesh.common.dotdict">
 <span id="dotdict"></span><h2>2.4. Dotdict<a class="headerlink" href="#module-cloudmesh.common.dotdict" title="Permalink to this headline">¶</a></h2>
-<p>A convenient dot dict class</p>
-<p>a = dotdict({“argument”: “value”})</p>
-<p>print (a.argument)</p>
 <dl class="class">
 <dt id="cloudmesh.common.dotdict.dotdict">
 <em class="property">class </em><code class="descclassname">cloudmesh.common.dotdict.</code><code class="descname">dotdict</code><a class="reference internal" href="../_modules/cloudmesh/common/dotdict.html#dotdict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.dotdict.dotdict" title="Permalink to this definition">¶</a></dt>
-<dd><p>dot.notation access to dictionary attributes</p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a></p>
+<p>A convenient dot dict class:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">dotdict</span><span class="p">({</span><span class="s2">&quot;argument&quot;</span><span class="p">:</span> <span class="s2">&quot;value&quot;</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>print (a.argument)</p>
+<p>Nested dot documentation is not supported.</p>
 </dd></dl>
 
 </div>
@@ -543,14 +581,36 @@ String matching only, does not do REs as currently implemented.</p>
 </div>
 <div class="section" id="module-cloudmesh.common.parameter">
 <span id="parameter"></span><h2>2.6. Parameter<a class="headerlink" href="#module-cloudmesh.common.parameter" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cloudmesh.common.parameter.Parameter">
+<em class="property">class </em><code class="descclassname">cloudmesh.common.parameter.</code><code class="descname">Parameter</code><a class="reference internal" href="../_modules/cloudmesh/common/parameter.html#Parameter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.parameter.Parameter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="classmethod">
+<dt id="cloudmesh.common.parameter.Parameter.expand">
+<em class="property">classmethod </em><code class="descname">expand</code><span class="sig-paren">(</span><em>parameter</em>, <em>allow_duplicates=False</em>, <em>sort=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/parameter.html#Parameter.expand"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.parameter.Parameter.expand" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
 <div class="section" id="module-cloudmesh.common.FlatDict">
 <span id="flatdict"></span><h2>2.7. FlatDict<a class="headerlink" href="#module-cloudmesh.common.FlatDict" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="cloudmesh.common.FlatDict.FlatDict">
 <em class="property">class </em><code class="descclassname">cloudmesh.common.FlatDict.</code><code class="descname">FlatDict</code><span class="sig-paren">(</span><em>d</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/FlatDict.html#FlatDict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.FlatDict.FlatDict" title="Permalink to this definition">¶</a></dt>
-<dd><p>A data structure to manage a flattened dict. It is initialized by passing the dict
+<dd><p>Bases: <a class="reference internal" href="#cloudmesh.common.FlatDict.FlatDict.dict" title="cloudmesh.common.FlatDict.FlatDict.dict"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a></p>
+<p>A data structure to manage a flattened dict. It is initialized by passing the dict
 at time of initialization.</p>
+<dl class="method">
+<dt id="cloudmesh.common.FlatDict.FlatDict.add">
+<code class="descname">add</code><span class="sig-paren">(</span><em>key</em>, <em>value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/FlatDict.html#FlatDict.add"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.FlatDict.FlatDict.add" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.common.FlatDict.FlatDict.dict">
+<code class="descname">dict</code><a class="headerlink" href="#cloudmesh.common.FlatDict.FlatDict.dict" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="method">
 <dt id="cloudmesh.common.FlatDict.FlatDict.keys">
 <code class="descname">keys</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; a set-like object providing a view on D's keys<a class="reference internal" href="../_modules/cloudmesh/common/FlatDict.html#FlatDict.keys"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.FlatDict.FlatDict.keys" title="Permalink to this definition">¶</a></dt>
@@ -562,6 +622,42 @@ at time of initialization.</p>
 <dd></dd></dl>
 
 </dd></dl>
+
+<dl class="class">
+<dt id="cloudmesh.common.FlatDict.FlatDict2">
+<em class="property">class </em><code class="descclassname">cloudmesh.common.FlatDict.</code><code class="descname">FlatDict2</code><a class="reference internal" href="../_modules/cloudmesh/common/FlatDict.html#FlatDict2"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.FlatDict.FlatDict2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="classmethod">
+<dt id="cloudmesh.common.FlatDict.FlatDict2.convert">
+<em class="property">classmethod </em><code class="descname">convert</code><span class="sig-paren">(</span><em>obj</em>, <em>flatten=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/FlatDict.html#FlatDict2.convert"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.FlatDict.FlatDict2.convert" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function converts object into a Dict optionally Flattening it
+:param obj: Object to be converted
+:param flatten: boolean to specify if the dict has to be flattened
+:return dict: the dict of the object (Flattened or Un-flattened)</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="cloudmesh.common.FlatDict.FlatDict2.is_primitive">
+<em class="property">classmethod </em><code class="descname">is_primitive</code><span class="sig-paren">(</span><em>thing</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/FlatDict.html#FlatDict2.is_primitive"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.FlatDict.FlatDict2.is_primitive" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="cloudmesh.common.FlatDict.FlatDict2.object_to_dict">
+<em class="property">classmethod </em><code class="descname">object_to_dict</code><span class="sig-paren">(</span><em>obj</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/FlatDict.html#FlatDict2.object_to_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.FlatDict.FlatDict2.object_to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function converts Objects into Dictionary</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.common.FlatDict.FlatDict2.primitive">
+<code class="descname">primitive</code><em class="property"> = (&lt;class 'int'&gt;, &lt;class 'str'&gt;, &lt;class 'bool'&gt;, &lt;class 'str'&gt;, &lt;class 'bytes'&gt;, &lt;class 'dict'&gt;, &lt;class 'list'&gt;)</em><a class="headerlink" href="#cloudmesh.common.FlatDict.FlatDict2.primitive" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="cloudmesh.common.FlatDict.flatme">
+<code class="descclassname">cloudmesh.common.FlatDict.</code><code class="descname">flatme</code><span class="sig-paren">(</span><em>d</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/FlatDict.html#flatme"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.FlatDict.flatme" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="function">
 <dt id="cloudmesh.common.FlatDict.flatten">
@@ -607,7 +703,8 @@ Typically this will be “”</p></li>
 <dl class="class">
 <dt id="cloudmesh.common.Printer.Printer">
 <em class="property">class </em><code class="descclassname">cloudmesh.common.Printer.</code><code class="descname">Printer</code><a class="reference internal" href="../_modules/cloudmesh/common/Printer.html#Printer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.Printer.Printer" title="Permalink to this definition">¶</a></dt>
-<dd><p>A simple Printer class with convenient methods to print dictionary, tables, csv, lists</p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>A simple Printer class with convenient methods to print dictionary, tables, csv, lists</p>
 <dl class="classmethod">
 <dt id="cloudmesh.common.Printer.Printer.attribute">
 <em class="property">classmethod </em><code class="descname">attribute</code><span class="sig-paren">(</span><em>d</em>, <em>header=None</em>, <em>order=None</em>, <em>sort_keys=True</em>, <em>output='table'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/Printer.html#Printer.attribute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.Printer.Printer.attribute" title="Permalink to this definition">¶</a></dt>
@@ -771,7 +868,8 @@ The order is specified by the key names of the dict.</p></li>
 <dl class="class">
 <dt id="cloudmesh.common.StopWatch.StopWatch">
 <em class="property">class </em><code class="descclassname">cloudmesh.common.StopWatch.</code><code class="descname">StopWatch</code><a class="reference internal" href="../_modules/cloudmesh/common/StopWatch.html#StopWatch"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.StopWatch.StopWatch" title="Permalink to this definition">¶</a></dt>
-<dd><p>A class to measure times between events.</p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>A class to measure times between events.</p>
 <dl class="classmethod">
 <dt id="cloudmesh.common.StopWatch.StopWatch.benchmark">
 <em class="property">classmethod </em><code class="descname">benchmark</code><span class="sig-paren">(</span><em>sysinfo=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/StopWatch.html#StopWatch.benchmark"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.StopWatch.StopWatch.benchmark" title="Permalink to this definition">¶</a></dt>
@@ -785,6 +883,11 @@ The order is specified by the key names of the dict.</p></li>
 <em class="property">classmethod </em><code class="descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/StopWatch.html#StopWatch.clear"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.StopWatch.StopWatch.clear" title="Permalink to this definition">¶</a></dt>
 <dd><p>clear start and end timer_start</p>
 </dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.common.StopWatch.StopWatch.debug">
+<code class="descname">debug</code><em class="property"> = False</em><a class="headerlink" href="#cloudmesh.common.StopWatch.StopWatch.debug" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="classmethod">
 <dt id="cloudmesh.common.StopWatch.StopWatch.get">
@@ -836,6 +939,26 @@ The order is specified by the key names of the dict.</p></li>
 </dl>
 </dd></dl>
 
+<dl class="attribute">
+<dt id="cloudmesh.common.StopWatch.StopWatch.timer_elapsed">
+<code class="descname">timer_elapsed</code><em class="property"> = {}</em><a class="headerlink" href="#cloudmesh.common.StopWatch.StopWatch.timer_elapsed" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.common.StopWatch.StopWatch.timer_end">
+<code class="descname">timer_end</code><em class="property"> = {}</em><a class="headerlink" href="#cloudmesh.common.StopWatch.StopWatch.timer_end" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.common.StopWatch.StopWatch.timer_start">
+<code class="descname">timer_start</code><em class="property"> = {}</em><a class="headerlink" href="#cloudmesh.common.StopWatch.StopWatch.timer_start" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.common.StopWatch.StopWatch.verbose">
+<code class="descname">verbose</code><em class="property"> = True</em><a class="headerlink" href="#cloudmesh.common.StopWatch.StopWatch.verbose" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </dd></dl>
 
 </div>
@@ -845,7 +968,8 @@ The order is specified by the key names of the dict.</p></li>
 <dl class="class">
 <dt id="cloudmesh.common.console.Console">
 <em class="property">class </em><code class="descclassname">cloudmesh.common.console.</code><code class="descname">Console</code><a class="reference internal" href="../_modules/cloudmesh/common/console.html#Console"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.console.Console" title="Permalink to this definition">¶</a></dt>
-<dd><p>A simple way to print in a console terminal in color. Instead of using
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>A simple way to print in a console terminal in color. Instead of using
 simply the print statement you can use special methods to indicate
 warnings, errors, ok and regular messages.</p>
 <p>Example Usage:</p>
@@ -872,6 +996,11 @@ warnings, errors, ok and regular messages.</p>
 :return:</p>
 </dd></dl>
 
+<dl class="attribute">
+<dt id="cloudmesh.common.console.Console.color">
+<code class="descname">color</code><em class="property"> = True</em><a class="headerlink" href="#cloudmesh.common.console.Console.color" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="staticmethod">
 <dt id="cloudmesh.common.console.Console.cprint">
 <em class="property">static </em><code class="descname">cprint</code><span class="sig-paren">(</span><em>color</em>, <em>prefix</em>, <em>message</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/console.html#Console.cprint"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.console.Console.cprint" title="Permalink to this definition">¶</a></dt>
@@ -881,6 +1010,11 @@ warnings, errors, ok and regular messages.</p>
 :param message: the message
 :return:</p>
 </dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.common.console.Console.debug">
+<code class="descname">debug</code><em class="property"> = True</em><a class="headerlink" href="#cloudmesh.common.console.Console.debug" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="staticmethod">
 <dt id="cloudmesh.common.console.Console.debug_msg">
@@ -947,6 +1081,21 @@ warnings, errors, ok and regular messages.</p>
 :param color: if True its printed in color
 :return:</p>
 </dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.common.console.Console.theme">
+<code class="descname">theme</code><em class="property"> = {'BLACK': '\x1b[30m', 'BLUE': '\x1b[34m', 'BOLD': '\x1b[1m', 'CYAN': '\x1b[36m', 'ENDC': '\x1b[0m', 'FAIL': '\x1b[31m', 'GREEN': '\x1b[32m', 'HEADER': '\x1b[35m', 'OKBLUE': '\x1b[34m', 'OKGREEN': '\x1b[32m', 'RED': '\x1b[31m', 'WARNING': '\x1b[35m', 'WHITE': '\x1b[37m'}</em><a class="headerlink" href="#cloudmesh.common.console.Console.theme" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.common.console.Console.theme_bw">
+<code class="descname">theme_bw</code><em class="property"> = {'BLACK': '', 'BLUE': '', 'BOLD': '', 'CYAN': '', 'ENDC': '', 'FAIL': '', 'GREEN': '', 'HEADER': '', 'OKBLUE': '', 'OKGREEN': '', 'RED': '', 'WARNING': '', 'WHITE': ''}</em><a class="headerlink" href="#cloudmesh.common.console.Console.theme_bw" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.common.console.Console.theme_color">
+<code class="descname">theme_color</code><em class="property"> = {'BLACK': '\x1b[30m', 'BLUE': '\x1b[34m', 'BOLD': '\x1b[1m', 'CYAN': '\x1b[36m', 'ENDC': '\x1b[0m', 'FAIL': '\x1b[31m', 'GREEN': '\x1b[32m', 'HEADER': '\x1b[35m', 'OKBLUE': '\x1b[34m', 'OKGREEN': '\x1b[32m', 'RED': '\x1b[31m', 'WARNING': '\x1b[35m', 'WHITE': '\x1b[37m'}</em><a class="headerlink" href="#cloudmesh.common.console.Console.theme_color" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="staticmethod">
 <dt id="cloudmesh.common.console.Console.txt_msg">
@@ -1023,7 +1172,8 @@ warnings, errors, ok and regular messages.</p>
 <dl class="class">
 <dt id="cloudmesh.common.error.Error">
 <em class="property">class </em><code class="descclassname">cloudmesh.common.error.</code><code class="descname">Error</code><a class="reference internal" href="../_modules/cloudmesh/common/error.html#Error"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.error.Error" title="Permalink to this definition">¶</a></dt>
-<dd><p>A class to print error messages</p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>A class to print error messages</p>
 <dl class="classmethod">
 <dt id="cloudmesh.common.error.Error.debug">
 <em class="property">classmethod </em><code class="descname">debug</code><span class="sig-paren">(</span><em>msg</em>, <em>debug=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/error.html#Error.debug"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.error.Error.debug" title="Permalink to this definition">¶</a></dt>
@@ -1084,9 +1234,37 @@ warnings, errors, ok and regular messages.</p>
 <p>A convenient method to execute shell commands and return their output. Note: that this method requires that the
 command be completely execute before the output is returned. FOr many activities in cloudmesh this is sufficient.</p>
 <dl class="class">
+<dt id="cloudmesh.common.Shell.Brew">
+<em class="property">class </em><code class="descclassname">cloudmesh.common.Shell.</code><code class="descname">Brew</code><a class="reference internal" href="../_modules/cloudmesh/common/Shell.html#Brew"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.Shell.Brew" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="classmethod">
+<dt id="cloudmesh.common.Shell.Brew.install">
+<em class="property">classmethod </em><code class="descname">install</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/Shell.html#Brew.install"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.Shell.Brew.install" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="cloudmesh.common.Shell.Brew.version">
+<em class="property">classmethod </em><code class="descname">version</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/Shell.html#Brew.version"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.Shell.Brew.version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cloudmesh.common.Shell.Pip">
+<em class="property">class </em><code class="descclassname">cloudmesh.common.Shell.</code><code class="descname">Pip</code><a class="reference internal" href="../_modules/cloudmesh/common/Shell.html#Pip"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.Shell.Pip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="classmethod">
+<dt id="cloudmesh.common.Shell.Pip.install">
+<em class="property">classmethod </em><code class="descname">install</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/Shell.html#Pip.install"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.Shell.Pip.install" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
 <dt id="cloudmesh.common.Shell.Shell">
 <em class="property">class </em><code class="descclassname">cloudmesh.common.Shell.</code><code class="descname">Shell</code><a class="reference internal" href="../_modules/cloudmesh/common/Shell.html#Shell"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.Shell.Shell" title="Permalink to this definition">¶</a></dt>
-<dd><p>The shell class allowing us to conveniently access many operating system commands. 
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>The shell class allowing us to conveniently access many operating system commands. 
 TODO: This works well on Linux and OSX, but has not been tested much on Windows</p>
 <dl class="classmethod">
 <dt id="cloudmesh.common.Shell.Shell.VBoxManage">
@@ -1149,6 +1327,11 @@ TODO: This works well on Linux and OSX, but has not been tested much on Windows<
 :return:</p>
 </dd></dl>
 
+<dl class="attribute">
+<dt id="cloudmesh.common.Shell.Shell.command">
+<code class="descname">command</code><em class="property"> = {'darwin': {}, 'linux': {}, 'windows': {}}</em><a class="headerlink" href="#cloudmesh.common.Shell.Shell.command" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="classmethod">
 <dt id="cloudmesh.common.Shell.Shell.command_exists">
 <em class="property">classmethod </em><code class="descname">command_exists</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/Shell.html#Shell.command_exists"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.Shell.Shell.command_exists" title="Permalink to this definition">¶</a></dt>
@@ -1156,6 +1339,11 @@ TODO: This works well on Linux and OSX, but has not been tested much on Windows<
 :param name: 
 :return:</p>
 </dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.common.Shell.Shell.cygwin_path">
+<code class="descname">cygwin_path</code><em class="property"> = 'bin'</em><a class="headerlink" href="#cloudmesh.common.Shell.Shell.cygwin_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="classmethod">
 <dt id="cloudmesh.common.Shell.Shell.dialog">
@@ -1255,6 +1443,11 @@ TODO: This works well on Linux and OSX, but has not been tested much on Windows<
 :param args: 
 :return:</p>
 </dd></dl>
+
+<dl class="classmethod">
+<dt id="cloudmesh.common.Shell.Shell.live">
+<em class="property">classmethod </em><code class="descname">live</code><span class="sig-paren">(</span><em>command</em>, <em>cwd=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/Shell.html#Shell.live"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.Shell.Shell.live" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="classmethod">
 <dt id="cloudmesh.common.Shell.Shell.ls">
@@ -1426,6 +1619,11 @@ TODO: This works well on Linux and OSX, but has not been tested much on Windows<
 </dd></dl>
 
 <dl class="classmethod">
+<dt id="cloudmesh.common.Shell.Shell.terminal">
+<em class="property">classmethod </em><code class="descname">terminal</code><span class="sig-paren">(</span><em>command='pwd'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/Shell.html#Shell.terminal"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.Shell.Shell.terminal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
 <dt id="cloudmesh.common.Shell.Shell.terminal_type">
 <em class="property">classmethod </em><code class="descname">terminal_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/Shell.html#Shell.terminal_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.Shell.Shell.terminal_type" title="Permalink to this definition">¶</a></dt>
 <dd><p>returns  darwin, cygwin, cmd, or linux</p>
@@ -1461,13 +1659,15 @@ TODO: This works well on Linux and OSX, but has not been tested much on Windows<
 <dl class="class">
 <dt id="cloudmesh.common.Shell.Subprocess">
 <em class="property">class </em><code class="descclassname">cloudmesh.common.Shell.</code><code class="descname">Subprocess</code><span class="sig-paren">(</span><em>cmd</em>, <em>cwd=None</em>, <em>stderr=-1</em>, <em>stdout=-1</em>, <em>env=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/Shell.html#Subprocess"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.Shell.Subprocess" title="Permalink to this definition">¶</a></dt>
-<dd><p>Executes a command. This class should not be directly used, but instead you should use Shell.</p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Executes a command. This class should not be directly used, but instead you should use Shell.</p>
 </dd></dl>
 
 <dl class="exception">
 <dt id="cloudmesh.common.Shell.SubprocessError">
 <em class="property">exception </em><code class="descclassname">cloudmesh.common.Shell.</code><code class="descname">SubprocessError</code><span class="sig-paren">(</span><em>cmd</em>, <em>returncode</em>, <em>stderr</em>, <em>stdout</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/Shell.html#SubprocessError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.Shell.SubprocessError" title="Permalink to this definition">¶</a></dt>
-<dd><p>Manages the formatting of the error and stdout. 
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#Exception" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></a></p>
+<p>Manages the formatting of the error and stdout. 
 THis command should not be directly called. Instead use SHell</p>
 </dd></dl>
 
@@ -1481,13 +1681,19 @@ THis command should not be directly called. Instead use SHell</p>
 </div>
 <div class="section" id="module-cloudmesh.common.run.file">
 <span id="run"></span><h2>2.14. Run<a class="headerlink" href="#module-cloudmesh.common.run.file" title="Permalink to this headline">¶</a></h2>
-<span class="target" id="module-cloudmesh.common.run.background"></span></div>
+<dl class="function">
+<dt id="cloudmesh.common.run.file.run">
+<code class="descclassname">cloudmesh.common.run.file.</code><code class="descname">run</code><span class="sig-paren">(</span><em>command</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/run/file.html#run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.run.file.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
 <div class="section" id="module-cloudmesh.db.strdb">
 <span id="db"></span><h2>2.15. DB<a class="headerlink" href="#module-cloudmesh.db.strdb" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="cloudmesh.db.strdb.YamlDB">
 <em class="property">class </em><code class="descclassname">cloudmesh.db.strdb.</code><code class="descname">YamlDB</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/db/strdb.html#YamlDB"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.db.strdb.YamlDB" title="Permalink to this definition">¶</a></dt>
-<dd><p>A YAML-backed Key-Value database to store strings</p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>A YAML-backed Key-Value database to store strings</p>
 <dl class="method">
 <dt id="cloudmesh.db.strdb.YamlDB.clear">
 <code class="descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/db/strdb.html#YamlDB.clear"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.db.strdb.YamlDB.clear" title="Permalink to this definition">¶</a></dt>
@@ -1500,7 +1706,22 @@ THis command should not be directly called. Instead use SHell</p>
 <dd><p>This is a NoOP for backwards compatibility</p>
 </dd></dl>
 
+<dl class="method">
+<dt id="cloudmesh.db.strdb.YamlDB.flush">
+<code class="descname">flush</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/db/strdb.html#YamlDB.flush"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.db.strdb.YamlDB.flush" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.db.strdb.YamlDB.set">
+<code class="descname">set</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/db/strdb.html#YamlDB.set"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.db.strdb.YamlDB.set" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </dd></dl>
+
+<dl class="function">
+<dt id="cloudmesh.db.strdb.yaml_construct_unicode">
+<code class="descclassname">cloudmesh.db.strdb.</code><code class="descname">yaml_construct_unicode</code><span class="sig-paren">(</span><em>self</em>, <em>node</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/db/strdb.html#yaml_construct_unicode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.db.strdb.yaml_construct_unicode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 </div>
 <div class="section" id="module-cloudmesh.common.ssh.authorized_keys">
@@ -1509,7 +1730,8 @@ THis command should not be directly called. Instead use SHell</p>
 <dl class="class">
 <dt id="cloudmesh.common.ssh.authorized_keys.AuthorizedKeys">
 <em class="property">class </em><code class="descclassname">cloudmesh.common.ssh.authorized_keys.</code><code class="descname">AuthorizedKeys</code><a class="reference internal" href="../_modules/cloudmesh/common/ssh/authorized_keys.html#AuthorizedKeys"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.ssh.authorized_keys.AuthorizedKeys" title="Permalink to this definition">¶</a></dt>
-<dd><p>Class to manage authorized keys.</p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Class to manage authorized keys.</p>
 <dl class="method">
 <dt id="cloudmesh.common.ssh.authorized_keys.AuthorizedKeys.add">
 <code class="descname">add</code><span class="sig-paren">(</span><em>pubkey</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/ssh/authorized_keys.html#AuthorizedKeys.add"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.ssh.authorized_keys.AuthorizedKeys.add" title="Permalink to this definition">¶</a></dt>
@@ -1560,11 +1782,38 @@ TODO: this method is not implemented
 </dl>
 </dd></dl>
 
-<span class="target" id="module-cloudmesh.common.ssh.encrypt"></span><span class="target" id="module-cloudmesh.common.ssh.ssh_config"></span><p>Managing ~/.ssh/config</p>
+<span class="target" id="module-cloudmesh.common.ssh.encrypt"></span><dl class="class">
+<dt id="cloudmesh.common.ssh.encrypt.EncryptFile">
+<em class="property">class </em><code class="descclassname">cloudmesh.common.ssh.encrypt.</code><code class="descname">EncryptFile</code><span class="sig-paren">(</span><em>file_in</em>, <em>file_out</em>, <em>debug=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/ssh/encrypt.html#EncryptFile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.ssh.encrypt.EncryptFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="method">
+<dt id="cloudmesh.common.ssh.encrypt.EncryptFile.decrypt">
+<code class="descname">decrypt</code><span class="sig-paren">(</span><em>filename=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/ssh/encrypt.html#EncryptFile.decrypt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.ssh.encrypt.EncryptFile.decrypt" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.common.ssh.encrypt.EncryptFile.encrypt">
+<code class="descname">encrypt</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/ssh/encrypt.html#EncryptFile.encrypt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.ssh.encrypt.EncryptFile.encrypt" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.common.ssh.encrypt.EncryptFile.pem_cat">
+<code class="descname">pem_cat</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/ssh/encrypt.html#EncryptFile.pem_cat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.ssh.encrypt.EncryptFile.pem_cat" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.common.ssh.encrypt.EncryptFile.pem_create">
+<code class="descname">pem_create</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/ssh/encrypt.html#EncryptFile.pem_create"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.ssh.encrypt.EncryptFile.pem_create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-cloudmesh.common.ssh.ssh_config"></span><p>Managing ~/.ssh/config</p>
 <dl class="class">
 <dt id="cloudmesh.common.ssh.ssh_config.ssh_config">
 <em class="property">class </em><code class="descclassname">cloudmesh.common.ssh.ssh_config.</code><code class="descname">ssh_config</code><span class="sig-paren">(</span><em>filename=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/ssh/ssh_config.html#ssh_config"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.ssh.ssh_config.ssh_config" title="Permalink to this definition">¶</a></dt>
-<dd><p>Managing the config in .ssh</p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Managing the config in .ssh</p>
 <dl class="method">
 <dt id="cloudmesh.common.ssh.ssh_config.ssh_config.execute">
 <code class="descname">execute</code><span class="sig-paren">(</span><em>name</em>, <em>command</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/ssh/ssh_config.html#ssh_config.execute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.ssh.ssh_config.ssh_config.execute" title="Permalink to this definition">¶</a></dt>

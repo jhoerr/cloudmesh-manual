@@ -1,0 +1,557 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>cloudmesh.admin.command.admin &mdash; Cloudmesh v4 alpha documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Cloudmesh v4
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.0.28
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">PREFACE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../preface/about.html">1. About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../preface/contributors.html">2. Contributors</a></li>
+</ul>
+<p class="caption"><span class="caption-text">INSTALLATION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation/install.html">1. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation/quickstart.html">2. Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../configuration/configuration.html">3. Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation/mongo.html">4. Cloudmesh Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../configuration/encryption.html">5. Cloudmesh Yaml file Encrytion</a></li>
+</ul>
+<p class="caption"><span class="caption-text">SOMMAND SHELL</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../cmd5.html">1. Cmd5</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CLOUD SERVICES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../group.html">1. Group command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../vm/vm.html">2. Virtual Machine Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../vm/image.html">3. Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../vm/flavor.html">4. Flavors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../storage/storage.html">5. Cloudmesh Multi Cloud Storage Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../workflow.html">6. Infrastructure Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../jupyter.html">7. Jupyter Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../hpc/batch.html">8. Batch</a></li>
+</ul>
+<p class="caption"><span class="caption-text">openapi</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../openapi/README-storage-openapi.html">1. Cloudmesh Multi Cloud Open API Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../openapi/ufo.html">2. REST Service (outdated)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../reference-card.html">1. Reference Card (proposed)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual/commands.html">2. Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-cmd5.html">3. Manual Cmd5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-group.html">4. Manual Group</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-compute.html">5. Compute Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-storage.html">6. Storage Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-other.html">7. Manual Other</a></li>
+</ul>
+<p class="caption"><span class="caption-text">DATABASE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../storage/database.html">1. Cloudmesh Database</a></li>
+</ul>
+<p class="caption"><span class="caption-text">BENCHMARKS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../benchmarks/README.html">1. Benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../benchmarks/awsec2-vm-management-benchmark.html">2. AWS EC2 VM Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../benchmarks/awsec2_benchmark_ubuntu.html">3. AWS EC2 VM Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../benchmarks/awss3-storage-benchmark.html">4. AWS S3 File Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../benchmarks/azure-storage-benchmark.html">5. Azure Blob Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../benchmarks/box.html">6. Benchmark results for box Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../benchmarks/emr.html">7. AWS EMR Benchmarking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../benchmarks/test_compute_database.html">8. AWS EC2 Compute Database</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CODE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../code/code.html">1. Code Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../code/common.html">2. Common</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../code/cmd5.html">3. CMD5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../code/cloudmesh.html">4. Cloudmesh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../code/management.html">5. Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../code/mongo.html">6. Mongo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../code/commands.html">7. Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../code/inventory.html">8. Inventory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../code/storage.html">9. cloudmesh-storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../code/cloud.html">10. cloudmesh-cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../code/batch.html">11. cloudmesh-batch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../code/emr.html">12. cloudmesh-emr</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CONTRIBUTION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/conventions.html">1. Code Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/management.html">2. Code Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/management.html#documentation-management">3. Documentation Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/management.html#version-management">4. Version Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/pytest.html">5. Pytest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/todo.html">6. ToDo</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CLOUD ACCOUNTS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/aws.html">1. AWS Account Creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/azure.html">2. Azure Account Creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/google.html">3. Google Storage Providers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/box.html">4. Box Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/accountcreation-old.html">5. VM Providers (outdated)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Outdated:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../CM4README.html">1. CM4 Details (outdated)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../vcluster.html">2. Virtual Cluster (in progress)</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Cloudmesh v4</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>cloudmesh.admin.command.admin</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for cloudmesh.admin.command.admin</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">textwrap</span>
+
+<span class="kn">from</span> <span class="nn">cloudmesh.common.Printer</span> <span class="k">import</span> <span class="n">Printer</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.console</span> <span class="k">import</span> <span class="n">Console</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.dotdict</span> <span class="k">import</span> <span class="n">dotdict</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.management.configuration.config</span> <span class="k">import</span> <span class="n">Config</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.management.configuration.operatingsystem</span> <span class="k">import</span> <span class="n">OperatingSystem</span>
+<span class="c1"># from cloudmesh.admin.api.manager import Manager</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.mongo.MongoDBController</span> <span class="k">import</span> <span class="n">MongoDBController</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.mongo.MongoDBController</span> <span class="k">import</span> <span class="n">MongoInstaller</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.shell.command</span> <span class="k">import</span> <span class="n">PluginCommand</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.shell.command</span> <span class="k">import</span> <span class="n">command</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.Shell</span> <span class="k">import</span> <span class="n">Shell</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="k">import</span> <span class="n">path_expand</span>
+
+
+<div class="viewcode-block" id="AdminCommand"><a class="viewcode-back" href="../../../../code/commands.html#cloudmesh.admin.command.admin.AdminCommand">[docs]</a><span class="k">class</span> <span class="nc">AdminCommand</span><span class="p">(</span><span class="n">PluginCommand</span><span class="p">):</span>
+    <span class="c1"># noinspection PyPep8</span>
+    <span class="n">banner</span> <span class="o">=</span> <span class="n">textwrap</span><span class="o">.</span><span class="n">dedent</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">        test</span>
+<span class="s2">        +-------------------------------------------------------+</span>
+<span class="s2">        |   ____ _                 _                     _      |</span>
+<span class="s2">        |  / ___| | ___  _   _  __| |_ __ ___   ___  ___| |__   |</span>
+<span class="s2">        | | |   | |/ _ \| | | |/ _` | &#39;_ ` _ \ / _ \/ __| &#39;_ \  |</span>
+<span class="s2">        | | |___| | (_) | |_| | (_| | | | | | |  __/\__ \ | | | |</span>
+<span class="s2">        |  \____|_|\___/ \__,_|\__,_|_| |_| |_|\___||___/_| |_| |</span>
+<span class="s2">        +-------------------------------------------------------+</span>
+<span class="s2">        |                  Cloudmesh CMD5 Shell                 |</span>
+<span class="s2">        +-------------------------------------------------------+</span>
+<span class="s2">        &quot;&quot;&quot;</span><span class="p">)</span>
+
+    <span class="c1"># noinspection PyUnusedLocal</span>
+    <span class="nd">@command</span>
+    <span class="k">def</span> <span class="nf">do_admin</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">arguments</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        ::</span>
+
+<span class="sd">          Usage:</span>
+<span class="sd">            admin mongo install [--brew] [--download=PATH]</span>
+<span class="sd">            admin mongo create</span>
+<span class="sd">            admin mongo status</span>
+<span class="sd">            admin mongo stats</span>
+<span class="sd">            admin mongo version</span>
+<span class="sd">            admin mongo start</span>
+<span class="sd">            admin mongo stop</span>
+<span class="sd">            admin mongo backup FILENAME</span>
+<span class="sd">            admin mongo load FILENAME</span>
+<span class="sd">            admin mongo security</span>
+<span class="sd">            admin mongo password PASSWORD</span>
+<span class="sd">            admin mongo list</span>
+<span class="sd">            admin rest status</span>
+<span class="sd">            admin rest start</span>
+<span class="sd">            admin rest stop</span>
+<span class="sd">            admin status</span>
+<span class="sd">            admin system info</span>
+<span class="sd">            admin yaml cat</span>
+<span class="sd">            admin yaml check</span>
+
+<span class="sd">          The admin command performs some administrative functions, such as installing packages, software and services.</span>
+<span class="sd">          It also is used to start services and configure them.</span>
+
+<span class="sd">          Arguments:</span>
+<span class="sd">            FILENAME  the filename for backups</span>
+
+<span class="sd">          Options:</span>
+<span class="sd">            -f      specify the file</span>
+
+<span class="sd">          Description:</span>
+
+<span class="sd">            Mongo DB</span>
+
+<span class="sd">              MongoDB is managed through a number of commands.</span>
+
+<span class="sd">              The configuration is read from ~/.cloudmesh/cloudmesh4.yaml</span>
+
+<span class="sd">              First, you need to create a MongoDB database with</span>
+
+<span class="sd">                cms admin mongo create</span>
+
+<span class="sd">              Second, you need to start it with</span>
+
+<span class="sd">                 cms admin mongo start</span>
+
+<span class="sd">              Now you can interact with it to find out the status, the stats,</span>
+<span class="sd">              and the database listing with the commands</span>
+
+<span class="sd">                 cms admin mongo status</span>
+<span class="sd">                 cms admin mongo stats</span>
+<span class="sd">                 cms admin mongo list</span>
+
+<span class="sd">              To stop it from running use the command</span>
+
+<span class="sd">                 cms admin mongo stop</span>
+
+<span class="sd">              System information about your machine can be returned by</span>
+
+<span class="sd">                 cms admin system info</span>
+
+<span class="sd">              This can be very useful in case you are filing an issue or bug.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># arguments.PATH = arguments[&#39;--download&#39;] or None</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">mongo</span><span class="p">:</span>
+
+            <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">install</span><span class="p">:</span>
+
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;MongoDB install&quot;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="mi">79</span> <span class="o">*</span> <span class="s2">&quot;=&quot;</span><span class="p">)</span>
+                <span class="n">installer</span> <span class="o">=</span> <span class="n">MongoInstaller</span><span class="p">()</span>
+                <span class="n">r</span> <span class="o">=</span> <span class="n">installer</span><span class="o">.</span><span class="n">install</span><span class="p">()</span>
+                <span class="k">return</span> <span class="n">r</span>
+
+            <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">status</span><span class="p">:</span>
+
+                <span class="n">mongo</span> <span class="o">=</span> <span class="n">MongoDBController</span><span class="p">()</span>
+                <span class="n">state</span> <span class="o">=</span> <span class="n">mongo</span><span class="o">.</span><span class="n">status</span><span class="p">()</span>
+
+                <span class="k">if</span> <span class="s2">&quot;error&quot;</span> <span class="ow">in</span> <span class="n">state</span><span class="p">[</span><span class="s2">&quot;status&quot;</span><span class="p">]:</span>
+                    <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">state</span><span class="p">[</span><span class="s2">&quot;message&quot;</span><span class="p">])</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="n">Printer</span><span class="o">.</span><span class="n">attribute</span><span class="p">(</span><span class="n">state</span><span class="p">))</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">data</span> <span class="o">=</span> <span class="n">dotdict</span><span class="p">()</span>
+
+                    <span class="k">for</span> <span class="n">pid</span> <span class="ow">in</span> <span class="n">state</span><span class="p">[</span><span class="s1">&#39;output&#39;</span><span class="p">]:</span>
+                        <span class="n">entry</span> <span class="o">=</span> <span class="n">state</span><span class="p">[</span><span class="s1">&#39;output&#39;</span><span class="p">][</span><span class="n">pid</span><span class="p">]</span>
+                        <span class="n">data</span><span class="p">[</span><span class="s2">&quot;pid&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">state</span><span class="p">[</span><span class="s1">&#39;output&#39;</span><span class="p">][</span><span class="n">pid</span><span class="p">]</span>
+                        <span class="n">data</span><span class="p">[</span><span class="s2">&quot;command&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">state</span><span class="p">[</span><span class="s1">&#39;output&#39;</span><span class="p">][</span><span class="n">pid</span><span class="p">][</span><span class="s1">&#39;command&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+                    <span class="nb">print</span><span class="p">(</span><span class="n">Printer</span><span class="o">.</span><span class="n">dict</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;pid&quot;</span><span class="p">,</span> <span class="s2">&quot;command&quot;</span><span class="p">]))</span>
+                    <span class="n">Console</span><span class="o">.</span><span class="n">ok</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">pid</span><span class="p">[</span><span class="s1">&#39;pid&#39;</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">state</span><span class="p">[</span><span class="s2">&quot;message&quot;</span><span class="p">])</span>
+
+            <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">version</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;MongoDB Version&quot;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="mi">79</span> <span class="o">*</span> <span class="s2">&quot;=&quot;</span><span class="p">)</span>
+                <span class="n">mongo</span> <span class="o">=</span> <span class="n">MongoDBController</span><span class="p">()</span>
+                <span class="n">r</span> <span class="o">=</span> <span class="n">mongo</span><span class="o">.</span><span class="n">version</span><span class="p">()</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+
+            <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">security</span><span class="p">:</span>
+
+                <span class="n">mongo</span> <span class="o">=</span> <span class="n">MongoDBController</span><span class="p">()</span>
+                <span class="n">mongo</span><span class="o">.</span><span class="n">set_auth</span><span class="p">()</span>
+                <span class="nb">print</span><span class="p">()</span>
+
+            <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">create</span><span class="p">:</span>
+
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;MongoDB create&quot;</span><span class="p">)</span>
+                <span class="n">MongoDBController</span><span class="p">()</span><span class="o">.</span><span class="n">create</span><span class="p">()</span>
+
+            <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">start</span><span class="p">:</span>
+
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;MongoDB start&quot;</span><span class="p">)</span>
+                <span class="n">MongoDBController</span><span class="p">()</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="n">security</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+            <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">stop</span><span class="p">:</span>
+
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;MongoDB stop&quot;</span><span class="p">)</span>
+                <span class="n">MongoDBController</span><span class="p">()</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+
+            <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">backup</span><span class="p">:</span>
+
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;MongoDB backup&quot;</span><span class="p">)</span>
+                <span class="n">MongoDBController</span><span class="p">()</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">arguments</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;FILENAME&#39;</span><span class="p">))</span>
+
+            <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">load</span><span class="p">:</span>
+
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;MongoDB backup&quot;</span><span class="p">)</span>
+                <span class="n">MongoDBController</span><span class="p">()</span><span class="o">.</span><span class="n">restore</span><span class="p">(</span><span class="n">arguments</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;FILENAME&#39;</span><span class="p">))</span>
+
+            <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">stats</span><span class="p">:</span>
+
+                <span class="n">mongo</span> <span class="o">=</span> <span class="n">MongoDBController</span><span class="p">()</span>
+                <span class="n">r</span> <span class="o">=</span> <span class="n">mongo</span><span class="o">.</span><span class="n">stats</span><span class="p">()</span>
+
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="n">Printer</span><span class="o">.</span><span class="n">attribute</span><span class="p">(</span><span class="n">r</span><span class="p">))</span>
+                    <span class="n">Console</span><span class="o">.</span><span class="n">ok</span><span class="p">(</span><span class="s2">&quot;ok&quot;</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">Console</span><span class="o">.</span><span class="n">ok</span><span class="p">(</span><span class="s2">&quot;is your MongoDB server running&quot;</span><span class="p">)</span>
+
+            <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">list</span><span class="p">:</span>
+
+                <span class="n">mongo</span> <span class="o">=</span> <span class="n">MongoDBController</span><span class="p">()</span>
+                <span class="n">r</span> <span class="o">=</span> <span class="n">mongo</span><span class="o">.</span><span class="n">list</span><span class="p">()</span>
+
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="n">Printer</span><span class="o">.</span><span class="n">dict</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;sizeOnDisk&quot;</span><span class="p">,</span> <span class="s2">&quot;empty&quot;</span><span class="p">]))</span>
+                    <span class="n">Console</span><span class="o">.</span><span class="n">ok</span><span class="p">(</span><span class="s2">&quot;ok&quot;</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">Console</span><span class="o">.</span><span class="n">ok</span><span class="p">(</span><span class="s2">&quot;is your MongoDB server running&quot;</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">yaml</span> <span class="ow">and</span> <span class="n">arguments</span><span class="o">.</span><span class="n">cat</span><span class="p">:</span>
+
+            <span class="n">path</span> <span class="o">=</span> <span class="n">path_expand</span><span class="p">(</span><span class="s2">&quot;~/.cloudmesh/cloudmesh4.yaml&quot;</span><span class="p">)</span>
+
+            <span class="n">secrets</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="s2">&quot;AZURE_SUBSCRIPTION_ID&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;AZURE_TENANTID&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;EC2_ACCESS_ID&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;EC2_SECRET_KEY&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;OS_PASSWORD&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;MONGO_PASSWORD&quot;</span>
+            <span class="p">]</span>
+
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                <span class="n">content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+            <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">content</span><span class="p">:</span>
+                <span class="k">if</span> <span class="s2">&quot;TBD&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+                    <span class="k">for</span> <span class="n">attribute</span> <span class="ow">in</span> <span class="n">secrets</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="n">attribute</span> <span class="o">+</span> <span class="s2">&quot;:&quot;</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+                            <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;: ********&quot;</span>
+                            <span class="k">break</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+            <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+
+        <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">yaml</span> <span class="ow">and</span> <span class="n">arguments</span><span class="o">.</span><span class="n">check</span><span class="p">:</span>
+
+            <span class="n">path</span> <span class="o">=</span> <span class="n">path_expand</span><span class="p">(</span><span class="s2">&quot;~/.cloudmesh/cloudmesh4.yaml&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">()</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="n">Shell</span><span class="o">.</span><span class="n">live</span><span class="p">(</span><span class="s1">&#39;/Users/grey/.pyenv/shims/yamllint &#39;</span> <span class="o">+</span> <span class="n">path</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="mi">70</span> <span class="o">*</span> <span class="s1">&#39;-&#39;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; line:column  description&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">()</span>
+
+        <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">rest</span><span class="p">:</span>
+
+            <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">start</span><span class="p">:</span>
+
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Rest Service start&quot;</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+
+            <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">stop</span><span class="p">:</span>
+
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Rest Service stop&quot;</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+
+            <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">status</span><span class="p">:</span>
+
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Rest Service status&quot;</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+
+        <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">status</span><span class="p">:</span>
+
+            <span class="n">config</span> <span class="o">=</span> <span class="n">Config</span><span class="p">()</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;cloudmesh&quot;</span><span class="p">][</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="s2">&quot;mongo&quot;</span><span class="p">]</span>
+            <span class="c1"># self.expanduser()</span>
+
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Rest Service status&quot;</span><span class="p">)</span>
+
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;MongoDB status&quot;</span><span class="p">)</span>
+
+            <span class="n">mongo</span> <span class="o">=</span> <span class="n">MongoDBController</span><span class="p">()</span>
+
+            <span class="nb">print</span><span class="p">(</span><span class="n">mongo</span><span class="p">)</span>
+            <span class="c1"># mongo.expanduser()</span>
+            <span class="c1"># data = mongo.data</span>
+            <span class="c1"># print (&quot;DDD&quot;, data)</span>
+
+            <span class="c1"># data[&quot;MONGO_VERSION&quot;]  = &#39;.&#39;.join(str(x) for x in mongo.version())</span>
+
+            <span class="c1"># print (data)</span>
+            <span class="c1"># print(Printer.attribute(data))</span>
+            <span class="c1"># mongo.set_auth()</span>
+
+        <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">system</span><span class="p">:</span>
+
+            <span class="n">s</span> <span class="o">=</span> <span class="n">OperatingSystem</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">Printer</span><span class="o">.</span><span class="n">attribute</span><span class="p">(</span><span class="n">s</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="n">result</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018-2019, Cloudmesh Community
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

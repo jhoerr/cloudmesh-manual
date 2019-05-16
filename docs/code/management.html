@@ -254,10 +254,190 @@
 <h1>5. Management<a class="headerlink" href="#management" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="module-cloudmesh.management.configuration.config">
 <span id="configuration"></span><h2>5.1. Configuration<a class="headerlink" href="#module-cloudmesh.management.configuration.config" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cloudmesh.management.configuration.config.Active">
+<em class="property">class </em><code class="descclassname">cloudmesh.management.configuration.config.</code><code class="descname">Active</code><span class="sig-paren">(</span><em>config_path='~/.cloudmesh/cloudmesh4.yaml'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/management/configuration/config.html#Active"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.configuration.config.Active" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="method">
+<dt id="cloudmesh.management.configuration.config.Active.clouds">
+<code class="descname">clouds</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/management/configuration/config.html#Active.clouds"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.configuration.config.Active.clouds" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cloudmesh.management.configuration.config.Config">
+<em class="property">class </em><code class="descclassname">cloudmesh.management.configuration.config.</code><code class="descname">Config</code><span class="sig-paren">(</span><em>config_path='~/.cloudmesh/cloudmesh4.yaml'</em>, <em>encrypted=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/management/configuration/config.html#Config"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.configuration.config.Config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="staticmethod">
+<dt id="cloudmesh.management.configuration.config.Config.check_for_tabs">
+<em class="property">static </em><code class="descname">check_for_tabs</code><span class="sig-paren">(</span><em>filename</em>, <em>verbose=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/management/configuration/config.html#Config.check_for_tabs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.configuration.config.Config.check_for_tabs" title="Permalink to this definition">¶</a></dt>
+<dd><p>identifies if the file contains tabs and returns True if it
+does. It also prints the location of the lines and columns. If
+verbose is set to False, the location is not printed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>verbose</strong> – if true prints issues</p></li>
+<li><p><strong>filename</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – the filename</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>True if there are tabs in the file</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.management.configuration.config.Config.create">
+<code class="descname">create</code><span class="sig-paren">(</span><em>config_path='~/.cloudmesh/cloudmesh4.yaml'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/management/configuration/config.html#Config.create"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.configuration.config.Config.create" title="Permalink to this definition">¶</a></dt>
+<dd><p>creates the cloudmesh4.yaml file in the specified location. The default is</p>
+<blockquote>
+<div><p>~/.cloudmesh/cloudmesh4.yaml</p>
+</div></blockquote>
+<p>If the file does not exist, it is initialized with a default. You still
+need to edit the file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>config_path</strong> (<em>string</em>) – The yaml file to create</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.management.configuration.config.Config.credentials">
+<code class="descname">credentials</code><span class="sig-paren">(</span><em>kind</em>, <em>name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/management/configuration/config.html#Config.credentials"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.configuration.config.Config.credentials" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>kind</strong> – the first level of attributes after cloudmesh</p></li>
+<li><p><strong>name</strong> – the name of the resource</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.management.configuration.config.Config.default">
+<code class="descname">default</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/management/configuration/config.html#Config.default"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.configuration.config.Config.default" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.management.configuration.config.Config.dict">
+<code class="descname">dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/management/configuration/config.html#Config.dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.configuration.config.Config.dict" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.management.configuration.config.Config.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>key</em>, <em>default=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/management/configuration/config.html#Config.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.configuration.config.Config.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>A helper function for reading values from the config without
+a chain of <cite>get()</cite> calls.</p>
+<dl class="simple">
+<dt>Usage:</dt><dd><p>mongo_conn = conf.get(‘db.mongo.MONGO_CONNECTION_STRING’)
+default_db = conf.get(‘default.db’)
+az_credentials = conf.get(‘data.service.azure.credentials’)</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>default</strong> – </p></li>
+<li><p><strong>key</strong> – A string representing the value’s path in the config.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.management.configuration.config.Config.load">
+<code class="descname">load</code><span class="sig-paren">(</span><em>config_path='~/.cloudmesh/cloudmesh4.yaml'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/management/configuration/config.html#Config.load"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.configuration.config.Config.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>loads a configuration file
+:param path:
+:type path:
+:return:
+:rtype:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.management.configuration.config.Config.save">
+<code class="descname">save</code><span class="sig-paren">(</span><em>path='~/.cloudmesh/cloudmesh4.yaml'</em>, <em>backup=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/management/configuration/config.html#Config.save"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.configuration.config.Config.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>#
+# not tested
+#
+saves th dic into the file. It also creates a backup if set to true The
+backup filename  appends a .bak.NO where number is a number that is not
+yet used in the backup directory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>path</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.management.configuration.config.Config.set">
+<code class="descname">set</code><span class="sig-paren">(</span><em>key</em>, <em>value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/management/configuration/config.html#Config.set"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.configuration.config.Config.set" title="Permalink to this definition">¶</a></dt>
+<dd><p>A helper function for setting the deafult cloud in the config without
+a chain of <cite>set()</cite> calls.</p>
+<dl class="simple">
+<dt>Usage:</dt><dd><p>mongo_conn = conf.set(‘db.mongo.MONGO_CONNECTION_STRING’, “<a class="reference external" href="https://localhost:3232">https://localhost:3232</a>”)</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key</strong> – A string representing the value’s path in the config.</p></li>
+<li><p><strong>value</strong> – value to be set.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.management.configuration.config.Config.set_cloud">
+<code class="descname">set_cloud</code><span class="sig-paren">(</span><em>key</em>, <em>value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/management/configuration/config.html#Config.set_cloud"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.configuration.config.Config.set_cloud" title="Permalink to this definition">¶</a></dt>
+<dd><p>A helper function for setting the deafult cloud in the config without
+a chain of <cite>set()</cite> calls.</p>
+<dl class="simple">
+<dt>Usage:</dt><dd><p>mongo_conn = conf.get(‘db.mongo.MONGO_CONNECTION_STRING’, “<a class="reference external" href="https://localhost:3232">https://localhost:3232</a>”)</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key</strong> – A string representing the value’s path in the config.</p></li>
+<li><p><strong>value</strong> – value to be set.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.management.configuration.config.Config.set_debug_defaults">
+<code class="descname">set_debug_defaults</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/management/configuration/config.html#Config.set_debug_defaults"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.configuration.config.Config.set_debug_defaults" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.management.configuration.config.Config.spec_replace">
+<code class="descname">spec_replace</code><span class="sig-paren">(</span><em>spec</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/management/configuration/config.html#Config.spec_replace"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.configuration.config.Config.spec_replace" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 <span class="target" id="module-cloudmesh.management.configuration.counter"></span><dl class="class">
 <dt id="cloudmesh.management.configuration.counter.Counter">
 <em class="property">class </em><code class="descclassname">cloudmesh.management.configuration.counter.</code><code class="descname">Counter</code><span class="sig-paren">(</span><em>counter_file_path='~/.cloudmesh/counter.yaml'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/management/configuration/counter.html#Counter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.configuration.counter.Counter" title="Permalink to this definition">¶</a></dt>
-<dd><p>A counter is used to keep track of some value that can be increased
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>A counter is used to keep track of some value that can be increased
 and is associated with a user. Typically it is used to increment the
 vm id or the job id.</p>
 <dl class="method">
@@ -293,7 +473,89 @@ vm id or the job id.</p>
 
 </dd></dl>
 
-<span class="target" id="module-cloudmesh.management.configuration.generic_config"></span><span class="target" id="module-cloudmesh.management.configuration.name"></span><p>We use a uniform naming convention method. The name is defined by different kinds of objects. The name is a string
+<span class="target" id="module-cloudmesh.management.configuration.generic_config"></span><dl class="class">
+<dt id="cloudmesh.management.configuration.generic_config.GenericConfig">
+<em class="property">class </em><code class="descclassname">cloudmesh.management.configuration.generic_config.</code><code class="descname">GenericConfig</code><span class="sig-paren">(</span><em>config_path</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/management/configuration/generic_config.html#GenericConfig"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.configuration.generic_config.GenericConfig" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="method">
+<dt id="cloudmesh.management.configuration.generic_config.GenericConfig.deep_set">
+<code class="descname">deep_set</code><span class="sig-paren">(</span><em>keys</em>, <em>value=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/management/configuration/generic_config.html#GenericConfig.deep_set"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.configuration.generic_config.GenericConfig.deep_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>A helper function for setting values in the config without
+a chain of <cite>set()</cite> calls.</p>
+<dl class="simple">
+<dt>Usage:</dt><dd><p>mongo_conn = conf.get(‘db.mongo.MONGO_CONNECTION_STRING’, “<a class="reference external" href="https://localhost:3232">https://localhost:3232</a>”)</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>keys</strong> – A string representing the value’s path in the config.</p></li>
+<li><p><strong>value</strong> – value to be set.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.management.configuration.generic_config.GenericConfig.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>key</em>, <em>default=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/management/configuration/generic_config.html#GenericConfig.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.configuration.generic_config.GenericConfig.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>A helper function for reading values from the config without
+a chain of <cite>get()</cite> calls.</p>
+<dl class="simple">
+<dt>Usage:</dt><dd><p>mongo_conn = conf.get(‘db.mongo.MONGO_CONNECTION_STRING’)
+default_db = conf.get(‘default.db’)
+az_credentials = conf.get(‘data.service.azure.credentials’)</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>default</strong> – </p></li>
+<li><p><strong>key</strong> – A string representing the value’s path in the config.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.management.configuration.generic_config.GenericConfig.keys">
+<code class="descname">keys</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/management/configuration/generic_config.html#GenericConfig.keys"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.configuration.generic_config.GenericConfig.keys" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print keys of a subkey
+:return:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.management.configuration.generic_config.GenericConfig.remove">
+<code class="descname">remove</code><span class="sig-paren">(</span><em>path</em>, <em>key_to_remove</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/management/configuration/generic_config.html#GenericConfig.remove"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.configuration.generic_config.GenericConfig.remove" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.management.configuration.generic_config.GenericConfig.set">
+<code class="descname">set</code><span class="sig-paren">(</span><em>key</em>, <em>value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/management/configuration/generic_config.html#GenericConfig.set"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.configuration.generic_config.GenericConfig.set" title="Permalink to this definition">¶</a></dt>
+<dd><p>A helper function for setting values in the config without
+a chain of <cite>set()</cite> calls.</p>
+<dl class="simple">
+<dt>Usage:</dt><dd><p>mongo_conn = conf.get(‘db.mongo.MONGO_CONNECTION_STRING’, “<a class="reference external" href="https://localhost:3232">https://localhost:3232</a>”)</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key</strong> – A string representing the value’s path in the config.</p></li>
+<li><p><strong>value</strong> – value to be set.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-cloudmesh.management.configuration.name"></span><p>We use a uniform naming convention method. The name is defined by different kinds of objects. The name is a string
 its syntax is defined in a yaml file located at <code class="docutils literal notranslate"><span class="pre">~/.cloudmesh/name.yaml</span></code></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">order</span><span class="p">:</span>
 <span class="o">-</span> <span class="n">experiment</span>
@@ -346,12 +608,100 @@ value is safely included in it.</p>
 <dl class="class">
 <dt id="cloudmesh.management.configuration.name.Name">
 <em class="property">class </em><code class="descclassname">cloudmesh.management.configuration.name.</code><code class="descname">Name</code><span class="sig-paren">(</span><em>order=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/management/configuration/name.html#Name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.configuration.name.Name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="common.html#cloudmesh.common.dotdict.dotdict" title="cloudmesh.common.dotdict.dotdict"><code class="xref py py-class docutils literal notranslate"><span class="pre">cloudmesh.common.dotdict.dotdict</span></code></a></p>
+<dl class="method">
+<dt id="cloudmesh.management.configuration.name.Name.dict">
+<code class="descname">dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/management/configuration/name.html#Name.dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.configuration.name.Name.dict" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<span class="target" id="module-cloudmesh.management.configuration.arguments"></span><span class="target" id="module-cloudmesh.management.configuration.operatingsystem"></span><span class="target" id="module-cloudmesh.management.configuration.SSHkey"></span><dl class="class">
+<dl class="method">
+<dt id="cloudmesh.management.configuration.name.Name.flush">
+<code class="descname">flush</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/management/configuration/name.html#Name.flush"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.configuration.name.Name.flush" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.management.configuration.name.Name.id">
+<code class="descname">id</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/management/configuration/name.html#Name.id"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.configuration.name.Name.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.management.configuration.name.Name.incr">
+<code class="descname">incr</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/management/configuration/name.html#Name.incr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.configuration.name.Name.incr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.management.configuration.name.Name.reset">
+<code class="descname">reset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/management/configuration/name.html#Name.reset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.configuration.name.Name.reset" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-cloudmesh.management.configuration.arguments"></span><dl class="class">
+<dt id="cloudmesh.management.configuration.arguments.Arguments">
+<em class="property">class </em><code class="descclassname">cloudmesh.management.configuration.arguments.</code><code class="descname">Arguments</code><a class="reference internal" href="../_modules/cloudmesh/management/configuration/arguments.html#Arguments"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.configuration.arguments.Arguments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="staticmethod">
+<dt id="cloudmesh.management.configuration.arguments.Arguments.get_attribute">
+<em class="property">static </em><code class="descname">get_attribute</code><span class="sig-paren">(</span><em>attribute</em>, <em>arguments</em>, <em>variables</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/management/configuration/arguments.html#Arguments.get_attribute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.configuration.arguments.Arguments.get_attribute" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="cloudmesh.management.configuration.arguments.Arguments.get_cloud_and_names">
+<em class="property">static </em><code class="descname">get_cloud_and_names</code><span class="sig-paren">(</span><em>label</em>, <em>arguments</em>, <em>variables</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/management/configuration/arguments.html#Arguments.get_cloud_and_names"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.configuration.arguments.Arguments.get_cloud_and_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="cloudmesh.management.configuration.arguments.Arguments.get_clouds">
+<em class="property">static </em><code class="descname">get_clouds</code><span class="sig-paren">(</span><em>arguments</em>, <em>variables</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/management/configuration/arguments.html#Arguments.get_clouds"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.configuration.arguments.Arguments.get_clouds" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="cloudmesh.management.configuration.arguments.Arguments.get_command">
+<em class="property">static </em><code class="descname">get_command</code><span class="sig-paren">(</span><em>arguments</em>, <em>variables</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/management/configuration/arguments.html#Arguments.get_command"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.configuration.arguments.Arguments.get_command" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="cloudmesh.management.configuration.arguments.Arguments.get_commands">
+<em class="property">static </em><code class="descname">get_commands</code><span class="sig-paren">(</span><em>label</em>, <em>arguments</em>, <em>variables</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/management/configuration/arguments.html#Arguments.get_commands"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.configuration.arguments.Arguments.get_commands" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="cloudmesh.management.configuration.arguments.Arguments.get_flavor">
+<em class="property">static </em><code class="descname">get_flavor</code><span class="sig-paren">(</span><em>arguments</em>, <em>variables</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/management/configuration/arguments.html#Arguments.get_flavor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.configuration.arguments.Arguments.get_flavor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="cloudmesh.management.configuration.arguments.Arguments.get_image">
+<em class="property">static </em><code class="descname">get_image</code><span class="sig-paren">(</span><em>arguments</em>, <em>variables</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/management/configuration/arguments.html#Arguments.get_image"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.configuration.arguments.Arguments.get_image" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="cloudmesh.management.configuration.arguments.Arguments.get_names">
+<em class="property">static </em><code class="descname">get_names</code><span class="sig-paren">(</span><em>arguments</em>, <em>variables</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/management/configuration/arguments.html#Arguments.get_names"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.configuration.arguments.Arguments.get_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="cloudmesh.management.configuration.arguments.Arguments.name_loop">
+<em class="property">static </em><code class="descname">name_loop</code><span class="sig-paren">(</span><em>names</em>, <em>label</em>, <em>f</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/management/configuration/arguments.html#Arguments.name_loop"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.configuration.arguments.Arguments.name_loop" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-cloudmesh.management.configuration.operatingsystem"></span><span class="target" id="module-cloudmesh.management.configuration.SSHkey"></span><dl class="class">
 <dt id="cloudmesh.management.configuration.SSHkey.SSHkey">
 <em class="property">class </em><code class="descclassname">cloudmesh.management.configuration.SSHkey.</code><code class="descname">SSHkey</code><a class="reference internal" href="../_modules/cloudmesh/management/configuration/SSHkey.html#SSHkey"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.configuration.SSHkey.SSHkey" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="method">
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a></p>
+<dl class="attribute">
+<dt id="cloudmesh.management.configuration.SSHkey.SSHkey.comment">
+<code class="descname">comment</code><a class="headerlink" href="#cloudmesh.management.configuration.SSHkey.SSHkey.comment" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.management.configuration.SSHkey.SSHkey.fingerprint">
+<code class="descname">fingerprint</code><a class="headerlink" href="#cloudmesh.management.configuration.SSHkey.SSHkey.fingerprint" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
 <dt id="cloudmesh.management.configuration.SSHkey.SSHkey.get_from_git">
 <code class="descname">get_from_git</code><span class="sig-paren">(</span><em>user</em>, <em>keyname=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/management/configuration/SSHkey.html#SSHkey.get_from_git"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.configuration.SSHkey.SSHkey.get_from_git" title="Permalink to this definition">¶</a></dt>
 <dd><p>gets the key from github</p>
@@ -372,6 +722,11 @@ value is safely included in it.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="cloudmesh.management.configuration.SSHkey.SSHkey.load">
+<code class="descname">load</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/management/configuration/SSHkey.html#SSHkey.load"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.configuration.SSHkey.SSHkey.load" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
 <dt id="cloudmesh.management.configuration.SSHkey.SSHkey.set_permissions">
 <code class="descname">set_permissions</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/management/configuration/SSHkey.html#SSHkey.set_permissions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.configuration.SSHkey.SSHkey.set_permissions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets the permissions of the path assuming the path is a public or private key
@@ -379,11 +734,32 @@ value is safely included in it.</p>
 :return:</p>
 </dd></dl>
 
+<dl class="attribute">
+<dt id="cloudmesh.management.configuration.SSHkey.SSHkey.type">
+<code class="descname">type</code><a class="headerlink" href="#cloudmesh.management.configuration.SSHkey.SSHkey.type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </dd></dl>
 
 </div>
 <div class="section" id="module-cloudmesh.management.printer.Printer">
 <span id="printer"></span><h2>5.2. Printer<a class="headerlink" href="#module-cloudmesh.management.printer.Printer" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cloudmesh.management.printer.Printer.Printer">
+<em class="property">class </em><code class="descclassname">cloudmesh.management.printer.Printer.</code><code class="descname">Printer</code><span class="sig-paren">(</span><em>sort_keys=None</em>, <em>order=None</em>, <em>header=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/management/printer/Printer.html#Printer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.printer.Printer.Printer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="method">
+<dt id="cloudmesh.management.printer.Printer.Printer.print">
+<code class="descname">print</code><span class="sig-paren">(</span><em>d</em>, <em>format='table'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/management/printer/Printer.html#Printer.print"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.printer.Printer.Printer.print" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.management.printer.Printer.Printer.value">
+<code class="descname">value</code><span class="sig-paren">(</span><em>d</em>, <em>format='table'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/management/printer/Printer.html#Printer.value"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.printer.Printer.Printer.value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
 <div class="section" id="module-cloudmesh.management.configuration.name">
 <span id="names"></span><h2>5.3. Names<a class="headerlink" href="#module-cloudmesh.management.configuration.name" title="Permalink to this headline">¶</a></h2>
@@ -440,7 +816,33 @@ value is safely included in it.</p>
 <dl class="class">
 <dt>
 <em class="property">class </em><code class="descclassname">cloudmesh.management.configuration.name.</code><code class="descname">Name</code><span class="sig-paren">(</span><em>order=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/management/configuration/name.html#Name"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>Bases: <a class="reference internal" href="common.html#cloudmesh.common.dotdict.dotdict" title="cloudmesh.common.dotdict.dotdict"><code class="xref py py-class docutils literal notranslate"><span class="pre">cloudmesh.common.dotdict.dotdict</span></code></a></p>
+<dl class="method">
+<dt>
+<code class="descname">dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/management/configuration/name.html#Name.dict"><span class="viewcode-link">[source]</span></a></dt>
 <dd></dd></dl>
+
+<dl class="method">
+<dt>
+<code class="descname">flush</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/management/configuration/name.html#Name.flush"><span class="viewcode-link">[source]</span></a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt>
+<code class="descname">id</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/management/configuration/name.html#Name.id"><span class="viewcode-link">[source]</span></a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt>
+<code class="descname">incr</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/management/configuration/name.html#Name.incr"><span class="viewcode-link">[source]</span></a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt>
+<code class="descname">reset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/management/configuration/name.html#Name.reset"><span class="viewcode-link">[source]</span></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
 
 </div>
 <div class="section" id="module-cloudmesh.management.script">
@@ -451,7 +853,8 @@ output is returned. For many activities in cloudmesh this is sufficient.</p>
 <dl class="class">
 <dt id="cloudmesh.management.script.Script">
 <em class="property">class </em><code class="descclassname">cloudmesh.management.script.</code><code class="descname">Script</code><a class="reference internal" href="../_modules/cloudmesh/management/script.html#Script"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.script.Script" title="Permalink to this definition">¶</a></dt>
-<dd><p>Executing a script defined by a simple text parameter</p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Executing a script defined by a simple text parameter</p>
 <dl class="staticmethod">
 <dt id="cloudmesh.management.script.Script.run">
 <em class="property">static </em><code class="descname">run</code><span class="sig-paren">(</span><em>script</em>, <em>live=False</em>, <em>debug=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/management/script.html#Script.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.script.Script.run" title="Permalink to this definition">¶</a></dt>
@@ -475,7 +878,8 @@ output is returned. For many activities in cloudmesh this is sufficient.</p>
 <dl class="class">
 <dt id="cloudmesh.management.script.SystemPath">
 <em class="property">class </em><code class="descclassname">cloudmesh.management.script.</code><code class="descname">SystemPath</code><a class="reference internal" href="../_modules/cloudmesh/management/script.html#SystemPath"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.script.SystemPath" title="Permalink to this definition">¶</a></dt>
-<dd><p>Managing the System path in the .bashrc or .bash_profile files</p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Managing the System path in the .bashrc or .bash_profile files</p>
 <dl class="staticmethod">
 <dt id="cloudmesh.management.script.SystemPath.add">
 <em class="property">static </em><code class="descname">add</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/management/script.html#SystemPath.add"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.script.SystemPath.add" title="Permalink to this definition">¶</a></dt>
@@ -513,6 +917,16 @@ the specified name argument.</p>
 </div>
 <div class="section" id="module-cloudmesh.management.debug">
 <span id="debug"></span><h2>5.5. Debug<a class="headerlink" href="#module-cloudmesh.management.debug" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="cloudmesh.management.debug.HEADING">
+<code class="descclassname">cloudmesh.management.debug.</code><code class="descname">HEADING</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/management/debug.html#HEADING"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.debug.HEADING" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="cloudmesh.management.debug.myself">
+<code class="descclassname">cloudmesh.management.debug.</code><code class="descname">myself</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.management.debug.myself" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </div>
 </div>
 

@@ -245,7 +245,142 @@
             
   <div class="section" id="module-cloudmesh.inventory.command.inventory">
 <span id="inventory"></span><h1>8. Inventory<a class="headerlink" href="#module-cloudmesh.inventory.command.inventory" title="Permalink to this headline">¶</a></h1>
-<span class="target" id="module-cloudmesh.inventory.inventory"></span></div>
+<dl class="class">
+<dt id="cloudmesh.inventory.command.inventory.InventoryCommand">
+<em class="property">class </em><code class="descclassname">cloudmesh.inventory.command.inventory.</code><code class="descname">InventoryCommand</code><a class="reference internal" href="../_modules/cloudmesh/inventory/command/inventory.html#InventoryCommand"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.inventory.command.inventory.InventoryCommand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="cmd5.html#cloudmesh.shell.command.PluginCommand" title="cloudmesh.shell.command.PluginCommand"><code class="xref py py-class docutils literal notranslate"><span class="pre">cloudmesh.shell.command.PluginCommand</span></code></a></p>
+<dl class="method">
+<dt id="cloudmesh.inventory.command.inventory.InventoryCommand.do_inventory">
+<code class="descname">do_inventory</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.inventory.command.inventory.InventoryCommand.do_inventory" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Usage</span><span class="p">:</span>
+    <span class="n">inventory</span> <span class="n">add</span> <span class="n">NAMES</span> <span class="p">[</span><span class="o">--</span><span class="n">label</span><span class="o">=</span><span class="n">LABEL</span><span class="p">]</span>
+                        <span class="p">[</span><span class="o">--</span><span class="n">service</span><span class="o">=</span><span class="n">SERVICES</span><span class="p">]</span>
+                        <span class="p">[</span><span class="o">--</span><span class="n">project</span><span class="o">=</span><span class="n">PROJECT</span><span class="p">]</span>
+                        <span class="p">[</span><span class="o">--</span><span class="n">owners</span><span class="o">=</span><span class="n">OWNERS</span><span class="p">]</span>
+                        <span class="p">[</span><span class="o">--</span><span class="n">comment</span><span class="o">=</span><span class="n">COMMENT</span><span class="p">]</span>
+                        <span class="p">[</span><span class="o">--</span><span class="n">cluster</span><span class="o">=</span><span class="n">CLUSTER</span><span class="p">]</span>
+                        <span class="p">[</span><span class="o">--</span><span class="n">ip</span><span class="o">=</span><span class="n">IP</span><span class="p">]</span>
+    <span class="n">inventory</span> <span class="nb">set</span> <span class="n">NAMES</span> <span class="k">for</span> <span class="n">ATTRIBUTE</span> <span class="n">to</span> <span class="n">VALUES</span>
+    <span class="n">inventory</span> <span class="n">delete</span> <span class="n">NAMES</span>
+    <span class="n">inventory</span> <span class="n">clone</span> <span class="n">NAMES</span> <span class="kn">from</span> <span class="nn">SOURCE</span>
+    <span class="n">inventory</span> <span class="nb">list</span> <span class="p">[</span><span class="n">NAMES</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="nb">format</span><span class="o">=</span><span class="n">FORMAT</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">columns</span><span class="o">=</span><span class="n">COLUMNS</span><span class="p">]</span>
+    <span class="n">inventory</span> <span class="n">info</span>
+
+<span class="n">Arguments</span><span class="p">:</span>
+
+  <span class="n">NAMES</span>     <span class="n">Name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">resources</span> <span class="p">(</span><span class="n">example</span> <span class="n">i</span><span class="p">[</span><span class="mi">10</span><span class="o">-</span><span class="mi">20</span><span class="p">])</span>
+
+  <span class="n">FORMAT</span>    <span class="n">The</span> <span class="nb">format</span> <span class="n">of</span> <span class="n">the</span> <span class="n">output</span> <span class="ow">is</span> <span class="n">either</span> <span class="n">txt</span><span class="p">,</span>
+            <span class="n">yaml</span><span class="p">,</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">table</span> <span class="p">[</span><span class="n">default</span><span class="p">:</span> <span class="n">table</span><span class="p">]</span><span class="o">.</span>
+
+  <span class="n">OWNERS</span>    <span class="n">a</span> <span class="n">comma</span> <span class="n">separated</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">owners</span> <span class="k">for</span> <span class="n">this</span> <span class="n">resource</span>
+
+  <span class="n">LABEL</span>     <span class="n">a</span> <span class="n">unique</span> <span class="n">label</span> <span class="k">for</span> <span class="n">this</span> <span class="n">resource</span>
+
+  <span class="n">SERVICE</span>   <span class="n">a</span> <span class="n">string</span> <span class="n">that</span> <span class="n">identifies</span> <span class="n">the</span> <span class="n">service</span>
+
+  <span class="n">PROJECT</span>   <span class="n">a</span> <span class="n">string</span> <span class="n">that</span> <span class="n">identifies</span> <span class="n">the</span> <span class="n">project</span>
+
+  <span class="n">SOURCE</span>    <span class="n">a</span> <span class="n">single</span> <span class="n">host</span> <span class="n">name</span> <span class="n">to</span> <span class="n">clone</span> <span class="kn">from</span>
+
+  <span class="nn">COMMENT</span>   <span class="n">a</span> <span class="n">comment</span>
+
+<span class="n">Options</span><span class="p">:</span>
+
+   <span class="o">-</span><span class="n">v</span>       <span class="n">verbose</span> <span class="n">mode</span>
+
+<span class="n">Description</span><span class="p">:</span>
+
+      <span class="n">add</span> <span class="o">--</span> <span class="n">adds</span> <span class="n">a</span> <span class="n">resource</span> <span class="n">to</span> <span class="n">the</span> <span class="n">resource</span> <span class="n">inventory</span>
+
+      <span class="nb">list</span> <span class="o">--</span> <span class="n">lists</span> <span class="n">the</span> <span class="n">resources</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">given</span> <span class="nb">format</span>
+
+      <span class="n">delete</span> <span class="o">--</span> <span class="n">deletes</span> <span class="n">objects</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">table</span>
+
+      <span class="n">clone</span> <span class="o">--</span> <span class="n">copies</span> <span class="n">the</span> <span class="n">content</span> <span class="n">of</span> <span class="n">an</span> <span class="n">existing</span> <span class="nb">object</span>
+               <span class="ow">and</span> <span class="n">creates</span> <span class="n">new</span> <span class="n">once</span> <span class="k">with</span> <span class="n">it</span>
+
+      <span class="nb">set</span>   <span class="o">--</span> <span class="n">sets</span> <span class="k">for</span> <span class="n">the</span> <span class="n">specified</span> <span class="n">objects</span> <span class="n">the</span> <span class="n">attribute</span>
+               <span class="n">to</span> <span class="n">the</span> <span class="n">given</span> <span class="n">value</span> <span class="ow">or</span> <span class="n">values</span><span class="o">.</span> <span class="n">If</span> <span class="n">multiple</span> <span class="n">values</span>
+               <span class="n">are</span> <span class="n">used</span> <span class="n">the</span> <span class="n">values</span> <span class="n">are</span> <span class="n">assigned</span> <span class="n">to</span> <span class="n">the</span> <span class="ow">and</span>
+               <span class="n">objects</span> <span class="ow">in</span> <span class="n">order</span><span class="o">.</span> <span class="n">See</span> <span class="n">examples</span>
+
+      <span class="nb">map</span>   <span class="o">--</span> <span class="n">allows</span> <span class="n">to</span> <span class="nb">set</span> <span class="n">attibutes</span> <span class="n">on</span> <span class="n">a</span> <span class="nb">set</span> <span class="n">of</span> <span class="n">objects</span>
+               <span class="k">with</span> <span class="n">a</span> <span class="nb">set</span> <span class="n">of</span> <span class="n">values</span>
+
+<span class="n">Examples</span><span class="p">:</span>
+
+  <span class="n">cms</span> <span class="n">inventory</span> <span class="n">add</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span> <span class="o">--</span><span class="n">service</span><span class="o">=</span><span class="n">openstack</span>
+
+      <span class="n">adds</span> <span class="n">hosts</span> <span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">x3</span> <span class="ow">and</span> <span class="n">puts</span> <span class="n">the</span> <span class="n">string</span>
+      <span class="n">openstack</span> <span class="n">into</span> <span class="n">the</span> <span class="n">service</span> <span class="n">column</span>
+
+  <span class="n">cms</span> <span class="n">inventory</span> <span class="n">lists</span>
+
+      <span class="n">lists</span> <span class="n">the</span> <span class="n">repository</span>
+
+  <span class="n">cms</span> <span class="n">inventory</span> <span class="n">x</span><span class="p">[</span><span class="mi">3</span><span class="o">-</span><span class="mi">4</span><span class="p">]</span> <span class="nb">set</span> <span class="n">temperature</span> <span class="n">to</span> <span class="mi">32</span>
+
+      <span class="n">sets</span> <span class="k">for</span> <span class="n">the</span> <span class="n">resources</span> <span class="n">x3</span><span class="p">,</span> <span class="n">x4</span> <span class="n">the</span> <span class="n">value</span> <span class="n">of</span> <span class="n">the</span>
+      <span class="n">temperature</span> <span class="n">to</span> <span class="mi">32</span>
+
+  <span class="n">cms</span> <span class="n">inventory</span> <span class="n">x</span><span class="p">[</span><span class="mi">7</span><span class="o">-</span><span class="mi">8</span><span class="p">]</span> <span class="nb">set</span> <span class="n">ip</span> <span class="mf">128.0</span><span class="o">.</span><span class="mf">0.</span><span class="p">[</span><span class="mi">0</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+      <span class="n">sets</span> <span class="n">the</span> <span class="n">value</span> <span class="n">of</span> <span class="n">x7</span> <span class="n">to</span> <span class="mf">128.0</span><span class="o">.</span><span class="mf">0.0</span>
+      <span class="n">sets</span> <span class="n">the</span> <span class="n">value</span> <span class="n">of</span> <span class="n">x8</span> <span class="n">to</span> <span class="mf">128.0</span><span class="o">.</span><span class="mf">0.1</span>
+
+  <span class="n">cms</span> <span class="n">inventory</span> <span class="n">clone</span> <span class="n">x</span><span class="p">[</span><span class="mi">5</span><span class="o">-</span><span class="mi">6</span><span class="p">]</span> <span class="kn">from</span> <span class="nn">x3</span>
+
+      <span class="n">clones</span> <span class="n">the</span> <span class="n">values</span> <span class="k">for</span> <span class="n">x5</span><span class="p">,</span> <span class="n">x6</span> <span class="kn">from</span> <span class="nn">x3</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-cloudmesh.inventory.inventory"></span><dl class="class">
+<dt id="cloudmesh.inventory.inventory.CommandSystem">
+<em class="property">class </em><code class="descclassname">cloudmesh.inventory.inventory.</code><code class="descname">CommandSystem</code><a class="reference internal" href="../_modules/cloudmesh/inventory/inventory.html#CommandSystem"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.inventory.inventory.CommandSystem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="classmethod">
+<dt id="cloudmesh.inventory.inventory.CommandSystem.status">
+<em class="property">classmethod </em><code class="descname">status</code><span class="sig-paren">(</span><em>host</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/inventory/inventory.html#CommandSystem.status"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.inventory.inventory.CommandSystem.status" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cloudmesh.inventory.inventory.Inventory">
+<em class="property">class </em><code class="descclassname">cloudmesh.inventory.inventory.</code><code class="descname">Inventory</code><a class="reference internal" href="../_modules/cloudmesh/inventory/inventory.html#Inventory"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.inventory.inventory.Inventory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="method">
+<dt id="cloudmesh.inventory.inventory.Inventory.add">
+<code class="descname">add</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/inventory/inventory.html#Inventory.add"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.inventory.inventory.Inventory.add" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.inventory.inventory.Inventory.info">
+<code class="descname">info</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/inventory/inventory.html#Inventory.info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.inventory.inventory.Inventory.info" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.inventory.inventory.Inventory.list">
+<code class="descname">list</code><span class="sig-paren">(</span><em>format='dict'</em>, <em>sort_keys=True</em>, <em>order=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/inventory/inventory.html#Inventory.list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.inventory.inventory.Inventory.list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.inventory.inventory.Inventory.read">
+<code class="descname">read</code><span class="sig-paren">(</span><em>filename=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/inventory/inventory.html#Inventory.read"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.inventory.inventory.Inventory.read" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.inventory.inventory.Inventory.save">
+<code class="descname">save</code><span class="sig-paren">(</span><em>filename=None</em>, <em>format='yaml'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/inventory/inventory.html#Inventory.save"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.inventory.inventory.Inventory.save" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
 
 
            </div>

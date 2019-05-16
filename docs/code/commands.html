@@ -245,6 +245,86 @@
             
   <div class="section" id="module-cloudmesh.admin.command.admin">
 <span id="commands"></span><h1>7. Commands<a class="headerlink" href="#module-cloudmesh.admin.command.admin" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="cloudmesh.admin.command.admin.AdminCommand">
+<em class="property">class </em><code class="descclassname">cloudmesh.admin.command.admin.</code><code class="descname">AdminCommand</code><a class="reference internal" href="../_modules/cloudmesh/admin/command/admin.html#AdminCommand"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.admin.command.admin.AdminCommand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="cmd5.html#cloudmesh.shell.command.PluginCommand" title="cloudmesh.shell.command.PluginCommand"><code class="xref py py-class docutils literal notranslate"><span class="pre">cloudmesh.shell.command.PluginCommand</span></code></a></p>
+<dl class="attribute">
+<dt id="cloudmesh.admin.command.admin.AdminCommand.banner">
+<code class="descname">banner</code><em class="property"> = &quot;\ntest\n+-------------------------------------------------------+\n|   ____ _                 _                     _      |\n|  / ___| | ___  _   _  __| |_ __ ___   ___  ___| |__   |\n| | |   | |/ _ \\| | | |/ _` | '_ ` _ \\ / _ \\/ __| '_ \\  |\n| | |___| | (_) | |_| | (_| | | | | | |  __/\\__ \\ | | | |\n|  \\____|_|\\___/ \\__,_|\\__,_|_| |_| |_|\\___||___/_| |_| |\n+-------------------------------------------------------+\n|                  Cloudmesh CMD5 Shell                 |\n+-------------------------------------------------------+\n&quot;</em><a class="headerlink" href="#cloudmesh.admin.command.admin.AdminCommand.banner" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.admin.command.admin.AdminCommand.do_admin">
+<code class="descname">do_admin</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.admin.command.admin.AdminCommand.do_admin" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Usage</span><span class="p">:</span>
+  <span class="n">admin</span> <span class="n">mongo</span> <span class="n">install</span> <span class="p">[</span><span class="o">--</span><span class="n">brew</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">download</span><span class="o">=</span><span class="n">PATH</span><span class="p">]</span>
+  <span class="n">admin</span> <span class="n">mongo</span> <span class="n">create</span>
+  <span class="n">admin</span> <span class="n">mongo</span> <span class="n">status</span>
+  <span class="n">admin</span> <span class="n">mongo</span> <span class="n">stats</span>
+  <span class="n">admin</span> <span class="n">mongo</span> <span class="n">version</span>
+  <span class="n">admin</span> <span class="n">mongo</span> <span class="n">start</span>
+  <span class="n">admin</span> <span class="n">mongo</span> <span class="n">stop</span>
+  <span class="n">admin</span> <span class="n">mongo</span> <span class="n">backup</span> <span class="n">FILENAME</span>
+  <span class="n">admin</span> <span class="n">mongo</span> <span class="n">load</span> <span class="n">FILENAME</span>
+  <span class="n">admin</span> <span class="n">mongo</span> <span class="n">security</span>
+  <span class="n">admin</span> <span class="n">mongo</span> <span class="n">password</span> <span class="n">PASSWORD</span>
+  <span class="n">admin</span> <span class="n">mongo</span> <span class="nb">list</span>
+  <span class="n">admin</span> <span class="n">rest</span> <span class="n">status</span>
+  <span class="n">admin</span> <span class="n">rest</span> <span class="n">start</span>
+  <span class="n">admin</span> <span class="n">rest</span> <span class="n">stop</span>
+  <span class="n">admin</span> <span class="n">status</span>
+  <span class="n">admin</span> <span class="n">system</span> <span class="n">info</span>
+  <span class="n">admin</span> <span class="n">yaml</span> <span class="n">cat</span>
+  <span class="n">admin</span> <span class="n">yaml</span> <span class="n">check</span>
+
+<span class="n">The</span> <span class="n">admin</span> <span class="n">command</span> <span class="n">performs</span> <span class="n">some</span> <span class="n">administrative</span> <span class="n">functions</span><span class="p">,</span> <span class="n">such</span> <span class="k">as</span> <span class="n">installing</span> <span class="n">packages</span><span class="p">,</span> <span class="n">software</span> <span class="ow">and</span> <span class="n">services</span><span class="o">.</span>
+<span class="n">It</span> <span class="n">also</span> <span class="ow">is</span> <span class="n">used</span> <span class="n">to</span> <span class="n">start</span> <span class="n">services</span> <span class="ow">and</span> <span class="n">configure</span> <span class="n">them</span><span class="o">.</span>
+
+<span class="n">Arguments</span><span class="p">:</span>
+  <span class="n">FILENAME</span>  <span class="n">the</span> <span class="n">filename</span> <span class="k">for</span> <span class="n">backups</span>
+
+<span class="n">Options</span><span class="p">:</span>
+  <span class="o">-</span><span class="n">f</span>      <span class="n">specify</span> <span class="n">the</span> <span class="n">file</span>
+
+<span class="n">Description</span><span class="p">:</span>
+
+  <span class="n">Mongo</span> <span class="n">DB</span>
+
+    <span class="n">MongoDB</span> <span class="ow">is</span> <span class="n">managed</span> <span class="n">through</span> <span class="n">a</span> <span class="n">number</span> <span class="n">of</span> <span class="n">commands</span><span class="o">.</span>
+
+    <span class="n">The</span> <span class="n">configuration</span> <span class="ow">is</span> <span class="n">read</span> <span class="kn">from</span> <span class="o">~/.</span><span class="n">cloudmesh</span><span class="o">/</span><span class="n">cloudmesh4</span><span class="o">.</span><span class="n">yaml</span>
+
+    <span class="n">First</span><span class="p">,</span> <span class="n">you</span> <span class="n">need</span> <span class="n">to</span> <span class="n">create</span> <span class="n">a</span> <span class="n">MongoDB</span> <span class="n">database</span> <span class="k">with</span>
+
+      <span class="n">cms</span> <span class="n">admin</span> <span class="n">mongo</span> <span class="n">create</span>
+
+    <span class="n">Second</span><span class="p">,</span> <span class="n">you</span> <span class="n">need</span> <span class="n">to</span> <span class="n">start</span> <span class="n">it</span> <span class="k">with</span>
+
+       <span class="n">cms</span> <span class="n">admin</span> <span class="n">mongo</span> <span class="n">start</span>
+
+    <span class="n">Now</span> <span class="n">you</span> <span class="n">can</span> <span class="n">interact</span> <span class="k">with</span> <span class="n">it</span> <span class="n">to</span> <span class="n">find</span> <span class="n">out</span> <span class="n">the</span> <span class="n">status</span><span class="p">,</span> <span class="n">the</span> <span class="n">stats</span><span class="p">,</span>
+    <span class="ow">and</span> <span class="n">the</span> <span class="n">database</span> <span class="n">listing</span> <span class="k">with</span> <span class="n">the</span> <span class="n">commands</span>
+
+       <span class="n">cms</span> <span class="n">admin</span> <span class="n">mongo</span> <span class="n">status</span>
+       <span class="n">cms</span> <span class="n">admin</span> <span class="n">mongo</span> <span class="n">stats</span>
+       <span class="n">cms</span> <span class="n">admin</span> <span class="n">mongo</span> <span class="nb">list</span>
+
+    <span class="n">To</span> <span class="n">stop</span> <span class="n">it</span> <span class="kn">from</span> <span class="nn">running</span> <span class="n">use</span> <span class="n">the</span> <span class="n">command</span>
+
+       <span class="n">cms</span> <span class="n">admin</span> <span class="n">mongo</span> <span class="n">stop</span>
+
+    <span class="n">System</span> <span class="n">information</span> <span class="n">about</span> <span class="n">your</span> <span class="n">machine</span> <span class="n">can</span> <span class="n">be</span> <span class="n">returned</span> <span class="n">by</span>
+
+       <span class="n">cms</span> <span class="n">admin</span> <span class="n">system</span> <span class="n">info</span>
+
+    <span class="n">This</span> <span class="n">can</span> <span class="n">be</span> <span class="n">very</span> <span class="n">useful</span> <span class="ow">in</span> <span class="n">case</span> <span class="n">you</span> <span class="n">are</span> <span class="n">filing</span> <span class="n">an</span> <span class="n">issue</span> <span class="ow">or</span> <span class="n">bug</span><span class="o">.</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 
 

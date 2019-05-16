@@ -244,7 +244,7 @@
 <span class="kn">import</span> <span class="nn">webbrowser</span>
 <span class="kn">from</span> <span class="nn">pprint</span> <span class="k">import</span> <span class="n">pprint</span>
 
-<span class="kn">from</span> <span class="nn">cloudmesh.DEBUG</span> <span class="k">import</span> <span class="n">VERBOSE</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.debug</span> <span class="k">import</span> <span class="n">VERBOSE</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.abstractclass.ComputeNodeABC</span> <span class="k">import</span> <span class="n">ComputeNodeABC</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.Shell</span> <span class="k">import</span> <span class="n">Shell</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.StopWatch</span> <span class="k">import</span> <span class="n">StopWatch</span>
@@ -252,7 +252,7 @@
 <span class="kn">from</span> <span class="nn">cloudmesh.management.configuration.config</span> <span class="k">import</span> <span class="n">Config</span>
 
 
-<span class="k">def</span> <span class="nf">timer</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+<div class="viewcode-block" id="timer"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.azure.AzProvider.timer">[docs]</a><span class="k">def</span> <span class="nf">timer</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">decorated_func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="n">StopWatch</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
         <span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
@@ -260,7 +260,7 @@
         <span class="nb">print</span><span class="p">(</span><span class="n">StopWatch</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="p">))</span>
         <span class="k">return</span> <span class="n">result</span>
 
-    <span class="k">return</span> <span class="n">decorated_func</span>
+    <span class="k">return</span> <span class="n">decorated_func</span></div>
 
 
 <div class="viewcode-block" id="Provider"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.azure.AzProvider.Provider">[docs]</a><span class="k">class</span> <span class="nc">Provider</span><span class="p">(</span><span class="n">ComputeNodeABC</span><span class="p">):</span>
@@ -339,21 +339,21 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">resource_group</span> <span class="o">=</span> <span class="n">cred</span><span class="p">[</span><span class="s2">&quot;resourcegroup&quot;</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">credentials</span> <span class="o">=</span> <span class="n">cred</span>
 
-    <span class="k">def</span> <span class="nf">update_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entry</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;node&quot;</span><span class="p">):</span>
+<div class="viewcode-block" id="Provider.update_dict"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.azure.AzProvider.Provider.update_dict">[docs]</a>    <span class="k">def</span> <span class="nf">update_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entry</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;node&quot;</span><span class="p">):</span>
         <span class="k">if</span> <span class="s2">&quot;cm&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">entry</span><span class="p">:</span>
             <span class="n">entry</span><span class="p">[</span><span class="s2">&quot;cm&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="n">entry</span><span class="p">[</span><span class="s2">&quot;cm&quot;</span><span class="p">][</span><span class="s2">&quot;kind&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kind</span>
         <span class="n">entry</span><span class="p">[</span><span class="s2">&quot;cm&quot;</span><span class="p">][</span><span class="s2">&quot;driver&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudtype</span>
         <span class="n">entry</span><span class="p">[</span><span class="s2">&quot;cm&quot;</span><span class="p">][</span><span class="s2">&quot;cloud&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloud</span>
         <span class="n">entry</span><span class="p">[</span><span class="s2">&quot;cm&quot;</span><span class="p">][</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">entry</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
-        <span class="k">return</span> <span class="n">entry</span>
+        <span class="k">return</span> <span class="n">entry</span></div>
 
-    <span class="k">def</span> <span class="nf">update_list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<div class="viewcode-block" id="Provider.update_list"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.azure.AzProvider.Provider.update_list">[docs]</a>    <span class="k">def</span> <span class="nf">update_list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
             <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">update_dict</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">data</span>
+        <span class="k">return</span> <span class="n">data</span></div>
 
-    <span class="nd">@timer</span>
+<div class="viewcode-block" id="Provider.az"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.azure.AzProvider.Provider.az">[docs]</a>    <span class="nd">@timer</span>
     <span class="k">def</span> <span class="nf">az</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">command</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
         <span class="n">r</span> <span class="o">=</span> <span class="n">Shell</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -368,37 +368,37 @@
             <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;virtualMachine&#39;</span><span class="p">][</span><span class="s1">&#39;network&#39;</span><span class="p">][</span><span class="s1">&#39;publicIpAddresses&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span>
                 <span class="s1">&#39;id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="n">pprint</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">data</span>
+        <span class="k">return</span> <span class="n">data</span></div>
 
-    <span class="k">def</span> <span class="nf">az_2</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">command</span><span class="p">):</span>
+<div class="viewcode-block" id="Provider.az_2"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.azure.AzProvider.Provider.az_2">[docs]</a>    <span class="k">def</span> <span class="nf">az_2</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">command</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
         <span class="n">r</span> <span class="o">=</span> <span class="n">Shell</span><span class="o">.</span><span class="n">live</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">r</span>
+        <span class="k">return</span> <span class="n">r</span></div>
 
-    <span class="k">def</span> <span class="nf">login</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Provider.login"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.azure.AzProvider.Provider.login">[docs]</a>    <span class="k">def</span> <span class="nf">login</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">r</span> <span class="o">=</span> <span class="n">Shell</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;az login&quot;</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="n">r</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;true&quot;</span><span class="p">,</span> <span class="s2">&quot;True&quot;</span><span class="p">)</span>
         <span class="n">r</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="s2">&quot;[</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">r</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;[&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>
-        <span class="k">return</span> <span class="n">r</span>
+        <span class="k">return</span> <span class="n">r</span></div>
 
-    <span class="k">def</span> <span class="nf">portal</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">webbrowser</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;https://portal.azure.com&quot;</span><span class="p">)</span>
+<div class="viewcode-block" id="Provider.portal"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.azure.AzProvider.Provider.portal">[docs]</a>    <span class="k">def</span> <span class="nf">portal</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">webbrowser</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;https://portal.azure.com&quot;</span><span class="p">)</span></div>
 
-    <span class="k">def</span> <span class="nf">create_resource_group</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">location</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Provider.create_resource_group"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.azure.AzProvider.Provider.create_resource_group">[docs]</a>    <span class="k">def</span> <span class="nf">create_resource_group</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">location</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">name</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">location</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
                 <span class="n">f</span><span class="s2">&quot;Reosurce can not be found, Name: </span><span class="si">{name}</span><span class="s2">, Location: </span><span class="si">{location}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">az</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;az group create --name </span><span class="si">{name}</span><span class="s2"> --location </span><span class="si">{location}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">az</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;az group create --name </span><span class="si">{name}</span><span class="s2"> --location </span><span class="si">{location}</span><span class="s2">&quot;</span><span class="p">)</span></div>
 
-    <span class="k">def</span> <span class="nf">delete_resource_group</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Provider.delete_resource_group"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.azure.AzProvider.Provider.delete_resource_group">[docs]</a>    <span class="k">def</span> <span class="nf">delete_resource_group</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Reosurce can not be found, Name: </span><span class="si">{name}</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">az</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;az group delete --yes --name </span><span class="si">{name}</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">az</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;az group exists --name </span><span class="si">{name}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">r</span>
+        <span class="k">return</span> <span class="n">r</span></div>
 
-    <span class="k">def</span> <span class="nf">list_resource_group</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">az</span><span class="p">(</span><span class="s2">&quot;az group list&quot;</span><span class="p">)</span>
+<div class="viewcode-block" id="Provider.list_resource_group"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.azure.AzProvider.Provider.list_resource_group">[docs]</a>    <span class="k">def</span> <span class="nf">list_resource_group</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">az</span><span class="p">(</span><span class="s2">&quot;az group list&quot;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Provider.create"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.azure.AzProvider.Provider.create">[docs]</a>    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">360</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="n">username</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;username&quot;</span><span class="p">]</span>
@@ -447,14 +447,14 @@
             <span class="n">f</span><span class="s2">&quot; --name </span><span class="si">{name}</span><span class="s2">&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">az</span><span class="p">(</span><span class="n">command</span><span class="p">)</span></div>
 
-    <span class="k">def</span> <span class="nf">status</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Provider.status"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.azure.AzProvider.Provider.status">[docs]</a>    <span class="k">def</span> <span class="nf">status</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="c1"># noinspection PyPep8</span>
         <span class="n">command</span> <span class="o">=</span> \
             <span class="s2">&quot;az vm get-instance-view&quot;</span> \
                 <span class="n">f</span><span class="s2">&quot; --name </span><span class="si">{name}</span><span class="s2">&quot;</span> \
                 <span class="n">f</span><span class="s2">&quot; --resource-group </span><span class="si">{self.resource_group}</span><span class="s2">&quot;</span> \
                 <span class="n">f</span><span class="s2">&quot; --query instanceView.statuses[1]&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">az</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">az</span><span class="p">(</span><span class="n">command</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Provider.stop"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.azure.AzProvider.Provider.stop">[docs]</a>    <span class="k">def</span> <span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="c1"># noinspection PyPep8</span>
@@ -478,16 +478,16 @@
         <span class="c1"># MUST BE RETURNING A DICT</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">az_2</span><span class="p">(</span><span class="n">command</span><span class="p">)</span></div>
 
-    <span class="k">def</span> <span class="nf">restart</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+<div class="viewcode-block" id="Provider.restart"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.azure.AzProvider.Provider.restart">[docs]</a>    <span class="k">def</span> <span class="nf">restart</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
                 <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="c1"># noinspection PyPep8</span>
         <span class="n">command</span> <span class="o">=</span> \
             <span class="n">f</span><span class="s2">&quot;az vm restart&quot;</span> \
                 <span class="n">f</span><span class="s2">&quot; --resource-group </span><span class="si">{self.resource_group}</span><span class="s2">&quot;</span> \
                 <span class="n">f</span><span class="s2">&quot; --name </span><span class="si">{name}</span><span class="s2">&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">az</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">az</span><span class="p">(</span><span class="n">command</span><span class="p">)</span></div>
 
-    <span class="k">def</span> <span class="nf">ssh</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+<div class="viewcode-block" id="Provider.ssh"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.azure.AzProvider.Provider.ssh">[docs]</a>    <span class="k">def</span> <span class="nf">ssh</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
             <span class="n">user</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
             <span class="n">command</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
             <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -495,17 +495,17 @@
         <span class="n">address</span> <span class="o">=</span> <span class="n">ip</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;virtualMachine&#39;</span><span class="p">][</span><span class="s1">&#39;network&#39;</span><span class="p">][</span><span class="s1">&#39;publicIpAddresses&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span>
             <span class="s1">&#39;ipAddress&#39;</span><span class="p">]</span>
         <span class="n">c</span> <span class="o">=</span> <span class="n">f</span><span class="s1">&#39;ssh -o &quot;StrictHostKeyChecking no&quot; </span><span class="si">{user}</span><span class="s1">@</span><span class="si">{address}</span><span class="s1"> </span><span class="si">{command}</span><span class="s1">&#39;</span>
-        <span class="k">return</span> <span class="n">Shell</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">Shell</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
 
-    <span class="k">def</span> <span class="nf">get_ip</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+<div class="viewcode-block" id="Provider.get_ip"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.azure.AzProvider.Provider.get_ip">[docs]</a>    <span class="k">def</span> <span class="nf">get_ip</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
 
                <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="n">command</span> <span class="o">=</span> <span class="n">f</span><span class="s2">&quot;az vm list-ip-addresses&quot;</span> \
             <span class="n">f</span><span class="s2">&quot; --resource-group </span><span class="si">{self.resource_group}</span><span class="s2">&quot;</span> \
             <span class="n">f</span><span class="s2">&quot; --name </span><span class="si">{name}</span><span class="s2">&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">az</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">az</span><span class="p">(</span><span class="n">command</span><span class="p">)</span></div>
 
-    <span class="k">def</span> <span class="nf">connect</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+<div class="viewcode-block" id="Provider.connect"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.azure.AzProvider.Provider.connect">[docs]</a>    <span class="k">def</span> <span class="nf">connect</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
 
                 <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                 <span class="n">user</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -517,35 +517,35 @@
         <span class="c1"># command = f&quot;ssh {user}@{address}&quot;</span>
         <span class="n">command</span> <span class="o">=</span> <span class="s2">&quot;ssh </span><span class="si">{user}</span><span class="s2">@</span><span class="si">{publicIdAddress}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">user</span><span class="o">=</span><span class="n">user</span><span class="p">,</span>
                                                         <span class="n">publicIdAddress</span><span class="o">=</span><span class="n">address</span><span class="p">)</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">az_2</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">az_2</span><span class="p">(</span><span class="n">command</span><span class="p">)</span></div>
 
-    <span class="k">def</span> <span class="nf">list_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+<div class="viewcode-block" id="Provider.list_image"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.azure.AzProvider.Provider.list_image">[docs]</a>    <span class="k">def</span> <span class="nf">list_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
                    <span class="n">location</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="c1"># noinspection PyPep8</span>
         <span class="n">command</span> <span class="o">=</span> \
             <span class="s2">&quot;az vm image list&quot;</span> \
                 <span class="n">f</span><span class="s2">&quot; --location </span><span class="si">{location}</span><span class="s2">&quot;</span>
         <span class="c1"># THIS OUGHT TO RETURN A DICT</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">az_2</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">az_2</span><span class="p">(</span><span class="n">command</span><span class="p">)</span></div>
 
-    <span class="k">def</span> <span class="nf">list_size</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+<div class="viewcode-block" id="Provider.list_size"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.azure.AzProvider.Provider.list_size">[docs]</a>    <span class="k">def</span> <span class="nf">list_size</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
                   <span class="n">location</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="c1"># noinspection PyPep8</span>
         <span class="n">command</span> <span class="o">=</span> \
             <span class="s2">&quot;az vm list-sizes&quot;</span> \
                 <span class="n">f</span><span class="s2">&quot; --location </span><span class="si">{location}</span><span class="s2">&quot;</span>
         <span class="c1"># THIS SHOUL RETURN A DICT</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">az_2</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">az_2</span><span class="p">(</span><span class="n">command</span><span class="p">)</span></div>
 
-    <span class="k">def</span> <span class="nf">connect_to_all</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Provider.connect_to_all"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.azure.AzProvider.Provider.connect_to_all">[docs]</a>    <span class="k">def</span> <span class="nf">connect_to_all</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">vm_list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="p">()</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">vm_list</span><span class="p">)):</span>
             <span class="n">vm_name</span> <span class="o">=</span> <span class="n">vm_list</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
             <span class="n">username</span> <span class="o">=</span> <span class="n">vm_list</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s1">&#39;osProfile&#39;</span><span class="p">][</span><span class="s1">&#39;adminUsername&#39;</span><span class="p">]</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">wait_orig</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">resource_group</span><span class="p">,</span> <span class="n">vm_name</span><span class="p">,</span> <span class="n">username</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">wait_orig</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">resource_group</span><span class="p">,</span> <span class="n">vm_name</span><span class="p">,</span> <span class="n">username</span><span class="p">)</span></div>
 
     <span class="c1"># noinspection PyPep8</span>
-    <span class="k">def</span> <span class="nf">wait_orig</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+<div class="viewcode-block" id="Provider.wait_orig"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.azure.AzProvider.Provider.wait_orig">[docs]</a>    <span class="k">def</span> <span class="nf">wait_orig</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
 
                   <span class="n">vm_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                   <span class="n">username</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
@@ -564,7 +564,7 @@
 
                                       <span class="n">name</span><span class="o">=</span><span class="n">vm_name</span><span class="p">,</span> <span class="n">user</span><span class="o">=</span><span class="n">username</span><span class="p">)</span>
                 <span class="k">if</span> <span class="n">result</span><span class="p">:</span>
-                    <span class="k">break</span>
+                    <span class="k">break</span></div>
 
 <div class="viewcode-block" id="Provider.rename"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.azure.AzProvider.Provider.rename">[docs]</a>    <span class="k">def</span> <span class="nf">rename</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">destination</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>

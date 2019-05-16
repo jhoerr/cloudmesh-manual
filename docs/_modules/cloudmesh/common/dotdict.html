@@ -240,19 +240,17 @@
            <div itemprop="articleBody">
             
   <h1>Source code for cloudmesh.common.dotdict</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">A convenient dot dict class</span>
-
-<span class="sd">a = dotdict({&quot;argument&quot;: &quot;value&quot;})</span>
-
-<span class="sd">print (a.argument)</span>
-
-<span class="sd">&quot;&quot;&quot;</span>
-
-
-<span class="c1"># noinspection PyPep8Naming</span>
+<span></span><span class="c1"># noinspection PyPep8Naming</span>
 <div class="viewcode-block" id="dotdict"><a class="viewcode-back" href="../../../code/common.html#cloudmesh.common.dotdict.dotdict">[docs]</a><span class="k">class</span> <span class="nc">dotdict</span><span class="p">(</span><span class="nb">dict</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;dot.notation access to dictionary attributes&quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A convenient dot dict class::</span>
+
+<span class="sd">        a = dotdict({&quot;argument&quot;: &quot;value&quot;})</span>
+
+<span class="sd">    print (a.argument)</span>
+
+<span class="sd">    Nested dot documentation is not supported.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="nf">__getattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attr</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">attr</span><span class="p">)</span>

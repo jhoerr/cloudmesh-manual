@@ -245,7 +245,158 @@
             
   <div class="section" id="module-cloudmesh.emr.api.manager">
 <span id="cloudmesh-emr"></span><h1>12. cloudmesh-emr<a class="headerlink" href="#module-cloudmesh.emr.api.manager" title="Permalink to this headline">¶</a></h1>
-<span class="target" id="module-cloudmesh.emr.command.emr"></span></div>
+<dl class="class">
+<dt id="cloudmesh.emr.api.manager.Manager">
+<em class="property">class </em><code class="descclassname">cloudmesh.emr.api.manager.</code><code class="descname">Manager</code><a class="reference internal" href="../_modules/cloudmesh/emr/api/manager.html#Manager"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.emr.api.manager.Manager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="method">
+<dt id="cloudmesh.emr.api.manager.Manager.copy_file">
+<code class="descname">copy_file</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.emr.api.manager.Manager.copy_file" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.emr.api.manager.Manager.describe_cluster">
+<code class="descname">describe_cluster</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.emr.api.manager.Manager.describe_cluster" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.emr.api.manager.Manager.get_client">
+<code class="descname">get_client</code><span class="sig-paren">(</span><em>service='emr'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/emr/api/manager.html#Manager.get_client"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.emr.api.manager.Manager.get_client" title="Permalink to this definition">¶</a></dt>
+<dd><p>Connects to AWS and cre
+:param service: The service to create a client for. Either S3 or EMR.
+:return: boto3.client</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.emr.api.manager.Manager.list">
+<code class="descname">list</code><span class="sig-paren">(</span><em>parameter</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/emr/api/manager.html#Manager.list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.emr.api.manager.Manager.list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.emr.api.manager.Manager.list_clusters">
+<code class="descname">list_clusters</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.emr.api.manager.Manager.list_clusters" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.emr.api.manager.Manager.list_instances">
+<code class="descname">list_instances</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.emr.api.manager.Manager.list_instances" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.emr.api.manager.Manager.list_steps">
+<code class="descname">list_steps</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.emr.api.manager.Manager.list_steps" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.emr.api.manager.Manager.parse_options">
+<code class="descname">parse_options</code><span class="sig-paren">(</span><em>options</em>, <em>states</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/emr/api/manager.html#Manager.parse_options"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.emr.api.manager.Manager.parse_options" title="Permalink to this definition">¶</a></dt>
+<dd><p>Helper function to parse the arguments passed to the various EMR functions. Returns ‘all’ if it is in the
+options list. Otherwise it’ll filter the list down to the valid options passed in states.
+:param options: A list of strings. Contains the options the user entered.
+:param states: A dictionary. Contains a mapping from user values (e.g. booting) to AWS values (BOOTSTRAPPING).
+:return: A list of mapped values.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.emr.api.manager.Manager.run">
+<code class="descname">run</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.emr.api.manager.Manager.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.emr.api.manager.Manager.start_cluster">
+<code class="descname">start_cluster</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.emr.api.manager.Manager.start_cluster" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.emr.api.manager.Manager.stop_cluster">
+<code class="descname">stop_cluster</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.emr.api.manager.Manager.stop_cluster" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.emr.api.manager.Manager.upload_file">
+<code class="descname">upload_file</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.emr.api.manager.Manager.upload_file" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-cloudmesh.emr.command.emr"></span><dl class="class">
+<dt id="cloudmesh.emr.command.emr.EmrCommand">
+<em class="property">class </em><code class="descclassname">cloudmesh.emr.command.emr.</code><code class="descname">EmrCommand</code><a class="reference internal" href="../_modules/cloudmesh/emr/command/emr.html#EmrCommand"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.emr.command.emr.EmrCommand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="cmd5.html#cloudmesh.shell.command.PluginCommand" title="cloudmesh.shell.command.PluginCommand"><code class="xref py py-class docutils literal notranslate"><span class="pre">cloudmesh.shell.command.PluginCommand</span></code></a></p>
+<dl class="method">
+<dt id="cloudmesh.emr.command.emr.EmrCommand.do_emr">
+<code class="descname">do_emr</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.emr.command.emr.EmrCommand.do_emr" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Usage:</dt><dd><p>emr list clusters [–status=STATUS…] [–format=FORMAT]
+emr list instances CLUSTERID [–status=STATUS…] [–type=TYPE…] [–format=FORMAT]
+emr list steps CLUSTERID [–state=STATE…] [–format=FORMAT]
+emr describe CLUSTERID [–format=FORMAT]
+emr start NAME [–master=MASTER] [–node=NODE] [–count=COUNT]
+emr stop CLUSTERID
+emr upload FILE BUCKET BUCKETNAME
+emr copy CLUSTERID BUCKET BUCKETNAME
+emr run CLUSTERID BUCKET BUCKETNAME</p>
+</dd>
+</dl>
+<p>This command is used to interface with Amazon Web Services
+Elastic Map Reduce (EMR) service to run Apache Spark jobs.
+It can start, list, and stop clusters and submit jobs to them.</p>
+<dl>
+<dt>Arguments:</dt><dd><p>CLUSTERID               The AWS Cluster ID.
+NAME                    The name of the cluster.
+FILE                    The local file to upload.
+BUCKET                  The name of the S3 bucket to use.
+BUCKETNAME              The name to file in the Bucket to use.</p>
+</dd>
+<dt>Options:</dt><dd><dl class="option-list">
+<dt><kbd><span class="option">--status=<var>STATUS</var></span></kbd></dt>
+<dd><p>The status to search for.  [default: all]</p>
+</dd>
+<dt><kbd><span class="option">--type=<var>TYPE</var></span></kbd></dt>
+<dd><p>The type of instance to search for.  [default: all]</p>
+</dd>
+<dt><kbd><span class="option">--format=<var>FORMAT</var></span></kbd></dt>
+<dd><p>How to format the output.  [default: table]</p>
+</dd>
+<dt><kbd><span class="option">--master=<var>MASTER</var></span></kbd></dt>
+<dd><p>The type of server to use for the master node. [default: m3.xlarge]</p>
+</dd>
+<dt><kbd><span class="option">--node=<var>NODE</var></span></kbd></dt>
+<dd><p>The type of server to use for the worker nodes. [default: m3.xlarge]</p>
+</dd>
+<dt><kbd><span class="option">--count=<var>COUNT</var></span></kbd></dt>
+<dd><p>The number of servers to use [default: 3]</p>
+</dd>
+<dt><kbd><span class="option">--state=<var>STATE</var></span></kbd></dt>
+<dd><p>The state of the job step to filter for.</p>
+</dd>
+</dl>
+</dd>
+<dt>Description:</dt><dd><dl class="simple">
+<dt>emr list clusters [–status=STATUS] [–format=FORMAT]</dt><dd><p>Lists all clusters viewable to the credentials with a given status [default: all]. Valid statuses are: start, boot, run, wait, terminating, shutdown, and error.</p>
+</dd>
+<dt>emr list instances [–status=STATUS…] [–format=FORMAT]</dt><dd><p>Lists all instances viewable to the credentials with a given status [default: all}. Valid statuses are: start, provision, boot, run, down. Valid types are: master, core, and task.</p>
+</dd>
+<dt>emr list steps CLUSTERID [–state=STATE…]</dt><dd><p>Lists all steps being performed by a cluster. Valid states are pending, canceling, running, completed cancelled, failed, and  interrupted</p>
+</dd>
+<dt>emr describe CLUSTERID</dt><dd><p>Describes a cluster. Lists its status, region, type, etc.</p>
+</dd>
+<dt>emr stop CLUSTERID</dt><dd><p>Stops a cluster. Once a shutdown is initiated, it cannot be undone.</p>
+</dd>
+<dt>emr start NAME [–master=MASTER] [–node=NODE] [–count=COUNT]</dt><dd><p>Starts a cluster with a given name, number of servers, and server type. Bootstraps with Hadoop and Spark.</p>
+</dd>
+<dt>emr copy BUCKET BUCKETNAME</dt><dd><p>Copy a file from S3 to the cluster’s master node.</p>
+</dd>
+<dt>emr run CLUSTERID BUCKET BUCKETNAME</dt><dd><p>Submit a spark application stored in an S3 bucket to the spark cluster.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
 
 
            </div>

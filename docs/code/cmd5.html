@@ -245,7 +245,375 @@
             
   <div class="section" id="module-cloudmesh.default.command.default">
 <span id="cmd5"></span><h1>3. CMD5<a class="headerlink" href="#module-cloudmesh.default.command.default" title="Permalink to this headline">¶</a></h1>
-<span class="target" id="module-cloudmesh.man.command.man"></span><span class="target" id="module-cloudmesh.set.command.set"></span><span class="target" id="module-cloudmesh.terminal.command.terminal"></span><span class="target" id="module-cloudmesh.var.command.var"></span><span class="target" id="module-cloudmesh.shell.command"></span><dl class="function">
+<dl class="class">
+<dt id="cloudmesh.default.command.default.DefaultCommand">
+<em class="property">class </em><code class="descclassname">cloudmesh.default.command.default.</code><code class="descname">DefaultCommand</code><a class="reference internal" href="../_modules/cloudmesh/default/command/default.html#DefaultCommand"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.default.command.default.DefaultCommand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cloudmesh.shell.command.PluginCommand" title="cloudmesh.shell.command.PluginCommand"><code class="xref py py-class docutils literal notranslate"><span class="pre">cloudmesh.shell.command.PluginCommand</span></code></a></p>
+<dl class="method">
+<dt id="cloudmesh.default.command.default.DefaultCommand.do_default">
+<code class="descname">do_default</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.default.command.default.DefaultCommand.do_default" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Usage</span><span class="p">:</span>
+    <span class="n">default</span> <span class="nb">list</span> <span class="p">[</span><span class="o">--</span><span class="n">context</span><span class="o">=</span><span class="n">CONTEXT</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="nb">format</span><span class="o">=</span><span class="n">FORMAT</span><span class="p">]</span>
+    <span class="n">default</span> <span class="n">delete</span> <span class="o">--</span><span class="n">context</span><span class="o">=</span><span class="n">CONTEXT</span>
+    <span class="n">default</span> <span class="n">delete</span> <span class="n">KEY</span> <span class="p">[</span><span class="o">--</span><span class="n">context</span><span class="o">=</span><span class="n">CONTEXT</span><span class="p">]</span>
+    <span class="n">default</span> <span class="n">KEY</span> <span class="p">[</span><span class="o">--</span><span class="n">context</span><span class="o">=</span><span class="n">CONTEXT</span><span class="p">]</span>
+    <span class="n">default</span> <span class="n">KEY</span><span class="o">=</span><span class="n">VALUE</span> <span class="p">[</span><span class="o">--</span><span class="n">CONTEXT</span><span class="o">=</span><span class="n">CONTEXT</span><span class="p">]</span>
+
+<span class="n">Arguments</span><span class="p">:</span>
+  <span class="n">KEY</span>    <span class="n">the</span> <span class="n">name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">default</span>
+  <span class="n">VALUE</span>  <span class="n">the</span> <span class="n">value</span> <span class="n">to</span> <span class="nb">set</span> <span class="n">the</span> <span class="n">key</span> <span class="n">to</span>
+
+<span class="n">Options</span><span class="p">:</span>
+   <span class="o">--</span><span class="n">context</span><span class="o">=</span><span class="n">CONTEXT</span>    <span class="n">the</span> <span class="n">name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">context</span>
+   <span class="o">--</span><span class="nb">format</span><span class="o">=</span><span class="n">FORMAT</span>  <span class="n">the</span> <span class="n">output</span> <span class="nb">format</span><span class="o">.</span> <span class="n">Values</span> <span class="n">include</span>
+                    <span class="n">table</span><span class="p">,</span> <span class="n">json</span><span class="p">,</span> <span class="n">csv</span><span class="p">,</span> <span class="n">yaml</span><span class="o">.</span>
+
+<span class="n">Description</span><span class="p">:</span>
+  <span class="n">Cloudmesh</span> <span class="n">has</span> <span class="n">the</span> <span class="n">ability</span> <span class="n">to</span> <span class="n">manage</span> <span class="n">easily</span> <span class="n">multiple</span>
+  <span class="n">clouds</span><span class="o">.</span> <span class="n">One</span> <span class="n">of</span> <span class="n">the</span> <span class="n">key</span> <span class="n">concepts</span> <span class="n">to</span> <span class="n">manage</span> <span class="n">multiple</span> <span class="n">clouds</span>
+  <span class="ow">is</span> <span class="n">to</span> <span class="n">use</span> <span class="n">defaults</span> <span class="k">for</span> <span class="n">the</span> <span class="n">cloud</span><span class="p">,</span> <span class="n">the</span> <span class="n">images</span><span class="p">,</span> <span class="n">flavors</span><span class="p">,</span>
+  <span class="ow">and</span> <span class="n">other</span> <span class="n">values</span><span class="o">.</span> <span class="n">The</span> <span class="n">default</span> <span class="n">command</span> <span class="ow">is</span> <span class="n">used</span> <span class="n">to</span> <span class="n">manage</span>
+  <span class="n">such</span> <span class="n">default</span> <span class="n">values</span><span class="o">.</span> <span class="n">These</span> <span class="n">defaults</span> <span class="n">are</span> <span class="n">used</span> <span class="ow">in</span> <span class="n">other</span> <span class="n">commands</span>
+  <span class="k">if</span> <span class="n">they</span> <span class="n">are</span> <span class="ow">not</span> <span class="n">overwritten</span> <span class="n">by</span> <span class="n">a</span> <span class="n">command</span> <span class="n">parameter</span><span class="o">.</span>
+
+  <span class="n">The</span> <span class="n">current</span> <span class="n">default</span> <span class="n">values</span> <span class="n">can</span> <span class="n">by</span> <span class="n">listed</span> <span class="k">with</span>
+
+      <span class="n">default</span> <span class="nb">list</span> <span class="o">--</span><span class="nb">all</span>
+
+  <span class="n">Via</span> <span class="n">the</span> <span class="n">default</span> <span class="n">command</span> <span class="n">you</span> <span class="n">can</span> <span class="nb">list</span><span class="p">,</span> <span class="nb">set</span><span class="p">,</span> <span class="n">get</span> <span class="ow">and</span> <span class="n">delete</span>
+  <span class="n">default</span> <span class="n">values</span><span class="o">.</span> <span class="n">You</span> <span class="n">can</span> <span class="nb">list</span> <span class="n">the</span> <span class="n">defaults</span> <span class="k">with</span>
+
+     <span class="n">default</span> <span class="nb">list</span>
+
+  <span class="n">A</span> <span class="n">default</span> <span class="n">can</span> <span class="n">be</span> <span class="nb">set</span> <span class="k">with</span>
+
+      <span class="n">default</span> <span class="n">KEY</span><span class="o">=</span><span class="n">VALUE</span>
+
+  <span class="n">To</span> <span class="n">look</span> <span class="n">up</span> <span class="n">a</span> <span class="n">default</span> <span class="n">value</span> <span class="n">you</span> <span class="n">can</span> <span class="n">say</span>
+
+      <span class="n">default</span> <span class="n">KEY</span>
+
+  <span class="n">A</span> <span class="n">default</span> <span class="n">can</span> <span class="n">be</span> <span class="n">deleted</span> <span class="k">with</span>
+
+      <span class="n">default</span> <span class="n">delete</span> <span class="n">KEY</span>
+
+  <span class="n">To</span> <span class="n">be</span> <span class="n">specific</span> <span class="n">to</span> <span class="n">a</span> <span class="n">cloud</span> <span class="n">you</span> <span class="n">can</span> <span class="n">specify</span> <span class="n">the</span> <span class="n">name</span> <span class="n">of</span> <span class="n">the</span>
+  <span class="n">cloud</span> <span class="k">with</span> <span class="n">the</span> <span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">CLOUD</span> <span class="n">option</span><span class="o">.</span> <span class="n">The</span> <span class="nb">list</span> <span class="n">command</span> <span class="n">can</span>
+  <span class="nb">print</span> <span class="n">the</span> <span class="n">information</span> <span class="ow">in</span> <span class="n">various</span> <span class="n">formats</span> <span class="n">iv</span> <span class="n">specified</span><span class="o">.</span>
+
+<span class="n">Examples</span><span class="p">:</span>
+  <span class="n">default</span> <span class="nb">list</span> <span class="o">--</span><span class="nb">all</span>
+      <span class="n">lists</span> <span class="nb">all</span> <span class="n">default</span> <span class="n">values</span>
+
+  <span class="n">default</span> <span class="nb">list</span> <span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">kilo</span>
+      <span class="n">lists</span> <span class="n">the</span> <span class="n">defaults</span> <span class="k">for</span> <span class="n">the</span> <span class="n">cloud</span> <span class="k">with</span> <span class="n">the</span> <span class="n">name</span> <span class="n">kilo</span>
+
+  <span class="n">default</span> <span class="n">image</span><span class="o">=</span><span class="n">xyz</span>
+      <span class="n">sets</span> <span class="n">the</span> <span class="n">default</span> <span class="n">image</span> <span class="k">for</span> <span class="n">the</span> <span class="n">default</span> <span class="n">cloud</span> <span class="n">to</span> <span class="n">xyz</span>
+
+  <span class="n">default</span> <span class="n">image</span><span class="o">=</span><span class="n">abc</span> <span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">kilo</span>
+      <span class="n">sets</span> <span class="n">the</span> <span class="n">default</span> <span class="n">image</span> <span class="k">for</span> <span class="n">the</span> <span class="n">cloud</span> <span class="n">kilo</span> <span class="n">to</span> <span class="n">xyz</span>
+
+  <span class="n">default</span> <span class="n">image</span>
+      <span class="nb">list</span> <span class="n">the</span> <span class="n">default</span> <span class="n">image</span> <span class="n">of</span> <span class="n">the</span> <span class="n">default</span> <span class="n">cloud</span>
+
+  <span class="n">default</span> <span class="n">image</span> <span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">kilo</span>
+      <span class="nb">list</span> <span class="n">the</span> <span class="n">default</span> <span class="n">image</span> <span class="n">of</span> <span class="n">the</span> <span class="n">cloud</span> <span class="n">kilo</span>
+
+  <span class="n">default</span> <span class="n">delete</span> <span class="n">image</span>
+      <span class="n">deletes</span> <span class="n">the</span> <span class="n">value</span> <span class="k">for</span> <span class="n">the</span> <span class="n">default</span> <span class="n">image</span> <span class="ow">in</span> <span class="n">the</span>
+      <span class="n">default</span> <span class="n">cloud</span>
+
+  <span class="n">default</span> <span class="n">delete</span> <span class="n">image</span> <span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">kilo</span>
+      <span class="n">deletes</span> <span class="n">the</span> <span class="n">value</span> <span class="k">for</span> <span class="n">the</span> <span class="n">default</span> <span class="n">image</span> <span class="ow">in</span> <span class="n">the</span>
+      <span class="n">cloud</span> <span class="n">kilo</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-cloudmesh.man.command.man"></span><dl class="class">
+<dt id="cloudmesh.man.command.man.ManCommand">
+<em class="property">class </em><code class="descclassname">cloudmesh.man.command.man.</code><code class="descname">ManCommand</code><a class="reference internal" href="../_modules/cloudmesh/man/command/man.html#ManCommand"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.man.command.man.ManCommand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cloudmesh.shell.command.PluginCommand" title="cloudmesh.shell.command.PluginCommand"><code class="xref py py-class docutils literal notranslate"><span class="pre">cloudmesh.shell.command.PluginCommand</span></code></a></p>
+<dl class="method">
+<dt id="cloudmesh.man.command.man.ManCommand.do_man">
+<code class="descname">do_man</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.man.command.man.ManCommand.do_man" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Usage</span><span class="p">:</span>
+       <span class="n">man</span> <span class="p">[</span><span class="o">--</span><span class="n">kind</span><span class="o">=</span><span class="n">FORMAT</span><span class="p">]</span> <span class="n">COMMAND</span>
+       <span class="n">man</span> <span class="p">[</span><span class="o">--</span><span class="n">kind</span><span class="o">=</span><span class="n">FORMAT</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">noheader</span><span class="p">]</span>
+
+<span class="n">Options</span><span class="p">:</span>
+       <span class="o">--</span><span class="n">noheader</span>  <span class="n">no</span> <span class="n">rst</span> <span class="n">header</span>
+
+<span class="n">Arguments</span><span class="p">:</span>
+       <span class="n">COMMAND</span>   <span class="n">the</span> <span class="n">command</span> <span class="n">to</span> <span class="n">be</span> <span class="n">printed</span>
+
+<span class="n">Description</span><span class="p">:</span>
+    <span class="n">man</span>
+        <span class="n">Prints</span> <span class="n">out</span> <span class="n">the</span> <span class="n">help</span> <span class="n">pages</span>
+    <span class="n">man</span> <span class="n">COMMAND</span>
+        <span class="n">Prints</span> <span class="n">out</span> <span class="n">the</span> <span class="n">help</span> <span class="n">page</span> <span class="k">for</span> <span class="n">a</span> <span class="n">specific</span> <span class="n">command</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-cloudmesh.set.command.set"></span><dl class="class">
+<dt id="cloudmesh.set.command.set.SetCommand">
+<em class="property">class </em><code class="descclassname">cloudmesh.set.command.set.</code><code class="descname">SetCommand</code><a class="reference internal" href="../_modules/cloudmesh/set/command/set.html#SetCommand"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.set.command.set.SetCommand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cloudmesh.shell.command.PluginCommand" title="cloudmesh.shell.command.PluginCommand"><code class="xref py py-class docutils literal notranslate"><span class="pre">cloudmesh.shell.command.PluginCommand</span></code></a></p>
+<dl class="method">
+<dt id="cloudmesh.set.command.set.SetCommand.do_set">
+<code class="descname">do_set</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.set.command.set.SetCommand.do_set" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Usage:
+  set list
+  set clear
+  set delete NAME
+  set NAME=VALUE
+  set NAME
+
+Arguments:
+  NAME      the name of the set variable
+  VALUE     the value of the set variable
+  FILENAME  the filename of the set variable
+
+Description:
+  Manage persistent set variables
+
+  set NAME=VALUE
+     sets the set variable with the name to the value
+     if the value is one of data, time, now it will be 
+     replaced with the value at this time, the format will be
+      date    2017-04-14
+      time    11:30:33
+      now     2017-04-14 11:30:41
+  It will wbe replaced accordingly    
+
+  The value can also refer to another setiable name.
+  In this case the current value will be copied in the named
+  setiable. As we use the $ sign it is important to distinguish
+  shell set variables from cms setiables while using proper quoting.
+
+  Examples include:
+
+     cms set a=\$b
+     cms set &#39;a=$b&#39;
+     cms set a=val.b
+
+  The previous command copy the value from b to a. The val command
+  was added to avoid quoting.
+
+  A special variable is the variable verbose. It results in additional
+  debug output. The following values apply
+
+     0 - no additional output
+    10 - most visible.
+         Prints all arguments from commands
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-cloudmesh.terminal.command.terminal"></span><dl class="class">
+<dt id="cloudmesh.terminal.command.terminal.TerminalCommand">
+<em class="property">class </em><code class="descclassname">cloudmesh.terminal.command.terminal.</code><code class="descname">TerminalCommand</code><a class="reference internal" href="../_modules/cloudmesh/terminal/command/terminal.html#TerminalCommand"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.terminal.command.terminal.TerminalCommand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cloudmesh.shell.command.PluginCommand" title="cloudmesh.shell.command.PluginCommand"><code class="xref py py-class docutils literal notranslate"><span class="pre">cloudmesh.shell.command.PluginCommand</span></code></a></p>
+<dl class="method">
+<dt id="cloudmesh.terminal.command.terminal.TerminalCommand.do_banner">
+<code class="descname">do_banner</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.terminal.command.terminal.TerminalCommand.do_banner" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Usage</span><span class="p">:</span>
+  <span class="n">banner</span> <span class="p">[</span><span class="o">-</span><span class="n">c</span> <span class="n">CHAR</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">n</span> <span class="n">WIDTH</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">i</span> <span class="n">INDENT</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">r</span> <span class="n">COLOR</span><span class="p">]</span> <span class="n">TEXT</span><span class="o">...</span>
+
+<span class="n">Arguments</span><span class="p">:</span>
+  <span class="n">TEXT</span><span class="o">...</span>   <span class="n">The</span> <span class="n">text</span> <span class="n">message</span> <span class="kn">from</span> <span class="nn">which</span> <span class="n">to</span> <span class="n">create</span> <span class="n">the</span> <span class="n">banner</span>
+  <span class="n">CHAR</span>      <span class="n">The</span> <span class="n">character</span> <span class="k">for</span> <span class="n">the</span> <span class="n">frame</span><span class="o">.</span>
+  <span class="n">WIDTH</span>     <span class="n">Width</span> <span class="n">of</span> <span class="n">the</span> <span class="n">banner</span>
+  <span class="n">INDENT</span>    <span class="n">indentation</span> <span class="n">of</span> <span class="n">the</span> <span class="n">banner</span>
+  <span class="n">COLOR</span>     <span class="n">the</span> <span class="n">color</span>
+
+  <span class="n">Options</span><span class="p">:</span>
+      <span class="o">-</span><span class="n">c</span> <span class="n">CHAR</span>   <span class="n">The</span> <span class="n">character</span> <span class="k">for</span> <span class="n">the</span> <span class="n">frame</span><span class="o">.</span> <span class="p">[</span><span class="n">default</span><span class="p">:</span> <span class="c1">#]</span>
+      <span class="o">-</span><span class="n">n</span> <span class="n">WIDTH</span>  <span class="n">The</span> <span class="n">width</span> <span class="n">of</span> <span class="n">the</span> <span class="n">banner</span><span class="o">.</span> <span class="p">[</span><span class="n">default</span><span class="p">:</span> <span class="mi">70</span><span class="p">]</span>
+      <span class="o">-</span><span class="n">i</span> <span class="n">INDENT</span>  <span class="n">The</span> <span class="n">width</span> <span class="n">of</span> <span class="n">the</span> <span class="n">banner</span><span class="o">.</span> <span class="p">[</span><span class="n">default</span><span class="p">:</span> <span class="mi">0</span><span class="p">]</span>
+      <span class="o">-</span><span class="n">r</span> <span class="n">COLOR</span>  <span class="n">The</span> <span class="n">color</span> <span class="n">of</span> <span class="n">the</span> <span class="n">banner</span><span class="o">.</span> <span class="p">[</span><span class="n">default</span><span class="p">:</span> <span class="n">BLACK</span><span class="p">]</span>
+
+  <span class="n">Prints</span> <span class="n">a</span> <span class="n">banner</span> <span class="n">form</span> <span class="n">a</span> <span class="n">one</span> <span class="n">line</span> <span class="n">text</span> <span class="n">message</span><span class="o">.</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.terminal.command.terminal.TerminalCommand.do_clear">
+<code class="descname">do_clear</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.terminal.command.terminal.TerminalCommand.do_clear" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Usage</span><span class="p">:</span>
+  <span class="n">clear</span>
+
+
+
+<span class="n">Clears</span> <span class="n">the</span> <span class="n">screen</span><span class="o">.</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.terminal.command.terminal.TerminalCommand.do_echo">
+<code class="descname">do_echo</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.terminal.command.terminal.TerminalCommand.do_echo" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Usage</span><span class="p">:</span>
+  <span class="n">echo</span>  <span class="p">[</span><span class="o">-</span><span class="n">r</span> <span class="n">COLOR</span><span class="p">]</span> <span class="n">TEXT</span>
+
+  <span class="n">Arguments</span><span class="p">:</span>
+      <span class="n">TEXT</span>   <span class="n">The</span> <span class="n">text</span> <span class="n">message</span> <span class="n">to</span> <span class="nb">print</span>
+      <span class="n">COLOR</span>  <span class="n">the</span> <span class="n">color</span>
+
+  <span class="n">Options</span><span class="p">:</span>
+      <span class="o">-</span><span class="n">r</span> <span class="n">COLOR</span>  <span class="n">The</span> <span class="n">color</span> <span class="n">of</span> <span class="n">the</span> <span class="n">text</span><span class="o">.</span> <span class="p">[</span><span class="n">default</span><span class="p">:</span> <span class="n">BLACK</span><span class="p">]</span>
+
+  <span class="n">Prints</span> <span class="n">a</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">given</span> <span class="n">color</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.terminal.command.terminal.TerminalCommand.do_pause">
+<code class="descname">do_pause</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.terminal.command.terminal.TerminalCommand.do_pause" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Usage</span><span class="p">:</span>
+  <span class="n">pause</span> <span class="p">[</span><span class="n">MESSAGE</span><span class="p">]</span>
+
+<span class="n">Arguments</span><span class="p">:</span>
+  <span class="n">MESSAGE</span>  <span class="n">message</span> <span class="n">to</span> <span class="n">be</span> <span class="n">displayed</span>
+
+<span class="n">Description</span><span class="p">:</span>
+  <span class="n">Displays</span> <span class="n">the</span> <span class="n">specified</span> <span class="n">text</span> <span class="n">then</span> <span class="n">waits</span> <span class="k">for</span> <span class="n">the</span> <span class="n">user</span> <span class="n">to</span> <span class="n">press</span> <span class="n">RETURN</span><span class="o">.</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.terminal.command.terminal.TerminalCommand.do_sleep">
+<code class="descname">do_sleep</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.terminal.command.terminal.TerminalCommand.do_sleep" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Usage</span><span class="p">:</span>
+  <span class="n">sleep</span> <span class="n">SECONDS</span>
+
+<span class="n">Clears</span> <span class="n">the</span> <span class="n">screen</span><span class="o">.</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.terminal.command.terminal.TerminalCommand.do_stopwatch">
+<code class="descname">do_stopwatch</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.terminal.command.terminal.TerminalCommand.do_stopwatch" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Usage</span><span class="p">:</span>
+  <span class="n">stopwatch</span> <span class="n">start</span> <span class="n">TIMER</span>
+  <span class="n">stopwatch</span> <span class="n">stop</span> <span class="n">TIMER</span>
+  <span class="n">stopwatch</span> <span class="nb">print</span> <span class="p">[</span><span class="n">TIMER</span><span class="p">]</span>
+  <span class="n">stopwatch</span> <span class="n">benchmark</span>
+
+<span class="n">Arguments</span><span class="p">:</span>
+  <span class="n">TIMER</span>  <span class="n">the</span> <span class="n">name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">timer</span>
+
+<span class="n">Description</span><span class="p">:</span>
+  <span class="n">THIS</span> <span class="n">IS</span> <span class="n">NOT</span> <span class="n">YET</span> <span class="n">WORKING</span>
+  <span class="n">starts</span> <span class="ow">and</span> <span class="n">stops</span> <span class="n">named</span> <span class="n">timers</span> <span class="ow">and</span> <span class="n">prints</span> <span class="n">them</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.terminal.command.terminal.TerminalCommand.set_banner">
+<code class="descname">set_banner</code><span class="sig-paren">(</span><em>banner</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/terminal/command/terminal.html#TerminalCommand.set_banner"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.terminal.command.terminal.TerminalCommand.set_banner" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.terminal.command.terminal.TerminalCommand.set_verbose">
+<code class="descname">set_verbose</code><span class="sig-paren">(</span><em>on</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/terminal/command/terminal.html#TerminalCommand.set_verbose"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.terminal.command.terminal.TerminalCommand.set_verbose" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-cloudmesh.var.command.var"></span><dl class="class">
+<dt id="cloudmesh.var.command.var.VarCommand">
+<em class="property">class </em><code class="descclassname">cloudmesh.var.command.var.</code><code class="descname">VarCommand</code><a class="reference internal" href="../_modules/cloudmesh/var/command/var.html#VarCommand"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.var.command.var.VarCommand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cloudmesh.shell.command.PluginCommand" title="cloudmesh.shell.command.PluginCommand"><code class="xref py py-class docutils literal notranslate"><span class="pre">cloudmesh.shell.command.PluginCommand</span></code></a></p>
+<dl class="method">
+<dt id="cloudmesh.var.command.var.VarCommand.do_var">
+<code class="descname">do_var</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.var.command.var.VarCommand.do_var" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Usage:
+    var list
+    var clear
+    var delete NAME
+    var NAME=VALUE
+    var NAME
+
+Arguments:
+    NAME      the name of the variable
+    VALUE     the value of the variable
+    FILENAME  the filename of the variable
+Description:
+    Manage persistent variables
+
+    var NAME=VALUE
+       sets the variable with the name to the value
+       if the value is one of data, time, now it will be
+       replaced with the value at this time, the format will be
+        date    2017-04-14
+        time    11:30:33
+        now     2017-04-14 11:30:41
+    It will wbe replaced accordingly
+
+    The value can also refer to another variable name.
+    In this case the current value will be copied in the named
+    variable. As we use the $ sign it is important to distinguish
+    shell variables from cms variables while using proper quoting.
+
+    Examples include:
+
+       cms var a=\$b
+       cms var &#39;a=$b&#39;
+       cms var a=val.b
+
+    The previous command copy the value from b to a. The val command
+    was added to avoid quoting.
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-cloudmesh.shell.command"></span><dl class="class">
+<dt id="cloudmesh.shell.command.CloudPluginCommand">
+<em class="property">class </em><code class="descclassname">cloudmesh.shell.command.</code><code class="descname">CloudPluginCommand</code><a class="reference internal" href="../_modules/cloudmesh/shell/command.html#CloudPluginCommand"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.shell.command.CloudPluginCommand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="cloudmesh.shell.command.CometPluginCommand">
+<em class="property">class </em><code class="descclassname">cloudmesh.shell.command.</code><code class="descname">CometPluginCommand</code><a class="reference internal" href="../_modules/cloudmesh/shell/command.html#CometPluginCommand"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.shell.command.CometPluginCommand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="cloudmesh.shell.command.HPCPluginCommand">
+<em class="property">class </em><code class="descclassname">cloudmesh.shell.command.</code><code class="descname">HPCPluginCommand</code><a class="reference internal" href="../_modules/cloudmesh/shell/command.html#HPCPluginCommand"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.shell.command.HPCPluginCommand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="cloudmesh.shell.command.PluginCommand">
+<em class="property">class </em><code class="descclassname">cloudmesh.shell.command.</code><code class="descname">PluginCommand</code><a class="reference internal" href="../_modules/cloudmesh/shell/command.html#PluginCommand"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.shell.command.PluginCommand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="cloudmesh.shell.command.ShellPluginCommand">
+<em class="property">class </em><code class="descclassname">cloudmesh.shell.command.</code><code class="descname">ShellPluginCommand</code><a class="reference internal" href="../_modules/cloudmesh/shell/command.html#ShellPluginCommand"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.shell.command.ShellPluginCommand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+</dd></dl>
+
+<dl class="function">
 <dt id="cloudmesh.shell.command.basecommand">
 <code class="descclassname">cloudmesh.shell.command.</code><code class="descname">basecommand</code><span class="sig-paren">(</span><em>func</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/shell/command.html#basecommand"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.shell.command.basecommand" title="Permalink to this definition">¶</a></dt>
 <dd><p>A decorator to create a function with docopt arguments.
@@ -324,10 +692,32 @@ and  –cloud=CLOUD is mapped to arguments[“cloud”]</p>
 <p>arguments.cloud</p>
 </dd></dl>
 
-<span class="target" id="module-cloudmesh.shell.variables"></span><span class="target" id="module-cloudmesh.shell.shell"></span><dl class="class">
+<span class="target" id="module-cloudmesh.shell.variables"></span><dl class="class">
+<dt id="cloudmesh.shell.variables.Variables">
+<em class="property">class </em><code class="descclassname">cloudmesh.shell.variables.</code><code class="descname">Variables</code><span class="sig-paren">(</span><em>filename=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/shell/variables.html#Variables"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.shell.variables.Variables" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="method">
+<dt id="cloudmesh.shell.variables.Variables.clear">
+<code class="descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/shell/variables.html#Variables.clear"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.shell.variables.Variables.clear" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.shell.variables.Variables.close">
+<code class="descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/shell/variables.html#Variables.close"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.shell.variables.Variables.close" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-cloudmesh.shell.shell"></span><dl class="class">
 <dt id="cloudmesh.shell.shell.CMShell">
 <em class="property">class </em><code class="descclassname">cloudmesh.shell.shell.</code><code class="descname">CMShell</code><span class="sig-paren">(</span><em>completekey='tab'</em>, <em>stdin=None</em>, <em>stdout=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/shell/shell.html#CMShell"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.shell.shell.CMShell" title="Permalink to this definition">¶</a></dt>
-<dd><p>The command shell that inherits all commands from PluginCommand</p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/cmd.html#cmd.Cmd" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">cmd.Cmd</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">cloudmesh.shell.shell.CommandProxyClass</span></code></p>
+<p>The command shell that inherits all commands from PluginCommand</p>
+<dl class="attribute">
+<dt id="cloudmesh.shell.shell.CMShell.banner">
+<code class="descname">banner</code><em class="property"> = &quot;\n+-------------------------------------------------------+\n|   ____ _                 _                     _      |\n|  / ___| | ___  _   _  __| |_ __ ___   ___  ___| |__   |\n| | |   | |/ _ \\| | | |/ _` | '_ ` _ \\ / _ \\/ __| '_ \\  |\n| | |___| | (_) | |_| | (_| | | | | | |  __/\\__ \\ | | | |\n|  \\____|_|\\___/ \\__,_|\\__,_|_| |_| |_|\\___||___/_| |_| |\n+-------------------------------------------------------+\n|                  Cloudmesh CMD5 Shell                 |\n+-------------------------------------------------------+\n&quot;</em><a class="headerlink" href="#cloudmesh.shell.shell.CMShell.banner" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="method">
 <dt id="cloudmesh.shell.shell.CMShell.do_EOF">
 <code class="descname">do_EOF</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/shell/shell.html#CMShell.do_EOF"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.shell.shell.CMShell.do_EOF" title="Permalink to this definition">¶</a></dt>
@@ -510,12 +900,23 @@ interpreted, but after the input prompt is generated and issued.</p>
 <dd><p>adds the banner to the preloop</p>
 </dd></dl>
 
+<dl class="attribute">
+<dt id="cloudmesh.shell.shell.CMShell.prompt">
+<code class="descname">prompt</code><em class="property"> = 'cms&gt; '</em><a class="headerlink" href="#cloudmesh.shell.shell.CMShell.prompt" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.shell.shell.CMShell.replace_vars">
+<code class="descname">replace_vars</code><span class="sig-paren">(</span><em>line</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/shell/shell.html#CMShell.replace_vars"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.shell.shell.CMShell.replace_vars" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </dd></dl>
 
 <dl class="class">
 <dt id="cloudmesh.shell.shell.Plugin">
 <em class="property">class </em><code class="descclassname">cloudmesh.shell.shell.</code><code class="descname">Plugin</code><a class="reference internal" href="../_modules/cloudmesh/shell/shell.html#Plugin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.shell.shell.Plugin" title="Permalink to this definition">¶</a></dt>
-<dd><p>Some simple methods to manage dynamic namespace plugins for cloudmesh.</p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Some simple methods to manage dynamic namespace plugins for cloudmesh.</p>
 <dl class="classmethod">
 <dt id="cloudmesh.shell.shell.Plugin.class_name">
 <em class="property">classmethod </em><code class="descname">class_name</code><span class="sig-paren">(</span><em>command</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/shell/shell.html#Plugin.class_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.shell.shell.Plugin.class_name" title="Permalink to this definition">¶</a></dt>
@@ -530,6 +931,11 @@ interpreted, but after the input prompt is generated and issued.</p>
 <dd><p>list of the commands in the cloudmesh namespace under cloudmesh.command
 :return: list of the commands</p>
 </dd></dl>
+
+<dl class="staticmethod">
+<dt id="cloudmesh.shell.shell.Plugin.list">
+<em class="property">static </em><code class="descname">list</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/shell/shell.html#Plugin.list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.shell.shell.Plugin.list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="classmethod">
 <dt id="cloudmesh.shell.shell.Plugin.load">
@@ -579,6 +985,16 @@ Otherwise the commands can be explicitly specified with</p>
 </dd></dl>
 
 <dl class="function">
+<dt id="cloudmesh.shell.shell.get_class">
+<code class="descclassname">cloudmesh.shell.shell.</code><code class="descname">get_class</code><span class="sig-paren">(</span><em>str</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/shell/shell.html#get_class"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.shell.shell.get_class" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="cloudmesh.shell.shell.inheritors">
+<code class="descclassname">cloudmesh.shell.shell.</code><code class="descname">inheritors</code><span class="sig-paren">(</span><em>klass</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/shell/shell.html#inheritors"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.shell.shell.inheritors" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
 <dt id="cloudmesh.shell.shell.main">
 <code class="descclassname">cloudmesh.shell.shell.</code><code class="descname">main</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/shell/shell.html#main"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.shell.shell.main" title="Permalink to this definition">¶</a></dt>
 <dd><p>cms.</p>
@@ -615,7 +1031,39 @@ otherwise quit [default: False]</p>
 :param elements: the elements to be printed</p>
 </dd></dl>
 
-<span class="target" id="module-cloudmesh.shell.plugin"></span></div>
+<span class="target" id="module-cloudmesh.shell.plugin"></span><dl class="class">
+<dt id="cloudmesh.shell.plugin.PluginManager">
+<em class="property">class </em><code class="descclassname">cloudmesh.shell.plugin.</code><code class="descname">PluginManager</code><a class="reference internal" href="../_modules/cloudmesh/shell/plugin.html#PluginManager"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.shell.plugin.PluginManager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="method">
+<dt id="cloudmesh.shell.plugin.PluginManager.load">
+<code class="descname">load</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/shell/plugin.html#PluginManager.load"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.shell.plugin.PluginManager.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>loads the plugins form the plugin.yml file in github</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.shell.plugin.PluginManager.pip_install">
+<code class="descname">pip_install</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/shell/plugin.html#PluginManager.pip_install"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.shell.plugin.PluginManager.pip_install" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.shell.plugin.PluginManager.source_install">
+<code class="descname">source_install</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/shell/plugin.html#PluginManager.source_install"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.shell.plugin.PluginManager.source_install" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.shell.plugin.PluginManager.uninstall">
+<code class="descname">uninstall</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/shell/plugin.html#PluginManager.uninstall"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.shell.plugin.PluginManager.uninstall" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
 
 
            </div>
