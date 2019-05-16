@@ -108,7 +108,9 @@ CODE
    dev/conventions
    dev/management
    dev/pytest
+   dev/manual
    dev/todo
+
 
 Cloud Provider Accounts
 ========================
