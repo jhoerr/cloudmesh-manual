@@ -145,6 +145,85 @@ It will take a while to install On newer machines 1 minte, on older
 significant longer. You can than test if
 
 
+Installation with cloudmesh-installer
+-------------------------------------
+This is by far the most convenient way of installing and managing the cloudmesh bundles and packages.
+
+
+cloudmesh-installer in Ubuntu
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+To install ``cloudmesh-installer`` in Linux, we first need to make sure that
+the correct version of the Python3 is
+installed (version 3.7.3).
+
+.. code:: bash
+
+    sudo apt-get update
+    sudo apt install software-properties-common
+    sudo add-apt-repository ppa:deadsnakes/ppa
+    sudo apt-get install python3.7 python3-dev python3.7-dev
+
+The default version of Python on Ubuntu 18.04 is 3.6 and you can get that
+version using ``python3 --version``. You can then check the installed version
+ using ``python3.7 --version`` which should be ``3.7.3``.
+
+Now we will create a new virtual environment:
+
+.. code:: bash
+
+    python3.7 -m venv --without-pip ~/ENV3
+
+The edit the ``~/.bashrc`` file and add the following line at the end:
+
+.. code:: bash
+
+    alias ENV3="source ~/ENV3/bin/activate"
+    ENV3
+
+now activate the virtual environment using:
+
+.. code:: bash
+
+    source ~/.bashrc
+
+now you can install the pip for the virtual environment without conflicting
+with the native pip:
+
+.. code:: bash
+
+    curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
+    python get-pip.py
+    rm get-pip.py
+
+now you should be able to install ``cloudmesh-installer``:
+
+.. code:: bash
+
+    pip install cloudmesh-installer
+
+After ``cloudmesh-installer`` is installed, you can then install the ``cms``
+using the following command:
+
+.. code:: bash
+
+    cloudmesh-installer install cms -e
+
+Test the ``cms`` installation using:
+
+.. code:: bash
+
+    cms help
+
+You can now get the list of available bundles and install the bundle of your
+choice. The following example gets the list of bundles and installs the
+``storage``:
+
+.. code:: bash
+
+    cloudmesh-installer bundles
+    cloudmesh-installer install storage -e
+
+
 Installation of mongod
 ----------------------
 
