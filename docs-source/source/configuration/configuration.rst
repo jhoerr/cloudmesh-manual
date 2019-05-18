@@ -10,20 +10,42 @@ from the template located at
 You can customize the file while editing it.
 
 
-
-
-
 Cloudmesh Yaml File Object definitions
 --------------------------------------
+
+Getting Values
+--------------
+
+We implemented a convenient get method in case you need to look up some values in the configuration file. For example::
+
+    cms config get cloudmesh.profile
+    cms config get cloudmesh.profile.firstname
+
+print information out. While the first points to a dict, it prints aout all the avlues form that dict, the last is an
+attribute and just prints out the attribute and its value.
 
 Setting values
 --------------
 
-.. todo:: we need to locate the command that allows us to set the values in the config file. We have such a command ;-)
-          create a link to this command from here. explain how to set arbitrary values
+In addition if you need to set quickly a value in the configuration file you can do this with::
 
-          look for the command config ...
+    cms config get cloudmesh.profile.firstname=Gregor
 
+Will set the firstname in the profiles to Gregor
+
+This command at thsi time does not work on dicts, so you need to define eacxh attribute.
+
+Editing Values
+--------------
+
+IN case the values in the yaml file are having a TBD the can also be editit with our build in command that required you
+tospecify the dict in which such values occur.
+
+For example, letus assume the value in cloudmesh.provil.firstname is TBD then, the command::
+
+    cms config edit cloudmesh.profile
+
+Can be used to change it.
 
 Advanced Yaml Variables
 -----------------------
