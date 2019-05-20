@@ -141,13 +141,13 @@ IN case you do not yet have a credentials choose the Security credentials tab
 and then choose Create access key. To see the new access key, choose Show. 
 Your credentials will look something like this:
 
-   Access key ID: AKIAIOSFODNN7EXAMPLE
-   Secret access key: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+   Access key ID: AAABBCCHHH7EXAMPLE
+   Secret access key: wJalrXUtnFhsjlashlkjh/bPxRfiCYEXAMPLEKEY
 
 To download the key pair, choose Download .csv file. Store the keys in a 
 secure location and do not by default store them in the Downloads folder. 
 We recommend that you store is in ~/.cloudmesh, but before doing so make sure
- the permissions for ~/.cloudmesh are restricted,
+the permissions for ~/.cloudmesh are restricted,
  
 
 ## Compute Service

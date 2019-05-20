@@ -269,6 +269,7 @@
 <span class="sd">                open FILENAME</span>
 <span class="sd">                open doc local</span>
 <span class="sd">                open doc</span>
+<span class="sd">                open account aws [NAME]</span>
 
 
 <span class="sd">            Arguments:</span>
@@ -293,12 +294,24 @@
 <span class="sd">                open chameleon vm</span>
 <span class="sd">                    starts horizon for virtual machines</span>
 
+<span class="sd">                open account aws [NAME]</span>
+<span class="sd">                    opens the aws users web page, if the NAME is users or is</span>
+<span class="sd">                    ommitted, it goes to the page that allows you to create a user</span>
+
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="c1"># pprint(arguments)</span>
         <span class="n">filename</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">FILENAME</span>
 
-        <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">baremetal</span> <span class="ow">and</span> <span class="n">arguments</span><span class="o">.</span><span class="n">tacc</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">aws</span> <span class="ow">and</span> <span class="n">arguments</span><span class="o">.</span><span class="n">account</span><span class="p">:</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">NAME</span> <span class="ow">or</span> <span class="s2">&quot;users&quot;</span>
+
+            <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;users&quot;</span><span class="p">:</span>
+                <span class="n">filename</span> <span class="o">=</span> <span class="n">f</span><span class="s2">&quot;https://console.aws.amazon.com/iam/home#/users&quot;</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;https://console.aws.amazon.com/iam/home#/users&quot;</span> \
+                         <span class="n">f</span><span class="s2">&quot;/</span><span class="si">{name}</span><span class="s2">?section=security_credentials&quot;</span>
+        <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">baremetal</span> <span class="ow">and</span> <span class="n">arguments</span><span class="o">.</span><span class="n">tacc</span><span class="p">:</span>
             <span class="n">filename</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="s2">&quot;https://chi.tacc.chameleoncloud.org&quot;</span><span class="p">)</span>
         <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">baremetal</span> <span class="ow">and</span> <span class="n">arguments</span><span class="o">.</span><span class="n">uc</span><span class="p">:</span>
             <span class="n">filename</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="s2">&quot;https://chi.uc.chameleoncloud.org&quot;</span><span class="p">)</span>
@@ -311,6 +324,10 @@
         <span class="k">elif</span> <span class="n">filename</span> <span class="o">==</span> <span class="s2">&quot;doc&quot;</span><span class="p">:</span>
             <span class="c1"># filename = &quot;https://cloudmesh-community.github.io/&quot;</span>
             <span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;https://cloudmesh.github.io/cloudmesh-manual/&quot;</span>
+
+
+
+
 
         <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">filename</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;file:&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">filename</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;http&quot;</span><span class="p">)):</span>
 
