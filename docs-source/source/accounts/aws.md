@@ -106,6 +106,45 @@ cloudmesh services. This is especially of interest if you use cloudmesh
 to manage your storage and computational needs while laso being able to
 leverage other clouds.
 
+
+## Access key
+
+Now that you have an account it is necessarry that you can authenticate to your 
+cloud account from a program or a command line. The isntructions for this are
+ copied from 
+
+* <https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html>
+
+You will need to open the IAM console at
+
+* <https://console.aws.amazon.com/iam/home?#home>
+
+Here you do the following:
+
+1. In the navigation pane of the console, choose Users.
+
+2. Choose your IAM user name (not the check box).
+
+3. Choose the Security credentials tab and then choose Create access key.
+
+4. To see the new access key, choose Show. Your credentials will look something
+   like this:
+
+   Access key ID: AKIAIOSFODNN7EXAMPLE
+   Secret access key: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+
+To download the key pair, choose Download .csv file. Store the keys in a 
+secure location and do not by default store them in the Downloads folder. 
+We recommend that you store is in ~/.cloudmesh, but before doing so make sure
+ the permissions for ~/.cloudmesh are restricted,
+ 
+You can locate the page also by replacing YOURUSERNAME with your AWS username
+ in the following link 
+
+* <https://console.aws.amazon
+.com/iam/home?#/users/YOURUSERNAME?section=security_credentials>
+
+
 ## Compute Service
 
 - [ ] TODO: Aws EC2 account. Describe here if there is anything to be done for
