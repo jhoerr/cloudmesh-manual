@@ -127,7 +127,7 @@ Now, select `Storage Account` from the options shown
 
 ![AZ-Account](images/azure-account.png)
 
-Follow the following steps carefully:
+Follow the  steps carefully:
 
 1.  Select the subscription in which to create the storage account.
 2.  Under the `Resource group` field, select Create new.
