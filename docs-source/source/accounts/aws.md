@@ -22,7 +22,8 @@ Here we are especially interested in using the following services:
 We provide a step-by-step guide on how to create an AWS account through
 the AWS webpage to utilize these services. For more information you can 
 consult the 
-[AWS Web pages](https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/).
+[AWS FAQ](https://aws.amazon.com/premiumsupport/knowledge-center/create-and
+-activate-aws-account/).
 
 First, we go to the AWS website
 
