@@ -77,7 +77,8 @@ Ubuntu OS. First, make sure you have an up to date OS and that curl is
 installed with:
 
 ```bash
-$ sudo apt-get update $ sudo apt-get install curl 
+$ sudo apt-get update 
+$ sudo apt-get install curl 
 ```
 
 The instalation is conducted with the following command that you will
