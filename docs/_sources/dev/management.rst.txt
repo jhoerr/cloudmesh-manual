@@ -32,6 +32,36 @@ paragraph features. On macOS this can be called with
 .. todo:: explain how to set the fill paragraph in pycharm to CTRL SHIFT
 COMMAND P
 
+
+Contributing to documentation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+All of the documentations are in the ``cloudmesh-manual`` repository which is
+automatically cloned when installing the cloudmesh using ``cloudmesh-installer``
+. The documentation source files are located in ``docs-source`` folder inside
+the ``cloudmesh-manual`` repository.
+
+It's very important to build the documentation locally and test the
+modifications before pushing them to the remote. To build the documentation
+locally you first, make sure that the proper virtual environment is
+activated, then you need to install the requirements and make the
+documentation:
+
+.. code:: bash
+
+    cd cloudmesh-manual
+    pip install -r requirements.txt
+    make doc
+    make manual
+    make doc
+    make view
+
+After this you can open the documentation located at
+``cloudmesh-manual/docs/index.html`` in the browser of your choice. Then
+after changes and modifications to the documentations, you can build the
+documentation locally and see the effect locally using ``make doc`` within
+the ``cloudmesh-manual`` folder.
+
 Version Management
 ------------------
 

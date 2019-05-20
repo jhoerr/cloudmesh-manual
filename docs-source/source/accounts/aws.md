@@ -106,29 +106,40 @@ cloudmesh services. This is especially of interest if you use cloudmesh
 to manage your storage and computational needs while laso being able to
 leverage other clouds.
 
+- [ ] To do verify  this works and you ahve created a user.
 
-## Access key
+## Access Key
 
 Now that you have an account it is necessarry that you can authenticate to your 
-cloud account from a program or a command line. The isntructions for this are
- copied from 
+cloud account from a program or a command line. The isntructions for this can
+ be found at 
 
 * <https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html>
 
-You will need to open the IAM console at
+However, it is far easier to use the convenient cloudmesh tools by just using
+the cloudmesh open command.
+ 
+In case you have not yet added a user, you can visit the user creation bage 
+with 
 
-* <https://console.aws.amazon.com/iam/home?#home>
+```
+$ cms open account aws 
+```
 
-Here you do the following:
+To obtain the keys for an already existing account or the one that you just 
+created you avn use the command
+ 
+ ```bash
+$cms open account aws NAME
+ ```
+ 
+This command will open a browser windo to the credential page of AWS. PLease
+replace the NAME with your username that you created when you added your 
+user to the IAM.
 
-1. In the navigation pane of the console, choose Users.
-
-2. Choose your IAM user name (not the check box).
-
-3. Choose the Security credentials tab and then choose Create access key.
-
-4. To see the new access key, choose Show. Your credentials will look something
-   like this:
+IN case you do not yet have a credentials choose the Security credentials tab 
+and then choose Create access key. To see the new access key, choose Show. 
+Your credentials will look something like this:
 
    Access key ID: AKIAIOSFODNN7EXAMPLE
    Secret access key: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
@@ -138,12 +149,6 @@ secure location and do not by default store them in the Downloads folder.
 We recommend that you store is in ~/.cloudmesh, but before doing so make sure
  the permissions for ~/.cloudmesh are restricted,
  
-You can locate the page also by replacing YOURUSERNAME with your AWS username
- in the following link 
-
-* <https://console.aws.amazon
-.com/iam/home?#/users/YOURUSERNAME?section=security_credentials>
-
 
 ## Compute Service
 

@@ -252,6 +252,7 @@
 <span class="kn">import</span> <span class="nn">textwrap</span>
 <span class="kn">import</span> <span class="nn">subprocess</span>
 
+<span class="kn">from</span> <span class="nn">pprint</span> <span class="k">import</span> <span class="n">pprint</span>
 <span class="kn">from</span> <span class="nn">cmd</span> <span class="k">import</span> <span class="n">Cmd</span>
 
 <span class="kn">from</span> <span class="nn">cloudmesh.common.Printer</span> <span class="k">import</span> <span class="n">Printer</span>
@@ -270,7 +271,20 @@
 <span class="kn">from</span> <span class="nn">cloudmesh.shell.command</span> <span class="k">import</span> <span class="n">command</span><span class="p">,</span> <span class="n">basecommand</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.shell.plugin</span> <span class="k">import</span> <span class="n">PluginManager</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.variables</span> <span class="k">import</span> <span class="n">Variables</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.debug</span> <span class="k">import</span> <span class="n">VERBOSE</span>
 
+<span class="c1">#import cloudmesh.plugin</span>
+
+
+<div class="viewcode-block" id="iter_namespace"><a class="viewcode-back" href="../../../code/cmd5.html#cloudmesh.shell.shell.iter_namespace">[docs]</a><span class="k">def</span> <span class="nf">iter_namespace</span><span class="p">(</span><span class="n">ns_pkg</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">pkgutil</span><span class="o">.</span><span class="n">iter_modules</span><span class="p">(</span><span class="n">ns_pkg</span><span class="o">.</span><span class="n">__path__</span><span class="p">,</span> <span class="n">ns_pkg</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span><span class="p">)</span></div>
+
+
+<span class="c1">#cloudmesh_plugins = {</span>
+<span class="c1">#    name: importlib.import_module(name)</span>
+<span class="c1">#    for finder, name, ispkg</span>
+<span class="c1">#    in iter_namespace(cloudmesh.plugin)</span>
+<span class="c1">#}</span>
 
 <div class="viewcode-block" id="print_list"><a class="viewcode-back" href="../../../code/cmd5.html#cloudmesh.shell.shell.print_list">[docs]</a><span class="k">def</span> <span class="nf">print_list</span><span class="p">(</span><span class="n">elements</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
@@ -280,6 +294,11 @@
     <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">elements</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;*&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span></div>
 
+<div class="viewcode-block" id="import_class"><a class="viewcode-back" href="../../../code/cmd5.html#cloudmesh.shell.shell.import_class">[docs]</a><span class="k">def</span> <span class="nf">import_class</span><span class="p">(</span><span class="n">cl</span><span class="p">):</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">cl</span><span class="o">.</span><span class="n">rfind</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
+    <span class="n">classname</span> <span class="o">=</span> <span class="n">cl</span><span class="p">[</span><span class="n">d</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">cl</span><span class="p">)]</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="nb">__import__</span><span class="p">(</span><span class="n">cl</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">d</span><span class="p">],</span> <span class="nb">globals</span><span class="p">(),</span> <span class="nb">locals</span><span class="p">(),</span> <span class="p">[</span><span class="n">classname</span><span class="p">])</span>
+    <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">classname</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="inheritors"><a class="viewcode-back" href="../../../code/cmd5.html#cloudmesh.shell.shell.inheritors">[docs]</a><span class="k">def</span> <span class="nf">inheritors</span><span class="p">(</span><span class="n">klass</span><span class="p">):</span>
     <span class="n">subclasses</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
@@ -340,6 +359,8 @@
             <span class="k">if</span> <span class="n">module_name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span>
                     <span class="s1">&#39;cloudmesh.&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="s1">&#39;.command.&#39;</span> <span class="ow">in</span> <span class="n">module_name</span><span class="p">:</span>
                 <span class="n">commands</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">module_name</span><span class="p">)</span>
+            <span class="c1"># elif module_name.startswith(&#39;cloudmesh.plugin.&#39;):</span>
+            <span class="c1">#    commands.append(module_name)</span>
         <span class="c1"># VERBOSE(commands)</span>
 
         <span class="k">return</span> <span class="n">commands</span></div>
@@ -387,11 +408,10 @@
         <span class="k">if</span> <span class="n">commands</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">commands</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">cls</span><span class="o">.</span><span class="n">classes</span><span class="p">()]</span>
 
-        <span class="c1"># print_list(commands)</span>
-
         <span class="n">class_commands</span> <span class="o">=</span> <span class="p">[</span><span class="bp">cls</span><span class="o">.</span><span class="n">class_name</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">commands</span><span class="p">]</span>
         <span class="n">commands</span> <span class="o">=</span> <span class="p">[</span><span class="nb">getattr</span><span class="p">(</span><span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="n">mod</span><span class="p">),</span> <span class="bp">cls</span><span class="p">)</span> <span class="k">for</span> <span class="p">(</span><span class="n">mod</span><span class="p">,</span> <span class="bp">cls</span><span class="p">)</span> <span class="ow">in</span>
                     <span class="p">(</span><span class="n">commands</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">commands</span> <span class="ow">in</span> <span class="n">class_commands</span><span class="p">)]</span>
+
         <span class="k">return</span> <span class="n">commands</span></div></div>
 
 
@@ -420,43 +440,41 @@
 <span class="s2">    +-------------------------------------------------------+</span>
 <span class="s2">    &quot;&quot;&quot;</span><span class="p">)</span>
 
+    <span class="nd">@command</span>
+    <span class="k">def</span> <span class="nf">do_commands</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">arguments</span><span class="p">):</span>
+       <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">       ::</span>
 
-    <span class="c1"># experimenting</span>
-    <span class="c1"># @command</span>
-    <span class="c1"># def do_commands(self, args, arguments):</span>
-    <span class="c1">#    &quot;&quot;&quot;</span>
-    <span class="c1">#    ::</span>
-    <span class="c1">#</span>
-    <span class="c1">#      Usage:</span>
-    <span class="c1">#            commands</span>
-    <span class="c1">#</span>
-    <span class="c1">#</span>
-    <span class="c1">#    &quot;&quot;&quot;</span>
-    <span class="c1">#    arguments = dotdict(arguments)</span>
-    <span class="c1">#</span>
-    <span class="c1">#    for command in Plugin.list():</span>
-    <span class="c1">#        print(command)</span>
-    <span class="c1">#</span>
-    <span class="c1">#    names = self.get_names()</span>
-    <span class="c1">#    print(names)</span>
-    <span class="c1">#</span>
-    <span class="c1">#   for name in names:</span>
-    <span class="c1">#        if name[:3] == &#39;do_&#39;:</span>
-    <span class="c1">#            print(name)</span>
-    <span class="c1">#</span>
-    <span class="c1">#    d = []</span>
-    <span class="c1">#    for e in dir(cloudmesh):</span>
-    <span class="c1">#        if not e.startswith(&quot;__&quot;) and str(e) not in [&quot;etc&quot;, &quot;DEBUG&quot;]:</span>
-    <span class="c1">#            d.append(e)</span>
-    <span class="c1">#    print(d)</span>
-    <span class="c1">#    VERBOSE(inheritors(PluginCommand))</span>
-    <span class="c1">#    modules = Plugin.modules()</span>
-    <span class="c1">#    VERBOSE(modules)</span>
-    <span class="c1">#    for m in modules:</span>
-    <span class="c1">#        print (m)</span>
-    <span class="c1">#    for m in sys.modules:</span>
-    <span class="c1">#        if str(m).startswith(&quot;cloudmesh.&quot;) and :</span>
-    <span class="c1">#            print (m)</span>
+<span class="sd">         Usage:</span>
+<span class="sd">               commands</span>
+
+<span class="sd">       &quot;&quot;&quot;</span>
+       <span class="n">arguments</span> <span class="o">=</span> <span class="n">dotdict</span><span class="p">(</span><span class="n">arguments</span><span class="p">)</span>
+
+       <span class="k">for</span> <span class="n">command</span> <span class="ow">in</span> <span class="n">Plugin</span><span class="o">.</span><span class="n">list</span><span class="p">():</span>
+           <span class="nb">print</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
+
+       <span class="n">names</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_names</span><span class="p">()</span>
+       <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">names</span><span class="p">))</span>
+
+       <span class="c1">#sys.exit(1)</span>
+       <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
+           <span class="k">if</span> <span class="n">name</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;do_&#39;</span><span class="p">:</span>
+               <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+
+       <span class="n">d</span> <span class="o">=</span> <span class="p">[]</span>
+       <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">cloudmesh</span><span class="p">):</span>
+           <span class="k">if</span> <span class="ow">not</span> <span class="n">e</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;__&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;etc&quot;</span><span class="p">,</span> <span class="s2">&quot;DEBUG&quot;</span><span class="p">]:</span>
+               <span class="n">d</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+       <span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+       <span class="n">VERBOSE</span><span class="p">(</span><span class="n">inheritors</span><span class="p">(</span><span class="n">PluginCommand</span><span class="p">))</span>
+       <span class="n">modules</span> <span class="o">=</span> <span class="n">Plugin</span><span class="o">.</span><span class="n">modules</span><span class="p">()</span>
+       <span class="n">VERBOSE</span><span class="p">(</span><span class="n">modules</span><span class="p">)</span>
+       <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">modules</span><span class="p">:</span>
+           <span class="nb">print</span> <span class="p">(</span><span class="n">m</span><span class="p">)</span>
+       <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">:</span>
+           <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">m</span><span class="p">)</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;cloudmesh.&quot;</span><span class="p">):</span>
+               <span class="nb">print</span> <span class="p">(</span><span class="n">m</span><span class="p">)</span>
 
 <div class="viewcode-block" id="CMShell.precmd"><a class="viewcode-back" href="../../../code/cmd5.html#cloudmesh.shell.shell.CMShell.precmd">[docs]</a>    <span class="k">def</span> <span class="nf">precmd</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">line</span><span class="p">):</span>
         <span class="n">StopWatch</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="s2">&quot;command&quot;</span><span class="p">)</span>

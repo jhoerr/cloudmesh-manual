@@ -97,7 +97,11 @@
 <li class="toctree-l2"><a class="reference internal" href="#installation-with-pip">1.2. Installation with Pip</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#anaconda-and-conda">1.3. Anaconda and Conda</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#source-installation-for-developers">1.4. Source Installation for Developers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#installation-of-mongod">1.5. Installation of mongod</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installation-with-cloudmesh-installer">1.5. Installation with cloudmesh-installer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#cloudmesh-installer-in-ubuntu">1.5.1. cloudmesh-installer in Ubuntu</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#installation-of-mongod">1.6. Installation of mongod</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">2. Quickstart</a></li>
@@ -172,7 +176,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../dev/management.html#documentation-management">3. Documentation Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev/management.html#version-management">4. Version Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev/pytest.html">5. Pytest</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dev/todo.html">6. ToDo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/manual.html">6. Manual Creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/todo.html">7. ToDo</a></li>
 </ul>
 <p class="caption"><span class="caption-text">CLOUD ACCOUNTS</span></p>
 <ul>
@@ -367,8 +372,69 @@ cloudmesh-installer install storage -e
 <p>It will take a while to install On newer machines 1 minte, on older
 significant longer. You can than test if</p>
 </div>
+<div class="section" id="installation-with-cloudmesh-installer">
+<h2>1.5. Installation with cloudmesh-installer<a class="headerlink" href="#installation-with-cloudmesh-installer" title="Permalink to this headline">¶</a></h2>
+<p>This is by far the most convenient way of installing and managing the cloudmesh bundles and packages.</p>
+<div class="section" id="cloudmesh-installer-in-ubuntu">
+<h3>1.5.1. cloudmesh-installer in Ubuntu<a class="headerlink" href="#cloudmesh-installer-in-ubuntu" title="Permalink to this headline">¶</a></h3>
+<p>To install <code class="docutils literal notranslate"><span class="pre">cloudmesh-installer</span></code> in Linux, we first need to make sure that
+the correct version of the Python3 is
+installed (version 3.7.3).</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt-get update
+sudo apt install software-properties-common
+sudo add-apt-repository ppa:deadsnakes/ppa
+sudo apt-get install python3.7 python3-dev python3.7-dev
+</pre></div>
+</div>
+<p>The default version of Python on Ubuntu 18.04 is 3.6 and you can get that
+version using <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">--version</span></code>. You can then check the installed version</p>
+<blockquote>
+<div><p>using <code class="docutils literal notranslate"><span class="pre">python3.7</span> <span class="pre">--version</span></code> which should be <code class="docutils literal notranslate"><span class="pre">3.7.3</span></code>.</p>
+</div></blockquote>
+<p>Now we will create a new virtual environment:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3.7 -m venv --without-pip ~/ENV3
+</pre></div>
+</div>
+<p>The edit the <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code> file and add the following line at the end:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">alias</span> <span class="nv">ENV3</span><span class="o">=</span><span class="s2">&quot;source ~/ENV3/bin/activate&quot;</span>
+ENV3
+</pre></div>
+</div>
+<p>now activate the virtual environment using:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> ~/.bashrc
+</pre></div>
+</div>
+<p>now you can install the pip for the virtual environment without conflicting
+with the native pip:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl <span class="s2">&quot;https://bootstrap.pypa.io/get-pip.py&quot;</span> -o <span class="s2">&quot;get-pip.py&quot;</span>
+python get-pip.py
+rm get-pip.py
+</pre></div>
+</div>
+<p>now you should be able to install <code class="docutils literal notranslate"><span class="pre">cloudmesh-installer</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install cloudmesh-installer
+</pre></div>
+</div>
+<p>After <code class="docutils literal notranslate"><span class="pre">cloudmesh-installer</span></code> is installed, you can then install the <code class="docutils literal notranslate"><span class="pre">cms</span></code>
+using the following command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cloudmesh-installer install cms -e
+</pre></div>
+</div>
+<p>Test the <code class="docutils literal notranslate"><span class="pre">cms</span></code> installation using:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms <span class="nb">help</span>
+</pre></div>
+</div>
+<p>You can now get the list of available bundles and install the bundle of your
+choice. The following example gets the list of bundles and installs the
+<code class="docutils literal notranslate"><span class="pre">storage</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cloudmesh-installer bundles
+cloudmesh-installer install storage -e
+</pre></div>
+</div>
+</div>
+</div>
 <div class="section" id="installation-of-mongod">
-<h2>1.5. Installation of mongod<a class="headerlink" href="#installation-of-mongod" title="Permalink to this headline">¶</a></h2>
+<h2>1.6. Installation of mongod<a class="headerlink" href="#installation-of-mongod" title="Permalink to this headline">¶</a></h2>
 <p>First, you will need to install a <code class="docutils literal notranslate"><span class="pre">cloudmesh4.yaml</span></code> file, if you have not
 done this before. The easieast way to do so is with the command</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms <span class="nb">help</span>

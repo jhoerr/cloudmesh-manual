@@ -162,10 +162,14 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="conventions.html">1. Code Conventions</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">2. Code Management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#documentation-management">3. Documentation Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#documentation-management">3. Documentation Management</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#contributing-to-documentation">3.1. Contributing to documentation</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="#version-management">4. Version Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pytest.html">5. Pytest</a></li>
-<li class="toctree-l1"><a class="reference internal" href="todo.html">6. ToDo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual.html">6. Manual Creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="todo.html">7. ToDo</a></li>
 </ul>
 <p class="caption"><span class="caption-text">CLOUD ACCOUNTS</span></p>
 <ul>
@@ -272,6 +276,31 @@ paragraph features. On macOS this can be called with
 <p>explain how to set the fill paragraph in pycharm to CTRL SHIFT</p>
 </div>
 <p>COMMAND P</p>
+<div class="section" id="contributing-to-documentation">
+<h2>3.1. Contributing to documentation<a class="headerlink" href="#contributing-to-documentation" title="Permalink to this headline">¶</a></h2>
+<p>All of the documentations are in the <code class="docutils literal notranslate"><span class="pre">cloudmesh-manual</span></code> repository which is
+automatically cloned when installing the cloudmesh using <code class="docutils literal notranslate"><span class="pre">cloudmesh-installer</span></code>
+. The documentation source files are located in <code class="docutils literal notranslate"><span class="pre">docs-source</span></code> folder inside
+the <code class="docutils literal notranslate"><span class="pre">cloudmesh-manual</span></code> repository.</p>
+<p>It’s very important to build the documentation locally and test the
+modifications before pushing them to the remote. To build the documentation
+locally you first, make sure that the proper virtual environment is
+activated, then you need to install the requirements and make the
+documentation:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> cloudmesh-manual
+pip install -r requirements.txt
+make doc
+make manual
+make doc
+make view
+</pre></div>
+</div>
+<p>After this you can open the documentation located at
+<code class="docutils literal notranslate"><span class="pre">cloudmesh-manual/docs/index.html</span></code> in the browser of your choice. Then
+after changes and modifications to the documentations, you can build the
+documentation locally and see the effect locally using <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">doc</span></code> within
+the <code class="docutils literal notranslate"><span class="pre">cloudmesh-manual</span></code> folder.</p>
+</div>
 </div>
 <div class="section" id="version-management">
 <h1>4. Version Management<a class="headerlink" href="#version-management" title="Permalink to this headline">¶</a></h1>
