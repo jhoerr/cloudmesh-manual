@@ -201,8 +201,28 @@ now you should be able to install ``cloudmesh-installer``:
 
     pip install cloudmesh-installer
 
-After ``cloudmesh-installer`` is installed, you can then install the ``cms``
-using the following command:
+You should be able to now get the help function of the ``cloudmesh-installer``:
+
+.. code:: bash
+
+    cloudmesh-installer --help
+
+You can now get the list of available bundles and install the bundle of your
+choice. You can get the list of available bundles using:
+
+.. code:: bash
+
+    cloudmesh-installer bundles
+
+Now, go to your target destination, e.g. ``~/cm`` and run the following
+command to clone the ``cms`` bundle:
+
+.. code:: bash
+
+    cloudmesh-installer git clone cms
+
+Now that the ``cms`` is cloned, you can then install the ``cms`` using the
+following command:
 
 .. code:: bash
 
@@ -214,14 +234,29 @@ Test the ``cms`` installation using:
 
     cms help
 
-You can now get the list of available bundles and install the bundle of your
-choice. The following example gets the list of bundles and installs the
-``storage``:
+
+cloudmesh-installer in macOS Mojave
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Installing cloudmesh in macOS is very similar to installation in Ubuntu.
+Start the process by installing the python 3 using ``homebrew``. Install the
+``homebrew`` using the instruction in their `web page
+<https://brew.sh/#install>`_:
 
 .. code:: bash
 
-    cloudmesh-installer bundles
-    cloudmesh-installer install storage -e
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+Then you should be able to install Python 3.7.3 using:
+
+.. code:: bash
+
+    brew install python
+
+The rest of the installation is identical to ubuntu. Start with creating the
+virtual environment without pip, install pip separately, install
+``cloudmesh-installer``, followed by cloning bundles and installing them.
+
 
 
 Installation of mongod

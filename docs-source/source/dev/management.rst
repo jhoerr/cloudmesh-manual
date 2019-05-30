@@ -44,8 +44,16 @@ the ``cloudmesh-manual`` repository.
 It's very important to build the documentation locally and test the
 modifications before pushing them to the remote. To build the documentation
 locally you first, make sure that the proper virtual environment is
-activated, then you need to install the requirements and make the
-documentation:
+activated, then make sure that you have ``cloudmesh4.yaml`` file exists in the
+path ``~/.cloudmesh/cloudmesh``. In macOS, you will need to install ``wget``
+with ``homebrew``:
+
+.. code:: bash
+
+    brew install wget
+
+
+then you need to install the requirements and make the documentation:
 
 .. code:: bash
 
