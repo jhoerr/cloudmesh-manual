@@ -285,8 +285,13 @@ the <code class="docutils literal notranslate"><span class="pre">cloudmesh-manua
 <p>It’s very important to build the documentation locally and test the
 modifications before pushing them to the remote. To build the documentation
 locally you first, make sure that the proper virtual environment is
-activated, then you need to install the requirements and make the
-documentation:</p>
+activated, then make sure that you have <code class="docutils literal notranslate"><span class="pre">cloudmesh4.yaml</span></code> file exists in the
+path <code class="docutils literal notranslate"><span class="pre">~/.cloudmesh/cloudmesh</span></code>. In macOS, you will need to install <code class="docutils literal notranslate"><span class="pre">wget</span></code>
+with <code class="docutils literal notranslate"><span class="pre">homebrew</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>brew install wget
+</pre></div>
+</div>
+<p>then you need to install the requirements and make the documentation:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> cloudmesh-manual
 pip install -r requirements.txt
 make doc

@@ -99,6 +99,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#source-installation-for-developers">1.4. Source Installation for Developers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#installation-with-cloudmesh-installer">1.5. Installation with cloudmesh-installer</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#cloudmesh-installer-in-ubuntu">1.5.1. cloudmesh-installer in Ubuntu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cloudmesh-installer-in-macos-mojave">1.5.2. cloudmesh-installer in macOS Mojave</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#installation-of-mongod">1.6. Installation of mongod</a></li>
@@ -415,8 +416,22 @@ rm get-pip.py
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install cloudmesh-installer
 </pre></div>
 </div>
-<p>After <code class="docutils literal notranslate"><span class="pre">cloudmesh-installer</span></code> is installed, you can then install the <code class="docutils literal notranslate"><span class="pre">cms</span></code>
-using the following command:</p>
+<p>You should be able to now get the help function of the <code class="docutils literal notranslate"><span class="pre">cloudmesh-installer</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cloudmesh-installer --help
+</pre></div>
+</div>
+<p>You can now get the list of available bundles and install the bundle of your
+choice. You can get the list of available bundles using:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cloudmesh-installer bundles
+</pre></div>
+</div>
+<p>Now, go to your target destination, e.g. <code class="docutils literal notranslate"><span class="pre">~/cm</span></code> and run the following
+command to clone the <code class="docutils literal notranslate"><span class="pre">cms</span></code> bundle:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cloudmesh-installer git clone cms
+</pre></div>
+</div>
+<p>Now that the <code class="docutils literal notranslate"><span class="pre">cms</span></code> is cloned, you can then install the <code class="docutils literal notranslate"><span class="pre">cms</span></code> using the
+following command:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cloudmesh-installer install cms -e
 </pre></div>
 </div>
@@ -424,13 +439,22 @@ using the following command:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms <span class="nb">help</span>
 </pre></div>
 </div>
-<p>You can now get the list of available bundles and install the bundle of your
-choice. The following example gets the list of bundles and installs the
-<code class="docutils literal notranslate"><span class="pre">storage</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cloudmesh-installer bundles
-cloudmesh-installer install storage -e
+</div>
+<div class="section" id="cloudmesh-installer-in-macos-mojave">
+<h3>1.5.2. cloudmesh-installer in macOS Mojave<a class="headerlink" href="#cloudmesh-installer-in-macos-mojave" title="Permalink to this headline">¶</a></h3>
+<p>Installing cloudmesh in macOS is very similar to installation in Ubuntu.
+Start the process by installing the python 3 using <code class="docutils literal notranslate"><span class="pre">homebrew</span></code>. Install the
+<code class="docutils literal notranslate"><span class="pre">homebrew</span></code> using the instruction in their <a class="reference external" href="https://brew.sh/#install">web page</a>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/usr/bin/ruby -e <span class="s2">&quot;</span><span class="k">$(</span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install<span class="k">)</span><span class="s2">&quot;</span>
 </pre></div>
 </div>
+<p>Then you should be able to install Python 3.7.3 using:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>brew install python
+</pre></div>
+</div>
+<p>The rest of the installation is identical to ubuntu. Start with creating the
+virtual environment without pip, install pip separately, install
+<code class="docutils literal notranslate"><span class="pre">cloudmesh-installer</span></code>, followed by cloning bundles and installing them.</p>
 </div>
 </div>
 <div class="section" id="installation-of-mongod">
