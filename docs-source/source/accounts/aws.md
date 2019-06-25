@@ -109,9 +109,9 @@ cloudmesh services. This is especially of interest if you use cloudmesh
 to manage your storage and computational needs while laso being able to
 leverage other clouds.
 
-- [ ] To do verify  this works and you ahve created a user.
+- [ ] To do verify  this works and you have created a user.
 
-## Access Key
+## Create and Download Access Key
 
 Now that you have an account it is necessarry that you can authenticate to your 
 cloud account from a program or a command line. The isntructions for this can
@@ -122,21 +122,89 @@ cloud account from a program or a command line. The isntructions for this can
 However, it is far easier to use the convenient cloudmesh tools by just using
 the cloudmesh open command.
  
-In case you have not yet added a user, you can visit the user creation bage 
+In case you have not yet added a user, you can visit the user creation page 
 with 
 
 ```
 $ cms open account aws 
 ```
 
+After logging into your account, you will then see the following console: 
+
+![IAM Management Console: Users](images/aws/image14.png)
+
+Click on `Add user` and begin the process for creating a new user. Type the 
+name `cloudmesh` in the `User name` and make sure you check the `programmatic
+ access`:
+
+![IAM Management Console: Add User](images/aws/image15.png)
+
+After clicking on the `Next: Permissions`, you then have to add the user to a
+ group. If you do not have any group created, click on `Create group` button 
+ and you will be redirected to the corresponding page. You can call the group
+  `cloudmesh` and then check the select the `AmazonEC2FullAccess` for the 
+  permission: 
+
+![IAM Management Console: Create Group](images/aws/image17.png)
+
+After creating the group, select it so that the new user will be assigned to 
+that group: 
+
+![IAM Management Console: Select Group](images/aws/image18.png)
+
+In the next page you can create the tags for the new user. You can just 
+create a `cloudmesh` key for the user as a tag: 
+
+![IAM Management Console: Add Tag](images/aws/image19.png)
+
+The next page is the review page where you can review the information you 
+entered:
+
+![IAM Management Console: Review](images/aws/image20.png)
+
+After clicking on `Create user` the user will be finally created and you will
+ be redirected to the following success page: 
+ 
+![IAM Management Console: Success](images/aws/image21.png)
+
+You can view the secret access key by clicking on the `show` button: 
+
+![IAM Management Console: Access Key](images/aws/image22.png)
+
+Next, download the `.csv` file by clicking on the `Download .csv` button and 
+save it as `~/.cloudmesh/credentials.csv`:
+
+![IAM Management Console: Download CSV](images/aws/image23.png)
+ 
+Then you can click on the `close` button and go back to the IAM Management 
+Console which now provide you a summary of the newly created user called 
+`cloudmesh` and looks  like this: 
+
+![IAM Management Console: Summary](images/aws/image25.png)
+
+By clicking on the `Create access key`, you can create another access key: 
+
+![IAM Management Console: Create Access Key](images/aws/image26.png)
+
+As is mentioned in the screenshot, this is the only time you can view or 
+download the secret access key. So go ahead and click on the `Download .csv 
+file` and save it as `~/.cloudmesh/accessKey.csv`:
+
+![IAM Management Console: Download CSV File](images/aws/image27.png)
+
+ 
+ 
+## Using the Access Key
+
+
 To obtain the keys for an already existing account or the one that you just 
-created you avn use the command
+created you can use the command
  
  ```bash
 $cms open account aws NAME
  ```
  
-This command will open a browser windo to the credential page of AWS. PLease
+This command will open a browser window to the credential page of AWS. PLease
 replace the NAME with your username that you created when you added your 
 user to the IAM.
 
