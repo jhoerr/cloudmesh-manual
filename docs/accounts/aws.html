@@ -171,7 +171,11 @@
 <p class="caption"><span class="caption-text">CLOUD ACCOUNTS</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">1. AWS Account Creation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#access-key">1.1. Access Key</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#access-key">1.1. Access Key</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#create-and-download-access-key">1.1.1. Create and Download Access Key</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-the-access-key">1.1.2. Using the Access Key</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#compute-service">1.2. Compute Service</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#storage-service">1.3. Storage Service</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#references">1.4. References</a></li>
@@ -332,7 +336,7 @@ cloudmesh services. This is especially of interest if you use cloudmesh
 to manage your storage and computational needs while laso being able to
 leverage other clouds.</p>
 <ul class="simple">
-<li><p>[ ] To do verify  this works and you ahve created a user.</p></li>
+<li><p>[ ] To do verify  this works and you have created a user.</p></li>
 </ul>
 <div class="section" id="access-key">
 <h2>1.1. Access Key<a class="headerlink" href="#access-key" title="Permalink to this headline">¶</a></h2>
@@ -344,17 +348,59 @@ be found at</p>
 </ul>
 <p>However, it is far easier to use the convenient cloudmesh tools by just using
 the cloudmesh open command.</p>
-<p>In case you have not yet added a user, you can visit the user creation bage
+<p>In case you have not yet added a user, you can visit the user creation page
 with</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cms open account aws 
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cms open account aws
 </pre></div>
 </div>
+<div class="section" id="create-and-download-access-key">
+<h3>1.1.1. Create and Download Access Key<a class="headerlink" href="#create-and-download-access-key" title="Permalink to this headline">¶</a></h3>
+<p>After logging into your account, you will then see the following console:</p>
+<p><img alt="../_images/image141.png" src="../_images/image141.png" />IAM Management Console: Users</p>
+<p>Click on <code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">user</span></code> and begin the process for creating a new user. Type the
+name <code class="docutils literal notranslate"><span class="pre">cloudmesh</span></code> in the <code class="docutils literal notranslate"><span class="pre">User</span> <span class="pre">name</span></code> and make sure you check the <code class="docutils literal notranslate"><span class="pre">programmatic</span> <span class="pre">access</span></code>:</p>
+<p><img alt="../_images/image151.png" src="../_images/image151.png" />IAM Management Console: Add User</p>
+<p>After clicking on the <code class="docutils literal notranslate"><span class="pre">Next:</span> <span class="pre">Permissions</span></code>, you then have to add the user to a
+group. If you do not have any group created, click on <code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">group</span></code> button
+and you will be redirected to the corresponding page. You can call the group
+<code class="docutils literal notranslate"><span class="pre">cloudmesh</span></code> and then check the select the <code class="docutils literal notranslate"><span class="pre">AmazonEC2FullAccess</span></code> for the
+permission:</p>
+<p><img alt="../_images/image17.png" src="../_images/image17.png" />IAM Management Console: Create Group</p>
+<p>After creating the group, select it so that the new user will be assigned to
+that group:</p>
+<p><img alt="../_images/image181.png" src="../_images/image181.png" />IAM Management Console: Select Group</p>
+<p>In the next page you can create the tags for the new user. You can just
+create a <code class="docutils literal notranslate"><span class="pre">cloudmesh</span></code> key for the user as a tag:</p>
+<p><img alt="../_images/image19.png" src="../_images/image19.png" />IAM Management Console: Add Tag</p>
+<p>The next page is the review page where you can review the information you
+entered:</p>
+<p><img alt="../_images/image20.png" src="../_images/image20.png" />IAM Management Console: Review</p>
+<p>After clicking on <code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">user</span></code> the user will be finally created and you will
+be redirected to the following success page:</p>
+<p><img alt="../_images/image212.png" src="../_images/image212.png" />IAM Management Console: Success</p>
+<p>You can view the secret access key by clicking on the <code class="docutils literal notranslate"><span class="pre">show</span></code> button:</p>
+<p><img alt="../_images/image221.png" src="../_images/image221.png" />IAM Management Console: Access Key</p>
+<p>Next, download the <code class="docutils literal notranslate"><span class="pre">.csv</span></code> file by clicking on the <code class="docutils literal notranslate"><span class="pre">Download</span> <span class="pre">.csv</span></code> button and
+save it as <code class="docutils literal notranslate"><span class="pre">~/.cloudmesh/credentials.csv</span></code>:</p>
+<p><img alt="../_images/image231.png" src="../_images/image231.png" />IAM Management Console: Download CSV</p>
+<p>Then you can click on the <code class="docutils literal notranslate"><span class="pre">close</span></code> button and go back to the IAM Management
+Console which now provide you a summary of the newly created user called
+<code class="docutils literal notranslate"><span class="pre">cloudmesh</span></code> and looks  like this:</p>
+<p><img alt="../_images/image25.png" src="../_images/image25.png" />IAM Management Console: Summary</p>
+<p>By clicking on the <code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">access</span> <span class="pre">key</span></code>, you can create another access key:</p>
+<p><img alt="../_images/image26.png" src="../_images/image26.png" />IAM Management Console: Create Access Key</p>
+<p>As is mentioned in the screenshot, this is the only time you can view or
+download the secret access key. So go ahead and click on the <code class="docutils literal notranslate"><span class="pre">Download</span> <span class="pre">.csv</span>&#160; <span class="pre">file</span></code> and save it as <code class="docutils literal notranslate"><span class="pre">~/.cloudmesh/accessKey.csv</span></code>:</p>
+<p><img alt="../_images/image27.png" src="../_images/image27.png" />IAM Management Console: Download CSV File</p>
+</div>
+<div class="section" id="using-the-access-key">
+<h3>1.1.2. Using the Access Key<a class="headerlink" href="#using-the-access-key" title="Permalink to this headline">¶</a></h3>
 <p>To obtain the keys for an already existing account or the one that you just
-created you avn use the command</p>
+created you can use the command</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">$cms</span> open account aws NAME
 </pre></div>
 </div>
-<p>This command will open a browser windo to the credential page of AWS. PLease
+<p>This command will open a browser window to the credential page of AWS. PLease
 replace the NAME with your username that you created when you added your
 user to the IAM.</p>
 <p>IN case you do not yet have a credentials choose the Security credentials tab
@@ -366,6 +412,7 @@ Secret access key: wJalrXUtnFhsjlashlkjh/bPxRfiCYEXAMPLEKEY</p>
 secure location and do not by default store them in the Downloads folder.
 We recommend that you store is in ~/.cloudmesh, but before doing so make sure
 the permissions for ~/.cloudmesh are restricted,</p>
+</div>
 </div>
 <div class="section" id="compute-service">
 <h2>1.2. Compute Service<a class="headerlink" href="#compute-service" title="Permalink to this headline">¶</a></h2>
