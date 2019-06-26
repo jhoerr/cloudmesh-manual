@@ -111,23 +111,27 @@ leverage other clouds.
 
 - [ ] To do verify  this works and you have created a user.
 
-## Create and Download Access Key
+## Access Key
 
-Now that you have an account it is necessarry that you can authenticate to your 
+
+Now that you have an account it is necessarry that you can authenticate to your
 cloud account from a program or a command line. The isntructions for this can
- be found at 
+ be found at
 
 * <https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html>
 
 However, it is far easier to use the convenient cloudmesh tools by just using
 the cloudmesh open command.
- 
-In case you have not yet added a user, you can visit the user creation page 
-with 
+
+In case you have not yet added a user, you can visit the user creation page
+with
 
 ```
-$ cms open account aws 
+$ cms open account aws
 ```
+
+
+### Create and Download Access Key
 
 After logging into your account, you will then see the following console: 
 
@@ -194,7 +198,7 @@ file` and save it as `~/.cloudmesh/accessKey.csv`:
 
  
  
-## Using the Access Key
+### Using the Access Key
 
 
 To obtain the keys for an already existing account or the one that you just 
