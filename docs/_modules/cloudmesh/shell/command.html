@@ -120,11 +120,12 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../reference-card.html">1. Reference Card (proposed)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../manual/commands.html">2. Commands</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../manual-cmd5.html">3. Manual Cmd5</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../manual-group.html">4. Manual Group</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../manual-compute.html">5. Compute Manual Pages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../manual-storage.html">6. Storage Manual Pages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../manual-other.html">7. Manual Other</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../manual/commands.html#documented-commands-type-help-topic">3. Documented commands (type help &lt;topic&gt;):</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../manual-cmd5.html">4. Manual Cmd5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../manual-group.html">5. Manual Group</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../manual-compute.html">6. Compute Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../manual-storage.html">7. Storage Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../manual-other.html">8. Manual Other</a></li>
 </ul>
 <p class="caption"><span class="caption-text">DATABASE</span></p>
 <ul>
@@ -254,27 +255,27 @@
 <span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="k">import</span> <span class="n">banner</span>
 
 
-<div class="viewcode-block" id="PluginCommand"><a class="viewcode-back" href="../../../code/cmd5.html#cloudmesh.batch.command.batch.PluginCommand">[docs]</a><span class="k">class</span> <span class="nc">PluginCommand</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="PluginCommand"><a class="viewcode-back" href="../../../code/cmd5.html#cloudmesh.config.command.config.PluginCommand">[docs]</a><span class="k">class</span> <span class="nc">PluginCommand</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">pass</span></div>
 
 
-<div class="viewcode-block" id="CloudPluginCommand"><a class="viewcode-back" href="../../../code/cmd5.html#cloudmesh.batch.command.batch.CloudPluginCommand">[docs]</a><span class="k">class</span> <span class="nc">CloudPluginCommand</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="CloudPluginCommand"><a class="viewcode-back" href="../../../code/cmd5.html#cloudmesh.config.command.config.CloudPluginCommand">[docs]</a><span class="k">class</span> <span class="nc">CloudPluginCommand</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">pass</span></div>
 
 
-<div class="viewcode-block" id="ShellPluginCommand"><a class="viewcode-back" href="../../../code/cmd5.html#cloudmesh.batch.command.batch.ShellPluginCommand">[docs]</a><span class="k">class</span> <span class="nc">ShellPluginCommand</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="ShellPluginCommand"><a class="viewcode-back" href="../../../code/cmd5.html#cloudmesh.config.command.config.ShellPluginCommand">[docs]</a><span class="k">class</span> <span class="nc">ShellPluginCommand</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">pass</span></div>
 
 
-<div class="viewcode-block" id="HPCPluginCommand"><a class="viewcode-back" href="../../../code/cmd5.html#cloudmesh.batch.command.batch.HPCPluginCommand">[docs]</a><span class="k">class</span> <span class="nc">HPCPluginCommand</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="HPCPluginCommand"><a class="viewcode-back" href="../../../code/cmd5.html#cloudmesh.config.command.config.HPCPluginCommand">[docs]</a><span class="k">class</span> <span class="nc">HPCPluginCommand</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">pass</span></div>
 
 
-<div class="viewcode-block" id="CometPluginCommand"><a class="viewcode-back" href="../../../code/cmd5.html#cloudmesh.batch.command.batch.CometPluginCommand">[docs]</a><span class="k">class</span> <span class="nc">CometPluginCommand</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="CometPluginCommand"><a class="viewcode-back" href="../../../code/cmd5.html#cloudmesh.config.command.config.CometPluginCommand">[docs]</a><span class="k">class</span> <span class="nc">CometPluginCommand</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">pass</span></div>
 
 
-<div class="viewcode-block" id="map_parameters"><a class="viewcode-back" href="../../../code/cmd5.html#cloudmesh.batch.command.batch.map_parameters">[docs]</a><span class="k">def</span> <span class="nf">map_parameters</span><span class="p">(</span><span class="n">arguments</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+<div class="viewcode-block" id="map_parameters"><a class="viewcode-back" href="../../../code/cmd5.html#cloudmesh.config.command.config.map_parameters">[docs]</a><span class="k">def</span> <span class="nf">map_parameters</span><span class="p">(</span><span class="n">arguments</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    This command is useful to map parameters with -- to regular argument dicts for easier processing.</span>
 
@@ -305,7 +306,7 @@
 
 
 <span class="c1"># noinspection PySingleQuotedDocstring,PyUnusedLocal</span>
-<div class="viewcode-block" id="command"><a class="viewcode-back" href="../../../code/cmd5.html#cloudmesh.batch.command.batch.command">[docs]</a><span class="k">def</span> <span class="nf">command</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+<div class="viewcode-block" id="command"><a class="viewcode-back" href="../../../code/cmd5.html#cloudmesh.config.command.config.command">[docs]</a><span class="k">def</span> <span class="nf">command</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    A decorator to create a function with docopt arguments.</span>
 <span class="sd">    It also generates a help function</span>
@@ -374,7 +375,7 @@
 
 
 <span class="c1"># noinspection PySingleQuotedDocstring,PyUnusedLocal</span>
-<div class="viewcode-block" id="basecommand"><a class="viewcode-back" href="../../../code/cmd5.html#cloudmesh.batch.command.batch.basecommand">[docs]</a><span class="k">def</span> <span class="nf">basecommand</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+<div class="viewcode-block" id="basecommand"><a class="viewcode-back" href="../../../code/cmd5.html#cloudmesh.config.command.config.basecommand">[docs]</a><span class="k">def</span> <span class="nf">basecommand</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    A decorator to create a function with docopt arguments.</span>
 <span class="sd">    It also generates a help function</span>

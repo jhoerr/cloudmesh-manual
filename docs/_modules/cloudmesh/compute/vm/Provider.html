@@ -120,11 +120,12 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../reference-card.html">1. Reference Card (proposed)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../manual/commands.html">2. Commands</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../manual-cmd5.html">3. Manual Cmd5</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../manual-group.html">4. Manual Group</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../manual-compute.html">5. Compute Manual Pages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../manual-storage.html">6. Storage Manual Pages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../manual-other.html">7. Manual Other</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual/commands.html#documented-commands-type-help-topic">3. Documented commands (type help &lt;topic&gt;):</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-cmd5.html">4. Manual Cmd5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-group.html">5. Manual Group</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-compute.html">6. Compute Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-storage.html">7. Storage Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-other.html">8. Manual Other</a></li>
 </ul>
 <p class="caption"><span class="caption-text">DATABASE</span></p>
 <ul>
@@ -253,7 +254,7 @@
     <span class="n">Provider</span> <span class="k">as</span> <span class="n">VirtualboxCloudProvider</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.management.configuration.config</span> <span class="k">import</span> <span class="n">Config</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.mongo.DataBaseDecorator</span> <span class="k">import</span> <span class="n">DatabaseUpdate</span>
-
+<span class="kn">from</span> <span class="nn">cloudmesh.common.debug</span> <span class="k">import</span> <span class="n">VERBOSE</span>
 
 <div class="viewcode-block" id="Provider"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.vm.Provider.Provider">[docs]</a><span class="k">class</span> <span class="nc">Provider</span><span class="p">(</span><span class="n">ComputeNodeABC</span><span class="p">):</span>
 
@@ -295,23 +296,20 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">Parameter</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">names</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Provider.loop"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.vm.Provider.Provider.loop">[docs]</a>    <span class="k">def</span> <span class="nf">loop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">names</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="n">option</span><span class="o">=</span><span class="s1">&#39;iter&#39;</span><span class="p">,</span> <span class="n">processors</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+<div class="viewcode-block" id="Provider.loop"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.vm.Provider.Provider.loop">[docs]</a>    <span class="k">def</span> <span class="nf">loop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">names</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        :param option: if option is &#39;pool&#39;, use pool. if option is &#39;iter&#39;, use iteration</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">names</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">names</span><span class="p">)</span>
         <span class="n">r</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="k">if</span> <span class="n">option</span> <span class="o">==</span> <span class="s1">&#39;pool&#39;</span><span class="p">:</span>
-            <span class="c1"># BUG: objc_initializeAfterForkError ###</span>
-            <span class="k">with</span> <span class="n">Pool</span><span class="p">(</span><span class="n">processors</span><span class="p">)</span> <span class="k">as</span> <span class="n">p</span><span class="p">:</span>
-                <span class="n">r</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">names</span><span class="p">)</span>
-        <span class="k">elif</span> <span class="n">option</span> <span class="o">==</span> <span class="s1">&#39;iter&#39;</span><span class="p">:</span>
-            <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
-                <span class="n">vm</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
-                <span class="c1"># vm.append(r)</span>
-                <span class="n">r</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">vm</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;looping option not supported&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
+            <span class="n">VERBOSE</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+            <span class="n">VERBOSE</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+
+            <span class="n">vm</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+            <span class="n">VERBOSE</span><span class="p">(</span><span class="n">vm</span><span class="p">)</span>
+            <span class="n">r</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">vm</span><span class="p">)</span>
+            <span class="n">VERBOSE</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">r</span></div>
 
     <span class="nd">@DatabaseUpdate</span><span class="p">()</span>
@@ -347,6 +345,8 @@
 
     <span class="nd">@DatabaseUpdate</span><span class="p">()</span>
     <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">VERBOSE</span><span class="p">(</span><span class="n">names</span><span class="p">)</span>
+        <span class="n">VERBOSE</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">loop</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">start</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
     <span class="nd">@DatabaseUpdate</span><span class="p">()</span>

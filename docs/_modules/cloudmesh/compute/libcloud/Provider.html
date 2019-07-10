@@ -120,11 +120,12 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../reference-card.html">1. Reference Card (proposed)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../manual/commands.html">2. Commands</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../manual-cmd5.html">3. Manual Cmd5</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../manual-group.html">4. Manual Group</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../manual-compute.html">5. Compute Manual Pages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../manual-storage.html">6. Storage Manual Pages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../manual-other.html">7. Manual Other</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual/commands.html#documented-commands-type-help-topic">3. Documented commands (type help &lt;topic&gt;):</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-cmd5.html">4. Manual Cmd5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-group.html">5. Manual Group</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-compute.html">6. Compute Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-storage.html">7. Storage Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-other.html">8. Manual Other</a></li>
 </ul>
 <p class="caption"><span class="caption-text">DATABASE</span></p>
 <ul>
@@ -712,6 +713,7 @@
 <span class="sd">        :param names: A list of node names</span>
 <span class="sd">        :return:  A list of dict representing the nodes</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">VERBOSE</span><span class="p">(</span><span class="n">names</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">ex_start_node</span><span class="p">,</span> <span class="n">names</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Provider.stop"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.libcloud.Provider.Provider.stop">[docs]</a>    <span class="k">def</span> <span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>

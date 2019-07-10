@@ -1,26 +1,16 @@
 
 # ######################################################################
-# Arguments
-# ######################################################################
-# {'--kind': 'rst', '--noheader': False, 'COMMAND': 'image'}
+# Cloudmesh
 # ######################################################################
 
-image
-=====
 
-::
+Usage:
 
-    Usage:
-        image list [NAMES] [--cloud=CLOUD] [--refresh] [--output=OUTPUT] [--query=QUERY]
+       man [--format=FORMAT] COMMAND
+       man [--format=FORMAT] [--noheader]
 
-    Options:
-       --output=OUTPUT  the output format [default: table]
-       --cloud=CLOUD    the cloud name
-       --refresh        live data taken from the cloud
+ERROR: Could not execute the command. Please check usage with
 
-    Description:
-        cm image list
-        cm image list --output=csv
-        cm image list 58c9552c-8d93-42c0-9dea-5f48d90a3188 --refresh
+    cms help man
 
-Timer: 0.0150s (man --kind=rst image)
+Timer: 0.0033s (man --kind=rst image)

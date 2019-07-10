@@ -53,6 +53,14 @@ manual-new:
 	cms man --kind=rst openapi > docs-source/source/manual/openapi/openapi.rst
 
 
+CMD5_COMMAND= admin banner clear echo default info pause plugin \
+              q quit shell sleep stopwatch sys var version
+
+COMPUTE_COMMAND= open vbox vcluster batch vm network key secgroup image \
+                 flavor ssh workflow yaml service config container group
+
+STORAGE_COMMAND= storage vdir
+
 manual:
 	mkdir -p docs-source/source/manual
 	cms help > /tmp/commands.rst
@@ -64,22 +72,10 @@ manual:
 	# CMD5
 	#
 	mkdir -p docs-source/source/manual/cmd5
-	cms man --kind=rst admin > docs-source/source/manual/cmd5/admin.rst
-	cms man --kind=rst banner > docs-source/source/manual/cmd5/banner.rst
-	cms man --kind=rst clear > docs-source/source/manual/cmd5/clear.rst
-	cms man --kind=rst echo > docs-source/source/manual/cmd5/echo.rst
-	cms man --kind=rst default > docs-source/source/manual/cmd5/default.rst
-	cms man --kind=rst info > docs-source/source/manual/cmd5/info.rst
-	cms man --kind=rst pause > docs-source/source/manual/cmd5/pause.rst
-	cms man --kind=rst plugin > docs-source/source/manual/cmd5/plugin.rst
-	cms man --kind=rst q > docs-source/source/manual/cmd5/q.rst
-	cms man --kind=rst quit > docs-source/source/manual/cmd5/quit.rst
-	cms man --kind=rst shell > docs-source/source/manual/cmd5/shell.rst
-	cms man --kind=rst sleep > docs-source/source/manual/cmd5/sleep.rst
-	cms man --kind=rst stopwatch > docs-source/source/manual/cmd5/stopwatch.rst
-	cms man --kind=rst sys > docs-source/source/manual/cmd5/sys.rst
-	cms man --kind=rst var > docs-source/source/manual/cmd5/var.rst
-	cms man --kind=rst version > docs-source/source/manual/cmd5/version.rst
+	for c in $(CMD5_COMMAND) ; do \
+	  echo Generate man page for $$c ; \
+	  cms man --kind=rst $$c > docs-source/source/manual/cmd5/$$c.rst; \
+	done
 	#
 	# GROUP
 	#
@@ -89,24 +85,19 @@ manual:
 	# COMPUTE
 	#
 	mkdir -p docs-source/source/manual/compute
-	cms man --kind=rst open > docs-source/source/manual/compute/open.rst
-	cms man --kind=rst vbox > docs-source/source/manual/compute/vbox.rst
-	cms man --kind=rst vcluster > docs-source/source/manual/compute/vcluster.rst
-	cms man --kind=rst batch > docs-source/source/manual/compute/batch.rst
-	cms man --kind=rst vm > docs-source/source/manual/compute/vm.rst
-	cms man --kind=rst network > docs-source/source/manual/compute/network.rst
-	cms man --kind=rst key > docs-source/source/manual/compute/key.rst
-	cms man --kind=rst secgroup > docs-source/source/manual/compute/secgroup.rst
-	cms man --kind=rst image > docs-source/source/manual/compute/image.rst
-	cms man --kind=rst flavor > docs-source/source/manual/compute/flavor.rst
-	cms man --kind=rst ssh > docs-source/source/manual/compute/ssh.rst
-	cms man --kind=rst workflow > docs-source/source/manual/compute/workflow.rst
+	for c in $(COMPUTE_COMMAND) ; do \
+	  echo Generate man page for $$c ; \
+	  cms man --kind=rst $$c > docs-source/source/manual/compute/$$c.rst; \
+	done
+
 	#
 	# STORAGE
 	#
 	mkdir -p docs-source/source/manual/storage
-	cms man --kind=rst storage > docs-source/source/manual/storage/storage.rst
-	cms man --kind=rst vdir > docs-source/source/manual/storage/vdir.rst
+	for c in $(STORAGE_COMMAND) ; do \
+	  echo Generate man page for $$c ; \
+	  cms man --kind=rst $$c > docs-source/source/manual/storage/$$c.rst; \
+	done
 
 authors:
 	bin/authors.py > docs-source/source/preface/authors.md

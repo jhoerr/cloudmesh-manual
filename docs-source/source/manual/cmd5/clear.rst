@@ -1,20 +1,16 @@
 
 # ######################################################################
-# Arguments
-# ######################################################################
-# {'--kind': 'rst', '--noheader': False, 'COMMAND': 'clear'}
+# Cloudmesh
 # ######################################################################
 
-clear
-=====
 
-::
+Usage:
 
-  Usage:
-    clear
+       man [--format=FORMAT] COMMAND
+       man [--format=FORMAT] [--noheader]
 
+ERROR: Could not execute the command. Please check usage with
 
+    cms help man
 
-  Clears the screen.
-
-Timer: 0.0149s (man --kind=rst clear)
+Timer: 0.0035s (man --kind=rst clear)

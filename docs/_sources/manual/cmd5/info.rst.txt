@@ -1,20 +1,16 @@
 
 # ######################################################################
-# Arguments
-# ######################################################################
-# {'--kind': 'rst', '--noheader': False, 'COMMAND': 'info'}
+# Cloudmesh
 # ######################################################################
 
-info
-====
 
-::
+Usage:
 
-  Usage:
-        info [path|commands|files|cloudmesh]
+       man [--format=FORMAT] COMMAND
+       man [--format=FORMAT] [--noheader]
 
-  Description:
-        info
-            provides internal info about the shell and its packages
+ERROR: Could not execute the command. Please check usage with
 
-Timer: 0.0150s (man --kind=rst info)
+    cms help man
+
+Timer: 0.0032s (man --kind=rst info)

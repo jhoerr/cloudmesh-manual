@@ -122,11 +122,12 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../reference-card.html">1. Reference Card (proposed)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual/commands.html">2. Commands</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../manual-cmd5.html">3. Manual Cmd5</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../manual-group.html">4. Manual Group</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../manual-compute.html">5. Compute Manual Pages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../manual-storage.html">6. Storage Manual Pages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../manual-other.html">7. Manual Other</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/commands.html#documented-commands-type-help-topic">3. Documented commands (type help &lt;topic&gt;):</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-cmd5.html">4. Manual Cmd5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-group.html">5. Manual Group</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-compute.html">6. Compute Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-storage.html">7. Storage Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-other.html">8. Manual Other</a></li>
 </ul>
 <p class="caption"><span class="caption-text">DATABASE</span></p>
 <ul>
@@ -248,16 +249,16 @@
 <span id="commands"></span><h1>7. Commands<a class="headerlink" href="#module-cloudmesh.admin.command.admin" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="cloudmesh.admin.command.admin.AdminCommand">
-<em class="property">class </em><code class="descclassname">cloudmesh.admin.command.admin.</code><code class="descname">AdminCommand</code><a class="reference internal" href="../_modules/cloudmesh/admin/command/admin.html#AdminCommand"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.admin.command.admin.AdminCommand" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cloudmesh.admin.command.admin.</code><code class="sig-name descname">AdminCommand</code><a class="reference internal" href="../_modules/cloudmesh/admin/command/admin.html#AdminCommand"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.admin.command.admin.AdminCommand" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cmd5.html#cloudmesh.shell.command.PluginCommand" title="cloudmesh.shell.command.PluginCommand"><code class="xref py py-class docutils literal notranslate"><span class="pre">cloudmesh.shell.command.PluginCommand</span></code></a></p>
 <dl class="attribute">
 <dt id="cloudmesh.admin.command.admin.AdminCommand.banner">
-<code class="descname">banner</code><em class="property"> = &quot;\ntest\n+-------------------------------------------------------+\n|   ____ _                 _                     _      |\n|  / ___| | ___  _   _  __| |_ __ ___   ___  ___| |__   |\n| | |   | |/ _ \\| | | |/ _` | '_ ` _ \\ / _ \\/ __| '_ \\  |\n| | |___| | (_) | |_| | (_| | | | | | |  __/\\__ \\ | | | |\n|  \\____|_|\\___/ \\__,_|\\__,_|_| |_| |_|\\___||___/_| |_| |\n+-------------------------------------------------------+\n|                  Cloudmesh CMD5 Shell                 |\n+-------------------------------------------------------+\n&quot;</em><a class="headerlink" href="#cloudmesh.admin.command.admin.AdminCommand.banner" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">banner</code><em class="property"> = &quot;\ntest\n+-------------------------------------------------------+\n|   ____ _                 _                     _      |\n|  / ___| | ___  _   _  __| |_ __ ___   ___  ___| |__   |\n| | |   | |/ _ \\| | | |/ _` | '_ ` _ \\ / _ \\/ __| '_ \\  |\n| | |___| | (_) | |_| | (_| | | | | | |  __/\\__ \\ | | | |\n|  \\____|_|\\___/ \\__,_|\\__,_|_| |_| |_|\\___||___/_| |_| |\n+-------------------------------------------------------+\n|                  Cloudmesh CMD5 Shell                 |\n+-------------------------------------------------------+\n&quot;</em><a class="headerlink" href="#cloudmesh.admin.command.admin.AdminCommand.banner" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.admin.command.admin.AdminCommand.do_admin">
-<code class="descname">do_admin</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.admin.command.admin.AdminCommand.do_admin" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">do_admin</code><span class="sig-paren">(</span><em class="sig-param">args</em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.admin.command.admin.AdminCommand.do_admin" title="Permalink to this definition">¶</a></dt>
 <dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Usage</span><span class="p">:</span>
   <span class="n">admin</span> <span class="n">mongo</span> <span class="n">install</span> <span class="p">[</span><span class="o">--</span><span class="n">brew</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">download</span><span class="o">=</span><span class="n">PATH</span><span class="p">]</span>
   <span class="n">admin</span> <span class="n">mongo</span> <span class="n">create</span>

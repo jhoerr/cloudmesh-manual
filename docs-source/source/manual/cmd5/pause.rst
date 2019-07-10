@@ -1,22 +1,16 @@
 
 # ######################################################################
-# Arguments
-# ######################################################################
-# {'--kind': 'rst', '--noheader': False, 'COMMAND': 'pause'}
+# Cloudmesh
 # ######################################################################
 
-pause
-=====
 
-::
+Usage:
 
-  Usage:
-    pause [MESSAGE]
+       man [--format=FORMAT] COMMAND
+       man [--format=FORMAT] [--noheader]
 
-  Arguments:
-    MESSAGE  message to be displayed
+ERROR: Could not execute the command. Please check usage with
 
-  Description:
-    Displays the specified text then waits for the user to press RETURN.
+    cms help man
 
-Timer: 0.0146s (man --kind=rst pause)
+Timer: 0.0034s (man --kind=rst pause)

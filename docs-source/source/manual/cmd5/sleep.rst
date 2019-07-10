@@ -1,18 +1,16 @@
 
 # ######################################################################
-# Arguments
-# ######################################################################
-# {'--kind': 'rst', '--noheader': False, 'COMMAND': 'sleep'}
+# Cloudmesh
 # ######################################################################
 
-sleep
-=====
 
-::
+Usage:
 
-  Usage:
-    sleep SECONDS
+       man [--format=FORMAT] COMMAND
+       man [--format=FORMAT] [--noheader]
 
-  Clears the screen.
+ERROR: Could not execute the command. Please check usage with
 
-Timer: 0.0132s (man --kind=rst sleep)
+    cms help man
+
+Timer: 0.0031s (man --kind=rst sleep)

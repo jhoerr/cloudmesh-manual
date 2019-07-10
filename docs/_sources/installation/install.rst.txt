@@ -152,6 +152,10 @@ This is by far the most convenient way of installing and managing the cloudmesh 
 
 cloudmesh-installer in Ubuntu
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+18.04:
+
 To install ``cloudmesh-installer`` in Linux, we first need to make sure that
 the correct version of the Python3 is
 installed (version 3.7.3).
@@ -235,8 +239,14 @@ Test the ``cms`` installation using:
     cms help
 
 
-cloudmesh-installer in macOS Mojave
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+19.04:
+
+ubuntu 19.04 has python 3.7 by default. There is no need to update python, just
+use venv
+
+
+cloudmesh-installer in macOS
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Installing cloudmesh in macOS is very similar to installation in Ubuntu.
 Start the process by installing the python 3 using ``homebrew``. Install the
@@ -258,6 +268,25 @@ virtual environment without pip, install pip separately, install
 ``cloudmesh-installer``, followed by cloning bundles and installing them.
 
 
+Reinstalation
+~~~~~~~~~~~~~
+
+In case you need to reinstall cloudmesh and you have used the cloudmesh-installer,
+you can do it as follows:
+
+.. code:: bash
+
+    cd cm # the directory wher eyour source locates
+    cloudmesh-installer local purge . --force
+    rm -rf ~/ENV3
+    python3 -m venv ~/ENV3
+    pip install pip -U
+    pip install cloudmesh-installer
+    cloudmesh-installer install cms -e
+    cloudmesh-installer install cloud -e
+
+Please note that this will not work if you did not use the -e option previously.
+Make sure to delete the old version, wherever you installed it.
 
 Installation of mongod
 ----------------------

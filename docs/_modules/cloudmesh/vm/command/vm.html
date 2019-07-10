@@ -120,11 +120,12 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../reference-card.html">1. Reference Card (proposed)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../manual/commands.html">2. Commands</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../manual-cmd5.html">3. Manual Cmd5</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../manual-group.html">4. Manual Group</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../manual-compute.html">5. Compute Manual Pages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../manual-storage.html">6. Storage Manual Pages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../manual-other.html">7. Manual Other</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual/commands.html#documented-commands-type-help-topic">3. Documented commands (type help &lt;topic&gt;):</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-cmd5.html">4. Manual Cmd5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-group.html">5. Manual Group</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-compute.html">6. Compute Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-storage.html">7. Storage Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-other.html">8. Manual Other</a></li>
 </ul>
 <p class="caption"><span class="caption-text">DATABASE</span></p>
 <ul>
@@ -736,7 +737,7 @@
 
                 <span class="n">params</span><span class="p">[</span><span class="s1">&#39;order&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">provider</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">output</span><span class="p">[</span><span class="s1">&#39;vm&#39;</span><span class="p">][</span><span class="s1">&#39;order&#39;</span><span class="p">]</span>
                 <span class="n">params</span><span class="p">[</span><span class="s1">&#39;header&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">provider</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">output</span><span class="p">[</span><span class="s1">&#39;vm&#39;</span><span class="p">][</span><span class="s1">&#39;header&#39;</span><span class="p">]</span>
-                <span class="n">params</span><span class="p">[</span><span class="s1">&#39;output&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;table&#39;</span>
+                <span class="c1">#params[&#39;output&#39;] = &#39;table&#39;</span>
 
                 <span class="k">if</span> <span class="n">arguments</span><span class="p">[</span><span class="s1">&#39;--refresh&#39;</span><span class="p">]:</span>
                     <span class="n">provider</span><span class="o">.</span><span class="n">list</span><span class="p">()</span>
@@ -748,7 +749,7 @@
                 <span class="k">else</span><span class="p">:</span>
                     <span class="n">vms</span> <span class="o">=</span> <span class="n">database</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">collection</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">-node&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cloud</span><span class="p">))</span>
 
-                <span class="nb">print</span><span class="p">(</span><span class="n">Printer</span><span class="o">.</span><span class="n">flatwrite</span><span class="p">(</span><span class="n">vms</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">))</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">Printer</span><span class="o">.</span><span class="n">flatwrite</span><span class="p">(</span><span class="n">vms</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="n">arguments</span><span class="o">.</span><span class="n">output</span><span class="p">))</span>
         <span class="c1">#</span>
         <span class="c1">#             clouds, names = Arguments.get_cloud_and_names(&quot;list&quot;, arguments, variables)</span>
         <span class="c1">#</span>

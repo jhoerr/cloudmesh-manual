@@ -1,22 +1,16 @@
 
 # ######################################################################
-# Arguments
-# ######################################################################
-# {'--kind': 'rst', '--noheader': False, 'COMMAND': 'shell'}
+# Cloudmesh
 # ######################################################################
 
-shell
-=====
 
-::
+Usage:
 
-   Usage:
-        shell COMMAND
+       man [--format=FORMAT] COMMAND
+       man [--format=FORMAT] [--noheader]
 
-    Arguments:
-        COMMAND  the command to be executed
+ERROR: Could not execute the command. Please check usage with
 
-   Description:
-        shell COMMAND  executes the command
+    cms help man
 
-Timer: 0.0127s (man --kind=rst shell)
+Timer: 0.0035s (man --kind=rst shell)

@@ -1,19 +1,16 @@
 
 # ######################################################################
-# Arguments
-# ######################################################################
-# {'--kind': 'rst', '--noheader': False, 'COMMAND': 'q'}
+# Cloudmesh
 # ######################################################################
 
-q
-=
 
-::
+Usage:
 
-  Usage:
-    quit
+       man [--format=FORMAT] COMMAND
+       man [--format=FORMAT] [--noheader]
 
-  Description:
-    Action to be performed when quit is typed
+ERROR: Could not execute the command. Please check usage with
 
-Timer: 0.0140s (man --kind=rst q)
+    cms help man
+
+Timer: 0.0032s (man --kind=rst q)

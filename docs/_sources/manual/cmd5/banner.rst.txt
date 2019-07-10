@@ -1,31 +1,16 @@
 
 # ######################################################################
-# Arguments
-# ######################################################################
-# {'--kind': 'rst', '--noheader': False, 'COMMAND': 'banner'}
+# Cloudmesh
 # ######################################################################
 
-banner
-======
 
-::
+Usage:
 
-  Usage:
-    banner [-c CHAR] [-n WIDTH] [-i INDENT] [-r COLOR] TEXT...
+       man [--format=FORMAT] COMMAND
+       man [--format=FORMAT] [--noheader]
 
-  Arguments:
-    TEXT...   The text message from which to create the banner
-    CHAR      The character for the frame.
-    WIDTH     Width of the banner
-    INDENT    indentation of the banner
-    COLOR     the color
+ERROR: Could not execute the command. Please check usage with
 
-    Options:
-        -c CHAR   The character for the frame. [default: #]
-        -n WIDTH  The width of the banner. [default: 70]
-        -i INDENT  The width of the banner. [default: 0]
-        -r COLOR  The color of the banner. [default: BLACK]
+    cms help man
 
-    Prints a banner form a one line text message.
-
-Timer: 0.0128s (man --kind=rst banner)
+Timer: 0.0038s (man --kind=rst banner)

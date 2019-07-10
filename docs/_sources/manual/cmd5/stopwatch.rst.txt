@@ -1,26 +1,16 @@
 
 # ######################################################################
-# Arguments
-# ######################################################################
-# {'--kind': 'rst', '--noheader': False, 'COMMAND': 'stopwatch'}
+# Cloudmesh
 # ######################################################################
 
-stopwatch
-=========
 
-::
+Usage:
 
-  Usage:
-    stopwatch start TIMER
-    stopwatch stop TIMER
-    stopwatch print [TIMER]
-    stopwatch benchmark
+       man [--format=FORMAT] COMMAND
+       man [--format=FORMAT] [--noheader]
 
-  Arguments:
-    TIMER  the name of the timer
+ERROR: Could not execute the command. Please check usage with
 
-  Description:
-    THIS IS NOT YET WORKING
-    starts and stops named timers and prints them
+    cms help man
 
-Timer: 0.0148s (man --kind=rst stopwatch)
+Timer: 0.0035s (man --kind=rst stopwatch)

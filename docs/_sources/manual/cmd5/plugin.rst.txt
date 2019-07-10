@@ -1,32 +1,16 @@
 
 # ######################################################################
-# Arguments
-# ######################################################################
-# {'--kind': 'rst', '--noheader': False, 'COMMAND': 'plugin'}
+# Cloudmesh
 # ######################################################################
 
-plugin
-======
 
-::
+Usage:
 
-  Usage:
-    plugin install PLUGIN [-s]
-    plugin uninstall PLUGIN
-    plugin list
-    plugin ? [--format=FORMAT]
+       man [--format=FORMAT] COMMAND
+       man [--format=FORMAT] [--noheader]
 
-  Arguments:
-    PLUGIN   the name of the plugin
+ERROR: Could not execute the command. Please check usage with
 
-  Description:
-    plugin available
-        lists the available plugins
-    plugin list
-        lists the plugin
-    plugin install
-        installs the given plugin
-    plugin uninstall
-        uninstalls the given plugin
+    cms help man
 
-Timer: 0.0222s (man --kind=rst plugin)
+Timer: 0.0036s (man --kind=rst plugin)

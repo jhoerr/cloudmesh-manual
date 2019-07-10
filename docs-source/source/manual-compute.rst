@@ -16,3 +16,7 @@ Compute Manual Pages
    manual/compute/vcluster
    manual/compute/vm
    manual/compute/workflow
+   manual/compute/yaml
+   manual/compute/config
+   manual/compute/container
+   manual/compute/group

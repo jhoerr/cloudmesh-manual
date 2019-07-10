@@ -99,7 +99,8 @@
 <li class="toctree-l2"><a class="reference internal" href="#source-installation-for-developers">1.4. Source Installation for Developers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#installation-with-cloudmesh-installer">1.5. Installation with cloudmesh-installer</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#cloudmesh-installer-in-ubuntu">1.5.1. cloudmesh-installer in Ubuntu</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#cloudmesh-installer-in-macos-mojave">1.5.2. cloudmesh-installer in macOS Mojave</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cloudmesh-installer-in-macos">1.5.2. cloudmesh-installer in macOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reinstalation">1.5.3. Reinstalation</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#installation-of-mongod">1.6. Installation of mongod</a></li>
@@ -134,11 +135,12 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../reference-card.html">1. Reference Card (proposed)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual/commands.html">2. Commands</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../manual-cmd5.html">3. Manual Cmd5</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../manual-group.html">4. Manual Group</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../manual-compute.html">5. Compute Manual Pages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../manual-storage.html">6. Storage Manual Pages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../manual-other.html">7. Manual Other</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/commands.html#documented-commands-type-help-topic">3. Documented commands (type help &lt;topic&gt;):</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-cmd5.html">4. Manual Cmd5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-group.html">5. Manual Group</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-compute.html">6. Compute Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-storage.html">7. Storage Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-other.html">8. Manual Other</a></li>
 </ul>
 <p class="caption"><span class="caption-text">DATABASE</span></p>
 <ul>
@@ -320,7 +322,7 @@ in which you can find the configuration file:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">~/.</span><span class="n">cloudmesh</span><span class="o">/</span><span class="n">cloudmesh4</span><span class="o">.</span><span class="n">yaml</span>
 </pre></div>
 </div>
-<div class="admonition-todo admonition" id="index-0">
+<div class="admonition-todo admonition" id="id1">
 <p class="admonition-title">Todo</p>
 <p>check if this realy works, it woudl be beneficial to implement a
 command <code class="docutils literal notranslate"><span class="pre">cms</span> <span class="pre">setup</span></code> that does not only the yaml file, but also the
@@ -378,6 +380,7 @@ significant longer. You can than test if</p>
 <p>This is by far the most convenient way of installing and managing the cloudmesh bundles and packages.</p>
 <div class="section" id="cloudmesh-installer-in-ubuntu">
 <h3>1.5.1. cloudmesh-installer in Ubuntu<a class="headerlink" href="#cloudmesh-installer-in-ubuntu" title="Permalink to this headline">¶</a></h3>
+<p>18.04:</p>
 <p>To install <code class="docutils literal notranslate"><span class="pre">cloudmesh-installer</span></code> in Linux, we first need to make sure that
 the correct version of the Python3 is
 installed (version 3.7.3).</p>
@@ -439,9 +442,12 @@ following command:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms <span class="nb">help</span>
 </pre></div>
 </div>
+<p>19.04:</p>
+<p>ubuntu 19.04 has python 3.7 by default. There is no need to update python, just
+use venv</p>
 </div>
-<div class="section" id="cloudmesh-installer-in-macos-mojave">
-<h3>1.5.2. cloudmesh-installer in macOS Mojave<a class="headerlink" href="#cloudmesh-installer-in-macos-mojave" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="cloudmesh-installer-in-macos">
+<h3>1.5.2. cloudmesh-installer in macOS<a class="headerlink" href="#cloudmesh-installer-in-macos" title="Permalink to this headline">¶</a></h3>
 <p>Installing cloudmesh in macOS is very similar to installation in Ubuntu.
 Start the process by installing the python 3 using <code class="docutils literal notranslate"><span class="pre">homebrew</span></code>. Install the
 <code class="docutils literal notranslate"><span class="pre">homebrew</span></code> using the instruction in their <a class="reference external" href="https://brew.sh/#install">web page</a>:</p>
@@ -455,6 +461,23 @@ Start the process by installing the python 3 using <code class="docutils literal
 <p>The rest of the installation is identical to ubuntu. Start with creating the
 virtual environment without pip, install pip separately, install
 <code class="docutils literal notranslate"><span class="pre">cloudmesh-installer</span></code>, followed by cloning bundles and installing them.</p>
+</div>
+<div class="section" id="reinstalation">
+<h3>1.5.3. Reinstalation<a class="headerlink" href="#reinstalation" title="Permalink to this headline">¶</a></h3>
+<p>In case you need to reinstall cloudmesh and you have used the cloudmesh-installer,
+you can do it as follows:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> cm <span class="c1"># the directory wher eyour source locates</span>
+cloudmesh-installer <span class="nb">local</span> purge . --force
+rm -rf ~/ENV3
+python3 -m venv ~/ENV3
+pip install pip -U
+pip install cloudmesh-installer
+cloudmesh-installer install cms -e
+cloudmesh-installer install cloud -e
+</pre></div>
+</div>
+<p>Please note that this will not work if you did not use the -e option previously.
+Make sure to delete the old version, wherever you installed it.</p>
 </div>
 </div>
 <div class="section" id="installation-of-mongod">

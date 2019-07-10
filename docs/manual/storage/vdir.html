@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>6.3. vdir &mdash; Cloudmesh v4 alpha documentation</title>
+  <title>&lt;no title&gt; &mdash; Cloudmesh v4 alpha documentation</title>
   
 
   
@@ -36,8 +36,8 @@
   <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="7. Manual Other" href="../../manual-other.html" />
-    <link rel="prev" title="6.2. storage" href="storage.html" /> 
+    <link rel="next" title="8. Manual Other" href="../../manual-other.html" />
+    <link rel="prev" title="&lt;no title&gt;" href="storage.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -119,19 +119,15 @@
 <li class="toctree-l1"><a class="reference internal" href="../../openapi/ufo.html">2. REST Service (outdated)</a></li>
 </ul>
 <p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../../reference-card.html">1. Reference Card (proposed)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../commands.html">2. Commands</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../manual-cmd5.html">3. Manual Cmd5</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../manual-group.html">4. Manual Group</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../manual-compute.html">5. Compute Manual Pages</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../../manual-storage.html">6. Storage Manual Pages</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="objstorage.html">6.1. objstorage</a></li>
-<li class="toctree-l2"><a class="reference internal" href="storage.html">6.2. storage</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">6.3. vdir</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../../manual-other.html">7. Manual Other</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html#documented-commands-type-help-topic">3. Documented commands (type help &lt;topic&gt;):</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../manual-cmd5.html">4. Manual Cmd5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../manual-group.html">5. Manual Group</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../manual-compute.html">6. Compute Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../manual-storage.html">7. Storage Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../manual-other.html">8. Manual Other</a></li>
 </ul>
 <p class="caption"><span class="caption-text">DATABASE</span></p>
 <ul>
@@ -230,9 +226,9 @@
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../../manual-storage.html">6. Storage Manual Pages</a> &raquo;</li>
+          <li><a href="../../manual-storage.html">7. Storage Manual Pages</a> &raquo;</li>
         
-      <li>6.3. vdir</li>
+      <li>&lt;no title&gt;</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -252,65 +248,18 @@
            <div itemprop="articleBody">
             
   <p># ######################################################################
-# Arguments
-# ######################################################################
-# {‘–kind’: ‘rst’, ‘–noheader’: False, ‘COMMAND’: ‘vdir’}
+# Cloudmesh
 # ######################################################################</p>
-<div class="section" id="vdir">
-<h1>6.3. vdir<a class="headerlink" href="#vdir" title="Permalink to this headline">¶</a></h1>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Usage</span><span class="p">:</span>
-      <span class="n">vdir</span> <span class="n">mkdir</span> <span class="n">DIR</span>
-      <span class="n">vdir</span> <span class="n">cd</span> <span class="p">[</span><span class="n">DIR</span><span class="p">]</span>
-      <span class="n">vdir</span> <span class="n">ls</span> <span class="p">[</span><span class="n">DIR</span><span class="p">]</span>
-      <span class="n">vdir</span> <span class="n">add</span> <span class="p">[</span><span class="n">FILEENDPOINT</span><span class="p">]</span> <span class="p">[</span><span class="n">DIR_AND_NAME</span><span class="p">]</span>
-      <span class="n">vdir</span> <span class="n">delete</span> <span class="p">[</span><span class="n">DIR_OR_NAME</span><span class="p">]</span>
-      <span class="n">vdir</span> <span class="n">status</span> <span class="p">[</span><span class="n">DIR_OR_NAME</span><span class="p">]</span>
-      <span class="n">vdir</span> <span class="n">get</span> <span class="n">NAME</span> <span class="n">DESTINATION</span>
-
-<span class="n">Arguments</span><span class="p">:</span>
-    <span class="n">DIR</span>           <span class="n">a</span> <span class="n">directory</span> <span class="n">name</span>
-    <span class="n">FILEENDPOINT</span>  <span class="n">location</span> <span class="n">of</span> <span class="n">file</span>
-    <span class="n">DIR_AND_NAME</span>  <span class="n">path</span> <span class="n">of</span> <span class="n">file</span> <span class="n">link</span>
-    <span class="n">DIR_OR_NAME</span>   <span class="n">name</span> <span class="n">of</span> <span class="n">directory</span> <span class="ow">or</span> <span class="n">link</span>
-    <span class="n">DESTINATION</span>   <span class="n">directory</span> <span class="n">to</span> <span class="n">download</span> <span class="n">to</span>
-    <span class="n">NAME</span>          <span class="n">name</span> <span class="n">of</span> <span class="n">link</span>
-
-<span class="n">Options</span><span class="p">:</span>
-    <span class="o">-</span><span class="n">f</span>      <span class="n">specify</span> <span class="n">the</span> <span class="n">file</span>
-
-<span class="n">Descripton</span><span class="p">:</span>
-
-    <span class="n">A</span> <span class="n">virtual</span> <span class="n">directory</span> <span class="ow">is</span> <span class="n">explained</span> <span class="ow">in</span> <span class="n">our</span> <span class="n">NIST</span> <span class="n">doecumentation</span><span class="o">.</span> <span class="n">It</span>
-    <span class="n">contains</span> <span class="n">a</span> <span class="n">number</span> <span class="n">of</span> <span class="n">links</span> <span class="n">that</span> <span class="n">point</span> <span class="n">to</span> <span class="n">other</span> <span class="n">storage</span> <span class="n">services</span> <span class="n">on</span>
-    <span class="n">which</span> <span class="n">the</span> <span class="n">file</span> <span class="ow">is</span> <span class="n">stored</span><span class="o">.</span> <span class="n">The</span> <span class="n">links</span> <span class="n">include</span> <span class="n">the</span> <span class="n">provider</span><span class="p">,</span> <span class="n">the</span> <span class="n">name</span>
-    <span class="n">of</span> <span class="n">the</span> <span class="n">profider</span> <span class="ow">and</span> <span class="n">its</span> <span class="nb">type</span> <span class="n">are</span> <span class="n">identified</span> <span class="ow">in</span> <span class="n">the</span>
-    <span class="o">~/.</span><span class="n">cloudmesh4</span><span class="o">.</span><span class="n">yaml</span> <span class="n">file</span><span class="o">.</span>
-
-    <span class="n">the</span> <span class="n">location</span> <span class="ow">is</span> <span class="n">identified</span> <span class="k">as</span>
-
-       <span class="p">{</span><span class="n">provider</span><span class="p">}:{</span><span class="n">directory</span><span class="p">}</span><span class="o">/</span><span class="p">{</span><span class="n">filensme</span><span class="p">}</span>
-
-    <span class="n">A</span> <span class="n">cloudmesh</span> <span class="n">directory</span> <span class="n">can</span> <span class="n">be</span> <span class="n">used</span> <span class="n">to</span> <span class="n">uniquely</span> <span class="n">specify</span> <span class="n">the</span> <span class="n">file</span><span class="p">:</span>
-
-       <span class="n">cm</span><span class="p">:</span>
-          <span class="n">name</span><span class="p">:</span> <span class="n">the</span> <span class="n">unique</span> <span class="n">name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">file</span>
-          <span class="n">kind</span><span class="p">:</span> <span class="n">vdir</span>
-          <span class="n">cloud</span><span class="p">:</span> <span class="n">local</span>
-          <span class="n">directory</span><span class="p">:</span> <span class="n">directory</span>
-          <span class="n">filename</span><span class="p">:</span> <span class="n">filename</span>
-          <span class="n">directory</span><span class="p">:</span> <span class="n">directory</span>
-          <span class="n">provider</span><span class="p">:</span> <span class="n">provider</span>
-          <span class="n">created</span><span class="p">:</span> <span class="n">date</span>
-          <span class="n">modified</span><span class="p">:</span> <span class="n">date</span>
-
-    <span class="n">vdir</span> <span class="n">get</span> <span class="n">NAME</span> <span class="n">DESTINATION</span>
-
-       <span class="n">locates</span> <span class="n">the</span> <span class="n">file</span> <span class="k">with</span> <span class="n">the</span> <span class="n">name</span> <span class="n">on</span> <span class="n">a</span> <span class="n">storage</span> <span class="n">provider</span><span class="p">,</span>
-       <span class="ow">and</span> <span class="n">fetches</span> <span class="n">it</span> <span class="kn">from</span> <span class="nn">there.</span>
-</pre></div>
-</div>
-<p>Timer: 0.0151s (man –kind=rst vdir)</p>
-</div>
+<p>Usage:</p>
+<blockquote>
+<div><p>man [–format=FORMAT] COMMAND
+man [–format=FORMAT] [–noheader]</p>
+</div></blockquote>
+<p>ERROR: Could not execute the command. Please check usage with</p>
+<blockquote>
+<div><p>cms help man</p>
+</div></blockquote>
+<p>Timer: 0.0037s (man –kind=rst vdir)</p>
 
 
            </div>
@@ -320,10 +269,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../manual-other.html" class="btn btn-neutral float-right" title="7. Manual Other" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../../manual-other.html" class="btn btn-neutral float-right" title="8. Manual Other" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="storage.html" class="btn btn-neutral float-left" title="6.2. storage" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="storage.html" class="btn btn-neutral float-left" title="&lt;no title&gt;" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

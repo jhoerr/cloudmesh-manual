@@ -1,25 +1,16 @@
 
 # ######################################################################
-# Arguments
-# ######################################################################
-# {'--kind': 'rst', '--noheader': False, 'COMMAND': 'echo'}
+# Cloudmesh
 # ######################################################################
 
-echo
-====
 
-::
+Usage:
 
-  Usage:
-    echo  [-r COLOR] TEXT
+       man [--format=FORMAT] COMMAND
+       man [--format=FORMAT] [--noheader]
 
-    Arguments:
-        TEXT   The text message to print
-        COLOR  the color
+ERROR: Could not execute the command. Please check usage with
 
-    Options:
-        -r COLOR  The color of the text. [default: BLACK]
+    cms help man
 
-    Prints a text in the given color
-
-Timer: 0.0135s (man --kind=rst echo)
+Timer: 0.0034s (man --kind=rst echo)

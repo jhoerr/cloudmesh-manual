@@ -107,7 +107,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#compute-cloud-providers">3.9. Compute Cloud Providers</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id3">3.9.1. Default</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">3.9.1. Default</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#credentials">3.9.2. credentials</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#aws">3.9.3. AWS</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#azure">3.9.4. Azure</a></li>
@@ -161,11 +161,12 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../reference-card.html">1. Reference Card (proposed)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../manual/commands.html">2. Commands</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../manual-cmd5.html">3. Manual Cmd5</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../manual-group.html">4. Manual Group</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../manual-compute.html">5. Compute Manual Pages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../manual-storage.html">6. Storage Manual Pages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../manual-other.html">7. Manual Other</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/commands.html#documented-commands-type-help-topic">3. Documented commands (type help &lt;topic&gt;):</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-cmd5.html">4. Manual Cmd5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-group.html">5. Manual Group</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-compute.html">6. Compute Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-storage.html">7. Storage Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-other.html">8. Manual Other</a></li>
 </ul>
 <p class="caption"><span class="caption-text">DATABASE</span></p>
 <ul>
@@ -384,7 +385,7 @@ cluster: clustera</p>
 </dl>
 </div></blockquote>
 <p>The falues can be set with the default command</p>
-<div class="admonition-todo admonition" id="index-0">
+<div class="admonition-todo admonition" id="id1">
 <p class="admonition-title">Todo</p>
 <p>implement the default command and set values in it. This may already be done. we may need to add the dot
 notation for that command so we have one command that can set the general default, but also the default for
@@ -398,7 +399,7 @@ named services.</p>
 it need sto be updated. YOu only have to update the providers you like to use, you can delete the other if you like.</p>
 <div class="section" id="cm">
 <h3>3.8.1. cm<a class="headerlink" href="#cm" title="Permalink to this headline">¶</a></h3>
-<p>In the <a href="#id1"><span class="problematic" id="id2">``</span></a>cm` portion we define elementary information that identifies the service. This includes
+<p>In the <a href="#id2"><span class="problematic" id="id3">``</span></a>cm` portion we define elementary information that identifies the service. This includes
 The following information</p>
 <dl>
 <dt>active</dt><dd><p>if set to Tru, this cloud is going to be used in cloudmesh, if it is set to False it is not activated.
@@ -448,8 +449,8 @@ with a name you like. You can even create multiple names that refer to the same 
 We like to focus on the example for <code class="docutils literal notranslate"><span class="pre">aws</span></code> and explain this in a bit more detail.</p>
 <p>The cloudmesh entry for a compute service is devided into three portions:
 <code class="docutils literal notranslate"><span class="pre">cm</span></code>, <code class="docutils literal notranslate"><span class="pre">default</span></code>, and <code class="docutils literal notranslate"><span class="pre">credentials</span></code>. The format of the <code class="docutils literal notranslate"><span class="pre">cm</span></code> is explained previously.</p>
-<div class="section" id="id3">
-<h3>3.9.1. Default<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id4">
+<h3>3.9.1. Default<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <p>The next category are defaults thatcan be preset for each cloud. However defaults are overwritten by the cloudmesh shell
 variables. So they are only used once at startup if these defaults are not already defined by cloudmesh shell. Typically
 we use them to for example define values for images and sizes or flafors of images</p>
@@ -503,7 +504,7 @@ Future versions of cloudmesh will encrypt the information by default.</p>
 </div>
 <div class="section" id="azure">
 <h3>3.9.4. Azure<a class="headerlink" href="#azure" title="Permalink to this headline">¶</a></h3>
-<div class="admonition-todo admonition" id="index-1">
+<div class="admonition-todo admonition" id="id5">
 <p class="admonition-title">Todo</p>
 <p>az arm provider this has to be verified. We will likely deprecate thsi for a more elaborate provider</p>
 </div>
@@ -541,7 +542,7 @@ Future versions of cloudmesh will encrypt the information by default.</p>
 </div>
 <div class="section" id="az">
 <h3>3.9.5. AZ<a class="headerlink" href="#az" title="Permalink to this headline">¶</a></h3>
-<div class="admonition-todo admonition" id="index-2">
+<div class="admonition-todo admonition" id="id6">
 <p class="admonition-title">Todo</p>
 <p>AzProvider. Verify it works</p>
 </div>
@@ -677,21 +678,21 @@ the following description:</p>
 </div>
 <div class="section" id="ssh">
 <h3>3.9.9. SSH<a class="headerlink" href="#ssh" title="Permalink to this headline">¶</a></h3>
-<div class="admonition-todo admonition" id="index-3">
+<div class="admonition-todo admonition" id="id7">
 <p class="admonition-title">Todo</p>
 <p>SSH,  STUDENT CONTRIBUTE HERE</p>
 </div>
 </div>
 <div class="section" id="local">
 <h3>3.9.10. Local<a class="headerlink" href="#local" title="Permalink to this headline">¶</a></h3>
-<div class="admonition-todo admonition" id="index-4">
+<div class="admonition-todo admonition" id="id8">
 <p class="admonition-title">Todo</p>
 <p>Local,  STUDENT CONTRIBUTE HERE</p>
 </div>
 </div>
 <div class="section" id="docker">
 <h3>3.9.11. Docker<a class="headerlink" href="#docker" title="Permalink to this headline">¶</a></h3>
-<div class="admonition-todo admonition" id="index-5">
+<div class="admonition-todo admonition" id="id9">
 <p class="admonition-title">Todo</p>
 <p>Docker,  STUDENT CONTRIBUTE HERE</p>
 </div>
@@ -735,13 +736,13 @@ resource for that geographic area. Here is a sample:</p>
         <span class="n">region</span><span class="p">:</span> <span class="n">Specfiy</span> <span class="n">the</span> <span class="n">default</span> <span class="n">region</span> <span class="n">eg</span> <span class="n">us</span><span class="o">-</span><span class="n">east</span><span class="o">-</span><span class="mi">1</span>
 </pre></div>
 </div>
-<div class="admonition-todo admonition" id="index-6">
+<div class="admonition-todo admonition" id="id10">
 <p class="admonition-title">Todo</p>
 <p>Make credentials more uniform between compute and data</p>
 </div>
 </div>
 <div class="section" id="azure-1">
-<span id="id4"></span><h3>3.10.2. Azure<a class="headerlink" href="#azure-1" title="Permalink to this headline">¶</a></h3>
+<span id="id11"></span><h3>3.10.2. Azure<a class="headerlink" href="#azure-1" title="Permalink to this headline">¶</a></h3>
 <p>It is beyond the scope of this manual to discuss how to get an account
 on Google. However we do provide a convenient documentation at
 <a class="reference internal" href="../accounts/azure.html"><span class="doc">Azure Account Creation</span></a>.</p>
@@ -848,7 +849,7 @@ file you created as described in the Box chapter:</p>
 </div>
 <div class="section" id="batch">
 <h2>3.11. Batch<a class="headerlink" href="#batch" title="Permalink to this headline">¶</a></h2>
-<div class="admonition-todo admonition" id="index-7">
+<div class="admonition-todo admonition" id="id12">
 <p class="admonition-title">Todo</p>
 <p>batch, student contribute here</p>
 </div>

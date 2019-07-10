@@ -1,11 +1,16 @@
 Commands
 ========
 
-EOF     container  flow       key      pause     set        storage   vdir    
-admin   data       group      login    plugin    shell      sys       version 
-banner  default    help       man      q         sleep      url       vm      
-batch   echo       image      network  queue     source     var       workflow
-clear   emr        info       open     quit      ssh        vbox    
-config  flavor     inventory  openapi  secgroup  stopwatch  vcluster
+# ######################################################################
 
-Timer: 0.0043s (help)
+
+Documented commands (type help <topic>):
+========================================
+EOF       container  help       man      quit      sleep      var       yaml
+admin     data       image      network  register  source     vbox    
+banner    default    info       open     secgroup  ssh        vcluster
+clear     echo       inventory  pause    service   stopwatch  version 
+commands  flavor     key        plugin   set       sys        vm      
+config    group      login      q        shell     url        workflow
+
+Timer: 0.0028s (help)
