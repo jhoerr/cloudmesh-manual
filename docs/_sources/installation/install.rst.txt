@@ -47,6 +47,8 @@ so the environment is always loaded. Now you are ready to install cloudmesh.
 Installation with Pip
 ---------------------
 
+.. warning:: At this time we recommend that you do the source install as we have not yet uploaded all packages to pypi.
+
 The instalation can be done with pip.
 
 .. code:: bash
@@ -89,6 +91,9 @@ in which you can find the configuration file:
 
 Anaconda and Conda
 ------------------
+
+.. warning:: At this time we recommend that you do the source install as we have not yet uploaded all packages to
+condahub.
 
 We also have the base packages available as conda packages on conda hub
 in the chanel ``laszewski``. This includes
@@ -154,7 +159,8 @@ cloudmesh-installer in Ubuntu
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-18.04:
+18.04
+^^^^^
 
 To install ``cloudmesh-installer`` in Linux, we first need to make sure that
 the correct version of the Python3 is
@@ -239,10 +245,11 @@ Test the ``cms`` installation using:
     cms help
 
 
-19.04:
+19.04
+^^^^^
 
-ubuntu 19.04 has python 3.7 by default. There is no need to update python, just
-use venv
+Ubuntu 19.04 has python 3.7 by default. There is no need to update python, just
+use venv as discussed in the prerequisits.
 
 
 cloudmesh-installer in macOS
@@ -271,8 +278,9 @@ virtual environment without pip, install pip separately, install
 Reinstalation
 ~~~~~~~~~~~~~
 
-In case you need to reinstall cloudmesh and you have used the cloudmesh-installer,
-you can do it as follows:
+In case you need to reinstall cloudmesh and you have used previously the
+cloudmesh-installer, you can do it as follows (We assume you have used the
+cloudmesh-installer in the directory cm):
 
 .. code:: bash
 

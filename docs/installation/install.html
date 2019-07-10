@@ -98,7 +98,11 @@
 <li class="toctree-l2"><a class="reference internal" href="#anaconda-and-conda">1.3. Anaconda and Conda</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#source-installation-for-developers">1.4. Source Installation for Developers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#installation-with-cloudmesh-installer">1.5. Installation with cloudmesh-installer</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#cloudmesh-installer-in-ubuntu">1.5.1. cloudmesh-installer in Ubuntu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cloudmesh-installer-in-ubuntu">1.5.1. cloudmesh-installer in Ubuntu</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">1.5.1.1. 18.04</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">1.5.1.2. 19.04</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#cloudmesh-installer-in-macos">1.5.2. cloudmesh-installer in macOS</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#reinstalation">1.5.3. Reinstalation</a></li>
 </ul>
@@ -297,6 +301,10 @@ Follow these steps first:</p>
 </div>
 <div class="section" id="installation-with-pip">
 <h2>1.2. Installation with Pip<a class="headerlink" href="#installation-with-pip" title="Permalink to this headline">¶</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>At this time we recommend that you do the source install as we have not yet uploaded all packages to pypi.</p>
+</div>
 <p>The instalation can be done with pip.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install cloudmesh-cms
 pip install cloudmesh-sys
@@ -331,6 +339,11 @@ mongo password</p>
 </div>
 <div class="section" id="anaconda-and-conda">
 <h2>1.3. Anaconda and Conda<a class="headerlink" href="#anaconda-and-conda" title="Permalink to this headline">¶</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>At this time we recommend that you do the source install as we have not yet uploaded all packages to</p>
+</div>
+<p>condahub.</p>
 <p>We also have the base packages available as conda packages on conda hub
 in the chanel <code class="docutils literal notranslate"><span class="pre">laszewski</span></code>. This includes</p>
 <ul class="simple">
@@ -380,7 +393,8 @@ significant longer. You can than test if</p>
 <p>This is by far the most convenient way of installing and managing the cloudmesh bundles and packages.</p>
 <div class="section" id="cloudmesh-installer-in-ubuntu">
 <h3>1.5.1. cloudmesh-installer in Ubuntu<a class="headerlink" href="#cloudmesh-installer-in-ubuntu" title="Permalink to this headline">¶</a></h3>
-<p>18.04:</p>
+<div class="section" id="id2">
+<h4>1.5.1.1. 18.04<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
 <p>To install <code class="docutils literal notranslate"><span class="pre">cloudmesh-installer</span></code> in Linux, we first need to make sure that
 the correct version of the Python3 is
 installed (version 3.7.3).</p>
@@ -442,9 +456,12 @@ following command:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms <span class="nb">help</span>
 </pre></div>
 </div>
-<p>19.04:</p>
-<p>ubuntu 19.04 has python 3.7 by default. There is no need to update python, just
-use venv</p>
+</div>
+<div class="section" id="id3">
+<h4>1.5.1.2. 19.04<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
+<p>Ubuntu 19.04 has python 3.7 by default. There is no need to update python, just
+use venv as discussed in the prerequisits.</p>
+</div>
 </div>
 <div class="section" id="cloudmesh-installer-in-macos">
 <h3>1.5.2. cloudmesh-installer in macOS<a class="headerlink" href="#cloudmesh-installer-in-macos" title="Permalink to this headline">¶</a></h3>
@@ -464,8 +481,9 @@ virtual environment without pip, install pip separately, install
 </div>
 <div class="section" id="reinstalation">
 <h3>1.5.3. Reinstalation<a class="headerlink" href="#reinstalation" title="Permalink to this headline">¶</a></h3>
-<p>In case you need to reinstall cloudmesh and you have used the cloudmesh-installer,
-you can do it as follows:</p>
+<p>In case you need to reinstall cloudmesh and you have used previously the
+cloudmesh-installer, you can do it as follows (We assume you have used the
+cloudmesh-installer in the directory cm):</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> cm <span class="c1"># the directory wher eyour source locates</span>
 cloudmesh-installer <span class="nb">local</span> purge . --force
 rm -rf ~/ENV3

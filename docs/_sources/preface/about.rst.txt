@@ -28,7 +28,7 @@ Features
      - `useful common <https://github.com/cloudmesh/cloudmesh-common>`_
        programming library to make it easy to interface with the system
    * - Shell
-     - cmd5 extensible command line and shell with
+     - extensible command line and shell with
        `cmd5 <https://github.com/cloudmesh/cloudmesh-cmd5>`_
    * - Installer
      - convenient `installer <https://github.com/cloudmesh/cloudmesh-installer>`_
