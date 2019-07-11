@@ -251,8 +251,17 @@
 <span class="kn">import</span> <span class="nn">os</span>
 
 
+
+
 <span class="c1"># noinspection PyPep8Naming</span>
-<div class="viewcode-block" id="VERBOSE"><a class="viewcode-back" href="../../../code/common.html#cloudmesh.common.debug.VERBOSE">[docs]</a><span class="k">def</span> <span class="nf">VERBOSE</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;BLUE&quot;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">location</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<div class="viewcode-block" id="VERBOSE"><a class="viewcode-back" href="../../../code/common.html#cloudmesh.common.debug.VERBOSE">[docs]</a><span class="k">def</span> <span class="nf">VERBOSE</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;BLUE&quot;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">location</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">secrets</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;OS_PASSWORD&quot;</span><span class="p">,</span> <span class="s2">&quot;OS_USERNAME&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;client_secret&quot;</span><span class="p">,</span> <span class="s2">&quot;client_id&quot;</span><span class="p">,</span> <span class="s2">&quot;project_id&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;AZURE_TENANT_ID&quot;</span><span class="p">,</span> <span class="s2">&quot;AZURE_SUBSCRIPTION_ID&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;AZURE_APPLICATION_ID&quot;</span><span class="p">,</span> <span class="s2">&quot;AZURE_SECRET_KEY: TBD&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;EC2_ACCESS_ID: TBD&quot;</span><span class="p">,</span> <span class="s2">&quot;EC2_SECRET_KEY&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;MONGO_PASSWORD&quot;</span><span class="p">]</span>
+            <span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Prints a data structure in verbose mode</span>
 
@@ -262,6 +271,7 @@
 <span class="sd">    :param verbose: indicates when to print it. If verbose in cloudmesh is higher than the speified value it is printed</span>
 <span class="sd">    :return:</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
 
     <span class="n">_verbose</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">Variables</span><span class="p">()[</span><span class="s2">&quot;verbose&quot;</span><span class="p">]</span> <span class="ow">or</span> <span class="mi">0</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">_verbose</span> <span class="o">&gt;=</span> <span class="n">verbose</span><span class="p">:</span>
@@ -276,13 +286,22 @@
             <span class="n">module</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">getmodule</span><span class="p">(</span><span class="n">frame</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
             <span class="n">filename</span> <span class="o">=</span> <span class="n">module</span><span class="o">.</span><span class="vm">__file__</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">cwd</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">)</span>
             <span class="n">lineno</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">inspect</span><span class="o">.</span><span class="n">stack</span><span class="p">()[</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot;:&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">inspect</span><span class="o">.</span><span class="n">stack</span><span class="p">()[</span><span class="mi">1</span><span class="p">][</span><span class="mi">3</span><span class="p">])</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;# FILENAME:&quot;</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+            <span class="c1"># print(&quot;# FILENAME:&quot;, filename, sep=&quot;&quot;)</span>
 
         <span class="n">hline</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="mi">70</span> <span class="o">*</span> <span class="s2">&quot;-&quot;</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
 
-        <span class="n">banner</span><span class="p">(</span><span class="n">lineno</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">filename</span> <span class="o">+</span> <span class="n">hline</span> <span class="o">+</span> <span class="n">pformat</span><span class="p">(</span><span class="n">msg</span><span class="p">),</span>
-               <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">,</span>
-               <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span></div>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span> <span class="o">==</span> <span class="nb">dict</span> <span class="ow">and</span> <span class="n">secrets</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">tmp</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">secrets</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">tmp</span><span class="p">:</span>
+                    <span class="n">tmp</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;********&quot;</span>
+            <span class="n">banner</span><span class="p">(</span><span class="n">lineno</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">filename</span> <span class="o">+</span> <span class="n">hline</span> <span class="o">+</span> <span class="n">pformat</span><span class="p">(</span><span class="n">tmp</span><span class="p">),</span>
+                   <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">,</span>
+                   <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">banner</span><span class="p">(</span><span class="n">lineno</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">filename</span> <span class="o">+</span> <span class="n">hline</span> <span class="o">+</span> <span class="n">pformat</span><span class="p">(</span><span class="n">msg</span><span class="p">),</span>
+                   <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">,</span>
+                   <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span></div>
 
 </pre></div>
 

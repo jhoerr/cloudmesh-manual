@@ -93,20 +93,21 @@
 <p class="caption"><span class="caption-text">INSTALLATION</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">1. Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#prerequisites">1.1. Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#prerequisites">1.1. Prerequisites</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#prerequisits-ubuntu-18-04">1.1.1. Prerequisits Ubuntu 18.04</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prerequisits-ubuntu-19-04">1.1.2. Prerequisits Ubuntu 19.04</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prerequisits-macos">1.1.3. Prerequisits macOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prerequisit-venv">1.1.4. Prerequisit venv</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#installation-with-pip">1.2. Installation with Pip</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#anaconda-and-conda">1.3. Anaconda and Conda</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#source-installation-for-developers">1.4. Source Installation for Developers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#installation-with-cloudmesh-installer">1.5. Installation with cloudmesh-installer</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#cloudmesh-installer-in-ubuntu">1.5.1. cloudmesh-installer in Ubuntu</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id2">1.5.1.1. 18.04</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id3">1.5.1.2. 19.04</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#source-installation-for-developers">1.4. Source Installation for Developers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#updates">1.4.1. Updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reinstalation">1.4.2. Reinstalation</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#cloudmesh-installer-in-macos">1.5.2. cloudmesh-installer in macOS</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#reinstalation">1.5.3. Reinstalation</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#cloudmesh-directory">1.5. .cloudmesh directory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#installation-of-mongod">1.6. Installation of mongod</a></li>
 </ul>
 </li>
@@ -264,18 +265,22 @@
             
   <div class="section" id="installation">
 <h1>1. Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
-<p>Cloudmesh is easy to install. Dependent on your preferences you can choose an install from</p>
+<p>Cloudmesh is easy to install. Dependent on your preferences you can choose an
+install from</p>
 <ul class="simple">
 <li><p>pip if you are a cloudmesh user</p></li>
 <li><p>source install if you are a developer</p></li>
 </ul>
-<p>At this time we do not recommend the conda install, as the conda packages are outdated at this time.</p>
-<p>Please read a section in this manual completly, and understand the items explained. Do not just copy an past
+<p>At this time we do not recommend the conda install, as the conda packages are
+outdated at this time.</p>
+<p>Please read a section in this manual completly, and understand the items
+explained. Do not just copy an past
 text in your terminal and execute it as it could have unexpected consequences.</p>
 <p>The mongo installation has to be done by everyone.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>At this time we recommend that you do the source install as we have not yet uploaded all packages to pypi.</p>
+<p>At this time we recommend that you do the source install as we
+have not yet uploaded all packages to pypi.</p>
 </div>
 <div class="section" id="prerequisites">
 <h2>1.1. Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
@@ -285,130 +290,23 @@ text in your terminal and execute it as it could have unexpected consequences.</
 installed. Likely the code will work with earlier versions, but we
 do the development in python 3.7.3 from <a class="reference external" href="https://www.python.org/downloads/">https://www.python.org/downloads/</a>.</p>
 </div>
-<p id="use-a-venv">We highly recommend that you use a python virtualenv such as <code class="docutils literal notranslate"><span class="pre">venv</span></code> to
-make sure you are not interfering with your system python. This is
-simple. For our purposes we assume that you use the directory ~/ENV3.
-Follow these steps first:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3.7 -m venv  ~/ENV3
-<span class="nb">source</span>  ~/ENV3/bin/activate
+<div class="section" id="prerequisits-ubuntu-18-04">
+<h3>1.1.1. Prerequisits Ubuntu 18.04<a class="headerlink" href="#prerequisits-ubuntu-18-04" title="Permalink to this headline">¶</a></h3>
+<p>We first need to make sure that the correct version of the Python3 is
+installed. The default version of Python on Ubuntu 18.04 is 3.6. You can get
+the version with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="o">--</span><span class="n">version</span>
 </pre></div>
 </div>
-<p>You can add at the end of your .bashrc or .bash_profile file the line</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> ~/ENV3/bin/activate
-</pre></div>
-</div>
-<p>so the environment is always loaded. Now you are ready to install cloudmesh.</p>
-</div>
-<div class="section" id="installation-with-pip">
-<h2>1.2. Installation with Pip<a class="headerlink" href="#installation-with-pip" title="Permalink to this headline">¶</a></h2>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>At this time we recommend that you do the source install as we have not yet uploaded all packages to pypi.</p>
-</div>
-<p>The instalation can be done with pip.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install cloudmesh-cms
-pip install cloudmesh-sys
-pip install cloudmesh-cloud
-pip install cloudmesh-storage
-</pre></div>
-</div>
-<p>Additional packages include but are not yet released:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install cloudmesh-flow
-pip install cloudmesh-emr
-pip install cloudmesh-batch
-pip install cloudmesh-openapi
-</pre></div>
-</div>
-<p>Next you will need to test the cloudmesh command and at the same time create
-a configuration file. This is done by invoking the <cite>cms</cite> comamnd the first time.
-Thus, just type the command</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms <span class="nb">help</span>
-</pre></div>
-</div>
-<p>in your terminal. It will create a directory <code class="docutils literal notranslate"><span class="pre">~/.cloudmesh</span></code>
-in which you can find the configuration file:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">~/.</span><span class="n">cloudmesh</span><span class="o">/</span><span class="n">cloudmesh4</span><span class="o">.</span><span class="n">yaml</span>
-</pre></div>
-</div>
-<div class="admonition-todo admonition" id="id1">
-<p class="admonition-title">Todo</p>
-<p>check if this realy works, it woudl be beneficial to implement a
-command <code class="docutils literal notranslate"><span class="pre">cms</span> <span class="pre">setup</span></code> that does not only the yaml file, but also the
-mongo password</p>
-</div>
-</div>
-<div class="section" id="anaconda-and-conda">
-<h2>1.3. Anaconda and Conda<a class="headerlink" href="#anaconda-and-conda" title="Permalink to this headline">¶</a></h2>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>At this time we recommend that you do the source install as we have not yet uploaded all packages to</p>
-</div>
-<p>condahub.</p>
-<p>We also have the base packages available as conda packages on conda hub
-in the chanel <code class="docutils literal notranslate"><span class="pre">laszewski</span></code>. This includes</p>
-<ul class="simple">
-<li><p>cloudmesh-common</p></li>
-<li><p>cloudmesh-cmd5</p></li>
-<li><p>cloudmesh-sys</p></li>
-</ul>
-<p>Note that the packages will always be a behind the packages on pypi and
-especially the source distribution. FUrthermore, other packages are not yet
-uploaded. If you are interested in helping out with the conda packages, let
-us know. Please contact us if you need a new release. As conda supports alos
-pip, we recommend using pip for it also.</p>
-</div>
-<div class="section" id="source-installation-for-developers">
-<h2>1.4. Source Installation for Developers<a class="headerlink" href="#source-installation-for-developers" title="Permalink to this headline">¶</a></h2>
-<p>As a developer you want o use our source instalation. For this reasone we
-wrote a cloudmesh-installer script that conveniently downloads the needed
-repositories. More documentation about it can be found at</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/cloudmesh/cloudmesh-installer">https://github.com/cloudmesh/cloudmesh-installer</a></p></li>
-</ul>
-<p>First make sure you have a python virtual env as described in the pip section
-(see <a class="reference internal" href="#use-a-venv">Use a venv</a>). Instead of using the pip install method, please use the
-following.</p>
-<p>Now you can install it with</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install cloudmesh-installer
-</pre></div>
-</div>
-<p>It is best to create an empty directory and decide which bundles to
-install</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir cm
-<span class="nb">cd</span> cm
-cloudmesh-installer bundels
-</pre></div>
-</div>
-<p>Decide which bundels you like to install (let us assume you use storage)
-and simply say</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cloudmesh-installer git clone storage
-cloudmesh-installer install storage -e
-</pre></div>
-</div>
-<p>It will take a while to install On newer machines 1 minte, on older
-significant longer. You can than test if</p>
-</div>
-<div class="section" id="installation-with-cloudmesh-installer">
-<h2>1.5. Installation with cloudmesh-installer<a class="headerlink" href="#installation-with-cloudmesh-installer" title="Permalink to this headline">¶</a></h2>
-<p>This is by far the most convenient way of installing and managing the cloudmesh bundles and packages.</p>
-<div class="section" id="cloudmesh-installer-in-ubuntu">
-<h3>1.5.1. cloudmesh-installer in Ubuntu<a class="headerlink" href="#cloudmesh-installer-in-ubuntu" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="id2">
-<h4>1.5.1.1. 18.04<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
-<p>To install <code class="docutils literal notranslate"><span class="pre">cloudmesh-installer</span></code> in Linux, we first need to make sure that
-the correct version of the Python3 is
-installed (version 3.7.3).</p>
+<p>If the version is not 3.7.3 or newer, you can update it as follows:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt-get update
 sudo apt install software-properties-common
 sudo add-apt-repository ppa:deadsnakes/ppa
 sudo apt-get install python3.7 python3-dev python3.7-dev
 </pre></div>
 </div>
-<p>The default version of Python on Ubuntu 18.04 is 3.6 and you can get that
-version using <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">--version</span></code>. You can then check the installed version</p>
-<blockquote>
-<div><p>using <code class="docutils literal notranslate"><span class="pre">python3.7</span> <span class="pre">--version</span></code> which should be <code class="docutils literal notranslate"><span class="pre">3.7.3</span></code>.</p>
-</div></blockquote>
+<p>You can then check the installed version
+using <code class="docutils literal notranslate"><span class="pre">python3.7</span> <span class="pre">--version</span></code> which should be <code class="docutils literal notranslate"><span class="pre">3.7.3</span></code>.</p>
 <p>Now we will create a new virtual environment:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3.7 -m venv --without-pip ~/ENV3
 </pre></div>
@@ -429,42 +327,15 @@ python get-pip.py
 rm get-pip.py
 </pre></div>
 </div>
-<p>now you should be able to install <code class="docutils literal notranslate"><span class="pre">cloudmesh-installer</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install cloudmesh-installer
-</pre></div>
 </div>
-<p>You should be able to now get the help function of the <code class="docutils literal notranslate"><span class="pre">cloudmesh-installer</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cloudmesh-installer --help
-</pre></div>
+<div class="section" id="prerequisits-ubuntu-19-04">
+<h3>1.1.2. Prerequisits Ubuntu 19.04<a class="headerlink" href="#prerequisits-ubuntu-19-04" title="Permalink to this headline">¶</a></h3>
+<p>Python 3.7 is installed in ubuntu 19.04. Therefore, it already fulfills the
+prerequisits. However we recommend that you update to the newest version of
+python and pip.</p>
 </div>
-<p>You can now get the list of available bundles and install the bundle of your
-choice. You can get the list of available bundles using:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cloudmesh-installer bundles
-</pre></div>
-</div>
-<p>Now, go to your target destination, e.g. <code class="docutils literal notranslate"><span class="pre">~/cm</span></code> and run the following
-command to clone the <code class="docutils literal notranslate"><span class="pre">cms</span></code> bundle:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cloudmesh-installer git clone cms
-</pre></div>
-</div>
-<p>Now that the <code class="docutils literal notranslate"><span class="pre">cms</span></code> is cloned, you can then install the <code class="docutils literal notranslate"><span class="pre">cms</span></code> using the
-following command:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cloudmesh-installer install cms -e
-</pre></div>
-</div>
-<p>Test the <code class="docutils literal notranslate"><span class="pre">cms</span></code> installation using:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms <span class="nb">help</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="id3">
-<h4>1.5.1.2. 19.04<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
-<p>Ubuntu 19.04 has python 3.7 by default. There is no need to update python, just
-use venv as discussed in the prerequisits.</p>
-</div>
-</div>
-<div class="section" id="cloudmesh-installer-in-macos">
-<h3>1.5.2. cloudmesh-installer in macOS<a class="headerlink" href="#cloudmesh-installer-in-macos" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="prerequisits-macos">
+<h3>1.1.3. Prerequisits macOS<a class="headerlink" href="#prerequisits-macos" title="Permalink to this headline">¶</a></h3>
 <p>Installing cloudmesh in macOS is very similar to installation in Ubuntu.
 Start the process by installing the python 3 using <code class="docutils literal notranslate"><span class="pre">homebrew</span></code>. Install the
 <code class="docutils literal notranslate"><span class="pre">homebrew</span></code> using the instruction in their <a class="reference external" href="https://brew.sh/#install">web page</a>:</p>
@@ -475,28 +346,165 @@ Start the process by installing the python 3 using <code class="docutils literal
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>brew install python
 </pre></div>
 </div>
-<p>The rest of the installation is identical to ubuntu. Start with creating the
-virtual environment without pip, install pip separately, install
-<code class="docutils literal notranslate"><span class="pre">cloudmesh-installer</span></code>, followed by cloning bundles and installing them.</p>
+</div>
+<div class="section" id="prerequisit-venv">
+<h3>1.1.4. Prerequisit venv<a class="headerlink" href="#prerequisit-venv" title="Permalink to this headline">¶</a></h3>
+<p id="use-a-venv">This step is highly recommend if you have not yet already installed a
+<code class="docutils literal notranslate"><span class="pre">venv</span></code> for python to make sure you are not interfering with your system
+python. This is simple. For our purposes we assume that you use the directory</p>
+<blockquote>
+<div><p>~/ENV3. Follow these steps first:</p>
+</div></blockquote>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3.7 -m venv  ~/ENV3
+<span class="nb">source</span>  ~/ENV3/bin/activate
+</pre></div>
+</div>
+<p>You can add at the end of your .bashrc (ubuntu) or .bash_profile (macOS) file
+the line</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> ~/ENV3/bin/activate
+</pre></div>
+</div>
+<p>so the environment is always loaded. Now you are ready to install cloudmesh.</p>
+</div>
+</div>
+<div class="section" id="installation-with-pip">
+<h2>1.2. Installation with Pip<a class="headerlink" href="#installation-with-pip" title="Permalink to this headline">¶</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>At this time the pip install is not supported.</p>
+</div>
+<p>The instalation can be done with pip.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install cloudmesh-cms
+pip install cloudmesh-sys
+pip install cloudmesh-cloud
+pip install cloudmesh-storage
+</pre></div>
+</div>
+<p>Additional packages include but are not yet released:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install cloudmesh-flow
+pip install cloudmesh-emr
+pip install cloudmesh-batch
+pip install cloudmesh-openapi
+</pre></div>
+</div>
+<p>Next you will need to test the cloudmesh command and at the same time create
+a configuration file. This is done by invoking the <code class="docutils literal notranslate"><span class="pre">cms</span></code> comamnd the first
+time. Thus, just type the command</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms <span class="nb">help</span>
+</pre></div>
+</div>
+<p>in your terminal. It will create a directory <code class="docutils literal notranslate"><span class="pre">~/.cloudmesh</span></code>
+in which you can find the configuration file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">~/.</span><span class="n">cloudmesh</span><span class="o">/</span><span class="n">cloudmesh4</span><span class="o">.</span><span class="n">yaml</span>
+</pre></div>
+</div>
+<div class="admonition-todo admonition" id="id1">
+<p class="admonition-title">Todo</p>
+<p>It would be beneficial to implement a command <code class="docutils literal notranslate"><span class="pre">cms</span> <span class="pre">setup</span></code> that
+does not only the yaml file, but also the mongo password.</p>
+</div>
+</div>
+<div class="section" id="anaconda-and-conda">
+<h2>1.3. Anaconda and Conda<a class="headerlink" href="#anaconda-and-conda" title="Permalink to this headline">¶</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>At this time the conda install is not supported.</p>
+</div>
+<p>We also have the base packages available as conda packages on conda hub
+in the chanel <code class="docutils literal notranslate"><span class="pre">laszewski</span></code>. This includes</p>
+<ul class="simple">
+<li><p>cloudmesh-common</p></li>
+<li><p>cloudmesh-cmd5</p></li>
+<li><p>cloudmesh-sys</p></li>
+</ul>
+<p>Note that the packages will always be a behind the packages on pypi and
+especially the source distribution. FUrthermore, other packages are not yet
+uploaded. If you are interested in helping out with the conda packages, let
+us know. Please contact us if you need a new release. As conda supports alos
+pip, we recommend using pip for it also.</p>
+</div>
+<div class="section" id="source-installation-for-developers">
+<h2>1.4. Source Installation for Developers<a class="headerlink" href="#source-installation-for-developers" title="Permalink to this headline">¶</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This is the only supported way to install cloudmesh at this time.</p>
+</div>
+<p>As a developer you want to use our source instalation. For this reasone we
+wrote a <code class="docutils literal notranslate"><span class="pre">cloudmesh-installer</span></code> script that conveniently downloads the needed
+repositories, installs and updates them on demand. More documentation about it</p>
+<blockquote>
+<div><p>can be found at</p>
+</div></blockquote>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/cloudmesh/cloudmesh-installer">https://github.com/cloudmesh/cloudmesh-installer</a></p></li>
+</ul>
+<p>First make sure you have a python <code class="docutils literal notranslate"><span class="pre">venv</span></code> as described in the pip section
+(see <a class="reference internal" href="#use-a-venv">Use a venv</a>). Now you can install it with</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install cloudmesh-installer
+</pre></div>
+</div>
+<p>Next, it is best to create an empty directory and decide which bundles to
+install</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir cm
+<span class="nb">cd</span> cm
+cloudmesh-installer bundels
+</pre></div>
+</div>
+<p>First, you have to decide which cloudmesh bundle to install. If you only want
+to use compute resources the bundle name <code class="docutils literal notranslate"><span class="pre">cloud</span></code> will be what you want.
+If in addition you also like to work on storage, the bundle name <code class="docutils literal notranslate"><span class="pre">storage</span></code>
+needs to be used.</p>
+<p>Let, us assume you chose <code class="docutils literal notranslate"><span class="pre">cloud</span></code>, than you can install cloudmesh with</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cloudmesh-installer git clone cloud
+cloudmesh-installer install cloud -e
+</pre></div>
+</div>
+<p>It will take a while to install. On newer machines 1 minute, on older
+significant longer. You can than test if you sucessfully installed it by
+issueing the command</p>
+<blockquote>
+<div><p>cms help</p>
+</div></blockquote>
+<p>You will see a list of commands. A directory <code class="docutils literal notranslate"><span class="pre">~/.cloudmesh</span></code> with some
+default files will be installed, that you will need to modify at one point.</p>
+<div class="section" id="updates">
+<h3>1.4.1. Updates<a class="headerlink" href="#updates" title="Permalink to this headline">¶</a></h3>
+<dl>
+<dt>To update the source from github, simply use the command while making sure to</dt><dd><p>specify the desired bundle name, let us assume you use <code class="docutils literal notranslate"><span class="pre">cloud</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cloudmesh</span><span class="o">-</span><span class="n">installer</span> <span class="n">git</span> <span class="n">pull</span> <span class="n">cloud</span>
+</pre></div>
+</div>
+</dd>
+</dl>
 </div>
 <div class="section" id="reinstalation">
-<h3>1.5.3. Reinstalation<a class="headerlink" href="#reinstalation" title="Permalink to this headline">¶</a></h3>
+<h3>1.4.2. Reinstalation<a class="headerlink" href="#reinstalation" title="Permalink to this headline">¶</a></h3>
 <p>In case you need to reinstall cloudmesh and you have used previously the
-cloudmesh-installer, you can do it as follows (We assume you have used the
-cloudmesh-installer in the directory cm):</p>
+cloudmesh-installer, you can do it as follows (We assume you have used venv
+and the <code class="docutils literal notranslate"><span class="pre">cloudmesh-installer</span></code> in the directory cm as documented previously):</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> cm <span class="c1"># the directory wher eyour source locates</span>
 cloudmesh-installer <span class="nb">local</span> purge . --force
 rm -rf ~/ENV3
 python3 -m venv ~/ENV3
 pip install pip -U
 pip install cloudmesh-installer
-cloudmesh-installer install cms -e
 cloudmesh-installer install cloud -e
+cms <span class="nb">help</span>
 </pre></div>
 </div>
 <p>Please note that this will not work if you did not use the -e option previously.
-Make sure to delete the old version, wherever you installed it.</p>
+Make sure to delete the old version, wherever you installed them.</p>
 </div>
+</div>
+<div class="section" id="cloudmesh-directory">
+<h2>1.5. .cloudmesh directory<a class="headerlink" href="#cloudmesh-directory" title="Permalink to this headline">¶</a></h2>
+<p>All cloudmesh related information is stored in the <code class="docutils literal notranslate"><span class="pre">.cloudmesh</span></code> directory.
+In case you want to start fresh, simply delete that directory and its
+subdirectories. However, if you need information form it make sure you make a
+backup. Please note that in this file you have sensitive information and it
+should never be backed up into github, box, icloud, or other such services.
+Keep it on your computer or back it up on an secure encrypted external hard
+drive or storage media only you have access to.</p>
 </div>
 <div class="section" id="installation-of-mongod">
 <h2>1.6. Installation of mongod<a class="headerlink" href="#installation-of-mongod" title="Permalink to this headline">¶</a></h2>
@@ -538,7 +546,7 @@ install it simply say.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms admin mongo stop
 </pre></div>
 </div>
-<p>However, please remember that for cloudmesh to work properly, please start
+<p>However, please remember that for cloudmesh to work properly you need to start
 mongo. In case you need a different port you can configure that in the yaml
 file.</p>
 </div>

@@ -258,7 +258,7 @@
 <span class="kn">from</span> <span class="nn">cloudmesh.shell.command</span> <span class="k">import</span> <span class="n">PluginCommand</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.shell.command</span> <span class="k">import</span> <span class="n">command</span><span class="p">,</span> <span class="n">map_parameters</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.variables</span> <span class="k">import</span> <span class="n">Variables</span>
-
+<span class="kn">from</span> <span class="nn">cloudmesh.common.Shell</span> <span class="k">import</span> <span class="n">Shell</span>
 
 <div class="viewcode-block" id="VmCommand"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.vm.command.vm.VmCommand">[docs]</a><span class="k">class</span> <span class="nc">VmCommand</span><span class="p">(</span><span class="n">PluginCommand</span><span class="p">):</span>
 
@@ -271,14 +271,14 @@
 <span class="sd">        ::</span>
 
 <span class="sd">            Usage:</span>
-<span class="sd">                vm ping [NAMES] [--cloud=CLOUDS] [--count=N] [--processors=PROCESSORS]</span>
-<span class="sd">                vm check [NAMES] [--cloud=CLOUDS] [--username=USERNAME] [--processors=PROCESSORS]</span>
-<span class="sd">                vm status [NAMES] [--cloud=CLOUDS]</span>
+<span class="sd">                vm ping [NAMES] [--cloud=CLOUDS] [--count=N]</span>
+<span class="sd">                vm check [NAMES] [--cloud=CLOUDS] [--username=USERNAME]</span>
+<span class="sd">                vm status [NAMES] [--cloud=CLOUDS] [--output=OUTPUT]</span>
 <span class="sd">                vm console [NAME] [--force]</span>
-<span class="sd">                vm start [NAMES] [--cloud=CLOUD] [--parallel] [--processors=PROCESSORS] [--dryrun]</span>
-<span class="sd">                vm stop [NAMES] [--cloud=CLOUD] [--parallel] [--processors=PROCESSORS] [--dryrun]</span>
-<span class="sd">                vm terminate [NAMES] [--cloud=CLOUD] [--parallel] [--processors=PROCESSORS] [--dryrun]</span>
-<span class="sd">                vm delete [NAMES] [--cloud=CLOUD] [--parallel] [--processors=PROCESSORS] [--dryrun]</span>
+<span class="sd">                vm start [NAMES] [--cloud=CLOUD] [--dryrun]</span>
+<span class="sd">                vm stop [NAMES] [--cloud=CLOUD] [--dryrun]</span>
+<span class="sd">                vm terminate [NAMES] [--cloud=CLOUD] [--dryrun]</span>
+<span class="sd">                vm delete [NAMES] [--cloud=CLOUD] [--dryrun]</span>
 <span class="sd">                vm refresh [--cloud=CLOUDS]</span>
 <span class="sd">                vm list [NAMES]</span>
 <span class="sd">                        [--cloud=CLOUDS]</span>
@@ -456,7 +456,9 @@
                        <span class="s1">&#39;quiet&#39;</span><span class="p">,</span>
                        <span class="s1">&#39;secgroup&#39;</span><span class="p">,</span>
                        <span class="s1">&#39;size&#39;</span><span class="p">,</span>
-                       <span class="s1">&#39;username&#39;</span><span class="p">)</span>
+                       <span class="s1">&#39;username&#39;</span><span class="p">,</span>
+                       <span class="s1">&#39;output&#39;</span><span class="p">,</span>
+                       <span class="s1">&#39;count&#39;</span><span class="p">)</span>
 
         <span class="n">VERBOSE</span><span class="p">(</span><span class="n">arguments</span><span class="p">)</span>
 
@@ -472,32 +474,38 @@
             <span class="k">return</span> <span class="s2">&quot;&quot;</span>
 
         <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">ping</span><span class="p">:</span>
+
+            <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            vm ping [NAMES] [--cloud=CLOUDS] [--count=N]</span>
+<span class="sd">            &quot;&quot;&quot;</span>
             <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">NAMES</span><span class="p">:</span>
                 <span class="n">variables</span><span class="p">[</span><span class="s1">&#39;vm&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">NAMES</span>
             <span class="k">if</span> <span class="n">arguments</span><span class="p">[</span><span class="s1">&#39;--cloud&#39;</span><span class="p">]:</span>
                 <span class="n">variables</span><span class="p">[</span><span class="s1">&#39;cloud&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">arguments</span><span class="p">[</span><span class="s1">&#39;--cloud&#39;</span><span class="p">]</span>
-            <span class="n">clouds</span><span class="p">,</span> <span class="n">names</span> <span class="o">=</span> <span class="n">Arguments</span><span class="o">.</span><span class="n">get_cloud_and_names</span><span class="p">(</span><span class="s2">&quot;status&quot;</span><span class="p">,</span> <span class="n">arguments</span><span class="p">,</span> <span class="n">variables</span><span class="p">)</span>
+            <span class="n">clouds</span><span class="p">,</span> <span class="n">names</span> <span class="o">=</span> <span class="n">Arguments</span><span class="o">.</span><span class="n">get_cloud_and_names</span><span class="p">(</span><span class="s2">&quot;status&quot;</span><span class="p">,</span>
+                                                          <span class="n">arguments</span><span class="p">,</span>
+                                                          <span class="n">variables</span><span class="p">)</span>
+
+            <span class="n">count</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">count</span>
+            <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">count</span><span class="p">:</span>
+                <span class="n">count</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">count</span> <span class="o">=</span> <span class="mi">1</span>
+
+            <span class="n">ips</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
 
             <span class="k">for</span> <span class="n">cloud</span> <span class="ow">in</span> <span class="n">clouds</span><span class="p">:</span>
                 <span class="n">params</span> <span class="o">=</span> <span class="p">{}</span>
-
-                <span class="n">count</span> <span class="o">=</span> <span class="n">arguments</span><span class="p">[</span><span class="s1">&#39;--count&#39;</span><span class="p">]</span>
-                <span class="k">if</span> <span class="n">count</span><span class="p">:</span>
-                    <span class="n">params</span><span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
-
-                <span class="n">processors</span> <span class="o">=</span> <span class="n">arguments</span><span class="p">[</span><span class="s1">&#39;--processors&#39;</span><span class="p">]</span>
-                <span class="k">if</span> <span class="n">processors</span><span class="p">:</span>
-                    <span class="n">params</span><span class="p">[</span><span class="s1">&#39;processors&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">processors</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-
                 <span class="c1"># gets public ips from database</span>
-                <span class="n">public_ips</span> <span class="o">=</span> <span class="p">[]</span>
-                <span class="n">cursor</span> <span class="o">=</span> <span class="n">database</span><span class="o">.</span><span class="n">db</span><span class="p">[</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">-node&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cloud</span><span class="p">)]</span>
+                <span class="n">cursor</span> <span class="o">=</span> <span class="n">database</span><span class="o">.</span><span class="n">db</span><span class="p">[</span><span class="n">f</span><span class="s1">&#39;</span><span class="si">{cloud}</span><span class="s1">-node&#39;</span><span class="p">]</span>
                 <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
                     <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">cursor</span><span class="o">.</span><span class="n">find</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">name</span><span class="p">}):</span>
-                        <span class="n">public_ips</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">node</span><span class="p">[</span><span class="s1">&#39;public_ips&#39;</span><span class="p">])</span>
-                <span class="n">public_ips</span> <span class="o">=</span> <span class="p">[</span><span class="n">y</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">public_ips</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]</span>
+                        <span class="n">ips</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">node</span><span class="p">[</span><span class="s1">&#39;public_ips&#39;</span><span class="p">]))</span>
+                <span class="n">ips</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">ips</span><span class="p">)</span>
+                <span class="n">pprint</span> <span class="p">(</span><span class="n">ips</span><span class="p">)</span>
 
-                <span class="n">Host</span><span class="o">.</span><span class="n">ping</span><span class="p">(</span><span class="n">ips</span><span class="o">=</span><span class="n">public_ips</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">ip</span> <span class="ow">in</span> <span class="n">ips</span><span class="p">:</span>
+                <span class="n">Shell</span><span class="o">.</span><span class="n">ping</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="n">ip</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="n">count</span><span class="p">)</span>
 
         <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">check</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">NAMES</span><span class="p">:</span>
@@ -522,7 +530,7 @@
 
                 <span class="c1"># gets public ips from database</span>
                 <span class="n">public_ips</span> <span class="o">=</span> <span class="p">[]</span>
-                <span class="n">cursor</span> <span class="o">=</span> <span class="n">database</span><span class="o">.</span><span class="n">db</span><span class="p">[</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">-node&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cloud</span><span class="p">)]</span>
+                <span class="n">cursor</span> <span class="o">=</span> <span class="n">database</span><span class="o">.</span><span class="n">db</span><span class="p">[</span><span class="s1">&#39;</span><span class="si">{cloud}</span><span class="s1">-node&#39;</span><span class="p">]</span>
                 <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
                     <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">cursor</span><span class="o">.</span><span class="n">find</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">name</span><span class="p">}):</span>
                         <span class="n">public_ips</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">node</span><span class="p">[</span><span class="s1">&#39;public_ips&#39;</span><span class="p">])</span>
@@ -540,40 +548,59 @@
             <span class="c1"># gets status from database</span>
             <span class="k">for</span> <span class="n">cloud</span> <span class="ow">in</span> <span class="n">clouds</span><span class="p">:</span>
                 <span class="n">provider</span> <span class="o">=</span> <span class="n">Provider</span><span class="p">(</span><span class="n">cloud</span><span class="p">)</span>
-                <span class="n">status</span> <span class="o">=</span> <span class="p">{}</span>
-                <span class="n">cursor</span> <span class="o">=</span> <span class="n">database</span><span class="o">.</span><span class="n">db</span><span class="p">[</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">-node&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cloud</span><span class="p">)]</span>
+                <span class="n">status</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="n">cursor</span> <span class="o">=</span> <span class="n">database</span><span class="o">.</span><span class="n">db</span><span class="p">[</span><span class="n">f</span><span class="s1">&#39;</span><span class="si">{cloud}</span><span class="s1">-node&#39;</span><span class="p">]</span>
                 <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
                     <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">cursor</span><span class="o">.</span><span class="n">find</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">name</span><span class="p">}):</span>
-                        <span class="n">status</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">node</span><span class="p">[</span><span class="s1">&#39;state&#39;</span><span class="p">]</span>
-                <span class="n">pprint</span><span class="p">(</span><span class="n">status</span><span class="p">)</span>
+                        <span class="n">entry</span>  <span class="o">=</span> <span class="p">{</span>
+                            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span>
+                            <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="n">node</span><span class="p">[</span><span class="s1">&#39;state&#39;</span><span class="p">]</span>
+                        <span class="p">}</span>
+                        <span class="n">status</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
+
+                <span class="nb">print</span><span class="p">(</span><span class="n">Printer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
+                    <span class="n">status</span><span class="p">,</span>
+                    <span class="n">sort_keys</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">],</span>
+                    <span class="n">order</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;status&quot;</span><span class="p">],</span>
+                    <span class="n">header</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Name&quot;</span><span class="p">,</span> <span class="s2">&quot;Status&quot;</span><span class="p">],</span>
+                    <span class="n">output</span><span class="o">=</span><span class="n">arguments</span><span class="o">.</span><span class="n">output</span><span class="p">)</span>
+                <span class="p">)</span>
+                <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+
 
         <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">start</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">NAMES</span><span class="p">:</span>
-                <span class="n">variables</span><span class="p">[</span><span class="s1">&#39;vm&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">NAMES</span>
+                <span class="n">names</span> <span class="o">=</span> <span class="n">variables</span><span class="p">[</span><span class="s1">&#39;vm&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">NAMES</span>
+
             <span class="k">if</span> <span class="n">arguments</span><span class="p">[</span><span class="s1">&#39;--cloud&#39;</span><span class="p">]:</span>
                 <span class="n">variables</span><span class="p">[</span><span class="s1">&#39;cloud&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">arguments</span><span class="p">[</span><span class="s1">&#39;--cloud&#39;</span><span class="p">]</span>
             <span class="n">clouds</span><span class="p">,</span> <span class="n">names</span> <span class="o">=</span> <span class="n">Arguments</span><span class="o">.</span><span class="n">get_cloud_and_names</span><span class="p">(</span><span class="s2">&quot;stop&quot;</span><span class="p">,</span> <span class="n">arguments</span><span class="p">,</span> <span class="n">variables</span><span class="p">)</span>
 
-            <span class="k">for</span> <span class="n">cloud</span> <span class="ow">in</span> <span class="n">clouds</span><span class="p">:</span>
-                <span class="n">params</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="n">cloud</span> <span class="o">=</span> <span class="n">clouds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="nb">print</span> <span class="p">(</span><span class="n">cloud</span><span class="p">)</span>
+            <span class="nb">print</span> <span class="p">(</span><span class="n">names</span><span class="p">)</span>
+
+
+
+
+            <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
+
                 <span class="n">provider</span> <span class="o">=</span> <span class="n">Provider</span><span class="p">(</span><span class="n">cloud</span><span class="p">)</span>
 
-                <span class="n">processors</span> <span class="o">=</span> <span class="n">arguments</span><span class="p">[</span><span class="s1">&#39;--processors&#39;</span><span class="p">]</span>
-
-                <span class="k">if</span> <span class="n">arguments</span><span class="p">[</span><span class="s1">&#39;--parallel&#39;</span><span class="p">]:</span>
-                    <span class="n">params</span><span class="p">[</span><span class="s1">&#39;option&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;pool&#39;</span>
-                    <span class="k">if</span> <span class="n">processors</span><span class="p">:</span>
-                        <span class="n">params</span><span class="p">[</span><span class="s1">&#39;processors&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">processors</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-                <span class="k">else</span><span class="p">:</span>
-                    <span class="n">params</span><span class="p">[</span><span class="s1">&#39;option&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;iter&#39;</span>
-
                 <span class="k">if</span> <span class="n">arguments</span><span class="p">[</span><span class="s1">&#39;--dryrun&#39;</span><span class="p">]:</span>
-                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;start nodes </span><span class="si">{}</span><span class="se">\n</span><span class="s2">option - </span><span class="si">{}</span><span class="se">\n</span><span class="s2">processors - </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;option&#39;</span><span class="p">],</span> <span class="n">processors</span><span class="p">))</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;start node </span><span class="si">{name}</span><span class="s2">&quot;</span><span class="p">)</span>
                 <span class="k">else</span><span class="p">:</span>
-                    <span class="n">vms</span> <span class="o">=</span> <span class="n">provider</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">)</span>
+                    <span class="n">vms</span> <span class="o">=</span> <span class="n">provider</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+
+
                     <span class="n">order</span> <span class="o">=</span> <span class="n">provider</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">output</span><span class="p">[</span><span class="s1">&#39;vm&#39;</span><span class="p">][</span><span class="s1">&#39;order&#39;</span><span class="p">]</span>
                     <span class="n">header</span> <span class="o">=</span> <span class="n">provider</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">output</span><span class="p">[</span><span class="s1">&#39;vm&#39;</span><span class="p">][</span><span class="s1">&#39;header&#39;</span><span class="p">]</span>
-                    <span class="nb">print</span><span class="p">(</span><span class="n">Printer</span><span class="o">.</span><span class="n">flatwrite</span><span class="p">(</span><span class="n">vms</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">order</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="n">header</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s1">&#39;table&#39;</span><span class="p">))</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="n">Printer</span><span class="o">.</span><span class="n">flatwrite</span><span class="p">(</span><span class="n">vms</span><span class="p">,</span>
+                                            <span class="n">order</span><span class="o">=</span><span class="n">order</span><span class="p">,</span>
+                                            <span class="n">header</span><span class="o">=</span><span class="n">header</span><span class="p">,</span>
+                                            <span class="n">output</span><span class="o">=</span><span class="s1">&#39;table&#39;</span><span class="p">))</span>
+
+            <span class="k">return</span> <span class="s2">&quot;&quot;</span>
 
         <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">stop</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">NAMES</span><span class="p">:</span>

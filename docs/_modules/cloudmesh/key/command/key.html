@@ -253,6 +253,7 @@
 <span class="kn">from</span> <span class="nn">cloudmesh.common.variables</span> <span class="k">import</span> <span class="n">Variables</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.compute.libcloud.Provider</span> <span class="k">import</span> <span class="n">Provider</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.debug</span> <span class="k">import</span> <span class="n">VERBOSE</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.key.api.key</span> <span class="k">import</span> <span class="n">Key</span>
 
 <div class="viewcode-block" id="KeyCommand"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.key.command.key.KeyCommand">[docs]</a><span class="k">class</span> <span class="nc">KeyCommand</span><span class="p">(</span><span class="n">PluginCommand</span><span class="p">):</span>
 
@@ -491,7 +492,18 @@
 
         <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">add</span><span class="p">:</span>
 
-            <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+            <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">             key add [NAME] [--source=FILENAME]</span>
+<span class="sd">             key add [NAME] [--source=git]</span>
+<span class="sd">             key add [NAME] [--source=ssh]</span>
+<span class="sd">             &quot;&quot;&quot;</span>
+            <span class="n">key</span> <span class="o">=</span> <span class="n">Key</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">arguments</span><span class="p">[</span><span class="s2">&quot;--source&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;ssh&quot;</span><span class="p">:</span>
+                <span class="n">key</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;ssh&quot;</span><span class="p">,</span> <span class="s2">&quot;ssh&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">arguments</span><span class="p">[</span><span class="s2">&quot;--source&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;git&quot;</span><span class="p">:</span>
+                <span class="n">key</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;git&quot;</span><span class="p">,</span> <span class="s2">&quot;git&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">NotImplementedError</span>
 
         <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">get</span><span class="p">:</span>
 
