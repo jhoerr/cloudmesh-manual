@@ -292,6 +292,13 @@ do the development in python 3.7.3 from <a class="reference external" href="http
 </div>
 <div class="section" id="prerequisits-ubuntu-18-04">
 <h3>1.1.1. Prerequisits Ubuntu 18.04<a class="headerlink" href="#prerequisits-ubuntu-18-04" title="Permalink to this headline">¶</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>We recommend you update your ubuntu version to 19.04 and
+follow the instructions for that version instead, as it is
+significantly easier. If you however are not able to do so, the
+following instructions may be helpful.</p>
+</div>
 <p>We first need to make sure that the correct version of the Python3 is
 installed. The default version of Python on Ubuntu 18.04 is 3.6. You can get
 the version with:</p>
@@ -365,6 +372,10 @@ the line</p>
 </pre></div>
 </div>
 <p>so the environment is always loaded. Now you are ready to install cloudmesh.</p>
+<p>To make sure you have an up to date version of pip issue the command</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install pip -U
+</pre></div>
+</div>
 </div>
 </div>
 <div class="section" id="installation-with-pip">
@@ -462,20 +473,20 @@ cloudmesh-installer install cloud -e
 <p>It will take a while to install. On newer machines 1 minute, on older
 significant longer. You can than test if you sucessfully installed it by
 issueing the command</p>
-<blockquote>
-<div><p>cms help</p>
-</div></blockquote>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms <span class="nb">help</span>
+</pre></div>
+</div>
 <p>You will see a list of commands. A directory <code class="docutils literal notranslate"><span class="pre">~/.cloudmesh</span></code> with some
 default files will be installed, that you will need to modify at one point.</p>
 <div class="section" id="updates">
 <h3>1.4.1. Updates<a class="headerlink" href="#updates" title="Permalink to this headline">¶</a></h3>
-<dl>
-<dt>To update the source from github, simply use the command while making sure to</dt><dd><p>specify the desired bundle name, let us assume you use <code class="docutils literal notranslate"><span class="pre">cloud</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cloudmesh</span><span class="o">-</span><span class="n">installer</span> <span class="n">git</span> <span class="n">pull</span> <span class="n">cloud</span>
-</pre></div>
-</div>
+<dl class="simple">
+<dt>To update the source from github, simply use the command while making sure to</dt><dd><p>specify the desired bundle name, let us assume you use <code class="docutils literal notranslate"><span class="pre">cloud</span></code></p>
 </dd>
 </dl>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cloudmesh-installer git pull cloud
+</pre></div>
+</div>
 </div>
 <div class="section" id="reinstalation">
 <h3>1.4.2. Reinstalation<a class="headerlink" href="#reinstalation" title="Permalink to this headline">¶</a></h3>
@@ -514,7 +525,7 @@ done this before. The easieast way to do so is with the command</p>
 </pre></div>
 </div>
 <p>Now you will need to edit the configuration file</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">emacs</span> <span class="o">~/.</span><span class="n">cloudmesh</span><span class="o">/</span><span class="n">cloudmesh4</span><span class="o">.</span><span class="n">yaml</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>emacs ~/.cloudmesh/cloudmesh4.yaml
 </pre></div>
 </div>
 <p>and change the password of the mongo entry to something you like, e.g. change

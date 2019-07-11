@@ -30,6 +30,12 @@ Prerequisites
 Prerequisits Ubuntu 18.04
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
+.. warning:: We recommend you update your ubuntu version to 19.04 and
+             follow the instructions for that version instead, as it is
+             significantly easier. If you however are not able to do so, the
+             following instructions may be helpful. 
+
+
 We first need to make sure that the correct version of the Python3 is
 installed. The default version of Python on Ubuntu 18.04 is 3.6. You can get
 the version with::
@@ -126,6 +132,11 @@ the line
 
 so the environment is always loaded. Now you are ready to install cloudmesh.
 
+To make sure you have an up to date version of pip issue the command
+
+.. code:: bash
+
+    pip install pip -U
 
 Installation with Pip
 ---------------------
@@ -234,6 +245,8 @@ It will take a while to install. On newer machines 1 minute, on older
 significant longer. You can than test if you sucessfully installed it by
 issueing the command
 
+.. code:: bash
+
     cms help
 
 You will see a list of commands. A directory ``~/.cloudmesh`` with some
@@ -244,7 +257,9 @@ Updates
 ~~~~~~~
 
 To update the source from github, simply use the command while making sure to
- specify the desired bundle name, let us assume you use ``cloud``::
+ specify the desired bundle name, let us assume you use ``cloud``
+
+.. code:: bash
 
     cloudmesh-installer git pull cloud
 
@@ -293,7 +308,7 @@ done this before. The easieast way to do so is with the command
 
 Now you will need to edit the configuration file
 
-::
+.. code:: bash
 
     emacs ~/.cloudmesh/cloudmesh4.yaml
 
