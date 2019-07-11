@@ -33,7 +33,7 @@ Prerequisits Ubuntu 18.04
 .. warning:: We recommend you update your ubuntu version to 19.04 and
              follow the instructions for that version instead, as it is
              significantly easier. If you however are not able to do so, the
-             following instructions may be helpful. 
+             following instructions may be helpful.
 
 
 We first need to make sure that the correct version of the Python3 is

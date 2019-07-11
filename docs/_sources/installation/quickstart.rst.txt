@@ -30,6 +30,8 @@ also obtain it with
 
    cms open doc local
 
+However, in order for the local to work you must issue that command in the
+``cloudmesh-manual`` folder.
 
 Generating the Key and Certificate
 ----------------------------------
@@ -56,7 +58,7 @@ Alternatively you can create a key as follows
 In case you need to convert your key, to a pem certificate you can do it
 as follows
 
-::
+.. code:: bash
 
    openssl rsa -in ~/.ssh/id_rsa -out ~/.ssh/id_rsa.pem
 

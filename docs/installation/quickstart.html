@@ -279,6 +279,8 @@ also obtain it with</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms open doc <span class="nb">local</span>
 </pre></div>
 </div>
+<p>However, in order for the local to work you must issue that command in the
+<code class="docutils literal notranslate"><span class="pre">cloudmesh-manual</span></code> folder.</p>
 </div>
 <div class="section" id="generating-the-key-and-certificate">
 <h2>2.2. Generating the Key and Certificate<a class="headerlink" href="#generating-the-key-and-certificate" title="Permalink to this headline">¶</a></h2>
@@ -299,7 +301,7 @@ not jet created a key</p>
 </div>
 <p>In case you need to convert your key, to a pem certificate you can do it
 as follows</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">openssl</span> <span class="n">rsa</span> <span class="o">-</span><span class="ow">in</span> <span class="o">~/.</span><span class="n">ssh</span><span class="o">/</span><span class="n">id_rsa</span> <span class="o">-</span><span class="n">out</span> <span class="o">~/.</span><span class="n">ssh</span><span class="o">/</span><span class="n">id_rsa</span><span class="o">.</span><span class="n">pem</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>openssl rsa -in ~/.ssh/id_rsa -out ~/.ssh/id_rsa.pem
 </pre></div>
 </div>
 </div>
