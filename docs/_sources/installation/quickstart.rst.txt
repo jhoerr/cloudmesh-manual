@@ -222,3 +222,22 @@ Using quotes
 ------------
 
 .. warning:: In case you need to use quotes in the command line you need to mask them with a bakslash.
+
+
+New Commands for Developers
+---------------------------
+
+We added the following commnads to make development easier
+
+.. list-table:: New commands
+   :widths: 25 75
+   :header-rows: 1
+
+   * - Command
+     - Description
+   * - ``cms start``
+     - same as ``cms admin mongo start``
+   * - ``cms stop``
+     - same as ``cms admin mongo stop``
+   * - ``cms init``
+     - deletes the mongo, and starts it up empty

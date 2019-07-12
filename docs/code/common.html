@@ -306,6 +306,11 @@ different contributors. Please use these methods instead of reimplementing them.
 <code class="sig-name descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/variables.html#Variables.close"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.variables.Variables.close" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<dl class="method">
+<dt id="cloudmesh.common.variables.Variables.dict">
+<code class="sig-name descname">dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/variables.html#Variables.dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.variables.Variables.dict" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </dd></dl>
 
 </div>
@@ -591,6 +596,23 @@ String matching only, does not do REs as currently implemented.</p>
 <dt id="cloudmesh.common.parameter.Parameter.expand">
 <em class="property">classmethod </em><code class="sig-name descname">expand</code><span class="sig-paren">(</span><em class="sig-param">parameter</em>, <em class="sig-param">allow_duplicates=False</em>, <em class="sig-param">sort=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/parameter.html#Parameter.expand"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.parameter.Parameter.expand" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.common.parameter.Parameter.find">
+<em class="property">static </em><code class="sig-name descname">find</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">*dicts</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/parameter.html#Parameter.find"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.parameter.Parameter.find" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds the value for the key name in multiple dicts</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – the key to find</p></li>
+<li><p><strong>dicts</strong> – the list of dicts</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 
@@ -1712,6 +1734,11 @@ THis command should not be directly called. Instead use SHell</p>
 <code class="sig-name descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/db/strdb.html#YamlDB.close"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.db.strdb.YamlDB.close" title="Permalink to this definition">¶</a></dt>
 <dd><p>This is a NoOP for backwards compatibility</p>
 </dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.db.strdb.YamlDB.dict">
+<code class="sig-name descname">dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/db/strdb.html#YamlDB.dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.db.strdb.YamlDB.dict" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.db.strdb.YamlDB.flush">

@@ -102,6 +102,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#command-scripts">2.6. Command scripts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#cache">2.7. Cache</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#using-quotes">2.8. Using quotes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#new-commands-for-developers">2.9. New Commands for Developers</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../configuration/configuration.html">3. Configuration</a></li>
@@ -445,6 +446,33 @@ cms image list
 <p class="admonition-title">Warning</p>
 <p>In case you need to use quotes in the command line you need to mask them with a bakslash.</p>
 </div>
+</div>
+<div class="section" id="new-commands-for-developers">
+<h2>2.9. New Commands for Developers<a class="headerlink" href="#new-commands-for-developers" title="Permalink to this headline">¶</a></h2>
+<p>We added the following commnads to make development easier</p>
+<table class="colwidths-given docutils align-default" id="id5">
+<caption><span class="caption-text">New commands</span><a class="headerlink" href="#id5" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 75%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Command</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">cms</span> <span class="pre">start</span></code></p></td>
+<td><p>same as <code class="docutils literal notranslate"><span class="pre">cms</span> <span class="pre">admin</span> <span class="pre">mongo</span> <span class="pre">start</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">cms</span> <span class="pre">stop</span></code></p></td>
+<td><p>same as <code class="docutils literal notranslate"><span class="pre">cms</span> <span class="pre">admin</span> <span class="pre">mongo</span> <span class="pre">stop</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">cms</span> <span class="pre">init</span></code></p></td>
+<td><p>deletes the mongo, and starts it up empty</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 

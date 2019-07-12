@@ -250,11 +250,18 @@
 <span class="kn">from</span> <span class="nn">cloudmesh.compute.azure.AzProvider</span> <span class="k">import</span> <span class="n">Provider</span> <span class="k">as</span> <span class="n">AzAzureProvider</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.compute.docker.Provider</span> <span class="k">import</span> <span class="n">Provider</span> <span class="k">as</span> <span class="n">DockerProvider</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.compute.libcloud.Provider</span> <span class="k">import</span> <span class="n">Provider</span> <span class="k">as</span> <span class="n">LibCloudProvider</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.compute.openstack.Provider</span> <span class="k">import</span> <span class="n">Provider</span> <span class="k">as</span> \
+    <span class="n">OpenStackCloudProvider</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.compute.virtualbox.Provider</span> <span class="k">import</span> \
     <span class="n">Provider</span> <span class="k">as</span> <span class="n">VirtualboxCloudProvider</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.management.configuration.config</span> <span class="k">import</span> <span class="n">Config</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.mongo.DataBaseDecorator</span> <span class="k">import</span> <span class="n">DatabaseUpdate</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.debug</span> <span class="k">import</span> <span class="n">VERBOSE</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.dotdict</span> <span class="k">import</span> <span class="n">dotdict</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.mongo.CmDatabase</span> <span class="k">import</span> <span class="n">CmDatabase</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.variables</span> <span class="k">import</span> <span class="n">Variables</span>
+<span class="kn">from</span> <span class="nn">pprint</span> <span class="k">import</span> <span class="n">pprint</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.Printer</span> <span class="k">import</span> <span class="n">Printer</span>
 
 <div class="viewcode-block" id="Provider"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.vm.Provider.Provider">[docs]</a><span class="k">class</span> <span class="nc">Provider</span><span class="p">(</span><span class="n">ComputeNodeABC</span><span class="p">):</span>
 
@@ -272,7 +279,9 @@
 
         <span class="n">provider</span> <span class="o">=</span> <span class="kc">None</span>
 
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">kind</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;openstack&quot;</span><span class="p">,</span> <span class="s2">&quot;aws&quot;</span><span class="p">,</span> <span class="s2">&quot;google&quot;</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">kind</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;openstack&quot;</span><span class="p">]:</span>
+            <span class="n">provider</span> <span class="o">=</span> <span class="n">OpenStackCloudProvider</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">kind</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;aws&quot;</span><span class="p">,</span> <span class="s2">&quot;google&quot;</span><span class="p">]:</span>
             <span class="n">provider</span> <span class="o">=</span> <span class="n">LibCloudProvider</span>
         <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">kind</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;vagrant&quot;</span><span class="p">,</span> <span class="s2">&quot;virtualbox&quot;</span><span class="p">]:</span>
             <span class="n">provider</span> <span class="o">=</span> <span class="n">VirtualboxCloudProvider</span>
@@ -305,8 +314,7 @@
         <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
             <span class="n">VERBOSE</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
             <span class="n">VERBOSE</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
-
-            <span class="n">vm</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+            <span class="n">vm</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
             <span class="n">VERBOSE</span><span class="p">(</span><span class="n">vm</span><span class="p">)</span>
             <span class="n">r</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">vm</span><span class="p">)</span>
             <span class="n">VERBOSE</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
@@ -324,6 +332,10 @@
     <span class="k">def</span> <span class="nf">flavor</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">flavors</span><span class="p">()</span>
 
+    <span class="nd">@DatabaseUpdate</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">flavors</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">flavors</span><span class="p">()</span>
+
 <div class="viewcode-block" id="Provider.add_collection"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.vm.Provider.Provider.add_collection">[docs]</a>    <span class="k">def</span> <span class="nf">add_collection</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">d</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">return</span> <span class="kc">None</span>
@@ -336,18 +348,82 @@
     <span class="k">def</span> <span class="nf">images</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">images</span><span class="p">()</span>
 
-    <span class="c1"># name</span>
-    <span class="c1"># cloud</span>
-    <span class="c1"># kind</span>
-    <span class="nd">@DatabaseUpdate</span><span class="p">()</span>
-    <span class="k">def</span> <span class="nf">flavors</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">flavors</span><span class="p">()</span>
+
 
     <span class="nd">@DatabaseUpdate</span><span class="p">()</span>
-    <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="n">VERBOSE</span><span class="p">(</span><span class="n">names</span><span class="p">)</span>
-        <span class="n">VERBOSE</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">loop</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">start</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cloud</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+
+        <span class="c1">#</span>
+        <span class="c1"># this is used to resume a vm, after it was stoped</span>
+        <span class="c1">#</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+
+
+    <span class="nd">@DatabaseUpdate</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">create2</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cloud</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+
+
+        <span class="n">arguments</span> <span class="o">=</span> <span class="n">dotdict</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="n">vms</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">names</span><span class="p">)</span>
+
+        <span class="c1">#</span>
+        <span class="c1"># Step 0, find the cloud</span>
+        <span class="c1">#</span>
+        <span class="n">variables</span> <span class="o">=</span> <span class="n">Variables</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">cloud</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">arguments</span><span class="o">.</span><span class="n">cloud</span> <span class="o">=</span> <span class="n">cloud</span> <span class="o">=</span> <span class="n">variables</span><span class="p">[</span><span class="s1">&#39;cloud&#39;</span><span class="p">]</span>
+
+        <span class="c1"># Step 1. iterate through the names to see if they already exist in</span>
+        <span class="c1"># the DB and fail if one of them already exists</span>
+
+        <span class="n">database</span> <span class="o">=</span> <span class="n">CmDatabase</span><span class="p">()</span>
+        <span class="n">defaults</span> <span class="o">=</span> <span class="n">Config</span><span class="p">()[</span><span class="n">f</span><span class="s2">&quot;cloudmesh.cloud.</span><span class="si">{cloud}</span><span class="s2">.default&quot;</span><span class="p">]</span>
+        <span class="n">pprint</span> <span class="p">(</span><span class="n">defaults</span><span class="p">)</span>
+        <span class="n">duplicates</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">vm</span> <span class="ow">in</span> <span class="n">vms</span><span class="p">:</span>
+            <span class="n">duplicates</span> <span class="o">+=</span> <span class="n">database</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">collection</span><span class="o">=</span><span class="n">f</span><span class="s1">&#39;</span><span class="si">{cloud}</span><span class="s1">-node&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">vm</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">duplicates</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">Printer</span><span class="o">.</span><span class="n">flatwrite</span><span class="p">(</span><span class="n">duplicates</span><span class="p">,</span>
+                                    <span class="n">order</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;cm.cloud&#39;</span><span class="p">,</span> <span class="s1">&#39;state&#39;</span><span class="p">,</span>
+                                           <span class="s1">&#39;image&#39;</span><span class="p">,</span>
+                                           <span class="s1">&#39;size&#39;</span><span class="p">,</span>
+                                           <span class="s1">&#39;public_ips&#39;</span><span class="p">,</span> <span class="s1">&#39;cm.created&#39;</span><span class="p">],</span>
+                                    <span class="n">header</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Cloud&#39;</span><span class="p">,</span> <span class="s1">&#39;State&#39;</span><span class="p">,</span> <span class="s1">&#39;Image&#39;</span><span class="p">,</span>
+                                            <span class="s1">&#39;Size&#39;</span><span class="p">,</span>
+                                           <span class="s1">&#39;Public ips&#39;</span><span class="p">,</span> <span class="s1">&#39;created&#39;</span><span class="p">],</span>
+                                    <span class="n">output</span><span class="o">=</span><span class="s1">&#39;table&#39;</span><span class="p">))</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;these vms already exists&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+        <span class="c1"># Step 2. identify the image and flavor from kwargs and if they do</span>
+        <span class="c1"># not exist read them for that cloud from the yaml file</span>
+
+        <span class="n">arguments</span><span class="o">.</span><span class="n">image</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_attribute</span><span class="p">(</span><span class="s1">&#39;image&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">variables</span><span class="p">,</span> <span class="n">defaults</span><span class="p">])</span>
+        <span class="n">pprint</span><span class="p">(</span><span class="n">arguments</span><span class="o">.</span><span class="n">image</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s1">&#39;image&#39;</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;image not specifeied&quot;</span><span class="p">)</span>
+
+        <span class="n">arguments</span><span class="o">.</span><span class="n">flavor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_attribute</span><span class="p">(</span><span class="s1">&#39;flavor&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">variables</span><span class="p">,</span> <span class="n">defaults</span><span class="p">])</span>
+        <span class="n">pprint</span><span class="p">(</span><span class="n">arguments</span><span class="o">.</span><span class="n">flavor</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s1">&#39;flavor&#39;</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;image not specifeied&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Step 3: use the create command to create the vms</span>
+
+        <span class="n">pprint</span><span class="p">(</span><span class="n">arguments</span><span class="p">)</span>
+
+        <span class="n">created</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">loop</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">create</span><span class="p">,</span> <span class="o">**</span><span class="n">arguments</span><span class="p">)</span>
+
+        <span class="n">pprint</span><span class="p">(</span><span class="n">created</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">created</span>
+
+<div class="viewcode-block" id="Provider.find_attribute"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.vm.Provider.Provider.find_attribute">[docs]</a>    <span class="k">def</span> <span class="nf">find_attribute</span> <span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">dicts</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">dicts</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">d</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">d</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+        <span class="k">return</span> <span class="kc">None</span></div>
+
 
     <span class="nd">@DatabaseUpdate</span><span class="p">()</span>
     <span class="k">def</span> <span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
@@ -402,7 +478,21 @@
 
     <span class="nd">@DatabaseUpdate</span><span class="p">()</span>
     <span class="k">def</span> <span class="nf">suspend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+
+<div class="viewcode-block" id="Provider.Print"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.vm.Provider.Provider.Print">[docs]</a>    <span class="k">def</span> <span class="nf">Print</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">output</span><span class="p">,</span> <span class="n">kind</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="n">order</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">output</span><span class="p">[</span><span class="n">kind</span><span class="p">][</span><span class="s1">&#39;order&#39;</span><span class="p">]</span>  <span class="c1"># not pretty</span>
+        <span class="n">header</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">output</span><span class="p">[</span><span class="n">kind</span><span class="p">][</span><span class="s1">&#39;header&#39;</span><span class="p">]</span>  <span class="c1"># not pretty</span>
+
+        <span class="k">if</span> <span class="n">output</span> <span class="o">==</span> <span class="s2">&quot;table&quot;</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">Printer</span><span class="o">.</span><span class="n">flatwrite</span><span class="p">(</span><span class="n">data</span><span class="p">,</span>
+                                    <span class="n">sort_keys</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">],</span>
+                                    <span class="n">order</span><span class="o">=</span><span class="n">order</span><span class="p">,</span>
+                                    <span class="n">header</span><span class="o">=</span><span class="n">header</span><span class="p">,</span>
+                                    <span class="n">output</span><span class="o">=</span><span class="n">output</span><span class="p">)</span>
+                  <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">Printer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="n">output</span><span class="p">))</span></div></div>
 </pre></div>
 
            </div>

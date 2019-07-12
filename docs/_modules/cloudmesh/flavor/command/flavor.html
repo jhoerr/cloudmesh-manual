@@ -306,22 +306,16 @@
                 <span class="n">provider</span> <span class="o">=</span> <span class="n">Provider</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">cloud</span><span class="p">)</span>
                 <span class="n">flavors</span> <span class="o">=</span> <span class="n">provider</span><span class="o">.</span><span class="n">flavors</span><span class="p">()</span>
 
-                <span class="n">order</span> <span class="o">=</span> <span class="n">provider</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">output</span><span class="p">[</span><span class="s1">&#39;flavor&#39;</span><span class="p">][</span><span class="s1">&#39;order&#39;</span><span class="p">]</span>  <span class="c1"># not pretty</span>
-                <span class="n">header</span> <span class="o">=</span> <span class="n">provider</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">output</span><span class="p">[</span><span class="s1">&#39;flavor&#39;</span><span class="p">][</span><span class="s1">&#39;header&#39;</span><span class="p">]</span>  <span class="c1"># not pretty</span>
+                <span class="n">provider</span><span class="o">.</span><span class="n">Print</span><span class="p">(</span><span class="n">arguments</span><span class="o">.</span><span class="n">output</span><span class="p">,</span> <span class="s2">&quot;flavor&quot;</span><span class="p">,</span> <span class="n">flavors</span><span class="p">)</span>
 
-                <span class="nb">print</span><span class="p">(</span><span class="n">Printer</span><span class="o">.</span><span class="n">flatwrite</span><span class="p">(</span><span class="n">flavors</span><span class="p">,</span>
-                                        <span class="n">sort_keys</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">],</span>
-                                        <span class="n">order</span><span class="o">=</span><span class="n">order</span><span class="p">,</span>
-                                        <span class="n">header</span><span class="o">=</span><span class="n">header</span><span class="p">,</span>
-                                        <span class="n">output</span><span class="o">=</span><span class="n">arguments</span><span class="o">.</span><span class="n">output</span><span class="p">)</span>
-                      <span class="p">)</span>
             <span class="k">return</span> <span class="s2">&quot;&quot;</span>
 
         <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">list</span><span class="p">:</span>
 
             <span class="n">names</span> <span class="o">=</span> <span class="p">[]</span>
 
-            <span class="n">clouds</span><span class="p">,</span> <span class="n">names</span> <span class="o">=</span> <span class="n">Arguments</span><span class="o">.</span><span class="n">get_cloud_and_names</span><span class="p">(</span><span class="s2">&quot;list&quot;</span><span class="p">,</span> <span class="n">arguments</span><span class="p">,</span>
+            <span class="n">clouds</span><span class="p">,</span> <span class="n">names</span> <span class="o">=</span> <span class="n">Arguments</span><span class="o">.</span><span class="n">get_cloud_and_names</span><span class="p">(</span><span class="s2">&quot;list&quot;</span><span class="p">,</span>
+                                                          <span class="n">arguments</span><span class="p">,</span>
                                                           <span class="n">variables</span><span class="p">)</span>
 
             <span class="nb">print</span><span class="p">(</span><span class="n">clouds</span><span class="p">,</span> <span class="n">names</span><span class="p">)</span>
@@ -335,31 +329,16 @@
                     <span class="n">collection</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{cloud}</span><span class="s2">-flavor&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cloud</span><span class="o">=</span><span class="n">cloud</span><span class="p">,</span>
                                                          <span class="n">kind</span><span class="o">=</span><span class="n">p</span><span class="o">.</span><span class="n">kind</span><span class="p">)</span>
                     <span class="n">db</span> <span class="o">=</span> <span class="n">CmDatabase</span><span class="p">()</span>
-                    <span class="n">vms</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">collection</span><span class="o">=</span><span class="n">collection</span><span class="p">)</span>
+                    <span class="n">flavors</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">collection</span><span class="o">=</span><span class="n">collection</span><span class="p">)</span>
 
-                    <span class="n">order</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">output</span><span class="p">[</span><span class="s1">&#39;flavor&#39;</span><span class="p">][</span><span class="s1">&#39;order&#39;</span><span class="p">]</span>  <span class="c1"># not pretty</span>
-                    <span class="n">header</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">output</span><span class="p">[</span><span class="s1">&#39;flavor&#39;</span><span class="p">][</span><span class="s1">&#39;header&#39;</span><span class="p">]</span>  <span class="c1"># not pretty</span>
+                    <span class="n">p</span><span class="o">.</span><span class="n">Print</span><span class="p">(</span><span class="n">arguments</span><span class="o">.</span><span class="n">output</span><span class="p">,</span> <span class="s2">&quot;flavor&quot;</span><span class="p">,</span> <span class="n">flavors</span><span class="p">)</span>
 
-                    <span class="nb">print</span><span class="p">(</span><span class="n">Printer</span><span class="o">.</span><span class="n">flatwrite</span><span class="p">(</span><span class="n">vms</span><span class="p">,</span>
-                                            <span class="n">sort_keys</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">],</span>
-                                            <span class="n">order</span><span class="o">=</span><span class="n">order</span><span class="p">,</span>
-                                            <span class="n">header</span><span class="o">=</span><span class="n">header</span><span class="p">,</span>
-                                            <span class="n">output</span><span class="o">=</span><span class="n">arguments</span><span class="o">.</span><span class="n">output</span><span class="p">)</span>
-                          <span class="p">)</span>
 
             <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
 
                 <span class="n">VERBOSE</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
 
             <span class="k">return</span> <span class="s2">&quot;&quot;</span></div>
-
-        <span class="c1"># if arguments.FILE:</span>
-        <span class="c1">#    print(&quot;option a&quot;)</span>
-        <span class="c1">#    m.list(arguments.FILE)</span>
-
-        <span class="c1"># elif arguments.list:</span>
-        <span class="c1">#    print(&quot;option b&quot;)</span>
-        <span class="c1">#    m.list(&quot;just calling list without parameter&quot;)</span>
 </pre></div>
 
            </div>
