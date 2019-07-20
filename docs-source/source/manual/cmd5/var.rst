@@ -8,4 +8,4 @@ ERROR: Could not execute the command. Please check usage with
 
     cms help man
 
-Timer: 0.0048s (man --kind=rst var)
+Timer: 0.0049s (man --kind=rst var)

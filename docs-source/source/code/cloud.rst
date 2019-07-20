@@ -1,15 +1,6 @@
 cloudmesh-cloud
 ===============
 
-.. automodule:: cloudmesh.iaas.image
-   :members:
-   :show-inheritance:
-   :undoc-members:
-      
-.. automodule:: cloudmesh.iaas.flavor
-   :members:
-   :show-inheritance:
-   :undoc-members:
 
       
 .. automodule:: cloudmesh.config.command.config
