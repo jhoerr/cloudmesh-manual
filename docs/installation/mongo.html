@@ -1,0 +1,544 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>4. Cloudmesh Database &mdash; Cloudmesh v4 alpha documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="5. Cloudmesh Yaml file Encrytion" href="../configuration/encryption.html" />
+    <link rel="prev" title="3. Configuration" href="../configuration/configuration.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Cloudmesh v4
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.0.28
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">PREFACE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../preface/about.html">1. About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preface/contributors.html">2. Contributors</a></li>
+</ul>
+<p class="caption"><span class="caption-text">INSTALLATION</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install.html">1. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">2. Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration/configuration.html">3. Configuration</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">4. Cloudmesh Database</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#database-decorator">4.1. Database Decorator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#database-access">4.2. Database Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#creating-unique-names">4.3. Creating Unique Names</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration/encryption.html">5. Cloudmesh Yaml file Encrytion</a></li>
+</ul>
+<p class="caption"><span class="caption-text">SOMMAND SHELL</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cmd5.html">1. Cmd5</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CLOUD SERVICES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../group.html">1. Group command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vm/vm.html">2. Virtual Machine Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vm/image.html">3. Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vm/flavor.html">4. Flavors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../storage/storage.html">5. Cloudmesh Multi Cloud Storage Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workflow.html">6. Infrastructure Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter.html">7. Jupyter Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hpc/batch.html">8. Batch</a></li>
+</ul>
+<p class="caption"><span class="caption-text">openapi</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../openapi/README-storage-openapi.html">1. Cloudmesh Multi Cloud Open API Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../openapi/ufo.html">2. REST Service (outdated)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference-card.html">1. Reference Card (proposed)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/commands.html">2. Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-cmd5.html">3. Manual Cmd5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-group.html">4. Manual Group</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-compute.html">5. Compute Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-storage.html">6. Storage Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-other.html">7. Manual Other</a></li>
+</ul>
+<p class="caption"><span class="caption-text">DATABASE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../storage/database.html">1. Cloudmesh Database</a></li>
+</ul>
+<p class="caption"><span class="caption-text">BENCHMARKS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/README.html">1. Benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/awsec2-vm-management-benchmark.html">2. AWS EC2 VM Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/awsec2_benchmark_ubuntu.html">3. AWS EC2 VM Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/awss3-storage-benchmark.html">4. AWS S3 File Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/azure-storage-benchmark.html">5. Azure Blob Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/box.html">6. Benchmark results for box Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/emr.html">7. AWS EMR Benchmarking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/test_compute_database.html">8. AWS EC2 Compute Database</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CODE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../code/code.html">1. Code Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code/common.html">2. Common</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code/cmd5.html">3. CMD5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code/cloudmesh.html">4. Cloudmesh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code/management.html">5. Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code/mongo.html">6. Mongo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code/commands.html">7. Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code/inventory.html">8. Inventory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code/storage.html">9. cloudmesh-storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code/cloud.html">10. cloudmesh-cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code/batch.html">11. cloudmesh-batch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code/emr.html">12. cloudmesh-emr</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CONTRIBUTION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dev/conventions.html">1. Code Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/management.html">2. Code Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/management.html#documentation-management">3. Documentation Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/management.html#version-management">4. Version Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/pytest.html">5. Pytest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/manual.html">6. Manual Creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/todo.html">7. ToDo</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CLOUD ACCOUNTS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/aws.html">1. AWS Account Creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/azure.html">2. Azure Account Creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/google.html">3. Google Storage Providers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/box.html">4. Box Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/accountcreation-old.html">5. VM Providers (outdated)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Outdated:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../CM4README.html">1. CM4 Details (outdated)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vcluster.html">2. Virtual Cluster (in progress)</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Cloudmesh v4</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>4. Cloudmesh Database</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/installation/mongo.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="cloudmesh-database">
+<h1>4. Cloudmesh Database<a class="headerlink" href="#cloudmesh-database" title="Permalink to this headline">¶</a></h1>
+<p>Cloudmesh stores its status in a database so that you can easily
+remember which services you used where and have an accurate account of
+them. We use as a database mongoDB to store this information. To use
+cloudmesh you simply need to create and start the database service.</p>
+<p>First you need to cahnge the password for mongo in the <code class="docutils literal notranslate"><span class="pre">cloudmesh4.yaml</span></code> file
+Now you can create an empty database with</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms admin mongo create
+</pre></div>
+</div>
+<p>Next, you need to start it with the command</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms admin mongo start
+</pre></div>
+</div>
+<p>Now you can interact with it to find out the status, the stats, and the
+database listing with the commands</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms admin mongo status
+cms admin mongo stats
+cms admin mongo list
+</pre></div>
+</div>
+<p>To stop it from running use the command</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms admin mongo stop
+</pre></div>
+</div>
+<p>To backup and load from the backup you can use:</p>
+<div class="admonition-todo admonition" id="id1">
+<p class="admonition-title">Todo</p>
+<p>the dmin backup needs to be tested.</p>
+</div>
+<p>:: code:: bash</p>
+<blockquote>
+<div><p>cms admin mongo save [–file=FILE]
+cms admin mongo load [–file=FILE]</p>
+</div></blockquote>
+<p>The database will be started based-on the information as specified in
+<code class="docutils literal notranslate"><span class="pre">~/.cloudmesh/cloudmesh4.yaml</span></code>. An example is</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mongo</span><span class="p">:</span>
+  <span class="n">MONGO_AUTOINSTALL</span><span class="p">:</span> <span class="kc">True</span>
+  <span class="n">MONGO_BREWINSTALL</span><span class="p">:</span> <span class="kc">False</span>
+  <span class="n">LOCAL</span><span class="p">:</span> <span class="o">~/</span><span class="n">local</span>
+  <span class="n">MONGO_HOME</span><span class="p">:</span> <span class="o">~/</span><span class="n">local</span><span class="o">/</span><span class="n">mongo</span>
+  <span class="n">MONGO_PATH</span><span class="p">:</span> <span class="o">~/.</span><span class="n">cloudmesh</span><span class="o">/</span><span class="n">mongodb</span>
+  <span class="n">MONGO_LOG</span><span class="p">:</span> <span class="o">~/.</span><span class="n">cloudmesh</span><span class="o">/</span><span class="n">mongodb</span><span class="o">/</span><span class="n">log</span>
+  <span class="n">MONGO_DBNAME</span><span class="p">:</span> <span class="s1">&#39;cloudmesh&#39;</span>
+  <span class="n">MONGO_HOST</span><span class="p">:</span> <span class="s1">&#39;127.0.0.1&#39;</span>
+  <span class="n">MONGO_PORT</span><span class="p">:</span> <span class="s1">&#39;27017&#39;</span>
+  <span class="n">MONGO_USERNAME</span><span class="p">:</span> <span class="s1">&#39;admin&#39;</span>
+  <span class="n">MONGO_PASSWORD</span><span class="p">:</span> <span class="s2">&quot;my secret password&quot;</span>
+  <span class="n">MONGO_DOWNLOAD</span><span class="p">:</span>
+    <span class="n">darwin</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">fastdl</span><span class="o">.</span><span class="n">mongodb</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">osx</span><span class="o">/</span><span class="n">mongodb</span><span class="o">-</span><span class="n">osx</span><span class="o">-</span><span class="n">ssl</span><span class="o">-</span><span class="n">x86_64</span><span class="o">-</span><span class="mf">4.0</span><span class="o">.</span><span class="mf">4.</span><span class="n">tgz</span>
+    <span class="n">linux</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">fastdl</span><span class="o">.</span><span class="n">mongodb</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">linux</span><span class="o">/</span><span class="n">mongodb</span><span class="o">-</span><span class="n">linux</span><span class="o">-</span><span class="n">x86_64</span><span class="o">-</span><span class="mf">4.0</span><span class="o">.</span><span class="mf">4.</span><span class="n">tgz</span>
+    <span class="n">win32</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">fastdl</span><span class="o">.</span><span class="n">mongodb</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">win32</span><span class="o">/</span><span class="n">mongodb</span><span class="o">-</span><span class="n">win32</span><span class="o">-</span><span class="n">x86_64</span><span class="o">-</span><span class="mi">2008</span><span class="n">plus</span><span class="o">-</span><span class="n">ssl</span><span class="o">-</span><span class="mf">4.0</span><span class="o">.</span><span class="mi">4</span><span class="o">-</span><span class="n">signed</span><span class="o">.</span><span class="n">msi</span>
+    <span class="n">redhat</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">repo</span><span class="o">.</span><span class="n">mongodb</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">yum</span><span class="o">/</span><span class="n">redhat</span><span class="o">/</span><span class="mi">7</span><span class="o">/</span><span class="n">mongodb</span><span class="o">-</span><span class="n">org</span><span class="o">/</span><span class="mf">4.0</span><span class="o">/</span><span class="n">x86_64</span><span class="o">/</span><span class="n">RPMS</span><span class="o">/</span><span class="n">mongodb</span><span class="o">-</span><span class="n">org</span><span class="o">-</span><span class="n">server</span><span class="o">-</span><span class="mf">4.0</span><span class="o">.</span><span class="mi">4</span><span class="o">-</span><span class="mf">1.</span><span class="n">el7</span><span class="o">.</span><span class="n">x86_64</span><span class="o">.</span><span class="n">rpm</span>
+</pre></div>
+</div>
+<p>We also provide a convenient mongoDB install script that downloads the version
+defined in the yaml file and installs it in the system with the command.
+In case of windows platform, you will have to set the PATH variable
+manually after install</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms admin mongo install
+</pre></div>
+</div>
+<div class="section" id="database-decorator">
+<h2>4.1. Database Decorator<a class="headerlink" href="#database-decorator" title="Permalink to this headline">¶</a></h2>
+<p>Cloudmesh comes with a very convenient mechanism to integrate specific
+formed dicts into MongoDB. All you have to do is to create a list of
+dictionaries with a function, that returns this dictionary and use a
+decorator in the function to update the information into the database.</p>
+<p>The database decorator automatically replaces an entry in the database
+with the dictionary returned by a function.</p>
+<p>It is added to a specific MongoDB collection. The location is determined from
+the values in the dictionary. The dict must contain a dict named <code class="docutils literal notranslate"><span class="pre">cm</span></code> that
+containes thre attributes <code class="docutils literal notranslate"><span class="pre">kind</span></code>, <code class="docutils literal notranslate"><span class="pre">cloud</span></code>, <code class="docutils literal notranslate"><span class="pre">name</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;cm&quot;</span> <span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;kind&quot;</span> <span class="p">:</span> <span class="s2">&quot;flavor&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;cloud&quot;</span> <span class="p">:</span> <span class="s2">&quot;chameleon&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;m1.medium&quot;</span><span class="p">,</span>
+<span class="p">},</span>
+</pre></div>
+</div>
+<p>WHen such a dict is uploaded with our database decorator that we explain
+later, information such as created, updated, and other attributes are added.
+Some of the information for these attributes is taken from the <code class="docutils literal notranslate"><span class="pre">cloudmesh4</span>
+<span class="pre">.yaml</span></code> file, while others such as modified, will be updated dynamically.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;cm&quot;</span> <span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;m1.medium&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;created&quot;</span> <span class="p">:</span> <span class="s2">&quot;2019-03-25 07:45:46.905623&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;modified&quot;</span> <span class="p">:</span> <span class="s2">&quot;2019-03-25 07:45:46.905623&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;cloud&quot;</span> <span class="p">:</span> <span class="s2">&quot;chameleon&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;kind&quot;</span> <span class="p">:</span> <span class="s2">&quot;flavor&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;driver&quot;</span> <span class="p">:</span> <span class="s2">&quot;openstack&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;collection&quot;</span> <span class="p">:</span> <span class="s2">&quot;chameleon-flavor&quot;</span>
+<span class="p">},</span>
+</pre></div>
+</div>
+<p>Using this information the object can easily be found in the database by
+name, type or cloud or a combination thereof.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>in a future version the <code class="docutils literal notranslate"><span class="pre">cloud</span></code> parameter will be renamed to
+<code class="docutils literal notranslate"><span class="pre">service</span></code></p>
+</div>
+<p>The name of the collection is determined from cloud and kind:</p>
+<p><code class="docutils literal notranslate"><span class="pre">{cloud}-{kind}</span></code></p>
+<p>In addition each entry in the collection has a <code class="docutils literal notranslate"><span class="pre">name</span></code> that must be
+unique in that collection.</p>
+<p>In most examples it is best to separate the updload from the native class the
+interacts with the service. This way we provide always two classes. One
+interacting with the service and the otherone that acts alike for all
+provider, while the name of the provider decides which native provider is
+used to interactt with the coud services.</p>
+<p>Example:</p>
+<p><code class="docutils literal notranslate"><span class="pre">cloudmesh.example.foo</span></code> contains:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Provider</span><span class="p">(</span><span class="nb">object</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">entries</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span>
+         <span class="s2">&quot;cm&quot;</span> <span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;kind&quot;</span> <span class="p">:</span> <span class="s2">&quot;flavor&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;driver&quot;</span> <span class="p">:</span> <span class="s2">&quot;openstack&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;cloud&quot;</span> <span class="p">:</span> <span class="s2">&quot;foo&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;created&quot;</span> <span class="p">:</span> <span class="s2">&quot;2019-04-01 15:59:39.815993&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;m1.xxxlarge&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;collection&quot;</span> <span class="p">:</span> <span class="s2">&quot;chameleon-flavor&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;modified&quot;</span> <span class="p">:</span> <span class="s2">&quot;2019-04-01 16:01:11.720274&quot;</span>
+        <span class="p">},</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">cloudmesh.example.bar</span></code> contains:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Provider</span><span class="p">(</span><span class="nb">object</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">entries</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span>
+         <span class="s2">&quot;cm&quot;</span> <span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;kind&quot;</span> <span class="p">:</span> <span class="s2">&quot;flavor&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;driver&quot;</span> <span class="p">:</span> <span class="s2">&quot;openstack&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;cloud&quot;</span> <span class="p">:</span> <span class="s2">&quot;bar&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;created&quot;</span> <span class="p">:</span> <span class="s2">&quot;2019-04-01 15:59:39.815993&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;m1.xxxlarge&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;collection&quot;</span> <span class="p">:</span> <span class="s2">&quot;chameleon-flavor&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;modified&quot;</span> <span class="p">:</span> <span class="s2">&quot;2019-04-01 16:01:11.720274&quot;</span>
+        <span class="p">},</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">cloudmesh.example.provider.foo</span></code> contains:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cloudmesh.example.foo</span> <span class="k">import</span> <span class="n">Provider</span> <span class="k">as</span> <span class="n">FooProvider</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.example.foo</span> <span class="k">import</span> <span class="n">Provider</span> <span class="k">as</span> <span class="n">BarProvider</span>
+
+<span class="k">class</span> <span class="nc">Provider</span><span class="p">(</span><span class="nb">object</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">provider</span><span class="p">):</span>
+       <span class="k">if</span> <span class="n">provider</span> <span class="o">==</span> <span class="s2">&quot;foo&quot;</span><span class="p">:</span>
+          <span class="n">provider</span> <span class="o">=</span> <span class="n">FooProvider</span><span class="p">()</span>
+       <span class="k">elif</span> <span class="n">provider</span> <span class="o">==</span> <span class="s2">&quot;bar&quot;</span><span class="p">:</span>
+          <span class="n">provider</span> <span class="o">=</span> <span class="n">BarProvider</span><span class="p">()</span>
+
+    <span class="nd">@DatabaseUpdate</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">entries</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">provider</span><span class="o">.</span><span class="n">entries</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Separating the database and the dictionary creation allows the developer
+to implement different providers but only use one class with the same
+methods to interact for all providers with the database.
+In the combined provider a find function to for example search for
+entries by name across collections could be implemented.</p>
+</div>
+<div class="section" id="database-access">
+<h2>4.2. Database Access<a class="headerlink" href="#database-access" title="Permalink to this headline">¶</a></h2>
+<p>In addition to the decorator, we have a very simple database class for
+interacting across a number of collections. THis especially is useful
+for finding informtion.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">database</span> <span class="o">=</span> <span class="n">CmDatabase</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Find the entry with the uniqe name CC-Centos</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">database</span><span class="o">.</span><span class="n">find_name</span><span class="p">(</span><span class="s2">&quot;CC-CentOS7&quot;</span><span class="p">)</span>
+<span class="n">pprint</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Find the entries with either CC-CentOS7 or CC-CentOS7-1811</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">database</span><span class="o">.</span><span class="n">find_names</span><span class="p">(</span><span class="s2">&quot;CC-CentOS7,CC-CentOS7-1811&quot;</span><span class="p">)</span>
+<span class="n">pprint</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Find out how many entries exist with the name CC-CentOS7:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">database</span><span class="o">.</span><span class="n">name_count</span><span class="p">(</span><span class="s2">&quot;CC-CentOS7&quot;</span><span class="p">)</span>
+<span class="n">pprint</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="creating-unique-names">
+<h2>4.3. Creating Unique Names<a class="headerlink" href="#creating-unique-names" title="Permalink to this headline">¶</a></h2>
+<p>Often it is important to craete uniqu names. To support the easy creation
+without hazzle, we designed a <code class="docutils literal notranslate"><span class="pre">Name</span></code> class, that takes its values from the
+cloudmesh <code class="docutils literal notranslate"><span class="pre">cmd5</span></code> shell variables. A good example is the following name,
+where we like to identify within the name an experiment, a group of resources
+within the
+experiment, a user running the experiment and a counter. This can be set up
+as follows</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="n">experiment</span><span class="p">}</span><span class="o">-</span><span class="p">{</span><span class="n">group</span><span class="p">}</span><span class="o">-</span><span class="p">{</span><span class="n">user</span><span class="p">}</span><span class="o">-</span><span class="p">{</span><span class="n">counter</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>The values for them can be set with the cms set function</p>
+<p>Thus if you use the name function in your program, you get a very convenient
+way of getting a next name. Naturally you could define multiple such names
+for different resources and needs</p>
+<p>To use it in your program you can say:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cloumesh.management.configuration.name</span> <span class="k">import</span> <span class="n">Name</span>
+
+<span class="n">name</span> <span class="o">=</span> <span class="n">Name</span><span class="p">(</span>
+    <span class="n">experiment</span><span class="o">=</span><span class="s2">&quot;exp&quot;</span><span class="p">,</span>
+    <span class="n">group</span><span class="o">=</span><span class="s2">&quot;grp&quot;</span><span class="p">,</span>
+    <span class="n">user</span><span class="o">=</span><span class="s2">&quot;gregor&quot;</span><span class="p">,</span>
+    <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;vm&quot;</span><span class="p">,</span>
+    <span class="n">counter</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>To increase the counter use</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">name</span><span class="o">.</span><span class="n">incr</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>To get the name at the current counter value say</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">str</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">name</span><span class="o">.</span><span class="n">id</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>The format can be chaned with <code class="docutils literal notranslate"><span class="pre">schema=</span></code> at the initailization. Thus</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="n">Name</span><span class="p">(</span>
+        <span class="n">user</span><span class="o">=</span><span class="s1">&#39;gregor,</span>
+        <span class="n">schema</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">{user}</span><span class="s1">-</span><span class="si">{counter}</span><span class="s1">`,</span>
+        <span class="n">counter</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>would create names of the form gergor1, gergor2 and so on.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../configuration/encryption.html" class="btn btn-neutral float-right" title="5. Cloudmesh Yaml file Encrytion" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../configuration/configuration.html" class="btn btn-neutral float-left" title="3. Configuration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018-2019, Cloudmesh Community
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

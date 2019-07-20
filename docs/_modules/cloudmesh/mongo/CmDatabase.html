@@ -1,0 +1,791 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>cloudmesh.mongo.CmDatabase &mdash; Cloudmesh v4 alpha documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Cloudmesh v4
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.0.28
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">PREFACE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../preface/about.html">1. About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preface/contributors.html">2. Contributors</a></li>
+</ul>
+<p class="caption"><span class="caption-text">INSTALLATION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation/install.html">1. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation/quickstart.html">2. Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../configuration/configuration.html">3. Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation/mongo.html">4. Cloudmesh Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../configuration/encryption.html">5. Cloudmesh Yaml file Encrytion</a></li>
+</ul>
+<p class="caption"><span class="caption-text">SOMMAND SHELL</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../cmd5.html">1. Cmd5</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CLOUD SERVICES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../group.html">1. Group command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../vm/vm.html">2. Virtual Machine Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../vm/image.html">3. Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../vm/flavor.html">4. Flavors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../storage/storage.html">5. Cloudmesh Multi Cloud Storage Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../workflow.html">6. Infrastructure Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../jupyter.html">7. Jupyter Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../hpc/batch.html">8. Batch</a></li>
+</ul>
+<p class="caption"><span class="caption-text">openapi</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../openapi/README-storage-openapi.html">1. Cloudmesh Multi Cloud Open API Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../openapi/ufo.html">2. REST Service (outdated)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../reference-card.html">1. Reference Card (proposed)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../manual/commands.html">2. Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../manual-cmd5.html">3. Manual Cmd5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../manual-group.html">4. Manual Group</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../manual-compute.html">5. Compute Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../manual-storage.html">6. Storage Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../manual-other.html">7. Manual Other</a></li>
+</ul>
+<p class="caption"><span class="caption-text">DATABASE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../storage/database.html">1. Cloudmesh Database</a></li>
+</ul>
+<p class="caption"><span class="caption-text">BENCHMARKS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../benchmarks/README.html">1. Benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../benchmarks/awsec2-vm-management-benchmark.html">2. AWS EC2 VM Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../benchmarks/awsec2_benchmark_ubuntu.html">3. AWS EC2 VM Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../benchmarks/awss3-storage-benchmark.html">4. AWS S3 File Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../benchmarks/azure-storage-benchmark.html">5. Azure Blob Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../benchmarks/box.html">6. Benchmark results for box Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../benchmarks/emr.html">7. AWS EMR Benchmarking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../benchmarks/test_compute_database.html">8. AWS EC2 Compute Database</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CODE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../code/code.html">1. Code Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../code/common.html">2. Common</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../code/cmd5.html">3. CMD5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../code/cloudmesh.html">4. Cloudmesh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../code/management.html">5. Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../code/mongo.html">6. Mongo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../code/commands.html">7. Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../code/inventory.html">8. Inventory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../code/storage.html">9. cloudmesh-storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../code/cloud.html">10. cloudmesh-cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../code/batch.html">11. cloudmesh-batch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../code/emr.html">12. cloudmesh-emr</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CONTRIBUTION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../dev/conventions.html">1. Code Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dev/management.html">2. Code Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dev/management.html#documentation-management">3. Documentation Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dev/management.html#version-management">4. Version Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dev/pytest.html">5. Pytest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dev/manual.html">6. Manual Creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dev/todo.html">7. ToDo</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CLOUD ACCOUNTS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../accounts/aws.html">1. AWS Account Creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../accounts/azure.html">2. Azure Account Creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../accounts/google.html">3. Google Storage Providers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../accounts/box.html">4. Box Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../accounts/accountcreation-old.html">5. VM Providers (outdated)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Outdated:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../CM4README.html">1. CM4 Details (outdated)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../vcluster.html">2. Virtual Cluster (in progress)</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Cloudmesh v4</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>cloudmesh.mongo.CmDatabase</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for cloudmesh.mongo.CmDatabase</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">urllib.parse</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="k">import</span> <span class="n">datetime</span>
+
+<span class="kn">from</span> <span class="nn">cloudmesh.common.console</span> <span class="k">import</span> <span class="n">Console</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.parameter</span> <span class="k">import</span> <span class="n">Parameter</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.management.configuration.config</span> <span class="k">import</span> <span class="n">Config</span>
+<span class="kn">from</span> <span class="nn">pymongo</span> <span class="k">import</span> <span class="n">MongoClient</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.debug</span> <span class="k">import</span> <span class="n">VERBOSE</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="c1">#</span>
+<span class="c1"># cm:</span>
+<span class="c1">#   id:</span>
+<span class="c1">#   user:</span>
+<span class="c1">#   experiment:</span>
+<span class="c1">#   kind:</span>
+<span class="c1">#   group:</span>
+
+<div class="viewcode-block" id="CmDatabase"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.compute.vm.Provider.CmDatabase">[docs]</a><span class="k">class</span> <span class="nc">CmDatabase</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="n">__shared_state</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="c1"># ok</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        create a cloudmesh database in the specified mongodb</span>
+
+<span class="sd">        :param host: the host</span>
+<span class="sd">        :param username: the username</span>
+<span class="sd">        :param password: the password</span>
+<span class="sd">        :param port: the port</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__shared_state</span>
+        <span class="k">if</span> <span class="s2">&quot;cnfig&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">:</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="n">Config</span><span class="p">()</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;cloudmesh&quot;</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">mongo</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="s2">&quot;mongo&quot;</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">mongo</span><span class="p">[</span><span class="s2">&quot;MONGO_PASSWORD&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mongo</span><span class="p">[</span><span class="s2">&quot;MONGO_PASSWORD&quot;</span><span class="p">])</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">database</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mongo</span><span class="p">[</span><span class="s2">&quot;MONGO_DBNAME&quot;</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">host</span> <span class="o">=</span> <span class="n">host</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">mongo</span><span class="p">[</span><span class="s2">&quot;MONGO_HOST&quot;</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">password</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">parse</span><span class="o">.</span><span class="n">quote_plus</span><span class="p">(</span>
+                <span class="nb">str</span><span class="p">(</span><span class="n">password</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">mongo</span><span class="p">[</span><span class="s2">&quot;MONGO_PASSWORD&quot;</span><span class="p">]))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">username</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">parse</span><span class="o">.</span><span class="n">quote_plus</span><span class="p">(</span>
+                <span class="nb">str</span><span class="p">(</span><span class="n">username</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">mongo</span><span class="p">[</span><span class="s2">&quot;MONGO_USERNAME&quot;</span><span class="p">]))</span>
+            <span class="k">if</span> <span class="n">port</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">port</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mongo</span><span class="p">[</span><span class="s2">&quot;MONGO_PORT&quot;</span><span class="p">])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">port</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">port</span><span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">client</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">db</span> <span class="o">=</span> <span class="kc">None</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+
+    <span class="c1"># ok</span>
+<div class="viewcode-block" id="CmDatabase.connect"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.compute.vm.Provider.CmDatabase.connect">[docs]</a>    <span class="k">def</span> <span class="nf">connect</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        connect to the database</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">client</span> <span class="o">=</span> <span class="n">MongoClient</span><span class="p">(</span>
+            <span class="n">f</span><span class="s2">&quot;mongodb://</span><span class="si">{self.username}</span><span class="s2">:</span><span class="si">{self.password}</span><span class="s2">@</span><span class="si">{self.host}</span><span class="s2">:</span><span class="si">{self.port}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">db</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">database</span><span class="p">]</span></div>
+
+    <span class="c1"># ok</span>
+<div class="viewcode-block" id="CmDatabase.collection"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.compute.vm.Provider.CmDatabase.collection">[docs]</a>    <span class="k">def</span> <span class="nf">collection</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        returns the named collection</span>
+<span class="sd">        :param name: the collection name</span>
+<span class="sd">        :return: teh collection</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="p">[</span><span class="n">name</span><span class="p">]</span></div>
+
+    <span class="c1"># ok</span>
+<div class="viewcode-block" id="CmDatabase.close_client"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.compute.vm.Provider.CmDatabase.close_client">[docs]</a>    <span class="k">def</span> <span class="nf">close_client</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        close the connection to the database</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
+
+    <span class="c1"># ok</span>
+<div class="viewcode-block" id="CmDatabase.collections"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.compute.vm.Provider.CmDatabase.collections">[docs]</a>    <span class="k">def</span> <span class="nf">collections</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        the names of all collections</span>
+
+<span class="sd">        :param name: if set, only look at these collections instead of all</span>
+<span class="sd">                     colections</span>
+<span class="sd">        :param regex: a regular expression on the names of the collections</span>
+<span class="sd">        :return: list of names of all collections</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">            collections = cm.collections(regex=&quot;.*-vm&quot;)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">names</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="n">name</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="o">==</span> <span class="nb">list</span><span class="p">:</span>
+                <span class="n">names</span> <span class="o">=</span> <span class="n">name</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">names</span> <span class="o">=</span> <span class="n">Parameter</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">names</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">collection_names</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">regex</span><span class="p">:</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">regex</span><span class="p">)</span>
+            <span class="n">_names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">match</span><span class="p">,</span> <span class="n">names</span><span class="p">))</span>
+            <span class="n">names</span> <span class="o">=</span> <span class="n">_names</span>
+        <span class="k">return</span> <span class="n">names</span></div>
+
+    <span class="c1"># ok</span>
+    <span class="c1"># noinspection PyPep8</span>
+<div class="viewcode-block" id="CmDatabase.name_count"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.compute.vm.Provider.CmDatabase.name_count">[docs]</a>    <span class="k">def</span> <span class="nf">name_count</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        counts the occurence of the name used in the collections</span>
+
+<span class="sd">        :param name: the name</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">collections</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">collections</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">collection</span> <span class="ow">in</span> <span class="n">collections</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">entry</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find</span><span class="p">({</span><span class="s2">&quot;cm.name&quot;</span><span class="p">:</span> <span class="n">name</span><span class="p">})</span>
+                <span class="n">count</span> <span class="o">=</span> <span class="n">count</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
+            <span class="k">except</span><span class="p">:</span>
+                <span class="k">pass</span>
+        <span class="k">return</span> <span class="n">count</span></div>
+
+    <span class="c1"># ok</span>
+<div class="viewcode-block" id="CmDatabase.find_group"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.compute.vm.Provider.CmDatabase.find_group">[docs]</a>    <span class="k">def</span> <span class="nf">find_group</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This function returns the entry with the given name from all collections</span>
+<span class="sd">        in mongodb. The name must be unique accross all collections</span>
+
+<span class="sd">        :param name: the unique name of the entry</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">entries</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">collections</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">collections</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">collection</span> <span class="ow">in</span> <span class="n">collections</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">col</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="p">[</span><span class="n">collection</span><span class="p">]</span>
+                <span class="n">cursor</span> <span class="o">=</span> <span class="n">col</span><span class="o">.</span><span class="n">find</span><span class="p">({</span><span class="s2">&quot;cm.group&quot;</span><span class="p">:</span> <span class="n">name</span><span class="p">})</span>
+                <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">cursor</span><span class="p">:</span>
+                    <span class="n">entries</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+                <span class="k">pass</span>
+        <span class="k">return</span> <span class="n">entries</span></div>
+
+    <span class="c1"># ok</span>
+    <span class="c1"># noinspection PyPep8</span>
+<div class="viewcode-block" id="CmDatabase.find_name"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.compute.vm.Provider.CmDatabase.find_name">[docs]</a>    <span class="k">def</span> <span class="nf">find_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This function returns the entry with the given name from all collections</span>
+<span class="sd">        in mongodb. The name must be unique accross all collections</span>
+
+<span class="sd">        :param name: the unique name of the entry</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">entries</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="n">kind</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">collections</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">collections</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">collections</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">collections</span><span class="p">(</span><span class="n">regex</span><span class="o">=</span><span class="n">f</span><span class="s2">&quot;.*-</span><span class="si">{kind}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">collection</span> <span class="ow">in</span> <span class="n">collections</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">col</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="p">[</span><span class="n">collection</span><span class="p">]</span>
+                <span class="k">if</span> <span class="n">kind</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">cursor</span> <span class="o">=</span> <span class="n">col</span><span class="o">.</span><span class="n">find</span><span class="p">({</span><span class="s2">&quot;cm.name&quot;</span><span class="p">:</span> <span class="n">name</span><span class="p">})</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">cursor</span> <span class="o">=</span> <span class="n">col</span><span class="o">.</span><span class="n">find</span><span class="p">({</span><span class="s2">&quot;cm.name&quot;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span> <span class="s2">&quot;cm.kind&quot;</span><span class="p">:</span> <span class="n">kind</span><span class="p">})</span>
+                <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">cursor</span><span class="p">:</span>
+                    <span class="n">entries</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
+            <span class="k">except</span><span class="p">:</span>
+                <span class="k">pass</span>
+            <span class="k">if</span> <span class="n">cursor</span><span class="o">.</span><span class="n">count</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">entries</span>
+        <span class="k">return</span> <span class="n">entries</span></div>
+
+    <span class="c1"># ok</span>
+<div class="viewcode-block" id="CmDatabase.find_names"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.compute.vm.Provider.CmDatabase.find_names">[docs]</a>    <span class="k">def</span> <span class="nf">find_names</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">names</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Assuming names specified as parameters, it returns the entries with</span>
+<span class="sd">        these anmes from all collections in mongodb. The names must be unique</span>
+<span class="sd">        across all collections.</span>
+
+<span class="sd">        :param names: the unique names in parameter format</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">entries</span> <span class="o">=</span> <span class="n">Parameter</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">names</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">entries</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">entries</span><span class="p">:</span>
+                <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_name</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">r</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">result</span></div>
+
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    # check</span>
+<span class="sd">    def find(self, query):</span>
+<span class="sd">        col = self.db[query[&quot;collection&quot;]]</span>
+
+<span class="sd">        entries = col.find(query, {&quot;_id&quot;: 0})</span>
+
+<span class="sd">        records = []</span>
+<span class="sd">        for entry in entries:</span>
+<span class="sd">            records.append(entry)</span>
+<span class="sd">        return records</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+
+    <span class="c1"># ok</span>
+<div class="viewcode-block" id="CmDatabase.names"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.compute.vm.Provider.CmDatabase.names">[docs]</a>    <span class="k">def</span> <span class="nf">names</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">collection</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cloud</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        finds all names in the specified collections. The parameters,</span>
+<span class="sd">        collection, cloud, and kind can all be Parameters that get expanded</span>
+<span class="sd">        to lists. All names from all collections are merged into the result.</span>
+
+<span class="sd">        With kwargs a search query on the names could be added.</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">            cm = CmDatabase()</span>
+<span class="sd">            for kind in [&#39;vm&#39;, &quot;image&quot;, &quot;flavor&quot;]:</span>
+<span class="sd">                names = cm.names(cloud=&quot;chameleon&quot;, kind=kind)</span>
+<span class="sd">            print (names)</span>
+
+<span class="sd">            names = cm.names(cloud=&quot;chameleon,azure&quot;, kind=&quot;vm&quot;)</span>
+<span class="sd">            names = cm.names(collection=&quot;chameleon-image&quot;, regex=&quot;^CC-&quot;)</span>
+<span class="sd">            names = cm.names(collection=&quot;chameleon-image&quot;, regex=&quot;.*Ubuntu.*&quot;)</span>
+
+<span class="sd">        :param collection: The collections</span>
+<span class="sd">        :param cloud: The clouds</span>
+<span class="sd">        :param kind: The kinds</span>
+<span class="sd">        :param regex: A query applied to name</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">collections</span> <span class="o">=</span> <span class="n">Parameter</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">collection</span><span class="p">)</span>
+        <span class="n">clouds</span> <span class="o">=</span> <span class="n">Parameter</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">cloud</span><span class="p">)</span>
+        <span class="n">kinds</span> <span class="o">=</span> <span class="n">Parameter</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">kind</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">collection</span><span class="p">):</span>
+            <span class="n">col</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="p">[</span><span class="n">collection</span><span class="p">]</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">regex</span><span class="p">:</span>
+                <span class="n">entries</span> <span class="o">=</span> <span class="n">col</span><span class="o">.</span><span class="n">find</span><span class="p">({},</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">})</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">entries</span> <span class="o">=</span> <span class="n">col</span><span class="o">.</span><span class="n">find</span><span class="p">(</span>
+                    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;$regex&#39;</span><span class="p">:</span> <span class="n">regex</span><span class="p">}},</span>
+                    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">})</span>
+            <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">entries</span><span class="p">:</span>
+                <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">entry</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">])</span>
+
+        <span class="c1">#</span>
+        <span class="c1"># if collection is none but kind is not none find all collections</span>
+        <span class="c1"># matching THIS IS NOT YET IMPLEMENTED</span>
+        <span class="c1">#</span>
+        <span class="k">if</span> <span class="n">kinds</span> <span class="ow">and</span> <span class="n">clouds</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">_kind</span> <span class="ow">in</span> <span class="n">kinds</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">_cloud</span> <span class="ow">in</span> <span class="n">clouds</span><span class="p">:</span>
+                    <span class="n">_collection</span> <span class="o">=</span> <span class="n">f</span><span class="s2">&quot;</span><span class="si">{_cloud}</span><span class="s2">-</span><span class="si">{_kind}</span><span class="s2">&quot;</span>
+                    <span class="n">add</span><span class="p">(</span><span class="n">_collection</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">collections</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">_collection</span> <span class="ow">in</span> <span class="n">collections</span><span class="p">:</span>
+                <span class="n">add</span><span class="p">(</span><span class="n">_collection</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">result</span></div>
+
+
+<div class="viewcode-block" id="CmDatabase.find"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.compute.vm.Provider.CmDatabase.find">[docs]</a>    <span class="k">def</span> <span class="nf">find</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+             <span class="n">collection</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+             <span class="n">cloud</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+             <span class="n">kind</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+             <span class="n">query</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+             <span class="n">attributes</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        finds all names in the specified collections. The parameters,</span>
+<span class="sd">        collection, cloud, and kind can all be Parameters that get expanded</span>
+<span class="sd">        to lists. All names from all collections are merged into the result.</span>
+
+<span class="sd">        With kwargs a search query on the names could be added.</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">            cm = CmDatabase()</span>
+<span class="sd">            for kind in [&#39;vm&#39;, &quot;image&quot;, &quot;flavor&quot;]:</span>
+<span class="sd">                entries = cm.find(cloud=&quot;chameleon&quot;, kind=kind)</span>
+<span class="sd">            print (entries)</span>
+
+
+<span class="sd">            entries = cm.find(cloud=&quot;chameleon,azure&quot;, kind=&quot;vm&quot;)</span>
+<span class="sd">            query = {&quot;name&quot;: {&#39;$regex&#39;: &quot;.*Ubuntu.*&quot;}}</span>
+<span class="sd">            entries = cm.find(collection=&quot;chameleon-image&quot;, query=query)</span>
+
+<span class="sd">        :param collection: The collections</span>
+<span class="sd">        :param cloud: The clouds</span>
+<span class="sd">        :param kind: The kinds</span>
+<span class="sd">        :param query: A query applied to name</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">collections</span> <span class="o">=</span> <span class="n">Parameter</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">collection</span><span class="p">)</span>
+        <span class="n">clouds</span> <span class="o">=</span> <span class="n">Parameter</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">cloud</span><span class="p">)</span>
+        <span class="n">kinds</span> <span class="o">=</span> <span class="n">Parameter</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">kind</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">query</span><span class="p">:</span>
+            <span class="n">query</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="n">_attributes</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+
+        <span class="k">if</span> <span class="n">attributes</span><span class="p">:</span>
+           <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">attributes</span><span class="p">:</span>
+                <span class="n">_attributes</span><span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+        <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">collection</span><span class="p">):</span>
+            <span class="n">col</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="p">[</span><span class="n">collection</span><span class="p">]</span>
+
+            <span class="n">entries</span> <span class="o">=</span> <span class="n">col</span><span class="o">.</span><span class="n">find</span><span class="p">(</span>
+                <span class="n">query</span><span class="p">,</span>
+                <span class="n">_attributes</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">entries</span><span class="p">:</span>
+                <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">kinds</span> <span class="ow">and</span> <span class="n">clouds</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">_kind</span> <span class="ow">in</span> <span class="n">kinds</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">_cloud</span> <span class="ow">in</span> <span class="n">clouds</span><span class="p">:</span>
+                    <span class="n">_collection</span> <span class="o">=</span> <span class="n">f</span><span class="s2">&quot;</span><span class="si">{_cloud}</span><span class="s2">-</span><span class="si">{_kind}</span><span class="s2">&quot;</span>
+                    <span class="n">add</span><span class="p">(</span><span class="n">_collection</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">collections</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">_collection</span> <span class="ow">in</span> <span class="n">collections</span><span class="p">:</span>
+                <span class="n">add</span><span class="p">(</span><span class="n">_collection</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span></div>
+
+    <span class="c1"># ok</span>
+<div class="viewcode-block" id="CmDatabase.find_ok"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.compute.vm.Provider.CmDatabase.find_ok">[docs]</a>    <span class="k">def</span> <span class="nf">find_ok</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">collection</span><span class="o">=</span><span class="s2">&quot;cloudmesh&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">col</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="p">[</span><span class="n">collection</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">entries</span> <span class="o">=</span> <span class="n">col</span><span class="o">.</span><span class="n">find</span><span class="p">({},</span> <span class="p">{</span><span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">})</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">entries</span> <span class="o">=</span> <span class="n">col</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">kwargs</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">})</span>
+
+        <span class="c1"># print (&quot;KKKKK&quot;, kwargs)</span>
+        <span class="c1"># print (&quot;HHHH&quot;, entries.count())</span>
+
+        <span class="n">records</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">entries</span><span class="p">:</span>
+            <span class="n">records</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">records</span></div>
+
+
+    <span class="c1"># check bug when in the db velues are that are not in the ne obeject</span>
+<div class="viewcode-block" id="CmDatabase.update"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.compute.vm.Provider.CmDatabase.update">[docs]</a>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entries</span><span class="p">):</span>
+
+        <span class="c1"># VERBOSE(entries)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">entries</span><span class="p">:</span>
+
+            <span class="k">if</span> <span class="s1">&#39;cm&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">entry</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The cm attribute is not in the entry&quot;</span><span class="p">)</span>
+            <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;cm&#39;</span><span class="p">][</span><span class="s1">&#39;collection&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{cloud}</span><span class="s2">-</span><span class="si">{kind}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">entry</span><span class="p">[</span><span class="s2">&quot;cm&quot;</span><span class="p">])</span>
+
+            <span class="c1"># noinspection PyUnusedLocal</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">col</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="p">[</span><span class="n">entry</span><span class="p">[</span><span class="s1">&#39;cm&#39;</span><span class="p">][</span><span class="s1">&#39;collection&#39;</span><span class="p">]]</span>
+
+                <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">col</span><span class="o">.</span><span class="n">find_one</span><span class="p">({</span><span class="s2">&quot;cm.kind&quot;</span><span class="p">:</span> <span class="n">entry</span><span class="p">[</span><span class="s2">&quot;cm&quot;</span><span class="p">][</span><span class="s2">&quot;kind&quot;</span><span class="p">],</span>
+                                          <span class="s2">&quot;cm.cloud&quot;</span><span class="p">:</span> <span class="n">entry</span><span class="p">[</span><span class="s2">&quot;cm&quot;</span><span class="p">][</span><span class="s2">&quot;cloud&quot;</span><span class="p">],</span>
+                                          <span class="s2">&quot;cm.name&quot;</span><span class="p">:</span> <span class="n">entry</span><span class="p">[</span><span class="s2">&quot;cm&quot;</span><span class="p">][</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
+                                          <span class="p">})</span>
+
+                <span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+
+                    <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;cm&#39;</span><span class="p">][</span><span class="s1">&#39;created&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;cm&quot;</span><span class="p">][</span><span class="s1">&#39;created&#39;</span><span class="p">]</span>
+                    <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;cm&#39;</span><span class="p">][</span><span class="s1">&#39;modified&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">())</span>
+
+                    <span class="n">post</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">col</span><span class="o">.</span><span class="n">replace_one</span><span class="p">(</span>
+                        <span class="p">{</span>
+                            <span class="s2">&quot;cm.kind&quot;</span><span class="p">:</span> <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;cm&#39;</span><span class="p">][</span><span class="s2">&quot;kind&quot;</span><span class="p">],</span>
+                            <span class="s2">&quot;cm.cloud&quot;</span><span class="p">:</span> <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;cm&#39;</span><span class="p">][</span><span class="s2">&quot;cloud&quot;</span><span class="p">],</span>
+                            <span class="s2">&quot;cm.name&quot;</span><span class="p">:</span> <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;cm&#39;</span><span class="p">][</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
+                        <span class="p">},</span>
+                        <span class="n">entry</span><span class="p">,</span>
+                        <span class="n">upsert</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;cm&#39;</span><span class="p">][</span><span class="s1">&#39;created&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;cm&#39;</span><span class="p">][</span><span class="s1">&#39;modified&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span>
+                        <span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">())</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">col</span><span class="o">.</span><span class="n">insert_one</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;uploading document </span><span class="si">{entry}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="n">entry</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">entry</span><span class="p">)))</span>
+                <span class="k">pass</span>
+            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">result</span></div>
+
+<div class="viewcode-block" id="CmDatabase.alter"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.compute.vm.Provider.CmDatabase.alter">[docs]</a>    <span class="k">def</span> <span class="nf">alter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entries</span><span class="p">):</span>
+        <span class="c1"># for entry in entries:</span>
+        <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">entries</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="c1"># self.db[&quot;{cloud}-{kind}&quot;.format(**entry)].update(uniqueKeyVal,{&#39;$set&#39;: keyvalToUpdate})</span>
+                <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;modified&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">())</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="p">[</span><span class="s2">&quot;</span><span class="si">{cloud}</span><span class="s2">-</span><span class="si">{kind}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">entry</span><span class="p">)]</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;cm&#39;</span><span class="p">:</span> <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;cm&#39;</span><span class="p">]},</span> <span class="p">{</span><span class="s1">&#39;$set&#39;</span><span class="p">:</span> <span class="n">entry</span><span class="p">})</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;modifying document </span><span class="si">{entry}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="n">entry</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">entry</span><span class="p">)))</span>
+                <span class="k">pass</span>
+        <span class="k">return</span> <span class="n">entries</span></div>
+
+<div class="viewcode-block" id="CmDatabase.exists"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.compute.vm.Provider.CmDatabase.exists">[docs]</a>    <span class="k">def</span> <span class="nf">exists</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entries</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Check if entry exists in the database</span>
+<span class="sd">        :param entries:</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">exist_status</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">entries</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">dict</span><span class="p">:</span>
+            <span class="n">entries</span> <span class="o">=</span> <span class="p">[</span><span class="n">entries</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">entries</span><span class="p">:</span>
+            <span class="n">collection</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="p">[</span><span class="s2">&quot;</span><span class="si">{cloud}</span><span class="s2">-</span><span class="si">{kind}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">entry</span><span class="p">)]</span>
+            <span class="n">status</span> <span class="o">=</span> <span class="n">collection</span><span class="o">.</span><span class="n">find</span><span class="p">({</span><span class="s1">&#39;cm&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;$exists&#39;</span><span class="p">:</span> <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;cm&#39;</span><span class="p">]}})</span><span class="o">.</span><span class="n">count</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span>
+            <span class="n">exist_status</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">status</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">exist_status</span></div>
+
+    <span class="c1"># check</span>
+<div class="viewcode-block" id="CmDatabase.insert"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.compute.vm.Provider.CmDatabase.insert">[docs]</a>    <span class="k">def</span> <span class="nf">insert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">collection</span><span class="o">=</span><span class="s2">&quot;cloudmesh&quot;</span><span class="p">):</span>
+        <span class="n">col</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="p">[</span><span class="n">collection</span><span class="p">]</span>
+        <span class="n">col</span><span class="o">.</span><span class="n">insert_one</span><span class="p">(</span><span class="n">d</span><span class="p">)</span></div>
+
+    <span class="c1"># remove</span>
+<div class="viewcode-block" id="CmDatabase.update_old"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.compute.vm.Provider.CmDatabase.update_old">[docs]</a>    <span class="k">def</span> <span class="nf">update_old</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                   <span class="n">entries</span><span class="p">,</span>
+                   <span class="n">collection</span><span class="o">=</span><span class="s2">&quot;cloudmesh&quot;</span><span class="p">,</span>
+                   <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                   <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        :param entries: an array of dicts where one entry is called cmid.</span>
+<span class="sd">                        One must be careful as it does not erase previous attributes.</span>
+<span class="sd">        :param collection:</span>
+<span class="sd">        :param replace:</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">entries</span><span class="p">)</span> <span class="o">==</span> <span class="nb">dict</span><span class="p">:</span>
+            <span class="n">_entries</span> <span class="o">=</span> <span class="p">[</span><span class="n">entries</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">_entries</span> <span class="o">=</span> <span class="n">entries</span>
+
+        <span class="n">col</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="p">[</span><span class="n">collection</span><span class="p">]</span>
+
+        <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">_entries</span><span class="p">:</span>
+
+            <span class="c1"># pprint(entry)</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
+
+            <span class="k">if</span> <span class="n">kwargs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+                    <span class="n">entry</span><span class="p">[</span><span class="n">arg</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="n">arg</span><span class="p">]</span>
+            <span class="n">entry</span><span class="p">[</span><span class="s2">&quot;updated&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">())</span>
+            <span class="k">if</span> <span class="n">replace</span><span class="p">:</span>
+                <span class="n">col</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">entry</span><span class="p">[</span><span class="n">name</span><span class="p">]},</span> <span class="n">entry</span><span class="p">,</span> <span class="n">upsert</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">col</span><span class="o">.</span><span class="n">update_one</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">entry</span><span class="p">[</span><span class="n">name</span><span class="p">]},</span> <span class="p">{</span><span class="s2">&quot;$set&quot;</span><span class="p">:</span> <span class="n">entry</span><span class="p">},</span>
+                               <span class="n">upsert</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
+
+    <span class="c1"># ok</span>
+<div class="viewcode-block" id="CmDatabase.delete"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.compute.vm.Provider.CmDatabase.delete">[docs]</a>    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">collection</span><span class="o">=</span><span class="s2">&quot;cloudmesh&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">col</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="p">[</span><span class="n">collection</span><span class="p">]</span>
+        <span class="c1"># f = col.find(kwargs)</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">col</span><span class="o">.</span><span class="n">delete_many</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">r</span><span class="o">.</span><span class="n">deleted_count</span></div>
+
+    <span class="c1"># ok</span>
+<div class="viewcode-block" id="CmDatabase.command"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.compute.vm.Provider.CmDatabase.command">[docs]</a>    <span class="k">def</span> <span class="nf">command</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">command</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        issue command string via the mongoDB console</span>
+<span class="sd">        :param command: interaction command string you want to send to mongodb console</span>
+<span class="sd">        :return: command return</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># noinspection PyUnusedLocal</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="c1"># print(e)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Not a valid command&quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">res</span></div>
+
+    <span class="c1"># ok</span>
+<div class="viewcode-block" id="CmDatabase.status"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.compute.vm.Provider.CmDatabase.status">[docs]</a>    <span class="k">def</span> <span class="nf">status</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        test mongodb correspondent db connection</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="s2">&quot;serverStatus&quot;</span><span class="p">)</span></div>
+
+    <span class="c1"># ok</span>
+<div class="viewcode-block" id="CmDatabase.clear"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.compute.vm.Provider.CmDatabase.clear">[docs]</a>    <span class="k">def</span> <span class="nf">clear</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">collection</span><span class="o">=</span><span class="s2">&quot;cloudmesh&quot;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        drops the collection</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">col</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="p">[</span><span class="n">collection</span><span class="p">]</span>
+        <span class="n">col</span><span class="o">.</span><span class="n">drop</span><span class="p">()</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018-2019, Cloudmesh Community
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

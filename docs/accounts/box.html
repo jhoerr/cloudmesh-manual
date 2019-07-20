@@ -1,0 +1,366 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>4. Box Account &mdash; Cloudmesh v4 alpha documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="5. VM Providers (outdated)" href="accountcreation-old.html" />
+    <link rel="prev" title="3. Google Storage Providers" href="google.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Cloudmesh v4
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.0.28
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">PREFACE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../preface/about.html">1. About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preface/contributors.html">2. Contributors</a></li>
+</ul>
+<p class="caption"><span class="caption-text">INSTALLATION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/install.html">1. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/quickstart.html">2. Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration/configuration.html">3. Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/mongo.html">4. Cloudmesh Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration/encryption.html">5. Cloudmesh Yaml file Encrytion</a></li>
+</ul>
+<p class="caption"><span class="caption-text">SOMMAND SHELL</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cmd5.html">1. Cmd5</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CLOUD SERVICES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../group.html">1. Group command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vm/vm.html">2. Virtual Machine Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vm/image.html">3. Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vm/flavor.html">4. Flavors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../storage/storage.html">5. Cloudmesh Multi Cloud Storage Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workflow.html">6. Infrastructure Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter.html">7. Jupyter Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hpc/batch.html">8. Batch</a></li>
+</ul>
+<p class="caption"><span class="caption-text">openapi</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../openapi/README-storage-openapi.html">1. Cloudmesh Multi Cloud Open API Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../openapi/ufo.html">2. REST Service (outdated)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference-card.html">1. Reference Card (proposed)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/commands.html">2. Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-cmd5.html">3. Manual Cmd5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-group.html">4. Manual Group</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-compute.html">5. Compute Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-storage.html">6. Storage Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-other.html">7. Manual Other</a></li>
+</ul>
+<p class="caption"><span class="caption-text">DATABASE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../storage/database.html">1. Cloudmesh Database</a></li>
+</ul>
+<p class="caption"><span class="caption-text">BENCHMARKS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/README.html">1. Benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/awsec2-vm-management-benchmark.html">2. AWS EC2 VM Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/awsec2_benchmark_ubuntu.html">3. AWS EC2 VM Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/awss3-storage-benchmark.html">4. AWS S3 File Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/azure-storage-benchmark.html">5. Azure Blob Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/box.html">6. Benchmark results for box Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/emr.html">7. AWS EMR Benchmarking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/test_compute_database.html">8. AWS EC2 Compute Database</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CODE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../code/code.html">1. Code Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code/common.html">2. Common</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code/cmd5.html">3. CMD5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code/cloudmesh.html">4. Cloudmesh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code/management.html">5. Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code/mongo.html">6. Mongo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code/commands.html">7. Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code/inventory.html">8. Inventory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code/storage.html">9. cloudmesh-storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code/cloud.html">10. cloudmesh-cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code/batch.html">11. cloudmesh-batch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code/emr.html">12. cloudmesh-emr</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CONTRIBUTION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dev/conventions.html">1. Code Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/management.html">2. Code Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/management.html#documentation-management">3. Documentation Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/management.html#version-management">4. Version Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/pytest.html">5. Pytest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/manual.html">6. Manual Creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/todo.html">7. ToDo</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CLOUD ACCOUNTS</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="aws.html">1. AWS Account Creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="azure.html">2. Azure Account Creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="google.html">3. Google Storage Providers</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">4. Box Account</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#sign-up">4.1. Sign up</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#creating-an-app">4.2. Creating an app</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#authentication-with-jwt">4.3. Authentication with JWT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#references">4.4. References</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="accountcreation-old.html">5. VM Providers (outdated)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Outdated:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../CM4README.html">1. CM4 Details (outdated)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vcluster.html">2. Virtual Cluster (in progress)</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Cloudmesh v4</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>4. Box Account</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/accounts/box.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="box-account">
+<h1>4. Box Account<a class="headerlink" href="#box-account" title="Permalink to this headline">¶</a></h1>
+<p>Box provides a cloud file sharing service for buisinesses. CLients
+exists for Windows, MacOS, and Linux. To obtain an account you have to
+first visit the box home page as</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.box.com/home">https://www.box.com/home</a></p></li>
+</ul>
+<div class="section" id="sign-up">
+<h2>4.1. Sign up<a class="headerlink" href="#sign-up" title="Permalink to this headline">¶</a></h2>
+<p>To sign up for the account, click on the top right hand corner of the
+box <a class="reference external" href="https://www.box.com/home">homepage</a> on the <code class="docutils literal notranslate"><span class="pre">Get</span> <span class="pre">Started</span></code> button.</p>
+<p><img alt="../_images/get_started.png" src="../_images/get_started.png" />Get started</p>
+<p>From the plans page, select the <code class="docutils literal notranslate"><span class="pre">Individual</span></code> tab and then click on the
+free option.</p>
+<p><img alt="../_images/individual_plan.png" src="../_images/individual_plan.png" />Individual plan</p>
+<p>Fill out the required information and click <code class="docutils literal notranslate"><span class="pre">Submit</span></code>. You will receive a
+confirmation email with a link to verify your account.</p>
+<p><img alt="../_images/information.png" src="../_images/information.png" />Ask for Information</p>
+<p>Once you have verified your account and signed in, you will be taken to
+a page that asks you about how you are using Box. You may fill this out
+or click <code class="docutils literal notranslate"><span class="pre">Skip</span> <span class="pre">this</span> <span class="pre">and</span> <span class="pre">go</span> <span class="pre">straight</span> <span class="pre">to</span> <span class="pre">Box</span></code> below the <code class="docutils literal notranslate"><span class="pre">Next</span></code> button.</p>
+<p><img alt="../_images/skip.png" src="../_images/skip.png" />Next</p>
+</div>
+<div class="section" id="creating-an-app">
+<h2>4.2. Creating an app<a class="headerlink" href="#creating-an-app" title="Permalink to this headline">¶</a></h2>
+<p>Navigate to the <a class="reference external" href="https://app.box.com/developers/console">developer console</a></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://app.box.com/developers/console">https://app.box.com/developers/console</a></p></li>
+</ul>
+<p>and select <code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">New</span> <span class="pre">App</span></code>. You will need to select what type of
+application you are building and an authentication method for your app
+and then enter an app name (you can change this later). Once your app
+has been created, click View App. You will then need to click the
+profile button in the top right corner of the page, and go to
+<code class="docutils literal notranslate"><span class="pre">Account</span> <span class="pre">Settings</span></code>. Scroll down to the Authentication section and click
+<code class="docutils literal notranslate"><span class="pre">Require</span> <span class="pre">2-step</span> <span class="pre">verification</span> <span class="pre">for</span> <span class="pre">unrecognized</span> <span class="pre">logins</span></code>, then follow the
+prompts.</p>
+</div>
+<div class="section" id="authentication-with-jwt">
+<h2>4.3. Authentication with JWT<a class="headerlink" href="#authentication-with-jwt" title="Permalink to this headline">¶</a></h2>
+<p>In the Configuration panel of the Developer Console, scroll down to the
+section titled <code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">and</span> <span class="pre">Manage</span> <span class="pre">Public</span> <span class="pre">Keys</span></code> and click
+<code class="docutils literal notranslate"><span class="pre">Generate</span> <span class="pre">a</span> <span class="pre">Public/Private</span> <span class="pre">Keypair</span></code>:</p>
+<p><img alt="../_images/box_add_key.png" src="../_images/box_add_key.png" />Box Add Key</p>
+<p>Once you have generated a keypair, a <code class="docutils literal notranslate"><span class="pre">config.json</span></code> file will
+automatically download. Save this file in a secure location as you will
+need it for authentication purposes. We recommend storing it at
+<code class="docutils literal notranslate"><span class="pre">~/.cloudmesh/box/config.json</span></code>. This will avoid that you conflict with
+another file called <code class="docutils literal notranslate"><span class="pre">config.json</span></code></p>
+<ul class="simple">
+<li><p>[ ] todo: Box. A program is missing that adds the json key to the yaml file. This
+is the same as in Azure.</p></li>
+</ul>
+</div>
+<div class="section" id="references">
+<h2>4.4. References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<p>More information about box can be found at:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://developer.box.com/reference">https://developer.box.com/reference</a></p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="accountcreation-old.html" class="btn btn-neutral float-right" title="5. VM Providers (outdated)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="google.html" class="btn btn-neutral float-left" title="3. Google Storage Providers" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018-2019, Cloudmesh Community
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

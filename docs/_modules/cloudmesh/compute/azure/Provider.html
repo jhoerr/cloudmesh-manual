@@ -1,0 +1,845 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>cloudmesh.compute.azure.Provider &mdash; Cloudmesh v4 alpha documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Cloudmesh v4
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.0.28
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">PREFACE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../preface/about.html">1. About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../preface/contributors.html">2. Contributors</a></li>
+</ul>
+<p class="caption"><span class="caption-text">INSTALLATION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation/install.html">1. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation/quickstart.html">2. Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../configuration/configuration.html">3. Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation/mongo.html">4. Cloudmesh Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../configuration/encryption.html">5. Cloudmesh Yaml file Encrytion</a></li>
+</ul>
+<p class="caption"><span class="caption-text">SOMMAND SHELL</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../cmd5.html">1. Cmd5</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CLOUD SERVICES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../group.html">1. Group command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../vm/vm.html">2. Virtual Machine Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../vm/image.html">3. Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../vm/flavor.html">4. Flavors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../storage/storage.html">5. Cloudmesh Multi Cloud Storage Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../workflow.html">6. Infrastructure Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../jupyter.html">7. Jupyter Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../hpc/batch.html">8. Batch</a></li>
+</ul>
+<p class="caption"><span class="caption-text">openapi</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../openapi/README-storage-openapi.html">1. Cloudmesh Multi Cloud Open API Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../openapi/ufo.html">2. REST Service (outdated)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../reference-card.html">1. Reference Card (proposed)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual/commands.html">2. Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-cmd5.html">3. Manual Cmd5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-group.html">4. Manual Group</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-compute.html">5. Compute Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-storage.html">6. Storage Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-other.html">7. Manual Other</a></li>
+</ul>
+<p class="caption"><span class="caption-text">DATABASE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../storage/database.html">1. Cloudmesh Database</a></li>
+</ul>
+<p class="caption"><span class="caption-text">BENCHMARKS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../benchmarks/README.html">1. Benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../benchmarks/awsec2-vm-management-benchmark.html">2. AWS EC2 VM Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../benchmarks/awsec2_benchmark_ubuntu.html">3. AWS EC2 VM Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../benchmarks/awss3-storage-benchmark.html">4. AWS S3 File Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../benchmarks/azure-storage-benchmark.html">5. Azure Blob Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../benchmarks/box.html">6. Benchmark results for box Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../benchmarks/emr.html">7. AWS EMR Benchmarking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../benchmarks/test_compute_database.html">8. AWS EC2 Compute Database</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CODE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../code/code.html">1. Code Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../code/common.html">2. Common</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../code/cmd5.html">3. CMD5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../code/cloudmesh.html">4. Cloudmesh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../code/management.html">5. Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../code/mongo.html">6. Mongo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../code/commands.html">7. Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../code/inventory.html">8. Inventory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../code/storage.html">9. cloudmesh-storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../code/cloud.html">10. cloudmesh-cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../code/batch.html">11. cloudmesh-batch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../code/emr.html">12. cloudmesh-emr</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CONTRIBUTION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/conventions.html">1. Code Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/management.html">2. Code Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/management.html#documentation-management">3. Documentation Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/management.html#version-management">4. Version Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/pytest.html">5. Pytest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/manual.html">6. Manual Creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/todo.html">7. ToDo</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CLOUD ACCOUNTS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/aws.html">1. AWS Account Creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/azure.html">2. Azure Account Creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/google.html">3. Google Storage Providers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/box.html">4. Box Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/accountcreation-old.html">5. VM Providers (outdated)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Outdated:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../CM4README.html">1. CM4 Details (outdated)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../vcluster.html">2. Virtual Cluster (in progress)</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Cloudmesh v4</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>cloudmesh.compute.azure.Provider</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for cloudmesh.compute.azure.Provider</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">traceback</span>
+
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="k">import</span> <span class="n">datetime</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.abstractclass.ComputeNodeABC</span> <span class="k">import</span> <span class="n">ComputeNodeABC</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.management.configuration.config</span> <span class="k">import</span> <span class="n">Config</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.debug</span> <span class="k">import</span> <span class="n">VERBOSE</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="k">import</span> <span class="n">HEADING</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.dotdict</span> <span class="k">import</span> <span class="n">dotdict</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.console</span> <span class="k">import</span> <span class="n">Console</span>
+
+<span class="kn">from</span> <span class="nn">azure.common.credentials</span> <span class="k">import</span> <span class="n">ServicePrincipalCredentials</span>
+<span class="kn">from</span> <span class="nn">azure.mgmt.resource</span> <span class="k">import</span> <span class="n">ResourceManagementClient</span>
+<span class="kn">from</span> <span class="nn">azure.mgmt.network</span> <span class="k">import</span> <span class="n">NetworkManagementClient</span>
+<span class="kn">from</span> <span class="nn">azure.mgmt.compute</span> <span class="k">import</span> <span class="n">ComputeManagementClient</span>
+
+<span class="kn">from</span> <span class="nn">msrestazure.azure_exceptions</span> <span class="k">import</span> <span class="n">CloudError</span>
+
+<div class="viewcode-block" id="Provider"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.azure.Provider.Provider">[docs]</a><span class="k">class</span> <span class="nc">Provider</span><span class="p">(</span><span class="n">ComputeNodeABC</span><span class="p">):</span>
+
+    <span class="c1">#</span>
+    <span class="c1"># TODO: This is a bug, you need to define the outout attributes for the</span>
+    <span class="c1">#  table printer. Print an entry with VERBOSE, after you get it from azure</span>
+    <span class="c1">#  so you can look at them</span>
+
+    <span class="n">kind</span> <span class="o">=</span> <span class="s1">&#39;azure&#39;</span>
+
+    <span class="n">output</span> <span class="o">=</span> <span class="p">{</span>
+
+        <span class="s2">&quot;vm&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;sort_keys&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;cm.name&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;order&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;cm.name&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;cm.cloud&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;state&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;image&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;public_ips&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;private_ips&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;cm.kind&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;header&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;cm.name&quot;</span><span class="p">,</span>
+                       <span class="s2">&quot;cm.cloud&quot;</span><span class="p">,</span>
+                       <span class="s2">&quot;state&quot;</span><span class="p">,</span>
+                       <span class="s2">&quot;image&quot;</span><span class="p">,</span>
+                       <span class="s2">&quot;public_ips&quot;</span><span class="p">,</span>
+                       <span class="s2">&quot;private_ips&quot;</span><span class="p">,</span>
+                       <span class="s2">&quot;cm.kind&quot;</span><span class="p">]</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;image&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;sort_keys&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;cm.name&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;extra.minDisk&quot;</span><span class="p">],</span>
+                  <span class="s2">&quot;order&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;cm.name&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;extra.minDisk&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;updated&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;cm.driver&quot;</span><span class="p">],</span>
+                  <span class="s2">&quot;header&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Name&quot;</span><span class="p">,</span>
+                             <span class="s2">&quot;MinDisk&quot;</span><span class="p">,</span>
+                             <span class="s2">&quot;Updated&quot;</span><span class="p">,</span>
+                             <span class="s2">&quot;Driver&quot;</span><span class="p">]},</span>
+        <span class="s2">&quot;flavor&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;sort_keys&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;cm.name&quot;</span><span class="p">,</span>
+                                 <span class="s2">&quot;vcpus&quot;</span><span class="p">,</span>
+                                 <span class="s2">&quot;disk&quot;</span><span class="p">],</span>
+                   <span class="s2">&quot;order&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;cm.name&quot;</span><span class="p">,</span>
+                             <span class="s2">&quot;vcpus&quot;</span><span class="p">,</span>
+                             <span class="s2">&quot;ram&quot;</span><span class="p">,</span>
+                             <span class="s2">&quot;disk&quot;</span><span class="p">],</span>
+                   <span class="s2">&quot;header&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Name&quot;</span><span class="p">,</span>
+                              <span class="s2">&quot;VCPUS&quot;</span><span class="p">,</span>
+                              <span class="s2">&quot;RAM&quot;</span><span class="p">,</span>
+                              <span class="s2">&quot;Disk&quot;</span><span class="p">]}</span>
+
+    <span class="p">}</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">configuration</span><span class="o">=</span><span class="s2">&quot;~/.cloudmesh/cloudmesh4.yaml&quot;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes the provider. The default parameters are read from the configutation</span>
+<span class="sd">        file that is defined in yaml format.</span>
+<span class="sd">        :param name: The name of the provider as defined in the yaml file</span>
+<span class="sd">        :param configuration: The location of the yaml configuration file</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">conf</span> <span class="o">=</span> <span class="n">Config</span><span class="p">(</span><span class="n">configuration</span><span class="p">)[</span><span class="s2">&quot;cloudmesh&quot;</span><span class="p">]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">user</span> <span class="o">=</span> <span class="n">Config</span><span class="p">()[</span><span class="s2">&quot;cloudmesh&quot;</span><span class="p">][</span><span class="s2">&quot;profile&quot;</span><span class="p">][</span><span class="s2">&quot;user&quot;</span><span class="p">]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">spec</span> <span class="o">=</span> <span class="n">conf</span><span class="p">[</span><span class="s2">&quot;cloud&quot;</span><span class="p">][</span><span class="n">name</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cloud</span> <span class="o">=</span> <span class="n">name</span>
+
+        <span class="n">cred</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">spec</span><span class="p">[</span><span class="s2">&quot;credentials&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">default</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">spec</span><span class="p">[</span><span class="s2">&quot;default&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cloudtype</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">spec</span><span class="p">[</span><span class="s2">&quot;cm&quot;</span><span class="p">][</span><span class="s2">&quot;kind&quot;</span><span class="p">]</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">conf</span><span class="p">)</span>
+
+        <span class="n">VERBOSE</span><span class="p">(</span><span class="n">cred</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudtype</span> <span class="o">!=</span> <span class="s1">&#39;azure&#39;</span><span class="p">:</span>
+            <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;This class is meant for azure cloud&quot;</span><span class="p">)</span>
+
+        <span class="c1"># ServicePrincipalCredentials related Variables to configure in cloudmesh4.yaml file</span>
+        <span class="c1"># AZURE_APPLICATION_ID = &#39;&lt;Application ID from Azure Active Directory App Registration Process&gt;&#39;</span>
+        <span class="c1"># AZURE_SECRET_KEY = &#39;&lt;Secret Key from Application configured in Azure&gt;&#39;</span>
+        <span class="c1"># AZURE_TENANT_ID = &#39;&lt;Directory ID from Azure Active Directory section&gt;&#39;</span>
+
+        <span class="n">credentials</span> <span class="o">=</span> <span class="n">ServicePrincipalCredentials</span><span class="p">(</span>
+            <span class="n">client_id</span> <span class="o">=</span> <span class="n">cred</span><span class="p">[</span><span class="s1">&#39;AZURE_APPLICATION_ID&#39;</span><span class="p">],</span>
+            <span class="n">secret</span> <span class="o">=</span> <span class="n">cred</span><span class="p">[</span><span class="s1">&#39;AZURE_SECRET_KEY&#39;</span><span class="p">],</span>
+            <span class="n">tenant</span> <span class="o">=</span> <span class="n">cred</span><span class="p">[</span><span class="s1">&#39;AZURE_TENANT_ID&#39;</span><span class="p">]</span>
+            <span class="p">)</span>
+
+        <span class="n">SUBSCRIPTION_ID</span> <span class="o">=</span> <span class="n">cred</span><span class="p">[</span><span class="s1">&#39;AZURE_SUBSCRIPTION_ID&#39;</span><span class="p">]</span>
+
+        <span class="c1"># Management Clients</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">resource_client</span> <span class="o">=</span> <span class="n">ResourceManagementClient</span><span class="p">(</span><span class="n">credentials</span><span class="p">,</span> <span class="n">SUBSCRIPTION_ID</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">compute_client</span>  <span class="o">=</span> <span class="n">ComputeManagementClient</span><span class="p">(</span><span class="n">credentials</span><span class="p">,</span> <span class="n">SUBSCRIPTION_ID</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">network_client</span>  <span class="o">=</span> <span class="n">NetworkManagementClient</span><span class="p">(</span><span class="n">credentials</span><span class="p">,</span> <span class="n">SUBSCRIPTION_ID</span><span class="p">)</span>
+
+        <span class="c1"># VMs abbreviation</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">vms</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">compute_client</span><span class="o">.</span><span class="n">virtual_machines</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">images</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">compute_client</span><span class="o">.</span><span class="n">virtual_machine_images</span>
+
+        <span class="c1"># Azure Resource Group</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">GROUP_NAME</span>      <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">default</span><span class="p">[</span><span class="s2">&quot;resource_group&quot;</span><span class="p">]</span>
+
+        <span class="c1"># Azure Datacenter Region</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">LOCATION</span>        <span class="o">=</span> <span class="n">cred</span><span class="p">[</span><span class="s2">&quot;AZURE_REGION&quot;</span><span class="p">]</span>
+
+        <span class="c1"># NetworkManagementClient related Variables</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">VNET_NAME</span>       <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">default</span><span class="p">[</span><span class="s2">&quot;network&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">SUBNET_NAME</span>     <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">default</span><span class="p">[</span><span class="s2">&quot;subnet&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">IP_CONFIG_NAME</span>  <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">default</span><span class="p">[</span><span class="s2">&quot;AZURE_VM_IP_CONFIG&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">NIC_NAME</span>        <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">default</span><span class="p">[</span><span class="s2">&quot;AZURE_VM_NIC&quot;</span><span class="p">]</span>
+
+        <span class="c1"># Azure VM Storage details</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">OS_DISK_NAME</span>    <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">default</span><span class="p">[</span><span class="s2">&quot;AZURE_VM_DISK_NAME&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">USERNAME</span>        <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">default</span><span class="p">[</span><span class="s2">&quot;AZURE_VM_USER&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">PASSWORD</span>        <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">default</span><span class="p">[</span><span class="s2">&quot;AZURE_VM_PASSWORD&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">VM_NAME</span>         <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">default</span><span class="p">[</span><span class="s2">&quot;AZURE_VM_NAME&quot;</span><span class="p">]</span>
+
+        <span class="c1"># Create or Update Resource group</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">get_resource_group</span><span class="p">()</span>
+
+<div class="viewcode-block" id="Provider.get_resource_group"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.azure.Provider.Provider.get_resource_group">[docs]</a>    <span class="k">def</span> <span class="nf">get_resource_group</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">resource_client</span><span class="o">.</span><span class="n">resource_groups</span><span class="o">.</span><span class="n">check_existence</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">GROUP_NAME</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">resource_client</span><span class="o">.</span><span class="n">resource_groups</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">GROUP_NAME</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Create or Update Resource group</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Create Azure Virtual Machine Resource Group&#39;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">resource_client</span><span class="o">.</span><span class="n">resource_groups</span><span class="o">.</span><span class="n">create_or_update</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">GROUP_NAME</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;location&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">LOCATION</span><span class="p">})</span></div>
+
+<div class="viewcode-block" id="Provider.create"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.azure.Provider.Provider.create">[docs]</a>    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">360</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        creates a named node</span>
+
+<span class="sd">        :param name: the name of the node</span>
+<span class="sd">        :param image: the image used</span>
+<span class="sd">        :param size: the size of the image</span>
+<span class="sd">        :param timeout: a timeout in seconds that is invoked in case the image</span>
+<span class="sd">                        does not boot. The default is set to 3 minutes.</span>
+<span class="sd">        :param kwargs: additional arguments passed along at time of boot</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">VM_PARAMETERS</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_vm_parameters</span><span class="p">()</span>
+
+        <span class="n">async_vm_creation</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vms</span><span class="o">.</span><span class="n">create_or_update</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">GROUP_NAME</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">VM_NAME</span><span class="p">,</span> <span class="n">VM_PARAMETERS</span><span class="p">)</span>
+        <span class="n">async_vm_creation</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
+
+        <span class="c1"># Creating a Managed Data Disk</span>
+        <span class="n">async_disk_creation</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">compute_client</span><span class="o">.</span><span class="n">disks</span><span class="o">.</span><span class="n">create_or_update</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">GROUP_NAME</span><span class="p">,</span>
+            <span class="s1">&#39;cloudmesh-datadisk1&#39;</span><span class="p">,</span>
+            <span class="p">{</span>
+                <span class="s1">&#39;location&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">LOCATION</span><span class="p">,</span>
+                <span class="s1">&#39;disk_size_gb&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="s1">&#39;creation_data&#39;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s1">&#39;create_option&#39;</span><span class="p">:</span> <span class="s1">&#39;Empty&#39;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">)</span>
+        <span class="n">data_disk</span> <span class="o">=</span> <span class="n">async_disk_creation</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+
+        <span class="c1"># Get the virtual machine by name</span>
+        <span class="n">virtual_machine</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vms</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">GROUP_NAME</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">VM_NAME</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Attaching Data Disk to a Virtual Machine</span>
+        <span class="n">virtual_machine</span><span class="o">.</span><span class="n">storage_profile</span><span class="o">.</span><span class="n">data_disks</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+            <span class="s1">&#39;lun&#39;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
+            <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;cloudmesh-datadisk1&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;create_option&#39;</span><span class="p">:</span> <span class="s1">&#39;Attach&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;managed_disk&#39;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="n">data_disk</span><span class="o">.</span><span class="n">id</span>
+            <span class="p">}</span>
+        <span class="p">})</span>
+        <span class="n">async_disk_attach</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vms</span><span class="o">.</span><span class="n">create_or_update</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">GROUP_NAME</span><span class="p">,</span>
+            <span class="n">virtual_machine</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+            <span class="n">virtual_machine</span>
+        <span class="p">)</span>
+        <span class="n">async_disk_attach</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="kc">None</span></div>
+        <span class="c1"># must return dict</span>
+
+<div class="viewcode-block" id="Provider.create_vm_parameters"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.azure.Provider.Provider.create_vm_parameters">[docs]</a>    <span class="k">def</span> <span class="nf">create_vm_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="n">nic</span>     <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_nic</span><span class="p">()</span>
+        <span class="n">NIC_ID</span>  <span class="o">=</span> <span class="n">nic</span><span class="o">.</span><span class="n">id</span>
+
+        <span class="c1"># Parse Image from yaml file</span>
+        <span class="n">image</span>               <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">default</span><span class="p">[</span><span class="s2">&quot;image&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+        <span class="n">imgPublisher</span>        <span class="o">=</span> <span class="n">image</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">imgOffer</span>            <span class="o">=</span> <span class="n">image</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">imgSKU</span>              <span class="o">=</span> <span class="n">image</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+        <span class="n">imgVersion</span>          <span class="o">=</span> <span class="n">image</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+
+        <span class="c1"># Declare Virtual Machine Settings</span>
+
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Create the VM parameters structure.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">VM_PARAMETERS</span><span class="o">=</span><span class="p">{</span>
+            <span class="s1">&#39;location&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">LOCATION</span><span class="p">,</span>
+            <span class="s1">&#39;os_profile&#39;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">&#39;computer_name&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">VM_NAME</span><span class="p">,</span>
+                <span class="s1">&#39;admin_username&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">USERNAME</span><span class="p">,</span>
+                <span class="s1">&#39;admin_password&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">PASSWORD</span>
+            <span class="p">},</span>
+            <span class="s1">&#39;hardware_profile&#39;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">&#39;vm_size&#39;</span><span class="p">:</span> <span class="s1">&#39;Standard_DS1_v2&#39;</span>
+            <span class="p">},</span>
+            <span class="s1">&#39;storage_profile&#39;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">&#39;image_reference&#39;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s1">&#39;publisher&#39;</span><span class="p">:</span> <span class="n">imgPublisher</span><span class="p">,</span>
+                    <span class="s1">&#39;offer&#39;</span><span class="p">:</span> <span class="n">imgOffer</span><span class="p">,</span>
+                    <span class="s1">&#39;sku&#39;</span><span class="p">:</span> <span class="n">imgSKU</span><span class="p">,</span>
+                    <span class="s1">&#39;version&#39;</span><span class="p">:</span> <span class="n">imgVersion</span>
+                <span class="p">},</span>
+            <span class="p">},</span>
+            <span class="s1">&#39;network_profile&#39;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">&#39;network_interfaces&#39;</span><span class="p">:</span> <span class="p">[{</span>
+                    <span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="n">NIC_ID</span><span class="p">,</span>
+                <span class="p">}]</span>
+            <span class="p">},</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="n">VM_PARAMETERS</span></div>
+
+<div class="viewcode-block" id="Provider.create_nic"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.azure.Provider.Provider.create_nic">[docs]</a>    <span class="k">def</span> <span class="nf">create_nic</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Create a Network Interface for a Virtual Machine</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># A Resource group needs to be in place</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">get_resource_group</span><span class="p">()</span>
+
+        <span class="c1"># Create Virtual Network</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Create Vnet&#39;</span><span class="p">)</span>
+        <span class="n">async_vnet_creation</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">network_client</span><span class="o">.</span><span class="n">virtual_networks</span><span class="o">.</span><span class="n">create_or_update</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">GROUP_NAME</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">VNET_NAME</span><span class="p">,</span>
+            <span class="p">{</span>
+                <span class="s1">&#39;location&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">LOCATION</span><span class="p">,</span>
+                <span class="s1">&#39;address_space&#39;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s1">&#39;address_prefixes&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;10.0.0.0/16&#39;</span><span class="p">]</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">)</span>
+        <span class="n">async_vnet_creation</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
+
+        <span class="c1"># Create Subnet</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Create Subnet&#39;</span><span class="p">)</span>
+        <span class="n">async_subnet_creation</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">network_client</span><span class="o">.</span><span class="n">subnets</span><span class="o">.</span><span class="n">create_or_update</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">GROUP_NAME</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">VNET_NAME</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">SUBNET_NAME</span><span class="p">,</span>
+            <span class="p">{</span><span class="s1">&#39;address_prefix&#39;</span><span class="p">:</span> <span class="s1">&#39;10.0.0.0/24&#39;</span><span class="p">}</span>
+        <span class="p">)</span>
+        <span class="n">subnet_info</span> <span class="o">=</span> <span class="n">async_subnet_creation</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+
+        <span class="c1"># Create NIC</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Create NIC&#39;</span><span class="p">)</span>
+        <span class="n">async_nic_creation</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">network_client</span><span class="o">.</span><span class="n">network_interfaces</span><span class="o">.</span><span class="n">create_or_update</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">GROUP_NAME</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">NIC_NAME</span><span class="p">,</span>
+            <span class="p">{</span>
+                <span class="s1">&#39;location&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">LOCATION</span><span class="p">,</span>
+                <span class="s1">&#39;ip_configurations&#39;</span><span class="p">:</span> <span class="p">[{</span>
+                    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">IP_CONFIG_NAME</span><span class="p">,</span>
+                    <span class="s1">&#39;subnet&#39;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="n">subnet_info</span><span class="o">.</span><span class="n">id</span>
+                    <span class="p">}</span>
+                <span class="p">}]</span>
+            <span class="p">}</span>
+        <span class="p">)</span>
+
+        <span class="n">nic</span> <span class="o">=</span> <span class="n">async_nic_creation</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="n">nic</span></div>
+
+<div class="viewcode-block" id="Provider.start"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.azure.Provider.Provider.start">[docs]</a>    <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">groupName</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">vmName</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        start a node</span>
+
+<span class="sd">        :param groupName: the unique Resource Group name</span>
+<span class="sd">        :param vmName: the unique Virtual Machine name</span>
+<span class="sd">        :return:  The dict representing the node</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">groupName</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">groupName</span>   <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">GROUP_NAME</span>
+        <span class="k">if</span> <span class="n">vmName</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">vmName</span>      <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">VM_NAME</span>
+
+        <span class="c1"># Start the VM</span>
+        <span class="n">VERBOSE</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;Starting Azure VM&#39;</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Starting Azure VM&#39;</span><span class="p">)</span>
+        <span class="n">async_vm_start</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vms</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="n">groupName</span><span class="p">,</span> <span class="n">vmName</span><span class="p">)</span>
+        <span class="n">async_vm_start</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">groupName</span><span class="p">,</span> <span class="n">vmName</span><span class="p">)</span></div>
+        <span class="c1">#return None</span>
+
+<div class="viewcode-block" id="Provider.restart"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.azure.Provider.Provider.restart">[docs]</a>    <span class="k">def</span> <span class="nf">restart</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">groupName</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">vmName</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        restart a node</span>
+
+<span class="sd">        :param name:</span>
+<span class="sd">        :return: The dict representing the node</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">groupName</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">groupName</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">GROUP_NAME</span>
+        <span class="k">if</span> <span class="n">vmName</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">vmName</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">VM_NAME</span>
+
+        <span class="c1"># Restart the VM</span>
+        <span class="n">VERBOSE</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;Restarting Azure VM&#39;</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Restarting Azure VM&#39;</span><span class="p">)</span>
+        <span class="n">async_vm_restart</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vms</span><span class="o">.</span><span class="n">restart</span><span class="p">(</span><span class="n">groupName</span><span class="p">,</span> <span class="n">vmName</span><span class="p">)</span>
+        <span class="n">async_vm_restart</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">groupName</span><span class="p">,</span> <span class="n">vmName</span><span class="p">)</span></div>
+        <span class="c1">#return None</span>
+
+<div class="viewcode-block" id="Provider.stop"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.azure.Provider.Provider.stop">[docs]</a>    <span class="k">def</span> <span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">groupName</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">vmName</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        stops the node with the given name</span>
+
+<span class="sd">        :param name:</span>
+<span class="sd">        :return: The dict representing the node including updated status</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">groupName</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">groupName</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">GROUP_NAME</span>
+        <span class="k">if</span> <span class="n">vmName</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">vmName</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">VM_NAME</span>
+
+        <span class="c1"># Stop the VM</span>
+        <span class="n">VERBOSE</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;Stopping Azure VM&#39;</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Stopping Azure VM&#39;</span><span class="p">)</span>
+        <span class="n">async_vm_stop</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vms</span><span class="o">.</span><span class="n">power_off</span><span class="p">(</span><span class="n">groupName</span><span class="p">,</span> <span class="n">vmName</span><span class="p">)</span>
+        <span class="n">async_vm_stop</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">groupName</span><span class="p">,</span> <span class="n">vmName</span><span class="p">)</span></div>
+        <span class="c1">#return None</span>
+
+<div class="viewcode-block" id="Provider.info"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.azure.Provider.Provider.info">[docs]</a>    <span class="k">def</span> <span class="nf">info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">groupName</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">vmName</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        gets the information of a node with a given name</span>
+<span class="sd">        List VM in resource group</span>
+<span class="sd">        :param name:</span>
+<span class="sd">        :return: The dict representing the node including updated status</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">groupName</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">groupName</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">GROUP_NAME</span>
+
+        <span class="k">if</span> <span class="n">vmName</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">vmName</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">VM_NAME</span>
+
+        <span class="n">node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vms</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">groupName</span><span class="p">,</span> <span class="n">vmName</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update_dict</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">as_dict</span><span class="p">(),</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;vm&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Provider.list"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.azure.Provider.Provider.list">[docs]</a>    <span class="k">def</span> <span class="nf">list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        List all Azure Virtual Machines from my Account</span>
+<span class="sd">        :return: dict or libcloud object</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">nodes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vms</span><span class="o">.</span><span class="n">list_all</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update_dict</span><span class="p">(</span><span class="n">nodes</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;vm&quot;</span><span class="p">)</span></div>
+
+
+    <span class="c1"># TODO Implement Suspend Method</span>
+<div class="viewcode-block" id="Provider.suspend"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.azure.Provider.Provider.suspend">[docs]</a>    <span class="k">def</span> <span class="nf">suspend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        suspends the node with the given name</span>
+
+<span class="sd">        :param name: the name of the node</span>
+<span class="sd">        :return: The dict representing the node</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
+        <span class="c1"># must return dict</span>
+
+    <span class="c1"># TODO Implement Resume Method (is it the same as restart?)</span>
+<div class="viewcode-block" id="Provider.resume"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.azure.Provider.Provider.resume">[docs]</a>    <span class="k">def</span> <span class="nf">resume</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        resume the named node</span>
+
+<span class="sd">        :param name: the name of the node</span>
+<span class="sd">        :return: the dict of the node</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
+        <span class="c1"># must return dict</span>
+
+
+<div class="viewcode-block" id="Provider.destroy"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.azure.Provider.Provider.destroy">[docs]</a>    <span class="k">def</span> <span class="nf">destroy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">groupName</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">vmName</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Destroys the node</span>
+<span class="sd">        :param name: the name of the node</span>
+<span class="sd">        :return: the dict of the node</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">groupName</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">groupName</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">GROUP_NAME</span>
+        <span class="k">if</span> <span class="n">vmName</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">vmName</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">VM_NAME</span>
+
+        <span class="c1"># Delete VM</span>
+        <span class="n">VERBOSE</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;Deleteing Azure Virtual Machine&#39;</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Deleteing Azure Virtual Machine&#39;</span><span class="p">)</span>
+        <span class="n">async_vm_delete</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vms</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">groupName</span><span class="p">,</span> <span class="n">vmName</span><span class="p">)</span>
+        <span class="n">async_vm_delete</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
+
+        <span class="c1"># Delete Resource Group</span>
+        <span class="n">VERBOSE</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;Deleteing Azure Resource Group&#39;</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Deleteing Azure Resource Group&#39;</span><span class="p">)</span>
+        <span class="n">async_group_delete</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">resource_client</span><span class="o">.</span><span class="n">resource_groups</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">groupName</span><span class="p">)</span>
+        <span class="n">async_group_delete</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
+
+        <span class="c1"># return self.info(groupName)</span>
+        <span class="k">return</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Provider.list_images"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.azure.Provider.Provider.list_images">[docs]</a>    <span class="k">def</span> <span class="nf">list_images</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="n">region</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">LOCATION</span>
+
+        <span class="n">image_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+
+        <span class="n">result_list_pub</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">images</span><span class="o">.</span><span class="n">list_publishers</span><span class="p">(</span>
+            <span class="n">region</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">publisher</span> <span class="ow">in</span> <span class="n">result_list_pub</span><span class="p">:</span>
+            <span class="n">result_list_offers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">images</span><span class="o">.</span><span class="n">list_offers</span><span class="p">(</span>
+                <span class="n">region</span><span class="p">,</span>
+                <span class="n">publisher</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+            <span class="p">)</span>
+
+            <span class="k">for</span> <span class="n">offer</span> <span class="ow">in</span> <span class="n">result_list_offers</span><span class="p">:</span>
+                <span class="n">result_list_skus</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">images</span><span class="o">.</span><span class="n">list_skus</span><span class="p">(</span>
+                    <span class="n">region</span><span class="p">,</span>
+                    <span class="n">publisher</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                    <span class="n">offer</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                <span class="p">)</span>
+
+                <span class="k">for</span> <span class="n">sku</span> <span class="ow">in</span> <span class="n">result_list_skus</span><span class="p">:</span>
+                    <span class="n">result_list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">images</span><span class="o">.</span><span class="n">list</span><span class="p">(</span>
+                        <span class="n">region</span><span class="p">,</span>
+                        <span class="n">publisher</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                        <span class="n">offer</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                        <span class="n">sku</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                    <span class="p">)</span>
+
+                    <span class="k">for</span> <span class="n">version</span> <span class="ow">in</span> <span class="n">result_list</span><span class="p">:</span>
+                        <span class="n">result_get</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">images</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+                            <span class="n">region</span><span class="p">,</span>
+                            <span class="n">publisher</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                            <span class="n">offer</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                            <span class="n">sku</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                            <span class="n">version</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                        <span class="p">)</span>
+
+                        <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;PUBLISHER: </span><span class="si">{0}</span><span class="s1">, OFFER: </span><span class="si">{1}</span><span class="s1">, SKU: </span><span class="si">{2}</span><span class="s1">, VERSION: </span><span class="si">{3}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                            <span class="n">publisher</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                            <span class="n">offer</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                            <span class="n">sku</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                            <span class="n">version</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                        <span class="p">)</span>
+                        <span class="n">VERBOSE</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+                        <span class="n">image_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">result_get</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">image_list</span></div>
+
+    <span class="c1"># TODO Implement Rename Method</span>
+<div class="viewcode-block" id="Provider.rename"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.azure.Provider.Provider.rename">[docs]</a>    <span class="k">def</span> <span class="nf">rename</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">destination</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        rename a node</span>
+
+<span class="sd">        :param destination:</span>
+<span class="sd">        :param name: the current name</span>
+<span class="sd">        :return: the dict with the new name</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># if destination is None, increase the name counter and use the new name</span>
+        <span class="c1"># must return dict</span>
+
+        <span class="n">HEADING</span><span class="p">(</span><span class="n">c</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Provider.update_dict"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.azure.Provider.Provider.update_dict">[docs]</a>    <span class="k">def</span> <span class="nf">update_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">elements</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Libcloud returns an object or list of objects With the dict method</span>
+<span class="sd">        this object is converted to a dict. Typically this method is used internally.</span>
+<span class="sd">        :param elements: the elements</span>
+<span class="sd">        :param kind: Kind is image, flavor, or node, secgroup and key</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">elements</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">elements</span><span class="p">)</span> <span class="o">==</span> <span class="nb">list</span><span class="p">:</span>
+            <span class="n">_elements</span> <span class="o">=</span> <span class="n">elements</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">_elements</span> <span class="o">=</span> <span class="p">[</span><span class="n">elements</span><span class="p">]</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">_elements</span><span class="p">:</span>
+            <span class="n">entry</span> <span class="o">=</span> <span class="n">element</span>
+            <span class="n">entry</span><span class="p">[</span><span class="s2">&quot;cm&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="n">kind</span><span class="p">,</span>
+                <span class="s2">&quot;driver&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudtype</span><span class="p">,</span>
+                <span class="s2">&quot;cloud&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloud</span>
+            <span class="p">}</span>
+            <span class="k">if</span> <span class="n">kind</span> <span class="o">==</span> <span class="s1">&#39;vm&#39;</span><span class="p">:</span>
+                <span class="n">entry</span><span class="p">[</span><span class="s2">&quot;cm&quot;</span><span class="p">][</span><span class="s2">&quot;updated&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">())</span>
+                <span class="n">entry</span><span class="p">[</span><span class="s2">&quot;cm&quot;</span><span class="p">][</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">entry</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
+                <span class="n">entry</span><span class="p">[</span><span class="s2">&quot;cm&quot;</span><span class="p">][</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">entry</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="c1">#Check feasibility of the following items</span>
+                <span class="n">entry</span><span class="p">[</span><span class="s2">&quot;cm&quot;</span><span class="p">][</span><span class="s2">&quot;location&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">entry</span><span class="p">[</span><span class="s2">&quot;location&quot;</span><span class="p">]</span> <span class="c1">#Check feasibility of the following items</span>
+            <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s1">&#39;flavor&#39;</span><span class="p">:</span>
+                <span class="n">entry</span><span class="p">[</span><span class="s2">&quot;cm&quot;</span><span class="p">][</span><span class="s2">&quot;created&quot;</span><span class="p">]</span>  <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">())</span>
+                <span class="n">entry</span><span class="p">[</span><span class="s2">&quot;cm&quot;</span><span class="p">][</span><span class="s2">&quot;updated&quot;</span><span class="p">]</span>  <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">())</span>
+                <span class="n">entry</span><span class="p">[</span><span class="s2">&quot;cm&quot;</span><span class="p">][</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>     <span class="o">=</span> <span class="n">entry</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
+            <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s1">&#39;image&#39;</span><span class="p">:</span>
+                <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;cm&#39;</span><span class="p">][</span><span class="s1">&#39;created&#39;</span><span class="p">]</span>  <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">())</span>
+                <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;cm&#39;</span><span class="p">][</span><span class="s1">&#39;updated&#39;</span><span class="p">]</span>  <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">())</span>
+                <span class="n">entry</span><span class="p">[</span><span class="s2">&quot;cm&quot;</span><span class="p">][</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>     <span class="o">=</span> <span class="n">entry</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
+            <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s1">&#39;secgroup&#39;</span><span class="p">:</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudtype</span> <span class="o">==</span> <span class="s1">&#39;azure&#39;</span><span class="p">:</span>
+                    <span class="n">entry</span><span class="p">[</span><span class="s2">&quot;cm&quot;</span><span class="p">][</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">entry</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">pass</span>
+
+            <span class="c1"># TODO: this is likely a bug in your code as this is speccific to</span>
+            <span class="c1">#  LibCloud. You probable want to delete this.</span>
+            <span class="c1">#  but make sure to test out what is in the dict.</span>
+            <span class="c1">#  you can do this with VERBOSE(entry)</span>
+
+            <span class="k">if</span> <span class="s2">&quot;extra&quot;</span> <span class="ow">in</span> <span class="n">entry</span><span class="p">:</span>
+                <span class="k">del</span> <span class="n">entry</span><span class="p">[</span><span class="s2">&quot;extra&quot;</span><span class="p">]</span>
+            <span class="k">if</span> <span class="s2">&quot;_uuid&quot;</span> <span class="ow">in</span> <span class="n">entry</span><span class="p">:</span>
+                <span class="k">del</span> <span class="n">entry</span><span class="p">[</span><span class="s2">&quot;_uuid&quot;</span><span class="p">]</span>
+            <span class="k">if</span> <span class="s2">&quot;driver&quot;</span> <span class="ow">in</span> <span class="n">entry</span><span class="p">:</span>
+                <span class="k">del</span> <span class="n">entry</span><span class="p">[</span><span class="s2">&quot;driver&quot;</span><span class="p">]</span>
+
+            <span class="n">d</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">d</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018-2019, Cloudmesh Community
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
