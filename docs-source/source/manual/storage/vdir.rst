@@ -8,4 +8,4 @@ ERROR: Could not execute the command. Please check usage with
 
     cms help man
 
-Timer: 0.0049s (man --kind=rst vdir)
+Timer: 0.0065s (man --kind=rst vdir)

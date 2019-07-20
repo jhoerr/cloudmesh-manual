@@ -8,4 +8,4 @@ ERROR: Could not execute the command. Please check usage with
 
     cms help man
 
-Timer: 0.0054s (man --kind=rst key)
+Timer: 0.0048s (man --kind=rst key)

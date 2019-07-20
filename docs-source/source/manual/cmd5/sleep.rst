@@ -8,4 +8,4 @@ ERROR: Could not execute the command. Please check usage with
 
     cms help man
 
-Timer: 0.0065s (man --kind=rst sleep)
+Timer: 0.0047s (man --kind=rst sleep)

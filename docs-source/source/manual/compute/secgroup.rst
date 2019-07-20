@@ -8,4 +8,4 @@ ERROR: Could not execute the command. Please check usage with
 
     cms help man
 
-Timer: 0.0050s (man --kind=rst secgroup)
+Timer: 0.0058s (man --kind=rst secgroup)
