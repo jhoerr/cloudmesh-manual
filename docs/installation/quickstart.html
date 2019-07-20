@@ -97,12 +97,13 @@
 <li class="toctree-l2"><a class="reference internal" href="#manual">2.1. Manual</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#generating-the-key-and-certificate">2.2. Generating the Key and Certificate</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#validate-and-verify-the-key">2.3. Validate and verify the key</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#command-line">2.4. Command line</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#interactive-shell">2.5. Interactive shell</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#command-scripts">2.6. Command scripts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#cache">2.7. Cache</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#using-quotes">2.8. Using quotes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#new-commands-for-developers">2.9. New Commands for Developers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#initialization">2.4. Initialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#command-line">2.5. Command line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#interactive-shell">2.6. Interactive shell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#command-scripts">2.7. Command scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cache">2.8. Cache</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-quotes">2.9. Using quotes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#new-commands-for-developers">2.10. New Commands for Developers</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../configuration/configuration.html">3. Configuration</a></li>
@@ -314,46 +315,66 @@ cms config verify
 </pre></div>
 </div>
 </div>
+<div class="section" id="initialization">
+<h2>2.4. Initialization<a class="headerlink" href="#initialization" title="Permalink to this headline">¶</a></h2>
+<p>To initialize cloudmesh and its database the easiest way to do this is
+calling the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cms</span> <span class="n">init</span>
+<span class="n">cms</span> <span class="n">sec</span> <span class="n">load</span>
+<span class="n">cms</span> <span class="n">key</span> <span class="n">add</span> <span class="o">--</span><span class="n">ssh</span>
+<span class="n">cms</span> <span class="n">stop</span>
+</pre></div>
+</div>
+<p>This needs to be done only one time. Form now on you can start and stop
+cloudmesh with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cms</span> <span class="n">start</span>
+</pre></div>
+</div>
+<p>We recommend that after you are done working with cloudmesh to stop it with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cms</span> <span class="n">stop</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="command-line">
-<h2>2.4. Command line<a class="headerlink" href="#command-line" title="Permalink to this headline">¶</a></h2>
-<p>It is easy to switch beteeen clouds with the set command. Ater the set
-and specifying the cloud by name many commands will default to that
-cloud. The exception is the <code class="docutils literal notranslate"><span class="pre">vm</span> <span class="pre">list</span></code> command that lists by default
+<h2>2.5. Command line<a class="headerlink" href="#command-line" title="Permalink to this headline">¶</a></h2>
+<p>After you started cms you can issue a numer of commands. The benefit of
+cloudmesh is that it is easy to switch beteeen clouds with the set command.
+Ater the set and specifying the cloud by name many commands will default to
+that cloud. The exception is the <code class="docutils literal notranslate"><span class="pre">vm</span> <span class="pre">list</span></code> command that lists by default
 all vms on all clouds. In addition the <code class="docutils literal notranslate"><span class="pre">vm</span> <span class="pre">refresh</span></code> command will also
 work on all clouds.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms admin mongo create  <span class="c1"># needs only be done one time</span>
-cms admin mongo start
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms start
 
-cms <span class="nb">set</span> <span class="nv">cloud</span><span class="o">=</span>vagrant
-cms vm start
+cms <span class="nb">set</span> <span class="nv">cloud</span><span class="o">=</span>chameleon
+
+cms vm boot
 cms image list
 cms flavor list
 
 cms <span class="nb">set</span> <span class="nv">cloud</span><span class="o">=</span>aws
-cms vm start
+cms vm boot
 cms image list
 cms flavor list
 
 cms <span class="nb">set</span> <span class="nv">cloud</span><span class="o">=</span>azure
-cms vm start
-cms image list
-cms flavor list
-
-cms <span class="nb">set</span> <span class="nv">cloud</span><span class="o">=</span>chameleon
-cms vm start
+cms vm boot
 cms image list
 cms flavor list
 
 cms <span class="nb">set</span> <span class="nv">cloud</span><span class="o">=</span>jetstream
-cms vm start
+cms vm boot
+cms image list
+cms flavor list
+
+cms <span class="nb">set</span> <span class="nv">cloud</span><span class="o">=</span>vagrant
+cms vm boot
 cms image list
 cms flavor list
 
 cms vm refresh
-
 cms vm list
 
-cms admin mongo stop
+cms stop
 </pre></div>
 </div>
 <p>In case you want a command explicitly apply to one or more clouds or one
@@ -384,18 +405,18 @@ cms <span class="nb">set</span> <span class="nv">cloud</span><span class="o">=</
 </div>
 </div>
 <div class="section" id="interactive-shell">
-<h2>2.5. Interactive shell<a class="headerlink" href="#interactive-shell" title="Permalink to this headline">¶</a></h2>
+<h2>2.6. Interactive shell<a class="headerlink" href="#interactive-shell" title="Permalink to this headline">¶</a></h2>
 <p>Cloudmesh uses cmd5 for its shell implementation and thus all commands
 that are typed in in the terminal can also be typed in into a shell that
 is started with cms</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms
 cms&gt; <span class="nb">set</span> <span class="nv">cloud</span><span class="o">=</span>aws
-cms&gt; vm start
+cms&gt; vm boot
 </pre></div>
 </div>
 </div>
 <div class="section" id="command-scripts">
-<h2>2.6. Command scripts<a class="headerlink" href="#command-scripts" title="Permalink to this headline">¶</a></h2>
+<h2>2.7. Command scripts<a class="headerlink" href="#command-scripts" title="Permalink to this headline">¶</a></h2>
 <p>As we use cmd5 we also have access to piped and named scripts with</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> script.cms <span class="p">|</span> cms
 </pre></div>
@@ -406,7 +427,7 @@ cms&gt; vm start
 </div>
 </div>
 <div class="section" id="cache">
-<h2>2.7. Cache<a class="headerlink" href="#cache" title="Permalink to this headline">¶</a></h2>
+<h2>2.8. Cache<a class="headerlink" href="#cache" title="Permalink to this headline">¶</a></h2>
 <p>All information about for example virtual machines are cached locally.
 The cache for various information sources can be explicitly updated with
 the <code class="docutils literal notranslate"><span class="pre">--refresh</span></code> flag. Thus the command</p>
@@ -441,14 +462,14 @@ cms image list
 </div>
 </div>
 <div class="section" id="using-quotes">
-<h2>2.8. Using quotes<a class="headerlink" href="#using-quotes" title="Permalink to this headline">¶</a></h2>
+<h2>2.9. Using quotes<a class="headerlink" href="#using-quotes" title="Permalink to this headline">¶</a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>In case you need to use quotes in the command line you need to mask them with a bakslash.</p>
 </div>
 </div>
 <div class="section" id="new-commands-for-developers">
-<h2>2.9. New Commands for Developers<a class="headerlink" href="#new-commands-for-developers" title="Permalink to this headline">¶</a></h2>
+<h2>2.10. New Commands for Developers<a class="headerlink" href="#new-commands-for-developers" title="Permalink to this headline">¶</a></h2>
 <p>We added the following commnads to make development easier</p>
 <table class="colwidths-given docutils align-default" id="id5">
 <caption><span class="caption-text">New commands</span><a class="headerlink" href="#id5" title="Permalink to this table">¶</a></caption>

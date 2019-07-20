@@ -243,7 +243,6 @@
             
   <h1>Source code for cloudmesh.abstractclass.ComputeNodeABC</h1><div class="highlight"><pre>
 <span></span><span class="kn">from</span> <span class="nn">abc</span> <span class="k">import</span> <span class="n">ABCMeta</span><span class="p">,</span> <span class="n">abstractmethod</span>
-
 <span class="kn">from</span> <span class="nn">cloudmesh.management.configuration.config</span> <span class="k">import</span> <span class="n">Config</span>
 
 
@@ -257,49 +256,6 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">credentials</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;cloud&quot;</span><span class="p">][</span><span class="n">cloud</span><span class="p">][</span><span class="s2">&quot;credentials&quot;</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">group</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;default&quot;</span><span class="p">][</span><span class="s2">&quot;group&quot;</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">experiment</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;default&quot;</span><span class="p">][</span><span class="s2">&quot;experiment&quot;</span><span class="p">]</span>
-
-    <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    def map_default(self, r):</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-<span class="sd">        Adds common properties to libcloud results.</span>
-<span class="sd">        Transforms result from its original strongly typed</span>
-<span class="sd">        form to `dict`.</span>
-
-<span class="sd">        Child providers should still implement their own</span>
-<span class="sd">        result mapper as well for cloud specific redaction.</span>
-
-<span class="sd">        :param r:</span>
-<span class="sd">        :return: a result as dict</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-<span class="sd">        if not isinstance(r, dict):</span>
-<span class="sd">            r = r.__dict__</span>
-
-<span class="sd">        r[&quot;cloud&quot;] = self.cloud</span>
-<span class="sd">        r[&quot;modified&quot;] = str(datetime.utcnow())</span>
-<span class="sd">        return r</span>
-
-<span class="sd">    def map_vm_create(self, c):</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-<span class="sd">        Includes `group` and `experiment` fields in</span>
-<span class="sd">        the result. Separate from `_map_default` because</span>
-<span class="sd">        these fields should only be set when something is</span>
-<span class="sd">        created and are unique to VM objects.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-<span class="sd">        c = self.map_default(c)</span>
-<span class="sd">        c[&quot;group&quot;] = self.group</span>
-<span class="sd">        c[&quot;experiment&quot;] = self.experiment</span>
-<span class="sd">        c[&quot;created_at&quot;] = str(datetime.utcnow())</span>
-<span class="sd">        c[&quot;state&quot;] = &quot;creating&quot;</span>
-<span class="sd">        return c</span>
-
-<span class="sd">    def print_config(self):</span>
-<span class="sd">        print(&quot;cm:&quot;)</span>
-<span class="sd">        pprint(self.cm)</span>
-<span class="sd">        print(&quot;default:&quot;)</span>
-<span class="sd">        pprint(self.default)</span>
-<span class="sd">        print(&quot;Credentials:&quot;)</span>
-<span class="sd">        pprint(self.credentials)</span>
-<span class="sd">    &#39;&#39;&#39;</span>
 
 <div class="viewcode-block" id="ComputeNodeABC.start"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.start">[docs]</a>    <span class="nd">@abstractmethod</span>
     <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -344,7 +300,7 @@
 <div class="viewcode-block" id="ComputeNodeABC.list"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.list">[docs]</a>    <span class="nd">@abstractmethod</span>
     <span class="k">def</span> <span class="nf">list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        list all nodes id</span>
+<span class="sd">        list all vms</span>
 
 <span class="sd">        :return: an array of dicts representing the nodes</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -397,7 +353,111 @@
 <span class="sd">        :return: the dict with the new name</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># if destination is None, increase the name counter and use the new name</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div></div>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
+
+<div class="viewcode-block" id="ComputeNodeABC.keys"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.keys">[docs]</a>    <span class="k">def</span> <span class="nf">keys</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Lists the keys on the cloud</span>
+
+<span class="sd">        :return: dict</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
+
+<div class="viewcode-block" id="ComputeNodeABC.key_upload"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.key_upload">[docs]</a>    <span class="k">def</span> <span class="nf">key_upload</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        uploads the key specified in the yaml configuration to the cloud</span>
+<span class="sd">        :param key:</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
+
+<div class="viewcode-block" id="ComputeNodeABC.key_delete"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.key_delete">[docs]</a>    <span class="k">def</span> <span class="nf">key_delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        deletes the key with the given name</span>
+<span class="sd">        :param name: The anme of the key</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
+
+
+<div class="viewcode-block" id="ComputeNodeABC.images"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.images">[docs]</a>    <span class="k">def</span> <span class="nf">images</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Lists the images on the cloud</span>
+<span class="sd">        :return: dict</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
+
+<div class="viewcode-block" id="ComputeNodeABC.image"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.image">[docs]</a>    <span class="k">def</span> <span class="nf">image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Gets the image with a given nmae</span>
+<span class="sd">        :param name: The name of the image</span>
+<span class="sd">        :return: the dict of the image</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
+
+<div class="viewcode-block" id="ComputeNodeABC.flavors"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.flavors">[docs]</a>    <span class="k">def</span> <span class="nf">flavors</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Lists the flavors on the cloud</span>
+
+<span class="sd">        :return: dict of flavors</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
+
+<div class="viewcode-block" id="ComputeNodeABC.flavor"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.flavor">[docs]</a>    <span class="k">def</span> <span class="nf">flavor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Gest the flavor with a given name</span>
+<span class="sd">        :param name: The name of the flavor</span>
+<span class="sd">        :return: The dict of the flavor</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
+
+<div class="viewcode-block" id="ComputeNodeABC.reboot"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.reboot">[docs]</a>    <span class="k">def</span> <span class="nf">reboot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Reboot a list of nodes with the given names</span>
+
+<span class="sd">        :param names: A list of node names</span>
+<span class="sd">        :return:  A list of dict representing the nodes</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
+
+<div class="viewcode-block" id="ComputeNodeABC.attach_publicip"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.attach_publicip">[docs]</a>    <span class="k">def</span> <span class="nf">attach_publicip</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        adds a public ip to the named vm</span>
+
+<span class="sd">        :param name: Name of the vm</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
+
+<div class="viewcode-block" id="ComputeNodeABC.delete_public_ip"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.delete_public_ip">[docs]</a>    <span class="k">def</span> <span class="nf">delete_public_ip</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ip</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Deletes the ip address</span>
+
+<span class="sd">        :param ip: the ip addess, if None than all will be deleted</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
+
+<div class="viewcode-block" id="ComputeNodeABC.list_public_ips"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.list_public_ips">[docs]</a>    <span class="k">def</span> <span class="nf">list_public_ips</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">available</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Lists the public ip addresses.</span>
+<span class="sd">        :param available: if True only those that are not allocated will be</span>
+<span class="sd">                          retunred.</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
+
+<div class="viewcode-block" id="ComputeNodeABC.create_public_ip"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.create_public_ip">[docs]</a>    <span class="k">def</span> <span class="nf">create_public_ip</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates a new public IP address to use</span>
+<span class="sd">        :return: The ip address information</span>
+<span class="sd">        &quot;&quot;&quot;</span></div>
+
+<div class="viewcode-block" id="ComputeNodeABC.find_available_public_ip"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.find_available_public_ip">[docs]</a>    <span class="k">def</span> <span class="nf">find_available_public_ip</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a single public available ip address.</span>
+<span class="sd">        :return: The ip</span>
+<span class="sd">        &quot;&quot;&quot;</span></div></div>
 </pre></div>
 
            </div>

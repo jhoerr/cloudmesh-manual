@@ -8,7 +8,7 @@ Compute Manual Pages
    manual/compute/flavor
    manual/compute/image
    manual/compute/key
-   manual/compute/network
+   manual/compute/ip
    manual/compute/open
    manual/compute/secgroup
    manual/compute/ssh

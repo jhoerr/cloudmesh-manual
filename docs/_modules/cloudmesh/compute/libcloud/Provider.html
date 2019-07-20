@@ -350,6 +350,7 @@
 
             <span class="bp">self</span><span class="o">.</span><span class="n">driver</span> <span class="o">=</span> <span class="n">get_driver</span><span class="p">(</span>
                 <span class="n">Provider</span><span class="o">.</span><span class="n">ProviderMapper</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">cloudtype</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">kind</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudtype</span>
 
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudtype</span> <span class="o">==</span> <span class="s1">&#39;openstack&#39;</span><span class="p">:</span>
 
@@ -373,14 +374,14 @@
                     <span class="n">region</span><span class="o">=</span><span class="n">cred</span><span class="p">[</span><span class="s1">&#39;AZURE_REGION&#39;</span><span class="p">]</span>
                 <span class="p">)</span>
 
-            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudtype</span> <span class="o">==</span> <span class="s1">&#39;aws&#39;</span><span class="p">:</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudtype</span> <span class="o">==</span> <span class="s1">&#39;awslibcloud&#39;</span><span class="p">:</span>
 
                 <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="p">(</span>
                     <span class="n">cred</span><span class="p">[</span><span class="s2">&quot;EC2_ACCESS_ID&quot;</span><span class="p">],</span>
                     <span class="n">cred</span><span class="p">[</span><span class="s2">&quot;EC2_SECRET_KEY&quot;</span><span class="p">],</span>
                     <span class="n">region</span><span class="o">=</span><span class="n">cred</span><span class="p">[</span><span class="s2">&quot;EC2_REGION&quot;</span><span class="p">])</span>
 
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudtype</span> <span class="o">==</span> <span class="s1">&#39;google&#39;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudtype</span> <span class="o">==</span> <span class="s1">&#39;googlelibcloud&#39;</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="p">(</span>
                     <span class="n">cred</span><span class="p">[</span><span class="s2">&quot;client_email&quot;</span><span class="p">],</span>
                     <span class="n">cred</span><span class="p">[</span><span class="s2">&quot;path_to_json_file&quot;</span><span class="p">],</span>  <span class="c1"># should be placed in .cloudmesh</span>

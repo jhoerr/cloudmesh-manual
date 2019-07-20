@@ -56,7 +56,7 @@ manual-new:
 CMD5_COMMAND= admin banner clear echo default info pause plugin \
               q quit shell sleep stopwatch sys var version
 
-COMPUTE_COMMAND= open vbox vcluster batch vm network key secgroup image \
+COMPUTE_COMMAND= open vbox vcluster batch vm ip key secgroup image \
                  flavor ssh workflow yaml service config container group
 
 STORAGE_COMMAND= storage vdir

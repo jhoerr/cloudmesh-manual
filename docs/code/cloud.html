@@ -245,9 +245,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="module-cloudmesh.iaas.image">
-<span id="cloudmesh-cloud"></span><h1>10. cloudmesh-cloud<a class="headerlink" href="#module-cloudmesh.iaas.image" title="Permalink to this headline">¶</a></h1>
-<span class="target" id="module-cloudmesh.iaas.flavor"></span><span class="target" id="module-cloudmesh.config.command.config"></span><dl class="class">
+  <div class="section" id="module-cloudmesh.config.command.config">
+<span id="cloudmesh-cloud"></span><h1>10. cloudmesh-cloud<a class="headerlink" href="#module-cloudmesh.config.command.config" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
 <dt id="cloudmesh.config.command.config.ConfigCommand">
 <em class="property">class </em><code class="sig-prename descclassname">cloudmesh.config.command.config.</code><code class="sig-name descname">ConfigCommand</code><a class="reference internal" href="../_modules/cloudmesh/config/command/config.html#ConfigCommand"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.config.command.config.ConfigCommand" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cmd5.html#cloudmesh.shell.command.PluginCommand" title="cloudmesh.shell.command.PluginCommand"><code class="xref py py-class docutils literal notranslate"><span class="pre">cloudmesh.shell.command.PluginCommand</span></code></a></p>
@@ -614,85 +614,6 @@ TODO: this method is not implemented
 
 </dd></dl>
 
-<span class="target" id="module-cloudmesh.network.api.manager"></span><dl class="class">
-<dt id="cloudmesh.network.api.manager.Manager">
-<em class="property">class </em><code class="sig-prename descclassname">cloudmesh.network.api.manager.</code><code class="sig-name descname">Manager</code><a class="reference internal" href="../_modules/cloudmesh/network/api/manager.html#Manager"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.network.api.manager.Manager" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<dl class="method">
-<dt id="cloudmesh.network.api.manager.Manager.list">
-<code class="sig-name descname">list</code><span class="sig-paren">(</span><em class="sig-param">parameter</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/network/api/manager.html#Manager.list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.network.api.manager.Manager.list" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<span class="target" id="module-cloudmesh.network.command.network"></span><dl class="class">
-<dt id="cloudmesh.network.command.network.NetworkCommand">
-<em class="property">class </em><code class="sig-prename descclassname">cloudmesh.network.command.network.</code><code class="sig-name descname">NetworkCommand</code><a class="reference internal" href="../_modules/cloudmesh/network/command/network.html#NetworkCommand"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.network.command.network.NetworkCommand" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="cmd5.html#cloudmesh.shell.command.PluginCommand" title="cloudmesh.shell.command.PluginCommand"><code class="xref py py-class docutils literal notranslate"><span class="pre">cloudmesh.shell.command.PluginCommand</span></code></a></p>
-<dl class="method">
-<dt id="cloudmesh.network.command.network.NetworkCommand.do_network">
-<code class="sig-name descname">do_network</code><span class="sig-paren">(</span><em class="sig-param">args</em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.network.command.network.NetworkCommand.do_network" title="Permalink to this definition">¶</a></dt>
-<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Usage</span><span class="p">:</span>
-    <span class="n">network</span> <span class="n">get</span> <span class="n">fixed</span> <span class="p">[</span><span class="n">ip</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">CLOUD</span><span class="p">]</span> <span class="n">FIXED_IP</span>
-    <span class="n">network</span> <span class="n">get</span> <span class="n">floating</span> <span class="p">[</span><span class="n">ip</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">CLOUD</span><span class="p">]</span> <span class="n">FLOATING_IP_ID</span>
-    <span class="n">network</span> <span class="n">reserve</span> <span class="n">fixed</span> <span class="p">[</span><span class="n">ip</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">CLOUD</span><span class="p">]</span> <span class="n">FIXED_IP</span>
-    <span class="n">network</span> <span class="n">unreserve</span> <span class="n">fixed</span> <span class="p">[</span><span class="n">ip</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">CLOUD</span><span class="p">]</span> <span class="n">FIXED_IP</span>
-    <span class="n">network</span> <span class="n">associate</span> <span class="n">floating</span> <span class="p">[</span><span class="n">ip</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">CLOUD</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">group</span><span class="o">=</span><span class="n">GROUP</span><span class="p">]</span>
-                               <span class="p">[</span><span class="o">--</span><span class="n">instance</span><span class="o">=</span><span class="n">INS_ID_OR_NAME</span><span class="p">]</span> <span class="p">[</span><span class="n">FLOATING_IP</span><span class="p">]</span>
-    <span class="n">network</span> <span class="n">disassociate</span> <span class="n">floating</span> <span class="p">[</span><span class="n">ip</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">CLOUD</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">group</span><span class="o">=</span><span class="n">GROUP</span><span class="p">]</span>
-                                  <span class="p">[</span><span class="o">--</span><span class="n">instance</span><span class="o">=</span><span class="n">INS_ID_OR_NAME</span><span class="p">]</span> <span class="p">[</span><span class="n">FLOATING_IP</span><span class="p">]</span>
-    <span class="n">network</span> <span class="n">create</span> <span class="n">floating</span> <span class="p">[</span><span class="n">ip</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">CLOUD</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">pool</span><span class="o">=</span><span class="n">FLOATING_IP_POOL</span><span class="p">]</span>
-    <span class="n">network</span> <span class="n">delete</span> <span class="n">floating</span> <span class="p">[</span><span class="n">ip</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">CLOUD</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">unused</span><span class="p">]</span> <span class="p">[</span><span class="n">FLOATING_IP</span><span class="p">]</span>
-    <span class="n">network</span> <span class="nb">list</span> <span class="n">floating</span> <span class="n">pool</span> <span class="p">[</span><span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">CLOUD</span><span class="p">]</span>
-    <span class="n">network</span> <span class="nb">list</span> <span class="n">floating</span> <span class="p">[</span><span class="n">ip</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">CLOUD</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">unused</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">instance</span><span class="o">=</span><span class="n">INS_ID_OR_NAME</span><span class="p">]</span> <span class="p">[</span><span class="n">IP_OR_ID</span><span class="p">]</span>
-    <span class="n">network</span> <span class="n">create</span> <span class="n">cluster</span> <span class="o">--</span><span class="n">group</span><span class="o">=</span><span class="n">demo_group</span>
-    <span class="n">network</span> <span class="o">-</span><span class="n">h</span> <span class="o">|</span> <span class="o">--</span><span class="n">help</span>
-
-<span class="n">Options</span><span class="p">:</span>
-    <span class="o">-</span><span class="n">h</span>                          <span class="n">help</span> <span class="n">message</span>
-    <span class="o">--</span><span class="n">unused</span>                    <span class="n">unused</span> <span class="n">floating</span> <span class="n">ips</span>
-    <span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">CLOUD</span>               <span class="n">Name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">IaaS</span> <span class="n">cloud</span> <span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span> <span class="n">india_openstack_grizzly</span><span class="o">.</span>
-    <span class="o">--</span><span class="n">group</span><span class="o">=</span><span class="n">GROUP</span>               <span class="n">Name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">Cloudmesh</span>
-    <span class="o">--</span><span class="n">pool</span><span class="o">=</span><span class="n">FLOATING_IP_POOL</span>     <span class="n">Name</span> <span class="n">of</span> <span class="n">Floating</span> <span class="n">IP</span> <span class="n">Pool</span>
-    <span class="o">--</span><span class="n">instance</span><span class="o">=</span><span class="n">INS_ID_OR_NAME</span>   <span class="n">ID</span> <span class="ow">or</span> <span class="n">Name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">vm</span> <span class="n">instance</span>
-
-<span class="n">Arguments</span><span class="p">:</span>
-    <span class="n">IP_OR_ID</span>        <span class="n">IP</span> <span class="n">Address</span> <span class="ow">or</span> <span class="n">ID</span> <span class="n">of</span> <span class="n">IP</span> <span class="n">Address</span>
-    <span class="n">FIXED_IP</span>        <span class="n">Fixed</span> <span class="n">IP</span> <span class="n">Address</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span> <span class="mf">10.1</span><span class="o">.</span><span class="mf">5.2</span>
-    <span class="n">FLOATING_IP</span>     <span class="n">Floating</span> <span class="n">IP</span> <span class="n">Address</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span> <span class="mf">192.1</span><span class="o">.</span><span class="mf">66.8</span>
-    <span class="n">FLOATING_IP_ID</span>  <span class="n">ID</span> <span class="n">associated</span> <span class="k">with</span> <span class="n">Floating</span> <span class="n">IP</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span> <span class="mi">185</span><span class="n">c5195</span><span class="o">-</span><span class="n">e824</span><span class="o">-</span><span class="mf">4e7</span><span class="n">b</span><span class="o">-</span><span class="mi">8581</span><span class="o">-</span><span class="mi">703</span><span class="n">abec4bc01</span>
-
-<span class="n">Examples</span><span class="p">:</span>
-    <span class="n">network</span> <span class="n">get</span> <span class="n">fixed</span> <span class="n">ip</span> <span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">india</span> <span class="mf">10.1</span><span class="o">.</span><span class="mf">2.5</span>
-    <span class="n">network</span> <span class="n">get</span> <span class="n">fixed</span> <span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">india</span> <span class="mf">10.1</span><span class="o">.</span><span class="mf">2.5</span>
-    <span class="n">network</span> <span class="n">get</span> <span class="n">floating</span> <span class="n">ip</span> <span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">india</span> <span class="mi">185</span><span class="n">c5195</span><span class="o">-</span><span class="n">e824</span><span class="o">-</span><span class="mf">4e7</span><span class="n">b</span><span class="o">-</span><span class="mi">8581</span><span class="o">-</span><span class="mi">703</span><span class="n">abec4bc01</span>
-    <span class="n">network</span> <span class="n">get</span> <span class="n">floating</span> <span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">india</span> <span class="mi">185</span><span class="n">c5195</span><span class="o">-</span><span class="n">e824</span><span class="o">-</span><span class="mf">4e7</span><span class="n">b</span><span class="o">-</span><span class="mi">8581</span><span class="o">-</span><span class="mi">703</span><span class="n">abec4bc01</span>
-    <span class="n">network</span> <span class="n">reserve</span> <span class="n">fixed</span> <span class="n">ip</span> <span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">india</span> <span class="mf">10.1</span><span class="o">.</span><span class="mf">2.5</span>
-    <span class="n">network</span> <span class="n">reserve</span> <span class="n">fixed</span> <span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">india</span> <span class="mf">10.1</span><span class="o">.</span><span class="mf">2.5</span>
-    <span class="n">network</span> <span class="n">unreserve</span> <span class="n">fixed</span> <span class="n">ip</span> <span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">india</span> <span class="mf">10.1</span><span class="o">.</span><span class="mf">2.5</span>
-    <span class="n">network</span> <span class="n">unreserve</span> <span class="n">fixed</span> <span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">india</span> <span class="mf">10.1</span><span class="o">.</span><span class="mf">2.5</span>
-    <span class="n">network</span> <span class="n">associate</span> <span class="n">floating</span> <span class="n">ip</span> <span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">india</span> <span class="o">--</span><span class="n">instance</span><span class="o">=</span><span class="n">albert</span><span class="o">-</span><span class="mi">001</span> <span class="mf">192.1</span><span class="o">.</span><span class="mf">66.8</span>
-    <span class="n">network</span> <span class="n">associate</span> <span class="n">floating</span> <span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">india</span> <span class="o">--</span><span class="n">instance</span><span class="o">=</span><span class="n">albert</span><span class="o">-</span><span class="mi">001</span>
-    <span class="n">network</span> <span class="n">associate</span> <span class="n">floating</span> <span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">india</span> <span class="o">--</span><span class="n">group</span><span class="o">=</span><span class="n">albert_group</span>
-    <span class="n">network</span> <span class="n">disassociate</span> <span class="n">floating</span> <span class="n">ip</span> <span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">india</span> <span class="o">--</span><span class="n">instance</span><span class="o">=</span><span class="n">albert</span><span class="o">-</span><span class="mi">001</span> <span class="mf">192.1</span><span class="o">.</span><span class="mf">66.8</span>
-    <span class="n">network</span> <span class="n">disassociate</span> <span class="n">floating</span> <span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">india</span> <span class="o">--</span><span class="n">instance</span><span class="o">=</span><span class="n">albert</span><span class="o">-</span><span class="mi">001</span> <span class="mf">192.1</span><span class="o">.</span><span class="mf">66.8</span>
-    <span class="n">network</span> <span class="n">create</span> <span class="n">floating</span> <span class="n">ip</span> <span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">india</span> <span class="o">--</span><span class="n">pool</span><span class="o">=</span><span class="n">albert</span><span class="o">-</span><span class="n">f01</span>
-    <span class="n">network</span> <span class="n">create</span> <span class="n">floating</span> <span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">india</span> <span class="o">--</span><span class="n">pool</span><span class="o">=</span><span class="n">albert</span><span class="o">-</span><span class="n">f01</span>
-    <span class="n">network</span> <span class="n">delete</span> <span class="n">floating</span> <span class="n">ip</span> <span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">india</span> <span class="mf">192.1</span><span class="o">.</span><span class="mf">66.8</span> <span class="mf">192.1</span><span class="o">.</span><span class="mf">66.9</span>
-    <span class="n">network</span> <span class="n">delete</span> <span class="n">floating</span> <span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">india</span> <span class="mf">192.1</span><span class="o">.</span><span class="mf">66.8</span> <span class="mf">192.1</span><span class="o">.</span><span class="mf">66.9</span>
-    <span class="n">network</span> <span class="nb">list</span> <span class="n">floating</span> <span class="n">ip</span> <span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">india</span>
-    <span class="n">network</span> <span class="nb">list</span> <span class="n">floating</span> <span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">india</span>
-    <span class="n">network</span> <span class="nb">list</span> <span class="n">floating</span> <span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">india</span> <span class="o">--</span><span class="n">unused</span>
-    <span class="n">network</span> <span class="nb">list</span> <span class="n">floating</span> <span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">india</span> <span class="mf">192.1</span><span class="o">.</span><span class="mf">66.8</span>
-    <span class="n">network</span> <span class="nb">list</span> <span class="n">floating</span> <span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">india</span> <span class="o">--</span><span class="n">instance</span><span class="o">=</span><span class="mi">323</span><span class="n">c5195</span><span class="o">-</span><span class="mi">7</span><span class="n">yy34</span><span class="o">-</span><span class="mf">4e7</span><span class="n">b</span><span class="o">-</span><span class="mi">8581</span><span class="o">-</span><span class="mi">703</span><span class="n">abec4b</span>
-    <span class="n">network</span> <span class="nb">list</span> <span class="n">floating</span> <span class="n">pool</span> <span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">india</span>
-    <span class="n">network</span> <span class="n">create</span> <span class="n">cluster</span> <span class="o">--</span><span class="n">group</span><span class="o">=</span><span class="n">demo_group</span>
-</pre></div>
-</div>
-</dd></dl>
-
-</dd></dl>
-
 <span class="target" id="module-cloudmesh.admin.command.admin"></span><dl class="class">
 <dt id="cloudmesh.admin.command.admin.AdminCommand">
 <em class="property">class </em><code class="sig-prename descclassname">cloudmesh.admin.command.admin.</code><code class="sig-name descname">AdminCommand</code><a class="reference internal" href="../_modules/cloudmesh/admin/command/admin.html#AdminCommand"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.admin.command.admin.AdminCommand" title="Permalink to this definition">¶</a></dt>
@@ -717,7 +638,7 @@ TODO: this method is not implemented
   <span class="n">admin</span> <span class="n">mongo</span> <span class="n">load</span> <span class="n">FILENAME</span>
   <span class="n">admin</span> <span class="n">mongo</span> <span class="n">security</span>
   <span class="n">admin</span> <span class="n">mongo</span> <span class="n">password</span> <span class="n">PASSWORD</span>
-  <span class="n">admin</span> <span class="n">mongo</span> <span class="nb">list</span>
+  <span class="n">admin</span> <span class="n">mongo</span> <span class="nb">list</span> <span class="p">[</span><span class="n">COLLECTION</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">output</span><span class="o">=</span><span class="n">OUTPUT</span><span class="p">]</span>
   <span class="n">admin</span> <span class="n">rest</span> <span class="n">status</span>
   <span class="n">admin</span> <span class="n">rest</span> <span class="n">start</span>
   <span class="n">admin</span> <span class="n">rest</span> <span class="n">stop</span>
@@ -767,86 +688,6 @@ TODO: this method is not implemented
        <span class="n">cms</span> <span class="n">admin</span> <span class="n">system</span> <span class="n">info</span>
 
     <span class="n">This</span> <span class="n">can</span> <span class="n">be</span> <span class="n">very</span> <span class="n">useful</span> <span class="ow">in</span> <span class="n">case</span> <span class="n">you</span> <span class="n">are</span> <span class="n">filing</span> <span class="n">an</span> <span class="n">issue</span> <span class="ow">or</span> <span class="n">bug</span><span class="o">.</span>
-</pre></div>
-</div>
-</dd></dl>
-
-</dd></dl>
-
-<span class="target" id="module-cloudmesh.secgroup.command.secgroup"></span><dl class="class">
-<dt id="cloudmesh.secgroup.command.secgroup.SecgroupCommand">
-<em class="property">class </em><code class="sig-prename descclassname">cloudmesh.secgroup.command.secgroup.</code><code class="sig-name descname">SecgroupCommand</code><a class="reference internal" href="../_modules/cloudmesh/secgroup/command/secgroup.html#SecgroupCommand"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.secgroup.command.secgroup.SecgroupCommand" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="cmd5.html#cloudmesh.shell.command.PluginCommand" title="cloudmesh.shell.command.PluginCommand"><code class="xref py py-class docutils literal notranslate"><span class="pre">cloudmesh.shell.command.PluginCommand</span></code></a></p>
-<dl class="method">
-<dt id="cloudmesh.secgroup.command.secgroup.SecgroupCommand.do_secgroup">
-<code class="sig-name descname">do_secgroup</code><span class="sig-paren">(</span><em class="sig-param">args</em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.secgroup.command.secgroup.SecgroupCommand.do_secgroup" title="Permalink to this definition">¶</a></dt>
-<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Usage</span><span class="p">:</span>
-    <span class="n">secgroup</span> <span class="nb">list</span> <span class="p">[</span><span class="o">--</span><span class="n">output</span><span class="o">=</span><span class="n">OUTPUT</span><span class="p">]</span>
-    <span class="n">secgroup</span> <span class="nb">list</span>  <span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">CLOUD</span> <span class="p">[</span><span class="o">--</span><span class="n">output</span><span class="o">=</span><span class="n">OUTPUT</span><span class="p">]</span>
-    <span class="n">secgroup</span> <span class="nb">list</span> <span class="n">GROUP</span> <span class="p">[</span><span class="o">--</span><span class="n">output</span><span class="o">=</span><span class="n">OUTPUT</span><span class="p">]</span>
-    <span class="n">secgroup</span> <span class="n">add</span> <span class="n">GROUP</span> <span class="n">RULE</span> <span class="n">FROMPORT</span> <span class="n">TOPORT</span> <span class="n">PROTOCOL</span> <span class="n">CIDR</span>
-    <span class="n">secgroup</span> <span class="n">delete</span> <span class="n">GROUP</span> <span class="p">[</span><span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">CLOUD</span><span class="p">]</span>
-    <span class="n">secgroup</span> <span class="n">delete</span> <span class="n">GROUP</span> <span class="n">RULE</span>
-    <span class="n">secgroup</span> <span class="n">upload</span> <span class="p">[</span><span class="n">GROUP</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">CLOUD</span><span class="p">]</span>
-
-<span class="n">Options</span><span class="p">:</span>
-    <span class="o">--</span><span class="n">output</span><span class="o">=</span><span class="n">OUTPUT</span> <span class="n">Specify</span> <span class="n">output</span> <span class="nb">format</span><span class="p">,</span> <span class="ow">in</span> <span class="n">one</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span><span class="p">:</span>
-                    <span class="n">table</span><span class="p">,</span> <span class="n">csv</span><span class="p">,</span> <span class="n">json</span><span class="p">,</span> <span class="n">yaml</span><span class="p">,</span> <span class="nb">dict</span><span class="o">.</span> <span class="n">The</span> <span class="n">default</span> <span class="n">value</span>
-                    <span class="ow">is</span> <span class="s1">&#39;table&#39;</span><span class="o">.</span>
-    <span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">CLOUD</span>   <span class="n">Name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">IaaS</span> <span class="n">cloud</span> <span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span> <span class="n">kilo</span><span class="p">,</span><span class="n">chameleon</span><span class="o">.</span>
-                    <span class="n">The</span> <span class="n">clouds</span> <span class="n">are</span> <span class="n">defined</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">yaml</span> <span class="n">file</span><span class="o">.</span>
-                    <span class="n">If</span> <span class="n">the</span> <span class="n">name</span> <span class="s2">&quot;all&quot;</span> <span class="ow">is</span> <span class="n">used</span> <span class="k">for</span> <span class="n">the</span> <span class="n">cloud</span> <span class="nb">all</span>
-                    <span class="n">clouds</span> <span class="n">will</span> <span class="n">be</span> <span class="n">selected</span><span class="o">.</span>
-<span class="n">Arguments</span><span class="p">:</span>
-    <span class="n">RULE</span>          <span class="n">The</span> <span class="n">security</span> <span class="n">group</span> <span class="n">rule</span> <span class="n">name</span>
-    <span class="n">GROUP</span>         <span class="n">The</span> <span class="n">label</span><span class="o">/</span><span class="n">name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">security</span> <span class="n">group</span>
-    <span class="n">FROMPORT</span>      <span class="n">Staring</span> <span class="n">port</span> <span class="n">of</span> <span class="n">the</span> <span class="n">rule</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span> <span class="mi">22</span>
-    <span class="n">TOPORT</span>        <span class="n">Ending</span> <span class="n">port</span> <span class="n">of</span> <span class="n">the</span> <span class="n">rule</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span> <span class="mi">22</span>
-    <span class="n">PROTOCOL</span>      <span class="n">Protocol</span> <span class="n">applied</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span> <span class="n">TCP</span><span class="p">,</span><span class="n">UDP</span><span class="p">,</span><span class="n">ICMP</span>
-    <span class="n">CIDR</span>          <span class="n">IP</span> <span class="n">address</span> <span class="nb">range</span> <span class="ow">in</span> <span class="n">CIDR</span> <span class="nb">format</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span><span class="p">,</span>
-                  <span class="mf">129.79</span><span class="o">.</span><span class="mf">0.0</span><span class="o">/</span><span class="mi">16</span>
-
-<span class="n">Examples</span><span class="p">:</span>
-    <span class="n">secgroup</span> <span class="nb">list</span>
-    <span class="n">secgroup</span> <span class="nb">list</span> <span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">kilo</span>
-    <span class="n">secgroup</span> <span class="n">add</span> <span class="n">my_new_group</span> <span class="n">webapp</span> <span class="mi">8080</span> <span class="mi">8080</span> <span class="n">tcp</span> <span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span><span class="o">/</span><span class="mi">0</span>
-    <span class="n">seggroup</span> <span class="n">delete</span> <span class="n">my_group</span> <span class="n">my_rule</span>
-    <span class="n">secgroup</span> <span class="n">delete</span> <span class="n">my_unused_group</span> <span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">kilo</span>
-    <span class="n">secgroup</span> <span class="n">upload</span> <span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">kilo</span>
-
-<span class="n">Description</span><span class="p">:</span>
-    <span class="n">security_group</span> <span class="n">command</span> <span class="n">provides</span> <span class="nb">list</span><span class="o">/</span><span class="n">add</span><span class="o">/</span><span class="n">delete</span>
-    <span class="n">security_groups</span> <span class="k">for</span> <span class="n">a</span> <span class="n">tenant</span> <span class="n">of</span> <span class="n">a</span> <span class="n">cloud</span><span class="p">,</span> <span class="k">as</span> <span class="n">well</span> <span class="k">as</span>
-    <span class="nb">list</span><span class="o">/</span><span class="n">add</span><span class="o">/</span><span class="n">delete</span> <span class="n">of</span> <span class="n">rules</span> <span class="k">for</span> <span class="n">a</span> <span class="n">security</span> <span class="n">group</span> <span class="kn">from</span> <span class="nn">a</span>
-    <span class="n">specified</span> <span class="n">cloud</span> <span class="ow">and</span> <span class="n">tenant</span><span class="o">.</span>
-    <span class="n">Security</span> <span class="n">groups</span> <span class="n">are</span> <span class="n">first</span> <span class="n">assembled</span> <span class="ow">in</span> <span class="n">a</span> <span class="n">local</span> <span class="n">database</span><span class="o">.</span>
-    <span class="n">Once</span> <span class="n">they</span> <span class="n">are</span> <span class="n">defined</span> <span class="n">they</span> <span class="n">can</span> <span class="n">be</span> <span class="n">added</span> <span class="n">to</span> <span class="n">the</span> <span class="n">clouds</span><span class="o">.</span>
-    <span class="n">secgroup</span> <span class="nb">list</span> <span class="p">[</span><span class="o">--</span><span class="n">output</span><span class="o">=</span><span class="n">OUTPUT</span><span class="p">]</span>
-        <span class="n">lists</span> <span class="nb">all</span> <span class="n">security</span> <span class="n">groups</span> <span class="ow">and</span> <span class="n">rules</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">database</span>
-    <span class="n">secgroup</span> <span class="nb">list</span> <span class="n">GROUP</span> <span class="p">[</span><span class="o">--</span><span class="n">output</span><span class="o">=</span><span class="n">OUTPUT</span><span class="p">]</span>
-        <span class="n">lists</span> <span class="n">a</span> <span class="n">given</span> <span class="n">security</span> <span class="n">group</span> <span class="ow">and</span> <span class="n">its</span> <span class="n">rules</span> <span class="n">defined</span>
-        <span class="n">locally</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">database</span>
-    <span class="n">secgroup</span> <span class="nb">list</span> <span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">CLOUD</span> <span class="p">[</span><span class="o">--</span><span class="n">output</span><span class="o">=</span><span class="n">OUTPUT</span><span class="p">]</span>
-        <span class="n">lists</span> <span class="n">the</span> <span class="n">security</span> <span class="n">groups</span> <span class="ow">and</span> <span class="n">rules</span> <span class="n">on</span> <span class="n">the</span> <span class="n">specified</span> <span class="n">clouds</span><span class="o">.</span>
-    <span class="n">secgroup</span> <span class="n">add</span> <span class="n">GROUP</span> <span class="n">RULE</span> <span class="n">FROMPORT</span> <span class="n">TOPORT</span> <span class="n">PROTOCOL</span> <span class="n">CIDR</span>
-        <span class="n">adds</span> <span class="n">a</span> <span class="n">security</span> <span class="n">rule</span> <span class="k">with</span> <span class="n">the</span> <span class="n">given</span> <span class="n">group</span> <span class="ow">and</span> <span class="n">the</span> <span class="n">details</span>
-        <span class="n">of</span> <span class="n">the</span> <span class="n">security</span> <span class="n">rules</span>
-    <span class="n">secgroup</span> <span class="n">delete</span> <span class="n">GROUP</span> <span class="p">[</span><span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">CLOUD</span><span class="p">]</span>
-        <span class="n">Deletes</span> <span class="n">a</span> <span class="n">security</span> <span class="n">group</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">local</span> <span class="n">database</span><span class="o">.</span> <span class="n">To</span> <span class="n">make</span>
-        <span class="n">the</span> <span class="n">change</span> <span class="n">on</span> <span class="n">the</span> <span class="n">remote</span> <span class="n">cloud</span><span class="p">,</span> <span class="n">using</span> <span class="n">the</span> <span class="s1">&#39;upload&#39;</span> <span class="n">command</span>
-        <span class="n">afterwards</span><span class="o">.</span>
-        <span class="n">If</span> <span class="n">the</span> <span class="o">--</span><span class="n">cloud</span> <span class="n">parameter</span> <span class="ow">is</span> <span class="n">specified</span><span class="p">,</span> <span class="n">the</span> <span class="n">change</span> <span class="n">would</span> <span class="n">be</span>
-        <span class="n">made</span> <span class="n">directly</span> <span class="n">on</span> <span class="n">the</span> <span class="n">specified</span> <span class="n">cloud</span>
-    <span class="n">secgroup</span> <span class="n">delete</span> <span class="n">GROUP</span> <span class="n">RULE</span>
-        <span class="n">deletes</span> <span class="n">the</span> <span class="n">given</span> <span class="n">rule</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">group</span><span class="o">.</span> <span class="n">To</span> <span class="n">make</span> <span class="n">this</span> <span class="n">change</span>
-        <span class="n">on</span> <span class="n">the</span> <span class="n">remote</span> <span class="n">cloud</span><span class="p">,</span> <span class="n">using</span> <span class="s1">&#39;upload&#39;</span> <span class="n">command</span><span class="o">.</span>
-    <span class="n">secgroup</span> <span class="n">upload</span> <span class="p">[</span><span class="n">GROUP</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">CLOUD</span><span class="o">...</span><span class="p">]</span>
-        <span class="n">uploads</span> <span class="n">a</span> <span class="n">given</span> <span class="n">group</span> <span class="n">to</span> <span class="n">the</span> <span class="n">given</span> <span class="n">cloud</span><span class="o">.</span> <span class="n">If</span> <span class="n">the</span> <span class="n">cloud</span> <span class="ow">is</span>
-        <span class="ow">not</span> <span class="n">specified</span> <span class="n">the</span> <span class="n">default</span> <span class="n">cloud</span> <span class="ow">is</span> <span class="n">used</span><span class="o">.</span>
-        <span class="n">If</span> <span class="n">the</span> <span class="n">parameter</span> <span class="k">for</span> <span class="n">cloud</span> <span class="ow">is</span> <span class="s2">&quot;all&quot;</span> <span class="n">the</span> <span class="n">rules</span> <span class="ow">and</span> <span class="n">groups</span>
-        <span class="n">will</span> <span class="n">be</span> <span class="n">uploaded</span> <span class="n">to</span> <span class="nb">all</span> <span class="n">active</span> <span class="n">clouds</span><span class="o">.</span>
-        <span class="n">This</span> <span class="n">will</span> <span class="n">synchronize</span> <span class="n">the</span> <span class="n">changes</span> <span class="p">(</span><span class="n">add</span><span class="o">/</span><span class="n">delete</span> <span class="n">on</span> <span class="n">security</span>
-        <span class="n">groups</span><span class="p">,</span> <span class="n">rules</span><span class="p">)</span> <span class="n">made</span> <span class="n">locally</span> <span class="n">to</span> <span class="n">the</span> <span class="n">remote</span> <span class="n">cloud</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">.</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -1090,17 +931,14 @@ The default is set to 3 minutes.</p></li>
   <span class="n">key</span> <span class="nb">list</span> <span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">CLOUDS</span> <span class="p">[</span><span class="o">--</span><span class="n">output</span><span class="o">=</span><span class="n">OUTPUT</span><span class="p">]</span>
   <span class="n">key</span> <span class="nb">list</span> <span class="o">--</span><span class="n">source</span><span class="o">=</span><span class="n">ssh</span> <span class="p">[</span><span class="o">--</span><span class="nb">dir</span><span class="o">=</span><span class="n">DIR</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">output</span><span class="o">=</span><span class="n">OUTPUT</span><span class="p">]</span>
   <span class="n">key</span> <span class="nb">list</span> <span class="o">--</span><span class="n">source</span><span class="o">=</span><span class="n">git</span> <span class="p">[</span><span class="o">--</span><span class="n">output</span><span class="o">=</span><span class="n">OUTPUT</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">username</span><span class="o">=</span><span class="n">USERNAME</span><span class="p">]</span>
-  <span class="n">key</span> <span class="nb">list</span> <span class="p">[</span><span class="n">NAMES</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">output</span><span class="o">=</span><span class="n">OUTPUT</span><span class="p">]</span>
-  <span class="n">key</span> <span class="n">load</span> <span class="o">--</span><span class="n">filename</span><span class="o">=</span><span class="n">FILENAME</span> <span class="p">[</span><span class="o">--</span><span class="n">output</span><span class="o">=</span><span class="n">OUTPUT</span><span class="p">]</span>
+  <span class="n">key</span> <span class="nb">list</span> <span class="p">[</span><span class="o">--</span><span class="n">output</span><span class="o">=</span><span class="n">OUTPUT</span><span class="p">]</span>
+  <span class="n">key</span> <span class="n">add</span> <span class="n">NAME</span> <span class="o">--</span><span class="n">filename</span><span class="o">=</span><span class="n">FILENAME</span> <span class="p">[</span><span class="o">--</span><span class="n">output</span><span class="o">=</span><span class="n">OUTPUT</span><span class="p">]</span>
   <span class="n">key</span> <span class="n">add</span> <span class="p">[</span><span class="n">NAME</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">source</span><span class="o">=</span><span class="n">FILENAME</span><span class="p">]</span>
   <span class="n">key</span> <span class="n">add</span> <span class="p">[</span><span class="n">NAME</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">source</span><span class="o">=</span><span class="n">git</span><span class="p">]</span>
   <span class="n">key</span> <span class="n">add</span> <span class="p">[</span><span class="n">NAME</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">source</span><span class="o">=</span><span class="n">ssh</span><span class="p">]</span>
-  <span class="n">key</span> <span class="n">get</span> <span class="n">NAME</span> <span class="p">[</span><span class="o">--</span><span class="n">output</span><span class="o">=</span><span class="n">OUTPUT</span><span class="p">]</span>
-  <span class="n">key</span> <span class="n">select</span>
-  <span class="n">key</span> <span class="n">delete</span> <span class="p">(</span><span class="n">NAMES</span> <span class="o">|</span> <span class="o">--</span><span class="n">select</span> <span class="o">|</span> <span class="o">--</span><span class="nb">all</span><span class="p">)</span> <span class="p">[</span><span class="o">--</span><span class="n">dryrun</span><span class="p">]</span>
-  <span class="n">key</span> <span class="n">delete</span> <span class="n">NAMES</span> <span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">CLOUDS</span> <span class="p">[</span><span class="o">--</span><span class="n">dryrun</span><span class="p">]</span>
-  <span class="n">key</span> <span class="n">upload</span> <span class="n">KEYNAME</span> <span class="p">[</span><span class="n">NAMES</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">CLOUDS</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">dryrun</span><span class="p">]</span>
-  <span class="n">key</span> <span class="n">upload</span> <span class="n">KEYNAME</span> <span class="p">[</span><span class="n">NAMES</span><span class="p">]</span> <span class="p">[</span><span class="n">VMS</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">dryrun</span><span class="p">]</span>
+  <span class="n">key</span> <span class="n">delete</span> <span class="n">NAMES</span> <span class="p">[</span><span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">CLOUDS</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">dryrun</span><span class="p">]</span>
+  <span class="n">key</span> <span class="n">upload</span> <span class="p">[</span><span class="n">NAMES</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">CLOUDS</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">dryrun</span><span class="p">]</span>
+  <span class="n">key</span> <span class="n">upload</span> <span class="p">[</span><span class="n">NAMES</span><span class="p">]</span> <span class="p">[</span><span class="n">VMS</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">dryrun</span><span class="p">]</span>
   <span class="n">key</span> <span class="n">group</span> <span class="n">upload</span> <span class="p">[</span><span class="n">NAMES</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">group</span><span class="o">=</span><span class="n">GROUPNAMES</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">CLOUDS</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">dryrun</span><span class="p">]</span>
   <span class="n">key</span> <span class="n">group</span> <span class="n">add</span> <span class="p">[</span><span class="o">--</span><span class="n">group</span><span class="o">=</span><span class="n">GROUPNAMES</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">CLOUDS</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">dryrun</span><span class="p">]</span>
   <span class="n">key</span> <span class="n">group</span> <span class="n">add</span> <span class="o">--</span><span class="n">file</span><span class="o">=</span><span class="n">FILENAME</span>
@@ -1122,7 +960,7 @@ The default is set to 3 minutes.</p></li>
 <span class="n">Options</span><span class="p">:</span>
    <span class="o">--</span><span class="nb">dir</span><span class="o">=</span><span class="n">DIR</span>                     <span class="n">the</span> <span class="n">directory</span> <span class="k">with</span> <span class="n">keys</span> <span class="p">[</span><span class="n">default</span><span class="p">:</span> <span class="o">~/.</span><span class="n">ssh</span><span class="p">]</span>
    <span class="o">--</span><span class="n">output</span><span class="o">=</span><span class="n">OUTPUT</span>               <span class="n">the</span> <span class="nb">format</span> <span class="n">of</span> <span class="n">the</span> <span class="n">output</span> <span class="p">[</span><span class="n">default</span><span class="p">:</span> <span class="n">table</span><span class="p">]</span>
-   <span class="o">--</span><span class="n">source</span><span class="o">=</span><span class="n">SOURCE</span>               <span class="n">the</span> <span class="n">source</span> <span class="k">for</span> <span class="n">the</span> <span class="n">keys</span> <span class="p">[</span><span class="n">default</span><span class="p">:</span> <span class="n">cm</span><span class="p">]</span>
+   <span class="o">--</span><span class="n">source</span><span class="o">=</span><span class="n">SOURCE</span>               <span class="n">the</span> <span class="n">source</span> <span class="k">for</span> <span class="n">the</span> <span class="n">keys</span>
    <span class="o">--</span><span class="n">username</span><span class="o">=</span><span class="n">USERNAME</span>           <span class="n">the</span> <span class="n">source</span> <span class="k">for</span> <span class="n">the</span> <span class="n">keys</span> <span class="p">[</span><span class="n">default</span><span class="p">:</span> <span class="n">none</span><span class="p">]</span>
    <span class="o">--</span><span class="n">name</span><span class="o">=</span><span class="n">KEYNAME</span>                <span class="n">The</span> <span class="n">name</span> <span class="n">of</span> <span class="n">a</span> <span class="n">key</span>
 
@@ -1173,15 +1011,10 @@ The default is set to 3 minutes.</p></li>
      <span class="n">To</span> <span class="n">get</span> <span class="n">keys</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">cloudmesh</span> <span class="n">database</span> <span class="n">the</span> <span class="n">folloing</span> <span class="n">commands</span>
      <span class="n">are</span> <span class="n">available</span><span class="p">:</span>
 
-     <span class="n">key</span> <span class="n">get</span> <span class="n">NAME</span>
-         <span class="n">Retrieves</span> <span class="n">the</span> <span class="n">key</span> <span class="n">indicated</span> <span class="n">by</span> <span class="n">the</span> <span class="n">NAME</span> <span class="n">parameter</span> <span class="kn">from</span>
-         <span class="nn">cloudmesh</span> <span class="n">database</span> <span class="ow">and</span> <span class="n">prints</span> <span class="n">its</span> <span class="n">details</span><span class="o">.</span>
-     <span class="n">key</span> <span class="n">select</span>
-         <span class="n">Select</span> <span class="n">the</span> <span class="n">default</span> <span class="n">key</span> <span class="n">interactively</span>
      <span class="n">key</span> <span class="n">delete</span> <span class="n">NAMES</span>
          <span class="n">deletes</span> <span class="n">the</span> <span class="n">Named</span> <span class="n">keys</span><span class="o">.</span> <span class="n">This</span> <span class="n">may</span> <span class="n">also</span> <span class="n">have</span> <span class="n">an</span> <span class="n">impact</span> <span class="n">on</span> <span class="n">groups</span>
      <span class="n">key</span> <span class="n">rename</span> <span class="n">NAME</span> <span class="n">NEW</span>
-         <span class="n">renames</span> <span class="n">the</span> <span class="n">key</span> <span class="kn">from</span> <span class="nn">NAME</span> <span class="n">to</span> <span class="n">NEW</span><span class="o">.</span>
+         <span class="n">renames</span> <span class="n">the</span> <span class="n">key</span> <span class="kn">from</span> <span class="nn">NAME</span> <span class="n">to</span> <span class="n">NEW</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">cloudmesh</span> <span class="n">database</span><span class="o">.</span>
 
     <span class="n">Group</span> <span class="n">management</span> <span class="n">of</span> <span class="n">keys</span> <span class="ow">is</span> <span class="n">an</span> <span class="n">important</span> <span class="n">concept</span> <span class="ow">in</span> <span class="n">cloudmesh</span><span class="p">,</span>
     <span class="n">allowing</span> <span class="n">multiple</span> <span class="n">users</span> <span class="n">to</span> <span class="n">be</span> <span class="n">added</span> <span class="n">to</span> <span class="n">virtual</span> <span class="n">machines</span> <span class="k">while</span>
@@ -1619,22 +1452,14 @@ The default is set to 3 minutes.</p></li>
             <span class="p">[</span><span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">CLOUDS</span><span class="p">]</span>
             <span class="p">[</span><span class="o">--</span><span class="n">output</span><span class="o">=</span><span class="n">OUTPUT</span><span class="p">]</span>
             <span class="p">[</span><span class="o">--</span><span class="n">refresh</span><span class="p">]</span>
-    <span class="n">vm</span> <span class="n">boot</span> <span class="p">[</span><span class="o">--</span><span class="n">name</span><span class="o">=</span><span class="n">VMNAMES</span><span class="p">]</span>
+    <span class="n">vm</span> <span class="n">boot</span> <span class="p">[</span><span class="o">--</span><span class="n">n</span><span class="o">=</span><span class="n">COUNT</span><span class="p">]</span>
+            <span class="p">[</span><span class="o">--</span><span class="n">name</span><span class="o">=</span><span class="n">VMNAMES</span><span class="p">]</span>
             <span class="p">[</span><span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">CLOUD</span><span class="p">]</span>
             <span class="p">[</span><span class="o">--</span><span class="n">username</span><span class="o">=</span><span class="n">USERNAME</span><span class="p">]</span>
             <span class="p">[</span><span class="o">--</span><span class="n">image</span><span class="o">=</span><span class="n">IMAGE</span><span class="p">]</span>
             <span class="p">[</span><span class="o">--</span><span class="n">flavor</span><span class="o">=</span><span class="n">FLAVOR</span><span class="p">]</span>
             <span class="p">[</span><span class="o">--</span><span class="n">public</span><span class="p">]</span>
             <span class="p">[</span><span class="o">--</span><span class="n">secgroup</span><span class="o">=</span><span class="n">SECGROUPs</span><span class="p">]</span>
-            <span class="p">[</span><span class="o">--</span><span class="n">key</span><span class="o">=</span><span class="n">KEY</span><span class="p">]</span>
-            <span class="p">[</span><span class="o">--</span><span class="n">dryrun</span><span class="p">]</span>
-    <span class="n">vm</span> <span class="n">boot</span> <span class="p">[</span><span class="o">--</span><span class="n">n</span><span class="o">=</span><span class="n">COUNT</span><span class="p">]</span>
-            <span class="p">[</span><span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">CLOUD</span><span class="p">]</span>
-            <span class="p">[</span><span class="o">--</span><span class="n">username</span><span class="o">=</span><span class="n">USERNAME</span><span class="p">]</span>
-            <span class="p">[</span><span class="o">--</span><span class="n">image</span><span class="o">=</span><span class="n">IMAGE</span><span class="p">]</span>
-            <span class="p">[</span><span class="o">--</span><span class="n">flavor</span><span class="o">=</span><span class="n">FLAVOR</span><span class="p">]</span>
-            <span class="p">[</span><span class="o">--</span><span class="n">public</span><span class="p">]</span>
-            <span class="p">[</span><span class="o">--</span><span class="n">secgroup</span><span class="o">=</span><span class="n">SECGROUPS</span><span class="p">]</span>
             <span class="p">[</span><span class="o">--</span><span class="n">key</span><span class="o">=</span><span class="n">KEY</span><span class="p">]</span>
             <span class="p">[</span><span class="o">--</span><span class="n">dryrun</span><span class="p">]</span>
     <span class="n">vm</span> <span class="n">run</span> <span class="p">[</span><span class="o">--</span><span class="n">name</span><span class="o">=</span><span class="n">VMNAMES</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">username</span><span class="o">=</span><span class="n">USERNAME</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">dryrun</span><span class="p">]</span> <span class="n">COMMAND</span>
@@ -1928,12 +1753,20 @@ The default is set to 3 minutes.</p></li>
 <dl class="method">
 <dt id="cloudmesh.compute.docker.Provider.Provider.flavors">
 <code class="sig-name descname">flavors</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/docker/Provider.html#Provider.flavors"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.docker.Provider.Provider.flavors" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Lists the flavors on the cloud</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>dict of flavors</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.compute.docker.Provider.Provider.images">
 <code class="sig-name descname">images</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/docker/Provider.html#Provider.images"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.docker.Provider.Provider.images" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Lists the images on the cloud
+:return: dict</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.compute.docker.Provider.Provider.info">
@@ -1952,11 +1785,25 @@ The default is set to 3 minutes.</p></li>
 <dl class="method">
 <dt id="cloudmesh.compute.docker.Provider.Provider.key_upload">
 <code class="sig-name descname">key_upload</code><span class="sig-paren">(</span><em class="sig-param">key</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/docker/Provider.html#Provider.key_upload"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.docker.Provider.Provider.key_upload" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>uploads the key specified in the yaml configuration to the cloud
+:param key:
+:return:</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.compute.docker.Provider.Provider.keys">
 <code class="sig-name descname">keys</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/docker/Provider.html#Provider.keys"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.docker.Provider.Provider.keys" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lists the keys on the cloud</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.compute.docker.Provider.Provider.kind">
+<code class="sig-name descname">kind</code><em class="property"> = 'docker'</em><a class="headerlink" href="#cloudmesh.compute.docker.Provider.Provider.kind" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -2100,37 +1947,13 @@ The default is set to 3 minutes.</p></li>
 
 </dd></dl>
 
-<span class="target" id="module-cloudmesh.compute.azure.AzProvider"></span><dl class="class">
-<dt id="cloudmesh.compute.azure.AzProvider.Provider">
-<em class="property">class </em><code class="sig-prename descclassname">cloudmesh.compute.azure.AzProvider.</code><code class="sig-name descname">Provider</code><span class="sig-paren">(</span><em class="sig-param">name=None</em>, <em class="sig-param">configuration='~/.cloudmesh/cloudmesh4.yaml'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/AzProvider.html#Provider"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.AzProvider.Provider" title="Permalink to this definition">¶</a></dt>
+<span class="target" id="module-cloudmesh.compute.azure.Provider"></span><dl class="class">
+<dt id="cloudmesh.compute.azure.Provider.Provider">
+<em class="property">class </em><code class="sig-prename descclassname">cloudmesh.compute.azure.Provider.</code><code class="sig-name descname">Provider</code><span class="sig-paren">(</span><em class="sig-param">name=None</em>, <em class="sig-param">configuration='~/.cloudmesh/cloudmesh4.yaml'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC" title="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC"><code class="xref py py-class docutils literal notranslate"><span class="pre">cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC</span></code></a></p>
-<p>az commands</p>
-<p><a class="reference external" href="https://docs.microsoft.com/en-us/cli/azure/reference-index?view=azure-cli-latest">https://docs.microsoft.com/en-us/cli/azure/reference-index?view=azure-cli-latest</a></p>
-<p>create the</p>
-<p><a class="reference external" href="https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal">https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal</a></p>
 <dl class="method">
-<dt id="cloudmesh.compute.azure.AzProvider.Provider.az">
-<code class="sig-name descname">az</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/AzProvider.html#Provider.az"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.AzProvider.Provider.az" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.compute.azure.AzProvider.Provider.az_2">
-<code class="sig-name descname">az_2</code><span class="sig-paren">(</span><em class="sig-param">command</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/AzProvider.html#Provider.az_2"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.AzProvider.Provider.az_2" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.compute.azure.AzProvider.Provider.connect">
-<code class="sig-name descname">connect</code><span class="sig-paren">(</span><em class="sig-param">name=None</em>, <em class="sig-param">user=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/AzProvider.html#Provider.connect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.AzProvider.Provider.connect" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.compute.azure.AzProvider.Provider.connect_to_all">
-<code class="sig-name descname">connect_to_all</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/AzProvider.html#Provider.connect_to_all"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.AzProvider.Provider.connect_to_all" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.compute.azure.AzProvider.Provider.create">
-<code class="sig-name descname">create</code><span class="sig-paren">(</span><em class="sig-param">name=None</em>, <em class="sig-param">image=None</em>, <em class="sig-param">size=None</em>, <em class="sig-param">timeout=360</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/AzProvider.html#Provider.create"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.AzProvider.Provider.create" title="Permalink to this definition">¶</a></dt>
+<dt id="cloudmesh.compute.azure.Provider.Provider.create">
+<code class="sig-name descname">create</code><span class="sig-paren">(</span><em class="sig-param">name=None</em>, <em class="sig-param">image=None</em>, <em class="sig-param">size=None</em>, <em class="sig-param">timeout=360</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.create"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.create" title="Permalink to this definition">¶</a></dt>
 <dd><p>creates a named node</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -2138,8 +1961,8 @@ The default is set to 3 minutes.</p></li>
 <li><p><strong>name</strong> – the name of the node</p></li>
 <li><p><strong>image</strong> – the image used</p></li>
 <li><p><strong>size</strong> – the size of the image</p></li>
-<li><p><strong>timeout</strong> – a timeout in seconds that is invoked in case the image does not boot.
-The default is set to 3 minutes.</p></li>
+<li><p><strong>timeout</strong> – a timeout in seconds that is invoked in case the image
+does not boot. The default is set to 3 minutes.</p></li>
 <li><p><strong>kwargs</strong> – additional arguments passed along at time of boot</p></li>
 </ul>
 </dd>
@@ -2150,81 +1973,70 @@ The default is set to 3 minutes.</p></li>
 </dd></dl>
 
 <dl class="method">
-<dt id="cloudmesh.compute.azure.AzProvider.Provider.create_resource_group">
-<code class="sig-name descname">create_resource_group</code><span class="sig-paren">(</span><em class="sig-param">name=None</em>, <em class="sig-param">location=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/AzProvider.html#Provider.create_resource_group"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.AzProvider.Provider.create_resource_group" title="Permalink to this definition">¶</a></dt>
+<dt id="cloudmesh.compute.azure.Provider.Provider.create_nic">
+<code class="sig-name descname">create_nic</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.create_nic"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.create_nic" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>Create a Network Interface for a Virtual Machine</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.azure.Provider.Provider.create_vm_parameters">
+<code class="sig-name descname">create_vm_parameters</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.create_vm_parameters"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.create_vm_parameters" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
-<dt id="cloudmesh.compute.azure.AzProvider.Provider.delete_resource_group">
-<code class="sig-name descname">delete_resource_group</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/AzProvider.html#Provider.delete_resource_group"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.AzProvider.Provider.delete_resource_group" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.compute.azure.AzProvider.Provider.destroy">
-<code class="sig-name descname">destroy</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/AzProvider.html#Provider.destroy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.AzProvider.Provider.destroy" title="Permalink to this definition">¶</a></dt>
+<dt id="cloudmesh.compute.azure.Provider.Provider.destroy">
+<code class="sig-name descname">destroy</code><span class="sig-paren">(</span><em class="sig-param">groupName=None</em>, <em class="sig-param">vmName=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.destroy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.destroy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Destroys the node
 :param name: the name of the node
 :return: the dict of the node</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="cloudmesh.compute.azure.AzProvider.Provider.get_ip">
-<code class="sig-name descname">get_ip</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/AzProvider.html#Provider.get_ip"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.AzProvider.Provider.get_ip" title="Permalink to this definition">¶</a></dt>
+<dt id="cloudmesh.compute.azure.Provider.Provider.get_resource_group">
+<code class="sig-name descname">get_resource_group</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.get_resource_group"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.get_resource_group" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
-<dt id="cloudmesh.compute.azure.AzProvider.Provider.info">
-<code class="sig-name descname">info</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/AzProvider.html#Provider.info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.AzProvider.Provider.info" title="Permalink to this definition">¶</a></dt>
-<dd><p>gets the information of a node with a given name</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>name</strong> – </p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>The dict representing the node including updated status</p>
-</dd>
-</dl>
+<dt id="cloudmesh.compute.azure.Provider.Provider.info">
+<code class="sig-name descname">info</code><span class="sig-paren">(</span><em class="sig-param">groupName=None</em>, <em class="sig-param">vmName=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.info" title="Permalink to this definition">¶</a></dt>
+<dd><p>gets the information of a node with a given name
+List VM in resource group
+:param name:
+:return: The dict representing the node including updated status</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.compute.azure.Provider.Provider.kind">
+<code class="sig-name descname">kind</code><em class="property"> = 'azure'</em><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.kind" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.azure.Provider.Provider.list">
+<code class="sig-name descname">list</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.list" title="Permalink to this definition">¶</a></dt>
+<dd><p>List all Azure Virtual Machines from my Account
+:return: dict or libcloud object</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="cloudmesh.compute.azure.AzProvider.Provider.list">
-<code class="sig-name descname">list</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/AzProvider.html#Provider.list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.AzProvider.Provider.list" title="Permalink to this definition">¶</a></dt>
-<dd><p>list all nodes id</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>an array of dicts representing the nodes</p>
-</dd>
-</dl>
-</dd></dl>
+<dt id="cloudmesh.compute.azure.Provider.Provider.list_images">
+<code class="sig-name descname">list_images</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.list_images"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.list_images" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
-<dl class="method">
-<dt id="cloudmesh.compute.azure.AzProvider.Provider.list_image">
-<code class="sig-name descname">list_image</code><span class="sig-paren">(</span><em class="sig-param">location=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/AzProvider.html#Provider.list_image"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.AzProvider.Provider.list_image" title="Permalink to this definition">¶</a></dt>
+<dl class="attribute">
+<dt id="cloudmesh.compute.azure.Provider.Provider.output">
+<code class="sig-name descname">output</code><em class="property"> = {'flavor': {'header': ['Name', 'VCPUS', 'RAM', 'Disk'], 'order': ['cm.name', 'vcpus', 'ram', 'disk'], 'sort_keys': ['cm.name', 'vcpus', 'disk']}, 'image': {'header': ['Name', 'MinDisk', 'Updated', 'Driver'], 'order': ['cm.name', 'extra.minDisk', 'updated', 'cm.driver'], 'sort_keys': ['cm.name', 'extra.minDisk']}, 'vm': {'header': ['cm.name', 'cm.cloud', 'state', 'image', 'public_ips', 'private_ips', 'cm.kind'], 'order': ['cm.name', 'cm.cloud', 'state', 'image', 'public_ips', 'private_ips', 'cm.kind'], 'sort_keys': ['cm.name']}}</em><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.output" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
-<dt id="cloudmesh.compute.azure.AzProvider.Provider.list_resource_group">
-<code class="sig-name descname">list_resource_group</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/AzProvider.html#Provider.list_resource_group"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.AzProvider.Provider.list_resource_group" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.compute.azure.AzProvider.Provider.list_size">
-<code class="sig-name descname">list_size</code><span class="sig-paren">(</span><em class="sig-param">location=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/AzProvider.html#Provider.list_size"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.AzProvider.Provider.list_size" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.compute.azure.AzProvider.Provider.login">
-<code class="sig-name descname">login</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/AzProvider.html#Provider.login"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.AzProvider.Provider.login" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.compute.azure.AzProvider.Provider.portal">
-<code class="sig-name descname">portal</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/AzProvider.html#Provider.portal"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.AzProvider.Provider.portal" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.compute.azure.AzProvider.Provider.rename">
-<code class="sig-name descname">rename</code><span class="sig-paren">(</span><em class="sig-param">name=None</em>, <em class="sig-param">destination=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/AzProvider.html#Provider.rename"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.AzProvider.Provider.rename" title="Permalink to this definition">¶</a></dt>
+<dt id="cloudmesh.compute.azure.Provider.Provider.rename">
+<code class="sig-name descname">rename</code><span class="sig-paren">(</span><em class="sig-param">name=None</em>, <em class="sig-param">destination=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.rename"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.rename" title="Permalink to this definition">¶</a></dt>
 <dd><p>rename a node</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -2240,13 +2052,22 @@ The default is set to 3 minutes.</p></li>
 </dd></dl>
 
 <dl class="method">
-<dt id="cloudmesh.compute.azure.AzProvider.Provider.restart">
-<code class="sig-name descname">restart</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/AzProvider.html#Provider.restart"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.AzProvider.Provider.restart" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dt id="cloudmesh.compute.azure.Provider.Provider.restart">
+<code class="sig-name descname">restart</code><span class="sig-paren">(</span><em class="sig-param">groupName=None</em>, <em class="sig-param">vmName=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.restart"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.restart" title="Permalink to this definition">¶</a></dt>
+<dd><p>restart a node</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The dict representing the node</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="method">
-<dt id="cloudmesh.compute.azure.AzProvider.Provider.resume">
-<code class="sig-name descname">resume</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/AzProvider.html#Provider.resume"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.AzProvider.Provider.resume" title="Permalink to this definition">¶</a></dt>
+<dt id="cloudmesh.compute.azure.Provider.Provider.resume">
+<code class="sig-name descname">resume</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.resume"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.resume" title="Permalink to this definition">¶</a></dt>
 <dd><p>resume the named node</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -2259,17 +2080,15 @@ The default is set to 3 minutes.</p></li>
 </dd></dl>
 
 <dl class="method">
-<dt id="cloudmesh.compute.azure.AzProvider.Provider.ssh">
-<code class="sig-name descname">ssh</code><span class="sig-paren">(</span><em class="sig-param">user=None</em>, <em class="sig-param">command=None</em>, <em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/AzProvider.html#Provider.ssh"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.AzProvider.Provider.ssh" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.compute.azure.AzProvider.Provider.start">
-<code class="sig-name descname">start</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/AzProvider.html#Provider.start"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.AzProvider.Provider.start" title="Permalink to this definition">¶</a></dt>
+<dt id="cloudmesh.compute.azure.Provider.Provider.start">
+<code class="sig-name descname">start</code><span class="sig-paren">(</span><em class="sig-param">groupName=None</em>, <em class="sig-param">vmName=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.start"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.start" title="Permalink to this definition">¶</a></dt>
 <dd><p>start a node</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>name</strong> – the unique node name</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>groupName</strong> – the unique Resource Group name</p></li>
+<li><p><strong>vmName</strong> – the unique Virtual Machine name</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>The dict representing the node</p>
@@ -2278,13 +2097,8 @@ The default is set to 3 minutes.</p></li>
 </dd></dl>
 
 <dl class="method">
-<dt id="cloudmesh.compute.azure.AzProvider.Provider.status">
-<code class="sig-name descname">status</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/AzProvider.html#Provider.status"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.AzProvider.Provider.status" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.compute.azure.AzProvider.Provider.stop">
-<code class="sig-name descname">stop</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/AzProvider.html#Provider.stop"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.AzProvider.Provider.stop" title="Permalink to this definition">¶</a></dt>
+<dt id="cloudmesh.compute.azure.Provider.Provider.stop">
+<code class="sig-name descname">stop</code><span class="sig-paren">(</span><em class="sig-param">groupName=None</em>, <em class="sig-param">vmName=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.stop"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.stop" title="Permalink to this definition">¶</a></dt>
 <dd><p>stops the node with the given name</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -2297,8 +2111,8 @@ The default is set to 3 minutes.</p></li>
 </dd></dl>
 
 <dl class="method">
-<dt id="cloudmesh.compute.azure.AzProvider.Provider.suspend">
-<code class="sig-name descname">suspend</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/AzProvider.html#Provider.suspend"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.AzProvider.Provider.suspend" title="Permalink to this definition">¶</a></dt>
+<dt id="cloudmesh.compute.azure.Provider.Provider.suspend">
+<code class="sig-name descname">suspend</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.suspend"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.suspend" title="Permalink to this definition">¶</a></dt>
 <dd><p>suspends the node with the given name</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -2311,52 +2125,13 @@ The default is set to 3 minutes.</p></li>
 </dd></dl>
 
 <dl class="method">
-<dt id="cloudmesh.compute.azure.AzProvider.Provider.update_dict">
-<code class="sig-name descname">update_dict</code><span class="sig-paren">(</span><em class="sig-param">entry</em>, <em class="sig-param">kind='node'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/AzProvider.html#Provider.update_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.AzProvider.Provider.update_dict" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.compute.azure.AzProvider.Provider.update_list">
-<code class="sig-name descname">update_list</code><span class="sig-paren">(</span><em class="sig-param">data</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/AzProvider.html#Provider.update_list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.AzProvider.Provider.update_list" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.compute.azure.AzProvider.Provider.wait_orig">
-<code class="sig-name descname">wait_orig</code><span class="sig-paren">(</span><em class="sig-param">vm_name=None</em>, <em class="sig-param">username=None</em>, <em class="sig-param">time=10</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/AzProvider.html#Provider.wait_orig"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.AzProvider.Provider.wait_orig" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="function">
-<dt id="cloudmesh.compute.azure.AzProvider.timer">
-<code class="sig-prename descclassname">cloudmesh.compute.azure.AzProvider.</code><code class="sig-name descname">timer</code><span class="sig-paren">(</span><em class="sig-param">func</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/AzProvider.html#timer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.AzProvider.timer" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<span class="target" id="module-cloudmesh.compute.azure.AzureVm"></span><dl class="class">
-<dt id="cloudmesh.compute.azure.AzureVm.AzureProvider">
-<em class="property">class </em><code class="sig-prename descclassname">cloudmesh.compute.azure.AzureVm.</code><code class="sig-name descname">AzureProvider</code><span class="sig-paren">(</span><em class="sig-param">cloud</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/AzureVm.html#AzureProvider"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.AzureVm.AzureProvider" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<dl class="method">
-<dt id="cloudmesh.compute.azure.AzureVm.AzureProvider.create">
-<code class="sig-name descname">create</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">image_name=None</em>, <em class="sig-param">size=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/AzureVm.html#AzureProvider.create"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.AzureVm.AzureProvider.create" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a node</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.compute.azure.AzureVm.AzureProvider.destroy">
-<code class="sig-name descname">destroy</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/AzureVm.html#AzureProvider.destroy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.AzureVm.AzureProvider.destroy" title="Permalink to this definition">¶</a></dt>
-<dd><p>Destroy a node.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.compute.azure.AzureVm.AzureProvider.suspend">
-<code class="sig-name descname">suspend</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/AzureVm.html#AzureProvider.suspend"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.AzureVm.AzureProvider.suspend" title="Permalink to this definition">¶</a></dt>
-<dd><p>Suspend a running node.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>name</strong> – The name of the running node.</p>
-</dd>
-</dl>
+<dt id="cloudmesh.compute.azure.Provider.Provider.update_dict">
+<code class="sig-name descname">update_dict</code><span class="sig-paren">(</span><em class="sig-param">elements</em>, <em class="sig-param">kind=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.update_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.update_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Libcloud returns an object or list of objects With the dict method
+this object is converted to a dict. Typically this method is used internally.
+:param elements: the elements
+:param kind: Kind is image, flavor, or node, secgroup and key
+:return:</p>
 </dd></dl>
 
 </dd></dl>
@@ -2455,7 +2230,9 @@ The default is set to 3 minutes.</p></li>
 <dl class="method">
 <dt id="cloudmesh.compute.virtualbox.Provider.Provider.images">
 <code class="sig-name descname">images</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/virtualbox/Provider.html#Provider.images"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.virtualbox.Provider.Provider.images" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Lists the images on the cloud
+:return: dict</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.compute.virtualbox.Provider.Provider.info">
@@ -2474,6 +2251,14 @@ The default is set to 3 minutes.</p></li>
 <dl class="method">
 <dt id="cloudmesh.compute.virtualbox.Provider.Provider.key_upload">
 <code class="sig-name descname">key_upload</code><span class="sig-paren">(</span><em class="sig-param">key</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/virtualbox/Provider.html#Provider.key_upload"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.virtualbox.Provider.Provider.key_upload" title="Permalink to this definition">¶</a></dt>
+<dd><p>uploads the key specified in the yaml configuration to the cloud
+:param key:
+:return:</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.compute.virtualbox.Provider.Provider.kind">
+<code class="sig-name descname">kind</code><em class="property"> = 'virtualbox'</em><a class="headerlink" href="#cloudmesh.compute.virtualbox.Provider.Provider.kind" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -3003,6 +2788,11 @@ this object is converted to a dict. Typically this method is used internally.
 <dd></dd></dl>
 
 <dl class="method">
+<dt id="cloudmesh.compute.vm.Provider.Provider.add_secgroup">
+<code class="sig-name descname">add_secgroup</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/vm/Provider.html#Provider.add_secgroup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.vm.Provider.Provider.add_secgroup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
 <dt id="cloudmesh.compute.vm.Provider.Provider.cloudname">
 <code class="sig-name descname">cloudname</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/vm/Provider.html#Provider.cloudname"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.vm.Provider.Provider.cloudname" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -3018,6 +2808,27 @@ this object is converted to a dict. Typically this method is used internally.
 <dd></dd></dl>
 
 <dl class="method">
+<dt id="cloudmesh.compute.vm.Provider.Provider.create_public_ip">
+<code class="sig-name descname">create_public_ip</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/vm/Provider.html#Provider.create_public_ip"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.vm.Provider.Provider.create_public_ip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new public IP address to use
+:return: The ip address information</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.vm.Provider.Provider.delete_public_ip">
+<code class="sig-name descname">delete_public_ip</code><span class="sig-paren">(</span><em class="sig-param">ip</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/vm/Provider.html#Provider.delete_public_ip"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.vm.Provider.Provider.delete_public_ip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes the ip address</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>ip</strong> – the ip addess, if None than all will be deleted</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
 <dt id="cloudmesh.compute.vm.Provider.Provider.destroy">
 <code class="sig-name descname">destroy</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.compute.vm.Provider.Provider.destroy" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -3030,6 +2841,18 @@ this object is converted to a dict. Typically this method is used internally.
 <dl class="method">
 <dt id="cloudmesh.compute.vm.Provider.Provider.find_attribute">
 <code class="sig-name descname">find_attribute</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">dicts</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/vm/Provider.html#Provider.find_attribute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.vm.Provider.Provider.find_attribute" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.vm.Provider.Provider.find_available_public_ip">
+<code class="sig-name descname">find_available_public_ip</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/vm/Provider.html#Provider.find_available_public_ip"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.vm.Provider.Provider.find_available_public_ip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a single public available ip address.
+:return: The ip</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.vm.Provider.Provider.find_clouds">
+<code class="sig-name descname">find_clouds</code><span class="sig-paren">(</span><em class="sig-param">names=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/vm/Provider.html#Provider.find_clouds"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.vm.Provider.Provider.find_clouds" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -3062,9 +2885,20 @@ this object is converted to a dict. Typically this method is used internally.
 </dd></dl>
 
 <dl class="method">
+<dt id="cloudmesh.compute.vm.Provider.Provider.key_delete">
+<code class="sig-name descname">key_delete</code><span class="sig-paren">(</span><em class="sig-param">key</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/vm/Provider.html#Provider.key_delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.vm.Provider.Provider.key_delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>deletes the key with the given name
+:param name: The anme of the key
+:return:</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="cloudmesh.compute.vm.Provider.Provider.key_upload">
 <code class="sig-name descname">key_upload</code><span class="sig-paren">(</span><em class="sig-param">key</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/vm/Provider.html#Provider.key_upload"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.vm.Provider.Provider.key_upload" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>uploads the key specified in the yaml configuration to the cloud
+:param key:
+:return:</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.compute.vm.Provider.Provider.keys">
@@ -3077,6 +2911,31 @@ this object is converted to a dict. Typically this method is used internally.
 <dd></dd></dl>
 
 <dl class="method">
+<dt id="cloudmesh.compute.vm.Provider.Provider.list_public_ips">
+<code class="sig-name descname">list_public_ips</code><span class="sig-paren">(</span><em class="sig-param">free=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/vm/Provider.html#Provider.list_public_ips"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.vm.Provider.Provider.list_public_ips" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lists the public ip addresses.
+:param available: if True only those that are not allocated will be</p>
+<blockquote>
+<div><p>retunred.</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.vm.Provider.Provider.list_secgroups">
+<code class="sig-name descname">list_secgroups</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/vm/Provider.html#Provider.list_secgroups"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.vm.Provider.Provider.list_secgroups" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.vm.Provider.Provider.list_secgroups_rules">
+<code class="sig-name descname">list_secgroups_rules</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/vm/Provider.html#Provider.list_secgroups_rules"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.vm.Provider.Provider.list_secgroups_rules" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
 <dt id="cloudmesh.compute.vm.Provider.Provider.login">
 <code class="sig-name descname">login</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/vm/Provider.html#Provider.login"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.vm.Provider.Provider.login" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -3084,16 +2943,26 @@ this object is converted to a dict. Typically this method is used internally.
 <dl class="method">
 <dt id="cloudmesh.compute.vm.Provider.Provider.loop">
 <code class="sig-name descname">loop</code><span class="sig-paren">(</span><em class="sig-param">names</em>, <em class="sig-param">func</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/vm/Provider.html#Provider.loop"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.vm.Provider.Provider.loop" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>option</strong> – if option is ‘pool’, use pool. if option is ‘iter’, use iteration</p>
-</dd>
-</dl>
-</dd></dl>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.vm.Provider.Provider.loop_n">
+<code class="sig-name descname">loop_n</code><span class="sig-paren">(</span><em class="sig-param">func</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/vm/Provider.html#Provider.loop_n"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.vm.Provider.Provider.loop_n" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.vm.Provider.Provider.name_parameter">
+<code class="sig-name descname">name_parameter</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/vm/Provider.html#Provider.name_parameter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.vm.Provider.Provider.name_parameter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.compute.vm.Provider.Provider.reboot">
 <code class="sig-name descname">reboot</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.compute.vm.Provider.Provider.reboot" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.vm.Provider.Provider.remove_secgroup">
+<code class="sig-name descname">remove_secgroup</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/vm/Provider.html#Provider.remove_secgroup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.vm.Provider.Provider.remove_secgroup" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -3138,12 +3007,31 @@ this object is converted to a dict. Typically this method is used internally.
 <code class="sig-name descname">suspend</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.compute.vm.Provider.Provider.suspend" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<dl class="method">
+<dt id="cloudmesh.compute.vm.Provider.Provider.upoload_secgroup">
+<code class="sig-name descname">upoload_secgroup</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/vm/Provider.html#Provider.upoload_secgroup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.vm.Provider.Provider.upoload_secgroup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </dd></dl>
 
 <span class="target" id="module-cloudmesh.abstractclass.ComputeNodeABC"></span><dl class="class">
 <dt id="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC">
 <em class="property">class </em><code class="sig-prename descclassname">cloudmesh.abstractclass.ComputeNodeABC.</code><code class="sig-name descname">ComputeNodeABC</code><span class="sig-paren">(</span><em class="sig-param">cloud</em>, <em class="sig-param">path</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstractclass/ComputeNodeABC.html#ComputeNodeABC"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="method">
+<dt id="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.attach_publicip">
+<code class="sig-name descname">attach_publicip</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstractclass/ComputeNodeABC.html#ComputeNodeABC.attach_publicip"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.attach_publicip" title="Permalink to this definition">¶</a></dt>
+<dd><p>adds a public ip to the named vm</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – Name of the vm</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="method">
 <dt id="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.create">
 <em class="property">abstract </em><code class="sig-name descname">create</code><span class="sig-paren">(</span><em class="sig-param">name=None</em>, <em class="sig-param">image=None</em>, <em class="sig-param">size=None</em>, <em class="sig-param">timeout=360</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstractclass/ComputeNodeABC.html#ComputeNodeABC.create"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.create" title="Permalink to this definition">¶</a></dt>
@@ -3166,11 +3054,73 @@ The default is set to 3 minutes.</p></li>
 </dd></dl>
 
 <dl class="method">
+<dt id="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.create_public_ip">
+<code class="sig-name descname">create_public_ip</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstractclass/ComputeNodeABC.html#ComputeNodeABC.create_public_ip"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.create_public_ip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new public IP address to use
+:return: The ip address information</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.delete_public_ip">
+<code class="sig-name descname">delete_public_ip</code><span class="sig-paren">(</span><em class="sig-param">ip=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstractclass/ComputeNodeABC.html#ComputeNodeABC.delete_public_ip"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.delete_public_ip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes the ip address</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>ip</strong> – the ip addess, if None than all will be deleted</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
 <dt id="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.destroy">
 <em class="property">abstract </em><code class="sig-name descname">destroy</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstractclass/ComputeNodeABC.html#ComputeNodeABC.destroy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.destroy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Destroys the node
 :param name: the name of the node
 :return: the dict of the node</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.find_available_public_ip">
+<code class="sig-name descname">find_available_public_ip</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstractclass/ComputeNodeABC.html#ComputeNodeABC.find_available_public_ip"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.find_available_public_ip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a single public available ip address.
+:return: The ip</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.flavor">
+<code class="sig-name descname">flavor</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstractclass/ComputeNodeABC.html#ComputeNodeABC.flavor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.flavor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gest the flavor with a given name
+:param name: The name of the flavor
+:return: The dict of the flavor</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.flavors">
+<code class="sig-name descname">flavors</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstractclass/ComputeNodeABC.html#ComputeNodeABC.flavors"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.flavors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lists the flavors on the cloud</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>dict of flavors</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.image">
+<code class="sig-name descname">image</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstractclass/ComputeNodeABC.html#ComputeNodeABC.image"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the image with a given nmae
+:param name: The name of the image
+:return: the dict of the image</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.images">
+<code class="sig-name descname">images</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstractclass/ComputeNodeABC.html#ComputeNodeABC.images"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.images" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lists the images on the cloud
+:return: dict</p>
 </dd></dl>
 
 <dl class="method">
@@ -3188,12 +3138,68 @@ The default is set to 3 minutes.</p></li>
 </dd></dl>
 
 <dl class="method">
+<dt id="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.key_delete">
+<code class="sig-name descname">key_delete</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstractclass/ComputeNodeABC.html#ComputeNodeABC.key_delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.key_delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>deletes the key with the given name
+:param name: The anme of the key
+:return:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.key_upload">
+<code class="sig-name descname">key_upload</code><span class="sig-paren">(</span><em class="sig-param">key=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstractclass/ComputeNodeABC.html#ComputeNodeABC.key_upload"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.key_upload" title="Permalink to this definition">¶</a></dt>
+<dd><p>uploads the key specified in the yaml configuration to the cloud
+:param key:
+:return:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.keys">
+<code class="sig-name descname">keys</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstractclass/ComputeNodeABC.html#ComputeNodeABC.keys"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.keys" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lists the keys on the cloud</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
 <dt id="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.list">
 <em class="property">abstract </em><code class="sig-name descname">list</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstractclass/ComputeNodeABC.html#ComputeNodeABC.list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.list" title="Permalink to this definition">¶</a></dt>
-<dd><p>list all nodes id</p>
+<dd><p>list all vms</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>an array of dicts representing the nodes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.list_public_ips">
+<code class="sig-name descname">list_public_ips</code><span class="sig-paren">(</span><em class="sig-param">available=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstractclass/ComputeNodeABC.html#ComputeNodeABC.list_public_ips"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.list_public_ips" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lists the public ip addresses.
+:param available: if True only those that are not allocated will be</p>
+<blockquote>
+<div><p>retunred.</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.reboot">
+<code class="sig-name descname">reboot</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstractclass/ComputeNodeABC.html#ComputeNodeABC.reboot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.reboot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reboot a list of nodes with the given names</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>names</strong> – A list of node names</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A list of dict representing the nodes</p>
 </dd>
 </dl>
 </dd></dl>
@@ -3504,9 +3510,24 @@ subdirectories in the specified source</p></li>
 
 <dl class="method">
 <dt id="cloudmesh.mongo.CmDatabase.CmDatabase.collections">
-<code class="sig-name descname">collections</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/mongo/CmDatabase.html#CmDatabase.collections"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.CmDatabase.CmDatabase.collections" title="Permalink to this definition">¶</a></dt>
-<dd><p>the names of all collections
-:return: list of names of all collections</p>
+<code class="sig-name descname">collections</code><span class="sig-paren">(</span><em class="sig-param">name=None</em>, <em class="sig-param">regex=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/mongo/CmDatabase.html#CmDatabase.collections"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.CmDatabase.CmDatabase.collections" title="Permalink to this definition">¶</a></dt>
+<dd><p>the names of all collections</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – if set, only look at these collections instead of all
+colections</p></li>
+<li><p><strong>regex</strong> – a regular expression on the names of the collections</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>list of names of all collections</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Example:</dt><dd><p>collections = cm.collections(regex=”.*-vm”)</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
@@ -3538,18 +3559,37 @@ subdirectories in the specified source</p></li>
 
 <dl class="method">
 <dt id="cloudmesh.mongo.CmDatabase.CmDatabase.find">
-<code class="sig-name descname">find</code><span class="sig-paren">(</span><em class="sig-param">collection='cloudmesh'</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/mongo/CmDatabase.html#CmDatabase.find"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.CmDatabase.CmDatabase.find" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.mongo.CmDatabase.CmDatabase.find_by_counter">
-<code class="sig-name descname">find_by_counter</code><span class="sig-paren">(</span><em class="sig-param">cmcounter</em>, <em class="sig-param">collection='cloudmesh'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/mongo/CmDatabase.html#CmDatabase.find_by_counter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.CmDatabase.CmDatabase.find_by_counter" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.mongo.CmDatabase.CmDatabase.find_by_id">
-<code class="sig-name descname">find_by_id</code><span class="sig-paren">(</span><em class="sig-param">cmid</em>, <em class="sig-param">collection='cloudmesh'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/mongo/CmDatabase.html#CmDatabase.find_by_id"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.CmDatabase.CmDatabase.find_by_id" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="sig-name descname">find</code><span class="sig-paren">(</span><em class="sig-param">collection=None</em>, <em class="sig-param">cloud=None</em>, <em class="sig-param">kind=None</em>, <em class="sig-param">query=None</em>, <em class="sig-param">attributes=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/mongo/CmDatabase.html#CmDatabase.find"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.CmDatabase.CmDatabase.find" title="Permalink to this definition">¶</a></dt>
+<dd><p>finds all names in the specified collections. The parameters,
+collection, cloud, and kind can all be Parameters that get expanded
+to lists. All names from all collections are merged into the result.</p>
+<p>With kwargs a search query on the names could be added.</p>
+<dl>
+<dt>Example:</dt><dd><p>cm = CmDatabase()
+for kind in [‘vm’, “image”, “flavor”]:</p>
+<blockquote>
+<div><p>entries = cm.find(cloud=”chameleon”, kind=kind)</p>
+</div></blockquote>
+<p>print (entries)</p>
+<p>entries = cm.find(cloud=”chameleon,azure”, kind=”vm”)
+query = {“name”: {‘$regex’: “.*Ubuntu.*”}}
+entries = cm.find(collection=”chameleon-image”, query=query)</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>collection</strong> – The collections</p></li>
+<li><p><strong>cloud</strong> – The clouds</p></li>
+<li><p><strong>kind</strong> – The kinds</p></li>
+<li><p><strong>query</strong> – A query applied to name</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.mongo.CmDatabase.CmDatabase.find_group">
@@ -3598,6 +3638,11 @@ across all collections.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="cloudmesh.mongo.CmDatabase.CmDatabase.find_ok">
+<code class="sig-name descname">find_ok</code><span class="sig-paren">(</span><em class="sig-param">collection='cloudmesh'</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/mongo/CmDatabase.html#CmDatabase.find_ok"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.CmDatabase.CmDatabase.find_ok" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
 <dt id="cloudmesh.mongo.CmDatabase.CmDatabase.insert">
 <code class="sig-name descname">insert</code><span class="sig-paren">(</span><em class="sig-param">d</em>, <em class="sig-param">collection='cloudmesh'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/mongo/CmDatabase.html#CmDatabase.insert"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.CmDatabase.CmDatabase.insert" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -3609,6 +3654,40 @@ across all collections.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>name</strong> – the name</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.mongo.CmDatabase.CmDatabase.names">
+<code class="sig-name descname">names</code><span class="sig-paren">(</span><em class="sig-param">collection=None</em>, <em class="sig-param">cloud=None</em>, <em class="sig-param">kind=None</em>, <em class="sig-param">regex=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/mongo/CmDatabase.html#CmDatabase.names"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.CmDatabase.CmDatabase.names" title="Permalink to this definition">¶</a></dt>
+<dd><p>finds all names in the specified collections. The parameters,
+collection, cloud, and kind can all be Parameters that get expanded
+to lists. All names from all collections are merged into the result.</p>
+<p>With kwargs a search query on the names could be added.</p>
+<dl>
+<dt>Example:</dt><dd><p>cm = CmDatabase()
+for kind in [‘vm’, “image”, “flavor”]:</p>
+<blockquote>
+<div><p>names = cm.names(cloud=”chameleon”, kind=kind)</p>
+</div></blockquote>
+<p>print (names)</p>
+<p>names = cm.names(cloud=”chameleon,azure”, kind=”vm”)
+names = cm.names(collection=”chameleon-image”, regex=”^CC-“)
+names = cm.names(collection=”chameleon-image”, regex=”.*Ubuntu.*”)</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>collection</strong> – The collections</p></li>
+<li><p><strong>cloud</strong> – The clouds</p></li>
+<li><p><strong>kind</strong> – The kinds</p></li>
+<li><p><strong>regex</strong> – A query applied to name</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p></p>
@@ -3990,7 +4069,7 @@ if MongoDB is not installed, python help install it</p>
     <span class="n">This</span> <span class="n">lists</span> <span class="n">out</span> <span class="n">the</span> <span class="n">flavors</span> <span class="n">present</span> <span class="k">for</span> <span class="n">a</span> <span class="n">cloud</span>
 
 <span class="n">Examples</span><span class="p">:</span>
-    <span class="n">cm</span> <span class="n">flavor</span> <span class="n">refresh</span>
+    <span class="n">cm</span> <span class="n">flavor</span> <span class="nb">list</span> <span class="o">--</span><span class="n">refresh</span>
     <span class="n">cm</span> <span class="n">flavor</span> <span class="nb">list</span>
     <span class="n">cm</span> <span class="n">flavor</span> <span class="nb">list</span> <span class="o">--</span><span class="n">output</span><span class="o">=</span><span class="n">csv</span>
     <span class="n">cm</span> <span class="n">flavor</span> <span class="nb">list</span> <span class="mi">58</span><span class="n">c9552c</span><span class="o">-</span><span class="mi">8</span><span class="n">d93</span><span class="o">-</span><span class="mi">42</span><span class="n">c0</span><span class="o">-</span><span class="mi">9</span><span class="n">dea</span><span class="o">-</span><span class="mi">5</span><span class="n">f48d90a3188</span> <span class="o">--</span><span class="n">refresh</span>

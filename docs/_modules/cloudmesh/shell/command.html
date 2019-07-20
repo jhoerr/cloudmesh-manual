@@ -341,9 +341,9 @@
             <span class="n">arguments</span> <span class="o">=</span> <span class="n">dotdict</span><span class="p">(</span><span class="n">docopt</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">argv</span><span class="o">=</span><span class="n">argv</span><span class="p">))</span>
             <span class="c1"># pprint(arguments)</span>
             <span class="n">verbose</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">Variables</span><span class="p">()[</span><span class="s2">&quot;verbose&quot;</span><span class="p">]</span> <span class="ow">or</span> <span class="mi">0</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">verbose</span> <span class="o">&gt;</span> <span class="mi">9</span><span class="p">:</span>
-                <span class="n">s</span> <span class="o">=</span> <span class="n">pformat</span><span class="p">(</span><span class="n">arguments</span><span class="p">)</span>
-                <span class="n">banner</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Arguments&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;BLUE&quot;</span><span class="p">)</span>
+            <span class="c1">#if verbose &gt; 9:</span>
+            <span class="c1">#    s = pformat(arguments)</span>
+            <span class="c1">#    banner(s, label=&quot;Arguments&quot;, color=&quot;BLUE&quot;)</span>
             <span class="n">func</span><span class="p">(</span><span class="n">instance</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">arguments</span><span class="p">)</span>
         <span class="k">except</span> <span class="ne">SystemExit</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">args</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;-h&#39;</span><span class="p">,</span> <span class="s1">&#39;--help&#39;</span><span class="p">):</span>

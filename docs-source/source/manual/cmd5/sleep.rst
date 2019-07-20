@@ -1,9 +1,4 @@
 
-# ######################################################################
-# Cloudmesh
-# ######################################################################
-
-
 Usage:
 
        man [--format=FORMAT] COMMAND
@@ -13,4 +8,4 @@ ERROR: Could not execute the command. Please check usage with
 
     cms help man
 
-Timer: 0.0031s (man --kind=rst sleep)
+Timer: 0.0049s (man --kind=rst sleep)

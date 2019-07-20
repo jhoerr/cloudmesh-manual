@@ -243,7 +243,7 @@
             
   <h1>Source code for cloudmesh.common.parameter</h1><div class="highlight"><pre>
 <span></span><span class="kn">from</span> <span class="nn">hostlist</span> <span class="k">import</span> <span class="n">expand_hostlist</span>
-
+<span class="kn">from</span> <span class="nn">cloudmesh.common.dotdict</span> <span class="k">import</span> <span class="n">dotdict</span>
 
 <div class="viewcode-block" id="Parameter"><a class="viewcode-back" href="../../../code/common.html#cloudmesh.common.parameter.Parameter">[docs]</a><span class="k">class</span> <span class="nc">Parameter</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 <div class="viewcode-block" id="Parameter.expand"><a class="viewcode-back" href="../../../code/common.html#cloudmesh.common.parameter.Parameter.expand">[docs]</a>    <span class="nd">@classmethod</span>
@@ -266,6 +266,9 @@
             <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">d</span> <span class="ow">and</span> <span class="n">d</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="k">return</span> <span class="n">d</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
         <span class="k">return</span> <span class="kc">None</span></div></div>
+
+
+
 </pre></div>
 
            </div>

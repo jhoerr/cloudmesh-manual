@@ -452,7 +452,18 @@
 
         <span class="n">data</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="k">for</span> <span class="n">db</span> <span class="ow">in</span> <span class="n">client</span><span class="o">.</span><span class="n">list_databases</span><span class="p">():</span>
-            <span class="n">data</span><span class="p">[</span><span class="n">db</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">db</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="n">db</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
+            <span class="n">data</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">db</span>
+            <span class="n">names</span> <span class="o">=</span> <span class="n">client</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">collection_names</span><span class="p">()</span>
+            <span class="n">data</span><span class="p">[</span><span class="n">name</span><span class="p">][</span><span class="s1">&#39;collections&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">names</span>
+
+            <span class="c1">#data[name][&#39;collections&#39;] = {}</span>
+            <span class="c1">#collections = data[name][&#39;collections&#39;]</span>
+            <span class="c1">#collections = names</span>
+            <span class="c1">#for collection_name in names:</span>
+            <span class="c1">#    entry = {&#39;name&#39;: collection_name}</span>
+            <span class="c1">#    collections[collection_name] = entry</span>
+
         <span class="k">return</span> <span class="n">data</span></div>
 
     <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -544,17 +555,16 @@
 <span class="sd">        add admin account into the MongoDB admin database</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">if</span> <span class="n">platform</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;win32&#39;</span><span class="p">:</span>
-            <span class="n">script</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">            mongo --eval &quot;db.getSiblingDB(&#39;admin&#39;).createUser({{user:&#39;</span><span class="si">{MONGO_USERNAME}</span><span class="s2">&#39;,pwd:&#39;</span><span class="si">{MONGO_PASSWORD}</span><span class="s2">&#39;,roles:[{{role:&#39;root&#39;,db:&#39;admin&#39;}}]}})&quot;</span>
-<span class="s2">            &quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
-            <span class="nb">print</span><span class="p">(</span><span class="n">script</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">script</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;mongo --eval &#39;db.getSiblingDB(&quot;admin&quot;).createUser({{user:&quot;</span><span class="si">{MONGO_USERNAME}</span><span class="s2">&quot;,pwd:&quot;</span><span class="si">{MONGO_PASSWORD}</span><span class="s2">&quot;,roles:[{{role:&quot;root&quot;,db:&quot;admin&quot;}}]}})&#39;&quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-                <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+        <span class="n">script</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;mongo --eval &#39;db.getSiblingDB(&quot;admin&quot;).createUser({{user:&quot;</span><span class="si">{MONGO_USERNAME}</span><span class="s2">&quot;,pwd:&quot;</span><span class="si">{MONGO_PASSWORD}</span><span class="s2">&quot;,roles:[{{role:&quot;root&quot;,db:&quot;admin&quot;}}]}})&#39;&quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
 
         <span class="n">result</span> <span class="o">=</span> <span class="n">Script</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">script</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span></div>
+        <span class="k">if</span> <span class="s2">&quot;Successfully added user&quot;</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
+            <span class="n">Console</span><span class="o">.</span><span class="n">ok</span><span class="p">(</span><span class="s2">&quot;Administrative user created.&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Problem creating the administrative user. Check &quot;</span>
+                          <span class="s2">&quot;the yaml file and make sure the password and &quot;</span>
+                          <span class="s2">&quot;username are not TBD.&quot;</span><span class="p">)</span></div>
+        <span class="c1"># print(result)</span>
 
 <div class="viewcode-block" id="MongoDBController.dump"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.mongo.MongoDBController.MongoDBController.dump">[docs]</a>    <span class="k">def</span> <span class="nf">dump</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -698,7 +708,7 @@
 
 <span class="sd">&quot;&quot;&quot;</span>
 
-<span class="sd"># TODO: develop a nosetest for this</span>
+<span class="sd"># TODO: develop a pytest for this</span>
 
 <span class="sd">connection = pymongo.Connection(host = &quot;127.0.0.1&quot;, port = 27017)</span>
 <span class="sd">db = connection[&quot;test_db&quot;]</span>

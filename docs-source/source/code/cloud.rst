@@ -53,19 +53,7 @@ cloudmesh-cloud
    :show-inheritance:
    :undoc-members:
 
-      
-.. automodule:: cloudmesh.network.api.manager
-   :members:
-   :show-inheritance:
-   :undoc-members:
 
-      
-.. automodule:: cloudmesh.network.command.network
-   :members:
-   :show-inheritance:
-   :undoc-members:
-
-      
 .. automodule:: cloudmesh.admin.command.admin
    :members:
    :show-inheritance:

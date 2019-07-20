@@ -72,50 +72,71 @@ To validate the key please use the cms command
    cms config check
    cms config verify
 
+Initialization
+--------------
+
+To initialize cloudmesh and its database the easiest way to do this is
+calling the command::
+
+   cms init
+   cms sec load
+   cms key add --ssh
+   cms stop
+
+
+This needs to be done only one time. Form now on you can start and stop
+cloudmesh with::
+
+   cms start
+
+We recommend that after you are done working with cloudmesh to stop it with::
+
+   cms stop
+
 Command line
 ------------
 
-It is easy to switch beteeen clouds with the set command. Ater the set
-and specifying the cloud by name many commands will default to that
-cloud. The exception is the ``vm list`` command that lists by default
+After you started cms you can issue a numer of commands. The benefit of
+cloudmesh is that it is easy to switch beteeen clouds with the set command.
+Ater the set and specifying the cloud by name many commands will default to
+that cloud. The exception is the ``vm list`` command that lists by default
 all vms on all clouds. In addition the ``vm refresh`` command will also
 work on all clouds.
 
 .. code:: bash
 
-   cms admin mongo create  # needs only be done one time
-   cms admin mongo start
+   cms start
 
-   cms set cloud=vagrant
-   cms vm start
+   cms set cloud=chameleon
+
+   cms vm boot
    cms image list
    cms flavor list
 
    cms set cloud=aws
-   cms vm start
+   cms vm boot
    cms image list
    cms flavor list
 
    cms set cloud=azure
-   cms vm start
-   cms image list
-   cms flavor list
-
-   cms set cloud=chameleon
-   cms vm start
+   cms vm boot
    cms image list
    cms flavor list
 
    cms set cloud=jetstream
-   cms vm start
+   cms vm boot
+   cms image list
+   cms flavor list
+
+   cms set cloud=vagrant
+   cms vm boot
    cms image list
    cms flavor list
 
    cms vm refresh
-
    cms vm list
 
-   cms admin mongo stop
+   cms stop
 
 In case you want a command explicitly apply to one or more clouds or one
 or more vms, they can be specified by name such as
@@ -161,7 +182,7 @@ is started with cms
 
    cms
    cms> set cloud=aws
-   cms> vm start
+   cms> vm boot
 
 Command scripts
 ---------------

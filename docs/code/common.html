@@ -311,6 +311,11 @@ different contributors. Please use these methods instead of reimplementing them.
 <code class="sig-name descname">dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/variables.html#Variables.dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.variables.Variables.dict" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<dl class="method">
+<dt id="cloudmesh.common.variables.Variables.parameter">
+<code class="sig-name descname">parameter</code><span class="sig-paren">(</span><em class="sig-param">attribute</em>, <em class="sig-param">position=0</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/variables.html#Variables.parameter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.variables.Variables.parameter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </dd></dl>
 
 </div>
@@ -318,7 +323,7 @@ different contributors. Please use these methods instead of reimplementing them.
 <span id="util"></span><h2>2.3. Util<a class="headerlink" href="#module-cloudmesh.common.util" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="cloudmesh.common.util.HEADING">
-<code class="sig-prename descclassname">cloudmesh.common.util.</code><code class="sig-name descname">HEADING</code><span class="sig-paren">(</span><em class="sig-param">txt=None</em>, <em class="sig-param">c='#'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/util.html#HEADING"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.util.HEADING" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">cloudmesh.common.util.</code><code class="sig-name descname">HEADING</code><span class="sig-paren">(</span><em class="sig-param">txt=None</em>, <em class="sig-param">c='#'</em>, <em class="sig-param">color='HEADER'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/util.html#HEADING"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.util.HEADING" title="Permalink to this definition">¶</a></dt>
 <dd><p>Prints a message to stdout with #### surrounding it. This is useful for
 nosetests to better distinguish them.</p>
 <dl class="field-list simple">
@@ -375,11 +380,11 @@ with ~ and environment variables.</p>
 
 <dl class="function">
 <dt id="cloudmesh.common.util.banner">
-<code class="sig-prename descclassname">cloudmesh.common.util.</code><code class="sig-name descname">banner</code><span class="sig-paren">(</span><em class="sig-param">txt=None</em>, <em class="sig-param">c='#'</em>, <em class="sig-param">debug=True</em>, <em class="sig-param">label=None</em>, <em class="sig-param">color=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/util.html#banner"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.util.banner" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">cloudmesh.common.util.</code><code class="sig-name descname">banner</code><span class="sig-paren">(</span><em class="sig-param">txt=None</em>, <em class="sig-param">c='-'</em>, <em class="sig-param">debug=True</em>, <em class="sig-param">label=None</em>, <em class="sig-param">color=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/util.html#banner"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.util.banner" title="Permalink to this definition">¶</a></dt>
 <dd><p>prints a banner of the form with a frame of # around the txt:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">############################</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># --------------------------</span>
 <span class="c1"># txt</span>
-<span class="c1">############################</span>
+<span class="c1"># --------------------------</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -484,11 +489,11 @@ String matching only, does not do REs as currently implemented.</p>
 
 <dl class="function">
 <dt id="cloudmesh.common.util.str_banner">
-<code class="sig-prename descclassname">cloudmesh.common.util.</code><code class="sig-name descname">str_banner</code><span class="sig-paren">(</span><em class="sig-param">txt=None</em>, <em class="sig-param">c='#'</em>, <em class="sig-param">debug=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/util.html#str_banner"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.util.str_banner" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">cloudmesh.common.util.</code><code class="sig-name descname">str_banner</code><span class="sig-paren">(</span><em class="sig-param">txt=None</em>, <em class="sig-param">c='-'</em>, <em class="sig-param">debug=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/util.html#str_banner"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.util.str_banner" title="Permalink to this definition">¶</a></dt>
 <dd><p>prints a banner of the form with a frame of # around the txt:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">############################</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># --------------------------</span>
 <span class="c1"># txt</span>
-<span class="c1">############################</span>
+<span class="c1"># --------------------------</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -1859,7 +1864,7 @@ TODO: this method is not implemented
 
 <dl class="method">
 <dt id="cloudmesh.common.ssh.ssh_config.ssh_config.generate">
-<code class="sig-name descname">generate</code><span class="sig-paren">(</span><em class="sig-param">key='india'</em>, <em class="sig-param">host='india.futuresystems.org'</em>, <em class="sig-param">username=None</em>, <em class="sig-param">force=False</em>, <em class="sig-param">verbose=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/ssh/ssh_config.html#ssh_config.generate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.ssh.ssh_config.ssh_config.generate" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">generate</code><span class="sig-paren">(</span><em class="sig-param">host='india'</em>, <em class="sig-param">hostname='india.futuresystems.org'</em>, <em class="sig-param">identity='~/.ssh/id_rsa.pub'</em>, <em class="sig-param">user=None</em>, <em class="sig-param">force=False</em>, <em class="sig-param">verbose=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/ssh/ssh_config.html#ssh_config.generate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.ssh.ssh_config.ssh_config.generate" title="Permalink to this definition">¶</a></dt>
 <dd><p>adds a host to the config file with given parameters.  #TODO: make sure this is better documented
 :param key: the key
 :param host: the host

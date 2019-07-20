@@ -250,7 +250,7 @@
 <span class="kn">from</span> <span class="nn">cloudmesh.management.configuration.config</span> <span class="k">import</span> <span class="n">Config</span>
 <span class="kn">from</span> <span class="nn">pymongo</span> <span class="k">import</span> <span class="n">MongoClient</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.debug</span> <span class="k">import</span> <span class="n">VERBOSE</span>
-
+<span class="kn">import</span> <span class="nn">re</span>
 <span class="c1">#</span>
 <span class="c1"># cm:</span>
 <span class="c1">#   id:</span>
@@ -322,12 +322,31 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
 
     <span class="c1"># ok</span>
-<div class="viewcode-block" id="CmDatabase.collections"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.mongo.CmDatabase.CmDatabase.collections">[docs]</a>    <span class="k">def</span> <span class="nf">collections</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="CmDatabase.collections"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.mongo.CmDatabase.CmDatabase.collections">[docs]</a>    <span class="k">def</span> <span class="nf">collections</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        the names of all collections</span>
+
+<span class="sd">        :param name: if set, only look at these collections instead of all</span>
+<span class="sd">                     colections</span>
+<span class="sd">        :param regex: a regular expression on the names of the collections</span>
 <span class="sd">        :return: list of names of all collections</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">            collections = cm.collections(regex=&quot;.*-vm&quot;)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">collection_names</span><span class="p">()</span></div>
+        <span class="n">names</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="n">name</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="o">==</span> <span class="nb">list</span><span class="p">:</span>
+                <span class="n">names</span> <span class="o">=</span> <span class="n">name</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">names</span> <span class="o">=</span> <span class="n">Parameter</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">names</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">collection_names</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">regex</span><span class="p">:</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">regex</span><span class="p">)</span>
+            <span class="n">_names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">match</span><span class="p">,</span> <span class="n">names</span><span class="p">))</span>
+            <span class="n">names</span> <span class="o">=</span> <span class="n">_names</span>
+        <span class="k">return</span> <span class="n">names</span></div>
 
     <span class="c1"># ok</span>
     <span class="c1"># noinspection PyPep8</span>
@@ -426,35 +445,149 @@
 <span class="sd">        return records</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="c1"># check TODO BUG see previous</span>
-<div class="viewcode-block" id="CmDatabase.find"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.mongo.CmDatabase.CmDatabase.find">[docs]</a>    <span class="k">def</span> <span class="nf">find</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">collection</span><span class="o">=</span><span class="s2">&quot;cloudmesh&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+
+    <span class="c1"># ok</span>
+<div class="viewcode-block" id="CmDatabase.names"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.mongo.CmDatabase.CmDatabase.names">[docs]</a>    <span class="k">def</span> <span class="nf">names</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">collection</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cloud</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        finds all names in the specified collections. The parameters,</span>
+<span class="sd">        collection, cloud, and kind can all be Parameters that get expanded</span>
+<span class="sd">        to lists. All names from all collections are merged into the result.</span>
+
+<span class="sd">        With kwargs a search query on the names could be added.</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">            cm = CmDatabase()</span>
+<span class="sd">            for kind in [&#39;vm&#39;, &quot;image&quot;, &quot;flavor&quot;]:</span>
+<span class="sd">                names = cm.names(cloud=&quot;chameleon&quot;, kind=kind)</span>
+<span class="sd">            print (names)</span>
+
+<span class="sd">            names = cm.names(cloud=&quot;chameleon,azure&quot;, kind=&quot;vm&quot;)</span>
+<span class="sd">            names = cm.names(collection=&quot;chameleon-image&quot;, regex=&quot;^CC-&quot;)</span>
+<span class="sd">            names = cm.names(collection=&quot;chameleon-image&quot;, regex=&quot;.*Ubuntu.*&quot;)</span>
+
+<span class="sd">        :param collection: The collections</span>
+<span class="sd">        :param cloud: The clouds</span>
+<span class="sd">        :param kind: The kinds</span>
+<span class="sd">        :param regex: A query applied to name</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">collections</span> <span class="o">=</span> <span class="n">Parameter</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">collection</span><span class="p">)</span>
+        <span class="n">clouds</span> <span class="o">=</span> <span class="n">Parameter</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">cloud</span><span class="p">)</span>
+        <span class="n">kinds</span> <span class="o">=</span> <span class="n">Parameter</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">kind</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">collection</span><span class="p">):</span>
+            <span class="n">col</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="p">[</span><span class="n">collection</span><span class="p">]</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">regex</span><span class="p">:</span>
+                <span class="n">entries</span> <span class="o">=</span> <span class="n">col</span><span class="o">.</span><span class="n">find</span><span class="p">({},</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">})</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">entries</span> <span class="o">=</span> <span class="n">col</span><span class="o">.</span><span class="n">find</span><span class="p">(</span>
+                    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;$regex&#39;</span><span class="p">:</span> <span class="n">regex</span><span class="p">}},</span>
+                    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">})</span>
+            <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">entries</span><span class="p">:</span>
+                <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">entry</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">])</span>
+
+        <span class="k">if</span> <span class="n">kinds</span> <span class="ow">and</span> <span class="n">clouds</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">_kind</span> <span class="ow">in</span> <span class="n">kinds</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">_cloud</span> <span class="ow">in</span> <span class="n">clouds</span><span class="p">:</span>
+                    <span class="n">_collection</span> <span class="o">=</span> <span class="n">f</span><span class="s2">&quot;</span><span class="si">{_cloud}</span><span class="s2">-</span><span class="si">{_kind}</span><span class="s2">&quot;</span>
+                    <span class="n">add</span><span class="p">(</span><span class="n">_collection</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">collections</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">_collection</span> <span class="ow">in</span> <span class="n">collections</span><span class="p">:</span>
+                <span class="n">add</span><span class="p">(</span><span class="n">_collection</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">result</span></div>
+
+
+<div class="viewcode-block" id="CmDatabase.find"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.mongo.CmDatabase.CmDatabase.find">[docs]</a>    <span class="k">def</span> <span class="nf">find</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+             <span class="n">collection</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+             <span class="n">cloud</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+             <span class="n">kind</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+             <span class="n">query</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+             <span class="n">attributes</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        finds all names in the specified collections. The parameters,</span>
+<span class="sd">        collection, cloud, and kind can all be Parameters that get expanded</span>
+<span class="sd">        to lists. All names from all collections are merged into the result.</span>
+
+<span class="sd">        With kwargs a search query on the names could be added.</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">            cm = CmDatabase()</span>
+<span class="sd">            for kind in [&#39;vm&#39;, &quot;image&quot;, &quot;flavor&quot;]:</span>
+<span class="sd">                entries = cm.find(cloud=&quot;chameleon&quot;, kind=kind)</span>
+<span class="sd">            print (entries)</span>
+
+
+<span class="sd">            entries = cm.find(cloud=&quot;chameleon,azure&quot;, kind=&quot;vm&quot;)</span>
+<span class="sd">            query = {&quot;name&quot;: {&#39;$regex&#39;: &quot;.*Ubuntu.*&quot;}}</span>
+<span class="sd">            entries = cm.find(collection=&quot;chameleon-image&quot;, query=query)</span>
+
+<span class="sd">        :param collection: The collections</span>
+<span class="sd">        :param cloud: The clouds</span>
+<span class="sd">        :param kind: The kinds</span>
+<span class="sd">        :param query: A query applied to name</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">collections</span> <span class="o">=</span> <span class="n">Parameter</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">collection</span><span class="p">)</span>
+        <span class="n">clouds</span> <span class="o">=</span> <span class="n">Parameter</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">cloud</span><span class="p">)</span>
+        <span class="n">kinds</span> <span class="o">=</span> <span class="n">Parameter</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">kind</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">query</span><span class="p">:</span>
+            <span class="n">query</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="n">_attributes</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+
+        <span class="k">if</span> <span class="n">attributes</span><span class="p">:</span>
+           <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">attributes</span><span class="p">:</span>
+                <span class="n">_attributes</span><span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+        <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">collection</span><span class="p">):</span>
+            <span class="n">col</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="p">[</span><span class="n">collection</span><span class="p">]</span>
+
+            <span class="n">entries</span> <span class="o">=</span> <span class="n">col</span><span class="o">.</span><span class="n">find</span><span class="p">(</span>
+                <span class="n">query</span><span class="p">,</span>
+                <span class="n">_attributes</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">entries</span><span class="p">:</span>
+                <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">kinds</span> <span class="ow">and</span> <span class="n">clouds</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">_kind</span> <span class="ow">in</span> <span class="n">kinds</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">_cloud</span> <span class="ow">in</span> <span class="n">clouds</span><span class="p">:</span>
+                    <span class="n">_collection</span> <span class="o">=</span> <span class="n">f</span><span class="s2">&quot;</span><span class="si">{_cloud}</span><span class="s2">-</span><span class="si">{_kind}</span><span class="s2">&quot;</span>
+                    <span class="n">add</span><span class="p">(</span><span class="n">_collection</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">collections</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">_collection</span> <span class="ow">in</span> <span class="n">collections</span><span class="p">:</span>
+                <span class="n">add</span><span class="p">(</span><span class="n">_collection</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span></div>
+
+    <span class="c1"># ok</span>
+<div class="viewcode-block" id="CmDatabase.find_ok"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.mongo.CmDatabase.CmDatabase.find_ok">[docs]</a>    <span class="k">def</span> <span class="nf">find_ok</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">collection</span><span class="o">=</span><span class="s2">&quot;cloudmesh&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="n">col</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="p">[</span><span class="n">collection</span><span class="p">]</span>
 
-        <span class="n">entries</span> <span class="o">=</span> <span class="n">col</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">kwargs</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">})</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">entries</span> <span class="o">=</span> <span class="n">col</span><span class="o">.</span><span class="n">find</span><span class="p">({},</span> <span class="p">{</span><span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">})</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">entries</span> <span class="o">=</span> <span class="n">col</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">kwargs</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">})</span>
+
+        <span class="c1"># print (&quot;KKKKK&quot;, kwargs)</span>
+        <span class="c1"># print (&quot;HHHH&quot;, entries.count())</span>
 
         <span class="n">records</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">entries</span><span class="p">:</span>
             <span class="n">records</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">records</span></div>
 
-    <span class="c1"># check</span>
-<div class="viewcode-block" id="CmDatabase.find_by_id"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.mongo.CmDatabase.CmDatabase.find_by_id">[docs]</a>    <span class="k">def</span> <span class="nf">find_by_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cmid</span><span class="p">,</span> <span class="n">collection</span><span class="o">=</span><span class="s2">&quot;cloudmesh&quot;</span><span class="p">):</span>
-
-        <span class="n">entry</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">collection</span><span class="o">=</span><span class="n">collection</span><span class="p">,</span> <span class="n">cmid</span><span class="o">=</span><span class="n">cmid</span><span class="p">)</span>
-
-        <span class="k">return</span> <span class="n">entry</span></div>
-
-    <span class="c1"># check</span>
-<div class="viewcode-block" id="CmDatabase.find_by_counter"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.mongo.CmDatabase.CmDatabase.find_by_counter">[docs]</a>    <span class="k">def</span> <span class="nf">find_by_counter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cmcounter</span><span class="p">,</span> <span class="n">collection</span><span class="o">=</span><span class="s2">&quot;cloudmesh&quot;</span><span class="p">):</span>
-
-        <span class="n">entry</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">collection</span><span class="o">=</span><span class="n">collection</span><span class="p">,</span> <span class="n">cmcounter</span><span class="o">=</span><span class="n">cmcounter</span><span class="p">)</span>
-
-        <span class="k">return</span> <span class="n">entry</span></div>
 
     <span class="c1"># check</span>
 <div class="viewcode-block" id="CmDatabase.update"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.mongo.CmDatabase.CmDatabase.update">[docs]</a>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entries</span><span class="p">):</span>
 
-        <span class="n">VERBOSE</span><span class="p">(</span><span class="n">entries</span><span class="p">)</span>
+        <span class="c1"># VERBOSE(entries)</span>
         <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">entries</span><span class="p">:</span>
 
@@ -565,12 +698,14 @@
                 <span class="n">col</span><span class="o">.</span><span class="n">update_one</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">entry</span><span class="p">[</span><span class="n">name</span><span class="p">]},</span> <span class="p">{</span><span class="s2">&quot;$set&quot;</span><span class="p">:</span> <span class="n">entry</span><span class="p">},</span>
                                <span class="n">upsert</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
 
-    <span class="c1"># check</span>
-<div class="viewcode-block" id="CmDatabase.delete"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.mongo.CmDatabase.CmDatabase.delete">[docs]</a>    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">collection</span><span class="o">=</span><span class="s2">&quot;cloudmesh&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span> <span class="p">):</span>
+    <span class="c1"># ok</span>
+<div class="viewcode-block" id="CmDatabase.delete"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.mongo.CmDatabase.CmDatabase.delete">[docs]</a>    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">collection</span><span class="o">=</span><span class="s2">&quot;cloudmesh&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="n">col</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="p">[</span><span class="n">collection</span><span class="p">]</span>
-        <span class="n">col</span><span class="o">.</span><span class="n">delete_one</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+        <span class="c1"># f = col.find(kwargs)</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">col</span><span class="o">.</span><span class="n">delete_many</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">r</span><span class="o">.</span><span class="n">deleted_count</span></div>
 
-    <span class="c1"># check</span>
+    <span class="c1"># ok</span>
 <div class="viewcode-block" id="CmDatabase.command"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.mongo.CmDatabase.CmDatabase.command">[docs]</a>    <span class="k">def</span> <span class="nf">command</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">command</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        issue command string via the mongoDB console</span>

@@ -400,13 +400,13 @@
                 <span class="n">tries</span> <span class="o">-=</span> <span class="mi">1</span></div>
 
 
-<div class="viewcode-block" id="banner"><a class="viewcode-back" href="../../../code/common.html#cloudmesh.common.util.banner">[docs]</a><span class="k">def</span> <span class="nf">banner</span><span class="p">(</span><span class="n">txt</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;#&quot;</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="banner"><a class="viewcode-back" href="../../../code/common.html#cloudmesh.common.util.banner">[docs]</a><span class="k">def</span> <span class="nf">banner</span><span class="p">(</span><span class="n">txt</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    prints a banner of the form with a frame of # around the txt::</span>
 
-<span class="sd">    ############################</span>
+<span class="sd">    # --------------------------</span>
 <span class="sd">    # txt</span>
-<span class="sd">    ############################</span>
+<span class="sd">    # --------------------------</span>
 
 <span class="sd">    :param color: prints in the given color</span>
 <span class="sd">    :param label: adds a label</span>
@@ -433,12 +433,12 @@
     <span class="n">Console</span><span class="o">.</span><span class="n">cprint</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">output</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="str_banner"><a class="viewcode-back" href="../../../code/common.html#cloudmesh.common.util.str_banner">[docs]</a><span class="k">def</span> <span class="nf">str_banner</span><span class="p">(</span><span class="n">txt</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;#&quot;</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<div class="viewcode-block" id="str_banner"><a class="viewcode-back" href="../../../code/common.html#cloudmesh.common.util.str_banner">[docs]</a><span class="k">def</span> <span class="nf">str_banner</span><span class="p">(</span><span class="n">txt</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;prints a banner of the form with a frame of # around the txt::</span>
 
-<span class="sd">      ############################</span>
-<span class="sd">      # txt</span>
-<span class="sd">      ############################</span>
+<span class="sd">    # --------------------------</span>
+<span class="sd">    # txt</span>
+<span class="sd">    # --------------------------</span>
 
 <span class="sd">    :param debug: return &quot;&quot; if not in debug</span>
 <span class="sd">    :type debug: boolean</span>
@@ -458,7 +458,7 @@
 
 
 <span class="c1"># noinspection PyPep8Naming</span>
-<div class="viewcode-block" id="HEADING"><a class="viewcode-back" href="../../../code/common.html#cloudmesh.common.util.HEADING">[docs]</a><span class="k">def</span> <span class="nf">HEADING</span><span class="p">(</span><span class="n">txt</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;#&quot;</span><span class="p">):</span>
+<div class="viewcode-block" id="HEADING"><a class="viewcode-back" href="../../../code/common.html#cloudmesh.common.util.HEADING">[docs]</a><span class="k">def</span> <span class="nf">HEADING</span><span class="p">(</span><span class="n">txt</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;#&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;HEADER&quot;</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Prints a message to stdout with #### surrounding it. This is useful for</span>
 <span class="sd">    nosetests to better distinguish them.</span>
@@ -472,10 +472,14 @@
     <span class="n">filename</span> <span class="o">=</span> <span class="n">frame</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
     <span class="n">line</span> <span class="o">=</span> <span class="n">frame</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span>
     <span class="n">method</span> <span class="o">=</span> <span class="n">frame</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span>
-    <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="se">\n</span><span class="s2"># </span><span class="si">{}</span><span class="s2"> </span><span class="si">{}</span><span class="s2"> </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">txt</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">txt</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> </span><span class="si">{}</span><span class="s2"> </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="se">\n</span><span class="s2"> </span><span class="si">{}</span><span class="s2"> </span><span class="si">{}</span><span class="s2"> </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">txt</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span>
+
 
     <span class="nb">print</span><span class="p">()</span>
-    <span class="n">banner</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">c</span><span class="p">)</span></div>
+    <span class="n">banner</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">c</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="backup_name"><a class="viewcode-back" href="../../../code/common.html#cloudmesh.common.util.backup_name">[docs]</a><span class="k">def</span> <span class="nf">backup_name</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
