@@ -2,6 +2,11 @@ package=cloud
 UNAME=$(shell uname)
 VERSION=`head -1 VERSION`
 
+GIT=https://github.com/cloudmesh
+
+HERCULES=docker run --rm srcd/hercules hercules
+LABOURS=docker run --rm -i -v $(pwd):/io srcd/hercules labours
+
 define banner
 	@echo
 	@echo "###################################"
@@ -19,35 +24,41 @@ dest/gitinspector/gitinspector.py:
 inspect: dest/gitinspector/gitinspector.py
 	mkdir -p docs-source/source/inspector
 	python dest/gitinspector/gitinspector.py \
-	   https://github.com/cloudmesh/cloudmesh-cloud \
+	   $(GIT)/cloudmesh-cloud \
 	   --grading=True \
 	   --metrics=False \
 	   --hard=True \
 	   --format=htmlembedded > docs-source/source/inspector/cloudmesh-cloud.html
 	python dest/gitinspector/gitinspector.py \
-	   https://github.com/cloudmesh/cloudmesh-cmd5 \
+	   $(GIT)/cloudmesh-cmd5 \
 	   --grading=True \
 	   --metrics=False \
 	   --hard=True \
 	   --format=htmlembedded > docs-source/source/inspector/cloudmesh-cmd5.html
 	python dest/gitinspector/gitinspector.py \
-	   https://github.com/cloudmesh/cloudmesh-common \
+	   $(GIT)/cloudmesh-common \
 	   --grading=True \
 	   --metrics=False \
 	   --hard=True \
 	   --format=htmlembedded > docs-source/source/inspector/cloudmesh-common.html
 	python dest/gitinspector/gitinspector.py \
-	   https://github.com/cloudmesh/cloudmesh-sys \
+	   $(GIT)/cloudmesh-sys \
 	   --grading=True \
 	   --metrics=False \
 	   --hard=True \
 	   --format=htmlembedded > docs-source/source/inspector/cloudmesh-sys.html
 	python dest/gitinspector/gitinspector.py \
-	   https://github.com/cloudmesh/cloudmesh-manual \
+	   $(GIT)/cloudmesh-manual \
 	   --grading=True \
 	   --metrics=False \
 	   --hard=True \
 	   --format=htmlembedded > docs-source/source/inspector/cloudmesh-manual.html
+	python dest/gitinspector/gitinspector.py \
+	   $(GIT)/cloudmesh-storage \
+	   --grading=True \
+	   --metrics=False \
+	   --hard=True \
+	   --format=htmlembedded > docs-source/source/inspector/cloudmesh-storage.html
 	cp -r docs-source/source/inspector docs/inspector
 
 contrib:

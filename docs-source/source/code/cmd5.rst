@@ -37,7 +37,7 @@ CMD5
    :undoc-members:
 
 
-.. automodule:: cloudmesh.shell.variables
+.. automodule:: cloudmesh.common.variables
    :members:
    :show-inheritance:
    :undoc-members:
