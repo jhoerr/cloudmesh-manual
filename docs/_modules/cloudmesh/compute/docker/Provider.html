@@ -246,20 +246,19 @@
 <span class="kn">import</span> <span class="nn">subprocess</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">textwrap</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="k">import</span> <span class="n">datetime</span>
 <span class="kn">from</span> <span class="nn">pprint</span> <span class="k">import</span> <span class="n">pprint</span>
 
 <span class="kn">import</span> <span class="nn">docker</span>
-<span class="kn">from</span> <span class="nn">docker.version</span> <span class="k">import</span> <span class="n">version</span> <span class="k">as</span> <span class="n">pydocker_version</span>
-
 <span class="kn">from</span> <span class="nn">cloudmesh.abstractclass.ComputeNodeABC</span> <span class="k">import</span> <span class="n">ComputeNodeABC</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.Shell</span> <span class="k">import</span> <span class="n">Shell</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.console</span> <span class="k">import</span> <span class="n">Console</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.debug</span> <span class="k">import</span> <span class="n">VERBOSE</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.dotdict</span> <span class="k">import</span> <span class="n">dotdict</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="k">import</span> <span class="n">path_expand</span>
 <span class="c1"># from cloudmesh.abstractclass import ComputeNodeManagerABC</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.management.configuration.config</span> <span class="k">import</span> <span class="n">Config</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="k">import</span> <span class="n">path_expand</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.common.debug</span> <span class="k">import</span> <span class="n">VERBOSE</span>
-<span class="kn">from</span> <span class="nn">datetime</span> <span class="k">import</span> <span class="n">datetime</span>
+<span class="kn">from</span> <span class="nn">docker.version</span> <span class="k">import</span> <span class="n">version</span> <span class="k">as</span> <span class="n">pydocker_version</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">is vagrant up to date</span>
@@ -270,7 +269,6 @@
 
 
 <div class="viewcode-block" id="Provider"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.docker.Provider.Provider">[docs]</a><span class="k">class</span> <span class="nc">Provider</span><span class="p">(</span><span class="n">ComputeNodeABC</span><span class="p">):</span>
-
     <span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;docker&quot;</span>
 
 <div class="viewcode-block" id="Provider.run_command"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.docker.Provider.Provider.run_command">[docs]</a>    <span class="k">def</span> <span class="nf">run_command</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">command</span><span class="p">):</span>
@@ -295,7 +293,7 @@
 <span class="sd">             &quot;cloud&quot;: ...,</span>
 <span class="sd">             &quot;driver&quot; ...,</span>
 <span class="sd">             }</span>
-<span class="sd">        :param entry: the entru</span>
+<span class="sd">        :param entry: the entry</span>
 <span class="sd">        :type entry: dict</span>
 <span class="sd">        :param kind: a string representing the kind</span>
 <span class="sd">        :type kind: string</span>
@@ -485,7 +483,7 @@
 
     <span class="k">def</span> <span class="nf">_check_version</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">r</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        checks if vargarnt version is up to date</span>
+<span class="sd">        checks if vagrant version is up to date</span>
 
 <span class="sd">        :return:</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -500,7 +498,8 @@
 <span class="sd">        :param name: the unique node name</span>
 <span class="sd">        :return:  The dict representing the node</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">command</span> <span class="o">=</span> <span class="n">f</span><span class="s2">&quot;docker run -v </span><span class="si">{directory}</span><span class="s2">:/share -w /share --rm -it </span><span class="si">{name}</span><span class="s2">:</span><span class="si">{version}</span><span class="s2">  /bin/bash&quot;</span>
+        <span class="n">command</span> <span class="o">=</span> <span class="n">f</span><span class="s2">&quot;docker run -v </span><span class="si">{directory}</span><span class="s2">:/share -w /share --rm &quot;</span> \
+            <span class="n">f</span><span class="s2">&quot;-it </span><span class="si">{name}</span><span class="s2">:</span><span class="si">{version}</span><span class="s2">  /bin/bash&quot;</span>
         <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="n">command</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Provider.create"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.docker.Provider.Provider.create">[docs]</a>    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
@@ -576,7 +575,7 @@
 
 <div class="viewcode-block" id="Provider.dockerfile"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.docker.Provider.Provider.dockerfile">[docs]</a>    <span class="k">def</span> <span class="nf">dockerfile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
                    <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                   <span class="n">directroy</span><span class="o">=</span><span class="s2">&quot;~/.cloudmesh/docker/&quot;</span><span class="p">,</span>
+                   <span class="n">directory</span><span class="o">=</span><span class="s2">&quot;~/.cloudmesh/docker/&quot;</span><span class="p">,</span>
                    <span class="n">os</span><span class="o">=</span><span class="s2">&quot;ubuntu&quot;</span><span class="p">,</span>
                    <span class="n">version</span><span class="o">=</span><span class="s2">&quot;18.04&quot;</span><span class="p">,</span>
                    <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
@@ -664,8 +663,8 @@
 <span class="sd">        :param name: the name of the node</span>
 <span class="sd">        :param image: the image used</span>
 <span class="sd">        :param size: the size of the image</span>
-<span class="sd">        :param timeout: a timeout in seconds that is invoked in case the image does not boot.</span>
-<span class="sd">               The default is set to 3 minutes.</span>
+<span class="sd">        :param timeout: a timeout in seconds that is invoked in case the</span>
+<span class="sd">                        image does not boot. The default is set to 3 minutes.</span>
 <span class="sd">        :param kwargs: additional arguments passed along at time of boot</span>
 <span class="sd">        :return:</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -674,7 +673,8 @@
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="c1">#</span>
-        <span class="c1"># TODO BUG: if name contains not just letters and numbers and - return error, e. undersore not allowed</span>
+        <span class="c1"># TODO BUG: if name contains not just letters and numbers and -</span>
+        <span class="c1">#  return error, e. underscore not allowed</span>
         <span class="c1">#</span>
 
         <span class="n">arg</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_specification</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>

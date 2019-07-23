@@ -242,13 +242,12 @@
             
   <h1>Source code for cloudmesh.image.command.image</h1><div class="highlight"><pre>
 <span></span><span class="kn">from</span> <span class="nn">cloudmesh.common.debug</span> <span class="k">import</span> <span class="n">VERBOSE</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.common.Printer</span> <span class="k">import</span> <span class="n">Printer</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.variables</span> <span class="k">import</span> <span class="n">Variables</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.compute.vm.Provider</span> <span class="k">import</span> <span class="n">Provider</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.management.configuration.arguments</span> <span class="k">import</span> <span class="n">Arguments</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.mongo.CmDatabase</span> <span class="k">import</span> <span class="n">CmDatabase</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.shell.command</span> <span class="k">import</span> <span class="n">PluginCommand</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.shell.command</span> <span class="k">import</span> <span class="n">command</span><span class="p">,</span> <span class="n">map_parameters</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.common.variables</span> <span class="k">import</span> <span class="n">Variables</span>
 
 
 <div class="viewcode-block" id="ImageCommand"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.image.command.image.ImageCommand">[docs]</a><span class="k">class</span> <span class="nc">ImageCommand</span><span class="p">(</span><span class="n">PluginCommand</span><span class="p">):</span>
@@ -282,7 +281,6 @@
 
         <span class="n">variables</span> <span class="o">=</span> <span class="n">Variables</span><span class="p">()</span>
 
-
         <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">list</span> <span class="ow">and</span> <span class="n">arguments</span><span class="p">[</span><span class="s2">&quot;--query&quot;</span><span class="p">]:</span>
             <span class="n">names</span> <span class="o">=</span> <span class="p">[]</span>
 
@@ -299,11 +297,9 @@
             <span class="c1"># images = provider.images(query=query)</span>
             <span class="c1">#</span>
 
-
             <span class="k">return</span> <span class="ne">NotImplementedError</span>
 
             <span class="n">provider</span><span class="o">.</span><span class="n">Print</span><span class="p">(</span><span class="n">arguments</span><span class="o">.</span><span class="n">output</span><span class="p">,</span> <span class="n">images</span><span class="p">)</span>
-
 
             <span class="k">return</span> <span class="s2">&quot;&quot;</span>
 
@@ -338,16 +334,15 @@
 
                 <span class="k">for</span> <span class="n">cloud</span> <span class="ow">in</span> <span class="n">clouds</span><span class="p">:</span>
                     <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;List </span><span class="si">{cloud}</span><span class="s2">&quot;</span><span class="p">)</span>
-                    <span class="n">p</span> <span class="o">=</span> <span class="n">Provider</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">cloud</span><span class="p">)</span>
+                    <span class="n">provider</span> <span class="o">=</span> <span class="n">Provider</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">cloud</span><span class="p">)</span>
 
                     <span class="n">db</span> <span class="o">=</span> <span class="n">CmDatabase</span><span class="p">()</span>
                     <span class="n">images</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">collection</span><span class="o">=</span><span class="n">f</span><span class="s2">&quot;</span><span class="si">{cloud}</span><span class="s2">-image&quot;</span><span class="p">)</span>
 
-                    <span class="nb">print</span> <span class="p">(</span><span class="n">images</span><span class="p">)</span>
-                    <span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="n">images</span><span class="p">)</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="n">provider</span><span class="p">)</span>
 
-                    <span class="n">p</span><span class="o">.</span><span class="n">Print</span><span class="p">(</span><span class="n">arguments</span><span class="o">.</span><span class="n">output</span><span class="p">,</span> <span class="s2">&quot;image&quot;</span><span class="p">,</span> <span class="n">images</span><span class="p">)</span>
-
+                    <span class="n">provider</span><span class="o">.</span><span class="n">Print</span><span class="p">(</span><span class="n">arguments</span><span class="o">.</span><span class="n">output</span><span class="p">,</span> <span class="s2">&quot;image&quot;</span><span class="p">,</span> <span class="n">images</span><span class="p">)</span>
 
             <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
 

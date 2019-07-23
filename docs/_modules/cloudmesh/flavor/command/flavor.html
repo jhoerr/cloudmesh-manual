@@ -242,12 +242,12 @@
             
   <h1>Source code for cloudmesh.flavor.command.flavor</h1><div class="highlight"><pre>
 <span></span><span class="kn">from</span> <span class="nn">cloudmesh.common.debug</span> <span class="k">import</span> <span class="n">VERBOSE</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.variables</span> <span class="k">import</span> <span class="n">Variables</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.compute.vm.Provider</span> <span class="k">import</span> <span class="n">Provider</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.management.configuration.arguments</span> <span class="k">import</span> <span class="n">Arguments</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.mongo.CmDatabase</span> <span class="k">import</span> <span class="n">CmDatabase</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.shell.command</span> <span class="k">import</span> <span class="n">PluginCommand</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.shell.command</span> <span class="k">import</span> <span class="n">command</span><span class="p">,</span> <span class="n">map_parameters</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.common.variables</span> <span class="k">import</span> <span class="n">Variables</span>
 
 
 <div class="viewcode-block" id="FlavorCommand"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.flavor.command.flavor.FlavorCommand">[docs]</a><span class="k">class</span> <span class="nc">FlavorCommand</span><span class="p">(</span><span class="n">PluginCommand</span><span class="p">):</span>
@@ -279,7 +279,7 @@
 <span class="sd">                cm flavor list --output=csv</span>
 <span class="sd">                cm flavor list 58c9552c-8d93-42c0-9dea-5f48d90a3188 --refresh</span>
 
-<span class="sd">                please remember that a uuid or the falvor name can be used to</span>
+<span class="sd">                please remember that a uuid or the flavor name can be used to</span>
 <span class="sd">                identify a flavor.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
@@ -320,13 +320,12 @@
 
                 <span class="k">for</span> <span class="n">cloud</span> <span class="ow">in</span> <span class="n">clouds</span><span class="p">:</span>
                     <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;List </span><span class="si">{cloud}</span><span class="s2">&quot;</span><span class="p">)</span>
-                    <span class="n">p</span> <span class="o">=</span> <span class="n">Provider</span><span class="p">(</span><span class="n">cloud</span><span class="p">)</span>
+                    <span class="n">provider</span> <span class="o">=</span> <span class="n">Provider</span><span class="p">(</span><span class="n">cloud</span><span class="p">)</span>
 
                     <span class="n">db</span> <span class="o">=</span> <span class="n">CmDatabase</span><span class="p">()</span>
                     <span class="n">flavors</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">collection</span><span class="o">=</span><span class="n">f</span><span class="s2">&quot;</span><span class="si">{cloud}</span><span class="s2">-flavor&quot;</span><span class="p">)</span>
 
-                    <span class="n">p</span><span class="o">.</span><span class="n">Print</span><span class="p">(</span><span class="n">arguments</span><span class="o">.</span><span class="n">output</span><span class="p">,</span> <span class="s2">&quot;flavor&quot;</span><span class="p">,</span> <span class="n">flavors</span><span class="p">)</span>
-
+                    <span class="n">provider</span><span class="o">.</span><span class="n">Print</span><span class="p">(</span><span class="n">arguments</span><span class="o">.</span><span class="n">output</span><span class="p">,</span> <span class="s2">&quot;flavor&quot;</span><span class="p">,</span> <span class="n">flavors</span><span class="p">)</span>
 
             <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
 

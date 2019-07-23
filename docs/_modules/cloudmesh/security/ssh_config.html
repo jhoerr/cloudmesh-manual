@@ -248,12 +248,13 @@
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">from</span> <span class="nn">textwrap</span> <span class="k">import</span> <span class="n">dedent</span>
 
-<span class="kn">from</span> <span class="nn">cloudmesh.common.console</span> <span class="k">import</span> <span class="n">Console</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.Shell</span> <span class="k">import</span> <span class="n">Shell</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.console</span> <span class="k">import</span> <span class="n">Console</span>
 
 
 <span class="c1">#</span>
-<span class="c1"># THE CONFIG FILE NEEDS TO CHANGE WE WANT SSH OR HOST OR CLUSTER TO WORK WITH THIS</span>
+<span class="c1"># THE CONFIG FILE NEEDS TO CHANGE WE WANT SSH OR HOST OR</span>
+<span class="c1"># CLUSTER TO WORK WITH THIS</span>
 <span class="c1">#</span>
 
 <span class="c1"># noinspection PyPep8Naming</span>
@@ -290,14 +291,16 @@
                     <span class="n">found_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">found_names</span></div>
 
-    <span class="c1"># noinspection PyAttributeOutsideInit</span>
+    <span class="c1"># noinspection PyAttributeOutsideInit,PyShadowingNames</span>
 <div class="viewcode-block" id="ssh_config.load"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.security.ssh_config.ssh_config.load">[docs]</a>    <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;list the hosts defined in the ssh config file&quot;&quot;&quot;</span>
         <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
             <span class="n">content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
-        <span class="n">content</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">())</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">lstrip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">content</span><span class="p">]</span>
+        <span class="n">content</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">())</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">lstrip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span>
+                   <span class="ow">in</span> <span class="n">content</span><span class="p">]</span>
 
-        <span class="c1"># removes duplicated spaces, and splits in two fields, removes leading spaces</span>
+        <span class="c1"># removes duplicated spaces, and splits in two fields,</span>
+        <span class="c1"># removes leading spaces</span>
         <span class="n">hosts</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="n">host</span> <span class="o">=</span> <span class="s2">&quot;NA&quot;</span>
         <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">content</span><span class="p">:</span>
@@ -339,6 +342,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span></div>
 
+    <span class="c1"># noinspection PyMethodMayBeStatic</span>
 <div class="viewcode-block" id="ssh_config.login"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.security.ssh_config.ssh_config.login">[docs]</a>    <span class="k">def</span> <span class="nf">login</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        login to the host defines in .ssh/config by name</span>
@@ -347,6 +351,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;ssh </span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">))</span></div>
 
+    <span class="c1"># noinspection PyMethodMayBeStatic,PyShadowingNames</span>
 <div class="viewcode-block" id="ssh_config.execute"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.security.ssh_config.ssh_config.execute">[docs]</a>    <span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">command</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        execute the command on the named host</span>
@@ -386,7 +391,8 @@
                  <span class="n">force</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
                  <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        adds a host to the config file with given parameters.  #TODO: make sure this is better documented</span>
+<span class="sd">        adds a host to the config file with given parameters.</span>
+
 <span class="sd">        :param key: the key</span>
 <span class="sd">        :param host: the host</span>
 <span class="sd">        :param username: the username</span>
@@ -400,7 +406,8 @@
             <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="n">username</span>
         <span class="p">}</span>
         <span class="k">if</span> <span class="n">verbose</span> <span class="ow">and</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">():</span>
-            <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{key}</span><span class="s2"> already in ~/.ssh/config&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">data</span><span class="p">),</span> <span class="n">traceflag</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{key}</span><span class="s2"> already in ~/.ssh/config&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">data</span><span class="p">),</span>
+                          <span class="n">traceflag</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
             <span class="k">return</span> <span class="s2">&quot;&quot;</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">entry</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>

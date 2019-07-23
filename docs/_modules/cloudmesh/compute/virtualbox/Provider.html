@@ -267,7 +267,6 @@
 
 
 <div class="viewcode-block" id="Provider"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.virtualbox.Provider.Provider">[docs]</a><span class="k">class</span> <span class="nc">Provider</span><span class="p">(</span><span class="n">ComputeNodeABC</span><span class="p">):</span>
-
     <span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;virtualbox&quot;</span>
 
 <div class="viewcode-block" id="Provider.run_command"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.virtualbox.Provider.Provider.run_command">[docs]</a>    <span class="k">def</span> <span class="nf">run_command</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">command</span><span class="p">):</span>
@@ -323,7 +322,8 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">cloudtype</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">spec</span><span class="p">[</span><span class="s2">&quot;cm&quot;</span><span class="p">][</span><span class="s2">&quot;kind&quot;</span><span class="p">]</span>
 
         <span class="k">if</span> <span class="n">platform</span><span class="o">.</span><span class="n">system</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;darwin&quot;</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">vboxmanage</span> <span class="o">=</span> <span class="s2">&quot;/Applications/VirtualBox.app/Contents/MacOS/VBoxManage&quot;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">vboxmanage</span> <span class="o">=</span> \
+                <span class="s2">&quot;/Applications/VirtualBox.app/Contents/MacOS/VBoxManage&quot;</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">vboxmanage</span> <span class="o">=</span> <span class="s2">&quot;VBoxManage&quot;</span>
 
@@ -374,7 +374,8 @@
 
             <span class="k">if</span> <span class="s2">&quot;A new version of Vagrant is available&quot;</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
                 <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
-                    <span class="s2">&quot;Vagrant is outdated. Please doenload a new version of vagrant&quot;</span><span class="p">)</span>
+                    <span class="s2">&quot;Vagrant is outdated. Please download a new version of &quot;</span>
+                    <span class="s2">&quot;vagrant&quot;</span><span class="p">)</span>
                 <span class="k">raise</span> <span class="ne">NotImplementedError</span>
         <span class="k">except</span><span class="p">:</span>
             <span class="k">pass</span>
@@ -475,7 +476,7 @@
 
     <span class="k">def</span> <span class="nf">_check_version</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">r</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        checks if vargarnt version is up to date</span>
+<span class="sd">        checks if vagrant version is up to date</span>
 
 <span class="sd">        :return:</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -528,7 +529,7 @@
         <span class="n">arg</span> <span class="o">=</span> <span class="n">dotdict</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="n">arg</span><span class="o">.</span><span class="n">cwd</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;cwd&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
 
-        <span class="c1"># get the dir based on anme</span>
+        <span class="c1"># get the dir based on name</span>
 
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ARG&quot;</span><span class="p">)</span>
         <span class="n">pprint</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span>
@@ -721,7 +722,8 @@
         <span class="n">arg</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">default</span><span class="p">[</span><span class="s2">&quot;path&quot;</span><span class="p">]</span>
         <span class="n">arg</span><span class="o">.</span><span class="n">directory</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{path}</span><span class="s2">/</span><span class="si">{name}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">arg</span><span class="p">))</span>
 
-        <span class="n">result</span> <span class="o">=</span> <span class="n">Shell</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;vbox&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;suspend&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">],</span> <span class="n">cwd</span><span class="o">=</span><span class="n">arg</span><span class="o">.</span><span class="n">directory</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">Shell</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;vbox&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;suspend&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">],</span> <span class="n">cwd</span><span class="o">=</span><span class="n">arg</span><span class="o">.</span><span class="n">directory</span><span class="p">,</span>
+                               <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">result</span></div>
 
     <span class="k">def</span> <span class="nf">resume</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -888,8 +890,8 @@
 <span class="sd">        :param name: the name of the node</span>
 <span class="sd">        :param image: the image used</span>
 <span class="sd">        :param size: the size of the image</span>
-<span class="sd">        :param timeout: a timeout in seconds that is invoked in case the image does not boot.</span>
-<span class="sd">               The default is set to 3 minutes.</span>
+<span class="sd">        :param timeout: a timeout in seconds that is invoked in case the image</span>
+<span class="sd">                        does not boot. The default is set to 3 minutes.</span>
 <span class="sd">        :param kwargs: additional arguments passed along at time of boot</span>
 <span class="sd">        :return:</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -898,7 +900,8 @@
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="c1">#</span>
-        <span class="c1"># TODO BUG: if name contains not just letters and numbers and - return error, e. undersore not allowed</span>
+        <span class="c1"># TODO BUG: if name contains not just letters and numbers and -</span>
+        <span class="c1">#  return error, e. underscore not allowed</span>
         <span class="c1">#</span>
 
         <span class="n">arg</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_specification</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>
@@ -932,12 +935,12 @@
 
 <span class="sd">        :param keywords: The keywords to narrow down the search</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">d</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="s1">&#39;key&#39;</span><span class="p">:</span> <span class="s1">&#39;+&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">keywords</span><span class="p">),</span>
-            <span class="s1">&#39;location&#39;</span><span class="p">:</span> <span class="s2">&quot;https://app.vagrantup.com/boxes/search&quot;</span>
-        <span class="p">}</span>
-        <span class="n">link</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{location}</span><span class="s2">?utf8=</span><span class="si">%E</span><span class="s2">2%9C%93&amp;sort=downloads&amp;provider=&amp;q=</span><span class="se">\&quot;</span><span class="si">{key}</span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-            <span class="o">**</span><span class="n">d</span><span class="p">)</span>
+
+        <span class="n">key</span> <span class="o">=</span> <span class="s1">&#39;+&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">keywords</span><span class="p">)</span>
+        <span class="n">location</span> <span class="o">=</span> <span class="s2">&quot;https://app.vagrantup.com/boxes/search&quot;</span>
+        <span class="n">link</span> <span class="o">=</span> \
+            <span class="n">f</span><span class="s2">&quot;</span><span class="si">{location}</span><span class="s2">?utf8=</span><span class="si">%E</span><span class="s2">2%9C%93&amp;sort=downloads&amp;provider=&amp;q=</span><span class="se">\&quot;</span><span class="si">{key}</span><span class="se">\&quot;</span><span class="s2">&quot;</span>
+
         <span class="n">webbrowser</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">link</span><span class="p">,</span> <span class="n">new</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">autoraise</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Provider.list"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.virtualbox.Provider.Provider.list">[docs]</a>    <span class="k">def</span> <span class="nf">list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">raw</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>

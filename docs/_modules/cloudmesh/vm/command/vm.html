@@ -262,7 +262,7 @@
 <span class="kn">from</span> <span class="nn">cloudmesh.common.dotdict</span> <span class="k">import</span> <span class="n">dotdict</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.management.configuration.config</span> <span class="k">import</span> <span class="n">Config</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.management.configuration.name</span> <span class="k">import</span> <span class="n">Name</span>
-
+<span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="k">import</span> <span class="n">banner</span>
 
 <div class="viewcode-block" id="VmCommand"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.vm.command.vm.VmCommand">[docs]</a><span class="k">class</span> <span class="nc">VmCommand</span><span class="p">(</span><span class="n">PluginCommand</span><span class="p">):</span>
 
@@ -296,8 +296,13 @@
 <span class="sd">                        [--flavor=FLAVOR]</span>
 <span class="sd">                        [--public]</span>
 <span class="sd">                        [--secgroup=SECGROUPs]</span>
+<span class="sd">                        [--group=GROUPs]</span>
 <span class="sd">                        [--key=KEY]</span>
 <span class="sd">                        [--dryrun]</span>
+<span class="sd">                        [-v]</span>
+<span class="sd">                vm meta list [NAME]</span>
+<span class="sd">                vm meta set [NAME] KEY=VALUE...</span>
+<span class="sd">                vm meta delete [NAME] KEY...</span>
 <span class="sd">                vm run [--name=VMNAMES] [--username=USERNAME] [--dryrun] COMMAND</span>
 <span class="sd">                vm script [--name=NAMES] [--username=USERNAME] [--dryrun] SCRIPT</span>
 <span class="sd">                vm ip assign [NAMES]</span>
@@ -336,6 +341,7 @@
 <span class="sd">                OLDNAMES       Old names of the VM while renaming.</span>
 
 <span class="sd">            Options:</span>
+<span class="sd">                -v             verbose, prints the dict at the end</span>
 <span class="sd">                --output=OUTPUT   the output format [default: table]</span>
 <span class="sd">                -H --modify-knownhosts  Do not modify ~/.ssh/known_hosts file</span>
 <span class="sd">                                      when ssh&#39;ing into a machine</span>
@@ -439,6 +445,7 @@
                        <span class="s1">&#39;dryrun&#39;</span><span class="p">,</span>
                        <span class="s1">&#39;flavor&#39;</span><span class="p">,</span>
                        <span class="s1">&#39;force&#39;</span><span class="p">,</span>
+                       <span class="s1">&#39;group&#39;</span>
                        <span class="s1">&#39;output&#39;</span><span class="p">,</span>
                        <span class="s1">&#39;group&#39;</span><span class="p">,</span>
                        <span class="s1">&#39;image&#39;</span><span class="p">,</span>
@@ -461,11 +468,80 @@
         <span class="n">database</span> <span class="o">=</span> <span class="n">CmDatabase</span><span class="p">()</span>
 
 
-        <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">list</span> <span class="ow">and</span> <span class="n">arguments</span><span class="o">.</span><span class="n">refresh</span><span class="p">:</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">arguments</span><span class="o">.</span><span class="n">meta</span> <span class="ow">and</span> <span class="n">arguments</span><span class="o">.</span><span class="n">list</span><span class="p">):</span>
+
+            <span class="n">name</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">NAME</span>
+            <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">NAME</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">name</span> <span class="o">=</span> <span class="n">variables</span><span class="p">[</span><span class="s1">&#39;vm&#39;</span><span class="p">]</span>
+                <span class="k">if</span> <span class="n">name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;No vm specified&quot;</span><span class="p">)</span>
+
+            <span class="n">cloud</span> <span class="o">=</span> <span class="s2">&quot;chameleon&quot;</span>
+            <span class="c1"># cloud = Parameter.find(arguments, variables)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;vm metadata for </span><span class="si">{name}</span><span class="s2"> on </span><span class="si">{cloud}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+            <span class="n">provider</span> <span class="o">=</span> <span class="n">Provider</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">cloud</span><span class="p">)</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="n">provider</span><span class="o">.</span><span class="n">get_server_metadata</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+            <span class="nb">print</span> <span class="p">(</span><span class="n">r</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">meta</span> <span class="ow">and</span> <span class="n">arguments</span><span class="o">.</span><span class="n">set</span><span class="p">:</span>
+
+            <span class="n">VERBOSE</span><span class="p">(</span><span class="n">arguments</span><span class="p">)</span>
+            <span class="n">metadata</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="n">pairs</span> <span class="o">=</span> <span class="n">arguments</span><span class="p">[</span><span class="s1">&#39;KEY=VALUE&#39;</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">pair</span> <span class="ow">in</span> <span class="n">pairs</span><span class="p">:</span>
+                <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="n">pair</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+                <span class="n">metadata</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+
+            <span class="n">name</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">NAME</span>
+            <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">NAME</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">name</span><span class="o">=</span><span class="n">variables</span><span class="p">[</span><span class="s1">&#39;vm&#39;</span><span class="p">]</span>
+                <span class="k">if</span> <span class="n">name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;No vm specified&quot;</span><span class="p">)</span>
+
+            <span class="n">cloud</span> <span class="o">=</span> <span class="s2">&quot;chameleon&quot;</span>
+            <span class="c1">#cloud = Parameter.find(arguments, variables)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;cloud </span><span class="si">{cloud}</span><span class="s2"> </span><span class="si">{name}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+            <span class="n">provider</span> <span class="o">=</span> <span class="n">Provider</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">cloud</span><span class="p">)</span>
+            <span class="n">provider</span><span class="o">.</span><span class="n">set_server_metadata</span><span class="p">(</span><span class="n">name</span><span class="p">,</span>  <span class="o">**</span><span class="n">metadata</span><span class="p">)</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="n">provider</span><span class="o">.</span><span class="n">get_server_metadata</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+
+            <span class="n">pprint</span> <span class="p">(</span><span class="n">r</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">meta</span> <span class="ow">and</span> <span class="n">arguments</span><span class="o">.</span><span class="n">delete</span><span class="p">:</span>
+
+            <span class="n">VERBOSE</span><span class="p">(</span><span class="n">arguments</span><span class="p">)</span>
+            <span class="n">metadata</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="n">keys</span> <span class="o">=</span> <span class="n">arguments</span><span class="p">[</span><span class="s1">&#39;KEY&#39;</span><span class="p">]</span>
+
+            <span class="n">name</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">NAME</span>
+            <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">NAME</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">name</span><span class="o">=</span><span class="n">variables</span><span class="p">[</span><span class="s1">&#39;vm&#39;</span><span class="p">]</span>
+                <span class="k">if</span> <span class="n">name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;No vm specified&quot;</span><span class="p">)</span>
+
+            <span class="n">cloud</span> <span class="o">=</span> <span class="s2">&quot;chameleon&quot;</span>
+            <span class="c1">#cloud = Parameter.find(arguments, variables)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;cloud </span><span class="si">{cloud}</span><span class="s2"> </span><span class="si">{name}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+            <span class="n">provider</span> <span class="o">=</span> <span class="n">Provider</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">cloud</span><span class="p">)</span>
+
+            <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">keys</span><span class="p">:</span>
+                <span class="n">provider</span><span class="o">.</span><span class="n">delete_server_metadata</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+
+
+            <span class="n">r</span> <span class="o">=</span> <span class="n">provider</span><span class="o">.</span><span class="n">get_server_metadata</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+
+            <span class="n">pprint</span> <span class="p">(</span><span class="n">r</span><span class="p">)</span>
+
+
+        <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">list</span> <span class="ow">and</span> <span class="n">arguments</span><span class="o">.</span><span class="n">refresh</span><span class="p">:</span>
 
             <span class="n">names</span> <span class="o">=</span> <span class="p">[]</span>
 
-            <span class="n">clouds</span><span class="p">,</span> <span class="n">names</span> <span class="o">=</span> <span class="n">Arguments</span><span class="o">.</span><span class="n">get_cloud_and_names</span><span class="p">(</span><span class="s2">&quot;list&quot;</span><span class="p">,</span> <span class="n">arguments</span><span class="p">,</span>
+            <span class="n">clouds</span><span class="p">,</span> <span class="n">names</span> <span class="o">=</span> <span class="n">Arguments</span><span class="o">.</span><span class="n">get_cloud_and_names</span><span class="p">(</span><span class="s2">&quot;list&quot;</span><span class="p">,</span>
+                                                          <span class="n">arguments</span><span class="p">,</span>
                                                           <span class="n">variables</span><span class="p">)</span>
 
             <span class="k">for</span> <span class="n">cloud</span> <span class="ow">in</span> <span class="n">clouds</span><span class="p">:</span>
@@ -724,6 +800,7 @@
 <span class="sd">                        [--public]</span>
 <span class="sd">                        [--secgroup=SECGROUP]</span>
 <span class="sd">                        [--key=KEY]</span>
+<span class="sd">                        [--group=GROUP]</span>
 <span class="sd">                        [--dryrun]</span>
 <span class="sd">            &quot;&quot;&quot;</span>
             <span class="c1"># for name in names:</span>
@@ -738,10 +815,15 @@
                                    <span class="n">arguments</span><span class="p">,</span>
                                    <span class="n">variables</span><span class="o">.</span><span class="n">dict</span><span class="p">())</span>
             <span class="n">defaults</span> <span class="o">=</span> <span class="n">Config</span><span class="p">()[</span><span class="n">f</span><span class="s2">&quot;cloudmesh.cloud.</span><span class="si">{cloud}</span><span class="s2">.default&quot;</span><span class="p">]</span>
+            <span class="n">groups</span> <span class="o">=</span> <span class="n">Parameter</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;group&quot;</span><span class="p">,</span>
+                                   <span class="n">arguments</span><span class="p">,</span>
+                                   <span class="n">variables</span><span class="o">.</span><span class="n">dict</span><span class="p">(),</span>
+                                    <span class="p">{</span><span class="s2">&quot;group&quot;</span><span class="p">:</span> <span class="s2">&quot;default&quot;</span><span class="p">})</span>
 
 
             <span class="n">parameters</span> <span class="o">=</span> <span class="n">dotdict</span><span class="p">()</span>
             <span class="n">parameters</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">name</span>
+            <span class="n">parameters</span><span class="o">.</span><span class="n">group</span> <span class="o">=</span> <span class="n">groups</span>
             <span class="k">for</span> <span class="n">attribute</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;image&quot;</span><span class="p">,</span> <span class="s2">&quot;flavor&quot;</span><span class="p">,</span> <span class="s2">&quot;key&quot;</span><span class="p">,</span> <span class="s2">&quot;secgroup&quot;</span><span class="p">]:</span>
                 <span class="n">parameters</span><span class="p">[</span><span class="n">attribute</span><span class="p">]</span> <span class="o">=</span> <span class="n">Parameter</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">attribute</span><span class="p">,</span>
                                    <span class="n">arguments</span><span class="p">,</span>
@@ -750,39 +832,18 @@
 
             <span class="n">provider</span> <span class="o">=</span> <span class="n">Provider</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">cloud</span><span class="p">)</span>
 
-
-            <span class="c1">#pprint (parameters)</span>
-            <span class="c1">#if parameters.key is None:</span>
-            <span class="c1">#   key =  parameters.key or variables[&#39;key&#39;]</span>
-            <span class="c1">#   if variables[&#39;key&#39;] == &quot;&quot;:</span>
-            <span class="c1">#       key = None</span>
-
-
-            <span class="c1"># parameters.public = None</span>
-            <span class="c1"># if</span>
             <span class="n">parameters</span><span class="o">.</span><span class="n">secgroup</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">secgroup</span> <span class="ow">or</span> <span class="s2">&quot;default&quot;</span>
 
-
-            <span class="c1">#public = arguments[&#39;--public&#39;]</span>
-            <span class="c1">#if public:</span>
-            <span class="c1">#    params[&#39;ex_assign_public_ip&#39;] = public</span>
-
-            <span class="c1">#secgroup = Parameter.expand(arguments[&#39;--secgroup&#39;])</span>
-            <span class="c1">#if secgroup:</span>
-            <span class="c1">#    params[&#39;ex_security_groups&#39;] = secgroup</span>
-
-            <span class="c1">#key = arguments[&#39;--key&#39;]</span>
-            <span class="c1">#if key:</span>
-            <span class="c1">#    params[&#39;ex_keyname&#39;] = key</span>
-
-
+            <span class="c1"># pprint(parameters)</span>
 
             <span class="k">if</span> <span class="n">arguments</span><span class="p">[</span><span class="s1">&#39;--dryrun&#39;</span><span class="p">]:</span>
-                <span class="n">Console</span><span class="o">.</span><span class="n">ok</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Dryrun stop: &quot;</span>
-                           <span class="n">f</span><span class="s2">&quot;        </span><span class="si">{cloud}</span><span class="se">\n</span><span class="s2">&quot;</span>
-                           <span class="n">f</span><span class="s2">&quot;        </span><span class="si">{names}</span><span class="s2">&quot;</span>
-                           <span class="n">f</span><span class="s2">&quot;        </span><span class="si">{provider}</span><span class="s2">&quot;</span><span class="p">,</span>
-                           <span class="n">f</span><span class="s2">&quot;        </span><span class="si">{parameters}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="n">Console</span><span class="o">.</span><span class="n">ok</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Dryrun stop: </span><span class="se">\n</span><span class="s2">&quot;</span>
+                           <span class="n">f</span><span class="s2">&quot;        cloud=</span><span class="si">{cloud}</span><span class="se">\n</span><span class="s2">&quot;</span>
+                           <span class="n">f</span><span class="s2">&quot;        names=</span><span class="si">{names}</span><span class="se">\n</span><span class="s2">&quot;</span>
+                           <span class="n">f</span><span class="s2">&quot;        provide=</span><span class="si">{provider}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">attribute</span> <span class="ow">in</span> <span class="n">parameters</span><span class="p">:</span>
+                    <span class="n">value</span> <span class="o">=</span> <span class="n">parameters</span><span class="p">[</span><span class="n">attribute</span><span class="p">]</span>
+                    <span class="n">Console</span><span class="o">.</span><span class="n">ok</span> <span class="p">(</span><span class="n">f</span><span class="s2">&quot;        </span><span class="si">{attribute}</span><span class="s2">=</span><span class="si">{value}</span><span class="s2">&quot;</span><span class="p">)</span>
 
 
 
@@ -802,6 +863,9 @@
                         <span class="n">parameters</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
                     <span class="n">vms</span> <span class="o">=</span> <span class="n">provider</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="o">**</span><span class="n">parameters</span><span class="p">)</span>
                     <span class="n">variables</span><span class="p">[</span><span class="s1">&#39;vm&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">arguments</span><span class="p">[</span><span class="s2">&quot;-v&quot;</span><span class="p">]:</span>
+                        <span class="n">banner</span><span class="p">(</span><span class="s2">&quot;Details&quot;</span><span class="p">)</span>
+                        <span class="n">pprint</span><span class="p">(</span><span class="n">vms</span><span class="p">)</span>
 
                 <span class="c1"># provider.Print(arguments.output, &quot;vm&quot;, vms)</span>
 

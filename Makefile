@@ -12,6 +12,43 @@ endef
 all:
 	$(call banner, "use: make doc")
 
+dest/gitinspector/gitinspector.py:
+	mkdir -p dest
+	cd dest; git clone https://github.com/ejwa/gitinspector.git
+
+inspect: dest/gitinspector/gitinspector.py
+	mkdir -p docs-source/source/inspector
+	python dest/gitinspector/gitinspector.py \
+	   https://github.com/cloudmesh/cloudmesh-cloud \
+	   --grading=True \
+	   --metrics=False \
+	   --hard=True \
+	   --format=htmlembedded > docs-source/source/inspector/cloudmesh-cloud.html
+	python dest/gitinspector/gitinspector.py \
+	   https://github.com/cloudmesh/cloudmesh-cmd5 \
+	   --grading=True \
+	   --metrics=False \
+	   --hard=True \
+	   --format=htmlembedded > docs-source/source/inspector/cloudmesh-cmd5.html
+	python dest/gitinspector/gitinspector.py \
+	   https://github.com/cloudmesh/cloudmesh-common \
+	   --grading=True \
+	   --metrics=False \
+	   --hard=True \
+	   --format=htmlembedded > docs-source/source/inspector/cloudmesh-common.html
+	python dest/gitinspector/gitinspector.py \
+	   https://github.com/cloudmesh/cloudmesh-sys \
+	   --grading=True \
+	   --metrics=False \
+	   --hard=True \
+	   --format=htmlembedded > docs-source/source/inspector/cloudmesh-sys.html
+	python dest/gitinspector/gitinspector.py \
+	   https://github.com/cloudmesh/cloudmesh-manual \
+	   --grading=True \
+	   --metrics=False \
+	   --hard=True \
+	   --format=htmlembedded > docs-source/source/inspector/cloudmesh-manual.html
+	cp -r docs-source/source/inspector docs/inspector
 
 contrib:
 	git config --global mailmap.file .mailmap

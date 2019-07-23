@@ -245,9 +245,9 @@
 <span class="kn">from</span> <span class="nn">cloudmesh.shell.command</span> <span class="k">import</span> <span class="n">command</span>
 
 
-<div class="viewcode-block" id="WorkflowCommand"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.workflow.command.workflow.WorkflowCommand">[docs]</a><span class="k">class</span> <span class="nc">WorkflowCommand</span><span class="p">(</span><span class="n">PluginCommand</span><span class="p">):</span>
+<span class="c1"># see https://github.com/cloudmesh/client/blob/master/cloudmesh_client/shell/plugins/WorkflowCommand.py</span>
 
-    <span class="c1"># see https://github.com/cloudmesh/client/blob/master/cloudmesh_client/shell/plugins/WorkflowCommand.py</span>
+<div class="viewcode-block" id="WorkflowCommand"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.workflow.command.workflow.WorkflowCommand">[docs]</a><span class="k">class</span> <span class="nc">WorkflowCommand</span><span class="p">(</span><span class="n">PluginCommand</span><span class="p">):</span>
 
     <span class="c1"># noinspection PyUnusedLocal</span>
     <span class="nd">@command</span>
@@ -266,7 +266,8 @@
 <span class="sd">                workflow run NAME</span>
 <span class="sd">                workflow service start</span>
 <span class="sd">                workflow service stop</span>
-<span class="sd">                This lists out the workflows present for a cloud</span>
+
+<span class="sd">            This lists out the workflows present for a cloud</span>
 
 <span class="sd">            Options:</span>
 <span class="sd">               --output=OUTPUT  the output format [default: table]</span>

@@ -325,10 +325,17 @@
         <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
 
 <div class="viewcode-block" id="ComputeNodeABC.create"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.create">[docs]</a>    <span class="nd">@abstractmethod</span>
-    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">360</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+               <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+               <span class="n">image</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+               <span class="n">size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+               <span class="n">timeout</span><span class="o">=</span><span class="mi">360</span><span class="p">,</span>
+               <span class="n">group</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+               <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        creates a named node</span>
 
+<span class="sd">        :param group: a list of groups the vm belongs to</span>
 <span class="sd">        :param name: the name of the node</span>
 <span class="sd">        :param image: the image used</span>
 <span class="sd">        :param size: the size of the image</span>
@@ -339,6 +346,37 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        create one node</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
+
+<div class="viewcode-block" id="ComputeNodeABC.set_server_metadata"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.set_server_metadata">[docs]</a>    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">set_server_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="o">**</span><span class="n">metadata</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        sets the metadata for the server</span>
+
+<span class="sd">        :param name: name of the fm</span>
+<span class="sd">        :param metadata: the metadata</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
+
+<div class="viewcode-block" id="ComputeNodeABC.get_server_metadata"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.get_server_metadata">[docs]</a>    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">get_server_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        gets the metadata for the server</span>
+
+<span class="sd">        :param name: name of the fm</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
+
+<div class="viewcode-block" id="ComputeNodeABC.delete_server_metadata"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.delete_server_metadata">[docs]</a>    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">delete_server_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        gets the metadata for the server</span>
+
+<span class="sd">        :param name: name of the fm</span>
+<span class="sd">        :return:</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
 
@@ -419,7 +457,16 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
 
-<div class="viewcode-block" id="ComputeNodeABC.attach_publicip"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.attach_publicip">[docs]</a>    <span class="k">def</span> <span class="nf">attach_publicip</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="ComputeNodeABC.attach_public_ip"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.attach_public_ip">[docs]</a>    <span class="k">def</span> <span class="nf">attach_public_ip</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ip</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        adds a public ip to the named vm</span>
+
+<span class="sd">        :param name: Name of the vm</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
+
+<div class="viewcode-block" id="ComputeNodeABC.dettach_public_ip"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.dettach_public_ip">[docs]</a>    <span class="k">def</span> <span class="nf">dettach_public_ip</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ip</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        adds a public ip to the named vm</span>
 
@@ -450,13 +497,23 @@
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Creates a new public IP address to use</span>
 <span class="sd">        :return: The ip address information</span>
-<span class="sd">        &quot;&quot;&quot;</span></div>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
 
 <div class="viewcode-block" id="ComputeNodeABC.find_available_public_ip"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.find_available_public_ip">[docs]</a>    <span class="k">def</span> <span class="nf">find_available_public_ip</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns a single public available ip address.</span>
 <span class="sd">        :return: The ip</span>
-<span class="sd">        &quot;&quot;&quot;</span></div></div>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
+
+<div class="viewcode-block" id="ComputeNodeABC.get_public_ip"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.get_public_ip">[docs]</a>    <span class="k">def</span> <span class="nf">get_public_ip</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        returns the public ip</span>
+<span class="sd">        :param name: name of the server</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div></div>
 </pre></div>
 
            </div>

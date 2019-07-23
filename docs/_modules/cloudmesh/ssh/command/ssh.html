@@ -244,6 +244,7 @@
 <span></span><span class="kn">import</span> <span class="nn">os</span>
 
 <span class="kn">from</span> <span class="nn">cloudmesh.common.Printer</span> <span class="k">import</span> <span class="n">Printer</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.console</span> <span class="k">import</span> <span class="n">Console</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.parameter</span> <span class="k">import</span> <span class="n">Parameter</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.ssh.ssh_config</span> <span class="k">import</span> <span class="n">ssh_config</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="k">import</span> <span class="n">path_expand</span>
@@ -252,11 +253,13 @@
 <span class="kn">from</span> <span class="nn">cloudmesh.mongo.CmDatabase</span> <span class="k">import</span> <span class="n">CmDatabase</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.shell.command</span> <span class="k">import</span> <span class="n">PluginCommand</span><span class="p">,</span> <span class="n">map_parameters</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.shell.command</span> <span class="k">import</span> <span class="n">command</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.common.console</span> <span class="k">import</span> <span class="n">Console</span>
+
+
+<span class="c1"># see https://github.com/cloudmesh/client/blob/master/cloudmesh_client/shell/plugins/SecureShellCommand.py</span>
+
 
 <div class="viewcode-block" id="SshCommand"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.ssh.command.ssh.SshCommand">[docs]</a><span class="k">class</span> <span class="nc">SshCommand</span><span class="p">(</span><span class="n">PluginCommand</span><span class="p">):</span>
 
-    <span class="c1"># see https://github.com/cloudmesh/client/blob/master/cloudmesh_client/shell/plugins/SecureShellCommand.py</span>
     <span class="c1"># noinspection PyUnusedLocal</span>
     <span class="nd">@command</span>
     <span class="k">def</span> <span class="nf">do_ssh</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">arguments</span><span class="p">):</span>
@@ -293,7 +296,7 @@
 
 <span class="sd">            Description:</span>
 <span class="sd">                ssh config list</span>
-<span class="sd">                    lists the hostsnames  that are present in the</span>
+<span class="sd">                    lists the hostsnames that are present in the</span>
 <span class="sd">                    ~/.ssh/config file</span>
 
 <span class="sd">                ssh config add NAME IP [USER] [KEY]</span>
@@ -314,7 +317,7 @@
 
 <span class="sd">                 ssh config add blue 192.168.1.245 blue</span>
 
-<span class="sd">                     Adds the folloewing to the !/.ssh/congig file</span>
+<span class="sd">                     Adds the following to the !/.ssh/config file</span>
 
 <span class="sd">                     Host blue</span>
 <span class="sd">                          HostName 192.168.1.245</span>
@@ -357,7 +360,6 @@
 
             <span class="n">ip</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">IP</span>
 
-
             <span class="n">hosts</span> <span class="o">=</span> <span class="n">ssh_config</span><span class="p">()</span>
 
             <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">hosts</span><span class="o">.</span><span class="n">hosts</span><span class="p">:</span>
@@ -369,7 +371,6 @@
                 <span class="n">hostname</span><span class="o">=</span><span class="n">ip</span><span class="p">,</span>
                 <span class="n">identity</span><span class="o">=</span><span class="n">key</span><span class="p">,</span>
                 <span class="n">user</span><span class="o">=</span><span class="n">user</span><span class="p">)</span>
-
 
         <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">config</span> <span class="ow">and</span> <span class="n">arguments</span><span class="o">.</span><span class="n">delete</span><span class="p">:</span>
             <span class="c1"># ssh config delete NAME</span>

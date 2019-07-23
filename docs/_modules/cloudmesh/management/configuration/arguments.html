@@ -244,9 +244,27 @@
 <span></span><span class="kn">from</span> <span class="nn">cloudmesh.common.parameter</span> <span class="k">import</span> <span class="n">Parameter</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.console</span> <span class="k">import</span> <span class="n">Console</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.management.configuration.config</span> <span class="k">import</span> <span class="n">Active</span>
-
+<span class="kn">from</span> <span class="nn">cloudmesh.common.dotdict</span> <span class="k">import</span> <span class="n">dotdict</span>
 
 <div class="viewcode-block" id="Arguments"><a class="viewcode-back" href="../../../../code/management.html#cloudmesh.management.configuration.arguments.Arguments">[docs]</a><span class="k">class</span> <span class="nc">Arguments</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+<div class="viewcode-block" id="Arguments.expand"><a class="viewcode-back" href="../../../../code/management.html#cloudmesh.management.configuration.arguments.Arguments.expand">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">expand</span><span class="p">(</span><span class="n">arguments</span><span class="p">,</span> <span class="o">*</span><span class="n">keys</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        expands all entries in arguments identified by keys</span>
+
+<span class="sd">        :param arguments: list of arguments</span>
+<span class="sd">        :param keys: the keys that locate entries in arguments that are expanded</span>
+<span class="sd">        :return: the expanded arguments. it is now a dict of lists</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">keys</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">arguments</span><span class="p">:</span>
+                <span class="n">entry</span> <span class="o">=</span> <span class="n">arguments</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+                <span class="k">if</span> <span class="n">entry</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span> <span class="o">==</span> <span class="nb">str</span><span class="p">:</span>
+                        <span class="n">entry</span> <span class="o">=</span> <span class="n">Parameter</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">arguments</span></div>
 
 <div class="viewcode-block" id="Arguments.get_cloud_and_names"><a class="viewcode-back" href="../../../../code/management.html#cloudmesh.management.configuration.arguments.Arguments.get_cloud_and_names">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">get_cloud_and_names</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">arguments</span><span class="p">,</span> <span class="n">variables</span><span class="p">):</span>

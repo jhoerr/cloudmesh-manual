@@ -247,9 +247,9 @@
 <span class="kn">from</span> <span class="nn">pathlib</span> <span class="k">import</span> <span class="n">Path</span>
 <span class="kn">from</span> <span class="nn">pprint</span> <span class="k">import</span> <span class="n">pprint</span>
 
-<span class="kn">from</span> <span class="nn">cloudmesh.common.debug</span> <span class="k">import</span> <span class="n">VERBOSE</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.abstractclass.ComputeNodeABC</span> <span class="k">import</span> <span class="n">ComputeNodeABC</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.console</span> <span class="k">import</span> <span class="n">Console</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.debug</span> <span class="k">import</span> <span class="n">VERBOSE</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="k">import</span> <span class="n">HEADING</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="k">import</span> <span class="n">path_expand</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.management.configuration.config</span> <span class="k">import</span> <span class="n">Config</span>
@@ -328,8 +328,9 @@
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">configuration</span><span class="o">=</span><span class="s2">&quot;~/.cloudmesh/cloudmesh4.yaml&quot;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Initializes the provider. The default parameters are read from the configutation</span>
-<span class="sd">        file that is defined in yaml format.</span>
+<span class="sd">        Initializes the provider. The default parameters are read from the</span>
+<span class="sd">        configuration file that is defined in yaml format.</span>
+
 <span class="sd">        :param name: The name of the provider as defined in the yaml file</span>
 <span class="sd">        :param configuration: The location of the yaml configuration file</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -356,13 +357,14 @@
                 <span class="k">if</span> <span class="n">cred</span><span class="p">[</span><span class="s2">&quot;OS_PASSWORD&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;TBD&#39;</span><span class="p">:</span>
                     <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;The password TBD is not allowed&quot;</span><span class="p">)</span>
 
-                <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="p">(</span><span class="n">cred</span><span class="p">[</span><span class="s2">&quot;OS_USERNAME&quot;</span><span class="p">],</span>
-                                            <span class="n">cred</span><span class="p">[</span><span class="s2">&quot;OS_PASSWORD&quot;</span><span class="p">],</span>
-                                            <span class="n">ex_force_auth_url</span><span class="o">=</span><span class="n">cred</span><span class="p">[</span>
-                                                <span class="s1">&#39;OS_AUTH_URL&#39;</span><span class="p">],</span>
-                                            <span class="n">ex_force_auth_version</span><span class="o">=</span><span class="s1">&#39;2.0_password&#39;</span><span class="p">,</span>
-                                            <span class="n">ex_tenant_name</span><span class="o">=</span><span class="n">cred</span><span class="p">[</span>
-                                                <span class="s1">&#39;OS_TENANT_NAME&#39;</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="p">(</span>
+                    <span class="n">cred</span><span class="p">[</span><span class="s2">&quot;OS_USERNAME&quot;</span><span class="p">],</span>
+                    <span class="n">cred</span><span class="p">[</span><span class="s2">&quot;OS_PASSWORD&quot;</span><span class="p">],</span>
+                    <span class="n">ex_force_auth_url</span><span class="o">=</span><span class="n">cred</span><span class="p">[</span>
+                        <span class="s1">&#39;OS_AUTH_URL&#39;</span><span class="p">],</span>
+                    <span class="n">ex_force_auth_version</span><span class="o">=</span><span class="s1">&#39;2.0_password&#39;</span><span class="p">,</span>
+                    <span class="n">ex_tenant_name</span><span class="o">=</span><span class="n">cred</span><span class="p">[</span>
+                        <span class="s1">&#39;OS_TENANT_NAME&#39;</span><span class="p">])</span>
             <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudtype</span> <span class="o">==</span> <span class="s1">&#39;azure_arm&#39;</span><span class="p">:</span>
 
                 <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="p">(</span>
@@ -393,14 +395,17 @@
         <span class="c1"># self.default_size = deft[&quot;size&quot;]</span>
         <span class="c1"># self.default.location = cred[&quot;datacenter&quot;]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">public_key_path</span> <span class="o">=</span> <span class="n">conf</span><span class="p">[</span><span class="s2">&quot;profile&quot;</span><span class="p">][</span><span class="s2">&quot;publickey&quot;</span><span class="p">]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">key_path</span> <span class="o">=</span> <span class="n">path_expand</span><span class="p">(</span><span class="n">Config</span><span class="p">()[</span><span class="s2">&quot;cloudmesh&quot;</span><span class="p">][</span><span class="s2">&quot;profile&quot;</span><span class="p">][</span><span class="s2">&quot;publickey&quot;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">key_path</span> <span class="o">=</span> <span class="n">path_expand</span><span class="p">(</span>
+            <span class="n">Config</span><span class="p">()[</span><span class="s2">&quot;cloudmesh&quot;</span><span class="p">][</span><span class="s2">&quot;profile&quot;</span><span class="p">][</span><span class="s2">&quot;publickey&quot;</span><span class="p">])</span>
         <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">key_path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">key_val</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 
 <div class="viewcode-block" id="Provider.update_dict"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.libcloud.Provider.Provider.update_dict">[docs]</a>    <span class="k">def</span> <span class="nf">update_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">elements</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Libcloud returns an object or list of objects With the dict method</span>
-<span class="sd">        this object is converted to a dict. Typically this method is used internally.</span>
+<span class="sd">        this object is converted to a dict. Typically this method is used</span>
+<span class="sd">        internally.</span>
+
 <span class="sd">        :param elements: the elements</span>
 <span class="sd">        :param kind: Kind is image, flavor, or node</span>
 <span class="sd">        :return:</span>
@@ -464,7 +469,8 @@
 <span class="sd">        :param name: The name to be found</span>
 <span class="sd">        :param: If raw is True, elements is a libcloud object.</span>
 <span class="sd">                Otherwise elements is a dict</span>
-<span class="sd">        :param raw: if raw is used the return from the driver is used and not a cleaned dict, not implemented</span>
+<span class="sd">        :param raw: if raw is used the return from the driver is used and not</span>
+<span class="sd">                    a cleaned dict, not implemented</span>
 <span class="sd">        :return:</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">elements</span><span class="p">:</span>
@@ -476,7 +482,7 @@
 <div class="viewcode-block" id="Provider.keys"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.libcloud.Provider.Provider.keys">[docs]</a>    <span class="k">def</span> <span class="nf">keys</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">raw</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Lists the keys on the cloud</span>
-<span class="sd">        :param raw: If raw is set to True the lib cloud object is returened</span>
+<span class="sd">        :param raw: If raw is set to True the lib cloud object is returned</span>
 <span class="sd">                    otherwise a dict is returened.</span>
 <span class="sd">        :return: dict or libcloud object</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -523,7 +529,8 @@
             <span class="n">secgroups</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">list_secgroups</span><span class="p">(</span><span class="n">raw</span><span class="o">=</span><span class="n">raw</span><span class="p">)</span>
             <span class="n">thegroup</span> <span class="o">=</span> <span class="kc">None</span>
             <span class="k">if</span> <span class="n">raw</span><span class="p">:</span>
-                <span class="c1"># Theoretically it&#39;s possible to have secgroups with the same name,</span>
+                <span class="c1"># Theoretically it&#39;s possible to have secgroups with the same</span>
+                <span class="c1"># name,</span>
                 <span class="c1"># in this case, we list rules for the first one only.</span>
                 <span class="c1"># In reality this don&#39;t seem like a good practice so we assume</span>
                 <span class="c1"># this situation MOST LIKELY does not occur.</span>
@@ -552,8 +559,9 @@
 
 <div class="viewcode-block" id="Provider.add_secgroup"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.libcloud.Provider.Provider.add_secgroup">[docs]</a>    <span class="k">def</span> <span class="nf">add_secgroup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">secgroupname</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="p">:</span>
-            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">ex_create_security_group</span><span class="p">(</span><span class="n">secgroupname</span><span class="p">,</span>
-                                                          <span class="n">description</span><span class="o">=</span><span class="n">description</span><span class="p">)</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">ex_create_security_group</span><span class="p">(</span>
+                <span class="n">secgroupname</span><span class="p">,</span>
+                <span class="n">description</span><span class="o">=</span><span class="n">description</span><span class="p">)</span>
         <span class="k">return</span> <span class="kc">None</span></div>
 
 <div class="viewcode-block" id="Provider.remove_secgroup"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.libcloud.Provider.Provider.remove_secgroup">[docs]</a>    <span class="k">def</span> <span class="nf">remove_secgroup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">secgroupname</span><span class="p">):</span>
@@ -584,16 +592,13 @@
                 <span class="k">if</span> <span class="n">secgroup</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">secgroupname</span><span class="p">:</span>
                     <span class="c1"># supporting multiple rules at once</span>
                     <span class="k">for</span> <span class="n">rule</span> <span class="ow">in</span> <span class="n">newrules</span><span class="p">:</span>
-                        <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">ex_create_security_group_rule</span><span class="p">(</span><span class="n">secgroup</span><span class="p">,</span>
-                                                                    <span class="n">rule</span><span class="p">[</span>
-                                                                        <span class="s2">&quot;ip_protocol&quot;</span><span class="p">],</span>
-                                                                    <span class="n">rule</span><span class="p">[</span>
-                                                                        <span class="s2">&quot;from_port&quot;</span><span class="p">],</span>
-                                                                    <span class="n">rule</span><span class="p">[</span>
-                                                                        <span class="s2">&quot;to_port&quot;</span><span class="p">],</span>
-                                                                    <span class="n">cidr</span><span class="o">=</span><span class="n">rule</span><span class="p">[</span>
-                                                                        <span class="s2">&quot;ip_range&quot;</span><span class="p">]</span>
-                                                                    <span class="p">)</span></div>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">ex_create_security_group_rule</span><span class="p">(</span>
+                            <span class="n">secgroup</span><span class="p">,</span>
+                            <span class="n">rule</span><span class="p">[</span><span class="s2">&quot;ip_protocol&quot;</span><span class="p">],</span>
+                            <span class="n">rule</span><span class="p">[</span><span class="s2">&quot;from_port&quot;</span><span class="p">],</span>
+                            <span class="n">rule</span><span class="p">[</span><span class="s2">&quot;to_port&quot;</span><span class="p">],</span>
+                            <span class="n">cidr</span><span class="o">=</span><span class="n">rule</span><span class="p">[</span><span class="s2">&quot;ip_range&quot;</span><span class="p">]</span>
+                        <span class="p">)</span></div>
 
 <div class="viewcode-block" id="Provider.remove_rules_from_secgroup"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.libcloud.Provider.Provider.remove_rules_from_secgroup">[docs]</a>    <span class="k">def</span> <span class="nf">remove_rules_from_secgroup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">secgroupname</span><span class="p">,</span> <span class="n">rules</span><span class="p">):</span>
         <span class="n">oldrules</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">list_secgroup_rules</span><span class="p">(</span><span class="n">secgroupname</span><span class="p">)</span>
@@ -679,7 +684,7 @@
 
 <div class="viewcode-block" id="Provider.flavor"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.libcloud.Provider.Provider.flavor">[docs]</a>    <span class="k">def</span> <span class="nf">flavor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Gest the flavor with a given name</span>
+<span class="sd">        Gets the flavor with a given name</span>
 <span class="sd">        :param name: The name of the flavor</span>
 <span class="sd">        :return: The dict of the flavor</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -833,7 +838,8 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">reboot_node</span><span class="p">,</span> <span class="n">names</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Provider.create"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.libcloud.Provider.Provider.create">[docs]</a>    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">location</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">360</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="Provider.create"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.libcloud.Provider.Provider.create">[docs]</a>    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">location</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+               <span class="n">timeout</span><span class="o">=</span><span class="mi">360</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        creates a named node</span>
 
@@ -842,7 +848,8 @@
 <span class="sd">        :param size: the size of the image</span>
 <span class="sd">        :param timeout: a timeout in seconds that is invoked in case the image</span>
 <span class="sd">                        does not boot. The default is set to 3 minutes.</span>
-<span class="sd">        :param kwargs: additional arguments HEADING(c=&quot;.&quot;)ed along at time of boot</span>
+<span class="sd">        :param kwargs: additional arguments HEADING(c=&quot;.&quot;)ed along at time of</span>
+<span class="sd">                       boot</span>
 <span class="sd">        :return:</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">image_use</span> <span class="o">=</span> <span class="kc">None</span>
@@ -911,30 +918,34 @@
                 <span class="n">resource_group</span><span class="o">=</span><span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;resource_group&quot;</span><span class="p">],</span>
                 <span class="n">public_ip</span><span class="o">=</span><span class="n">pubip</span>
             <span class="p">)</span>
-            <span class="n">node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">create_node</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>
-                                             <span class="n">image</span><span class="o">=</span><span class="n">image_use</span><span class="p">,</span>
-                                             <span class="n">size</span><span class="o">=</span><span class="n">flavor_use</span><span class="p">,</span>
-                                             <span class="n">auth</span><span class="o">=</span><span class="n">auth</span><span class="p">,</span>
-                                             <span class="c1"># the following three were created in azure portal</span>
-                                             <span class="n">ex_resource_group</span><span class="o">=</span><span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;resource_group&quot;</span><span class="p">],</span>
-                                             <span class="c1"># for storage account, use the default v2 setting</span>
-                                             <span class="n">ex_storage_account</span><span class="o">=</span><span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;storage_account&quot;</span><span class="p">],</span>
-                                             <span class="c1"># under the storage account, blobs services,</span>
-                                             <span class="c1"># create &#39;vhds&#39; container</span>
-                                             <span class="n">ex_blob_container</span><span class="o">=</span><span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;blob_container&quot;</span><span class="p">],</span>
-                                             <span class="n">ex_nic</span><span class="o">=</span><span class="n">nic_use</span>
-                                             <span class="p">)</span>
+            <span class="n">node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">create_node</span><span class="p">(</span>
+                <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>
+                <span class="n">image</span><span class="o">=</span><span class="n">image_use</span><span class="p">,</span>
+                <span class="n">size</span><span class="o">=</span><span class="n">flavor_use</span><span class="p">,</span>
+                <span class="n">auth</span><span class="o">=</span><span class="n">auth</span><span class="p">,</span>
+                <span class="c1"># the following three were created in azure portal</span>
+                <span class="n">ex_resource_group</span><span class="o">=</span><span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;resource_group&quot;</span><span class="p">],</span>
+                <span class="c1"># for storage account, use the default v2 setting</span>
+                <span class="n">ex_storage_account</span><span class="o">=</span><span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;storage_account&quot;</span><span class="p">],</span>
+                <span class="c1"># under the storage account, blobs services,</span>
+                <span class="c1"># create &#39;vhds&#39; container</span>
+                <span class="n">ex_blob_container</span><span class="o">=</span><span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;blob_container&quot;</span><span class="p">],</span>
+                <span class="n">ex_nic</span><span class="o">=</span><span class="n">nic_use</span>
+            <span class="p">)</span>
         <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudtype</span> <span class="o">==</span> <span class="s1">&#39;google&#39;</span><span class="p">:</span>
             <span class="n">location_use</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">spec</span><span class="p">[</span><span class="s2">&quot;credentials&quot;</span><span class="p">][</span><span class="s2">&quot;datacenter&quot;</span><span class="p">]</span>
-            <span class="n">metadata</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;items&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">user</span> <span class="o">+</span> <span class="s2">&quot;:&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">key_val</span><span class="p">,</span> <span class="s2">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;ssh-keys&quot;</span><span class="p">}]}</span>
-            <span class="n">node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">create_node</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="n">image_use</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">flavor_use</span><span class="p">,</span> <span class="n">location</span><span class="o">=</span><span class="n">location_use</span><span class="p">,</span>
+            <span class="n">metadata</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span><span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">user</span> <span class="o">+</span> <span class="s2">&quot;:&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">key_val</span><span class="p">,</span> <span class="s2">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;ssh-keys&quot;</span><span class="p">}]}</span>
+            <span class="n">node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">create_node</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="n">image_use</span><span class="p">,</span>
+                                             <span class="n">size</span><span class="o">=</span><span class="n">flavor_use</span><span class="p">,</span>
+                                             <span class="n">location</span><span class="o">=</span><span class="n">location_use</span><span class="p">,</span>
                                              <span class="n">ex_metadata</span><span class="o">=</span><span class="n">metadata</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s2">&quot;this cloud is not yet supported&quot;</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update_dict</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;node&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span></div>
 
-<div class="viewcode-block" id="Provider.get_publicIP"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.libcloud.Provider.Provider.get_publicIP">[docs]</a>    <span class="k">def</span> <span class="nf">get_publicIP</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Provider.get_public_ip"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.libcloud.Provider.Provider.get_public_ip">[docs]</a>    <span class="k">def</span> <span class="nf">get_public_ip</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="c1"># pools = self.cloudman.ex_list_floating_ip_pools()</span>
         <span class="c1"># ex_get_floating_ip(ip)</span>
         <span class="c1"># ex_create_floating_ip(ip_pool=pools[0])</span>
@@ -956,10 +967,10 @@
                 <span class="n">ip</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">ex_create_floating_ip</span><span class="p">(</span><span class="n">ip_pool</span><span class="o">=</span><span class="n">pools</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">ip</span></div>
 
-<div class="viewcode-block" id="Provider.attach_publicIP"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.libcloud.Provider.Provider.attach_publicIP">[docs]</a>    <span class="k">def</span> <span class="nf">attach_publicIP</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">,</span> <span class="n">ip</span><span class="p">):</span>
+<div class="viewcode-block" id="Provider.attach_public_ip"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.libcloud.Provider.Provider.attach_public_ip">[docs]</a>    <span class="k">def</span> <span class="nf">attach_public_ip</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">,</span> <span class="n">ip</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">ex_attach_floating_ip_to_node</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">ip</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Provider.detach_publicIP"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.libcloud.Provider.Provider.detach_publicIP">[docs]</a>    <span class="k">def</span> <span class="nf">detach_publicIP</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">,</span> <span class="n">ip</span><span class="p">):</span>
+<div class="viewcode-block" id="Provider.detach_public_ip"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.libcloud.Provider.Provider.detach_public_ip">[docs]</a>    <span class="k">def</span> <span class="nf">detach_public_ip</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">,</span> <span class="n">ip</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">ex_detach_floating_ip_from_node</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">ip</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">ex_delete_floating_ip</span><span class="p">(</span><span class="n">ip</span><span class="p">)</span></div>
 
@@ -995,7 +1006,7 @@
                                <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
                                <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span>
         <span class="n">result</span> <span class="o">=</span> <span class="n">ssh</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
-        <span class="k">if</span> <span class="n">result</span> <span class="o">==</span> <span class="p">[]:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">result</span><span class="p">:</span>
             <span class="n">error</span> <span class="o">=</span> <span class="n">ssh</span><span class="o">.</span><span class="n">stderr</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ERROR: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">error</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
@@ -1005,10 +1016,13 @@
                 <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">))</span></div>
 
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    THIS CODE IS BUUGY AS IT OVERWRITES ALL PROVIDERS, THE CODE ABOVE SEEMS TO WORK</span>
-<span class="sd">    def ssh(self, name, ips, username=None, key=None, quiet=None, command=None, script=None, modify_knownhosts=None):</span>
+<span class="sd">    THIS CODE IS BUUGY AS IT OVERWRITES ALL PROVIDERS, THE CODE ABOVE SEEMS TO </span>
+<span class="sd">    WORK</span>
+<span class="sd">    def ssh(self, name, ips, username=None, key=None, quiet=None, command=None, </span>
+<span class="sd">            script=None, modify_knownhosts=None):</span>
 <span class="sd">        if key == None:</span>
-<span class="sd">            key = self.spec[&#39;credentials&#39;][&#39;EC2_PRIVATE_KEY_FILE_PATH&#39;] + self.spec[&#39;credentials&#39;][&#39;EC2_PRIVATE_KEY_FILE_NAME&#39;]</span>
+<span class="sd">            key = self.spec[&#39;credentials&#39;][&#39;EC2_PRIVATE_KEY_FILE_PATH&#39;] + </span>
+<span class="sd">             self.spec[&#39;credentials&#39;][&#39;EC2_PRIVATE_KEY_FILE_NAME&#39;]</span>
 <span class="sd">        for ip in ips:</span>
 <span class="sd">            location = username + &#39;@&#39; + ip</span>
 <span class="sd">            if command != None:</span>
@@ -1016,7 +1030,8 @@
 <span class="sd">                subprocess.run(ssh_command)</span>
 <span class="sd">            elif script != None:</span>
 <span class="sd">                BUG, doesn&#39;t work#</span>
-<span class="sd">                ssh_command = [&#39;ssh&#39;, &#39;-i&#39;, key, location, &#39;bash&#39;, &#39;-s&#39;, &#39;&lt;&#39;, script]</span>
+<span class="sd">                ssh_command = [&#39;ssh&#39;, &#39;-i&#39;, key, location, </span>
+<span class="sd">                               &#39;bash&#39;, &#39;-s&#39;, &#39;&lt;&#39;, script]</span>
 <span class="sd">                subprocess.call(ssh_command, shell=True)</span>
 <span class="sd">    &quot;&quot;&quot;</span></div>
 </pre></div>

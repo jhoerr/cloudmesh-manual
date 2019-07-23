@@ -151,7 +151,7 @@
 <li class="toctree-l1"><a class="reference internal" href="cloudmesh.html">4. Cloudmesh</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">5. Management</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#module-cloudmesh.management.configuration.config">5.1. Configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-cloudmesh.management.printer.Printer">5.2. Printer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#printer">5.2. Printer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-cloudmesh.management.configuration.name">5.3. Names</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-cloudmesh.management.script">5.4. Script</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#debug">5.5. Debug</a></li>
@@ -270,6 +270,21 @@
 <dt id="cloudmesh.management.configuration.config.Config">
 <em class="property">class </em><code class="sig-prename descclassname">cloudmesh.management.configuration.config.</code><code class="sig-name descname">Config</code><span class="sig-paren">(</span><em class="sig-param">config_path='~/.cloudmesh/cloudmesh4.yaml'</em>, <em class="sig-param">encrypted=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/management/configuration/config.html#Config"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.configuration.config.Config" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="method">
+<dt id="cloudmesh.management.configuration.config.Config.cat">
+<em class="property">static </em><code class="sig-name descname">cat</code><span class="sig-paren">(</span><em class="sig-param">mask_secrets=True</em>, <em class="sig-param">attributes=None</em>, <em class="sig-param">path='~/.cloudmesh/cloudmesh4.yaml'</em>, <em class="sig-param">color=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/management/configuration/config.html#Config.cat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.configuration.config.Config.cat" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.management.configuration.config.Config.cat_lines">
+<em class="property">static </em><code class="sig-name descname">cat_lines</code><span class="sig-paren">(</span><em class="sig-param">content</em>, <em class="sig-param">mask_secrets=True</em>, <em class="sig-param">attributes=None</em>, <em class="sig-param">color=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/management/configuration/config.html#Config.cat_lines"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.configuration.config.Config.cat_lines" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.management.configuration.config.Config.check">
+<em class="property">static </em><code class="sig-name descname">check</code><span class="sig-paren">(</span><em class="sig-param">path='~/.cloudmesh/cloudmesh4.yaml'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/management/configuration/config.html#Config.check"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.configuration.config.Config.check" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="method">
 <dt id="cloudmesh.management.configuration.config.Config.check_for_TBD">
 <code class="sig-name descname">check_for_TBD</code><span class="sig-paren">(</span><em class="sig-param">kind</em>, <em class="sig-param">name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/management/configuration/config.html#Config.check_for_TBD"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.configuration.config.Config.check_for_TBD" title="Permalink to this definition">¶</a></dt>
@@ -394,6 +409,22 @@ yet used in the backup directory.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.management.configuration.config.Config.search">
+<code class="sig-name descname">search</code><span class="sig-paren">(</span><em class="sig-param">&quot;cloudmesh.cloud.*.cm.active&quot;</em>, <em class="sig-param">True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/management/configuration/config.html#Config.search"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.configuration.config.Config.search" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key</strong> – </p></li>
+<li><p><strong>value</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
 </dd>
 </dl>
 </dd></dl>
@@ -661,6 +692,23 @@ value is safely included in it.</p>
 <em class="property">class </em><code class="sig-prename descclassname">cloudmesh.management.configuration.arguments.</code><code class="sig-name descname">Arguments</code><a class="reference internal" href="../_modules/cloudmesh/management/configuration/arguments.html#Arguments"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.configuration.arguments.Arguments" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <dl class="method">
+<dt id="cloudmesh.management.configuration.arguments.Arguments.expand">
+<em class="property">static </em><code class="sig-name descname">expand</code><span class="sig-paren">(</span><em class="sig-param">arguments</em>, <em class="sig-param">*keys</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/management/configuration/arguments.html#Arguments.expand"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.configuration.arguments.Arguments.expand" title="Permalink to this definition">¶</a></dt>
+<dd><p>expands all entries in arguments identified by keys</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>arguments</strong> – list of arguments</p></li>
+<li><p><strong>keys</strong> – the keys that locate entries in arguments that are expanded</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the expanded arguments. it is now a dict of lists</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
 <dt id="cloudmesh.management.configuration.arguments.Arguments.get_attribute">
 <em class="property">static </em><code class="sig-name descname">get_attribute</code><span class="sig-paren">(</span><em class="sig-param">attribute</em>, <em class="sig-param">arguments</em>, <em class="sig-param">variables</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/management/configuration/arguments.html#Arguments.get_attribute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.configuration.arguments.Arguments.get_attribute" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -762,24 +810,8 @@ value is safely included in it.</p>
 </dd></dl>
 
 </div>
-<div class="section" id="module-cloudmesh.management.printer.Printer">
-<span id="printer"></span><h2>5.2. Printer<a class="headerlink" href="#module-cloudmesh.management.printer.Printer" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="cloudmesh.management.printer.Printer.Printer">
-<em class="property">class </em><code class="sig-prename descclassname">cloudmesh.management.printer.Printer.</code><code class="sig-name descname">Printer</code><span class="sig-paren">(</span><em class="sig-param">sort_keys=None</em>, <em class="sig-param">order=None</em>, <em class="sig-param">header=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/management/printer/Printer.html#Printer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.printer.Printer.Printer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<dl class="method">
-<dt id="cloudmesh.management.printer.Printer.Printer.print">
-<code class="sig-name descname">print</code><span class="sig-paren">(</span><em class="sig-param">d</em>, <em class="sig-param">format='table'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/management/printer/Printer.html#Printer.print"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.printer.Printer.Printer.print" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.management.printer.Printer.Printer.value">
-<code class="sig-name descname">value</code><span class="sig-paren">(</span><em class="sig-param">d</em>, <em class="sig-param">format='table'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/management/printer/Printer.html#Printer.value"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.management.printer.Printer.Printer.value" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
+<div class="section" id="printer">
+<h2>5.2. Printer<a class="headerlink" href="#printer" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="module-cloudmesh.management.configuration.name">
 <span id="names"></span><h2>5.3. Names<a class="headerlink" href="#module-cloudmesh.management.configuration.name" title="Permalink to this headline">¶</a></h2>

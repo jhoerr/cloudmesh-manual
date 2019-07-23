@@ -625,7 +625,7 @@ String matching only, does not do REs as currently implemented.</p>
 <span id="flatdict"></span><h2>2.7. FlatDict<a class="headerlink" href="#module-cloudmesh.common.FlatDict" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="cloudmesh.common.FlatDict.FlatDict">
-<em class="property">class </em><code class="sig-prename descclassname">cloudmesh.common.FlatDict.</code><code class="sig-name descname">FlatDict</code><span class="sig-paren">(</span><em class="sig-param">d</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/FlatDict.html#FlatDict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.FlatDict.FlatDict" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cloudmesh.common.FlatDict.</code><code class="sig-name descname">FlatDict</code><span class="sig-paren">(</span><em class="sig-param">d</em>, <em class="sig-param">sep='__'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/FlatDict.html#FlatDict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.FlatDict.FlatDict" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#cloudmesh.common.FlatDict.FlatDict.dict" title="cloudmesh.common.FlatDict.FlatDict.dict"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a></p>
 <p>A data structure to manage a flattened dict. It is initialized by passing the dict
 at time of initialization.</p>
@@ -643,6 +643,22 @@ at time of initialization.</p>
 <dt id="cloudmesh.common.FlatDict.FlatDict.keys">
 <code class="sig-name descname">keys</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; a set-like object providing a view on D's keys<a class="reference internal" href="../_modules/cloudmesh/common/FlatDict.html#FlatDict.keys"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.FlatDict.FlatDict.keys" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.common.FlatDict.FlatDict.search">
+<code class="sig-name descname">search</code><span class="sig-paren">(</span><em class="sig-param">&quot;cloudmesh.cloud.*.cm.active&quot;</em>, <em class="sig-param">True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/FlatDict.html#FlatDict.search"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.FlatDict.FlatDict.search" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key</strong> – </p></li>
+<li><p><strong>value</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.common.FlatDict.FlatDict.values">
@@ -1107,6 +1123,16 @@ warnings, errors, ok and regular messages.</p>
 <em class="property">static </em><code class="sig-name descname">set_theme</code><span class="sig-paren">(</span><em class="sig-param">color=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/console.html#Console.set_theme"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.console.Console.set_theme" title="Permalink to this definition">¶</a></dt>
 <dd><p>defines if the console messages are printed in color
 :param color: if True its printed in color
+:return:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.common.console.Console.text">
+<em class="property">static </em><code class="sig-name descname">text</code><span class="sig-paren">(</span><em class="sig-param">color='RED'</em>, <em class="sig-param">prefix=None</em>, <em class="sig-param">message=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/console.html#Console.text"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.console.Console.text" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a message in a given color
+:param color: the color as defined in the theme
+:param prefix: the prefix (a string)
+:param message: the message
 :return:</p>
 </dd></dl>
 
