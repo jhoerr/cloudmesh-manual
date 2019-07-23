@@ -3,6 +3,7 @@ UNAME=$(shell uname)
 VERSION=`head -1 VERSION`
 
 GIT=https://github.com/cloudmesh
+COMMUNITY=$(GIT)-community
 
 HERCULES=docker run --rm srcd/hercules hercules
 LABOURS=docker run --rm -i -v $(pwd):/io srcd/hercules labours
@@ -21,8 +22,16 @@ dest/gitinspector/gitinspector.py:
 	mkdir -p dest
 	cd dest; git clone https://github.com/ejwa/gitinspector.git
 
+inspect-book:
+	python dest/gitinspector/gitinspector.py \
+	   $(COMMUNITY)/book \
+	   --grading=True \
+	   --metrics=False \
+	   --hard=True \
+	   --format=htmlembedded > docs-source/source/inspector/book.html
+	cp -r docs-source/source/inspector docs/inspector
+
 inspect: dest/gitinspector/gitinspector.py
-	mkdir -p docs-source/source/inspector
 	python dest/gitinspector/gitinspector.py \
 	   $(GIT)/cloudmesh-cloud \
 	   --grading=True \
@@ -59,6 +68,12 @@ inspect: dest/gitinspector/gitinspector.py
 	   --metrics=False \
 	   --hard=True \
 	   --format=htmlembedded > docs-source/source/inspector/cloudmesh-storage.html
+	python dest/gitinspector/gitinspector.py \
+	   $(GIT)/cloudmesh-installer \
+	   --grading=True \
+	   --metrics=False \
+	   --hard=True \
+	   --format=htmlembedded > docs-source/source/inspector/cloudmesh-installer.html
 	cp -r docs-source/source/inspector docs/inspector
 
 contrib:

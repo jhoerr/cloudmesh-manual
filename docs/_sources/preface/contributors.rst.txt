@@ -40,6 +40,7 @@ package:
 * `cloudmesh.cloud <../inspector/cloudmesh-cloud.html>`_
 * `cloudmesh.storage <../inspector/cloudmesh-storage.html>`_
 * `cloudmesh.manual <../inspector/cloudmesh-manual.html>`_
+* `cloudmesh-community.book <../inspector/book.html>`_
 
 
 
