@@ -34,6 +34,7 @@ include:
 The following links provide more information about the contributions each
 package:
 
+* `cloudmesh-installer <../inspector/cloudmesh-installer.html>`_
 * `cloudmesh.common <../inspector/cloudmesh-common.html>`_
 * `cloudmesh.cmd5 <../inspector/cloudmesh-cmd5.html>`_
 * `cloudmesh.sys <../inspector/cloudmesh-sys.html>`_

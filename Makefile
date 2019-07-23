@@ -27,9 +27,11 @@ inspect-book:
 	   $(COMMUNITY)/book \
 	   --grading=True \
 	   --metrics=False \
-	   --hard=True \
 	   --format=htmlembedded > docs-source/source/inspector/book.html
 	cp -r docs-source/source/inspector docs/inspector
+
+#	   --hard=True \
+
 
 inspect: dest/gitinspector/gitinspector.py
 	python dest/gitinspector/gitinspector.py \
