@@ -38,6 +38,7 @@ package:
 * `cloudmesh.common <../inspector/cloudmesh-common.html>`_
 * `cloudmesh.cmd5 <../inspector/cloudmesh-cmd5.html>`_
 * `cloudmesh.sys <../inspector/cloudmesh-sys.html>`_
+* `cloudmesh.inventory <../inspector/cloudmesh-inventory.html>`_
 * `cloudmesh.cloud <../inspector/cloudmesh-cloud.html>`_
 * `cloudmesh.storage <../inspector/cloudmesh-storage.html>`_
 * `cloudmesh.manual <../inspector/cloudmesh-manual.html>`_
