@@ -13,6 +13,7 @@ Cloudmesh Command API
    cloudmesh.group.command
    cloudmesh.image.command
    cloudmesh.init.command
+   cloudmesh.inventory.command
    cloudmesh.ip.command
    cloudmesh.key.command
    cloudmesh.man.command
@@ -74,6 +75,9 @@ Cloudmesh API
    cloudmesh.group
    cloudmesh.image
    cloudmesh.init
+   cloudmesh.inventory
+   cloudmesh.inventory.etc
+   cloudmesh.inventory.schema
    cloudmesh.ip
    cloudmesh.key
    cloudmesh.man

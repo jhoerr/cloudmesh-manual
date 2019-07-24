@@ -11,12 +11,6 @@ Cloudmesh Version 4
 
 .. toctree::
    :numbered:
-   :caption: API
-
-   api/index
-
-.. toctree::
-   :numbered:
    :caption: INSTALLATION
 
    installation/install
@@ -27,37 +21,9 @@ Cloudmesh Version 4
 
 .. toctree::
    :numbered:
-   :caption: COMMAND SHELL
-
-   cmd5
-
-.. toctree::
-   :numbered:
-   :caption: CLOUD SERVICES
-
-   group
-   vm/vm
-   vm/image
-   vm/flavor
-   storage/storage
-   workflow
-   jupyter
-   hpc/batch
-
-.. toctree::
-   :numbered:
-   :caption: openapi
-
-   openapi/README-storage-openapi
-   openapi/ufo
-
-MAMUAL PAGES
-============
-
-.. toctree::
-   :numbered:
    :caption: MANUAL PAGES
 
+   cmd5
    reference-card
    manual/commands
    manual-cmd5
@@ -66,46 +32,11 @@ MAMUAL PAGES
    manual-storage
    manual-other
 
-DATABASE OBJECTS
-================
-
 .. toctree::
    :numbered:
-   :caption: DATABASE
+   :caption: API
 
-   storage/database
-
-BENCHMARKS
-==========
-
-.. toctree::
-   :glob:
-   :numbered:
-   :caption: BENCHMARKS
-
-   benchmarks/*
-
-
-CODE
-====
-
-.. toctree::
-   :numbered:
-   :caption: CODE
-
-   code/code
-   code/common
-   code/cmd5
-   code/cloudmesh
-   code/management
-   code/mongo
-   code/commands
-   code/inventory
-   code/storage
-   code/cloud
-   code/batch
-   code/emr
-
+   api/index
 
 .. toctree::
    :numbered:
@@ -116,6 +47,9 @@ CODE
    dev/pytest
    dev/manual
    dev/todo
+
+
+
 
 
 Cloud Provider Accounts
@@ -148,3 +82,49 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
+
+
+
+OTHER
+=====
+
+.. toctree::
+   :numbered:
+   :caption: CODE
+
+   code/storage
+   code/batch
+   code/emr
+
+.. toctree::
+   :numbered:
+   :caption: CLOUD SERVICES
+
+   group
+   vm/vm
+   vm/image
+   vm/flavor
+   storage/storage
+   workflow
+   jupyter
+   hpc/batch
+
+.. toctree::
+   :numbered:
+   :caption: openapi
+
+   openapi/README-storage-openapi
+   openapi/ufo
+
+.. toctree::
+   :numbered:
+   :caption: DATABASE
+
+   storage/database
+
+.. toctree::
+   :glob:
+   :numbered:
+   :caption: BENCHMARKS
+
+   benchmarks/*

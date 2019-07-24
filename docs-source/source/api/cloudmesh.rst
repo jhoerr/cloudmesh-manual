@@ -23,6 +23,7 @@ Subpackages
    cloudmesh.group
    cloudmesh.image
    cloudmesh.init
+   cloudmesh.inventory
    cloudmesh.ip
    cloudmesh.key
    cloudmesh.man

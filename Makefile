@@ -33,26 +33,18 @@ inspect-book:
 		--format=htmlembedded > $(SOURCE)/inspector/book.html
 	cp -r $(SOURCE)/inspector docs/inspector
 
-MODULES= cloudmesh-common cloudmesh-cmd5 cloudmesh-sys cloudmesh-cloud
-
+MODULES= cloudmesh-common cloudmesh-cmd5 cloudmesh-sys cloudmesh-cloud cloudmesh-inventory
 
 api:
 	rm -rf docs-source/source/api
 	rm -rf tmp
 	mkdir -p tmp/cloudmesh
+	cp -r ../cloudmesh-inventory/cloudmesh/* tmp/cloudmesh
 	cp -r ../cloudmesh-cmd5/cloudmesh/* tmp/cloudmesh
 	cp -r ../cloudmesh-sys/cloudmesh/* tmp/cloudmesh
 	cp -r ../cloudmesh-common/cloudmesh/* tmp/cloudmesh
 	cp -r ../cloudmesh-cloud/cloudmesh/* tmp/cloudmesh
 	sphinx-apidoc -f -o docs-source/source/api tmp/cloudmesh
-	make -f Makefile api-index
-
-api2:
-	for c in $(MODULES) ; do \
-	  echo Generate module documentation for $$c ; \
-	  echo ../$$c/cloudmesh ; \
-	  sphinx-apidoc --implicit-namespaces -M -l -o $(API)/$$c ../$$c/cloudmesh; \
-	done
 	make -f Makefile api-index
 
 api-index:
@@ -85,12 +77,17 @@ api-index:
 	cd $(API); cat index.rst
 
 inspect: dest/gitinspector/gitinspector.py
-	python dest/gitinspector/gitinspector.py \
-	   $(GIT)/cloudmesh-cloud \
-	   --grading=True \
-	   --metrics=False \
-	   --hard=True \
-	   --format=htmlembedded > $(SOURCE)/inspector/cloudmesh-cloud.html
+	for c in $(MODULES) ; do \
+		python dest/gitinspector/gitinspector.py \
+			$(GIT)/$$c \
+	   	   	--grading=True \
+	   		--metrics=False \
+	   		--hard=True \
+	   		--format=htmlembedded > $(SOURCE)/inspector/$$c.html; \
+	done
+
+
+o:
 	python dest/gitinspector/gitinspector.py \
 	   $(GIT)/cloudmesh-cmd5 \
 	   --grading=True \
