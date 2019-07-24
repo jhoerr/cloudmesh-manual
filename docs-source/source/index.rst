@@ -1,7 +1,6 @@
 Cloudmesh Version 4
 ===============================
 
-
 .. toctree::
    :numbered:
    :caption: PREFACE
@@ -49,12 +48,6 @@ Cloudmesh Version 4
    dev/todo
 
 
-
-
-
-Cloud Provider Accounts
-========================
-
 .. toctree::
    :numbered:
    :caption: CLOUD ACCOUNTS
@@ -65,66 +58,19 @@ Cloud Provider Accounts
    accounts/box
    accounts/accountcreation-old
 
-
-Cloudmesh Outdated
-===============================
-
-.. toctree::
-   :numbered:
-   :caption: Outdated:
-
-   CM4README
-   vcluster
-
 Indices and tables
 ==================
 
-* :ref:`genindex`
 * :ref:`modindex`
+* :ref:`genindex`
 * :ref:`search`
 
-
-
-OTHER
-=====
+Other
+=======================
 
 .. toctree::
    :numbered:
-   :caption: CODE
+   :caption: OTHER
 
-   code/storage
-   code/batch
-   code/emr
+   tbd
 
-.. toctree::
-   :numbered:
-   :caption: CLOUD SERVICES
-
-   group
-   vm/vm
-   vm/image
-   vm/flavor
-   storage/storage
-   workflow
-   jupyter
-   hpc/batch
-
-.. toctree::
-   :numbered:
-   :caption: openapi
-
-   openapi/README-storage-openapi
-   openapi/ufo
-
-.. toctree::
-   :numbered:
-   :caption: DATABASE
-
-   storage/database
-
-.. toctree::
-   :glob:
-   :numbered:
-   :caption: BENCHMARKS
-
-   benchmarks/*

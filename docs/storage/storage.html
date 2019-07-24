@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>5. Cloudmesh Multi Cloud Storage Interface &mdash; Cloudmesh v4 alpha documentation</title>
+  <title>1.5. Cloudmesh Multi Cloud Storage Interface &mdash; Cloudmesh v4 alpha documentation</title>
   
 
   
@@ -36,8 +36,8 @@
   <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="6. Infrastructure Workflow" href="../workflow.html" />
-    <link rel="prev" title="4. Flavors" href="../vm/flavor.html" /> 
+    <link rel="next" title="1.6. Infrastructure Workflow" href="../workflow.html" />
+    <link rel="prev" title="1.4. Flavors" href="../vm/flavor.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -85,8 +85,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">PREFACE</span></p>
-<ul>
+              <ul>
 <li class="toctree-l1"><a class="reference internal" href="../preface/about.html">1. About</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../preface/contributors.html">2. Contributors</a></li>
 </ul>
@@ -98,92 +97,21 @@
 <li class="toctree-l1"><a class="reference internal" href="../installation/mongo.html">4. Cloudmesh Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../configuration/encryption.html">5. Cloudmesh Yaml file Encrytion</a></li>
 </ul>
-<p class="caption"><span class="caption-text">COMMAND SHELL</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../cmd5.html">1. Cmd5</a></li>
-</ul>
-<p class="caption"><span class="caption-text">CLOUD SERVICES</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../group.html">1. Group command</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../vm/vm.html">2. Virtual Machine Management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../vm/image.html">3. Images</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../vm/flavor.html">4. Flavors</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">5. Cloudmesh Multi Cloud Storage Interface</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#instalation">5.1. Instalation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#general-storage-command">5.2. General Storage Command</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#ccnfiguration">5.3. Ccnfiguration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#awss3-cloudmesh-integration">5.4. AWSS3 Cloudmesh Integration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#cloudmesh-aws-object-storage-interfaces">5.5. Cloudmesh AWS Object Storage Interfaces</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#create-object-directory">5.6. Create Object Directory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#put">5.7. Put</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#get">5.8. Get</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#list">5.9. List</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#delete">5.10. Delete</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#storage-functions-overview">5.10.1. Storage functions overview</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#create-dir">5.10.2. Create dir</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#put-1">5.10.3. Put</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#get-1">5.10.4. Get</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#search">5.10.5. Search</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#list-1">5.10.6. List</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#delete-1">5.10.7. Delete</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#pytests">5.11. Pytests</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#generic-tests">5.11.1. Generic Tests</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#provider-specific-pytests">5.11.2. Provider Specific Pytests</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#general-features">5.12. General features</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#command-line-interface">5.12.1. Command Line Interface</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#programming-interface">5.12.2. Programming Interface</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#pytests-1">5.12.3. Pytests</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#virtual-directory">5.13. Virtual Directory</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#configuration">5.13.1. Configuration</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#pytests-2">5.13.2. Pytests</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#google-drive">5.14. Google drive</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#note">5.14.1. Note</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#links">5.14.2. Links</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../workflow.html">6. Infrastructure Workflow</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../jupyter.html">7. Jupyter Integration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../hpc/batch.html">8. Batch</a></li>
-</ul>
-<p class="caption"><span class="caption-text">openapi</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../openapi/README-storage-openapi.html">1. Cloudmesh Multi Cloud Open API Interface</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../openapi/ufo.html">2. REST Service (outdated)</a></li>
-</ul>
 <p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../reference-card.html">1. Reference Card (proposed)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../manual/commands.html">2. Commands</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../manual-cmd5.html">3. Manual Cmd5</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../manual-group.html">4. Manual Group</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../manual-compute.html">5. Compute Manual Pages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../manual-storage.html">6. Storage Manual Pages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../manual-other.html">7. Manual Other</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cmd5.html">1. Cmd5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference-card.html">2. Reference Card (proposed)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/commands.html">3. Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-cmd5.html">4. Manual Cmd5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-group.html">5. Manual Group</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-compute.html">6. Compute Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-storage.html">7. Storage Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-other.html">8. Manual Other</a></li>
 </ul>
-<p class="caption"><span class="caption-text">DATABASE</span></p>
+<p class="caption"><span class="caption-text">API</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="database.html">1. Cloudmesh Database</a></li>
-</ul>
-<p class="caption"><span class="caption-text">BENCHMARKS</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../benchmarks/README.html">1. Benchmarks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../benchmarks/awsec2-vm-management-benchmark.html">2. AWS EC2 VM Management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../benchmarks/awsec2_benchmark_ubuntu.html">3. AWS EC2 VM Management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../benchmarks/awss3-storage-benchmark.html">4. AWS S3 File Storage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../benchmarks/azure-storage-benchmark.html">5. Azure Blob Storage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../benchmarks/box.html">6. Benchmark results for box Storage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../benchmarks/emr.html">7. AWS EMR Benchmarking</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../benchmarks/test_compute_database.html">8. AWS EC2 Compute Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html">1. Cloudmesh Command API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html#cloudmesh-api">2. Cloudmesh API</a></li>
 </ul>
 <p class="caption"><span class="caption-text">CONTRIBUTION</span></p>
 <ul>
@@ -203,10 +131,73 @@
 <li class="toctree-l1"><a class="reference internal" href="../accounts/box.html">4. Box Account</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../accounts/accountcreation-old.html">5. VM Providers (outdated)</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Outdated:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../CM4README.html">1. CM4 Details (outdated)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../vcluster.html">2. Virtual Cluster (in progress)</a></li>
+<p class="caption"><span class="caption-text">CLOUD ACCOUNTS</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../tbd.html">1. OTHER</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../group.html">1.1. Group command</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vm/vm.html">1.2. Virtual Machine Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vm/image.html">1.3. Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vm/flavor.html">1.4. Flavors</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">1.5. Cloudmesh Multi Cloud Storage Interface</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#instalation">1.5.1. Instalation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#general-storage-command">1.5.2. General Storage Command</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ccnfiguration">1.5.3. Ccnfiguration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#awss3-cloudmesh-integration">1.5.4. AWSS3 Cloudmesh Integration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cloudmesh-aws-object-storage-interfaces">1.5.5. Cloudmesh AWS Object Storage Interfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-object-directory">1.5.6. Create Object Directory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#put">1.5.7. Put</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get">1.5.8. Get</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#list">1.5.9. List</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#delete">1.5.10. Delete</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#storage-functions-overview">1.5.10.1. Storage functions overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#create-dir">1.5.10.2. Create dir</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#put-1">1.5.10.3. Put</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#get-1">1.5.10.4. Get</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#search">1.5.10.5. Search</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#list-1">1.5.10.6. List</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#delete-1">1.5.10.7. Delete</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#pytests">1.5.11. Pytests</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#generic-tests">1.5.11.1. Generic Tests</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#provider-specific-pytests">1.5.11.2. Provider Specific Pytests</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#general-features">1.5.12. General features</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#command-line-interface">1.5.12.1. Command Line Interface</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#programming-interface">1.5.12.2. Programming Interface</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pytests-1">1.5.12.3. Pytests</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#virtual-directory">1.5.13. Virtual Directory</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#configuration">1.5.13.1. Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pytests-2">1.5.13.2. Pytests</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#google-drive">1.5.14. Google drive</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#note">1.5.14.1. Note</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#links">1.5.14.2. Links</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../workflow.html">1.6. Infrastructure Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../jupyter.html">1.7. Jupyter Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hpc/batch.html">1.8. Batch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../openapi/README-storage-openapi.html">1.9. Cloudmesh Multi Cloud Open API Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../openapi/ufo.html">1.10. REST Service (outdated)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="database.html">1.11. Cloudmesh Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../benchmarks/README.html">1.12. Benchmarks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../benchmarks/awsec2-vm-management-benchmark.html">1.13. AWS EC2 VM Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../benchmarks/awsec2_benchmark_ubuntu.html">1.14. AWS EC2 VM Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../benchmarks/awss3-storage-benchmark.html">1.15. AWS S3 File Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../benchmarks/azure-storage-benchmark.html">1.16. Azure Blob Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../benchmarks/box.html">1.17. Benchmark results for box Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../benchmarks/emr.html">1.18. AWS EMR Benchmarking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../benchmarks/test_compute_database.html">1.19. AWS EC2 Compute Database</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tbd.html#cloudmesh-outdated">2. Cloudmesh Outdated</a></li>
 </ul>
 
             
@@ -252,7 +243,9 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>5. Cloudmesh Multi Cloud Storage Interface</li>
+          <li><a href="../tbd.html">1. OTHER</a> &raquo;</li>
+        
+      <li>1.5. Cloudmesh Multi Cloud Storage Interface</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -272,7 +265,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="cloudmesh-multi-cloud-storage-interface">
-<h1>5. Cloudmesh Multi Cloud Storage Interface<a class="headerlink" href="#cloudmesh-multi-cloud-storage-interface" title="Permalink to this headline">¶</a></h1>
+<h1>1.5. Cloudmesh Multi Cloud Storage Interface<a class="headerlink" href="#cloudmesh-multi-cloud-storage-interface" title="Permalink to this headline">¶</a></h1>
 <p>Cloudmesh supports multiple cloud storage services. You can access them
 via commandline, an API or REST services. A simple abstraction layer
 between cloud services and you local computer makes it possible that the
@@ -284,7 +277,7 @@ and box.</p>
 </ul>
 <p><a class="reference external" href="https://pypi.python.org/pypi/cloudmesh-storage"><img alt="Version" src="https://img.shields.io/pypi/v/cloudmesh-storage.svg" /></a> <a class="reference external" href="https://github.com/cloudmesh/cloudmesh-storage/blob/master/LICENSE"><img alt="License" src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" /></a> <a class="reference external" href="https://pypi.python.org/pypi/cloudmesh-storage"><img alt="Python" src="https://img.shields.io/pypi/pyversions/cloudmesh-storage.svg" /></a> <a class="reference external" href="https://pypi.python.org/pypi/cloudmesh-storage"><img alt="Format" src="https://img.shields.io/pypi/status/cloudmesh-storage.svg" /></a> <a class="reference external" href="https://pypi.python.org/pypi/cloudmesh-storage"><img alt="Format" src="https://img.shields.io/pypi/status/cloudmesh-storage.svg" /></a> <a class="reference external" href="https://travis-ci.com/cloudmesh/cloudmesh-storage"><img alt="Travis" src="https://travis-ci.com/cloudmesh/cloudmesh-storage.svg?branch=master" /></a></p>
 <div class="section" id="instalation">
-<h2>5.1. Instalation<a class="headerlink" href="#instalation" title="Permalink to this headline">¶</a></h2>
+<h2>1.5.1. Instalation<a class="headerlink" href="#instalation" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-todo admonition" id="id1">
 <p class="admonition-title">Todo</p>
 <p>the pip install is not yet enabled. Please use the source install instead (see Instalation instructions).</p>
@@ -303,7 +296,7 @@ cloudmesh-installer install storage -e</p>
 </dl>
 </div>
 <div class="section" id="general-storage-command">
-<h2>5.2. General Storage Command<a class="headerlink" href="#general-storage-command" title="Permalink to this headline">¶</a></h2>
+<h2>1.5.2. General Storage Command<a class="headerlink" href="#general-storage-command" title="Permalink to this headline">¶</a></h2>
 <p>To view the manual page for the  storage command, type in</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms <span class="nb">help</span> storage
 </pre></div>
@@ -324,10 +317,10 @@ cloudmesh-installer install storage -e</p>
 </div>
 </div>
 <div class="section" id="ccnfiguration">
-<h2>5.3. Ccnfiguration<a class="headerlink" href="#ccnfiguration" title="Permalink to this headline">¶</a></h2>
+<h2>1.5.3. Ccnfiguration<a class="headerlink" href="#ccnfiguration" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="awss3-cloudmesh-integration">
-<h2>5.4. AWSS3 Cloudmesh Integration<a class="headerlink" href="#awss3-cloudmesh-integration" title="Permalink to this headline">¶</a></h2>
+<h2>1.5.4. AWSS3 Cloudmesh Integration<a class="headerlink" href="#awss3-cloudmesh-integration" title="Permalink to this headline">¶</a></h2>
 <p>AWS S3 file storage has been integrated with cloudmesh library and is
 available for use via commandline. As a first step we need to modify
 <code class="docutils literal notranslate"><span class="pre">cloudmesh4.yaml</span></code> config file. Under ‘storage’ section, we need to add
@@ -361,7 +354,7 @@ Client or resource for that geographic area.</p>
 </div>
 </div>
 <div class="section" id="cloudmesh-aws-object-storage-interfaces">
-<h2>5.5. Cloudmesh AWS Object Storage Interfaces<a class="headerlink" href="#cloudmesh-aws-object-storage-interfaces" title="Permalink to this headline">¶</a></h2>
+<h2>1.5.5. Cloudmesh AWS Object Storage Interfaces<a class="headerlink" href="#cloudmesh-aws-object-storage-interfaces" title="Permalink to this headline">¶</a></h2>
 <p>Object Storage is one of the feature in AWS S3 and this feature
 integrated with cloudmesh library and is available for use via
 commandline.</p>
@@ -398,13 +391,13 @@ available in the AWS console under <code class="docutils literal notranslate"><s
 </div>
 </div>
 <div class="section" id="create-object-directory">
-<h2>5.6. Create Object Directory<a class="headerlink" href="#create-object-directory" title="Permalink to this headline">¶</a></h2>
+<h2>1.5.6. Create Object Directory<a class="headerlink" href="#create-object-directory" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms storage create /base_path/targetdir
 </pre></div>
 </div>
 </div>
 <div class="section" id="put">
-<h2>5.7. Put<a class="headerlink" href="#put" title="Permalink to this headline">¶</a></h2>
+<h2>1.5.7. Put<a class="headerlink" href="#put" title="Permalink to this headline">¶</a></h2>
 <p>The put command uploads object from your local system to AWS S3 object
 storage</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms storage put ~/.cloudmesh/objstore/sourcedir /base_path/targetdir --recursive
@@ -412,14 +405,14 @@ storage</p>
 </div>
 </div>
 <div class="section" id="get">
-<h2>5.8. Get<a class="headerlink" href="#get" title="Permalink to this headline">¶</a></h2>
+<h2>1.5.8. Get<a class="headerlink" href="#get" title="Permalink to this headline">¶</a></h2>
 <p>The put command retrieve or download a object from AWS S3 object storage</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms storage get /bucket_name/src ~/.cloudmesh/objstore/dest --recursive
 </pre></div>
 </div>
 </div>
 <div class="section" id="list">
-<h2>5.9. List<a class="headerlink" href="#list" title="Permalink to this headline">¶</a></h2>
+<h2>1.5.9. List<a class="headerlink" href="#list" title="Permalink to this headline">¶</a></h2>
 <p>The list command lists all the contents of a cloud object details. If
 the recursive option is specified, it will list the contents of all the
 nested objects information</p>
@@ -428,7 +421,7 @@ nested objects information</p>
 </div>
 </div>
 <div class="section" id="delete">
-<h2>5.10. Delete<a class="headerlink" href="#delete" title="Permalink to this headline">¶</a></h2>
+<h2>1.5.10. Delete<a class="headerlink" href="#delete" title="Permalink to this headline">¶</a></h2>
 <p>The delete command can delete objects on cloud storage. Once object
 deletes it will never be rollback and delete applicable to nested
 objects when function <code class="docutils literal notranslate"><span class="pre">--recursive</span></code> used. Deleting a folder will
@@ -437,10 +430,10 @@ delete its contents as well (including the sub-directories).</p>
 </pre></div>
 </div>
 <div class="section" id="storage-functions-overview">
-<h3>5.10.1. Storage functions overview<a class="headerlink" href="#storage-functions-overview" title="Permalink to this headline">¶</a></h3>
+<h3>1.5.10.1. Storage functions overview<a class="headerlink" href="#storage-functions-overview" title="Permalink to this headline">¶</a></h3>
 </div>
 <div class="section" id="create-dir">
-<h3>5.10.2. Create dir<a class="headerlink" href="#create-dir" title="Permalink to this headline">¶</a></h3>
+<h3>1.5.10.2. Create dir<a class="headerlink" href="#create-dir" title="Permalink to this headline">¶</a></h3>
 <p>This command helps to create a new directory on AWS S3. You must specify
 the full path of the new directory you would like to create.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms storage --storage<span class="o">=</span><span class="s1">&#39;aws&#39;</span> create dir /base_path/targetdir
@@ -448,7 +441,7 @@ the full path of the new directory you would like to create.</p>
 </div>
 </div>
 <div class="section" id="put-1">
-<span id="id3"></span><h3>5.10.3. Put<a class="headerlink" href="#put-1" title="Permalink to this headline">¶</a></h3>
+<span id="id3"></span><h3>1.5.10.3. Put<a class="headerlink" href="#put-1" title="Permalink to this headline">¶</a></h3>
 <p>The put command uploads files from your local host to the S3.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms storage put ~/.cloudmesh/storage/sourcedir /base_path/targetdir --recursive
 </pre></div>
@@ -464,7 +457,7 @@ only the files in the source directory will be uploaded to the target
 directory and the sub-directories will be ignored.</p>
 </div>
 <div class="section" id="get-1">
-<span id="id4"></span><h3>5.10.4. Get<a class="headerlink" href="#get-1" title="Permalink to this headline">¶</a></h3>
+<span id="id4"></span><h3>1.5.10.4. Get<a class="headerlink" href="#get-1" title="Permalink to this headline">¶</a></h3>
 <p>The get command downloads files from S3 to your local host.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms storage get /base_container/sourcedir ~/.cloudmesh/storage/targetdir --recursive
 </pre></div>
@@ -482,7 +475,7 @@ specified, only the files in the source directory will be downloaded to
 the target directory and the sub-directories will be ignored.</p>
 </div>
 <div class="section" id="search">
-<h3>5.10.5. Search<a class="headerlink" href="#search" title="Permalink to this headline">¶</a></h3>
+<h3>1.5.10.5. Search<a class="headerlink" href="#search" title="Permalink to this headline">¶</a></h3>
 <p>The search command helps to search for a particular file within a
 directory.</p>
 <p>If recursive options is specified, Cloudmesh will search for the file in
@@ -497,7 +490,7 @@ to 10 minutes and will not show up in a search until they have been
 indexed.</p>
 </div>
 <div class="section" id="list-1">
-<span id="id5"></span><h3>5.10.6. List<a class="headerlink" href="#list-1" title="Permalink to this headline">¶</a></h3>
+<span id="id5"></span><h3>1.5.10.6. List<a class="headerlink" href="#list-1" title="Permalink to this headline">¶</a></h3>
 <p>The list command lists all the contents of a cloud directory. If the
 recursive option is specified, it will list the contents of all
 sub-directories as well.</p>
@@ -506,7 +499,7 @@ sub-directories as well.</p>
 </div>
 </div>
 <div class="section" id="delete-1">
-<span id="id6"></span><h3>5.10.7. Delete<a class="headerlink" href="#delete-1" title="Permalink to this headline">¶</a></h3>
+<span id="id6"></span><h3>1.5.10.7. Delete<a class="headerlink" href="#delete-1" title="Permalink to this headline">¶</a></h3>
 <p>The delete command can delete files or folders from your cloud file
 storage. Deleting a folder will delete its contents as well (including
 the sub-directories).</p>
@@ -516,9 +509,9 @@ the sub-directories).</p>
 </div>
 </div>
 <div class="section" id="pytests">
-<h2>5.11. Pytests<a class="headerlink" href="#pytests" title="Permalink to this headline">¶</a></h2>
+<h2>1.5.11. Pytests<a class="headerlink" href="#pytests" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="generic-tests">
-<h3>5.11.1. Generic Tests<a class="headerlink" href="#generic-tests" title="Permalink to this headline">¶</a></h3>
+<h3>1.5.11.1. Generic Tests<a class="headerlink" href="#generic-tests" title="Permalink to this headline">¶</a></h3>
 <p>We have developed a number of simple pytests that can be called. To see
 the list of Pytests go to our directory</p>
 <ul class="simple">
@@ -541,7 +534,7 @@ pytest -v --capture<span class="o">=</span>no tests/test_storage.py
 </div>
 </div>
 <div class="section" id="provider-specific-pytests">
-<h3>5.11.2. Provider Specific Pytests<a class="headerlink" href="#provider-specific-pytests" title="Permalink to this headline">¶</a></h3>
+<h3>1.5.11.2. Provider Specific Pytests<a class="headerlink" href="#provider-specific-pytests" title="Permalink to this headline">¶</a></h3>
 <p>Open a terminal and navigate to the cloudmesh-storage directory. Enter
 the following command to run pytests:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pytest -v --capture<span class="o">=</span>no tests/test_storage_box.py
@@ -556,12 +549,12 @@ pytest -v --capture<span class="o">=</span>no tests/test_storage_aws.py
 </div>
 </div>
 <div class="section" id="general-features">
-<h2>5.12. General features<a class="headerlink" href="#general-features" title="Permalink to this headline">¶</a></h2>
+<h2>1.5.12. General features<a class="headerlink" href="#general-features" title="Permalink to this headline">¶</a></h2>
 <p>How to set up the authentication to a specific service is discussed in
 later sections</p>
 <p>TODO: Provide a simple programming example with the general provider</p>
 <div class="section" id="command-line-interface">
-<h3>5.12.1. Command Line Interface<a class="headerlink" href="#command-line-interface" title="Permalink to this headline">¶</a></h3>
+<h3>1.5.12.1. Command Line Interface<a class="headerlink" href="#command-line-interface" title="Permalink to this headline">¶</a></h3>
 <p>TBD</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms <span class="nb">set</span> <span class="nv">storage</span><span class="o">=</span>azure
 cms storage list
@@ -569,7 +562,7 @@ cms storage list
 </div>
 </div>
 <div class="section" id="programming-interface">
-<h3>5.12.2. Programming Interface<a class="headerlink" href="#programming-interface" title="Permalink to this headline">¶</a></h3>
+<h3>1.5.12.2. Programming Interface<a class="headerlink" href="#programming-interface" title="Permalink to this headline">¶</a></h3>
 <p>TBD</p>
 <p>Cloudmesh Storage provides a simple programming API interface that you
 can use. We highlight a simple exampple for storing and retrieving a
@@ -590,7 +583,7 @@ file form a storage provider.</p>
 </div>
 </div>
 <div class="section" id="pytests-1">
-<span id="id7"></span><h3>5.12.3. Pytests<a class="headerlink" href="#pytests-1" title="Permalink to this headline">¶</a></h3>
+<span id="id7"></span><h3>1.5.12.3. Pytests<a class="headerlink" href="#pytests-1" title="Permalink to this headline">¶</a></h3>
 <p>Script to test the GDrive service can be accessed under tests folder
 using the following pytest command.</p>
 <p>TODO rename to test_storage_gdrive.py</p>
@@ -600,17 +593,17 @@ using the following pytest command.</p>
 </div>
 </div>
 <div class="section" id="virtual-directory">
-<h2>5.13. Virtual Directory<a class="headerlink" href="#virtual-directory" title="Permalink to this headline">¶</a></h2>
+<h2>1.5.13. Virtual Directory<a class="headerlink" href="#virtual-directory" title="Permalink to this headline">¶</a></h2>
 <p>The virtual directory has been developed to mirror the linux directory
 commands. File links in the virtual directory point to files on storage
 providers, which can be retrieved using the virtual directory.</p>
 <div class="section" id="configuration">
-<h3>5.13.1. Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h3>
+<h3>1.5.13.1. Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h3>
 <p>The credentials for the virtual directory are the same as for the admin
 mongo command. See the Mongo section for details.</p>
 </div>
 <div class="section" id="pytests-2">
-<span id="id8"></span><h3>5.13.2. Pytests<a class="headerlink" href="#pytests-2" title="Permalink to this headline">¶</a></h3>
+<span id="id8"></span><h3>1.5.13.2. Pytests<a class="headerlink" href="#pytests-2" title="Permalink to this headline">¶</a></h3>
 <p>The vdir command can be tested as follows:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pytest -v --capture<span class="o">=</span>no tests/test_vdir.py
 </pre></div>
@@ -618,7 +611,7 @@ mongo command. See the Mongo section for details.</p>
 </div>
 </div>
 <div class="section" id="google-drive">
-<h2>5.14. Google drive<a class="headerlink" href="#google-drive" title="Permalink to this headline">¶</a></h2>
+<h2>1.5.14. Google drive<a class="headerlink" href="#google-drive" title="Permalink to this headline">¶</a></h2>
 <p>The Google Drive API needs the following two 2 credentials files. *
 <code class="docutils literal notranslate"><span class="pre">client_secret.json</span></code> * <code class="docutils literal notranslate"><span class="pre">google-drive-credentials.json</span></code></p>
 <p>If we run the Google Drive <code class="docutils literal notranslate"><span class="pre">Provider.py</span></code> for the <strong>First time</strong> then
@@ -639,12 +632,12 @@ it is done then our program is set. After these steps then the program
 will run automatically by using these credentials stored in the
 respective files.</p>
 <div class="section" id="note">
-<h3>5.14.1. Note<a class="headerlink" href="#note" title="Permalink to this headline">¶</a></h3>
+<h3>1.5.14.1. Note<a class="headerlink" href="#note" title="Permalink to this headline">¶</a></h3>
 <p>The Google Drive API accepts these 2 files in the form of <strong>.json file
 format</strong> and not in the form of a dictionary.</p>
 </div>
 <div class="section" id="links">
-<h3>5.14.2. Links<a class="headerlink" href="#links" title="Permalink to this headline">¶</a></h3>
+<h3>1.5.14.2. Links<a class="headerlink" href="#links" title="Permalink to this headline">¶</a></h3>
 <p>Link for additional information:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/cloudmesh-community/sp19-516-130/blob/master/gdrive.md">https://github.com/cloudmesh-community/sp19-516-130/blob/master/gdrive.md</a></p></li>
@@ -661,10 +654,10 @@ format</strong> and not in the form of a dictionary.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../workflow.html" class="btn btn-neutral float-right" title="6. Infrastructure Workflow" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../workflow.html" class="btn btn-neutral float-right" title="1.6. Infrastructure Workflow" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../vm/flavor.html" class="btn btn-neutral float-left" title="4. Flavors" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../vm/flavor.html" class="btn btn-neutral float-left" title="1.4. Flavors" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
