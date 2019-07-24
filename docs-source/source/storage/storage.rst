@@ -7,26 +7,28 @@ between cloud services and you local computer makes it possible that the
 services are accessed the same way. This includes AwsS3, Azure, Google,
 and box.
 
-The code is availabe a cloudmesh module at
+The code is available a cloudmesh module at
 
 -  https://github.com/cloudmesh/cloudmesh-storage
 
-|Version| |License| |Python| |Format| |Format| |Travis|
+|Version| |License| |Python| |Format| |Status| |Travis|
 
-Instalation
------------
+Installation
+------------
 
-.. todo:: the pip install is not yet enabled. Please use the source install instead (see Instalation instructions).
+.. todo:: the pip install is not yet enabled. Please use the source install
+          instead (see Installation instructions).
 
 The storage module can be installed with
 
-::
+.. code:: bash
 
     pip install cloudmesh-storage
 
 or if you install it from source with the cloudmesh installer
 
-::
+.. code:: bash
+
     mkdir cm
     cd cm
     cloudmesh-installer git clone storage
@@ -35,7 +37,6 @@ or if you install it from source with the cloudmesh installer
 
 General Storage Command
 -----------------------
-
 
 To view the manual page for the  storage command, type in
 
@@ -46,9 +47,10 @@ To view the manual page for the  storage command, type in
 
 .. todo:: include the storage command here
 
-Tos set a storage provider so you do not have to sepcify it with ``--storage``
+Tos set a storage provider so you do not have to specify it with ``--storage``
 
-we can set it with the set command. We have the following broviders to chose from:
+we can set it with the set command. We have the following providers to chose
+from:
 
 ``box``, ``awss3`` , ``awsstorage``, ``azure``, ``google``
 
@@ -66,7 +68,7 @@ To list the storage service you can say
 
 
 
-Ccnfiguration
+Configuration
 -------------
 
 AWSS3 Cloudmesh Integration
@@ -106,7 +108,7 @@ Here is a sample.
            access_key_id: *********
            secret_access_key: *******
            container: name of bucket that you want user to be contained in.
-           region: Specfiy the default region eg us-east-1
+           region: us-east-1
 
 Cloudmesh AWS Object Storage Interfaces
 ---------------------------------------
@@ -247,7 +249,7 @@ The get command downloads files from S3 to your local host.
 
 Source for this command could be either a file or directory.
 
-If you specify a file as the source, you need to speccify the full path
+If you specify a file as the source, you need to specify the full path
 of file including the file name where you want the file to be
 downloaded. In case you do not specify the file name and only give the
 target directory, then the file will be downloaded with the same name as
@@ -316,7 +318,7 @@ the list of Pytests go to our directory
 
 -  https://github.com/cloudmesh/cloudmesh-storage/tree/master/tests
 
-We also developed a general pytest that works accross providers and can
+We also developed a general pytest that works across providers and can
 be invoked as follows
 
 .. code:: bash
@@ -373,7 +375,7 @@ Programming Interface
 TBD
 
 Cloudmesh Storage provides a simple programming API interface that you
-can use. We highlight a simple exampple for storing and retrieving a
+can use. We highlight a simple example for storing and retrieving a
 file form a storage provider.
 
 We assume the files at the given path exist
@@ -388,7 +390,7 @@ We assume the files at the given path exist
    src = path_expand("~/.cloudmesh/storage/test/a/a.txt")
    dst = "/"
    result = provider.put(src, dst)
-   # The resut will be a dict of the information whih you can print with 
+   # The result will be a dict of the information which you can print with
 
    pprint(result)
 
@@ -438,11 +440,11 @@ The Google Drive API needs the following two 2 credentials files. \*
 
 If we run the Google Drive ``Provider.py`` for the **First time** then
 the required keys, tokens are taken from the ``cloudmesh4.yaml`` file
-and creates a ``client_secret.json`` file in the follwing path
+and creates a ``client_secret.json`` file in the following path
 ``~/.cloudmesh/gdrive/``
 
 The ``Authentication.py`` creates a ``.credentials`` folder under the
-following path ``~/.cloudmesh/gdrive/`` if it doesn’t exist and creates
+following path ``~/.cloudmesh/gdrive/`` if it does not exist and creates
 a ``google-drive-credentials.json`` file under the following folder
 ``~/.cloudmesh/gdrive/.credentials/``
 
@@ -478,7 +480,7 @@ Link for additional information:
    :target: https://pypi.python.org/pypi/cloudmesh-storage
 .. |Format| image:: https://img.shields.io/pypi/format/cloudmesh-storage.svg
    :target: https://pypi.python.org/pypi/cloudmesh-storage
-.. |Format| image:: https://img.shields.io/pypi/status/cloudmesh-storage.svg
+.. |Status| image:: https://img.shields.io/pypi/status/cloudmesh-storage.svg
    :target: https://pypi.python.org/pypi/cloudmesh-storage
 .. |Travis| image:: https://travis-ci.com/cloudmesh/cloudmesh-storage.svg?branch=master
    :target: https://travis-ci.com/cloudmesh/cloudmesh-storage

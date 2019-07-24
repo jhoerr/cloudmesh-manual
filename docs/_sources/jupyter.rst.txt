@@ -1,13 +1,9 @@
 Jupyter Integration
 ===================
 
-.. todo:: The jupyter integration was available in an earlier ersion of
-          cloudmesh and we need to make sure that ut also works here.
-
 As cloudmesh provides an API but also is available as command shell it
-is very easy to integrate it into jupyter
-
-In this section we describe hw to do this.
+is very easy to integrate it into jupyter. In this section we describe hw to
+do this.
 
 Any cms command can be run via the shell
 
@@ -21,7 +17,7 @@ A Command Shells access (proposed)
 
 .. todo:: Make sure the shell() command is implemented
 
-To use a more pythonic apporach you can do
+To use a more pythonic approach you can do
 
 .. code:: python
 
@@ -37,7 +33,7 @@ To use a more pythonic apporach you can do
 API calls
 ---------
 
-To use the specific API calls, look at the manaul or the tests. To list
+To use the specific API calls, look at the manual or the tests. To list
 for example the flavors of a cloud you can use:
 
 .. code:: python
@@ -51,7 +47,7 @@ for example the flavors of a cloud you can use:
 
     pprint (images)
 
-To print the information in a noce table you can also use
+To print the information in a nice table you can also use
 
 .. code:: python
 

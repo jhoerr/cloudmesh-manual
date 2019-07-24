@@ -17,7 +17,7 @@
 
 * Printing debug messages in verbose mode 
 
-  In case yo ulike to do debug messages use
+  In case you like to do debug messages use
 
   ````python
   from cloudmesh.DEBUG import VERBOSE

@@ -8,11 +8,11 @@ install from
 * source install if you are a developer
 
 At this time we do not recommend the conda install, as the conda packages are
-outdated at this time.
+outdated.
 
-Please read a section in this manual completly, and understand the items
-explained. Do not just copy an past
-text in your terminal and execute it as it could have unexpected consequences.
+Please read a section in this manual completely, and understand the items
+explained. Do not just paste and copy text in your terminal and execute it as
+it could have unexpected consequences.
 
 The mongo installation has to be done by everyone.
 
@@ -22,9 +22,36 @@ The mongo installation has to be done by everyone.
 Prerequisites
 -------------
 
-.. note:: Before you install make sure that you have at minimum python 3.7.3
+.. note:: Before you install make sure that you have at minimum python 3.7.4
           installed. Likely the code will work with earlier versions, but we
-          do the development in python 3.7.3 from https://www.python.org/downloads/.
+          do the development in python 3.7.4 from https://www.python.org/downloads/.
+
+Prerequisits Ubuntu 19.04
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Python 3.7 is installed in ubuntu 19.04. Therefore, it already fulfills the
+prerequisits. However we recommend that you update to the newest version of
+python and pip. However we recommend that you update the the newest version
+of python. Please visit: https://www.python.org/downloads/
+
+
+Prerequisits macOS
+~~~~~~~~~~~~~~~~~~
+
+Installing cloudmesh in macOS is very similar to installation in Ubuntu.
+Start the process by installing the python 3 using ``homebrew``. Install the
+``homebrew`` using the instruction in their `web page
+<https://brew.sh/#install>`_:
+
+.. code:: bash
+
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+Then you should be able to install Python 3.7.4 using:
+
+.. code:: bash
+
+    brew install python
 
 
 Prerequisits Ubuntu 18.04
@@ -42,7 +69,7 @@ the version with::
 
     python3 --version
 
-If the version is not 3.7.3 or newer, you can update it as follows:
+If the version is not 3.7.4 or newer, you can update it as follows:
 
 .. code:: bash
 
@@ -52,7 +79,7 @@ If the version is not 3.7.3 or newer, you can update it as follows:
     sudo apt-get install python3.7 python3-dev python3.7-dev
 
 You can then check the installed version
-using ``python3.7 --version`` which should be ``3.7.3``.
+using ``python3.7 --version`` which should be ``3.7.4``.
 
 Now we will create a new virtual environment:
 
@@ -82,31 +109,6 @@ with the native pip:
     python get-pip.py
     rm get-pip.py
 
-Prerequisits Ubuntu 19.04
-~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Python 3.7 is installed in ubuntu 19.04. Therefore, it already fulfills the
-prerequisits. However we recommend that you update to the newest version of
-python and pip.
-
-
-Prerequisits macOS
-~~~~~~~~~~~~~~~~~~
-
-Installing cloudmesh in macOS is very similar to installation in Ubuntu.
-Start the process by installing the python 3 using ``homebrew``. Install the
-``homebrew`` using the instruction in their `web page
-<https://brew.sh/#install>`_:
-
-.. code:: bash
-
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
-Then you should be able to install Python 3.7.3 using:
-
-.. code:: bash
-
-    brew install python
 
 Prerequisit venv
 ~~~~~~~~~~~~~~~~
@@ -120,35 +122,45 @@ python. This is simple. For our purposes we assume that you use the directory
 
 .. code:: bash
 
-   python3.7 -m venv  ~/ENV3
-   source  ~/ENV3/bin/activate
+   python3 -m venv  ~/ENV3
+   source ~/ENV3/bin/activate
 
 You can add at the end of your .bashrc (ubuntu) or .bash_profile (macOS) file
 the line
 
 .. code:: bash
 
-    source ~/ENV3/bin/activate
+   source ~/ENV3/bin/activate
 
 so the environment is always loaded. Now you are ready to install cloudmesh.
+
+Check if you have the right version of python installed with
+
+.. code:: bash
+
+   python --version
 
 To make sure you have an up to date version of pip issue the command
 
 .. code:: bash
 
-    pip install pip -U
+   pip install pip -U
 
 Installation with Pip
 ---------------------
 
-.. warning:: At this time the pip install is not supported.
-
-The instalation can be done with pip.
+The installation can be done with pip. Make sure to have an updated version of
+pip::
 
 .. code:: bash
 
-   pip install cloudmesh-cms
-   pip install cloudmesh-sys
+   pip install pip -U
+
+Next, dependent on your needs you can install the cloudmesh cloud or storage
+bundle with
+
+.. code:: bash
+
    pip install cloudmesh-cloud
    pip install cloudmesh-storage
 
@@ -156,14 +168,14 @@ Additional packages include but are not yet released:
 
 .. code:: bash
 
-   pip install cloudmesh-flow
-   pip install cloudmesh-emr
-   pip install cloudmesh-batch
-   pip install cloudmesh-openapi
+   pip install cloudmesh-flow    # not yet supported
+   pip install cloudmesh-emr     # not yet supported
+   pip install cloudmesh-batch   # not yet supported
+   pip install cloudmesh-openapi # not yet supported
 
 
-Next you will need to test the cloudmesh command and at the same time create
-a configuration file. This is done by invoking the ``cms`` comamnd the first
+You want to test the cloudmesh command and at the same time create
+a configuration file. This is done by invoking the ``cms`` command the first
 time. Thus, just type the command
 
 
@@ -194,22 +206,17 @@ in the chanel ``laszewski``. This includes
 -  cloudmesh-cmd5
 -  cloudmesh-sys
 
-Note that the packages will always be a behind the packages on pypi and
-especially the source distribution. FUrthermore, other packages are not yet
-uploaded. If you are interested in helping out with the conda packages, let
-us know. Please contact us if you need a new release. As conda supports alos
-pip, we recommend using pip for it also.
+Note that the conda packages will always be a behind the version you will
+find in pypi. Therefore we recommend you use the pip based installation.
 
 
 Source Installation for Developers
 ----------------------------------
 
-.. warning:: This is the only supported way to install cloudmesh at this time.
-
-As a developer you want to use our source instalation. For this reasone we
+As a developer you want to use our source installation. For this reason we
 wrote a ``cloudmesh-installer`` script that conveniently downloads the needed
 repositories, installs and updates them on demand. More documentation about it
- can be found at
+can be found at
 
 -  https://github.com/cloudmesh/cloudmesh-installer
 
@@ -242,8 +249,8 @@ Let, us assume you chose ``cloud``, than you can install cloudmesh with
    cloudmesh-installer install cloud -e
 
 It will take a while to install. On newer machines 1 minute, on older
-significant longer. You can than test if you sucessfully installed it by
-issueing the command
+significant longer. You can than test if you successfully installed it by
+issuing the command
 
 .. code:: bash
 
@@ -263,7 +270,7 @@ To update the source from github, simply use the command while making sure to
 
     cloudmesh-installer git pull cloud
 
-Reinstalation
+Reinstallation
 ~~~~~~~~~~~~~
 
 In case you need to reinstall cloudmesh and you have used previously the
@@ -272,7 +279,7 @@ and the ``cloudmesh-installer`` in the directory cm as documented previously):
 
 .. code:: bash
 
-    cd cm # the directory wher eyour source locates
+    cd cm # the directory where your source locates
     cloudmesh-installer local purge . --force
     rm -rf ~/ENV3
     python3 -m venv ~/ENV3
@@ -300,7 +307,7 @@ Installation of mongod
 ----------------------
 
 First, you will need to install a ``cloudmesh4.yaml`` file, if you have not
-done this before. The easieast way to do so is with the command
+done this before. The easiest way to do so is with the command
 
 .. code:: bash
 

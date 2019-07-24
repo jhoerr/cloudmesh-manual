@@ -53,7 +53,7 @@ self-explanatory, but we will review the important ones here:
 -  ``--input-type``: defines the type of input for the application that
    is going to be run on the cluster. This is important because if the
    program takes a file name as an argument, that file has to be
-   transfered to the cluster as well. Possible values for this parameter
+   transferred to the cluster as well. Possible values for this parameter
    is either ``params`` or ``params+file``. Note that if you pass
    ``params+file`` then you have to specify the ``--argfile-path`` as
    well where you define the path to the argument file.
@@ -269,11 +269,11 @@ configuration file using the following:
 .. code:: bash
 
     cms baremove slurm-cluster slurm-taito
-    Slurm-cluster slurm-taito removeed successfully.
+    Slurm-cluster slurm-taito removed successfully.
 
 Similarly, you can remove a obsolete job using the following command:
 
 .. code:: bash
 
     cms batch remove job SlurmTest1
-    Job SlurmTest1 removeed successfully.
+    Job SlurmTest1 removed successfully.

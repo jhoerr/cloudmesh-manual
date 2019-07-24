@@ -2,7 +2,7 @@ Quickstart
 ==========
 
 One of the features up Cloudmesh is to easily start new virtual machines
-on vairous clouds. It uses defaults for these clouds that can be chaned,
+on various clouds. It uses defaults for these clouds that can be changed,
 but are easily stored in a yaml file located at
 ``~/.cloudmesh/cloudmesh4.yaml`` This file is created upon first start
 of the shell. You need to edit it and include some of your cloud
@@ -96,9 +96,9 @@ We recommend that after you are done working with cloudmesh to stop it with::
 Command line
 ------------
 
-After you started cms you can issue a numer of commands. The benefit of
-cloudmesh is that it is easy to switch beteeen clouds with the set command.
-Ater the set and specifying the cloud by name many commands will default to
+After you started cms you can issue a number of commands. The benefit of
+cloudmesh is that it is easy to switch betweeen clouds with the set command.
+After the set and specifying the cloud by name many commands will default to
 that cloud. The exception is the ``vm list`` command that lists by default
 all vms on all clouds. In addition the ``vm refresh`` command will also
 work on all clouds.
@@ -206,7 +206,7 @@ All information about for example virtual machines are cached locally.
 The cache for various information sources can be explicitly updated with
 the ``--refresh`` flag. Thus the command
 
-.. todo:: check if the list --refresh is implemented for vm, flavor, imgages,
+.. todo:: check if the list --refresh is implemented for vm, flavor, images,
           for all clouds
 
 .. code:: bash
@@ -248,7 +248,7 @@ Using quotes
 New Commands for Developers
 ---------------------------
 
-We added the following commnads to make development easier
+We added the following commands to make development easier
 
 .. list-table:: New commands
    :widths: 25 75

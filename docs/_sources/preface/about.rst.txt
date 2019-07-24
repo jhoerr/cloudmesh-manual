@@ -4,7 +4,7 @@ About
 `Cloudmesh version 4 <https://cloudmesh-community.github.io/cm/>`__ is
 an evolution of our previous tool that has been used by hundreds of
 students and cloud practitioners to interact easily with clouds to
-create a service meshup to access common cloud services across a number
+create a service mashup to access common cloud services across a number
 of cloud providers.
 
 It is under active development. It is managed in github at

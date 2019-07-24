@@ -4,7 +4,7 @@ Microsoft Azure is a cloud computing service created by Microsoft for
 building, testing, deploying, and managing applications and services
 through Microsoft-managed data centers.
 
-Azure has over 600 services, inclding compute, mobile sevice, storage
+Azure has over 600 services, including compute, mobile service, storage
 service, data management, messaging and so on. In this case, Azure
 itself is a multi-functional platform. As for the compute service, which
 is the core part for cloud computing, it provides virtual machines
@@ -19,7 +19,7 @@ in order to implement cloud computing or use other services;
 
 You can choose either using your outlook email address to create a free
 trial account including $200 credit and free access to most popular
-Azure products for 12 months, or using your euducational email adress to
+Azure products for 12 months, or using your educational email address to
 create a student account including $100 credit.
 
 If you want to create an azure account using your outlook email, you can
@@ -28,11 +28,11 @@ go to the next site after creating an outlook email address at:
 -   <https://azure.microsoft.com/en-us/>
 
 Then you need to click the Start Free button as shown in the next
-screenshot. After entering all required information, your account will
+screen shot. After entering all required information, your account will
 be set up. However, the account will only be available for 30 days.
 After 30 days, you can continue using your free products after you
 upgrade your account to a pay-as-you-go Azure subscription. If you
-forget to do so you will not be able to aceess Azure, So pleas add it to
+forget to do so you will not be able to access Azure, So pleas add it to
 your calendar in order not to forget.
 
 ![Start free](images/azure/image1.png)
@@ -63,11 +63,11 @@ Congratulation, you can now use Azure.
 
 Now that we have an account we want to test if it works. The most
 convenient way to test your access this from the command line is to
-install the azure command line client. You can access azure servies by
+install the azure command line client. You can access azure services by
 just typing command on your local shell. It can be installed on on
 Windows, macOS and Linux systems.
 
-For detailed instructions for your system of interrest we recommend you
+For detailed instructions for your system of interest we recommend you
 visit the page
 
 -   <https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest>
@@ -81,7 +81,7 @@ $ sudo apt-get update
 $ sudo apt-get install curl 
 ```
 
-The instalation is conducted with the following command that you will
+The installation is conducted with the following command that you will
 have to run as superuser:
 
 ```bash
@@ -109,8 +109,8 @@ Azure.
 To use any resource on Azure, you first need to create a resource group.
 This is potentially a confusing step as information in the internet may
 point you to outdated information. If you use other information from the
-internet. make sure it is up to date. loud services subscirption
-account. After you looged into the Azure portal at:
+internet. make sure it is up to date. loud services subscription
+account. After you logged into the Azure portal at:
 
 -   <https://portal.azure.com/>
 
@@ -160,10 +160,11 @@ similar to a directory in a file system. A default
 Can the resource group be created with the az command? How is it done
 for storage, how is it done for compute?
 
--   [ ] todo: Azure. Compute and STorage FAQ: to be completed by
+- [ ] todo: Azure. Compute and Storage FAQ: to be completed by
     student.
 
-- [ ] TODO: there are several images in the folde accounts/impgaes/azure, but tehy are not used in the text]
+- [ ] TODO: there are several images in the folder `accounts/impgaes/azure`, 
+  but they are not used in the text]
 
 ## References
 

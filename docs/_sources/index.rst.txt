@@ -2,24 +2,20 @@ Cloudmesh Version 4
 ===============================
 
 .. toctree::
-   :numbered:
    :caption: PREFACE
 
    preface/about
    preface/contributors
 
 .. toctree::
-   :numbered:
    :caption: INSTALLATION
 
    installation/install
    installation/quickstart
    configuration/configuration
    installation/mongo
-   configuration/encryption
 
 .. toctree::
-   :numbered:
    :caption: MANUAL PAGES
 
    cmd5
@@ -32,13 +28,11 @@ Cloudmesh Version 4
    manual-other
 
 .. toctree::
-   :numbered:
    :caption: API
 
    api/index
 
 .. toctree::
-   :numbered:
    :caption: CONTRIBUTION
 
    dev/conventions
@@ -49,7 +43,6 @@ Cloudmesh Version 4
 
 
 .. toctree::
-   :numbered:
    :caption: CLOUD ACCOUNTS
 
    accounts/aws
@@ -69,7 +62,6 @@ Other
 =======================
 
 .. toctree::
-   :numbered:
    :caption: OTHER
 
    tbd

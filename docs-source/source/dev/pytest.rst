@@ -3,7 +3,7 @@ Pytest
 
 Pytest is a utility to unit test python code.
 
-We use nosetests and not ``__main__`` to test all functionality so they
+We use pytest and not ``__main__`` to test all functionality so they
 can me automatically run and reports can be generated. A project that
 does not have a sufficient number of tests to make sure the module works
 can not be accepted.
@@ -11,7 +11,7 @@ can not be accepted.
 Installation
 ------------
 
-The nose module can be installed with the help of pip utility
+The pytest module can be installed with the help of pip utility
 
 .. code:: bash
 
@@ -25,7 +25,7 @@ For example for the cloudmesh-cloud module they are in
 
 -  https://github.com/cloudmesh/cloudmesh-cloud/tree/master/tests
 
-Best is to add a numbe rto identify in which order they are run
+Best is to add a number to identify in which order they are run
 
 ::
 
@@ -72,17 +72,17 @@ setup that is run prior to each test being executed. Other functions
 will use the setup prior to execution.
 
 A function includes one or multiple asserts that check if a particular
-test succeeds and reports this to nose to expose the information if a
-tess succeds or fails, when running it
+test succeeds and reports this to pytest to expose the information if a
+tess succeeds or fails, when running it
 
-Note that all nosetest functions start with a ``HEADING()`` in the body
-which conveniently prints a banner with the function name and thus helps
+Note that all pytest functions in cloudmesh start with a ``HEADING()`` in the
+body which conveniently prints a banner with the function name and thus helps
 in debugging in case of errors.
 
 Invocation is simply done with the comment lines you see on top that you
 will include.
 
-in our case the test is called test\_key.py so we include on the top
+in our case the test is called `test_key.py` so we include on the top
 
 ::
 
@@ -97,7 +97,7 @@ printed with the command
 
 Make sure that you place this comment in your tests.
 
-The following is our simple nosetests for key. THe file is stored at
+The following is our simple pytest for key. THe file is stored at
 ``tests/test_key.py``
 
 First, we import the needed classes and methods we like to test. We

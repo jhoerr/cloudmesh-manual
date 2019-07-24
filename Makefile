@@ -74,7 +74,6 @@ api-index:
 	| sed 's/^/   /' \
 	| sed 's/.rst//' \
 	| sort -u >> index.rst
-	cd $(API); cat index.rst
 
 inspect: dest/gitinspector/gitinspector.py
 	for c in $(MODULES) ; do \

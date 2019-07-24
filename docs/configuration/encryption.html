@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>5. Cloudmesh Yaml file Encrytion &mdash; Cloudmesh v4 alpha documentation</title>
+  <title>Cloudmesh Yaml file Encryption &mdash; Cloudmesh v4 alpha documentation</title>
   
 
   
@@ -36,8 +36,8 @@
   <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="1. Cmd5" href="../cmd5.html" />
-    <link rel="prev" title="4. Cloudmesh Database" href="../installation/mongo.html" /> 
+    <link rel="next" title="Group command" href="../group.html" />
+    <link rel="prev" title="OTHER" href="../tbd.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -87,64 +87,86 @@
             
               <p class="caption"><span class="caption-text">PREFACE</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../preface/about.html">1. About</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../preface/contributors.html">2. Contributors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preface/about.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preface/contributors.html">Contributors</a></li>
 </ul>
 <p class="caption"><span class="caption-text">INSTALLATION</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../installation/install.html">1. Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../installation/quickstart.html">2. Quickstart</a></li>
-<li class="toctree-l1"><a class="reference internal" href="configuration.html">3. Configuration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../installation/mongo.html">4. Cloudmesh Database</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">5. Cloudmesh Yaml file Encrytion</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#prerequisits">5.1. Prerequisits</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#encryption">5.2. Encryption</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#decryption">5.3. Decryption</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#cloudmesh-integration">5.4. Cloudmesh Integration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#editing-the-configuration-file">5.5. Editing the Configuration file</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#adding-information-to-the-configuration">5.6. Adding information to the configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#separating-the-sensitive-information">5.7. Separating the sensitive information</a></li>
-</ul>
-</li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/mongo.html">Cloudmesh Database</a></li>
 </ul>
 <p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../cmd5.html">1. Cmd5</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../reference-card.html">2. Reference Card (proposed)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../manual/commands.html">3. Commands</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../manual-cmd5.html">4. Manual Cmd5</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../manual-group.html">5. Manual Group</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../manual-compute.html">6. Compute Manual Pages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../manual-storage.html">7. Storage Manual Pages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../manual-other.html">8. Manual Other</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cmd5.html">Cmd5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference-card.html">Reference Card</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/commands.html">Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-cmd5.html">Manual Cmd5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-group.html">Manual Group</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-compute.html">Compute Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-storage.html">Storage Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-other.html">Manual Other</a></li>
 </ul>
 <p class="caption"><span class="caption-text">API</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../api/index.html">1. Cloudmesh Command API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api/index.html#cloudmesh-api">2. Cloudmesh API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html">Cloudmesh Command API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html#cloudmesh-api">Cloudmesh API</a></li>
 </ul>
 <p class="caption"><span class="caption-text">CONTRIBUTION</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../dev/conventions.html">1. Code Conventions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dev/management.html">2. Code Management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dev/management.html#documentation-management">3. Documentation Management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dev/management.html#version-management">4. Version Management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dev/pytest.html">5. Pytest</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dev/manual.html">6. Manual Creation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dev/todo.html">7. ToDo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/conventions.html">Code Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/management.html">Code Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/management.html#documentation-management">Documentation Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/management.html#version-management">Version Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/pytest.html">Pytest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/manual.html">Manual Creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/todo.html">ToDo</a></li>
 </ul>
 <p class="caption"><span class="caption-text">CLOUD ACCOUNTS</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/aws.html">1. AWS Account Creation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/azure.html">2. Azure Account Creation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/google.html">3. Google Storage Providers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/box.html">4. Box Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/accountcreation-old.html">5. VM Providers (outdated)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/aws.html">AWS Account Creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/azure.html">Azure Account Creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/google.html">Google Storage Providers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/box.html">Box Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
 </ul>
 <p class="caption"><span class="caption-text">OTHER</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../tbd.html">1. OTHER</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tbd.html#outdated">2. OUTDATED</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../tbd.html">OTHER</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Cloudmesh Yaml file Encryption</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#prerequisits">Prerequisits</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#encryption">Encryption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#decryption">Decryption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cloudmesh-integration">Cloudmesh Integration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#editing-the-configuration-file">Editing the Configuration file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#adding-information-to-the-configuration">Adding information to the configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#separating-the-sensitive-information">Separating the sensitive information</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../group.html">Group command</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vm/vm.html">Virtual Machine Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vm/image.html">Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vm/flavor.html">Flavors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../storage/storage.html">Cloudmesh Multi Cloud Storage Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workflow.html">Infrastructure Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../jupyter.html">Jupyter Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hpc/batch.html">Batch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hpc/refcard.html">HPC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../openapi/README-storage-openapi.html">Cloudmesh Multi Cloud Open API Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../openapi/ufo.html">REST Service (outdated)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../storage/database.html">Cloudmesh Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../benchmarks/README.html">Benchmarks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../benchmarks/awsec2-vm-management-benchmark.html">AWS EC2 VM Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../benchmarks/awsec2_benchmark_ubuntu.html">AWS EC2 VM Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../benchmarks/awss3-storage-benchmark.html">AWS S3 File Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../benchmarks/azure-storage-benchmark.html">Azure Blob Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../benchmarks/box.html">Benchmark results for box Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../benchmarks/emr.html">AWS EMR Benchmarking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../benchmarks/test_compute_database.html">AWS EC2 Compute Database</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tbd.html#outdated">OUTDATED</a></li>
 </ul>
 
             
@@ -190,7 +212,9 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>5. Cloudmesh Yaml file Encrytion</li>
+          <li><a href="../tbd.html">OTHER</a> &raquo;</li>
+        
+      <li>Cloudmesh Yaml file Encryption</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -209,8 +233,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="cloudmesh-yaml-file-encrytion">
-<h1>5. Cloudmesh Yaml file Encrytion<a class="headerlink" href="#cloudmesh-yaml-file-encrytion" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="cloudmesh-yaml-file-encryption">
+<h1>Cloudmesh Yaml file Encryption<a class="headerlink" href="#cloudmesh-yaml-file-encryption" title="Permalink to this headline">¶</a></h1>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>THIS SECTION IS UNDER DEVELOPMENT AND THE CONTENT DESCRIBED IS NOT
@@ -221,38 +245,38 @@ YET FULLY WORKING</p>
 <p>verify the entire content of the encryption command</p>
 </div>
 <p>The cloudmesh yaml file can contain some information to simplify
-authentication. In order not tos store the file in cleartext we have
+authentication. In order not tos store the file in clear text we have
 provided a replacement function for the configuration that allows
-encruption of the file with your ssh key. IT is important that your ssh
+encryption of the file with your ssh key. IT is important that your ssh
 key is generated with a passphrase. If you do not, even if you encrypt,
 the file can without a passphrase decrypted which is the same as having
-it in cleartext. So make sure tour ssh-key has a passphrase.</p>
+it in clear text. So make sure tour ssh-key has a passphrase.</p>
 <div class="section" id="prerequisits">
-<h2>5.1. Prerequisits<a class="headerlink" href="#prerequisits" title="Permalink to this headline">¶</a></h2>
+<h2>Prerequisits<a class="headerlink" href="#prerequisits" title="Permalink to this headline">¶</a></h2>
 <p>You have an ssh key</p>
 </div>
 <div class="section" id="encryption">
-<h2>5.2. Encryption<a class="headerlink" href="#encryption" title="Permalink to this headline">¶</a></h2>
+<h2>Encryption<a class="headerlink" href="#encryption" title="Permalink to this headline">¶</a></h2>
 <p>To encrypt the file, pleas use the command</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms config encrypt
 </pre></div>
 </div>
 <p>This command will encrypt your <code class="docutils literal notranslate"><span class="pre">cloudmesh4.yaml</span></code> file and place it
 under <code class="docutils literal notranslate"><span class="pre">~/.cloudmesh/cloudmesh4.yaml.enc</span></code>. It will ask you if you like
-to delete the orignial yaml file.</p>
+to delete the original yaml file.</p>
 </div>
 <div class="section" id="decryption">
-<h2>5.3. Decryption<a class="headerlink" href="#decryption" title="Permalink to this headline">¶</a></h2>
+<h2>Decryption<a class="headerlink" href="#decryption" title="Permalink to this headline">¶</a></h2>
 <p>To decrypt the file, pleas use the command</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms config decrypt
 </pre></div>
 </div>
 <p>This command will decrypt your <code class="docutils literal notranslate"><span class="pre">cloudmesh4.yaml.enc</span></code> file and place it
 under <code class="docutils literal notranslate"><span class="pre">~/.cloudmesh/cloudmesh4.yaml.enc.enc</span></code>. It will ask you if you
-like to delete the orignial yaml file.</p>
+like to delete the original yaml file.</p>
 </div>
 <div class="section" id="cloudmesh-integration">
-<h2>5.4. Cloudmesh Integration<a class="headerlink" href="#cloudmesh-integration" title="Permalink to this headline">¶</a></h2>
+<h2>Cloudmesh Integration<a class="headerlink" href="#cloudmesh-integration" title="Permalink to this headline">¶</a></h2>
 <p>We have provided a new
 <code class="docutils literal notranslate"><span class="pre">cloudmesh.management.configuration.ConfigCrypt()</span></code> That will be
 integrated in future (once verified it works) into the regular
@@ -264,21 +288,21 @@ written that both files exist and it recommended in production to
 delete the unencrypted file.</p></li>
 <li><p>if only <code class="docutils literal notranslate"><span class="pre">cloudmesh4.yaml</span></code> exist a warning is written that an
 unencrypted yaml file is used</p></li>
-<li><p>if only <code class="docutils literal notranslate"><span class="pre">cloudmesh4.yaml.enc</span></code> exists it is unencrypted and loded
+<li><p>if only <code class="docutils literal notranslate"><span class="pre">cloudmesh4.yaml.enc</span></code> exists it is unencrypted and loaded
 into memory. Please note that <code class="docutils literal notranslate"><span class="pre">ConfigCrypt()</span></code> just as Config() is
 implemented as Borg class so that the decryption and loading loading
 is conducted only once.</p></li>
 </ul>
 </div>
 <div class="section" id="editing-the-configuration-file">
-<h2>5.5. Editing the Configuration file<a class="headerlink" href="#editing-the-configuration-file" title="Permalink to this headline">¶</a></h2>
-<p>Editing the configuration file can be done by first unencrypting the
+<h2>Editing the Configuration file<a class="headerlink" href="#editing-the-configuration-file" title="Permalink to this headline">¶</a></h2>
+<p>Editing the configuration file can be done by first decrypting the
 file with</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>TBD
 </pre></div>
 </div>
-<p>Than yo ucan use your favourit editor to make modifications. Let us
-assume thsi is emacs.</p>
+<p>Than you can use your favourite editor to make modifications. Let us
+assume this is emacs.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>emacs ~/.cloudmesh/cloudmesh4.yaml
 </pre></div>
 </div>
@@ -288,7 +312,7 @@ assume thsi is emacs.</p>
 </div>
 </div>
 <div class="section" id="adding-information-to-the-configuration">
-<h2>5.6. Adding information to the configuration<a class="headerlink" href="#adding-information-to-the-configuration" title="Permalink to this headline">¶</a></h2>
+<h2>Adding information to the configuration<a class="headerlink" href="#adding-information-to-the-configuration" title="Permalink to this headline">¶</a></h2>
 <p>It is also possible to add configurations to the encrypted file while
 storing the new values in a temporary yaml file.</p>
 <p>Let us assume the temporary file <code class="docutils literal notranslate"><span class="pre">./change.yaml</span></code> contains the
@@ -305,12 +329,12 @@ following information:</p>
 </div>
 <p>Will update the existing <code class="docutils literal notranslate"><span class="pre">cloudmesh4.yaml</span></code> or cloudmesh4.yaml.enc`
 file with the provided information. This is taking place regardless if
-the yaml file is encrypted or not. If both files exist., both files will
-be modified. A Wrning is however issued if the unencrypted yaml file
-esists to remind the user to delete it.</p>
+the yaml file is encrypted or not. If both files exist, both files will
+be modified. A warning is however issued if the unencrypted yaml file
+exists to remind the user to delete it.</p>
 <p>Alternatively the convenient dot notation cloudmesh provides for
 configuration files can be used. This is done by having the ending
-<code class="docutils literal notranslate"><span class="pre">txt</span></code> instead of <code class="docutils literal notranslate"><span class="pre">yml</span></code> We illustarted this on the following example
+<code class="docutils literal notranslate"><span class="pre">txt</span></code> instead of <code class="docutils literal notranslate"><span class="pre">yml</span></code> We illustrated this on the following example
 where the data is stored in <code class="docutils literal notranslate"><span class="pre">change.txt</span></code></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cloudmesh</span><span class="o">.</span><span class="n">profile</span><span class="o">.</span><span class="n">firstname</span><span class="p">:</span> <span class="n">Gregor</span>
 <span class="n">cloudmesh</span><span class="o">.</span><span class="n">profile</span><span class="o">.</span><span class="n">lastname</span><span class="p">:</span> <span class="n">von</span> <span class="n">Laszewski</span>
@@ -321,7 +345,7 @@ where the data is stored in <code class="docutils literal notranslate"><span cla
 </div>
 </div>
 <div class="section" id="separating-the-sensitive-information">
-<h2>5.7. Separating the sensitive information<a class="headerlink" href="#separating-the-sensitive-information" title="Permalink to this headline">¶</a></h2>
+<h2>Separating the sensitive information<a class="headerlink" href="#separating-the-sensitive-information" title="Permalink to this headline">¶</a></h2>
 <p>As it may be beneficial to separate the sensitive form the non sensitive
 information, we also provide a mechanism for authentication with a
 merged file. This way you could for example store the sensitive
@@ -351,10 +375,10 @@ single line&gt;</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../cmd5.html" class="btn btn-neutral float-right" title="1. Cmd5" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../group.html" class="btn btn-neutral float-right" title="Group command" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../installation/mongo.html" class="btn btn-neutral float-left" title="4. Cloudmesh Database" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../tbd.html" class="btn btn-neutral float-left" title="OTHER" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

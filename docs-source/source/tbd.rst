@@ -5,6 +5,7 @@ OTHER
 .. toctree::
    :caption: CODE
 
+   configuration/encryption
    code/storage
    code/batch
    code/emr
@@ -20,6 +21,7 @@ OTHER
    workflow
    jupyter
    hpc/batch
+   hpc/refcard
 
 .. toctree::
    :caption: openapi

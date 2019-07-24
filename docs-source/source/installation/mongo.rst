@@ -6,7 +6,7 @@ remember which services you used where and have an accurate account of
 them. We use as a database mongoDB to store this information. To use
 cloudmesh you simply need to create and start the database service.
 
-First you need to cahnge the password for mongo in the ``cloudmesh4.yaml`` file
+First you need to change the password for mongo in the ``cloudmesh4.yaml`` file
 Now you can create an empty database with
 
 .. code:: bash
@@ -37,7 +37,7 @@ To stop it from running use the command
 
 To backup and load from the backup you can use:
 
-.. todo:: the dmin backup needs to be tested.
+.. todo:: the admin backup needs to be tested.
 
 :: code:: bash
 
@@ -90,10 +90,7 @@ with the dictionary returned by a function.
 
 It is added to a specific MongoDB collection. The location is determined from
 the values in the dictionary. The dict must contain a dict named ``cm`` that
-containes thre attributes ``kind``, ``cloud``, ``name``:
-
-
-::
+contains the attributes ``kind``, ``cloud``, ``name``::
 
     "cm" : {
         "kind" : "flavor",
@@ -104,9 +101,7 @@ containes thre attributes ``kind``, ``cloud``, ``name``:
 WHen such a dict is uploaded with our database decorator that we explain
 later, information such as created, updated, and other attributes are added.
 Some of the information for these attributes is taken from the ``cloudmesh4
-.yaml`` file, while others such as modified, will be updated dynamically.
-
-::
+.yaml`` file, while others such as modified, will be updated dynamically::
 
     "cm" : {
         "name" : "m1.medium",
@@ -132,17 +127,15 @@ In addition each entry in the collection has a ``name`` that must be
 unique in that collection.
 
 
-In most examples it is best to separate the updload from the native class the
+In most examples it is best to separate the upload from the native class the
 interacts with the service. This way we provide always two classes. One
-interacting with the service and the otherone that acts alike for all
+interacting with the service and the other one that acts alike for all
 provider, while the name of the provider decides which native provider is
-used to interactt with the coud services.
+used to interact with the cloud services.
 
 Example:
 
-``cloudmesh.example.foo`` contains:
-
-::
+``cloudmesh.example.foo`` contains::
 
     class Provider(object)
 
@@ -159,9 +152,7 @@ Example:
             },
             
 
-``cloudmesh.example.bar`` contains:
-
-::
+``cloudmesh.example.bar`` contains::
 
     class Provider(object)
 
@@ -177,9 +168,7 @@ Example:
                 "modified" : "2019-04-01 16:01:11.720274"
             },
 
-``cloudmesh.example.provider.foo`` contains:
-
-::
+``cloudmesh.example.provider.foo`` contains::
 
     from cloudmesh.example.foo import Provider as FooProvider
     from cloudmesh.example.foo import Provider as BarProvider
@@ -207,29 +196,21 @@ Database Access
 
 In addition to the decorator, we have a very simple database class for
 interacting across a number of collections. THis especially is useful
-for finding informtion.
-
-::
+for finding information::
 
     self.database = CmDatabase()
 
-Find the entry with the uniqe name CC-Centos
-
-::
+Find the entry with the unique name CC-Centos::
 
     r = self.database.find_name("CC-CentOS7")
     pprint(r)
 
-Find the entries with either CC-CentOS7 or CC-CentOS7-1811
-
-::
+Find the entries with either CC-CentOS7 or CC-CentOS7-1811::
 
     r = self.database.find_names("CC-CentOS7,CC-CentOS7-1811")
     pprint(r)
 
-Find out how many entries exist with the name CC-CentOS7:
-
-::
+Find out how many entries exist with the name CC-CentOS7::
 
     r = self.database.name_count("CC-CentOS7")
     pprint(r)
@@ -237,15 +218,12 @@ Find out how many entries exist with the name CC-CentOS7:
 Creating Unique Names
 --------------------
 
-Often it is important to craete uniqu names. To support the easy creation
-without hazzle, we designed a ``Name`` class, that takes its values from the
+Often it is important to create unique names. To support the easy creation
+without hassle, we designed a ``Name`` class, that takes its values from the
 cloudmesh ``cmd5`` shell variables. A good example is the following name,
 where we like to identify within the name an experiment, a group of resources
-within the
-experiment, a user running the experiment and a counter. This can be set up
-as follows
-
-::
+within the experiment, a user running the experiment and a counter. This can
+be set up as follows::
 
     {experiment}-{group}-{user}-{counter}
 
@@ -256,11 +234,9 @@ Thus if you use the name function in your program, you get a very convenient
 way of getting a next name. Naturally you could define multiple such names
 for different resources and needs
 
-To use it in your program you can say:
+To use it in your program you can say::
 
-::
-
-    from cloumesh.management.configuration.name import Name
+    from cloumdesh.management.configuration.name import Name
 
     name = Name(
         experiment="exp",
@@ -269,15 +245,11 @@ To use it in your program you can say:
         kind="vm",
         counter=1)
 
-To increase the counter use
-
-::
+To increase the counter use::
 
     name.incr()
 
-To get the name at the current counter value say
-
-::
+To get the name at the current counter value say::
 
     str(name) 
 
@@ -287,7 +259,7 @@ or
 
     name.id()
 
-The format can be chaned with ``schema=`` at the initailization. Thus
+The format can be changed with ``schema=`` at the initialization. Thus
 
 ::
 

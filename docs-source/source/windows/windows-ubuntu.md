@@ -4,7 +4,7 @@ It is trivial to set up cloudmesh on Windows.
 
 For development we recommend that you do not use conda,but regular python. 
 conda has lots of features that we will not use and do not want to rely on. 
-Especially whne we evelop for containers or th cloud where we do not want to 
+Especially when we develop for containers or th cloud where we do not want to 
 waste storage space of hundreds of packages that we will never use. 
 
 Here our recommended install
@@ -177,7 +177,7 @@ revoked in case you have write access. Look at the public key with in gitbash
 $ cat ~/.ssh/id_rsa.pub
 ```
 
-and ppload the key to 
+and upload the key to 
 
 * <https://github.com/settings/keys>
 
@@ -188,7 +188,7 @@ As you can directly commit from pycharm you can set up git hub access also in
  
 In case you do not have direct access to github cloudmesh, you can create 
 yourself a local clone and create pull requests. Please note it is of utmost
-important that you do not wait for 10 weeks with your pull repest, we want 
+important that you do not wait for 10 weeks with your pull request, we want 
 to see your git updates on a weekly basis.
   
 ## Compiling the code
@@ -241,7 +241,7 @@ pip --version
 ## Setup git
 
 Next configure your github identity. It is important you do this or your may 
-not get propper credit as we obtain user information form github
+not get proper credit as we obtain user information form github
 
 ```bash
 git config --global user.name "user_name"
@@ -251,7 +251,7 @@ git config --global core.editor emacs
 
 ## .bashrc
 
-At the end of your .bashrac place the following lines so that your 
+At the end of your .bashrc place the following lines so that your 
 environment will be always activated when you start a new ubuntu terminal.
 
 ```

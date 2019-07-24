@@ -1,7 +1,7 @@
 Cloudmesh Database
 ==================
 
-Cloudmesh has a database in whic a local copy of information about
+Cloudmesh has a database in which a local copy of information about
 objects that are stored in the cloud is maintained. The objects contain
 all information of the cloud that can be retrieved with the raw provider
 but are enhanced with a cloudmesh attribute dict. Potential security
@@ -570,8 +570,8 @@ File
 AWSS3 Objectstore Provider
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-It is unclear waht the difference to AWSS3 the one from cloudmesh-cloud
-is Please explain. If its the same, let us know and we shoudl merge
+It is unclear what the difference to AWSS3 the one from cloudmesh-cloud
+is Please explain. If its the same, let us know and we should merge
 
 The storage provider kind is ``objstorage``. The Provider is located at
 
@@ -609,12 +609,12 @@ provider at
 Directory
 ^^^^^^^^^
 
-.. todo:: details of the gogle storage provider directory is missing
+.. todo:: details of the google storage provider directory is missing
 
 File
 ^^^^
 
-.. todo:: details of the gogle storage provider file is missing
+.. todo:: details of the google storage provider file is missing
 
 
 
@@ -623,7 +623,7 @@ Local
 
 This has not been tested yet, so be careful as it could remove local dir
 trees. we may need ta add an option --force for this provider and always
-ask if we wnat to delete the files while shoing them first. This could
+ask if we want to delete the files while showing them first. This could
 even be a reason to introduce it in all providers.
 
 The storage provider kind is ``local``. The Provider is located at

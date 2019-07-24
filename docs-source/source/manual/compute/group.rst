@@ -36,7 +36,7 @@ group
         performed on these groups including termination of services that
         are registered with the group.
 
-        A defualt grup can be set with the command
+        A default group can be set with the command
 
           cms set group=GROUPNAME
 

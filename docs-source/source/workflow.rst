@@ -49,7 +49,7 @@ Database Objects
 
 There are two collections related to workflow objects. The first is for
 the definition of a flow, and the second for the status of a flow that
-is in progres.
+is in progress.
 
 Definition Collection
 ~~~~~~~~~~~~~~~~~~~~~
@@ -124,7 +124,7 @@ We are looking for someone that would chose as its project to include a
 rendering of some DAG in javascript. The javascript library must be free
 to use. Nodes and edges must be able to be labeled.
 
-A promissing start for a Javascript library is
+A promising start for a Javascript library is
 
 -  http://visjs.org/network_examples.html
 -  http://visjs.org/examples/network/events/interactionEvents.html
@@ -143,7 +143,7 @@ it has a dict return
 So what we want to do is something i have done previously somewhere with
 graphviz, but instead of using graphviz we use java script. W want to
 define tasks that depend on each other. The tasks are defined as python
-functions. The dependencieas are specified via a simple graph string
+functions. The dependencies are specified via a simple graph string
 
 .. code:: python
 

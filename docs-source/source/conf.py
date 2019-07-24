@@ -22,7 +22,7 @@ sys.path.insert(0, os.path.abspath('../..'))
 # the next is for edit_on_githib, which does not work
 sys.path.insert(0, os.path.abspath('_ext'))
 
-pprint (sys.path)
+pprint(sys.path)
 
 # -- Project information -----------------------------------------------------
 
@@ -34,7 +34,6 @@ author = 'Cloudmesh Community'
 version = '4.0.28'
 # The full version, including alpha/beta/rc tags
 release = 'alpha'
-
 
 # -- General configuration ---------------------------------------------------
 
@@ -77,7 +76,7 @@ html_show_sourcelink = True
 # add source parser
 #
 source_parsers = {
-   '.md': 'recommonmark.parser.CommonMarkParser',
+    '.md': 'recommonmark.parser.CommonMarkParser',
 }
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
@@ -87,13 +86,12 @@ exclude_patterns = []
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = None
 
-
 # -- Options for HTML output -------------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-#html_theme = 'alabaster'
+# html_theme = 'alabaster'
 html_theme = "sphinx_rtd_theme"
 
 # Theme options are theme-specific and customize the look and feel of a theme
@@ -138,7 +136,6 @@ html_static_path = ['_static']
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'cloudmeshdoc'
 
-
 # -- Options for LaTeX output ------------------------------------------------
 
 latex_elements = {
@@ -167,7 +164,6 @@ latex_documents = [
      'Cloudmesh Community', 'manual'),
 ]
 
-
 # -- Options for manual page output ------------------------------------------
 
 # One entry per manual page. List of tuples
@@ -176,7 +172,6 @@ man_pages = [
     (master_doc, 'cloud', 'cloud Documentation',
      [author], 1)
 ]
-
 
 # -- Options for Texinfo output ----------------------------------------------
 
@@ -188,7 +183,6 @@ texinfo_documents = [
      author, 'cloud', 'One line description of project.',
      'Miscellaneous'),
 ]
-
 
 # -- Options for Epub output -------------------------------------------------
 
@@ -206,7 +200,6 @@ epub_title = project
 
 # A list of files that should not be packed into the epub file.
 epub_exclude_files = ['search.html']
-
 
 # -- Extension configuration -------------------------------------------------
 

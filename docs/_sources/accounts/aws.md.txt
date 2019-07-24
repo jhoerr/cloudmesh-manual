@@ -1,6 +1,6 @@
 # AWS Account Creation
 
-Amazon Web Services (AWS) provides a wide variaty of cloud-based
+Amazon Web Services (AWS) provides a wide variety of cloud-based
 products including analytics, application integration, AR and VR, cost
 management, blockchain, business applications, compute, customer
 engagement, database, developer tools, end user computing, game tech,
@@ -13,14 +13,14 @@ utilization of many of these products.
 Here we are especially interested in using the following services:
 
 -   **Amazon Elastic Compute Cloud (EC2)** Amazon EC2 is web service
-    that enables users to perform elastic web-scable computing while
+    that enables users to perform elastic web-scalable computing while
     having complete control over instances. It is integrated with most
     AWS services such as Amazon S3, RDS, and VPC.
 -   **Amazon Simple Storage Service (S3)** Amazon S3 an object storage
     service that offers a wide range of storage classes.
 
 We provide a step-by-step guide on how to create an AWS account through
-the AWS webpage to utilize these services. For more information you can 
+the AWS Web page to utilize these services. For more information you can 
 consult the 
 [AWS FAQ](https://aws.amazon.com/premiumsupport/knowledge-center/create-and
 -activate-aws-account/).
@@ -100,13 +100,13 @@ Now you've successfully signed in to the AWS Management Console.
 ![AWS Services](images/aws/image12.png)
 
 You can click on `Services` to explore AWS services through their
-webpage.
+Web page.
 
 ![Explore services](images/aws/image13.png)
 
 You can also start managing your account and instances through our
 cloudmesh services. This is especially of interest if you use cloudmesh
-to manage your storage and computational needs while laso being able to
+to manage your storage and computational needs while also being able to
 leverage other clouds.
 
 - [ ] To do verify  this works and you have created a user.
@@ -114,8 +114,8 @@ leverage other clouds.
 ## Access Key
 
 
-Now that you have an account it is necessarry that you can authenticate to your
-cloud account from a program or a command line. The isntructions for this can
+Now that you have an account it is necessary that you can authenticate to your
+cloud account from a program or a command line. The instructions for this can
  be found at
 
 * <https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html>
@@ -190,7 +190,7 @@ By clicking on the `Create access key`, you can create another access key:
 
 ![IAM Management Console: Create Access Key](images/aws/image26.png)
 
-As is mentioned in the screenshot, this is the only time you can view or 
+As is mentioned in the screen shot, this is the only time you can view or 
 download the secret access key. So go ahead and click on the `Download .csv 
 file` and save it as `~/.cloudmesh/accessKey.csv`:
 
@@ -239,6 +239,6 @@ the permissions for ~/.cloudmesh are restricted,
 
 Additional information about the services can be found at:
 
--   Open Distro for Elastic Search, <https://aws.amazon.com/?nc2=h_lg>
+-   Open Distribution for Elastic Search, <https://aws.amazon.com/?nc2=h_lg>
 -   Amazon EC2, <https://aws.amazon.com/ec2/?nc2=h_m1>
 -   Amazon S3, <https://aws.amazon.com/s3/?c=23&pt=1>

@@ -27,7 +27,7 @@ documents to Google Docs.
 -   **Google Docs:** Google docs is a broader term for Google sheets,
     Google slides and Google forms.
 -   **Google Sheets:** Just like Microsoft excel sheet Google sheets has
-    almost all of the functionalities. Google sheets can be shared with
+    almost all of the functionality. Google sheets can be shared with
     other people and can concurrently work on it and can edit it. We can
     change the font size, type as we want. We can use the formulas to
     calculate some mathematical expressions. This can be readily
@@ -67,14 +67,14 @@ In a broader sense Google docs is just a subset of Google Drive.
 
 If we run the Google Drive `Provider.py` for the **First time** then the
 required keys, tokens are taken from the `cloudmesh4.yaml` file and
-creates a `client_secret.json` file in the follwing path
+creates a `client_secret.json` file in the following path
 `~/.cloudmesh/gdrive/`
 
-- [ ] TODO: The AUthentication.py program was removed, so this can not work.
+- [ ] TODO: The Authentication.py program was removed, so this can not work.
 
 
 The `Authentication.py` creates a `.credentials` folder under the
-following path `~/.cloudmesh/gdrive/` if it doesn't exist and creates a
+following path `~/.cloudmesh/gdrive/` if it does not exist and creates a
 `google-drive-credentials.json` file under the following folder
 `~/.cloudmesh/gdrive/.credentials/`
 
@@ -135,7 +135,7 @@ pipeline has bees completed).
 
 ::: {.todo}
 Google account. This documentation is a bit unstructured and repetitive.
-Yet errors such as refernces to Authentication.py are conducted which
+Yet errors such as references to Authentication.py are conducted which
 does not exist.
 :::
 
@@ -153,7 +153,7 @@ So, now with the
 we can now use
 
 - [ ] TODO: Google account. This documentation is a bit unstructured and repetitive.
-  Yet errors such as refernces to Authentication.py are conducted which
+  Yet errors such as references to Authentication.py are conducted which
   does not exist.
 
 

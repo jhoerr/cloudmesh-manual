@@ -49,7 +49,7 @@ A generic pytest is also developed which is available in the following directory
 * <https://github.com/cloudmesh/cloudmesh-storage/tree/master/cloudmesh/storage/spec/tests>
 
 
-The generic pytest that works accross providers and can be invoked as follows
+The generic pytest that works across providers and can be invoked as follows
 
 ```bash
 $ cms set storage=azureblob

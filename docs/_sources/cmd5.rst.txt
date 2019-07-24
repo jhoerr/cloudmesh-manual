@@ -1,7 +1,7 @@
 Cmd5
 ====
 
-|DOI| |Version| |License| |Python| |Format| |Format| |Travis|
+|DOI| |Version| |License| |Python| |Format| |Status| |Travis|
 
 To run the shell you can activate it with the cms command. cms stands
 for cloudmesh shell::
@@ -13,7 +13,7 @@ It will print the banner and enter the shell::
    +-------------------------------------------------------+
    |   ____ _                 _                     _      |
    |  / ___| | ___  _   _  __| |_ __ ___   ___  ___| |__   |
-   | | |   | |/ _ \| | | |/ _` | '_ ` _ \ / _ \/ __| '_ \  |
+   | | |   | |/ _ \| | | |/ _` | '_ ` _ \ / _ \/ __| '_ \  |=
    | | |___| | (_) | |_| | (_| | | | | | |  __/\__ \ | | | |
    |  \____|_|\___/ \__,_|\__,_|_| |_| |_|\___||___/_| |_| |
    +-------------------------------------------------------+
@@ -35,8 +35,8 @@ Features
 
 The following highlighted features are available:
 
--  easy command integration through seterate modules
--  multi cloud envirdonments (under development) though cloudmesh-cloud
+-  easy command integration through separate modules
+-  multi cloud environments (under development) though cloudmesh-cloud
    plugin
 -  openapi integration through cloudmesh-openapi plugin
 -  general commands as documented at in the
@@ -55,10 +55,10 @@ The following highlighted features are available:
    `version <manual/cmd5/version.html>`__,
    `open <manual/cmd5/open.html>`__, and others
 
-Execution shell commaand
+Execution shell command
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-You can execute shell commands when the beginning charater is ! ::
+You can execute shell commands when the beginning character is ! ::
 
    cms !pwd
    cms shell pwd
@@ -128,31 +128,33 @@ To List the defaults use::
 
     cms default list
 
-.. todo:: cmd5 default - add the ability to define the defaukts also with a . notation.
+.. todo:: cmd5 default - add the ability to define the defaults also with a . notation.
 
           cms default chameleon.image="ubuntu"
 
-          here the key is image, the context is aws and the value is unbuntu19.04
+          here the key is image, the context is aws and the value is ubuntu19.04
 
-To use the defaults in a command preceed it with the the keyword
+To use the defaults in a command proceed it with the the keyword
 ``default.`` and append the context and the name of the default
 variable. If the context is missing, the ``general`` context will be
 used. Examples::
 
    banner default.cloud
-   default image=ubnuntu --context=chameleon
+   default image=ubuntu --context=chameleon
    banner default.chameleon.image
 
 
 Stopwatch
 ~~~~~~~~~
 
-For some benchmarks this could be helpful. Naturally in an interactive shell you will not be able to measure reliably
-as you also measure the response time of the user, but in case you use cloudmesh scripts this coudl be a reat good way
-for you to customize your benchmarks. We even provide convenient integration for pytests and you can see in our special
-pytest section how to use the stopwatch from within pytets.
+For some benchmarks this could be helpful. Naturally in an interactive
+shell you will not be able to measure reliably as you also measure the
+response time of the user, but in case you use cloudmesh scripts this
+could be a great good way for you to customize your benchmarks. We
+even provide convenient integration for pytests and you can see in our
+special pytest section how to use the stopwatch from within pytests.
 
-Here is an example for a stcipt::
+Here is an example for a script::
 
    stopwatch start g
    stopwatch stop g
@@ -252,7 +254,7 @@ It shows how simple the command definition is (bar.py)::
            print(arguments)
 
 An important difference to other CMD solutions is that our commands can
-leverage (besides the standrad definition), docopts as a way to define
+leverage (besides the standard definition), docopts as a way to define
 the manual page. This allows us to use arguments as dict and use simple
 if conditions to interpret the command. Using docopts has the advantage
 that contributors are forced to think about the command and its options
@@ -260,11 +262,11 @@ and document them from the start. Previously we used not to use docopts
 and argparse was used. However we noticed that for some contributions
 the lead to commands that were either not properly documented or the
 developers delivered ambiguous commands that resulted in confusion and
-wrong ussage by the users. Hence, we do recommend that you use docopts.
+wrong usage by the users. Hence, we do recommend that you use docopts.
 
 The transformation is enabled by the ``@command`` decorator that takes
 also the manual page and creates a proper help message for the shell
-automatically. Thus there is no need to introduce a sepaarte help method
+automatically. Thus there is no need to introduce a separate help method
 as would normally be needed in CMD.
 
 .. |DOI| image:: https://zenodo.org/badge/82920490.svg
@@ -277,7 +279,7 @@ as would normally be needed in CMD.
    :target: https://pypi.python.org/pypi/cloudmesh-cmd5
 .. |Format| image:: https://img.shields.io/pypi/format/cloudmesh-cmd5.svg
    :target: https://pypi.python.org/pypi/cloudmesh-cmd5
-.. |Format| image:: https://img.shields.io/pypi/status/cloudmesh-cmd5.svg
+.. |Status| image:: https://img.shields.io/pypi/status/cloudmesh-cmd5.svg
    :target: https://pypi.python.org/pypi/cloudmesh-cmd5
 .. |Travis| image:: https://travis-ci.com/cloudmesh/cloudmesh-cmd5.svg?branch=master
    :target: https://travis-ci.com/cloudmesh/cloudmesh-cmd5
@@ -291,9 +293,9 @@ Developers can easily create a docker container.
 .. toto:: docker cmd5 - make sure this is working
 
 Cloudmesh can be run easily in a container with the help of docker. A
-Dockefile is provided as an example that you may adapt for your needs
+Dockerfile is provided as an example that you may adapt for your needs
 
-To use the docker file we have included a numbe or convenient targets
+To use the docker file we have included a number or convenient targets
 also in our makefile.
 
 You can create the image with::
@@ -314,10 +316,10 @@ or say::
 
    docker run -it cloudmesh/cmd5:1.0
 
-It will create a default .cloudmesh/yaml file whihc your would have to
+It will create a default .cloudmesh/yaml file which your would have to
 modify. The reason we have not mounted the yaml file in the make files
 form your directory is that we need a clean image to test the initial
 setup.
 
-If you have an example on how to mount teh yaml file please let us know
+If you have an example on how to mount the yaml file please let us know
 and we add it here.

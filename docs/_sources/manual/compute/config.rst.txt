@@ -11,7 +11,7 @@ config
      config decrypt [SOURCE]
      config edit [ATTRIBUTE]
      config set ATTRIBUTE=VALUE
-     config get ATTRIBUTE [--ouput=OUTPUT]
+     config get ATTRIBUTE [--output=OUTPUT]
      config ssh keygen
      config ssh verify
      config ssh check
@@ -34,7 +34,7 @@ config
 
    Options:
       --name=KEYNAME     The name of a key
-      --outpu=OUTPUT     The output format [default: yaml]
+      --output=OUTPUT    The output format [default: yaml]
       --secrets          Print the secrets. Use carefully.
 
    Description:

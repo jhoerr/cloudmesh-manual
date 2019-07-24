@@ -160,7 +160,7 @@ vm
         sample[1-3,18] => ['sample1', 'sample2', 'sample3', 'sample18']
 
     Quoting commands:
-        cm vm login gvonlasz-004 --command="uname -a"
+        cm vm login gregor-004 --command="uname -a"
 
     Limitations:
 

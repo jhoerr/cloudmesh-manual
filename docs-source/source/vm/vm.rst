@@ -1,7 +1,7 @@
 Virtual Machine Management
 ==========================
 
-CLoudmesh v4 contains sophisticated virtual machine management services
+Cloudmesh v4 contains sophisticated virtual machine management services
 that makes it easy for the user to manage a large number of virtual
 machines across clouds with a uniform naming scheme.
 
@@ -71,12 +71,12 @@ listed next.
 Uniform Parameter Management
 ----------------------------
 
-The parameters across thes commands are uniformly managed. Most of the
+The parameters across these commands are uniformly managed. Most of the
 plural form allow a parameterized specification such as ``a[00-03],a8``
 which would result in an array ``["a0", "a1", "a2", "a3", "a8"]``. This
 especially applies to clouds as well as virtual machine names.
 
-We destinguish the following parameterized options
+We distinguish the following parameterized options
 
 
 
@@ -95,7 +95,7 @@ We distinguish the following regular options
 :–refresh: To update the state of the vms specified with clouds and
            names
 
-:–username=USERNAME: The username to be used for conectiing with the vm
+:–username=USERNAME: The username to be used for connecting with the vm
 
 :–quiet: do not print debug messages
 
@@ -114,18 +114,18 @@ Virtual machines can be
 
 -  Created
 -  Started
--  Stoped
+-  Stopped
 -  Suspended
 -  Resumed
 -  Destroyed
 
-Default behavior such as a key management nameing scheme as well as ip
-adress and security management is conveniently provided
+Default behavior such as a key management naming scheme as well as ip
+address and security management is conveniently provided
 
 Key management
 --------------
 
-Access to the virtual machien is governed by SSH keys. The default key
+Access to the virtual machine is governed by SSH keys. The default key
 can be uploaded to the cloud with the key command. The name of the key
 in the cloud can be used to associate it with virtual machines so that
 this key can be used to log into the VM
@@ -140,7 +140,8 @@ traffic in and out of the VM.
 Check instances
 ---------------
 
-Cecks if the instance can execute ssh commands. The wait command waits till the vm is readt, which the check just
+To check if the instance can execute ssh commands we need to make sure it is
+ready. The wait command waits till the vm is ready, which the check just
 performs a test.
 
 ::

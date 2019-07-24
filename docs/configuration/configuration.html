@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>3. Configuration &mdash; Cloudmesh v4 alpha documentation</title>
+  <title>Configuration &mdash; Cloudmesh v4 alpha documentation</title>
   
 
   
@@ -36,8 +36,8 @@
   <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="4. Cloudmesh Database" href="../installation/mongo.html" />
-    <link rel="prev" title="2. Quickstart" href="../installation/quickstart.html" /> 
+    <link rel="next" title="Cloudmesh Database" href="../installation/mongo.html" />
+    <link rel="prev" title="Quickstart" href="../installation/quickstart.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -87,94 +87,93 @@
             
               <p class="caption"><span class="caption-text">PREFACE</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../preface/about.html">1. About</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../preface/contributors.html">2. Contributors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preface/about.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preface/contributors.html">Contributors</a></li>
 </ul>
 <p class="caption"><span class="caption-text">INSTALLATION</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../installation/install.html">1. Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../installation/quickstart.html">2. Quickstart</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">3. Configuration</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#cloudmesh-yaml-file-object-definitions">3.1. Cloudmesh Yaml File Object definitions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#getting-values">3.2. Getting Values</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#setting-values">3.3. Setting values</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#editing-values">3.4. Editing Values</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#advanced-yaml-variables">3.5. Advanced Yaml Variables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#profile">3.6. Profile</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#default">3.7. Default</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#general-service-attributes">3.8. General Service Attributes</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#cm">3.8.1. cm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/quickstart.html">Quickstart</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#cloudmesh-yaml-file-object-definitions">Cloudmesh Yaml File Object definitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#getting-values">Getting Values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#setting-values">Setting values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#editing-values">Editing Values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#advanced-yaml-variables">Advanced Yaml Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#profile">Profile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#default">Default</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#general-service-attributes">General Service Attributes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#cm">cm</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#compute-cloud-providers">3.9. Compute Cloud Providers</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id4">3.9.1. Default</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#credentials">3.9.2. credentials</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#aws">3.9.3. AWS</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#azure">3.9.4. Azure</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#az">3.9.5. AZ</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#google">3.9.6. Google</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#openstack">3.9.7. OpenStack</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#virtual-box">3.9.8. Virtual Box</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#ssh">3.9.9. SSH</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#local">3.9.10. Local</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#docker">3.9.11. Docker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#compute-cloud-providers">Compute Cloud Providers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Default</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#credentials">credentials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#aws">AWS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#azure">Azure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#az">AZ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#google">Google</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#openstack">OpenStack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#virtual-box">Virtual Box</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ssh">SSH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#local">Local</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#docker">Docker</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#storage-providers">3.10. Storage Providers</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#aws-s3">3.10.1. AWS S3</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#azure-1">3.10.2. Azure</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#google-drive">3.10.3. Google drive</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#box">3.10.4. Box</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#storage-providers">Storage Providers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#aws-s3">AWS S3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#azure-1">Azure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#google-drive">Google drive</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#box">Box</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#batch">3.11. Batch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#rest">3.12. REST</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#log-file">3.13. Log File</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#mongo">3.14. Mongo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#mongodb">3.15. MongoDB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#batch">Batch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rest">REST</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#log-file">Log File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mongo">Mongo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mongodb">MongoDB</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../installation/mongo.html">4. Cloudmesh Database</a></li>
-<li class="toctree-l1"><a class="reference internal" href="encryption.html">5. Cloudmesh Yaml file Encrytion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/mongo.html">Cloudmesh Database</a></li>
 </ul>
 <p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../cmd5.html">1. Cmd5</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../reference-card.html">2. Reference Card (proposed)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../manual/commands.html">3. Commands</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../manual-cmd5.html">4. Manual Cmd5</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../manual-group.html">5. Manual Group</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../manual-compute.html">6. Compute Manual Pages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../manual-storage.html">7. Storage Manual Pages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../manual-other.html">8. Manual Other</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cmd5.html">Cmd5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference-card.html">Reference Card</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/commands.html">Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-cmd5.html">Manual Cmd5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-group.html">Manual Group</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-compute.html">Compute Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-storage.html">Storage Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-other.html">Manual Other</a></li>
 </ul>
 <p class="caption"><span class="caption-text">API</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../api/index.html">1. Cloudmesh Command API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api/index.html#cloudmesh-api">2. Cloudmesh API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html">Cloudmesh Command API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html#cloudmesh-api">Cloudmesh API</a></li>
 </ul>
 <p class="caption"><span class="caption-text">CONTRIBUTION</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../dev/conventions.html">1. Code Conventions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dev/management.html">2. Code Management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dev/management.html#documentation-management">3. Documentation Management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dev/management.html#version-management">4. Version Management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dev/pytest.html">5. Pytest</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dev/manual.html">6. Manual Creation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dev/todo.html">7. ToDo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/conventions.html">Code Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/management.html">Code Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/management.html#documentation-management">Documentation Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/management.html#version-management">Version Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/pytest.html">Pytest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/manual.html">Manual Creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/todo.html">ToDo</a></li>
 </ul>
 <p class="caption"><span class="caption-text">CLOUD ACCOUNTS</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/aws.html">1. AWS Account Creation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/azure.html">2. Azure Account Creation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/google.html">3. Google Storage Providers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/box.html">4. Box Account</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../accounts/accountcreation-old.html">5. VM Providers (outdated)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/aws.html">AWS Account Creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/azure.html">Azure Account Creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/google.html">Google Storage Providers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/box.html">Box Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
 </ul>
 <p class="caption"><span class="caption-text">OTHER</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../tbd.html">1. OTHER</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tbd.html#outdated">2. OUTDATED</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tbd.html">OTHER</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tbd.html#outdated">OUTDATED</a></li>
 </ul>
 
             
@@ -220,7 +219,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>3. Configuration</li>
+      <li>Configuration</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -240,54 +239,60 @@
            <div itemprop="articleBody">
             
   <div class="section" id="configuration">
-<h1>3. Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h1>
-<p>The Configuration of cloudmesh is controled with a yaml file that is
-placed in <code class="docutils literal notranslate"><span class="pre">~/.clloudmesh/cloudmesh4.yaml</span></code>. It is created automatically
+<h1>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h1>
+<p>The Configuration of cloudmesh is controlled with a yaml file that is
+placed in <code class="docutils literal notranslate"><span class="pre">~/.cloudmesh/cloudmesh4.yaml</span></code>. It is created automatically
 from the template located at</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/cloudmesh/cloudmesh-cloud/blob/master/cloudmesh/etc/cloudmesh4.yaml">https://github.com/cloudmesh/cloudmesh-cloud/blob/master/cloudmesh/etc/cloudmesh4.yaml</a></p></li>
 </ul>
 <p>You can customize the file while editing it.</p>
 <div class="section" id="cloudmesh-yaml-file-object-definitions">
-<h2>3.1. Cloudmesh Yaml File Object definitions<a class="headerlink" href="#cloudmesh-yaml-file-object-definitions" title="Permalink to this headline">¶</a></h2>
+<h2>Cloudmesh Yaml File Object definitions<a class="headerlink" href="#cloudmesh-yaml-file-object-definitions" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="getting-values">
-<h2>3.2. Getting Values<a class="headerlink" href="#getting-values" title="Permalink to this headline">¶</a></h2>
-<p>We implemented a convenient get method in case you need to look up some values in the configuration file. For example:</p>
+<h2>Getting Values<a class="headerlink" href="#getting-values" title="Permalink to this headline">¶</a></h2>
+<p>We implemented a convenient get method in case you need to look up
+some values in the configuration file. For example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cms</span> <span class="n">config</span> <span class="n">get</span> <span class="n">cloudmesh</span><span class="o">.</span><span class="n">profile</span>
 <span class="n">cms</span> <span class="n">config</span> <span class="n">get</span> <span class="n">cloudmesh</span><span class="o">.</span><span class="n">profile</span><span class="o">.</span><span class="n">firstname</span>
 </pre></div>
 </div>
-<p>print information out. While the first points to a dict, it prints aout all the avlues form that dict, the last is an
-attribute and just prints out the attribute and its value.</p>
+<p>print information out. While the first points to a dict, it prints
+out all the values form that dict, the last is an attribute and just
+prints out the attribute and its value.</p>
 </div>
 <div class="section" id="setting-values">
-<h2>3.3. Setting values<a class="headerlink" href="#setting-values" title="Permalink to this headline">¶</a></h2>
-<p>In addition if you need to set quickly a value in the configuration file you can do this with:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cms</span> <span class="n">config</span> <span class="n">get</span> <span class="n">cloudmesh</span><span class="o">.</span><span class="n">profile</span><span class="o">.</span><span class="n">firstname</span><span class="o">=</span><span class="n">Gregor</span>
+<h2>Setting values<a class="headerlink" href="#setting-values" title="Permalink to this headline">¶</a></h2>
+<p>In addition if you need to set quickly a value in the configuration
+file you can do this with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cms</span> <span class="n">config</span> <span class="nb">set</span> <span class="n">cloudmesh</span><span class="o">.</span><span class="n">profile</span><span class="o">.</span><span class="n">firstname</span><span class="o">=</span><span class="n">Gregor</span>
 </pre></div>
 </div>
 <p>Will set the firstname in the profiles to Gregor</p>
-<p>This command at thsi time does not work on dicts, so you need to define eacxh attribute.</p>
+<p>This command at this time does not work on dicts, so you need to
+define each attribute.</p>
 </div>
 <div class="section" id="editing-values">
-<h2>3.4. Editing Values<a class="headerlink" href="#editing-values" title="Permalink to this headline">¶</a></h2>
-<p>IN case the values in the yaml file are having a TBD the can also be editit with our build in command that required you
-tospecify the dict in which such values occur.</p>
-<p>For example, letus assume the value in cloudmesh.provil.firstname is TBD then, the command:</p>
+<h2>Editing Values<a class="headerlink" href="#editing-values" title="Permalink to this headline">¶</a></h2>
+<p>IN case the values in the yaml file are having a TBD the can also be
+edit it with our build in command that required you to specify the dict
+in which such values occur.</p>
+<p>For example, let us assume the value in <cite>cloudmesh.profile.firstname</cite> is
+TBD then, the command:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cms</span> <span class="n">config</span> <span class="n">edit</span> <span class="n">cloudmesh</span><span class="o">.</span><span class="n">profile</span>
 </pre></div>
 </div>
 <p>Can be used to change it.</p>
 </div>
 <div class="section" id="advanced-yaml-variables">
-<h2>3.5. Advanced Yaml Variables<a class="headerlink" href="#advanced-yaml-variables" title="Permalink to this headline">¶</a></h2>
-<p>One of the features of the cloudmesh yaml framework is that it allows you to
-use previously defined attributes in the yaml file itself. Thus if an
-attribute value contains for example  <cite>“{cloudmesh.attribute}”</cite> or andy
-environment variable, it will find the value for this dict entry in the yaml
-file and replace it
-with its value. For example. let us assume the yaml file contains:</p>
+<h2>Advanced Yaml Variables<a class="headerlink" href="#advanced-yaml-variables" title="Permalink to this headline">¶</a></h2>
+<p>One of the features of the cloudmesh yaml framework is that it allows
+you to use previously defined attributes in the yaml file itself. Thus
+if an attribute value contains for example <cite>{cloudmesh.attribute}</cite>
+or any environment variable, it will find the value for this dict
+entry in the yaml file and replace it with its value. For example. let
+us assume the yaml file contains:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>cloudmesh:
   profile:
     name: Gregor
@@ -299,14 +304,14 @@ with its value. For example. let us assume the yaml file contains:</p>
       current: .
 </pre></div>
 </div>
-<p>cloudmesg will replace the will result be transformed with:</p>
+<p>cloudmesh will replace the will result be transformed with:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cloudmesh</span><span class="p">:</span>
   <span class="n">profile</span><span class="p">:</span>
     <span class="n">name</span><span class="p">:</span> <span class="n">Gregor</span>
   <span class="n">cloud</span><span class="p">:</span>
     <span class="n">aws</span><span class="p">:</span>
       <span class="n">username</span><span class="p">:</span> <span class="s2">&quot;Gregor&quot;</span>
-      <span class="n">key</span><span class="p">:</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">gergor</span><span class="o">/.</span><span class="n">ssh</span><span class="o">/</span><span class="n">id_rsa</span>
+      <span class="n">key</span><span class="p">:</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">gregor</span><span class="o">/.</span><span class="n">ssh</span><span class="o">/</span><span class="n">id_rsa</span>
       <span class="nb">dir</span><span class="p">:</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">gregor</span>
       <span class="n">current</span><span class="p">:</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">gregor</span><span class="o">/</span><span class="n">github</span><span class="o">/</span><span class="n">cm</span>
 </pre></div>
@@ -314,7 +319,7 @@ with its value. For example. let us assume the yaml file contains:</p>
 <p>This feature is naturally very useful for creating templates for users</p>
 </div>
 <div class="section" id="profile">
-<h2>3.6. Profile<a class="headerlink" href="#profile" title="Permalink to this headline">¶</a></h2>
+<h2>Profile<a class="headerlink" href="#profile" title="Permalink to this headline">¶</a></h2>
 <p>The profile defines simple information about you:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">profile</span><span class="p">:</span>
   <span class="n">firstname</span><span class="p">:</span> <span class="n">TBD</span>
@@ -327,56 +332,75 @@ with its value. For example. let us assume the yaml file contains:</p>
 </div>
 </div>
 <div class="section" id="default">
-<h2>3.7. Default<a class="headerlink" href="#default" title="Permalink to this headline">¶</a></h2>
-<p>The gloable default is used to identify information about your experiments and groups that are used throughout your
-interaction with cloudmesh.</p>
-<blockquote>
-<div><dl class="simple">
-<dt>default:</dt><dd><p>group: cloudmesh
-experiment: base
-cloud: azure
-cluster: clustera</p>
-</dd>
-</dl>
-</div></blockquote>
-<p>The falues can be set with the default command</p>
+<h2>Default<a class="headerlink" href="#default" title="Permalink to this headline">¶</a></h2>
+<p>The global default is used to identify information about your
+experiments and groups that are used throughout your interaction with
+cloudmesh:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">default</span><span class="p">:</span>
+  <span class="n">group</span><span class="p">:</span> <span class="n">cloudmesh</span>
+  <span class="n">experiment</span><span class="p">:</span> <span class="n">base</span>
+  <span class="n">cloud</span><span class="p">:</span> <span class="n">azure</span>
+  <span class="n">cluster</span><span class="p">:</span> <span class="n">clustera</span>
+</pre></div>
+</div>
+<p>The values can be set with the default command</p>
 <div class="admonition-todo admonition" id="id1">
 <p class="admonition-title">Todo</p>
-<p>implement the default command and set values in it. This may already be done. we may need to add the dot
-notation for that command so we have one command that can set the general default, but also the default for
-named services.</p>
+<p>implement the default command and set values in it. This may
+already be done. we may need to add the dot notation for
+that command so we have one command that can set the general
+default, but also the default for named services.</p>
 <p>a link to the manual page should come here</p>
 </div>
 </div>
 <div class="section" id="general-service-attributes">
-<h2>3.8. General Service Attributes<a class="headerlink" href="#general-service-attributes" title="Permalink to this headline">¶</a></h2>
-<p>Each cloudmesh service must have an attribute <code class="docutils literal notranslate"><span class="pre">cm</span></code> with the following fields. if an attribute contains the value TBD
-it need sto be updated. YOu only have to update the providers you like to use, you can delete the other if you like.</p>
+<h2>General Service Attributes<a class="headerlink" href="#general-service-attributes" title="Permalink to this headline">¶</a></h2>
+<p>Each cloudmesh service must have an attribute <code class="docutils literal notranslate"><span class="pre">cm</span></code> with the
+following fields. if an attribute contains the value TBD it need sto
+be updated. YOu only have to update the providers you like to use, you
+can delete the other if you like.</p>
 <div class="section" id="cm">
-<h3>3.8.1. cm<a class="headerlink" href="#cm" title="Permalink to this headline">¶</a></h3>
-<p>In the <a href="#id2"><span class="problematic" id="id3">``</span></a>cm` portion we define elementary information that identifies the service. This includes
-The following information</p>
-<dl>
-<dt>active</dt><dd><p>if set to Tru, this cloud is going to be used in cloudmesh, if it is set to False it is not activated.
-This has the advantage that you do not have to remove
-the service from the yaml file if you do not use it</p>
-</dd>
-<dt>heading</dt><dd><p>This field is currently not used, but in future releases this field will be use in table or GUIs to be printed
-when list functions are used</p>
-</dd>
-<dt>label</dt><dd><p>This field is typically the same as the entry under which the cloud service is filed. IN our case it is aws. It is
-a convenient abbreviation that can be used in your programs.</p>
-</dd>
-<dt>kind</dt><dd><p>This field is the most important field that identified what kind of service your cloud is and it will determine
-based on its name how to interact with the service.</p>
-<p>For compute services the following kinds are valid: <code class="docutils literal notranslate"><span class="pre">aws</span></code>, <code class="docutils literal notranslate"><span class="pre">azure</span></code>, <code class="docutils literal notranslate"><span class="pre">google</span></code>, <code class="docutils literal notranslate"><span class="pre">openstack</span></code></p>
-<p>For storage services the following kinds are valid: <code class="docutils literal notranslate"><span class="pre">aws</span></code>, <code class="docutils literal notranslate"><span class="pre">azure</span></code>, <code class="docutils literal notranslate"><span class="pre">google</span></code>, <code class="docutils literal notranslate"><span class="pre">openstack</span></code>, <code class="docutils literal notranslate"><span class="pre">box</span></code></p>
-</dd>
-<dt>host</dt><dd><p>This field is used to identif wheer to find information aboout the service provider</p>
-</dd>
-<dt>service</dt><dd><p>The type of service. valid values are <code class="docutils literal notranslate"><span class="pre">compute</span></code>, <code class="docutils literal notranslate"><span class="pre">storage</span></code>.</p>
-</dd>
-</dl>
+<h3>cm<a class="headerlink" href="#cm" title="Permalink to this headline">¶</a></h3>
+<p>In the <a href="#id2"><span class="problematic" id="id3">``</span></a>cm` portion we define elementary information that identifies
+the service. This includes The following information</p>
+<p>active</p>
+<blockquote>
+<div><p>if set to Tru, this cloud is going to be used in cloudmesh, if it
+is set to False it is not activated.  This has the advantage that
+you do not have to remove the service from the yaml file if you do
+not use it</p>
+</div></blockquote>
+<p>heading</p>
+<blockquote>
+<div><p>This field is currently not used, but in future releases this
+field will be use in table or GUIs to be printed when list
+functions are used</p>
+</div></blockquote>
+<p>label</p>
+<blockquote>
+<div><p>This field is typically the same as the entry under which the
+cloud service is filed. IN our case it is aws. It is a convenient
+abbreviation that can be used in your programs.</p>
+</div></blockquote>
+<p>kind</p>
+<blockquote>
+<div><p>This field is the most important field that identified what kind
+of service your cloud is and it will determine based on its name
+how to interact with the service.</p>
+<p>For compute services the following kinds are valid: <code class="docutils literal notranslate"><span class="pre">aws</span></code>,
+<code class="docutils literal notranslate"><span class="pre">azure</span></code>, <code class="docutils literal notranslate"><span class="pre">google</span></code>, <code class="docutils literal notranslate"><span class="pre">openstack</span></code></p>
+<p>For storage services the following kinds are valid: <code class="docutils literal notranslate"><span class="pre">aws</span></code>,
+<code class="docutils literal notranslate"><span class="pre">azure</span></code>, <code class="docutils literal notranslate"><span class="pre">google</span></code>, <code class="docutils literal notranslate"><span class="pre">openstack</span></code>, <code class="docutils literal notranslate"><span class="pre">box</span></code></p>
+</div></blockquote>
+<p>host</p>
+<blockquote>
+<div><p>This field is used to identify where to find information about the
+service provider</p>
+</div></blockquote>
+<p>service</p>
+<blockquote>
+<div><p>The type of service. valid values are <code class="docutils literal notranslate"><span class="pre">compute</span></code>, <code class="docutils literal notranslate"><span class="pre">storage</span></code>.</p>
+</div></blockquote>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cm</span><span class="p">:</span>
     <span class="n">active</span><span class="p">:</span> <span class="kc">False</span>
     <span class="n">heading</span><span class="p">:</span> <span class="n">AWS</span>
@@ -390,47 +414,56 @@ based on its name how to interact with the service.</p>
 </div>
 </div>
 <div class="section" id="compute-cloud-providers">
-<h2>3.9. Compute Cloud Providers<a class="headerlink" href="#compute-cloud-providers" title="Permalink to this headline">¶</a></h2>
+<h2>Compute Cloud Providers<a class="headerlink" href="#compute-cloud-providers" title="Permalink to this headline">¶</a></h2>
 <p>The default yaml file includes templates to configure various clouds.
 YOu can change these defaults and provide access to your cloud
 credentials to make the management of cloud virtual machines easier.
 Templates for AWS, Azure, Google, OpenStack are provided. Specific
-templates for Jetstream and Chameleopn cloud are included in the example
+templates for Jetstream and Chameleon cloud are included in the example
 <a class="reference external" href="https://github.com/cloudmesh/cloudmesh-cloud/blob/master/cloudmesh/etc/cloudmesh4.yaml">cloudmesh4.yaml</a>.
 We list each template next.</p>
-<p>We explain in more detail the fetures of the configuration files for cloud services.</p>
-<p>First all cloud services are listed under the key <code class="docutils literal notranslate"><span class="pre">cloud</span></code>. You can add arbitrary compute cloud services
-with a name you like. You can even create multiple names that refer to the same cloud but may have different parameters.
-We like to focus on the example for <code class="docutils literal notranslate"><span class="pre">aws</span></code> and explain this in a bit more detail.</p>
-<p>The cloudmesh entry for a compute service is devided into three portions:
-<code class="docutils literal notranslate"><span class="pre">cm</span></code>, <code class="docutils literal notranslate"><span class="pre">default</span></code>, and <code class="docutils literal notranslate"><span class="pre">credentials</span></code>. The format of the <code class="docutils literal notranslate"><span class="pre">cm</span></code> is explained previously.</p>
+<p>We explain in more detail the features of the configuration files for
+cloud services.</p>
+<p>First all cloud services are listed under the key <code class="docutils literal notranslate"><span class="pre">cloud</span></code>. You can
+add arbitrary compute cloud services with a name you like. You can
+even create multiple names that refer to the same cloud but may have
+different parameters.  We like to focus on the example for <code class="docutils literal notranslate"><span class="pre">aws</span></code> and
+explain this in a bit more detail.</p>
+<p>The cloudmesh entry for a compute service is divided into three
+portions: <code class="docutils literal notranslate"><span class="pre">cm</span></code>, <code class="docutils literal notranslate"><span class="pre">default</span></code>, and <code class="docutils literal notranslate"><span class="pre">credentials</span></code>. The format of the
+<code class="docutils literal notranslate"><span class="pre">cm</span></code> is explained previously.</p>
 <div class="section" id="id4">
-<h3>3.9.1. Default<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
-<p>The next category are defaults thatcan be preset for each cloud. However defaults are overwritten by the cloudmesh shell
-variables. So they are only used once at startup if these defaults are not already defined by cloudmesh shell. Typically
-we use them to for example define values for images and sizes or flafors of images</p>
-<dl class="simple">
-<dt>image</dt><dd><p>The name of the default image</p>
-</dd>
-<dt>size</dt><dd><p>The size of the default image</p>
-</dd>
-</dl>
+<h3>Default<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>The next category are defaults that can be preset for each
+cloud. However defaults are overwritten by the cloudmesh shell
+variables. So they are only used once at startup if these defaults are
+not already defined by cloudmesh shell. Typically we use them to for
+example define values for images and sizes or flavors of images</p>
+<p>image</p>
+<blockquote>
+<div><p>The name of the default image</p>
+</div></blockquote>
+<p>size</p>
+<p>The size of the default image</p>
 </div>
 <div class="section" id="credentials">
-<h3>3.9.2. credentials<a class="headerlink" href="#credentials" title="Permalink to this headline">¶</a></h3>
-<p>The credentials are dependent on the kind of the cloud and include all information needed for authenticate and use the
-cloud service.</p>
-<p>As the infromation is sensitive the file in .cloudmesh holding thsi information must be properly protected.</p>
+<h3>credentials<a class="headerlink" href="#credentials" title="Permalink to this headline">¶</a></h3>
+<p>The credentials are dependent on the kind of the cloud and include all
+information needed for authenticate and use the cloud service.</p>
+<p>As the information is sensitive the file in .cloudmesh holding this
+information must be properly protected.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>We even have a project that encrypts the cloudmesh.yaml file, but it is not fully integrated yet.
-Future versions of cloudmesh will encrypt the information by default.</p>
+<p>We even have a project that encrypts the cloudmesh.yaml
+file, but it is not fully integrated yet.  Future versions
+of cloudmesh will encrypt the information by default.</p>
 </div>
 </div>
 <div class="section" id="aws">
-<h3>3.9.3. AWS<a class="headerlink" href="#aws" title="Permalink to this headline">¶</a></h3>
+<h3>AWS<a class="headerlink" href="#aws" title="Permalink to this headline">¶</a></h3>
 <p>To obtain an account on AWS you can follow our instructions at
-<a class="reference internal" href="../accounts/aws.html"><span class="doc">AWS Account Creation</span></a>. THe configuration file containes the following:</p>
+<a class="reference internal" href="../accounts/aws.html"><span class="doc">AWS Account Creation</span></a>. The configuration file contains the
+following:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cloudmesh</span><span class="p">:</span>
   <span class="o">...</span>
   <span class="n">cloud</span><span class="p">:</span>
@@ -458,13 +491,15 @@ Future versions of cloudmesh will encrypt the information by default.</p>
 </div>
 </div>
 <div class="section" id="azure">
-<h3>3.9.4. Azure<a class="headerlink" href="#azure" title="Permalink to this headline">¶</a></h3>
+<h3>Azure<a class="headerlink" href="#azure" title="Permalink to this headline">¶</a></h3>
 <div class="admonition-todo admonition" id="id5">
 <p class="admonition-title">Todo</p>
-<p>az arm provider this has to be verified. We will likely deprecate thsi for a more elaborate provider</p>
+<p>az arm provider this has to be verified. We will likely
+deprecate this for a more elaborate provider</p>
 </div>
 <p>To obtain an account on Azure you can follow our instructions at
-<a class="reference internal" href="../accounts/azure.html"><span class="doc">Azure Account Creation</span></a>. THe configuration file containes the following:</p>
+<a class="reference internal" href="../accounts/azure.html"><span class="doc">Azure Account Creation</span></a>. THe configuration file contains the
+following:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cloudmesh</span><span class="p">:</span>
   <span class="o">...</span>
   <span class="n">cloud</span><span class="p">:</span>
@@ -473,7 +508,7 @@ Future versions of cloudmesh will encrypt the information by default.</p>
       <span class="n">cm</span><span class="p">:</span>
         <span class="n">active</span><span class="p">:</span> <span class="kc">False</span>
         <span class="n">heading</span><span class="p">:</span> <span class="n">AWS</span>
-        <span class="n">host</span><span class="p">:</span> <span class="n">azure</span><span class="o">.</span><span class="n">mocrosoft</span><span class="o">.</span><span class="n">com</span>
+        <span class="n">host</span><span class="p">:</span> <span class="n">azure</span><span class="o">.</span><span class="n">microsoft</span><span class="o">.</span><span class="n">com</span>
         <span class="n">label</span><span class="p">:</span> <span class="n">Azure</span>
         <span class="n">kind</span><span class="p">:</span> <span class="n">azure_arm</span>
         <span class="n">version</span><span class="p">:</span> <span class="n">TBD</span>
@@ -496,14 +531,16 @@ Future versions of cloudmesh will encrypt the information by default.</p>
 </div>
 </div>
 <div class="section" id="az">
-<h3>3.9.5. AZ<a class="headerlink" href="#az" title="Permalink to this headline">¶</a></h3>
+<h3>AZ<a class="headerlink" href="#az" title="Permalink to this headline">¶</a></h3>
 <div class="admonition-todo admonition" id="id6">
 <p class="admonition-title">Todo</p>
 <p>AzProvider. Verify it works</p>
 </div>
-<p>This provider leverages the “az” command. and is the prefered az provider at this time. It has npt yet been fully verified.</p>
+<p>This provider leverages the “az” command. and is the preferred az
+provider at this time. It has npt yet been fully verified.</p>
 <p>To obtain an account on Azure you can follow our instructions at
-<a class="reference internal" href="../accounts/azure.html"><span class="doc">Azure Account Creation</span></a>. THe configuration file containes the following:</p>
+<a class="reference internal" href="../accounts/azure.html"><span class="doc">Azure Account Creation</span></a>. THe configuration file contains the
+following:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cloudmesh</span>
    <span class="o">...</span>
    <span class="n">cloud</span><span class="p">:</span>
@@ -530,9 +567,10 @@ Future versions of cloudmesh will encrypt the information by default.</p>
 </div>
 </div>
 <div class="section" id="google">
-<h3>3.9.6. Google<a class="headerlink" href="#google" title="Permalink to this headline">¶</a></h3>
+<h3>Google<a class="headerlink" href="#google" title="Permalink to this headline">¶</a></h3>
 <p>To obtain an account on Google you can follow our instructions at
-<span class="xref std std-doc">../accounts/gooogle</span>. THe configuration file containes the following:</p>
+<span class="xref std std-doc">../accounts/gooogle</span>. THe configuration file contains the
+following:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cloudmesh</span><span class="p">:</span>
   <span class="o">...</span>
   <span class="n">cloud</span><span class="p">:</span>
@@ -558,19 +596,18 @@ Future versions of cloudmesh will encrypt the information by default.</p>
 </div>
 </div>
 <div class="section" id="openstack">
-<h3>3.9.7. OpenStack<a class="headerlink" href="#openstack" title="Permalink to this headline">¶</a></h3>
+<h3>OpenStack<a class="headerlink" href="#openstack" title="Permalink to this headline">¶</a></h3>
 <p>We provide an example on how to use an OpenStack based cloud in
-cloudmesh. Please ass the following to your <code class="docutils literal notranslate"><span class="pre">cloudmesh4.yaml</span></code> file and
-replace the values for <code class="docutils literal notranslate"><span class="pre">TBD</span></code>. Our example uses <a class="reference external" href="https://www.chameleoncloud.org/">Chameleon
-Cloud</a>. This is a cloud for academic
+cloudmesh. Please ass the following to your <code class="docutils literal notranslate"><span class="pre">cloudmesh4.yaml</span></code> file
+and replace the values for <code class="docutils literal notranslate"><span class="pre">TBD</span></code>. Our example uses <a class="reference external" href="https://www.chameleoncloud.org/">Chameleon Cloud</a>. This is a cloud for academic
 research. Certainly you can configure other clouds based on this
 template. We have successfully used also clouds in Canada (Cybera),
 Germany (KIT), Indiana University (jetstream). TO get started you can
-even install your local cloud with devstack and make adjustements.
-Please remember you can have multiple clouds in the <code class="docutils literal notranslate"><span class="pre">cloudmesh4.yaml</span></code>
-file so you could if you have access to them integrate all of them.
-You will need access to a project and add your project nump=ber to. the credentials.
-Example for chameleon cloud:</p>
+even install your local cloud with devstack and make adjustments.
+Please remember you can have multiple clouds in the
+<code class="docutils literal notranslate"><span class="pre">cloudmesh4.yaml</span></code> file so you could if you have access to them
+integrate all of them.  You will need access to a project and add your
+project number to. the credentials.  Example for chameleon cloud:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cloudmesh</span><span class="p">:</span>
   <span class="o">...</span>
   <span class="n">cloud</span><span class="p">:</span>
@@ -604,7 +641,7 @@ Example for chameleon cloud:</p>
 </div>
 </div>
 <div class="section" id="virtual-box">
-<h3>3.9.8. Virtual Box<a class="headerlink" href="#virtual-box" title="Permalink to this headline">¶</a></h3>
+<h3>Virtual Box<a class="headerlink" href="#virtual-box" title="Permalink to this headline">¶</a></h3>
 <p>Virtualbox has at this time limited functionality, but creation, ssh,
 and deletion of the virtual box is possible.</p>
 <p>You can also integrate virtualbox as part of cloudmesh while providing
@@ -632,21 +669,21 @@ the following description:</p>
 </div>
 </div>
 <div class="section" id="ssh">
-<h3>3.9.9. SSH<a class="headerlink" href="#ssh" title="Permalink to this headline">¶</a></h3>
+<h3>SSH<a class="headerlink" href="#ssh" title="Permalink to this headline">¶</a></h3>
 <div class="admonition-todo admonition" id="id7">
 <p class="admonition-title">Todo</p>
 <p>SSH,  STUDENT CONTRIBUTE HERE</p>
 </div>
 </div>
 <div class="section" id="local">
-<h3>3.9.10. Local<a class="headerlink" href="#local" title="Permalink to this headline">¶</a></h3>
+<h3>Local<a class="headerlink" href="#local" title="Permalink to this headline">¶</a></h3>
 <div class="admonition-todo admonition" id="id8">
 <p class="admonition-title">Todo</p>
 <p>Local,  STUDENT CONTRIBUTE HERE</p>
 </div>
 </div>
 <div class="section" id="docker">
-<h3>3.9.11. Docker<a class="headerlink" href="#docker" title="Permalink to this headline">¶</a></h3>
+<h3>Docker<a class="headerlink" href="#docker" title="Permalink to this headline">¶</a></h3>
 <div class="admonition-todo admonition" id="id9">
 <p class="admonition-title">Todo</p>
 <p>Docker,  STUDENT CONTRIBUTE HERE</p>
@@ -654,23 +691,23 @@ the following description:</p>
 </div>
 </div>
 <div class="section" id="storage-providers">
-<h2>3.10. Storage Providers<a class="headerlink" href="#storage-providers" title="Permalink to this headline">¶</a></h2>
+<h2>Storage Providers<a class="headerlink" href="#storage-providers" title="Permalink to this headline">¶</a></h2>
 <p>General description for all storage providers, comment on the
 <code class="docutils literal notranslate"><span class="pre">default:</span></code> and what that does</p>
 <div class="section" id="aws-s3">
-<h3>3.10.1. AWS S3<a class="headerlink" href="#aws-s3" title="Permalink to this headline">¶</a></h3>
+<h3>AWS S3<a class="headerlink" href="#aws-s3" title="Permalink to this headline">¶</a></h3>
 <p>It is beyond the scope of this manual to discuss how to get an account
 on Google. However we do provide a convenient documentation at
 <a class="reference internal" href="../accounts/aws.html"><span class="doc">AWS Account Creation</span></a>.</p>
 <p>In the <code class="docutils literal notranslate"><span class="pre">cloudmesh4.yaml</span></code> file, the ‘aws’ section under ‘storage’
-describes an example configuration or a AWS S3 storage provider. In the
-credentials section under aws, specify the access key id and secret
-access key which will be available in the AWS console under AWS IAM
-<code class="docutils literal notranslate"><span class="pre">service</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">Users</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">Security</span> <span class="pre">Credentials</span></code>. Container is the
-default Bucket which will be used to store the files in AWS S3. Region
-is the geographic area like <code class="docutils literal notranslate"><span class="pre">us-east-1</span></code> which contains the bucket.
-Region is required to get a connection handle on the S3 Client or
-resource for that geographic area. Here is a sample:</p>
+describes an example configuration or a AWS S3 storage provider. In
+the credentials section under aws, specify the access key id and
+secret access key which will be available in the AWS console under AWS
+IAM <code class="docutils literal notranslate"><span class="pre">service</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">Users</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">Security</span> <span class="pre">Credentials</span></code>. Container is
+the default Bucket which will be used to store the files in AWS
+S3. Region is the geographic area like <code class="docutils literal notranslate"><span class="pre">us-east-1</span></code> which contains
+the bucket.  Region is required to get a connection handle on the S3
+Client or resource for that geographic area. Here is a sample:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cloudmesh</span><span class="p">:</span>
   <span class="o">...</span>
   <span class="n">storage</span><span class="p">:</span>
@@ -688,7 +725,7 @@ resource for that geographic area. Here is a sample:</p>
         <span class="n">access_key_id</span><span class="p">:</span> <span class="o">*********</span>
         <span class="n">secret_access_key</span><span class="p">:</span> <span class="o">*******</span>
         <span class="n">container</span><span class="p">:</span> <span class="n">name</span> <span class="n">of</span> <span class="n">bucket</span> <span class="n">that</span> <span class="n">you</span> <span class="n">want</span> <span class="n">user</span> <span class="n">to</span> <span class="n">be</span> <span class="n">contained</span> <span class="ow">in</span><span class="o">.</span>
-        <span class="n">region</span><span class="p">:</span> <span class="n">Specfiy</span> <span class="n">the</span> <span class="n">default</span> <span class="n">region</span> <span class="n">eg</span> <span class="n">us</span><span class="o">-</span><span class="n">east</span><span class="o">-</span><span class="mi">1</span>
+        <span class="n">region</span><span class="p">:</span> <span class="n">us</span><span class="o">-</span><span class="n">east</span><span class="o">-</span><span class="mi">1</span>
 </pre></div>
 </div>
 <div class="admonition-todo admonition" id="id10">
@@ -697,7 +734,7 @@ resource for that geographic area. Here is a sample:</p>
 </div>
 </div>
 <div class="section" id="azure-1">
-<span id="id11"></span><h3>3.10.2. Azure<a class="headerlink" href="#azure-1" title="Permalink to this headline">¶</a></h3>
+<span id="id11"></span><h3>Azure<a class="headerlink" href="#azure-1" title="Permalink to this headline">¶</a></h3>
 <p>It is beyond the scope of this manual to discuss how to get an account
 on Google. However we do provide a convenient documentation at
 <a class="reference internal" href="../accounts/azure.html"><span class="doc">Azure Account Creation</span></a>.</p>
@@ -722,10 +759,10 @@ on Google. However we do provide a convenient documentation at
         <span class="n">container</span><span class="p">:</span> <span class="s1">&#39;azuretest&#39;</span>
 </pre></div>
 </div>
-<p>Configuration settings for credentials in the yaml file can be obtained
-from Azure portal.</p>
-<p>TODO: MOre information via a pointer to a documentation you create needs
-to be added here</p>
+<p>Configuration settings for credentials in the yaml file can be
+obtained from Azure portal.</p>
+<p>TODO: MOre information via a pointer to a documentation you create
+needs to be added here</p>
 <p>In the yaml file the following values have to be changed</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">account_name</span></code> - This is the name of the Azure blob storage
@@ -737,7 +774,7 @@ the Azure blob storage account.</p></li>
 </ul>
 </div>
 <div class="section" id="google-drive">
-<h3>3.10.3. Google drive<a class="headerlink" href="#google-drive" title="Permalink to this headline">¶</a></h3>
+<h3>Google drive<a class="headerlink" href="#google-drive" title="Permalink to this headline">¶</a></h3>
 <p>Due to bugs in the requirements of the google driver code, we have not
 yet included it in the Provider code. This needs to be fixed before we
 can do this.</p>
@@ -777,7 +814,7 @@ on Google. However we do provide a convenient documentation at
 </div>
 </div>
 <div class="section" id="box">
-<h3>3.10.4. Box<a class="headerlink" href="#box" title="Permalink to this headline">¶</a></h3>
+<h3>Box<a class="headerlink" href="#box" title="Permalink to this headline">¶</a></h3>
 <p>It is beyond the scope of this manual to discuss how to get an account
 on Google. However we do provide a convenient documentation at
 <a class="reference internal" href="../accounts/box.html"><span class="doc">Box Account</span></a>.</p>
@@ -803,34 +840,34 @@ file you created as described in the Box chapter:</p>
 </div>
 </div>
 <div class="section" id="batch">
-<h2>3.11. Batch<a class="headerlink" href="#batch" title="Permalink to this headline">¶</a></h2>
+<h2>Batch<a class="headerlink" href="#batch" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-todo admonition" id="id12">
 <p class="admonition-title">Todo</p>
 <p>batch, student contribute here</p>
 </div>
 </div>
 <div class="section" id="rest">
-<h2>3.12. REST<a class="headerlink" href="#rest" title="Permalink to this headline">¶</a></h2>
+<h2>REST<a class="headerlink" href="#rest" title="Permalink to this headline">¶</a></h2>
 <p>TBD</p>
 </div>
 <div class="section" id="log-file">
-<h2>3.13. Log File<a class="headerlink" href="#log-file" title="Permalink to this headline">¶</a></h2>
+<h2>Log File<a class="headerlink" href="#log-file" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Previos versions of cloudmesh had a sophisticated logging feature.
+<p>Previous versions of cloudmesh had a sophisticated logging feature.
 This version has this feature not yet made available. Implement it
-and make avialable. At this time it is not our highest priority.</p>
+and make available. At this time it is not our highest priority.</p>
 </div>
 <p>Log files are stored by default in <code class="docutils literal notranslate"><span class="pre">~/.cloudmesh/log</span></code> The directory
 can be specified in the yaml file.</p>
 </div>
 <div class="section" id="mongo">
-<h2>3.14. Mongo<a class="headerlink" href="#mongo" title="Permalink to this headline">¶</a></h2>
+<h2>Mongo<a class="headerlink" href="#mongo" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="mongodb">
-<h2>3.15. MongoDB<a class="headerlink" href="#mongodb" title="Permalink to this headline">¶</a></h2>
+<h2>MongoDB<a class="headerlink" href="#mongodb" title="Permalink to this headline">¶</a></h2>
 <p>The cache of cloudmesh is managed in a mongo db database with various
-collections. However the user does not have to manage thes collections
+collections. However the user does not have to manage the collections
 as this is done for the user through cloudmesh. Before you can use it it
 mongo does need to be installed.</p>
 <p>If you have not installed mongo, you may try</p>
@@ -851,12 +888,12 @@ installed in the cloudmesh yaml file:</p>
 </pre></div>
 </div>
 <p>Now you are ready to use it in cloudmesh. The mongo db can be started
-and stoped with the command</p>
+and stopped with the command</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">$cms</span> admin mongo start
 <span class="nv">$cms</span> admin mongo stop
 </pre></div>
 </div>
-<p>The configuration detals are included in the yaml file and looks like:</p>
+<p>The configuration details are included in the yaml file and looks like:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cloudmesh</span><span class="p">:</span>
   <span class="o">...</span>
      <span class="n">mongo</span><span class="p">:</span>
@@ -889,10 +926,10 @@ and stoped with the command</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../installation/mongo.html" class="btn btn-neutral float-right" title="4. Cloudmesh Database" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../installation/mongo.html" class="btn btn-neutral float-right" title="Cloudmesh Database" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../installation/quickstart.html" class="btn btn-neutral float-left" title="2. Quickstart" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../installation/quickstart.html" class="btn btn-neutral float-left" title="Quickstart" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
