@@ -88,6 +88,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../preface/about.html">1. About</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../preface/contributors.html">2. Contributors</a></li>
 </ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/index.html">1. Cloudmesh Command API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/index.html#cloudmesh-api">2. Cloudmesh API</a></li>
+</ul>
 <p class="caption"><span class="caption-text">INSTALLATION</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation/install.html">1. Installation</a></li>
@@ -96,7 +101,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../installation/mongo.html">4. Cloudmesh Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../configuration/encryption.html">5. Cloudmesh Yaml file Encrytion</a></li>
 </ul>
-<p class="caption"><span class="caption-text">SOMMAND SHELL</span></p>
+<p class="caption"><span class="caption-text">COMMAND SHELL</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../cmd5.html">1. Cmd5</a></li>
 </ul>
@@ -140,21 +145,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../benchmarks/box.html">6. Benchmark results for box Storage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../benchmarks/emr.html">7. AWS EMR Benchmarking</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../benchmarks/test_compute_database.html">8. AWS EC2 Compute Database</a></li>
-</ul>
-<p class="caption"><span class="caption-text">CODE</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/code.html">1. Code Documentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/common.html">2. Common</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/cmd5.html">3. CMD5</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/cloudmesh.html">4. Cloudmesh</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/management.html">5. Management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/mongo.html">6. Mongo</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/commands.html">7. Commands</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/inventory.html">8. Inventory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/storage.html">9. cloudmesh-storage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/cloud.html">10. cloudmesh-cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/batch.html">11. cloudmesh-batch</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/emr.html">12. cloudmesh-emr</a></li>
 </ul>
 <p class="caption"><span class="caption-text">CONTRIBUTION</span></p>
 <ul>
@@ -256,7 +246,7 @@
 
 <span class="c1"># TODO:  use our simple subprocess wrapper ?</span>
 
-<div class="viewcode-block" id="get_fingerprint_from_public_key"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.security.authorized_keys.get_fingerprint_from_public_key">[docs]</a><span class="k">def</span> <span class="nf">get_fingerprint_from_public_key</span><span class="p">(</span><span class="n">pubkey</span><span class="p">):</span>
+<div class="viewcode-block" id="get_fingerprint_from_public_key"><a class="viewcode-back" href="../../../api/cloudmesh.security.html#cloudmesh.security.authorized_keys.get_fingerprint_from_public_key">[docs]</a><span class="k">def</span> <span class="nf">get_fingerprint_from_public_key</span><span class="p">(</span><span class="n">pubkey</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Generate the fingerprint of a public key</span>
 
 <span class="sd">    :param str pubkey: the value of the public key</span>
@@ -282,7 +272,7 @@
         <span class="k">return</span> <span class="n">fingerprint</span></div>
 
 
-<div class="viewcode-block" id="AuthorizedKeys"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.security.authorized_keys.AuthorizedKeys">[docs]</a><span class="k">class</span> <span class="nc">AuthorizedKeys</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="AuthorizedKeys"><a class="viewcode-back" href="../../../api/cloudmesh.security.html#cloudmesh.security.authorized_keys.AuthorizedKeys">[docs]</a><span class="k">class</span> <span class="nc">AuthorizedKeys</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Class to manage authorized keys.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -292,7 +282,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_keys</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
 
     <span class="c1"># noinspection PyShadowingNames,PyShadowingNames</span>
-<div class="viewcode-block" id="AuthorizedKeys.load"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.security.authorized_keys.AuthorizedKeys.load">[docs]</a>    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="AuthorizedKeys.load"><a class="viewcode-back" href="../../../api/cloudmesh.security.html#cloudmesh.security.authorized_keys.AuthorizedKeys.load">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        load the keys from a path</span>
@@ -309,7 +299,7 @@
                 <span class="n">auth</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">pubkey</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">auth</span></div>
 
-<div class="viewcode-block" id="AuthorizedKeys.add"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.security.authorized_keys.AuthorizedKeys.add">[docs]</a>    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pubkey</span><span class="p">):</span>
+<div class="viewcode-block" id="AuthorizedKeys.add"><a class="viewcode-back" href="../../../api/cloudmesh.security.html#cloudmesh.security.authorized_keys.AuthorizedKeys.add">[docs]</a>    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pubkey</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        add a public key.</span>
 <span class="sd">        :param pubkey: the filename to the public key</span>
@@ -320,7 +310,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">_order</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_keys</span><span class="p">)]</span> <span class="o">=</span> <span class="n">f</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_keys</span><span class="p">[</span><span class="n">f</span><span class="p">]</span> <span class="o">=</span> <span class="n">pubkey</span></div>
 
-<div class="viewcode-block" id="AuthorizedKeys.remove"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.security.authorized_keys.AuthorizedKeys.remove">[docs]</a>    <span class="k">def</span> <span class="nf">remove</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pubkey</span><span class="p">):</span>
+<div class="viewcode-block" id="AuthorizedKeys.remove"><a class="viewcode-back" href="../../../api/cloudmesh.security.html#cloudmesh.security.authorized_keys.AuthorizedKeys.remove">[docs]</a>    <span class="k">def</span> <span class="nf">remove</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pubkey</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Removes the public key</span>
 <span class="sd">        TODO: this method is not implemented</span>

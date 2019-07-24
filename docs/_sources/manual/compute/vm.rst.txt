@@ -166,4 +166,3 @@ vm
 
         Azure: rename is not supported
 
-Timer: 0.0061s (man vm --format=rst)

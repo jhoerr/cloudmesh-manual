@@ -88,6 +88,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../preface/about.html">1. About</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../preface/contributors.html">2. Contributors</a></li>
 </ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/index.html">1. Cloudmesh Command API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/index.html#cloudmesh-api">2. Cloudmesh API</a></li>
+</ul>
 <p class="caption"><span class="caption-text">INSTALLATION</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation/install.html">1. Installation</a></li>
@@ -96,7 +101,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../installation/mongo.html">4. Cloudmesh Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../configuration/encryption.html">5. Cloudmesh Yaml file Encrytion</a></li>
 </ul>
-<p class="caption"><span class="caption-text">SOMMAND SHELL</span></p>
+<p class="caption"><span class="caption-text">COMMAND SHELL</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../cmd5.html">1. Cmd5</a></li>
 </ul>
@@ -140,21 +145,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../benchmarks/box.html">6. Benchmark results for box Storage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../benchmarks/emr.html">7. AWS EMR Benchmarking</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../benchmarks/test_compute_database.html">8. AWS EC2 Compute Database</a></li>
-</ul>
-<p class="caption"><span class="caption-text">CODE</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/code.html">1. Code Documentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/common.html">2. Common</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/cmd5.html">3. CMD5</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/cloudmesh.html">4. Cloudmesh</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/management.html">5. Management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/mongo.html">6. Mongo</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/commands.html">7. Commands</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/inventory.html">8. Inventory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/storage.html">9. cloudmesh-storage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/cloud.html">10. cloudmesh-cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/batch.html">11. cloudmesh-batch</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/emr.html">12. cloudmesh-emr</a></li>
 </ul>
 <p class="caption"><span class="caption-text">CONTRIBUTION</span></p>
 <ul>
@@ -258,7 +248,7 @@
 
 
 <span class="c1"># noinspection PyUnusedLocal</span>
-<div class="viewcode-block" id="MongoInstaller"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.mongo.MongoDBController.MongoInstaller">[docs]</a><span class="k">class</span> <span class="nc">MongoInstaller</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="MongoInstaller"><a class="viewcode-back" href="../../../api/cloudmesh.mongo.html#cloudmesh.mongo.MongoDBController.MongoInstaller">[docs]</a><span class="k">class</span> <span class="nc">MongoInstaller</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -272,7 +262,7 @@
     <span class="c1">#</span>
     <span class="c1"># TODO: This function seems duplicated</span>
     <span class="c1">#</span>
-<div class="viewcode-block" id="MongoInstaller.expanduser"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.mongo.MongoDBController.MongoInstaller.expanduser">[docs]</a>    <span class="k">def</span> <span class="nf">expanduser</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="MongoInstaller.expanduser"><a class="viewcode-back" href="../../../api/cloudmesh.mongo.html#cloudmesh.mongo.MongoDBController.MongoInstaller.expanduser">[docs]</a>    <span class="k">def</span> <span class="nf">expanduser</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
             <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">])</span> <span class="o">==</span> <span class="nb">str</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">])</span></div>
@@ -281,7 +271,7 @@
     <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">yaml</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">default_flow_style</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
-<div class="viewcode-block" id="MongoInstaller.install"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.mongo.MongoDBController.MongoInstaller.install">[docs]</a>    <span class="k">def</span> <span class="nf">install</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="MongoInstaller.install"><a class="viewcode-back" href="../../../api/cloudmesh.mongo.html#cloudmesh.mongo.MongoDBController.MongoInstaller.install">[docs]</a>    <span class="k">def</span> <span class="nf">install</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        check where the MongoDB is installed in mongo location.</span>
 <span class="sd">        if MongoDB is not installed, python help install it</span>
@@ -317,7 +307,7 @@
                 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;platform not found&quot;</span><span class="p">,</span> <span class="n">platform</span><span class="p">)</span></div>
 
     <span class="c1"># noinspection PyUnusedLocal</span>
-<div class="viewcode-block" id="MongoInstaller.linux"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.mongo.MongoDBController.MongoInstaller.linux">[docs]</a>    <span class="k">def</span> <span class="nf">linux</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="MongoInstaller.linux"><a class="viewcode-back" href="../../../api/cloudmesh.mongo.html#cloudmesh.mongo.MongoDBController.MongoInstaller.linux">[docs]</a>    <span class="k">def</span> <span class="nf">linux</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="c1"># TODO UNTESTED</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        install MongoDB in Linux system (Ubuntu)</span>
@@ -334,7 +324,7 @@
         <span class="n">installer</span> <span class="o">=</span> <span class="n">Script</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">script</span><span class="p">)</span></div>
 
     <span class="c1"># noinspection PyUnusedLocal</span>
-<div class="viewcode-block" id="MongoInstaller.darwin"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.mongo.MongoDBController.MongoInstaller.darwin">[docs]</a>    <span class="k">def</span> <span class="nf">darwin</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">brew</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="MongoInstaller.darwin"><a class="viewcode-back" href="../../../api/cloudmesh.mongo.html#cloudmesh.mongo.MongoDBController.MongoInstaller.darwin">[docs]</a>    <span class="k">def</span> <span class="nf">darwin</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">brew</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        install MongoDB in Darwin system (Mac)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -358,7 +348,7 @@
 
             <span class="c1"># THIS IS BROKEN AS ITS A SUPBROCESS? &#39;. ~/.bashrc&#39;</span>
 
-<div class="viewcode-block" id="MongoInstaller.windows"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.mongo.MongoDBController.MongoInstaller.windows">[docs]</a>    <span class="k">def</span> <span class="nf">windows</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">brew</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="MongoInstaller.windows"><a class="viewcode-back" href="../../../api/cloudmesh.mongo.html#cloudmesh.mongo.MongoDBController.MongoInstaller.windows">[docs]</a>    <span class="k">def</span> <span class="nf">windows</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">brew</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        install MongoDB in windows</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -377,7 +367,7 @@
         <span class="n">installer</span> <span class="o">=</span> <span class="n">Script</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">script</span><span class="p">)</span></div></div>
 
 
-<div class="viewcode-block" id="MongoDBController"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.mongo.MongoDBController.MongoDBController">[docs]</a><span class="k">class</span> <span class="nc">MongoDBController</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="MongoDBController"><a class="viewcode-back" href="../../../api/cloudmesh.mongo.html#cloudmesh.mongo.MongoDBController.MongoDBController">[docs]</a><span class="k">class</span> <span class="nc">MongoDBController</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="n">__shared_state</span> <span class="o">=</span> <span class="p">{}</span>
 
     <span class="n">script_passwd</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
@@ -432,7 +422,7 @@
                 <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
                     <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
 
-<div class="viewcode-block" id="MongoDBController.login"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.mongo.MongoDBController.MongoDBController.login">[docs]</a>    <span class="k">def</span> <span class="nf">login</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="MongoDBController.login"><a class="viewcode-back" href="../../../api/cloudmesh.mongo.html#cloudmesh.mongo.MongoDBController.MongoDBController.login">[docs]</a>    <span class="k">def</span> <span class="nf">login</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">host</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;MONGO_HOST&quot;</span><span class="p">]</span>
         <span class="n">port</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;MONGO_PORT&quot;</span><span class="p">])</span>
         <span class="n">password</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;MONGO_PASSWORD&quot;</span><span class="p">])</span>
@@ -446,7 +436,7 @@
         <span class="n">client</span> <span class="o">=</span> <span class="n">MongoClient</span><span class="p">(</span><span class="n">connection</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">client</span></div>
 
-<div class="viewcode-block" id="MongoDBController.list"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.mongo.MongoDBController.MongoDBController.list">[docs]</a>    <span class="k">def</span> <span class="nf">list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="MongoDBController.list"><a class="viewcode-back" href="../../../api/cloudmesh.mongo.html#cloudmesh.mongo.MongoDBController.MongoDBController.list">[docs]</a>    <span class="k">def</span> <span class="nf">list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">client</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">login</span><span class="p">()</span>
 
         <span class="n">data</span> <span class="o">=</span> <span class="p">{}</span>
@@ -468,13 +458,13 @@
     <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">yaml</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">default_flow_style</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
-<div class="viewcode-block" id="MongoDBController.expanduser"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.mongo.MongoDBController.MongoDBController.expanduser">[docs]</a>    <span class="k">def</span> <span class="nf">expanduser</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="MongoDBController.expanduser"><a class="viewcode-back" href="../../../api/cloudmesh.mongo.html#cloudmesh.mongo.MongoDBController.MongoDBController.expanduser">[docs]</a>    <span class="k">def</span> <span class="nf">expanduser</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
             <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">])</span> <span class="o">==</span> <span class="nb">str</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">])</span></div>
         <span class="c1"># pprint(self.data)</span>
 
-<div class="viewcode-block" id="MongoDBController.update_auth"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.mongo.MongoDBController.MongoDBController.update_auth">[docs]</a>    <span class="k">def</span> <span class="nf">update_auth</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="MongoDBController.update_auth"><a class="viewcode-back" href="../../../api/cloudmesh.mongo.html#cloudmesh.mongo.MongoDBController.MongoDBController.update_auth">[docs]</a>    <span class="k">def</span> <span class="nf">update_auth</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        create admin account in MongoDB</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -494,7 +484,7 @@
         <span class="nb">print</span><span class="p">(</span>
             <span class="s2">&quot;Enable the Security. You will use your username and password to login the MongoDB&quot;</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="MongoDBController.create"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.mongo.MongoDBController.MongoDBController.create">[docs]</a>    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="MongoDBController.create"><a class="viewcode-back" href="../../../api/cloudmesh.mongo.html#cloudmesh.mongo.MongoDBController.MongoDBController.create">[docs]</a>    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="c1"># Added special code for windows. Cant do start service and set_auth in same cms execution.</span>
 
@@ -505,7 +495,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">set_auth</span><span class="p">()</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span></div>
 
-<div class="viewcode-block" id="MongoDBController.start"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.mongo.MongoDBController.MongoDBController.start">[docs]</a>    <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">security</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<div class="viewcode-block" id="MongoDBController.start"><a class="viewcode-back" href="../../../api/cloudmesh.mongo.html#cloudmesh.mongo.MongoDBController.MongoDBController.start">[docs]</a>    <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">security</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        start the MongoDB server</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -539,7 +529,7 @@
             <span class="nb">print</span><span class="p">(</span><span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">result</span><span class="p">))</span></div>
 
     <span class="c1"># noinspection PyMethodMayBeStatic</span>
-<div class="viewcode-block" id="MongoDBController.stop"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.mongo.MongoDBController.MongoDBController.stop">[docs]</a>    <span class="k">def</span> <span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="MongoDBController.stop"><a class="viewcode-back" href="../../../api/cloudmesh.mongo.html#cloudmesh.mongo.MongoDBController.MongoDBController.stop">[docs]</a>    <span class="k">def</span> <span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        shutdown the MongoDB server</span>
 <span class="sd">        linux and darwin have different way to shutdown the server, the common way is kill</span>
@@ -549,7 +539,7 @@
         <span class="n">result</span> <span class="o">=</span> <span class="n">Script</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">script</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="MongoDBController.set_auth"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.mongo.MongoDBController.MongoDBController.set_auth">[docs]</a>    <span class="k">def</span> <span class="nf">set_auth</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="MongoDBController.set_auth"><a class="viewcode-back" href="../../../api/cloudmesh.mongo.html#cloudmesh.mongo.MongoDBController.MongoDBController.set_auth">[docs]</a>    <span class="k">def</span> <span class="nf">set_auth</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        add admin account into the MongoDB admin database</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -565,7 +555,7 @@
                           <span class="s2">&quot;username are not TBD.&quot;</span><span class="p">)</span></div>
         <span class="c1"># print(result)</span>
 
-<div class="viewcode-block" id="MongoDBController.dump"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.mongo.MongoDBController.MongoDBController.dump">[docs]</a>    <span class="k">def</span> <span class="nf">dump</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+<div class="viewcode-block" id="MongoDBController.dump"><a class="viewcode-back" href="../../../api/cloudmesh.mongo.html#cloudmesh.mongo.MongoDBController.MongoDBController.dump">[docs]</a>    <span class="k">def</span> <span class="nf">dump</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="sd">        :param filename: The filename</span>
@@ -582,7 +572,7 @@
         <span class="n">result</span> <span class="o">=</span> <span class="n">Script</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">script</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="MongoDBController.restore"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.mongo.MongoDBController.MongoDBController.restore">[docs]</a>    <span class="k">def</span> <span class="nf">restore</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+<div class="viewcode-block" id="MongoDBController.restore"><a class="viewcode-back" href="../../../api/cloudmesh.mongo.html#cloudmesh.mongo.MongoDBController.MongoDBController.restore">[docs]</a>    <span class="k">def</span> <span class="nf">restore</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="sd">        :param filename: The filename</span>
@@ -598,7 +588,7 @@
         <span class="n">result</span> <span class="o">=</span> <span class="n">Script</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">script</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="MongoDBController.status"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.mongo.MongoDBController.MongoDBController.status">[docs]</a>    <span class="k">def</span> <span class="nf">status</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="MongoDBController.status"><a class="viewcode-back" href="../../../api/cloudmesh.mongo.html#cloudmesh.mongo.MongoDBController.MongoDBController.status">[docs]</a>    <span class="k">def</span> <span class="nf">status</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        check the MongoDB status</span>
 <span class="sd">        returns a json object with status: and pid: command</span>
@@ -665,7 +655,7 @@
         <span class="k">return</span> <span class="n">state</span></div>
 
     <span class="c1"># noinspection PyBroadException</span>
-<div class="viewcode-block" id="MongoDBController.version"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.mongo.MongoDBController.MongoDBController.version">[docs]</a>    <span class="k">def</span> <span class="nf">version</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="MongoDBController.version"><a class="viewcode-back" href="../../../api/cloudmesh.mongo.html#cloudmesh.mongo.MongoDBController.MongoDBController.version">[docs]</a>    <span class="k">def</span> <span class="nf">version</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">ver</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="n">out</span> <span class="o">=</span> \
@@ -678,7 +668,7 @@
             <span class="k">return</span> <span class="kc">None</span>
         <span class="k">return</span> <span class="n">ver</span></div>
 
-<div class="viewcode-block" id="MongoDBController.stats"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.mongo.MongoDBController.MongoDBController.stats">[docs]</a>    <span class="k">def</span> <span class="nf">stats</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="MongoDBController.stats"><a class="viewcode-back" href="../../../api/cloudmesh.mongo.html#cloudmesh.mongo.MongoDBController.MongoDBController.stats">[docs]</a>    <span class="k">def</span> <span class="nf">stats</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">script</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;mongo --eval &#39;db.stats()&#39;&quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
 
         <span class="n">result</span> <span class="o">=</span> <span class="n">Script</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">script</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>

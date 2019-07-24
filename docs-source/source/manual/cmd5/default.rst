@@ -79,4 +79,3 @@ default
         deletes the value for the default image in the
         cloud kilo
 
-Timer: 0.0055s (man default --format=rst)

@@ -88,6 +88,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../preface/about.html">1. About</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../preface/contributors.html">2. Contributors</a></li>
 </ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/index.html">1. Cloudmesh Command API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/index.html#cloudmesh-api">2. Cloudmesh API</a></li>
+</ul>
 <p class="caption"><span class="caption-text">INSTALLATION</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation/install.html">1. Installation</a></li>
@@ -96,7 +101,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../installation/mongo.html">4. Cloudmesh Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../configuration/encryption.html">5. Cloudmesh Yaml file Encrytion</a></li>
 </ul>
-<p class="caption"><span class="caption-text">SOMMAND SHELL</span></p>
+<p class="caption"><span class="caption-text">COMMAND SHELL</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../cmd5.html">1. Cmd5</a></li>
 </ul>
@@ -140,21 +145,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../benchmarks/box.html">6. Benchmark results for box Storage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../benchmarks/emr.html">7. AWS EMR Benchmarking</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../benchmarks/test_compute_database.html">8. AWS EC2 Compute Database</a></li>
-</ul>
-<p class="caption"><span class="caption-text">CODE</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/code.html">1. Code Documentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/common.html">2. Common</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/cmd5.html">3. CMD5</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/cloudmesh.html">4. Cloudmesh</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/management.html">5. Management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/mongo.html">6. Mongo</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/commands.html">7. Commands</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/inventory.html">8. Inventory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/storage.html">9. cloudmesh-storage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/cloud.html">10. cloudmesh-cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/batch.html">11. cloudmesh-batch</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/emr.html">12. cloudmesh-emr</a></li>
 </ul>
 <p class="caption"><span class="caption-text">CONTRIBUTION</span></p>
 <ul>
@@ -246,12 +236,12 @@
 <span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">import</span> <span class="nn">os</span>
 
-<div class="viewcode-block" id="PluginManager"><a class="viewcode-back" href="../../../code/cmd5.html#cloudmesh.shell.plugin.PluginManager">[docs]</a><span class="k">class</span> <span class="nc">PluginManager</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="PluginManager"><a class="viewcode-back" href="../../../api/cloudmesh.shell.html#cloudmesh.shell.plugin.PluginManager">[docs]</a><span class="k">class</span> <span class="nc">PluginManager</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 
     <span class="k">def</span> <span class="nf">__init</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="kc">None</span>
 
-<div class="viewcode-block" id="PluginManager.load"><a class="viewcode-back" href="../../../code/cmd5.html#cloudmesh.shell.plugin.PluginManager.load">[docs]</a>    <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="PluginManager.load"><a class="viewcode-back" href="../../../api/cloudmesh.shell.html#cloudmesh.shell.plugin.PluginManager.load">[docs]</a>    <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        TODO: DEPRECATED:</span>
 
@@ -266,7 +256,7 @@
             <span class="n">entry</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;plugins&#39;</span><span class="p">][</span><span class="n">key</span><span class="p">]</span>
             <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;description&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;description&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span></div>
 
-<div class="viewcode-block" id="PluginManager.uninstall"><a class="viewcode-back" href="../../../code/cmd5.html#cloudmesh.shell.plugin.PluginManager.uninstall">[docs]</a>    <span class="k">def</span> <span class="nf">uninstall</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+<div class="viewcode-block" id="PluginManager.uninstall"><a class="viewcode-back" href="../../../api/cloudmesh.shell.html#cloudmesh.shell.plugin.PluginManager.uninstall">[docs]</a>    <span class="k">def</span> <span class="nf">uninstall</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        pip uninstalls the package with the specified name</span>
 <span class="sd">        :param name: The package name</span>
@@ -276,7 +266,7 @@
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Uninstalling:&quot;</span><span class="p">,</span> <span class="p">)</span>
         <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;pip uninstall </span><span class="si">{name}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">plugin</span><span class="p">))</span></div>
 
-<div class="viewcode-block" id="PluginManager.pip_install"><a class="viewcode-back" href="../../../code/cmd5.html#cloudmesh.shell.plugin.PluginManager.pip_install">[docs]</a>    <span class="k">def</span> <span class="nf">pip_install</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+<div class="viewcode-block" id="PluginManager.pip_install"><a class="viewcode-back" href="../../../api/cloudmesh.shell.html#cloudmesh.shell.plugin.PluginManager.pip_install">[docs]</a>    <span class="k">def</span> <span class="nf">pip_install</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        pip installs the package with the specified name</span>
 <span class="sd">        :param name: The package name</span>
@@ -286,7 +276,7 @@
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Installing:&quot;</span><span class="p">,</span> <span class="p">)</span>
         <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;pip install </span><span class="si">{name}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">plugin</span><span class="p">))</span></div>
 
-<div class="viewcode-block" id="PluginManager.source_install"><a class="viewcode-back" href="../../../code/cmd5.html#cloudmesh.shell.plugin.PluginManager.source_install">[docs]</a>    <span class="k">def</span> <span class="nf">source_install</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+<div class="viewcode-block" id="PluginManager.source_install"><a class="viewcode-back" href="../../../api/cloudmesh.shell.html#cloudmesh.shell.plugin.PluginManager.source_install">[docs]</a>    <span class="k">def</span> <span class="nf">source_install</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        TODO: DEPRECATED</span>
 

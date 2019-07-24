@@ -88,6 +88,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../preface/about.html">1. About</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../preface/contributors.html">2. Contributors</a></li>
 </ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/index.html">1. Cloudmesh Command API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/index.html#cloudmesh-api">2. Cloudmesh API</a></li>
+</ul>
 <p class="caption"><span class="caption-text">INSTALLATION</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../installation/install.html">1. Installation</a></li>
@@ -96,7 +101,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../installation/mongo.html">4. Cloudmesh Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../configuration/encryption.html">5. Cloudmesh Yaml file Encrytion</a></li>
 </ul>
-<p class="caption"><span class="caption-text">SOMMAND SHELL</span></p>
+<p class="caption"><span class="caption-text">COMMAND SHELL</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../cmd5.html">1. Cmd5</a></li>
 </ul>
@@ -140,21 +145,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../benchmarks/box.html">6. Benchmark results for box Storage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../benchmarks/emr.html">7. AWS EMR Benchmarking</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../benchmarks/test_compute_database.html">8. AWS EC2 Compute Database</a></li>
-</ul>
-<p class="caption"><span class="caption-text">CODE</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../code/code.html">1. Code Documentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../code/common.html">2. Common</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../code/cmd5.html">3. CMD5</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../code/cloudmesh.html">4. Cloudmesh</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../code/management.html">5. Management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../code/mongo.html">6. Mongo</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../code/commands.html">7. Commands</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../code/inventory.html">8. Inventory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../code/storage.html">9. cloudmesh-storage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../code/cloud.html">10. cloudmesh-cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../code/batch.html">11. cloudmesh-batch</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../code/emr.html">12. cloudmesh-emr</a></li>
 </ul>
 <p class="caption"><span class="caption-text">CONTRIBUTION</span></p>
 <ul>
@@ -247,7 +237,7 @@
 <span class="kn">import</span> <span class="nn">oyaml</span> <span class="k">as</span> <span class="nn">yaml</span>
 
 
-<div class="viewcode-block" id="GenericConfig"><a class="viewcode-back" href="../../../../code/management.html#cloudmesh.management.configuration.generic_config.GenericConfig">[docs]</a><span class="k">class</span> <span class="nc">GenericConfig</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="GenericConfig"><a class="viewcode-back" href="../../../../api/cloudmesh.management.configuration.html#cloudmesh.management.configuration.generic_config.GenericConfig">[docs]</a><span class="k">class</span> <span class="nc">GenericConfig</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config_path</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -271,7 +261,7 @@
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_conf_dict</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_conf_dict</span> <span class="o">=</span> <span class="p">{}</span>
 
-<div class="viewcode-block" id="GenericConfig.get"><a class="viewcode-back" href="../../../../code/management.html#cloudmesh.management.configuration.generic_config.GenericConfig.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="GenericConfig.get"><a class="viewcode-back" href="../../../../api/cloudmesh.management.configuration.html#cloudmesh.management.configuration.generic_config.GenericConfig.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        A helper function for reading values from the config without</span>
 <span class="sd">        a chain of `get()` calls.</span>
@@ -286,7 +276,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_conf_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">default</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="GenericConfig.set"><a class="viewcode-back" href="../../../../code/management.html#cloudmesh.management.configuration.generic_config.GenericConfig.set">[docs]</a>    <span class="k">def</span> <span class="nf">set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<div class="viewcode-block" id="GenericConfig.set"><a class="viewcode-back" href="../../../../api/cloudmesh.management.configuration.html#cloudmesh.management.configuration.generic_config.GenericConfig.set">[docs]</a>    <span class="k">def</span> <span class="nf">set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        A helper function for setting values in the config without</span>
 <span class="sd">        a chain of `set()` calls.</span>
@@ -302,7 +292,7 @@
         <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config_path</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">stream</span><span class="p">:</span>
             <span class="n">yaml</span><span class="o">.</span><span class="n">safe_dump</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_conf_dict</span><span class="p">),</span> <span class="n">stream</span><span class="p">,</span> <span class="n">default_flow_style</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="GenericConfig.deep_set"><a class="viewcode-back" href="../../../../code/management.html#cloudmesh.management.configuration.generic_config.GenericConfig.deep_set">[docs]</a>    <span class="k">def</span> <span class="nf">deep_set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keys</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="GenericConfig.deep_set"><a class="viewcode-back" href="../../../../api/cloudmesh.management.configuration.html#cloudmesh.management.configuration.generic_config.GenericConfig.deep_set">[docs]</a>    <span class="k">def</span> <span class="nf">deep_set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keys</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        A helper function for setting values in the config without</span>
 <span class="sd">        a chain of `set()` calls.</span>
@@ -327,14 +317,14 @@
         <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config_path</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">stream</span><span class="p">:</span>
             <span class="n">yaml</span><span class="o">.</span><span class="n">safe_dump</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_conf_dict</span><span class="p">),</span> <span class="n">stream</span><span class="p">,</span> <span class="n">default_flow_style</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="GenericConfig.keys"><a class="viewcode-back" href="../../../../code/management.html#cloudmesh.management.configuration.generic_config.GenericConfig.keys">[docs]</a>    <span class="k">def</span> <span class="nf">keys</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="GenericConfig.keys"><a class="viewcode-back" href="../../../../api/cloudmesh.management.configuration.html#cloudmesh.management.configuration.generic_config.GenericConfig.keys">[docs]</a>    <span class="k">def</span> <span class="nf">keys</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Print keys of a subkey</span>
 <span class="sd">        :return:</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_conf_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span></div>
 
-<div class="viewcode-block" id="GenericConfig.remove"><a class="viewcode-back" href="../../../../code/management.html#cloudmesh.management.configuration.generic_config.GenericConfig.remove">[docs]</a>    <span class="k">def</span> <span class="nf">remove</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">key_to_remove</span><span class="p">):</span>
+<div class="viewcode-block" id="GenericConfig.remove"><a class="viewcode-back" href="../../../../api/cloudmesh.management.configuration.html#cloudmesh.management.configuration.generic_config.GenericConfig.remove">[docs]</a>    <span class="k">def</span> <span class="nf">remove</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">key_to_remove</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="sd">        :return:</span>

@@ -1,0 +1,512 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1.28. cloudmesh.vm.command package &mdash; Cloudmesh v4 alpha documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1.29. cloudmesh.workflow.command package" href="cloudmesh.workflow.command.html" />
+    <link rel="prev" title="1.27. cloudmesh.vcluster.command package" href="cloudmesh.vcluster.command.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Cloudmesh v4
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.0.28
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">PREFACE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../preface/about.html">1. About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preface/contributors.html">2. Contributors</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">1. Cloudmesh Command API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.admin.command.html">1.1. cloudmesh.admin.command package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.config.command.html">1.2. cloudmesh.config.command package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.container.command.html">1.3. cloudmesh.container.command package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.data.command.html">1.4. cloudmesh.data.command package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.default.command.html">1.5. cloudmesh.default.command package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.flavor.command.html">1.6. cloudmesh.flavor.command package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.group.command.html">1.7. cloudmesh.group.command package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.image.command.html">1.8. cloudmesh.image.command package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.init.command.html">1.9. cloudmesh.init.command package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.ip.command.html">1.10. cloudmesh.ip.command package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.key.command.html">1.11. cloudmesh.key.command package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.man.command.html">1.12. cloudmesh.man.command package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.open.command.html">1.13. cloudmesh.open.command package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.provider.command.html">1.14. cloudmesh.provider.command package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.register.command.html">1.15. cloudmesh.register.command package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.sec.command.html">1.16. cloudmesh.sec.command package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.service.command.html">1.17. cloudmesh.service.command package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.set.command.html">1.18. cloudmesh.set.command package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.source.command.html">1.19. cloudmesh.source.command package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.ssh.command.html">1.20. cloudmesh.ssh.command package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.start.command.html">1.21. cloudmesh.start.command package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.stop.command.html">1.22. cloudmesh.stop.command package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.sys.command.html">1.23. cloudmesh.sys.command package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.terminal.command.html">1.24. cloudmesh.terminal.command package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.var.command.html">1.25. cloudmesh.var.command package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.vbox.command.html">1.26. cloudmesh.vbox.command package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.vcluster.command.html">1.27. cloudmesh.vcluster.command package</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">1.28. cloudmesh.vm.command package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">1.28.1. Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.vm.command.vm">1.28.2. cloudmesh.vm.command.vm module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.vm.command">1.28.3. Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.workflow.command.html">1.29. cloudmesh.workflow.command package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#cloudmesh-api">2. Cloudmesh API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">INSTALLATION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/install.html">1. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/quickstart.html">2. Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration/configuration.html">3. Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/mongo.html">4. Cloudmesh Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration/encryption.html">5. Cloudmesh Yaml file Encrytion</a></li>
+</ul>
+<p class="caption"><span class="caption-text">COMMAND SHELL</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cmd5.html">1. Cmd5</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CLOUD SERVICES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../group.html">1. Group command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vm/vm.html">2. Virtual Machine Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vm/image.html">3. Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vm/flavor.html">4. Flavors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../storage/storage.html">5. Cloudmesh Multi Cloud Storage Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workflow.html">6. Infrastructure Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter.html">7. Jupyter Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hpc/batch.html">8. Batch</a></li>
+</ul>
+<p class="caption"><span class="caption-text">openapi</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../openapi/README-storage-openapi.html">1. Cloudmesh Multi Cloud Open API Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../openapi/ufo.html">2. REST Service (outdated)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference-card.html">1. Reference Card (proposed)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/commands.html">2. Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-cmd5.html">3. Manual Cmd5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-group.html">4. Manual Group</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-compute.html">5. Compute Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-storage.html">6. Storage Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-other.html">7. Manual Other</a></li>
+</ul>
+<p class="caption"><span class="caption-text">DATABASE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../storage/database.html">1. Cloudmesh Database</a></li>
+</ul>
+<p class="caption"><span class="caption-text">BENCHMARKS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/README.html">1. Benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/awsec2-vm-management-benchmark.html">2. AWS EC2 VM Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/awsec2_benchmark_ubuntu.html">3. AWS EC2 VM Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/awss3-storage-benchmark.html">4. AWS S3 File Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/azure-storage-benchmark.html">5. Azure Blob Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/box.html">6. Benchmark results for box Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/emr.html">7. AWS EMR Benchmarking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/test_compute_database.html">8. AWS EC2 Compute Database</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CONTRIBUTION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dev/conventions.html">1. Code Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/management.html">2. Code Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/management.html#documentation-management">3. Documentation Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/management.html#version-management">4. Version Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/pytest.html">5. Pytest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/manual.html">6. Manual Creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/todo.html">7. ToDo</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CLOUD ACCOUNTS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/aws.html">1. AWS Account Creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/azure.html">2. Azure Account Creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/google.html">3. Google Storage Providers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/box.html">4. Box Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/accountcreation-old.html">5. VM Providers (outdated)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Outdated:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../CM4README.html">1. CM4 Details (outdated)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vcluster.html">2. Virtual Cluster (in progress)</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Cloudmesh v4</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">1. Cloudmesh Command API</a> &raquo;</li>
+        
+      <li>1.28. cloudmesh.vm.command package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/cloudmesh.vm.command.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="cloudmesh-vm-command-package">
+<h1>1.28. cloudmesh.vm.command package<a class="headerlink" href="#cloudmesh-vm-command-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>1.28.1. Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-cloudmesh.vm.command.vm">
+<span id="cloudmesh-vm-command-vm-module"></span><h2>1.28.2. cloudmesh.vm.command.vm module<a class="headerlink" href="#module-cloudmesh.vm.command.vm" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cloudmesh.vm.command.vm.VmCommand">
+<em class="property">class </em><code class="sig-prename descclassname">cloudmesh.vm.command.vm.</code><code class="sig-name descname">VmCommand</code><a class="reference internal" href="../_modules/cloudmesh/vm/command/vm.html#VmCommand"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.vm.command.vm.VmCommand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="cloudmesh.shell.html#cloudmesh.shell.command.PluginCommand" title="cloudmesh.shell.command.PluginCommand"><code class="xref py py-class docutils literal notranslate"><span class="pre">cloudmesh.shell.command.PluginCommand</span></code></a></p>
+<dl class="method">
+<dt id="cloudmesh.vm.command.vm.VmCommand.do_vm">
+<code class="sig-name descname">do_vm</code><span class="sig-paren">(</span><em class="sig-param">args</em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.vm.command.vm.VmCommand.do_vm" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Usage</span><span class="p">:</span>
+    <span class="n">vm</span> <span class="n">ping</span> <span class="p">[</span><span class="n">NAMES</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">CLOUDS</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">count</span><span class="o">=</span><span class="n">N</span><span class="p">]</span>
+    <span class="n">vm</span> <span class="n">check</span> <span class="p">[</span><span class="n">NAMES</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">CLOUDS</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">username</span><span class="o">=</span><span class="n">USERNAME</span><span class="p">]</span>
+    <span class="n">vm</span> <span class="n">status</span> <span class="p">[</span><span class="n">NAMES</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">CLOUDS</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">output</span><span class="o">=</span><span class="n">OUTPUT</span><span class="p">]</span>
+    <span class="n">vm</span> <span class="n">console</span> <span class="p">[</span><span class="n">NAME</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">force</span><span class="p">]</span>
+    <span class="n">vm</span> <span class="n">stop</span> <span class="p">[</span><span class="n">NAMES</span><span class="p">]</span>  <span class="p">[</span><span class="o">--</span><span class="n">dryrun</span><span class="p">]</span>
+    <span class="n">vm</span> <span class="n">start</span> <span class="p">[</span><span class="n">NAMES</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">dryrun</span><span class="p">]</span>
+    <span class="n">vm</span> <span class="n">terminate</span> <span class="p">[</span><span class="n">NAMES</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">CLOUD</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">dryrun</span><span class="p">]</span>
+    <span class="n">vm</span> <span class="n">delete</span> <span class="p">[</span><span class="n">NAMES</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">CLOUD</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">dryrun</span><span class="p">]</span>
+    <span class="n">vm</span> <span class="n">refresh</span> <span class="p">[</span><span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">CLOUDS</span><span class="p">]</span>
+    <span class="n">vm</span> <span class="nb">list</span> <span class="p">[</span><span class="n">NAMES</span><span class="p">]</span>
+            <span class="p">[</span><span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">CLOUDS</span><span class="p">]</span>
+            <span class="p">[</span><span class="o">--</span><span class="n">output</span><span class="o">=</span><span class="n">OUTPUT</span><span class="p">]</span>
+            <span class="p">[</span><span class="o">--</span><span class="n">refresh</span><span class="p">]</span>
+    <span class="n">vm</span> <span class="n">boot</span> <span class="p">[</span><span class="o">--</span><span class="n">n</span><span class="o">=</span><span class="n">COUNT</span><span class="p">]</span>
+            <span class="p">[</span><span class="o">--</span><span class="n">name</span><span class="o">=</span><span class="n">VMNAMES</span><span class="p">]</span>
+            <span class="p">[</span><span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">CLOUD</span><span class="p">]</span>
+            <span class="p">[</span><span class="o">--</span><span class="n">username</span><span class="o">=</span><span class="n">USERNAME</span><span class="p">]</span>
+            <span class="p">[</span><span class="o">--</span><span class="n">image</span><span class="o">=</span><span class="n">IMAGE</span><span class="p">]</span>
+            <span class="p">[</span><span class="o">--</span><span class="n">flavor</span><span class="o">=</span><span class="n">FLAVOR</span><span class="p">]</span>
+            <span class="p">[</span><span class="o">--</span><span class="n">public</span><span class="p">]</span>
+            <span class="p">[</span><span class="o">--</span><span class="n">secgroup</span><span class="o">=</span><span class="n">SECGROUPs</span><span class="p">]</span>
+            <span class="p">[</span><span class="o">--</span><span class="n">group</span><span class="o">=</span><span class="n">GROUPs</span><span class="p">]</span>
+            <span class="p">[</span><span class="o">--</span><span class="n">key</span><span class="o">=</span><span class="n">KEY</span><span class="p">]</span>
+            <span class="p">[</span><span class="o">--</span><span class="n">dryrun</span><span class="p">]</span>
+            <span class="p">[</span><span class="o">-</span><span class="n">v</span><span class="p">]</span>
+    <span class="n">vm</span> <span class="n">meta</span> <span class="nb">list</span> <span class="p">[</span><span class="n">NAME</span><span class="p">]</span>
+    <span class="n">vm</span> <span class="n">meta</span> <span class="nb">set</span> <span class="p">[</span><span class="n">NAME</span><span class="p">]</span> <span class="n">KEY</span><span class="o">=</span><span class="n">VALUE</span><span class="o">...</span>
+    <span class="n">vm</span> <span class="n">meta</span> <span class="n">delete</span> <span class="p">[</span><span class="n">NAME</span><span class="p">]</span> <span class="n">KEY</span><span class="o">...</span>
+    <span class="n">vm</span> <span class="n">run</span> <span class="p">[</span><span class="o">--</span><span class="n">name</span><span class="o">=</span><span class="n">VMNAMES</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">username</span><span class="o">=</span><span class="n">USERNAME</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">dryrun</span><span class="p">]</span> <span class="n">COMMAND</span>
+    <span class="n">vm</span> <span class="n">script</span> <span class="p">[</span><span class="o">--</span><span class="n">name</span><span class="o">=</span><span class="n">NAMES</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">username</span><span class="o">=</span><span class="n">USERNAME</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">dryrun</span><span class="p">]</span> <span class="n">SCRIPT</span>
+    <span class="n">vm</span> <span class="n">ip</span> <span class="n">assign</span> <span class="p">[</span><span class="n">NAMES</span><span class="p">]</span>
+              <span class="p">[</span><span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">CLOUD</span><span class="p">]</span>
+    <span class="n">vm</span> <span class="n">ip</span> <span class="n">show</span> <span class="p">[</span><span class="n">NAMES</span><span class="p">]</span>
+               <span class="p">[</span><span class="o">--</span><span class="n">group</span><span class="o">=</span><span class="n">GROUP</span><span class="p">]</span>
+               <span class="p">[</span><span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">CLOUD</span><span class="p">]</span>
+               <span class="p">[</span><span class="o">--</span><span class="n">output</span><span class="o">=</span><span class="n">OUTPUT</span><span class="p">]</span>
+               <span class="p">[</span><span class="o">--</span><span class="n">refresh</span><span class="p">]</span>
+    <span class="n">vm</span> <span class="n">ip</span> <span class="n">inventory</span> <span class="p">[</span><span class="n">NAMES</span><span class="p">]</span>
+    <span class="n">vm</span> <span class="n">ssh</span> <span class="p">[</span><span class="n">NAMES</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">username</span><span class="o">=</span><span class="n">USER</span><span class="p">]</span>
+             <span class="p">[</span><span class="o">--</span><span class="n">quiet</span><span class="p">]</span>
+             <span class="p">[</span><span class="o">--</span><span class="n">ip</span><span class="o">=</span><span class="n">IP</span><span class="p">]</span>
+             <span class="p">[</span><span class="o">--</span><span class="n">key</span><span class="o">=</span><span class="n">KEY</span><span class="p">]</span>
+             <span class="p">[</span><span class="o">--</span><span class="n">command</span><span class="o">=</span><span class="n">COMMAND</span><span class="p">]</span>
+             <span class="p">[</span><span class="o">--</span><span class="n">modify</span><span class="o">-</span><span class="n">knownhosts</span><span class="p">]</span>
+    <span class="n">vm</span> <span class="n">rename</span> <span class="p">[</span><span class="n">OLDNAMES</span><span class="p">]</span> <span class="p">[</span><span class="n">NEWNAMES</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">force</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">dryrun</span><span class="p">]</span>
+    <span class="n">vm</span> <span class="n">wait</span> <span class="p">[</span><span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">CLOUD</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">interval</span><span class="o">=</span><span class="n">SECONDS</span><span class="p">]</span>
+    <span class="n">vm</span> <span class="n">info</span> <span class="p">[</span><span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">CLOUD</span><span class="p">]</span>
+            <span class="p">[</span><span class="o">--</span><span class="n">output</span><span class="o">=</span><span class="n">OUTPUT</span><span class="p">]</span>
+    <span class="n">vm</span> <span class="n">username</span> <span class="n">USERNAME</span> <span class="p">[</span><span class="n">NAMES</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">CLOUD</span><span class="p">]</span>
+    <span class="n">vm</span> <span class="n">resize</span> <span class="p">[</span><span class="n">NAMES</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">size</span><span class="o">=</span><span class="n">SIZE</span><span class="p">]</span>
+
+<span class="n">Arguments</span><span class="p">:</span>
+    <span class="n">OUTPUT</span>         <span class="n">the</span> <span class="n">output</span> <span class="nb">format</span>
+    <span class="n">COMMAND</span>        <span class="n">positional</span> <span class="n">arguments</span><span class="p">,</span> <span class="n">the</span> <span class="n">commands</span> <span class="n">you</span> <span class="n">want</span> <span class="n">to</span>
+                   <span class="n">execute</span> <span class="n">on</span> <span class="n">the</span> <span class="n">server</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span> <span class="n">ls</span> <span class="o">-</span><span class="n">a</span><span class="p">)</span> <span class="n">separated</span> <span class="n">by</span> <span class="s1">&#39;;&#39;</span><span class="p">,</span>
+                   <span class="n">you</span> <span class="n">will</span> <span class="n">get</span> <span class="n">a</span> <span class="k">return</span> <span class="n">of</span> <span class="n">executing</span> <span class="n">result</span> <span class="n">instead</span> <span class="n">of</span> <span class="n">login</span> <span class="n">to</span>
+                   <span class="n">the</span> <span class="n">server</span><span class="p">,</span> <span class="n">note</span> <span class="n">that</span> <span class="nb">type</span> <span class="ow">in</span> <span class="o">--</span> <span class="ow">is</span> <span class="n">suggested</span> <span class="n">before</span>
+                   <span class="n">you</span> <span class="nb">input</span> <span class="n">the</span> <span class="n">commands</span>
+    <span class="n">NAME</span>           <span class="n">server</span> <span class="n">name</span><span class="o">.</span> <span class="n">By</span> <span class="n">default</span> <span class="n">it</span> <span class="ow">is</span> <span class="nb">set</span> <span class="n">to</span> <span class="n">the</span> <span class="n">name</span> <span class="n">of</span> <span class="n">last</span> <span class="n">vm</span> <span class="kn">from</span> <span class="nn">database.</span>
+    <span class="n">NAMES</span>          <span class="n">server</span> <span class="n">name</span><span class="o">.</span> <span class="n">By</span> <span class="n">default</span> <span class="n">it</span> <span class="ow">is</span> <span class="nb">set</span> <span class="n">to</span> <span class="n">the</span> <span class="n">name</span> <span class="n">of</span> <span class="n">last</span> <span class="n">vm</span> <span class="kn">from</span> <span class="nn">database.</span>
+    <span class="n">KEYPAIR_NAME</span>   <span class="n">Name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">vm</span> <span class="n">keypair</span> <span class="n">to</span> <span class="n">be</span> <span class="n">used</span> <span class="n">to</span> <span class="n">create</span> <span class="n">VM</span><span class="o">.</span> <span class="n">Note</span> <span class="n">this</span> <span class="ow">is</span>
+                   <span class="ow">not</span> <span class="n">a</span> <span class="n">path</span> <span class="n">to</span> <span class="n">key</span><span class="o">.</span>
+    <span class="n">NEWNAMES</span>       <span class="n">New</span> <span class="n">names</span> <span class="n">of</span> <span class="n">the</span> <span class="n">VM</span> <span class="k">while</span> <span class="n">renaming</span><span class="o">.</span>
+    <span class="n">OLDNAMES</span>       <span class="n">Old</span> <span class="n">names</span> <span class="n">of</span> <span class="n">the</span> <span class="n">VM</span> <span class="k">while</span> <span class="n">renaming</span><span class="o">.</span>
+
+<span class="n">Options</span><span class="p">:</span>
+    <span class="o">-</span><span class="n">v</span>             <span class="n">verbose</span><span class="p">,</span> <span class="n">prints</span> <span class="n">the</span> <span class="nb">dict</span> <span class="n">at</span> <span class="n">the</span> <span class="n">end</span>
+    <span class="o">--</span><span class="n">output</span><span class="o">=</span><span class="n">OUTPUT</span>   <span class="n">the</span> <span class="n">output</span> <span class="nb">format</span> <span class="p">[</span><span class="n">default</span><span class="p">:</span> <span class="n">table</span><span class="p">]</span>
+    <span class="o">-</span><span class="n">H</span> <span class="o">--</span><span class="n">modify</span><span class="o">-</span><span class="n">knownhosts</span>  <span class="n">Do</span> <span class="ow">not</span> <span class="n">modify</span> <span class="o">~/.</span><span class="n">ssh</span><span class="o">/</span><span class="n">known_hosts</span> <span class="n">file</span>
+                          <span class="n">when</span> <span class="n">ssh</span><span class="s1">&#39;ing into a machine</span>
+    <span class="o">--</span><span class="n">username</span><span class="o">=</span><span class="n">USERNAME</span>   <span class="n">the</span> <span class="n">username</span> <span class="n">to</span> <span class="n">login</span> <span class="n">into</span> <span class="n">the</span> <span class="n">vm</span><span class="o">.</span> <span class="n">If</span> <span class="ow">not</span>
+                          <span class="n">specified</span> <span class="n">it</span> <span class="n">will</span> <span class="n">be</span> <span class="n">guessed</span>
+                          <span class="kn">from</span> <span class="nn">the</span> <span class="n">image</span> <span class="n">name</span> <span class="ow">and</span> <span class="n">the</span> <span class="n">cloud</span>
+    <span class="o">--</span><span class="n">ip</span><span class="o">=</span><span class="n">IP</span>          <span class="n">give</span> <span class="n">the</span> <span class="n">public</span> <span class="n">ip</span> <span class="n">of</span> <span class="n">the</span> <span class="n">server</span>
+    <span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">CLOUD</span>    <span class="n">give</span> <span class="n">a</span> <span class="n">cloud</span> <span class="n">to</span> <span class="n">work</span> <span class="n">on</span><span class="p">,</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">given</span><span class="p">,</span> <span class="n">selected</span>
+                     <span class="ow">or</span> <span class="n">default</span> <span class="n">cloud</span> <span class="n">will</span> <span class="n">be</span> <span class="n">used</span>
+    <span class="o">--</span><span class="n">count</span><span class="o">=</span><span class="n">COUNT</span>    <span class="n">give</span> <span class="n">the</span> <span class="n">number</span> <span class="n">of</span> <span class="n">servers</span> <span class="n">to</span> <span class="n">start</span>
+    <span class="o">--</span><span class="n">detail</span>         <span class="k">for</span> <span class="n">table</span><span class="p">,</span> <span class="n">a</span> <span class="n">brief</span> <span class="n">version</span>
+                     <span class="ow">is</span> <span class="n">used</span> <span class="k">as</span> <span class="n">default</span><span class="p">,</span> <span class="n">use</span> <span class="n">this</span> <span class="n">flag</span> <span class="n">to</span> <span class="nb">print</span>
+                     <span class="n">detailed</span> <span class="n">table</span>
+    <span class="o">--</span><span class="n">flavor</span><span class="o">=</span><span class="n">FLAVOR</span>  <span class="n">give</span> <span class="n">the</span> <span class="n">name</span> <span class="ow">or</span> <span class="nb">id</span> <span class="n">of</span> <span class="n">the</span> <span class="n">flavor</span>
+    <span class="o">--</span><span class="n">group</span><span class="o">=</span><span class="n">GROUP</span>          <span class="n">give</span> <span class="n">the</span> <span class="n">group</span> <span class="n">name</span> <span class="n">of</span> <span class="n">server</span>
+    <span class="o">--</span><span class="n">secgroup</span><span class="o">=</span><span class="n">SECGROUP</span>    <span class="n">security</span> <span class="n">group</span> <span class="n">name</span> <span class="k">for</span> <span class="n">the</span> <span class="n">server</span>
+    <span class="o">--</span><span class="n">image</span><span class="o">=</span><span class="n">IMAGE</span>    <span class="n">give</span> <span class="n">the</span> <span class="n">name</span> <span class="ow">or</span> <span class="nb">id</span> <span class="n">of</span> <span class="n">the</span> <span class="n">image</span>
+    <span class="o">--</span><span class="n">key</span><span class="o">=</span><span class="n">KEY</span>        <span class="n">specify</span> <span class="n">a</span> <span class="n">key</span> <span class="n">to</span> <span class="n">use</span><span class="p">,</span> <span class="nb">input</span> <span class="n">a</span> <span class="n">string</span> <span class="n">which</span>
+                     <span class="ow">is</span> <span class="n">the</span> <span class="n">full</span> <span class="n">path</span> <span class="n">to</span> <span class="n">the</span> <span class="n">private</span> <span class="n">key</span> <span class="n">file</span>
+    <span class="o">--</span><span class="n">keypair_name</span><span class="o">=</span><span class="n">KEYPAIR_NAME</span>   <span class="n">Name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">vm</span> <span class="n">keypair</span> <span class="n">to</span>
+                                  <span class="n">be</span> <span class="n">used</span> <span class="n">to</span> <span class="n">create</span> <span class="n">VM</span><span class="o">.</span>
+                                  <span class="n">Note</span> <span class="n">this</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">a</span> <span class="n">path</span> <span class="n">to</span> <span class="n">key</span><span class="o">.</span>
+    <span class="o">--</span><span class="n">user</span><span class="o">=</span><span class="n">USER</span>      <span class="n">give</span> <span class="n">the</span> <span class="n">user</span> <span class="n">name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">server</span> <span class="n">that</span> <span class="n">you</span> <span class="n">want</span>
+                     <span class="n">to</span> <span class="n">use</span> <span class="n">to</span> <span class="n">login</span>
+    <span class="o">--</span><span class="n">name</span><span class="o">=</span><span class="n">NAME</span>      <span class="n">give</span> <span class="n">the</span> <span class="n">name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">virtual</span> <span class="n">machine</span>
+    <span class="o">--</span><span class="n">force</span>          <span class="n">rename</span><span class="o">/</span> <span class="n">delete</span> <span class="n">vms</span> <span class="n">without</span> <span class="n">user</span><span class="s1">&#39;s confirmation</span>
+    <span class="o">--</span><span class="n">command</span><span class="o">=</span><span class="n">COMMAND</span>
+                     <span class="n">specify</span> <span class="n">the</span> <span class="n">commands</span> <span class="n">to</span> <span class="n">be</span> <span class="n">executed</span>
+
+
+<span class="n">Description</span><span class="p">:</span>
+    <span class="n">commands</span> <span class="n">used</span> <span class="n">to</span> <span class="n">boot</span><span class="p">,</span> <span class="n">start</span> <span class="ow">or</span> <span class="n">delete</span> <span class="n">servers</span> <span class="n">of</span> <span class="n">a</span> <span class="n">cloud</span>
+
+    <span class="n">vm</span> <span class="n">default</span> <span class="p">[</span><span class="n">options</span><span class="o">...</span><span class="p">]</span>
+        <span class="n">Displays</span> <span class="n">default</span> <span class="n">parameters</span> <span class="n">that</span> <span class="n">are</span> <span class="nb">set</span> <span class="k">for</span> <span class="n">vm</span> <span class="n">boot</span> <span class="n">either</span>
+        <span class="n">on</span> <span class="n">the</span> <span class="n">default</span> <span class="n">cloud</span> <span class="ow">or</span> <span class="n">the</span> <span class="n">specified</span> <span class="n">cloud</span><span class="o">.</span>
+
+    <span class="n">vm</span> <span class="n">boot</span> <span class="p">[</span><span class="n">options</span><span class="o">...</span><span class="p">]</span>
+        <span class="n">Boots</span> <span class="n">servers</span> <span class="n">on</span> <span class="n">a</span> <span class="n">cloud</span><span class="p">,</span> <span class="n">user</span> <span class="n">may</span> <span class="n">specify</span> <span class="n">flavor</span><span class="p">,</span> <span class="n">image</span>
+        <span class="o">.</span><span class="n">etc</span><span class="p">,</span> <span class="n">otherwise</span> <span class="n">default</span> <span class="n">values</span> <span class="n">will</span> <span class="n">be</span> <span class="n">used</span><span class="p">,</span> <span class="n">see</span> <span class="n">how</span> <span class="n">to</span> <span class="nb">set</span>
+        <span class="n">default</span> <span class="n">values</span> <span class="n">of</span> <span class="n">a</span> <span class="n">cloud</span><span class="p">:</span> <span class="n">cloud</span> <span class="n">help</span>
+
+    <span class="n">vm</span> <span class="n">start</span> <span class="p">[</span><span class="n">options</span><span class="o">...</span><span class="p">]</span>
+        <span class="n">Starts</span> <span class="n">a</span> <span class="n">suspended</span> <span class="ow">or</span> <span class="n">stopped</span> <span class="n">vm</span> <span class="n">instance</span><span class="o">.</span>
+
+    <span class="n">vm</span> <span class="n">stop</span> <span class="p">[</span><span class="n">options</span><span class="o">...</span><span class="p">]</span>
+        <span class="n">Stops</span> <span class="n">a</span> <span class="n">vm</span> <span class="n">instance</span> <span class="o">.</span>
+
+    <span class="n">vm</span> <span class="n">delete</span> <span class="p">[</span><span class="n">options</span><span class="o">...</span><span class="p">]</span>
+
+        <span class="n">Delete</span> <span class="n">servers</span> <span class="n">of</span> <span class="n">a</span> <span class="n">cloud</span><span class="p">,</span> <span class="n">user</span> <span class="n">may</span> <span class="n">delete</span> <span class="n">a</span> <span class="n">server</span> <span class="n">by</span> <span class="n">its</span>
+        <span class="n">name</span> <span class="ow">or</span> <span class="nb">id</span><span class="p">,</span> <span class="n">delete</span> <span class="n">servers</span> <span class="n">of</span> <span class="n">a</span> <span class="n">group</span> <span class="ow">or</span> <span class="n">servers</span> <span class="n">of</span> <span class="n">a</span> <span class="n">cloud</span><span class="p">,</span>
+        <span class="n">give</span> <span class="n">prefix</span> <span class="ow">and</span><span class="o">/</span><span class="ow">or</span> <span class="nb">range</span> <span class="n">to</span> <span class="n">find</span> <span class="n">servers</span> <span class="n">by</span> <span class="n">their</span> <span class="n">names</span><span class="o">.</span>
+        <span class="n">Or</span> <span class="n">user</span> <span class="n">may</span> <span class="n">specify</span> <span class="n">more</span> <span class="n">options</span> <span class="n">to</span> <span class="n">narrow</span> <span class="n">the</span> <span class="n">search</span>
+
+    <span class="n">vm</span> <span class="n">floating_ip_assign</span> <span class="p">[</span><span class="n">options</span><span class="o">...</span><span class="p">]</span>
+        <span class="n">assign</span> <span class="n">a</span> <span class="n">public</span> <span class="n">ip</span> <span class="n">to</span> <span class="n">a</span> <span class="n">VM</span> <span class="n">of</span> <span class="n">a</span> <span class="n">cloud</span>
+
+    <span class="n">vm</span> <span class="n">ip</span> <span class="n">show</span> <span class="p">[</span><span class="n">options</span><span class="o">...</span><span class="p">]</span>
+        <span class="n">show</span> <span class="n">the</span> <span class="n">ips</span> <span class="n">of</span> <span class="n">VMs</span>
+
+    <span class="n">vm</span> <span class="n">ssh</span> <span class="p">[</span><span class="n">options</span><span class="o">...</span><span class="p">]</span>
+        <span class="n">login</span> <span class="n">to</span> <span class="n">a</span> <span class="n">server</span> <span class="ow">or</span> <span class="n">execute</span> <span class="n">commands</span> <span class="n">on</span> <span class="n">it</span>
+
+    <span class="n">vm</span> <span class="nb">list</span> <span class="p">[</span><span class="n">options</span><span class="o">...</span><span class="p">]</span>
+        <span class="n">same</span> <span class="k">as</span> <span class="n">command</span> <span class="s2">&quot;list vm&quot;</span><span class="p">,</span> <span class="n">please</span> <span class="n">refer</span> <span class="n">to</span> <span class="n">it</span>
+
+    <span class="n">vm</span> <span class="n">status</span> <span class="p">[</span><span class="n">options</span><span class="o">...</span><span class="p">]</span>
+        <span class="n">Retrieves</span> <span class="n">status</span> <span class="n">of</span> <span class="n">last</span> <span class="n">VM</span> <span class="n">booted</span> <span class="n">on</span> <span class="n">cloud</span> <span class="ow">and</span> <span class="n">displays</span> <span class="n">it</span><span class="o">.</span>
+
+    <span class="n">vm</span> <span class="n">refresh</span> <span class="p">[</span><span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">CLOUDS</span><span class="p">]</span>
+        <span class="n">this</span> <span class="n">command</span> <span class="n">refreshes</span> <span class="n">the</span> <span class="n">data</span> <span class="k">for</span> <span class="n">virtual</span> <span class="n">machines</span><span class="p">,</span>
+        <span class="n">images</span> <span class="ow">and</span> <span class="n">flavors</span> <span class="k">for</span> <span class="n">the</span> <span class="n">specified</span> <span class="n">clouds</span><span class="o">.</span>
+
+    <span class="n">vm</span> <span class="n">ping</span> <span class="p">[</span><span class="n">NAMES</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">CLOUDS</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">count</span><span class="o">=</span><span class="n">N</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">processors</span><span class="o">=</span><span class="n">PROCESSORS</span><span class="p">]</span>
+         <span class="n">pings</span> <span class="n">the</span> <span class="n">specified</span> <span class="n">virtual</span> <span class="n">machines</span><span class="p">,</span> <span class="k">while</span> <span class="n">using</span> <span class="n">at</span> <span class="n">most</span> <span class="n">N</span> <span class="n">pings</span><span class="o">.</span>
+         <span class="n">The</span> <span class="n">ping</span> <span class="ow">is</span> <span class="n">executed</span> <span class="ow">in</span> <span class="n">parallel</span><span class="o">.</span>
+         <span class="n">If</span> <span class="n">names</span> <span class="n">are</span> <span class="n">specifies</span> <span class="n">the</span> <span class="n">ping</span> <span class="ow">is</span> <span class="n">restricted</span> <span class="n">to</span> <span class="n">the</span> <span class="n">given</span> <span class="n">names</span> <span class="ow">in</span>
+         <span class="n">parameter</span> <span class="nb">format</span><span class="o">.</span> <span class="n">If</span> <span class="n">clouds</span> <span class="n">are</span> <span class="n">specified</span><span class="p">,</span> <span class="n">names</span> <span class="n">that</span> <span class="n">are</span> <span class="ow">not</span> <span class="ow">in</span>
+         <span class="n">these</span> <span class="n">clouds</span> <span class="n">are</span> <span class="n">ignored</span><span class="o">.</span> <span class="n">If</span> <span class="n">the</span> <span class="n">name</span> <span class="ow">is</span> <span class="nb">set</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">variables</span>
+         <span class="n">this</span> <span class="n">name</span> <span class="ow">is</span> <span class="n">used</span><span class="o">.</span>
+
+<span class="n">Tip</span><span class="p">:</span>
+    <span class="n">give</span> <span class="n">the</span> <span class="n">VM</span> <span class="n">name</span><span class="p">,</span> <span class="n">but</span> <span class="ow">in</span> <span class="n">a</span> <span class="n">hostlist</span> <span class="n">style</span><span class="p">,</span> <span class="n">which</span> <span class="ow">is</span> <span class="n">very</span>
+    <span class="n">convenient</span> <span class="n">when</span> <span class="n">you</span> <span class="n">need</span> <span class="n">a</span> <span class="nb">range</span> <span class="n">of</span> <span class="n">VMs</span> <span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span> <span class="n">sample</span><span class="p">[</span><span class="mi">1</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span>
+    <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;sample1&#39;</span><span class="p">,</span> <span class="s1">&#39;sample2&#39;</span><span class="p">,</span> <span class="s1">&#39;sample3&#39;</span><span class="p">]</span>
+    <span class="n">sample</span><span class="p">[</span><span class="mi">1</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">18</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;sample1&#39;</span><span class="p">,</span> <span class="s1">&#39;sample2&#39;</span><span class="p">,</span> <span class="s1">&#39;sample3&#39;</span><span class="p">,</span> <span class="s1">&#39;sample18&#39;</span><span class="p">]</span>
+
+<span class="n">Quoting</span> <span class="n">commands</span><span class="p">:</span>
+    <span class="n">cm</span> <span class="n">vm</span> <span class="n">login</span> <span class="n">gvonlasz</span><span class="o">-</span><span class="mi">004</span> <span class="o">--</span><span class="n">command</span><span class="o">=</span><span class="s2">&quot;uname -a&quot;</span>
+
+<span class="n">Limitations</span><span class="p">:</span>
+
+    <span class="n">Azure</span><span class="p">:</span> <span class="n">rename</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">supported</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-cloudmesh.vm.command">
+<span id="module-contents"></span><h2>1.28.3. Module contents<a class="headerlink" href="#module-cloudmesh.vm.command" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="cloudmesh.workflow.command.html" class="btn btn-neutral float-right" title="1.29. cloudmesh.workflow.command package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="cloudmesh.vcluster.command.html" class="btn btn-neutral float-left" title="1.27. cloudmesh.vcluster.command package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018-2019, Cloudmesh Community
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

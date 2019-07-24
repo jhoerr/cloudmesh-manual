@@ -15,4 +15,3 @@ echo
 
     Prints a text in the given color
 
-Timer: 0.0054s (man echo --format=rst)

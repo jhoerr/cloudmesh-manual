@@ -62,4 +62,3 @@ admin
 
       This can be very useful in case you are filing an issue or bug.
 
-Timer: 0.0056s (man admin --format=rst)

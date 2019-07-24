@@ -88,6 +88,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../preface/about.html">1. About</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../preface/contributors.html">2. Contributors</a></li>
 </ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/index.html">1. Cloudmesh Command API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/index.html#cloudmesh-api">2. Cloudmesh API</a></li>
+</ul>
 <p class="caption"><span class="caption-text">INSTALLATION</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../installation/install.html">1. Installation</a></li>
@@ -96,7 +101,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../installation/mongo.html">4. Cloudmesh Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../configuration/encryption.html">5. Cloudmesh Yaml file Encrytion</a></li>
 </ul>
-<p class="caption"><span class="caption-text">SOMMAND SHELL</span></p>
+<p class="caption"><span class="caption-text">COMMAND SHELL</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../cmd5.html">1. Cmd5</a></li>
 </ul>
@@ -140,21 +145,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../benchmarks/box.html">6. Benchmark results for box Storage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../benchmarks/emr.html">7. AWS EMR Benchmarking</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../benchmarks/test_compute_database.html">8. AWS EC2 Compute Database</a></li>
-</ul>
-<p class="caption"><span class="caption-text">CODE</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../code/code.html">1. Code Documentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../code/common.html">2. Common</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../code/cmd5.html">3. CMD5</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../code/cloudmesh.html">4. Cloudmesh</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../code/management.html">5. Management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../code/mongo.html">6. Mongo</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../code/commands.html">7. Commands</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../code/inventory.html">8. Inventory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../code/storage.html">9. cloudmesh-storage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../code/cloud.html">10. cloudmesh-cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../code/batch.html">11. cloudmesh-batch</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../code/emr.html">12. cloudmesh-emr</a></li>
 </ul>
 <p class="caption"><span class="caption-text">CONTRIBUTION</span></p>
 <ul>
@@ -255,7 +245,7 @@
 <span class="kn">from</span> <span class="nn">cloudmesh.shell.command</span> <span class="k">import</span> <span class="n">command</span>
 
 
-<div class="viewcode-block" id="TerminalCommand"><a class="viewcode-back" href="../../../../code/cmd5.html#cloudmesh.terminal.command.terminal.TerminalCommand">[docs]</a><span class="k">class</span> <span class="nc">TerminalCommand</span><span class="p">(</span><span class="n">PluginCommand</span><span class="p">):</span>
+<div class="viewcode-block" id="TerminalCommand"><a class="viewcode-back" href="../../../../api/cloudmesh.terminal.command.html#cloudmesh.terminal.command.terminal.TerminalCommand">[docs]</a><span class="k">class</span> <span class="nc">TerminalCommand</span><span class="p">(</span><span class="n">PluginCommand</span><span class="p">):</span>
     <span class="c1"># noinspection PyUnusedLocal</span>
     <span class="nd">@command</span>
     <span class="k">def</span> <span class="nf">do_stopwatch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">arguments</span><span class="p">):</span>
@@ -408,12 +398,12 @@
     <span class="c1">#</span>
     <span class="c1"># Echo</span>
     <span class="c1">#</span>
-<div class="viewcode-block" id="TerminalCommand.set_verbose"><a class="viewcode-back" href="../../../../code/cmd5.html#cloudmesh.terminal.command.terminal.TerminalCommand.set_verbose">[docs]</a>    <span class="k">def</span> <span class="nf">set_verbose</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">on</span><span class="p">):</span>
+<div class="viewcode-block" id="TerminalCommand.set_verbose"><a class="viewcode-back" href="../../../../api/cloudmesh.terminal.command.html#cloudmesh.terminal.command.terminal.TerminalCommand.set_verbose">[docs]</a>    <span class="k">def</span> <span class="nf">set_verbose</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">on</span><span class="p">):</span>
         <span class="c1"># self.echo = on</span>
         <span class="k">pass</span></div>
 
     <span class="c1"># noinspection PyAttributeOutsideInit</span>
-<div class="viewcode-block" id="TerminalCommand.set_banner"><a class="viewcode-back" href="../../../../code/cmd5.html#cloudmesh.terminal.command.terminal.TerminalCommand.set_banner">[docs]</a>    <span class="k">def</span> <span class="nf">set_banner</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">banner</span><span class="p">):</span>
+<div class="viewcode-block" id="TerminalCommand.set_banner"><a class="viewcode-back" href="../../../../api/cloudmesh.terminal.command.html#cloudmesh.terminal.command.terminal.TerminalCommand.set_banner">[docs]</a>    <span class="k">def</span> <span class="nf">set_banner</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">banner</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">banner</span> <span class="o">=</span> <span class="n">banner</span></div>
 
     <span class="c1"># @command</span>

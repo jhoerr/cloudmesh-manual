@@ -88,6 +88,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../preface/about.html">1. About</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../preface/contributors.html">2. Contributors</a></li>
 </ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/index.html">1. Cloudmesh Command API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/index.html#cloudmesh-api">2. Cloudmesh API</a></li>
+</ul>
 <p class="caption"><span class="caption-text">INSTALLATION</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../installation/install.html">1. Installation</a></li>
@@ -96,7 +101,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../installation/mongo.html">4. Cloudmesh Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../configuration/encryption.html">5. Cloudmesh Yaml file Encrytion</a></li>
 </ul>
-<p class="caption"><span class="caption-text">SOMMAND SHELL</span></p>
+<p class="caption"><span class="caption-text">COMMAND SHELL</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../cmd5.html">1. Cmd5</a></li>
 </ul>
@@ -140,21 +145,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../benchmarks/box.html">6. Benchmark results for box Storage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../benchmarks/emr.html">7. AWS EMR Benchmarking</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../benchmarks/test_compute_database.html">8. AWS EC2 Compute Database</a></li>
-</ul>
-<p class="caption"><span class="caption-text">CODE</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../code/code.html">1. Code Documentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../code/common.html">2. Common</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../code/cmd5.html">3. CMD5</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../code/cloudmesh.html">4. Cloudmesh</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../code/management.html">5. Management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../code/mongo.html">6. Mongo</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../code/commands.html">7. Commands</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../code/inventory.html">8. Inventory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../code/storage.html">9. cloudmesh-storage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../code/cloud.html">10. cloudmesh-cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../code/batch.html">11. cloudmesh-batch</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../code/emr.html">12. cloudmesh-emr</a></li>
 </ul>
 <p class="caption"><span class="caption-text">CONTRIBUTION</span></p>
 <ul>
@@ -253,7 +243,7 @@
 
 
 <span class="c1"># noinspection PyBroadException</span>
-<div class="viewcode-block" id="SSHkey"><a class="viewcode-back" href="../../../../code/management.html#cloudmesh.management.configuration.SSHkey.SSHkey">[docs]</a><span class="k">class</span> <span class="nc">SSHkey</span><span class="p">(</span><span class="nb">dict</span><span class="p">):</span>
+<div class="viewcode-block" id="SSHkey"><a class="viewcode-back" href="../../../../api/cloudmesh.management.configuration.html#cloudmesh.management.configuration.SSHkey.SSHkey">[docs]</a><span class="k">class</span> <span class="nc">SSHkey</span><span class="p">(</span><span class="nb">dict</span><span class="p">):</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
@@ -270,7 +260,7 @@
         <span class="p">}</span>
         <span class="k">return</span> <span class="n">d</span>
 
-<div class="viewcode-block" id="SSHkey.load"><a class="viewcode-back" href="../../../../code/management.html#cloudmesh.management.configuration.SSHkey.SSHkey.load">[docs]</a>    <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="SSHkey.load"><a class="viewcode-back" href="../../../../api/cloudmesh.management.configuration.html#cloudmesh.management.configuration.SSHkey.SSHkey.load">[docs]</a>    <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="p">[</span><span class="s2">&quot;profile&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">Config</span><span class="p">()[</span><span class="s2">&quot;cloudmesh&quot;</span><span class="p">][</span><span class="s2">&quot;profile&quot;</span><span class="p">]</span>
         <span class="bp">self</span><span class="p">[</span><span class="s2">&quot;path&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">path_expand</span><span class="p">(</span><span class="bp">self</span><span class="p">[</span><span class="s2">&quot;profile&quot;</span><span class="p">][</span><span class="s2">&quot;publickey&quot;</span><span class="p">])</span>
 
@@ -292,7 +282,7 @@
         <span class="p">}</span>
         <span class="bp">self</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_update_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="SSHkey.set_permissions"><a class="viewcode-back" href="../../../../code/management.html#cloudmesh.management.configuration.SSHkey.SSHkey.set_permissions">[docs]</a>    <span class="k">def</span> <span class="nf">set_permissions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+<div class="viewcode-block" id="SSHkey.set_permissions"><a class="viewcode-back" href="../../../../api/cloudmesh.management.configuration.html#cloudmesh.management.configuration.SSHkey.SSHkey.set_permissions">[docs]</a>    <span class="k">def</span> <span class="nf">set_permissions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Sets the permissions of the path assuming the path is a public or private key</span>
 <span class="sd">        :param path:</span>
@@ -304,7 +294,7 @@
         <span class="k">pass</span></div>
 
     <span class="c1"># noinspection PyDictCreation</span>
-<div class="viewcode-block" id="SSHkey.get_from_git"><a class="viewcode-back" href="../../../../code/management.html#cloudmesh.management.configuration.SSHkey.SSHkey.get_from_git">[docs]</a>    <span class="k">def</span> <span class="nf">get_from_git</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user</span><span class="p">,</span> <span class="n">keyname</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="SSHkey.get_from_git"><a class="viewcode-back" href="../../../../api/cloudmesh.management.configuration.html#cloudmesh.management.configuration.SSHkey.SSHkey.get_from_git">[docs]</a>    <span class="k">def</span> <span class="nf">get_from_git</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user</span><span class="p">,</span> <span class="n">keyname</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        gets the key from github</span>
 

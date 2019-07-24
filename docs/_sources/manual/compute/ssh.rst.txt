@@ -61,4 +61,3 @@ ssh
                   User blue
                   IdentityFile ~/.ssh/id_rsa.pub
 
-Timer: 0.0054s (man ssh --format=rst)

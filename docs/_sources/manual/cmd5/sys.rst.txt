@@ -55,4 +55,3 @@ sys
     cms upload
         The upload command uploads the new version to pypi
 
-Timer: 0.0056s (man sys --format=rst)

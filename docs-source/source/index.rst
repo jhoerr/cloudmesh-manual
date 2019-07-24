@@ -11,6 +11,12 @@ Cloudmesh Version 4
 
 .. toctree::
    :numbered:
+   :caption: API
+
+   api/index
+
+.. toctree::
+   :numbered:
    :caption: INSTALLATION
 
    installation/install
@@ -21,7 +27,7 @@ Cloudmesh Version 4
 
 .. toctree::
    :numbered:
-   :caption: SOMMAND SHELL
+   :caption: COMMAND SHELL
 
    cmd5
 

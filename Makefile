@@ -7,6 +7,8 @@ COMMUNITY=$(GIT)-community
 
 HERCULES=docker run --rm srcd/hercules hercules
 LABOURS=docker run --rm -i -v $(pwd):/io srcd/hercules labours
+SOURCE=docs-source/source
+API=docs-source/source/api
 
 define banner
 	@echo
@@ -28,10 +30,59 @@ inspect-book:
 	   --grading=True \
 	   --metrics=False \
 	   --hard=True \
-		--format=htmlembedded > docs-source/source/inspector/book.html
-	cp -r docs-source/source/inspector docs/inspector
+		--format=htmlembedded > $(SOURCE)/inspector/book.html
+	cp -r $(SOURCE)/inspector docs/inspector
+
+MODULES= cloudmesh-common cloudmesh-cmd5 cloudmesh-sys cloudmesh-cloud
 
 
+api:
+	rm -rf docs-source/source/api
+	rm -rf tmp
+	mkdir -p tmp/cloudmesh
+	cp -r ../cloudmesh-cmd5/cloudmesh/* tmp/cloudmesh
+	cp -r ../cloudmesh-sys/cloudmesh/* tmp/cloudmesh
+	cp -r ../cloudmesh-common/cloudmesh/* tmp/cloudmesh
+	cp -r ../cloudmesh-cloud/cloudmesh/* tmp/cloudmesh
+	sphinx-apidoc -f -o docs-source/source/api tmp/cloudmesh
+	make -f Makefile api-index
+
+api2:
+	for c in $(MODULES) ; do \
+	  echo Generate module documentation for $$c ; \
+	  echo ../$$c/cloudmesh ; \
+	  sphinx-apidoc --implicit-namespaces -M -l -o $(API)/$$c ../$$c/cloudmesh; \
+	done
+	make -f Makefile api-index
+
+api-index:
+	echo "Cloudmesh Command API" > $(API)/index.rst
+	echo "===============================" >> $(API)/index.rst
+	echo "" >> $(API)/index.rst
+	echo ".. toctree::" >> $(API)/index.rst
+	echo "   :maxdepth: 1" >> $(API)/index.rst
+	echo "" >> $(API)/index.rst
+
+	cd $(API); ls -1 *.command.rst \
+	| sed 's/^/   /' \
+	| sed 's/.rst//' \
+	| sort -u >> index.rst
+
+	echo "" >> $(API)/index.rst
+	echo "Cloudmesh API" >> $(API)/index.rst
+	echo "===============================" >> $(API)/index.rst
+	echo "" >> $(API)/index.rst
+	echo ".. toctree::" >> $(API)/index.rst
+	echo "   :maxdepth: 1" >> $(API)/index.rst
+	echo "" >> $(API)/index.rst
+
+
+	cd $(API); ls -1 *.rst \
+	| fgrep -v command.rst \
+	| sed 's/^/   /' \
+	| sed 's/.rst//' \
+	| sort -u >> index.rst
+	cd $(API); cat index.rst
 
 inspect: dest/gitinspector/gitinspector.py
 	python dest/gitinspector/gitinspector.py \
@@ -39,44 +90,44 @@ inspect: dest/gitinspector/gitinspector.py
 	   --grading=True \
 	   --metrics=False \
 	   --hard=True \
-	   --format=htmlembedded > docs-source/source/inspector/cloudmesh-cloud.html
+	   --format=htmlembedded > $(SOURCE)/inspector/cloudmesh-cloud.html
 	python dest/gitinspector/gitinspector.py \
 	   $(GIT)/cloudmesh-cmd5 \
 	   --grading=True \
 	   --metrics=False \
 	   --hard=True \
-	   --format=htmlembedded > docs-source/source/inspector/cloudmesh-cmd5.html
+	   --format=htmlembedded > $(SOURCE)/inspector/cloudmesh-cmd5.html
 	python dest/gitinspector/gitinspector.py \
 	   $(GIT)/cloudmesh-common \
 	   --grading=True \
 	   --metrics=False \
 	   --hard=True \
-	   --format=htmlembedded > docs-source/source/inspector/cloudmesh-common.html
+	   --format=htmlembedded > $(SOURCE)/inspector/cloudmesh-common.html
 	python dest/gitinspector/gitinspector.py \
 	   $(GIT)/cloudmesh-sys \
 	   --grading=True \
 	   --metrics=False \
 	   --hard=True \
-	   --format=htmlembedded > docs-source/source/inspector/cloudmesh-sys.html
+	   --format=htmlembedded > $(SOURCE)/inspector/cloudmesh-sys.html
 	python dest/gitinspector/gitinspector.py \
 	   $(GIT)/cloudmesh-manual \
 	   --grading=True \
 	   --metrics=False \
 	   --hard=True \
-	   --format=htmlembedded > docs-source/source/inspector/cloudmesh-manual.html
+	   --format=htmlembedded > $(SOURCE)/inspector/cloudmesh-manual.html
 	python dest/gitinspector/gitinspector.py \
 	   $(GIT)/cloudmesh-storage \
 	   --grading=True \
 	   --metrics=False \
 	   --hard=True \
-	   --format=htmlembedded > docs-source/source/inspector/cloudmesh-storage.html
+	   --format=htmlembedded > $(SOURCE)/inspector/cloudmesh-storage.html
 	python dest/gitinspector/gitinspector.py \
 	   $(GIT)/cloudmesh-installer \
 	   --grading=True \
 	   --metrics=False \
 	   --hard=True \
-	   --format=htmlembedded > docs-source/source/inspector/cloudmesh-installer.html
-	cp -r docs-source/source/inspector docs/inspector
+	   --format=htmlembedded > $(SOURCE)/inspector/cloudmesh-installer.html
+	cp -r $(SOURCE)/inspector docs/inspector
 
 contrib:
 	git config --global mailmap.file .mailmap
@@ -112,10 +163,10 @@ install:
 
 
 manual-new:
-	mkdir -p docs-source/source/manual/flow
-	cms man --kind=rst flow > docs-source/source/manual/flow/flow.rst
-	mkdir -p docs-source/source/manual/openapi
-	cms man --kind=rst openapi > docs-source/source/manual/openapi/openapi.rst
+	mkdir -p $(SOURCE)/manual/flow
+	cms man --kind=rst flow > $(SOURCE)/manual/flow/flow.rst
+	mkdir -p $(SOURCE)/manual/openapi
+	cms man --kind=rst openapi > $(SOURCE)/manual/openapi/openapi.rst
 
 
 CMD5_COMMAND= admin banner clear echo default info pause plugin \
@@ -128,46 +179,46 @@ STORAGE_COMMAND= storage vdir
 
 manual:
 	cms set timmer=off
-	mkdir -p docs-source/source/manual
+	mkdir -p $(SOURCE)/manual
 	cms help > /tmp/commands.rst
-	echo "Commands" > docs-source/source/manual/commands.rst
-	echo "========" >> docs-source/source/manual/commands.rst
-	echo  >> docs-source/source/manual/commands.rst
-	tail -n +4 /tmp/commands.rst >> docs-source/source/manual/commands.rst
+	echo "Commands" > $(SOURCE)/manual/commands.rst
+	echo "========" >> $(SOURCE)/manual/commands.rst
+	echo  >> $(SOURCE)/manual/commands.rst
+	tail -n +4 /tmp/commands.rst >> $(SOURCE)/manual/commands.rst
 	#
 	# CMD5
 	#
-	mkdir -p docs-source/source/manual/cmd5
+	mkdir -p $(SOURCE)/manual/cmd5
 	for c in $(CMD5_COMMAND) ; do \
 	  echo Generate man page for $$c ; \
-	  cms man $$c --format=rst  > docs-source/source/manual/cmd5/$$c.rst; \
+	  cms man $$c --format=rst  > $(SOURCE)/manual/cmd5/$$c.rst; \
 	done
 	#
 	# GROUP
 	#
-	mkdir -p docs-source/source/manual/group
-	cms man group --format=rst > docs-source/source/manual/group/group.rst
+	mkdir -p $(SOURCE)/manual/group
+	cms man group --format=rst > $(SOURCE)/manual/group/group.rst
 	#
 	# COMPUTE
 	#
-	mkdir -p docs-source/source/manual/compute
+	mkdir -p $(SOURCE)/manual/compute
 	for c in $(COMPUTE_COMMAND) ; do \
 	  echo Generate man page for $$c ; \
-	  cms man  $$c --format=rst > docs-source/source/manual/compute/$$c.rst; \
+	  cms man  $$c --format=rst > $(SOURCE)/manual/compute/$$c.rst; \
 	done
 
 	#
 	# STORAGE
 	#
-	mkdir -p docs-source/source/manual/storage
+	mkdir -p $(SOURCE)/manual/storage
 	for c in $(STORAGE_COMMAND) ; do \
 	  echo Generate man page for $$c ; \
-	  cms man  $$c --format=rst > docs-source/source/manual/storage/$$c.rst; \
+	  cms man  $$c --format=rst > $(SOURCE)/manual/storage/$$c.rst; \
 	done
 	make -f Makefile doc
 
 authors:
-	bin/authors.py > docs-source/source/preface/authors.md
+	bin/authors.py > $(SOURCE)/preface/authors.md
 
 doc: authors
 	mv ~/.cloudmesh/cloudmesh4.yaml ~/.cloudmesh/cloudmesh4.yaml-tmp 
@@ -176,13 +227,14 @@ doc: authors
 	wget -P ~/.cloudmesh https://raw.githubusercontent.com/cloudmesh/cloudmesh-common/master/cloudmesh/etc/cloudmesh.yaml
 	rm -rf docs
 	mkdir -p dest
+	make -f Makefile api
 	cd docs-source; make html
-	cp -r docs-source/source/_ext docs-source/build/html
-	cp -r docs-source/source/_templates docs-source/build/html
+	cp -r $(SOURCE)/_ext docs-source/build/html
+	cp -r $(SOURCE)/_templates docs-source/build/html
 	cp -r docs-source/build/html/ docs
 	mv ~/.cloudmesh/cloudmesh4.yaml-tmp ~/.cloudmesh/cloudmesh4.yaml
 	mv ~/.cloudmesh/cloudmesh.yaml-tmp ~/.cloudmesh/cloudmesh.yaml
-	cp -r docs-source/source/inspector docs/inspector
+	cp -r $(SOURCE)/inspector docs/inspector
 
 
 pdf: authors
@@ -235,6 +287,7 @@ clean:
 	rm -f *.whl
 	rm -f ./docs/_sources/todo.md.txt ./docs/_sources/todo.rst.txt
 	rm -f ./docs/todo.html
+	rm -rf ./docs-source/source/api
 
 ######################################################################
 # .cloudmesh

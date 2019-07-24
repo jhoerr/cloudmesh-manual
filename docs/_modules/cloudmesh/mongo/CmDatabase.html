@@ -88,6 +88,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../preface/about.html">1. About</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../preface/contributors.html">2. Contributors</a></li>
 </ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/index.html">1. Cloudmesh Command API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/index.html#cloudmesh-api">2. Cloudmesh API</a></li>
+</ul>
 <p class="caption"><span class="caption-text">INSTALLATION</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation/install.html">1. Installation</a></li>
@@ -96,7 +101,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../installation/mongo.html">4. Cloudmesh Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../configuration/encryption.html">5. Cloudmesh Yaml file Encrytion</a></li>
 </ul>
-<p class="caption"><span class="caption-text">SOMMAND SHELL</span></p>
+<p class="caption"><span class="caption-text">COMMAND SHELL</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../cmd5.html">1. Cmd5</a></li>
 </ul>
@@ -140,21 +145,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../benchmarks/box.html">6. Benchmark results for box Storage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../benchmarks/emr.html">7. AWS EMR Benchmarking</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../benchmarks/test_compute_database.html">8. AWS EC2 Compute Database</a></li>
-</ul>
-<p class="caption"><span class="caption-text">CODE</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/code.html">1. Code Documentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/common.html">2. Common</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/cmd5.html">3. CMD5</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/cloudmesh.html">4. Cloudmesh</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/management.html">5. Management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/mongo.html">6. Mongo</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/commands.html">7. Commands</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/inventory.html">8. Inventory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/storage.html">9. cloudmesh-storage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/cloud.html">10. cloudmesh-cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/batch.html">11. cloudmesh-batch</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/emr.html">12. cloudmesh-emr</a></li>
 </ul>
 <p class="caption"><span class="caption-text">CONTRIBUTION</span></p>
 <ul>
@@ -258,7 +248,7 @@
 <span class="c1">#   kind:</span>
 <span class="c1">#   group:</span>
 
-<div class="viewcode-block" id="CmDatabase"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.mongo.CmDatabase.CmDatabase">[docs]</a><span class="k">class</span> <span class="nc">CmDatabase</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="CmDatabase"><a class="viewcode-back" href="../../../api/cloudmesh.mongo.html#cloudmesh.mongo.CmDatabase.CmDatabase">[docs]</a><span class="k">class</span> <span class="nc">CmDatabase</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="n">__shared_state</span> <span class="o">=</span> <span class="p">{}</span>
 
     <span class="c1"># ok</span>
@@ -296,7 +286,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
 
     <span class="c1"># ok</span>
-<div class="viewcode-block" id="CmDatabase.connect"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.mongo.CmDatabase.CmDatabase.connect">[docs]</a>    <span class="k">def</span> <span class="nf">connect</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="CmDatabase.connect"><a class="viewcode-back" href="../../../api/cloudmesh.mongo.html#cloudmesh.mongo.CmDatabase.CmDatabase.connect">[docs]</a>    <span class="k">def</span> <span class="nf">connect</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        connect to the database</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -305,7 +295,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">db</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">database</span><span class="p">]</span></div>
 
     <span class="c1"># ok</span>
-<div class="viewcode-block" id="CmDatabase.collection"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.mongo.CmDatabase.CmDatabase.collection">[docs]</a>    <span class="k">def</span> <span class="nf">collection</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+<div class="viewcode-block" id="CmDatabase.collection"><a class="viewcode-back" href="../../../api/cloudmesh.mongo.html#cloudmesh.mongo.CmDatabase.CmDatabase.collection">[docs]</a>    <span class="k">def</span> <span class="nf">collection</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        returns the named collection</span>
 <span class="sd">        :param name: the collection name</span>
@@ -314,14 +304,14 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="p">[</span><span class="n">name</span><span class="p">]</span></div>
 
     <span class="c1"># ok</span>
-<div class="viewcode-block" id="CmDatabase.close_client"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.mongo.CmDatabase.CmDatabase.close_client">[docs]</a>    <span class="k">def</span> <span class="nf">close_client</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="CmDatabase.close_client"><a class="viewcode-back" href="../../../api/cloudmesh.mongo.html#cloudmesh.mongo.CmDatabase.CmDatabase.close_client">[docs]</a>    <span class="k">def</span> <span class="nf">close_client</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        close the connection to the database</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
 
     <span class="c1"># ok</span>
-<div class="viewcode-block" id="CmDatabase.collections"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.mongo.CmDatabase.CmDatabase.collections">[docs]</a>    <span class="k">def</span> <span class="nf">collections</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="CmDatabase.collections"><a class="viewcode-back" href="../../../api/cloudmesh.mongo.html#cloudmesh.mongo.CmDatabase.CmDatabase.collections">[docs]</a>    <span class="k">def</span> <span class="nf">collections</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        the names of all collections</span>
 
@@ -349,7 +339,7 @@
 
     <span class="c1"># ok</span>
     <span class="c1"># noinspection PyPep8</span>
-<div class="viewcode-block" id="CmDatabase.name_count"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.mongo.CmDatabase.CmDatabase.name_count">[docs]</a>    <span class="k">def</span> <span class="nf">name_count</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+<div class="viewcode-block" id="CmDatabase.name_count"><a class="viewcode-back" href="../../../api/cloudmesh.mongo.html#cloudmesh.mongo.CmDatabase.CmDatabase.name_count">[docs]</a>    <span class="k">def</span> <span class="nf">name_count</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        counts the occurence of the name used in the collections</span>
 
@@ -367,7 +357,7 @@
         <span class="k">return</span> <span class="n">count</span></div>
 
     <span class="c1"># ok</span>
-<div class="viewcode-block" id="CmDatabase.find_group"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.mongo.CmDatabase.CmDatabase.find_group">[docs]</a>    <span class="k">def</span> <span class="nf">find_group</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+<div class="viewcode-block" id="CmDatabase.find_group"><a class="viewcode-back" href="../../../api/cloudmesh.mongo.html#cloudmesh.mongo.CmDatabase.CmDatabase.find_group">[docs]</a>    <span class="k">def</span> <span class="nf">find_group</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        This function returns the entry with the given name from all collections</span>
 <span class="sd">        in mongodb. The name must be unique accross all collections</span>
@@ -390,7 +380,7 @@
 
     <span class="c1"># ok</span>
     <span class="c1"># noinspection PyPep8</span>
-<div class="viewcode-block" id="CmDatabase.find_name"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.mongo.CmDatabase.CmDatabase.find_name">[docs]</a>    <span class="k">def</span> <span class="nf">find_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="CmDatabase.find_name"><a class="viewcode-back" href="../../../api/cloudmesh.mongo.html#cloudmesh.mongo.CmDatabase.CmDatabase.find_name">[docs]</a>    <span class="k">def</span> <span class="nf">find_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        This function returns the entry with the given name from all collections</span>
 <span class="sd">        in mongodb. The name must be unique accross all collections</span>
@@ -420,7 +410,7 @@
         <span class="k">return</span> <span class="n">entries</span></div>
 
     <span class="c1"># ok</span>
-<div class="viewcode-block" id="CmDatabase.find_names"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.mongo.CmDatabase.CmDatabase.find_names">[docs]</a>    <span class="k">def</span> <span class="nf">find_names</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">names</span><span class="p">):</span>
+<div class="viewcode-block" id="CmDatabase.find_names"><a class="viewcode-back" href="../../../api/cloudmesh.mongo.html#cloudmesh.mongo.CmDatabase.CmDatabase.find_names">[docs]</a>    <span class="k">def</span> <span class="nf">find_names</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">names</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Assuming names specified as parameters, it returns the entries with</span>
 <span class="sd">        these anmes from all collections in mongodb. The names must be unique</span>
@@ -453,7 +443,7 @@
 
 
     <span class="c1"># ok</span>
-<div class="viewcode-block" id="CmDatabase.names"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.mongo.CmDatabase.CmDatabase.names">[docs]</a>    <span class="k">def</span> <span class="nf">names</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">collection</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cloud</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="CmDatabase.names"><a class="viewcode-back" href="../../../api/cloudmesh.mongo.html#cloudmesh.mongo.CmDatabase.CmDatabase.names">[docs]</a>    <span class="k">def</span> <span class="nf">names</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">collection</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cloud</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        finds all names in the specified collections. The parameters,</span>
 <span class="sd">        collection, cloud, and kind can all be Parameters that get expanded</span>
@@ -511,7 +501,7 @@
         <span class="k">return</span> <span class="n">result</span></div>
 
 
-<div class="viewcode-block" id="CmDatabase.find"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.mongo.CmDatabase.CmDatabase.find">[docs]</a>    <span class="k">def</span> <span class="nf">find</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+<div class="viewcode-block" id="CmDatabase.find"><a class="viewcode-back" href="../../../api/cloudmesh.mongo.html#cloudmesh.mongo.CmDatabase.CmDatabase.find">[docs]</a>    <span class="k">def</span> <span class="nf">find</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
              <span class="n">collection</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
              <span class="n">cloud</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
              <span class="n">kind</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
@@ -577,7 +567,7 @@
         <span class="k">return</span> <span class="n">result</span></div>
 
     <span class="c1"># ok</span>
-<div class="viewcode-block" id="CmDatabase.find_ok"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.mongo.CmDatabase.CmDatabase.find_ok">[docs]</a>    <span class="k">def</span> <span class="nf">find_ok</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">collection</span><span class="o">=</span><span class="s2">&quot;cloudmesh&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="CmDatabase.find_ok"><a class="viewcode-back" href="../../../api/cloudmesh.mongo.html#cloudmesh.mongo.CmDatabase.CmDatabase.find_ok">[docs]</a>    <span class="k">def</span> <span class="nf">find_ok</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">collection</span><span class="o">=</span><span class="s2">&quot;cloudmesh&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="n">col</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="p">[</span><span class="n">collection</span><span class="p">]</span>
 
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
@@ -595,7 +585,7 @@
 
 
     <span class="c1"># ok</span>
-<div class="viewcode-block" id="CmDatabase.update"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.mongo.CmDatabase.CmDatabase.update">[docs]</a>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entries</span><span class="p">):</span>
+<div class="viewcode-block" id="CmDatabase.update"><a class="viewcode-back" href="../../../api/cloudmesh.mongo.html#cloudmesh.mongo.CmDatabase.CmDatabase.update">[docs]</a>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entries</span><span class="p">):</span>
 
         <span class="c1"># VERBOSE(entries)</span>
         <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
@@ -646,7 +636,7 @@
 
         <span class="k">return</span> <span class="n">result</span></div>
 
-<div class="viewcode-block" id="CmDatabase.alter"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.mongo.CmDatabase.CmDatabase.alter">[docs]</a>    <span class="k">def</span> <span class="nf">alter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entries</span><span class="p">):</span>
+<div class="viewcode-block" id="CmDatabase.alter"><a class="viewcode-back" href="../../../api/cloudmesh.mongo.html#cloudmesh.mongo.CmDatabase.CmDatabase.alter">[docs]</a>    <span class="k">def</span> <span class="nf">alter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entries</span><span class="p">):</span>
         <span class="c1"># for entry in entries:</span>
         <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">entries</span><span class="p">:</span>
             <span class="k">try</span><span class="p">:</span>
@@ -659,7 +649,7 @@
                 <span class="k">pass</span>
         <span class="k">return</span> <span class="n">entries</span></div>
 
-<div class="viewcode-block" id="CmDatabase.exists"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.mongo.CmDatabase.CmDatabase.exists">[docs]</a>    <span class="k">def</span> <span class="nf">exists</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entries</span><span class="p">):</span>
+<div class="viewcode-block" id="CmDatabase.exists"><a class="viewcode-back" href="../../../api/cloudmesh.mongo.html#cloudmesh.mongo.CmDatabase.CmDatabase.exists">[docs]</a>    <span class="k">def</span> <span class="nf">exists</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entries</span><span class="p">):</span>
         <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        Check if entry exists in the database</span>
 <span class="sd">        :param entries:</span>
@@ -675,12 +665,12 @@
         <span class="k">return</span> <span class="n">exist_status</span></div>
 
     <span class="c1"># check</span>
-<div class="viewcode-block" id="CmDatabase.insert"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.mongo.CmDatabase.CmDatabase.insert">[docs]</a>    <span class="k">def</span> <span class="nf">insert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">collection</span><span class="o">=</span><span class="s2">&quot;cloudmesh&quot;</span><span class="p">):</span>
+<div class="viewcode-block" id="CmDatabase.insert"><a class="viewcode-back" href="../../../api/cloudmesh.mongo.html#cloudmesh.mongo.CmDatabase.CmDatabase.insert">[docs]</a>    <span class="k">def</span> <span class="nf">insert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">collection</span><span class="o">=</span><span class="s2">&quot;cloudmesh&quot;</span><span class="p">):</span>
         <span class="n">col</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="p">[</span><span class="n">collection</span><span class="p">]</span>
         <span class="n">col</span><span class="o">.</span><span class="n">insert_one</span><span class="p">(</span><span class="n">d</span><span class="p">)</span></div>
 
     <span class="c1"># remove</span>
-<div class="viewcode-block" id="CmDatabase.update_old"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.mongo.CmDatabase.CmDatabase.update_old">[docs]</a>    <span class="k">def</span> <span class="nf">update_old</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+<div class="viewcode-block" id="CmDatabase.update_old"><a class="viewcode-back" href="../../../api/cloudmesh.mongo.html#cloudmesh.mongo.CmDatabase.CmDatabase.update_old">[docs]</a>    <span class="k">def</span> <span class="nf">update_old</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
                    <span class="n">entries</span><span class="p">,</span>
                    <span class="n">collection</span><span class="o">=</span><span class="s2">&quot;cloudmesh&quot;</span><span class="p">,</span>
                    <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
@@ -716,14 +706,14 @@
                                <span class="n">upsert</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
 
     <span class="c1"># ok</span>
-<div class="viewcode-block" id="CmDatabase.delete"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.mongo.CmDatabase.CmDatabase.delete">[docs]</a>    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">collection</span><span class="o">=</span><span class="s2">&quot;cloudmesh&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="CmDatabase.delete"><a class="viewcode-back" href="../../../api/cloudmesh.mongo.html#cloudmesh.mongo.CmDatabase.CmDatabase.delete">[docs]</a>    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">collection</span><span class="o">=</span><span class="s2">&quot;cloudmesh&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="n">col</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="p">[</span><span class="n">collection</span><span class="p">]</span>
         <span class="c1"># f = col.find(kwargs)</span>
         <span class="n">r</span> <span class="o">=</span> <span class="n">col</span><span class="o">.</span><span class="n">delete_many</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">r</span><span class="o">.</span><span class="n">deleted_count</span></div>
 
     <span class="c1"># ok</span>
-<div class="viewcode-block" id="CmDatabase.command"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.mongo.CmDatabase.CmDatabase.command">[docs]</a>    <span class="k">def</span> <span class="nf">command</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">command</span><span class="p">):</span>
+<div class="viewcode-block" id="CmDatabase.command"><a class="viewcode-back" href="../../../api/cloudmesh.mongo.html#cloudmesh.mongo.CmDatabase.CmDatabase.command">[docs]</a>    <span class="k">def</span> <span class="nf">command</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">command</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        issue command string via the mongoDB console</span>
 <span class="sd">        :param command: interaction command string you want to send to mongodb console</span>
@@ -739,7 +729,7 @@
         <span class="k">return</span> <span class="n">res</span></div>
 
     <span class="c1"># ok</span>
-<div class="viewcode-block" id="CmDatabase.status"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.mongo.CmDatabase.CmDatabase.status">[docs]</a>    <span class="k">def</span> <span class="nf">status</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="CmDatabase.status"><a class="viewcode-back" href="../../../api/cloudmesh.mongo.html#cloudmesh.mongo.CmDatabase.CmDatabase.status">[docs]</a>    <span class="k">def</span> <span class="nf">status</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        test mongodb correspondent db connection</span>
 <span class="sd">        :return:</span>
@@ -747,7 +737,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="s2">&quot;serverStatus&quot;</span><span class="p">)</span></div>
 
     <span class="c1"># ok</span>
-<div class="viewcode-block" id="CmDatabase.clear"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.mongo.CmDatabase.CmDatabase.clear">[docs]</a>    <span class="k">def</span> <span class="nf">clear</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">collection</span><span class="o">=</span><span class="s2">&quot;cloudmesh&quot;</span><span class="p">):</span>
+<div class="viewcode-block" id="CmDatabase.clear"><a class="viewcode-back" href="../../../api/cloudmesh.mongo.html#cloudmesh.mongo.CmDatabase.CmDatabase.clear">[docs]</a>    <span class="k">def</span> <span class="nf">clear</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">collection</span><span class="o">=</span><span class="s2">&quot;cloudmesh&quot;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        drops the collection</span>
 <span class="sd">        :return:</span>

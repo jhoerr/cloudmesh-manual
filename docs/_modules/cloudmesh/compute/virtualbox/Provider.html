@@ -88,6 +88,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../preface/about.html">1. About</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../preface/contributors.html">2. Contributors</a></li>
 </ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/index.html">1. Cloudmesh Command API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/index.html#cloudmesh-api">2. Cloudmesh API</a></li>
+</ul>
 <p class="caption"><span class="caption-text">INSTALLATION</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../installation/install.html">1. Installation</a></li>
@@ -96,7 +101,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../installation/mongo.html">4. Cloudmesh Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../configuration/encryption.html">5. Cloudmesh Yaml file Encrytion</a></li>
 </ul>
-<p class="caption"><span class="caption-text">SOMMAND SHELL</span></p>
+<p class="caption"><span class="caption-text">COMMAND SHELL</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../cmd5.html">1. Cmd5</a></li>
 </ul>
@@ -140,21 +145,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../benchmarks/box.html">6. Benchmark results for box Storage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../benchmarks/emr.html">7. AWS EMR Benchmarking</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../benchmarks/test_compute_database.html">8. AWS EC2 Compute Database</a></li>
-</ul>
-<p class="caption"><span class="caption-text">CODE</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../code/code.html">1. Code Documentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../code/common.html">2. Common</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../code/cmd5.html">3. CMD5</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../code/cloudmesh.html">4. Cloudmesh</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../code/management.html">5. Management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../code/mongo.html">6. Mongo</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../code/commands.html">7. Commands</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../code/inventory.html">8. Inventory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../code/storage.html">9. cloudmesh-storage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../code/cloud.html">10. cloudmesh-cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../code/batch.html">11. cloudmesh-batch</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../code/emr.html">12. cloudmesh-emr</a></li>
 </ul>
 <p class="caption"><span class="caption-text">CONTRIBUTION</span></p>
 <ul>
@@ -266,10 +256,10 @@
 <span class="sd">&quot;&quot;&quot;</span>
 
 
-<div class="viewcode-block" id="Provider"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.virtualbox.Provider.Provider">[docs]</a><span class="k">class</span> <span class="nc">Provider</span><span class="p">(</span><span class="n">ComputeNodeABC</span><span class="p">):</span>
+<div class="viewcode-block" id="Provider"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.virtualbox.html#cloudmesh.compute.virtualbox.Provider.Provider">[docs]</a><span class="k">class</span> <span class="nc">Provider</span><span class="p">(</span><span class="n">ComputeNodeABC</span><span class="p">):</span>
     <span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;virtualbox&quot;</span>
 
-<div class="viewcode-block" id="Provider.run_command"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.virtualbox.Provider.Provider.run_command">[docs]</a>    <span class="k">def</span> <span class="nf">run_command</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">command</span><span class="p">):</span>
+<div class="viewcode-block" id="Provider.run_command"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.virtualbox.html#cloudmesh.compute.virtualbox.Provider.Provider.run_command">[docs]</a>    <span class="k">def</span> <span class="nf">run_command</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">command</span><span class="p">):</span>
         <span class="n">process</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span><span class="n">shlex</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">command</span><span class="p">),</span> <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span>
         <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
             <span class="n">output</span> <span class="o">=</span> <span class="n">process</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
@@ -281,7 +271,7 @@
         <span class="n">rc</span> <span class="o">=</span> <span class="n">process</span><span class="o">.</span><span class="n">poll</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">rc</span></div>
 
-<div class="viewcode-block" id="Provider.update_dict"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.virtualbox.Provider.Provider.update_dict">[docs]</a>    <span class="k">def</span> <span class="nf">update_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entry</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;node&quot;</span><span class="p">):</span>
+<div class="viewcode-block" id="Provider.update_dict"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.virtualbox.html#cloudmesh.compute.virtualbox.Provider.Provider.update_dict">[docs]</a>    <span class="k">def</span> <span class="nf">update_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entry</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;node&quot;</span><span class="p">):</span>
         <span class="k">if</span> <span class="s2">&quot;cm&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">entry</span><span class="p">:</span>
             <span class="n">entry</span><span class="p">[</span><span class="s2">&quot;cm&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="n">entry</span><span class="p">[</span><span class="s2">&quot;cm&quot;</span><span class="p">][</span><span class="s2">&quot;kind&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kind</span>
@@ -337,7 +327,7 @@
         <span class="c1"># super().__init__(&quot;vagrant&quot;, config)</span>
 
     <span class="c1"># noinspection PyPep8</span>
-<div class="viewcode-block" id="Provider.version"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.virtualbox.Provider.Provider.version">[docs]</a>    <span class="k">def</span> <span class="nf">version</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Provider.version"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.virtualbox.html#cloudmesh.compute.virtualbox.Provider.Provider.version">[docs]</a>    <span class="k">def</span> <span class="nf">version</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        This command returns the versions ov vagrant and virtual box</span>
 <span class="sd">        :return: A dict with the information</span>
@@ -409,7 +399,7 @@
 
         <span class="k">return</span> <span class="n">version</span></div>
 
-<div class="viewcode-block" id="Provider.images"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.virtualbox.Provider.Provider.images">[docs]</a>    <span class="k">def</span> <span class="nf">images</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Provider.images"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.virtualbox.html#cloudmesh.compute.virtualbox.Provider.Provider.images">[docs]</a>    <span class="k">def</span> <span class="nf">images</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">def</span> <span class="nf">convert</span><span class="p">(</span><span class="n">data_line</span><span class="p">):</span>
             <span class="n">data_line</span> <span class="o">=</span> <span class="n">data_line</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;(&quot;</span><span class="p">,</span> <span class="s2">&quot;,&quot;</span><span class="p">)</span>
             <span class="n">data_line</span> <span class="o">=</span> <span class="n">data_line</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;)&quot;</span><span class="p">,</span> <span class="s2">&quot;,&quot;</span><span class="p">)</span>
@@ -436,7 +426,7 @@
 
         <span class="k">return</span> <span class="n">lines</span></div>
 
-<div class="viewcode-block" id="Provider.delete_image"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.virtualbox.Provider.Provider.delete_image">[docs]</a>    <span class="k">def</span> <span class="nf">delete_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Provider.delete_image"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.virtualbox.html#cloudmesh.compute.virtualbox.Provider.Provider.delete_image">[docs]</a>    <span class="k">def</span> <span class="nf">delete_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
         <span class="k">if</span> <span class="n">name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">pass</span>
@@ -451,7 +441,7 @@
 
             <span class="k">return</span> <span class="n">result</span></div>
 
-<div class="viewcode-block" id="Provider.add_image"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.virtualbox.Provider.Provider.add_image">[docs]</a>    <span class="k">def</span> <span class="nf">add_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Provider.add_image"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.virtualbox.html#cloudmesh.compute.virtualbox.Provider.Provider.add_image">[docs]</a>    <span class="k">def</span> <span class="nf">add_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 
         <span class="n">command</span> <span class="o">=</span> <span class="s2">&quot;vagrant box add </span><span class="si">{name}</span><span class="s2"> --provider virtualbox&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
             <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
@@ -482,7 +472,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="s2">&quot;A new version of Vagrant is available&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">r</span>
 
-<div class="viewcode-block" id="Provider.start"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.virtualbox.Provider.Provider.start">[docs]</a>    <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+<div class="viewcode-block" id="Provider.start"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.virtualbox.html#cloudmesh.compute.virtualbox.Provider.Provider.start">[docs]</a>    <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        start a node</span>
 
@@ -491,7 +481,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">pass</span></div>
 
-<div class="viewcode-block" id="Provider.vagrant_nodes"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.virtualbox.Provider.Provider.vagrant_nodes">[docs]</a>    <span class="k">def</span> <span class="nf">vagrant_nodes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="Provider.vagrant_nodes"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.virtualbox.html#cloudmesh.compute.virtualbox.Provider.Provider.vagrant_nodes">[docs]</a>    <span class="k">def</span> <span class="nf">vagrant_nodes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        list all nodes id</span>
 
@@ -524,7 +514,7 @@
                 <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">convert</span><span class="p">(</span><span class="n">line</span><span class="p">))</span>
         <span class="k">return</span> <span class="n">lines</span></div>
 
-<div class="viewcode-block" id="Provider.create"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.virtualbox.Provider.Provider.create">[docs]</a>    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="Provider.create"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.virtualbox.html#cloudmesh.compute.virtualbox.Provider.Provider.create">[docs]</a>    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 
         <span class="n">arg</span> <span class="o">=</span> <span class="n">dotdict</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="n">arg</span><span class="o">.</span><span class="n">cwd</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;cwd&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
@@ -558,7 +548,7 @@
 
             <span class="k">return</span> <span class="n">result</span></div>
 
-<div class="viewcode-block" id="Provider.execute"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.virtualbox.Provider.Provider.execute">[docs]</a>    <span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">command</span><span class="p">,</span> <span class="n">cwd</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Provider.execute"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.virtualbox.html#cloudmesh.compute.virtualbox.Provider.Provider.execute">[docs]</a>    <span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">command</span><span class="p">,</span> <span class="n">cwd</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 
         <span class="n">arg</span> <span class="o">=</span> <span class="n">dotdict</span><span class="p">()</span>
         <span class="n">arg</span><span class="o">.</span><span class="n">cwd</span> <span class="o">=</span> <span class="n">cwd</span>
@@ -578,7 +568,7 @@
                                <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">result</span></div>
 
-<div class="viewcode-block" id="Provider.to_dict"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.virtualbox.Provider.Provider.to_dict">[docs]</a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lst</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;name&quot;</span><span class="p">):</span>
+<div class="viewcode-block" id="Provider.to_dict"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.virtualbox.html#cloudmesh.compute.virtualbox.Provider.Provider.to_dict">[docs]</a>    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lst</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;name&quot;</span><span class="p">):</span>
 
         <span class="n">d</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="k">if</span> <span class="n">lst</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
@@ -606,7 +596,7 @@
             <span class="n">d</span><span class="p">[</span><span class="n">attribute</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
         <span class="k">return</span> <span class="n">d</span>
 
-<div class="viewcode-block" id="Provider.find"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.virtualbox.Provider.Provider.find">[docs]</a>    <span class="k">def</span> <span class="nf">find</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nodes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Provider.find"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.virtualbox.html#cloudmesh.compute.virtualbox.Provider.Provider.find">[docs]</a>    <span class="k">def</span> <span class="nf">find</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nodes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">nodes</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">nodes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vagrant_nodes</span><span class="p">()</span>
         <span class="n">pprint</span><span class="p">(</span><span class="n">nodes</span><span class="p">)</span>
@@ -614,7 +604,7 @@
             <span class="k">return</span> <span class="n">nodes</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
         <span class="k">return</span> <span class="kc">None</span></div>
 
-<div class="viewcode-block" id="Provider.info"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.virtualbox.Provider.Provider.info">[docs]</a>    <span class="k">def</span> <span class="nf">info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Provider.info"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.virtualbox.html#cloudmesh.compute.virtualbox.Provider.Provider.info">[docs]</a>    <span class="k">def</span> <span class="nf">info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        gets the information of a node with a given name</span>
 
@@ -703,7 +693,7 @@
             <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">d</span><span class="p">])</span>
         <span class="k">return</span> <span class="n">result</span></div>
 
-<div class="viewcode-block" id="Provider.suspend"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.virtualbox.Provider.Provider.suspend">[docs]</a>    <span class="k">def</span> <span class="nf">suspend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Provider.suspend"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.virtualbox.html#cloudmesh.compute.virtualbox.Provider.Provider.suspend">[docs]</a>    <span class="k">def</span> <span class="nf">suspend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        NOT IMPLEMENTED</span>
 
@@ -750,7 +740,7 @@
                                <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">result</span>
 
-<div class="viewcode-block" id="Provider.resume"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.virtualbox.Provider.Provider.resume">[docs]</a>    <span class="k">def</span> <span class="nf">resume</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Provider.resume"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.virtualbox.html#cloudmesh.compute.virtualbox.Provider.Provider.resume">[docs]</a>    <span class="k">def</span> <span class="nf">resume</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        resume the named node</span>
 
@@ -761,7 +751,7 @@
         <span class="n">result</span> <span class="o">=</span> <span class="n">Shell</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;vagrant&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;resume&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">],</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">result</span></div>
 
-<div class="viewcode-block" id="Provider.stop"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.virtualbox.Provider.Provider.stop">[docs]</a>    <span class="k">def</span> <span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Provider.stop"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.virtualbox.html#cloudmesh.compute.virtualbox.Provider.Provider.stop">[docs]</a>    <span class="k">def</span> <span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        NOT IMPLEMENTED</span>
 
@@ -784,7 +774,7 @@
                                <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">result</span></div>
 
-<div class="viewcode-block" id="Provider.destroy"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.virtualbox.Provider.Provider.destroy">[docs]</a>    <span class="k">def</span> <span class="nf">destroy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Provider.destroy"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.virtualbox.html#cloudmesh.compute.virtualbox.Provider.Provider.destroy">[docs]</a>    <span class="k">def</span> <span class="nf">destroy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Destroys the node</span>
 <span class="sd">        :param name: the name of the node</span>
@@ -793,7 +783,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span></div>
 
     <span class="c1"># @classmethod</span>
-<div class="viewcode-block" id="Provider.delete"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.virtualbox.Provider.Provider.delete">[docs]</a>    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Provider.delete"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.virtualbox.html#cloudmesh.compute.virtualbox.Provider.Provider.delete">[docs]</a>    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="c1"># TODO: check</span>
 
         <span class="n">arg</span> <span class="o">=</span> <span class="n">dotdict</span><span class="p">()</span>
@@ -806,7 +796,7 @@
                                <span class="n">cwd</span><span class="o">=</span><span class="n">arg</span><span class="o">.</span><span class="n">directory</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">result</span></div>
 
-<div class="viewcode-block" id="Provider.vagrantfile"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.virtualbox.Provider.Provider.vagrantfile">[docs]</a>    <span class="k">def</span> <span class="nf">vagrantfile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="Provider.vagrantfile"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.virtualbox.html#cloudmesh.compute.virtualbox.Provider.Provider.vagrantfile">[docs]</a>    <span class="k">def</span> <span class="nf">vagrantfile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 
         <span class="n">arg</span> <span class="o">=</span> <span class="n">dotdict</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
 
@@ -880,7 +870,7 @@
         <span class="n">arg</span><span class="o">.</span><span class="n">vagrantfile</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{directory}</span><span class="s2">/Vagrantfile&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">arg</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">arg</span>
 
-<div class="viewcode-block" id="Provider.create_spec"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.virtualbox.Provider.Provider.create_spec">[docs]</a>    <span class="k">def</span> <span class="nf">create_spec</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">360</span><span class="p">,</span>
+<div class="viewcode-block" id="Provider.create_spec"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.virtualbox.html#cloudmesh.compute.virtualbox.Provider.Provider.create_spec">[docs]</a>    <span class="k">def</span> <span class="nf">create_spec</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">360</span><span class="p">,</span>
                     <span class="n">port</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span>
                     <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -928,7 +918,7 @@
     <span class="c1"># Additional methods</span>
     <span class="c1">#</span>
 
-<div class="viewcode-block" id="Provider.find_image"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.virtualbox.Provider.Provider.find_image">[docs]</a>    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="Provider.find_image"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.virtualbox.html#cloudmesh.compute.virtualbox.Provider.Provider.find_image">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">find_image</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">keywords</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Finds an image on hashicorps web site</span>
@@ -943,7 +933,7 @@
 
         <span class="n">webbrowser</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">link</span><span class="p">,</span> <span class="n">new</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">autoraise</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Provider.list"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.virtualbox.Provider.Provider.list">[docs]</a>    <span class="k">def</span> <span class="nf">list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">raw</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<div class="viewcode-block" id="Provider.list"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.virtualbox.html#cloudmesh.compute.virtualbox.Provider.Provider.list">[docs]</a>    <span class="k">def</span> <span class="nf">list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">raw</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        list all nodes id</span>
 <span class="sd">    </span>
@@ -956,7 +946,7 @@
             <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vagrant_nodes</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">result</span></div>
 
-<div class="viewcode-block" id="Provider.rename"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.virtualbox.Provider.Provider.rename">[docs]</a>    <span class="k">def</span> <span class="nf">rename</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">destination</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Provider.rename"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.virtualbox.html#cloudmesh.compute.virtualbox.Provider.Provider.rename">[docs]</a>    <span class="k">def</span> <span class="nf">rename</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">destination</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        rename a node</span>
 <span class="sd">    </span>
@@ -971,7 +961,7 @@
         <span class="n">vms</span> <span class="o">=</span> <span class="n">Shell</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vboxmanage</span><span class="p">,</span> <span class="n">arguments</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="k">return</span> <span class="p">{}</span></div>
 
-<div class="viewcode-block" id="Provider.list_os"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.virtualbox.Provider.Provider.list_os">[docs]</a>    <span class="k">def</span> <span class="nf">list_os</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Provider.list_os"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.virtualbox.html#cloudmesh.compute.virtualbox.Provider.Provider.list_os">[docs]</a>    <span class="k">def</span> <span class="nf">list_os</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        :return: the dict with the new name</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -1000,7 +990,7 @@
 
         <span class="k">return</span> <span class="n">entries</span></div>
 
-<div class="viewcode-block" id="Provider.key_upload"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.compute.virtualbox.Provider.Provider.key_upload">[docs]</a>    <span class="k">def</span> <span class="nf">key_upload</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+<div class="viewcode-block" id="Provider.key_upload"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.virtualbox.html#cloudmesh.compute.virtualbox.Provider.Provider.key_upload">[docs]</a>    <span class="k">def</span> <span class="nf">key_upload</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span></div></div>
 </pre></div>
 

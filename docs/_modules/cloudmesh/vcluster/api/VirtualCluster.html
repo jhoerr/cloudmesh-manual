@@ -88,6 +88,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../preface/about.html">1. About</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../preface/contributors.html">2. Contributors</a></li>
 </ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/index.html">1. Cloudmesh Command API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/index.html#cloudmesh-api">2. Cloudmesh API</a></li>
+</ul>
 <p class="caption"><span class="caption-text">INSTALLATION</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../installation/install.html">1. Installation</a></li>
@@ -96,7 +101,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../installation/mongo.html">4. Cloudmesh Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../configuration/encryption.html">5. Cloudmesh Yaml file Encrytion</a></li>
 </ul>
-<p class="caption"><span class="caption-text">SOMMAND SHELL</span></p>
+<p class="caption"><span class="caption-text">COMMAND SHELL</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../cmd5.html">1. Cmd5</a></li>
 </ul>
@@ -140,21 +145,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../benchmarks/box.html">6. Benchmark results for box Storage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../benchmarks/emr.html">7. AWS EMR Benchmarking</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../benchmarks/test_compute_database.html">8. AWS EC2 Compute Database</a></li>
-</ul>
-<p class="caption"><span class="caption-text">CODE</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../code/code.html">1. Code Documentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../code/common.html">2. Common</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../code/cmd5.html">3. CMD5</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../code/cloudmesh.html">4. Cloudmesh</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../code/management.html">5. Management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../code/mongo.html">6. Mongo</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../code/commands.html">7. Commands</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../code/inventory.html">8. Inventory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../code/storage.html">9. cloudmesh-storage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../code/cloud.html">10. cloudmesh-cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../code/batch.html">11. cloudmesh-batch</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../code/emr.html">12. cloudmesh-emr</a></li>
 </ul>
 <p class="caption"><span class="caption-text">CONTRIBUTION</span></p>
 <ul>
@@ -255,7 +245,7 @@
 
 
 <span class="c1"># noinspection PyPep8</span>
-<div class="viewcode-block" id="VirtualCluster"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.vcluster.api.VirtualCluster.VirtualCluster">[docs]</a><span class="k">class</span> <span class="nc">VirtualCluster</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="VirtualCluster"><a class="viewcode-back" href="../../../../api/cloudmesh.vcluster.api.html#cloudmesh.vcluster.api.VirtualCluster.VirtualCluster">[docs]</a><span class="k">class</span> <span class="nc">VirtualCluster</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">debug</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -592,7 +582,7 @@
             <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
                 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ERROR in host </span><span class="si">%s</span><span class="s2">: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">hostname</span><span class="p">,</span> <span class="n">error</span><span class="p">))</span>
 
-<div class="viewcode-block" id="VirtualCluster.add_suffix_to_path"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.vcluster.api.VirtualCluster.VirtualCluster.add_suffix_to_path">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="VirtualCluster.add_suffix_to_path"><a class="viewcode-back" href="../../../../api/cloudmesh.vcluster.api.html#cloudmesh.vcluster.api.VirtualCluster.VirtualCluster.add_suffix_to_path">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">add_suffix_to_path</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">suffix</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        This method is used to add suffix to a path</span>
@@ -608,7 +598,7 @@
         <span class="n">new_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dir_path</span><span class="p">,</span> <span class="n">full_filename_new</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">new_path</span></div>
 
-<div class="viewcode-block" id="VirtualCluster.clean_remote"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.vcluster.api.VirtualCluster.VirtualCluster.clean_remote">[docs]</a>    <span class="k">def</span> <span class="nf">clean_remote</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">job_name</span><span class="p">,</span> <span class="n">proc_num</span><span class="p">):</span>
+<div class="viewcode-block" id="VirtualCluster.clean_remote"><a class="viewcode-back" href="../../../../api/cloudmesh.vcluster.api.html#cloudmesh.vcluster.api.VirtualCluster.VirtualCluster.clean_remote">[docs]</a>    <span class="k">def</span> <span class="nf">clean_remote</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">job_name</span><span class="p">,</span> <span class="n">proc_num</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        This method is used to spawn processes for cleaning the remote nodes</span>
 
@@ -625,7 +615,7 @@
         <span class="n">pool</span> <span class="o">=</span> <span class="n">Pool</span><span class="p">(</span><span class="n">processes</span><span class="o">=</span><span class="n">proc_num</span><span class="p">)</span>
         <span class="n">pool</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_execute_in_parallel</span><span class="p">,</span> <span class="n">all_jobs</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="VirtualCluster.connection_test"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.vcluster.api.VirtualCluster.VirtualCluster.connection_test">[docs]</a>    <span class="k">def</span> <span class="nf">connection_test</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vcluster_name</span><span class="p">,</span> <span class="n">proc_num</span><span class="p">):</span>
+<div class="viewcode-block" id="VirtualCluster.connection_test"><a class="viewcode-back" href="../../../../api/cloudmesh.vcluster.api.html#cloudmesh.vcluster.api.VirtualCluster.VirtualCluster.connection_test">[docs]</a>    <span class="k">def</span> <span class="nf">connection_test</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vcluster_name</span><span class="p">,</span> <span class="n">proc_num</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        This method is used for spawning processes for testing the connections to remote nodes of a vcluster</span>
 
@@ -640,7 +630,7 @@
         <span class="n">pool</span> <span class="o">=</span> <span class="n">Pool</span><span class="p">(</span><span class="n">processes</span><span class="o">=</span><span class="n">proc_num</span><span class="p">)</span>
         <span class="n">pool</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_execute_in_parallel</span><span class="p">,</span> <span class="n">all_jobs</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="VirtualCluster.create"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.vcluster.api.VirtualCluster.VirtualCluster.create">[docs]</a>    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="VirtualCluster.create"><a class="viewcode-back" href="../../../../api/cloudmesh.vcluster.api.html#cloudmesh.vcluster.api.VirtualCluster.VirtualCluster.create">[docs]</a>    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        This is a caller for creator functions including config creator and vcluster creator</span>
 
@@ -653,7 +643,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_create_vcluster</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="VirtualCluster.destroy"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.vcluster.api.VirtualCluster.VirtualCluster.destroy">[docs]</a>    <span class="k">def</span> <span class="nf">destroy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+<div class="viewcode-block" id="VirtualCluster.destroy"><a class="viewcode-back" href="../../../../api/cloudmesh.vcluster.api.html#cloudmesh.vcluster.api.VirtualCluster.VirtualCluster.destroy">[docs]</a>    <span class="k">def</span> <span class="nf">destroy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Used to remove virtual clusters and runtime configs</span>
 
@@ -671,7 +661,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Target of destroying not found.&quot;</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="VirtualCluster.fetch"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.vcluster.api.VirtualCluster.VirtualCluster.fetch">[docs]</a>    <span class="k">def</span> <span class="nf">fetch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">job_name</span><span class="p">):</span>
+<div class="viewcode-block" id="VirtualCluster.fetch"><a class="viewcode-back" href="../../../../api/cloudmesh.vcluster.api.html#cloudmesh.vcluster.api.VirtualCluster.VirtualCluster.fetch">[docs]</a>    <span class="k">def</span> <span class="nf">fetch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">job_name</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        This method is used to fetch results from remote nodes</span>
 
@@ -698,7 +688,7 @@
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;waiting for other results if any...&quot;</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;All of the remote results collected.&quot;</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="VirtualCluster.list"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.vcluster.api.VirtualCluster.VirtualCluster.list">[docs]</a>    <span class="k">def</span> <span class="nf">list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">max_depth</span><span class="p">,</span> <span class="n">current_depth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">input_dict</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="VirtualCluster.list"><a class="viewcode-back" href="../../../../api/cloudmesh.vcluster.api.html#cloudmesh.vcluster.api.VirtualCluster.VirtualCluster.list">[docs]</a>    <span class="k">def</span> <span class="nf">list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">max_depth</span><span class="p">,</span> <span class="n">current_depth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">input_dict</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        listing the current virtual clusters based on the vcluster_conf file.</span>
 
@@ -734,7 +724,7 @@
                 <span class="n">indent</span> <span class="o">=</span> <span class="n">current_depth</span> <span class="k">if</span> <span class="n">current_depth</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="n">current_depth</span> <span class="o">-</span> <span class="mi">1</span>
                 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span> <span class="o">*</span> <span class="n">indent</span><span class="p">,</span> <span class="n">input_dict</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="VirtualCluster.run"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.vcluster.api.VirtualCluster.VirtualCluster.run">[docs]</a>    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+<div class="viewcode-block" id="VirtualCluster.run"><a class="viewcode-back" href="../../../../api/cloudmesh.vcluster.api.html#cloudmesh.vcluster.api.VirtualCluster.VirtualCluster.run">[docs]</a>    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
             <span class="n">job_name</span><span class="p">,</span>
             <span class="n">cluster_name</span><span class="p">,</span>
             <span class="n">config_name</span><span class="p">,</span>
@@ -829,7 +819,7 @@
 
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;All of the remote results collected.&quot;</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="VirtualCluster.set_param"><a class="viewcode-back" href="../../../../code/cloud.html#cloudmesh.vcluster.api.VirtualCluster.VirtualCluster.set_param">[docs]</a>    <span class="k">def</span> <span class="nf">set_param</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">parameter</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<div class="viewcode-block" id="VirtualCluster.set_param"><a class="viewcode-back" href="../../../../api/cloudmesh.vcluster.api.html#cloudmesh.vcluster.api.VirtualCluster.VirtualCluster.set_param">[docs]</a>    <span class="k">def</span> <span class="nf">set_param</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">parameter</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Used to set a specific parameter in the configuration</span>
 

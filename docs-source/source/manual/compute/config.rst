@@ -72,4 +72,3 @@ config
 
             config set profile.name=Gregor
 
-Timer: 0.0053s (man config --format=rst)

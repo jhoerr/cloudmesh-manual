@@ -10,4 +10,3 @@ service
 
       Lists the services in the yaml file
 
-Timer: 0.0054s (man service --format=rst)

@@ -88,6 +88,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../preface/about.html">1. About</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../preface/contributors.html">2. Contributors</a></li>
 </ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/index.html">1. Cloudmesh Command API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/index.html#cloudmesh-api">2. Cloudmesh API</a></li>
+</ul>
 <p class="caption"><span class="caption-text">INSTALLATION</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation/install.html">1. Installation</a></li>
@@ -96,7 +101,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../installation/mongo.html">4. Cloudmesh Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../configuration/encryption.html">5. Cloudmesh Yaml file Encrytion</a></li>
 </ul>
-<p class="caption"><span class="caption-text">SOMMAND SHELL</span></p>
+<p class="caption"><span class="caption-text">COMMAND SHELL</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../cmd5.html">1. Cmd5</a></li>
 </ul>
@@ -140,21 +145,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../benchmarks/box.html">6. Benchmark results for box Storage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../benchmarks/emr.html">7. AWS EMR Benchmarking</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../benchmarks/test_compute_database.html">8. AWS EC2 Compute Database</a></li>
-</ul>
-<p class="caption"><span class="caption-text">CODE</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/code.html">1. Code Documentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/common.html">2. Common</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/cmd5.html">3. CMD5</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/cloudmesh.html">4. Cloudmesh</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/management.html">5. Management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/mongo.html">6. Mongo</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/commands.html">7. Commands</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/inventory.html">8. Inventory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/storage.html">9. cloudmesh-storage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/cloud.html">10. cloudmesh-cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/batch.html">11. cloudmesh-batch</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/emr.html">12. cloudmesh-emr</a></li>
 </ul>
 <p class="caption"><span class="caption-text">CONTRIBUTION</span></p>
 <ul>
@@ -225,6 +215,8 @@
         
           <li><a href="../../index.html">Module code</a> &raquo;</li>
         
+          <li><a href="../common.html">cloudmesh.common</a> &raquo;</li>
+        
       <li>cloudmesh.common.Printer</li>
     
     
@@ -258,12 +250,12 @@
 <span class="kn">from</span> <span class="nn">cloudmesh.common.FlatDict</span> <span class="k">import</span> <span class="n">flatten</span>
 
 
-<div class="viewcode-block" id="Printer"><a class="viewcode-back" href="../../../code/common.html#cloudmesh.common.Printer.Printer">[docs]</a><span class="k">class</span> <span class="nc">Printer</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="Printer"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Printer.Printer">[docs]</a><span class="k">class</span> <span class="nc">Printer</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A simple Printer class with convenient methods to print dictionary, tables, csv, lists</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="Printer.flatwrite"><a class="viewcode-back" href="../../../code/common.html#cloudmesh.common.Printer.Printer.flatwrite">[docs]</a>    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="Printer.flatwrite"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Printer.Printer.flatwrite">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">flatwrite</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">table</span><span class="p">,</span>
                   <span class="n">order</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                   <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
@@ -292,7 +284,7 @@
                              <span class="n">header</span><span class="o">=</span><span class="n">header</span><span class="p">,</span>
                              <span class="n">output</span><span class="o">=</span><span class="n">output</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Printer.write"><a class="viewcode-back" href="../../../code/common.html#cloudmesh.common.Printer.Printer.write">[docs]</a>    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="Printer.write"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Printer.Printer.write">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">write</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">table</span><span class="p">,</span>
               <span class="n">order</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
               <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
@@ -330,7 +322,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;unkown type </span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">table</span><span class="p">)))</span></div>
 
-<div class="viewcode-block" id="Printer.list"><a class="viewcode-back" href="../../../code/common.html#cloudmesh.common.Printer.Printer.list">[docs]</a>    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="Printer.list"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Printer.Printer.list">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">list</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span>
              <span class="n">l</span><span class="p">,</span>
              <span class="n">order</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
@@ -362,7 +354,7 @@
                         <span class="n">output</span><span class="o">=</span><span class="n">output</span><span class="p">,</span>
                         <span class="n">show_none</span><span class="o">=</span><span class="n">show_none</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Printer.dict"><a class="viewcode-back" href="../../../code/common.html#cloudmesh.common.Printer.Printer.dict">[docs]</a>    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="Printer.dict"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Printer.Printer.dict">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">dict</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s2">&quot;table&quot;</span><span class="p">,</span> <span class="n">sort_keys</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">show_none</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        :param d: A a dict with dicts of the same type.</span>
@@ -404,7 +396,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="s2">&quot;UNKOWN FORMAT. Please use table, csv, json, yaml, dict.&quot;</span></div>
 
-<div class="viewcode-block" id="Printer.csv"><a class="viewcode-back" href="../../../code/common.html#cloudmesh.common.Printer.Printer.csv">[docs]</a>    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="Printer.csv"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Printer.Printer.csv">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">csv</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sort_keys</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        prints a table in csv format</span>
@@ -461,7 +453,7 @@
             <span class="n">table</span> <span class="o">=</span> <span class="n">table</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">content</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
         <span class="k">return</span> <span class="n">table</span></div>
 
-<div class="viewcode-block" id="Printer.dict_table"><a class="viewcode-back" href="../../../code/common.html#cloudmesh.common.Printer.Printer.dict_table">[docs]</a>    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="Printer.dict_table"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Printer.Printer.dict_table">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">dict_table</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sort_keys</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">show_none</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">max_width</span><span class="o">=</span><span class="mi">40</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        prints a pretty table from an dict of dicts</span>
@@ -530,7 +522,7 @@
         <span class="n">x</span><span class="o">.</span><span class="n">align</span> <span class="o">=</span> <span class="s2">&quot;l&quot;</span>
         <span class="k">return</span> <span class="n">x</span></div>
 
-<div class="viewcode-block" id="Printer.attribute"><a class="viewcode-back" href="../../../code/common.html#cloudmesh.common.Printer.Printer.attribute">[docs]</a>    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="Printer.attribute"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Printer.Printer.attribute">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">attribute</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sort_keys</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s2">&quot;table&quot;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        prints a attribute/key value table</span>
@@ -577,7 +569,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">dict</span><span class="p">({</span><span class="n">output</span><span class="p">:</span> <span class="n">d</span><span class="p">},</span> <span class="n">output</span><span class="o">=</span><span class="n">output</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Printer.print_list"><a class="viewcode-back" href="../../../code/common.html#cloudmesh.common.Printer.Printer.print_list">[docs]</a>    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="Printer.print_list"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Printer.Printer.print_list">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">print_list</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s1">&#39;table&#39;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        prints a list</span>
@@ -618,7 +610,7 @@
         <span class="k">elif</span> <span class="n">output</span> <span class="o">==</span> <span class="s1">&#39;txt&#39;</span><span class="p">:</span>
             <span class="k">return</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">l</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Printer.row_table"><a class="viewcode-back" href="../../../code/common.html#cloudmesh.common.Printer.Printer.row_table">[docs]</a>    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="Printer.row_table"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Printer.Printer.row_table">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">row_table</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        prints a pretty table from data in the dict.</span>

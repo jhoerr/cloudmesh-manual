@@ -88,6 +88,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../preface/about.html">1. About</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../preface/contributors.html">2. Contributors</a></li>
 </ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/index.html">1. Cloudmesh Command API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/index.html#cloudmesh-api">2. Cloudmesh API</a></li>
+</ul>
 <p class="caption"><span class="caption-text">INSTALLATION</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation/install.html">1. Installation</a></li>
@@ -96,7 +101,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../installation/mongo.html">4. Cloudmesh Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../configuration/encryption.html">5. Cloudmesh Yaml file Encrytion</a></li>
 </ul>
-<p class="caption"><span class="caption-text">SOMMAND SHELL</span></p>
+<p class="caption"><span class="caption-text">COMMAND SHELL</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../cmd5.html">1. Cmd5</a></li>
 </ul>
@@ -140,21 +145,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../benchmarks/box.html">6. Benchmark results for box Storage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../benchmarks/emr.html">7. AWS EMR Benchmarking</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../benchmarks/test_compute_database.html">8. AWS EC2 Compute Database</a></li>
-</ul>
-<p class="caption"><span class="caption-text">CODE</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/code.html">1. Code Documentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/common.html">2. Common</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/cmd5.html">3. CMD5</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/cloudmesh.html">4. Cloudmesh</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/management.html">5. Management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/mongo.html">6. Mongo</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/commands.html">7. Commands</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/inventory.html">8. Inventory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/storage.html">9. cloudmesh-storage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/cloud.html">10. cloudmesh-cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/batch.html">11. cloudmesh-batch</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/emr.html">12. cloudmesh-emr</a></li>
 </ul>
 <p class="caption"><span class="caption-text">CONTRIBUTION</span></p>
 <ul>
@@ -225,6 +215,8 @@
         
           <li><a href="../../index.html">Module code</a> &raquo;</li>
         
+          <li><a href="../common.html">cloudmesh.common</a> &raquo;</li>
+        
       <li>cloudmesh.common.logger</li>
     
     
@@ -252,7 +244,7 @@
 
 
 <span class="c1"># noinspection PyUnusedLocal,PyPep8Naming</span>
-<div class="viewcode-block" id="LOGGER"><a class="viewcode-back" href="../../../code/common.html#cloudmesh.common.logger.LOGGER">[docs]</a><span class="k">def</span> <span class="nf">LOGGER</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+<div class="viewcode-block" id="LOGGER"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.logger.LOGGER">[docs]</a><span class="k">def</span> <span class="nf">LOGGER</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;creates a logger with the given name.</span>
 
 <span class="sd">    You can use it as follows::</span>
@@ -305,7 +297,7 @@
 
 
 <span class="c1"># noinspection PyPep8Naming</span>
-<div class="viewcode-block" id="LOGGING_ON"><a class="viewcode-back" href="../../../code/common.html#cloudmesh.common.logger.LOGGING_ON">[docs]</a><span class="k">def</span> <span class="nf">LOGGING_ON</span><span class="p">(</span><span class="n">log</span><span class="p">):</span>
+<div class="viewcode-block" id="LOGGING_ON"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.logger.LOGGING_ON">[docs]</a><span class="k">def</span> <span class="nf">LOGGING_ON</span><span class="p">(</span><span class="n">log</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Switches logging on</span>
 <span class="sd">    :param log: the logger for which we switch logging on </span>
@@ -318,7 +310,7 @@
 
 
 <span class="c1"># noinspection PyPep8Naming</span>
-<div class="viewcode-block" id="LOGGING_OFF"><a class="viewcode-back" href="../../../code/common.html#cloudmesh.common.logger.LOGGING_OFF">[docs]</a><span class="k">def</span> <span class="nf">LOGGING_OFF</span><span class="p">(</span><span class="n">log</span><span class="p">):</span>
+<div class="viewcode-block" id="LOGGING_OFF"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.logger.LOGGING_OFF">[docs]</a><span class="k">def</span> <span class="nf">LOGGING_OFF</span><span class="p">(</span><span class="n">log</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Switches logging off</span>
 <span class="sd">    :param log: the logger for which we switch logging off</span>

@@ -29,4 +29,3 @@ vcluster
   Options:
       -f      specify the file
 
-Timer: 0.0058s (man vcluster --format=rst)

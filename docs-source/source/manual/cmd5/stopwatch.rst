@@ -16,4 +16,3 @@ stopwatch
     THIS IS NOT YET WORKING
     starts and stops named timers and prints them
 
-Timer: 0.0054s (man stopwatch --format=rst)

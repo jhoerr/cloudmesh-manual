@@ -88,6 +88,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../preface/about.html">1. About</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../preface/contributors.html">2. Contributors</a></li>
 </ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/index.html">1. Cloudmesh Command API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/index.html#cloudmesh-api">2. Cloudmesh API</a></li>
+</ul>
 <p class="caption"><span class="caption-text">INSTALLATION</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation/install.html">1. Installation</a></li>
@@ -96,7 +101,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../installation/mongo.html">4. Cloudmesh Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../configuration/encryption.html">5. Cloudmesh Yaml file Encrytion</a></li>
 </ul>
-<p class="caption"><span class="caption-text">SOMMAND SHELL</span></p>
+<p class="caption"><span class="caption-text">COMMAND SHELL</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../cmd5.html">1. Cmd5</a></li>
 </ul>
@@ -140,21 +145,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../benchmarks/box.html">6. Benchmark results for box Storage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../benchmarks/emr.html">7. AWS EMR Benchmarking</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../benchmarks/test_compute_database.html">8. AWS EC2 Compute Database</a></li>
-</ul>
-<p class="caption"><span class="caption-text">CODE</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/code.html">1. Code Documentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/common.html">2. Common</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/cmd5.html">3. CMD5</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/cloudmesh.html">4. Cloudmesh</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/management.html">5. Management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/mongo.html">6. Mongo</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/commands.html">7. Commands</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/inventory.html">8. Inventory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/storage.html">9. cloudmesh-storage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/cloud.html">10. cloudmesh-cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/batch.html">11. cloudmesh-batch</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../code/emr.html">12. cloudmesh-emr</a></li>
 </ul>
 <p class="caption"><span class="caption-text">CONTRIBUTION</span></p>
 <ul>
@@ -225,6 +215,8 @@
         
           <li><a href="../../index.html">Module code</a> &raquo;</li>
         
+          <li><a href="../common.html">cloudmesh.common</a> &raquo;</li>
+        
       <li>cloudmesh.common.console</li>
     
     
@@ -255,7 +247,7 @@
 <span class="n">colorama</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
 
 
-<div class="viewcode-block" id="indent"><a class="viewcode-back" href="../../../code/common.html#cloudmesh.common.console.indent">[docs]</a><span class="k">def</span> <span class="nf">indent</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">128</span><span class="p">):</span>
+<div class="viewcode-block" id="indent"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.console.indent">[docs]</a><span class="k">def</span> <span class="nf">indent</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">128</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    indents the given text by the indent specified and wrapping to the given width</span>
 <span class="sd">    </span>
@@ -271,7 +263,7 @@
                       <span class="n">subsequent_indent</span><span class="o">=</span><span class="s2">&quot; &quot;</span> <span class="o">*</span> <span class="n">indent</span><span class="p">))</span></div>
 
 
-<div class="viewcode-block" id="Console"><a class="viewcode-back" href="../../../code/common.html#cloudmesh.common.console.Console">[docs]</a><span class="k">class</span> <span class="nc">Console</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="Console"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.console.Console">[docs]</a><span class="k">class</span> <span class="nc">Console</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A simple way to print in a console terminal in color. Instead of using</span>
 <span class="sd">    simply the print statement you can use special methods to indicate</span>
@@ -330,7 +322,7 @@
 
     <span class="n">theme</span> <span class="o">=</span> <span class="n">theme_color</span>
 
-<div class="viewcode-block" id="Console.set_debug"><a class="viewcode-back" href="../../../code/common.html#cloudmesh.common.console.Console.set_debug">[docs]</a>    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="Console.set_debug"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.console.Console.set_debug">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">set_debug</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        sets debugging on or of</span>
@@ -339,7 +331,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">cls</span><span class="o">.</span><span class="n">debug</span> <span class="o">=</span> <span class="n">on</span></div>
 
-<div class="viewcode-block" id="Console.set_theme"><a class="viewcode-back" href="../../../code/common.html#cloudmesh.common.console.Console.set_theme">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="Console.set_theme"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.console.Console.set_theme">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">set_theme</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        defines if the console messages are printed in color</span>
@@ -352,7 +344,7 @@
             <span class="n">Console</span><span class="o">.</span><span class="n">theme</span> <span class="o">=</span> <span class="n">Console</span><span class="o">.</span><span class="n">theme_bw</span>
         <span class="n">Console</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">color</span></div>
 
-<div class="viewcode-block" id="Console.get"><a class="viewcode-back" href="../../../code/common.html#cloudmesh.common.console.Console.get">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="Console.get"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.console.Console.get">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        returns the default theme for printing console messages</span>
@@ -364,7 +356,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">Console</span><span class="o">.</span><span class="n">theme</span><span class="p">[</span><span class="s1">&#39;BLACK&#39;</span><span class="p">]</span></div>
 
-<div class="viewcode-block" id="Console.txt_msg"><a class="viewcode-back" href="../../../code/common.html#cloudmesh.common.console.Console.txt_msg">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="Console.txt_msg"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.console.Console.txt_msg">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">txt_msg</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">79</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        prints a message to the screen</span>
@@ -374,7 +366,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">textwrap</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">width</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Console.msg"><a class="viewcode-back" href="../../../code/common.html#cloudmesh.common.console.Console.msg">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="Console.msg"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.console.Console.msg">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">msg</span><span class="p">(</span><span class="o">*</span><span class="n">message</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        prints a message</span>
@@ -384,7 +376,7 @@
         <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Console.error"><a class="viewcode-back" href="../../../code/common.html#cloudmesh.common.console.Console.error">[docs]</a>    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="Console.error"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.console.Console.error">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">error</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">traceflag</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        prints an error message</span>
@@ -412,7 +404,7 @@
                 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">    &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">trace</span><span class="p">)</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()))</span>
                 <span class="nb">print</span><span class="p">()</span></div>
 
-<div class="viewcode-block" id="Console.TODO"><a class="viewcode-back" href="../../../code/common.html#cloudmesh.common.console.Console.TODO">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="Console.TODO"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.console.Console.TODO">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">TODO</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">traceflag</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        prints an TODO message</span>
@@ -438,7 +430,7 @@
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">trace</span><span class="p">)</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()))</span>
             <span class="nb">print</span><span class="p">()</span></div>
 
-<div class="viewcode-block" id="Console.debug_msg"><a class="viewcode-back" href="../../../code/common.html#cloudmesh.common.console.Console.debug_msg">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="Console.debug_msg"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.console.Console.debug_msg">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">debug_msg</span><span class="p">(</span><span class="n">message</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        print a debug message</span>
@@ -451,7 +443,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="s1">&#39;DEBUG: &#39;</span> <span class="o">+</span> <span class="n">message</span><span class="p">))</span></div>
 
-<div class="viewcode-block" id="Console.info"><a class="viewcode-back" href="../../../code/common.html#cloudmesh.common.console.Console.info">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="Console.info"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.console.Console.info">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">info</span><span class="p">(</span><span class="n">message</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        prints an informational message</span>
@@ -464,7 +456,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="s2">&quot;INFO: &quot;</span> <span class="o">+</span> <span class="n">message</span><span class="p">))</span></div>
 
-<div class="viewcode-block" id="Console.warning"><a class="viewcode-back" href="../../../code/common.html#cloudmesh.common.console.Console.warning">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="Console.warning"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.console.Console.warning">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">warning</span><span class="p">(</span><span class="n">message</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        prints a warning</span>
@@ -477,7 +469,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="s2">&quot;WARNING: &quot;</span> <span class="o">+</span> <span class="n">message</span><span class="p">))</span></div>
 
-<div class="viewcode-block" id="Console.ok"><a class="viewcode-back" href="../../../code/common.html#cloudmesh.common.console.Console.ok">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="Console.ok"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.console.Console.ok">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">ok</span><span class="p">(</span><span class="n">message</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        prints an ok message</span>
@@ -490,7 +482,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="n">message</span><span class="p">))</span></div>
 
-<div class="viewcode-block" id="Console.cprint"><a class="viewcode-back" href="../../../code/common.html#cloudmesh.common.console.Console.cprint">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="Console.cprint"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.console.Console.cprint">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">cprint</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">prefix</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        prints a message in a given color</span>
@@ -506,7 +498,7 @@
                <span class="n">message</span> <span class="o">+</span>
                <span class="n">Console</span><span class="o">.</span><span class="n">theme</span><span class="p">[</span><span class="s1">&#39;ENDC&#39;</span><span class="p">]))</span></div>
 
-<div class="viewcode-block" id="Console.text"><a class="viewcode-back" href="../../../code/common.html#cloudmesh.common.console.Console.text">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="Console.text"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.console.Console.text">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">text</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;RED&#39;</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        returns a message in a given color</span>

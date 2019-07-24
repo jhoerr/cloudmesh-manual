@@ -88,6 +88,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../preface/about.html">1. About</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../preface/contributors.html">2. Contributors</a></li>
 </ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/index.html">1. Cloudmesh Command API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/index.html#cloudmesh-api">2. Cloudmesh API</a></li>
+</ul>
 <p class="caption"><span class="caption-text">INSTALLATION</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../installation/install.html">1. Installation</a></li>
@@ -96,7 +101,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../installation/mongo.html">4. Cloudmesh Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../configuration/encryption.html">5. Cloudmesh Yaml file Encrytion</a></li>
 </ul>
-<p class="caption"><span class="caption-text">SOMMAND SHELL</span></p>
+<p class="caption"><span class="caption-text">COMMAND SHELL</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../cmd5.html">1. Cmd5</a></li>
 </ul>
@@ -140,21 +145,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../benchmarks/box.html">6. Benchmark results for box Storage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../benchmarks/emr.html">7. AWS EMR Benchmarking</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../benchmarks/test_compute_database.html">8. AWS EC2 Compute Database</a></li>
-</ul>
-<p class="caption"><span class="caption-text">CODE</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../code/code.html">1. Code Documentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../code/common.html">2. Common</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../code/cmd5.html">3. CMD5</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../code/cloudmesh.html">4. Cloudmesh</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../code/management.html">5. Management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../code/mongo.html">6. Mongo</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../code/commands.html">7. Commands</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../code/inventory.html">8. Inventory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../code/storage.html">9. cloudmesh-storage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../code/cloud.html">10. cloudmesh-cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../code/batch.html">11. cloudmesh-batch</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../code/emr.html">12. cloudmesh-emr</a></li>
 </ul>
 <p class="caption"><span class="caption-text">CONTRIBUTION</span></p>
 <ul>
@@ -246,9 +236,9 @@
 <span class="kn">from</span> <span class="nn">cloudmesh.management.configuration.config</span> <span class="k">import</span> <span class="n">Active</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.dotdict</span> <span class="k">import</span> <span class="n">dotdict</span>
 
-<div class="viewcode-block" id="Arguments"><a class="viewcode-back" href="../../../../code/management.html#cloudmesh.management.configuration.arguments.Arguments">[docs]</a><span class="k">class</span> <span class="nc">Arguments</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="Arguments"><a class="viewcode-back" href="../../../../api/cloudmesh.management.configuration.html#cloudmesh.management.configuration.arguments.Arguments">[docs]</a><span class="k">class</span> <span class="nc">Arguments</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 
-<div class="viewcode-block" id="Arguments.expand"><a class="viewcode-back" href="../../../../code/management.html#cloudmesh.management.configuration.arguments.Arguments.expand">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="Arguments.expand"><a class="viewcode-back" href="../../../../api/cloudmesh.management.configuration.html#cloudmesh.management.configuration.arguments.Arguments.expand">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">expand</span><span class="p">(</span><span class="n">arguments</span><span class="p">,</span> <span class="o">*</span><span class="n">keys</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        expands all entries in arguments identified by keys</span>
@@ -266,7 +256,7 @@
                         <span class="n">entry</span> <span class="o">=</span> <span class="n">Parameter</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">arguments</span></div>
 
-<div class="viewcode-block" id="Arguments.get_cloud_and_names"><a class="viewcode-back" href="../../../../code/management.html#cloudmesh.management.configuration.arguments.Arguments.get_cloud_and_names">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="Arguments.get_cloud_and_names"><a class="viewcode-back" href="../../../../api/cloudmesh.management.configuration.html#cloudmesh.management.configuration.arguments.Arguments.get_cloud_and_names">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">get_cloud_and_names</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">arguments</span><span class="p">,</span> <span class="n">variables</span><span class="p">):</span>
         <span class="n">names</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="n">clouds</span> <span class="o">=</span> <span class="p">[]</span>
@@ -280,7 +270,7 @@
 
         <span class="k">return</span> <span class="n">clouds</span><span class="p">,</span> <span class="n">names</span></div>
 
-<div class="viewcode-block" id="Arguments.get_clouds"><a class="viewcode-back" href="../../../../code/management.html#cloudmesh.management.configuration.arguments.Arguments.get_clouds">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="Arguments.get_clouds"><a class="viewcode-back" href="../../../../api/cloudmesh.management.configuration.html#cloudmesh.management.configuration.arguments.Arguments.get_clouds">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">get_clouds</span><span class="p">(</span><span class="n">arguments</span><span class="p">,</span> <span class="n">variables</span><span class="p">):</span>
 
         <span class="n">clouds</span> <span class="o">=</span> <span class="n">arguments</span><span class="p">[</span><span class="s2">&quot;cloud&quot;</span><span class="p">]</span> <span class="ow">or</span> <span class="n">arguments</span><span class="p">[</span><span class="s2">&quot;--cloud&quot;</span><span class="p">]</span> <span class="ow">or</span> <span class="n">variables</span><span class="p">[</span>
@@ -297,7 +287,7 @@
 
         <span class="k">return</span> <span class="n">clouds</span></div>
 
-<div class="viewcode-block" id="Arguments.get_names"><a class="viewcode-back" href="../../../../code/management.html#cloudmesh.management.configuration.arguments.Arguments.get_names">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="Arguments.get_names"><a class="viewcode-back" href="../../../../api/cloudmesh.management.configuration.html#cloudmesh.management.configuration.arguments.Arguments.get_names">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">get_names</span><span class="p">(</span><span class="n">arguments</span><span class="p">,</span> <span class="n">variables</span><span class="p">):</span>
         <span class="n">names</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;NAME&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">arguments</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
             <span class="s2">&quot;NAMES&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">arguments</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
@@ -309,7 +299,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">Parameter</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">names</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Arguments.name_loop"><a class="viewcode-back" href="../../../../code/management.html#cloudmesh.management.configuration.arguments.Arguments.name_loop">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="Arguments.name_loop"><a class="viewcode-back" href="../../../../api/cloudmesh.management.configuration.html#cloudmesh.management.configuration.arguments.Arguments.name_loop">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">name_loop</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span>
         <span class="n">names</span> <span class="o">=</span> <span class="n">Arguments</span><span class="o">.</span><span class="n">get_names</span><span class="p">(</span><span class="n">arguments</span><span class="p">,</span> <span class="n">variables</span><span class="p">)</span>
@@ -317,7 +307,7 @@
             <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{label}</span><span class="s2"> </span><span class="si">{name}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">))</span></div>
             <span class="c1"># r = f(name)</span>
 
-<div class="viewcode-block" id="Arguments.get_attribute"><a class="viewcode-back" href="../../../../code/management.html#cloudmesh.management.configuration.arguments.Arguments.get_attribute">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="Arguments.get_attribute"><a class="viewcode-back" href="../../../../api/cloudmesh.management.configuration.html#cloudmesh.management.configuration.arguments.Arguments.get_attribute">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">get_attribute</span><span class="p">(</span><span class="n">attribute</span><span class="p">,</span> <span class="n">arguments</span><span class="p">,</span> <span class="n">variables</span><span class="p">):</span>
         <span class="n">value</span> <span class="o">=</span> <span class="n">arguments</span><span class="p">[</span><span class="n">attribute</span><span class="p">]</span> <span class="ow">or</span> <span class="n">arguments</span><span class="p">[</span><span class="n">f</span><span class="s2">&quot;--</span><span class="si">{attribute}</span><span class="s2">&quot;</span><span class="p">]</span>
         <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -326,15 +316,15 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">value</span></div>
 
-<div class="viewcode-block" id="Arguments.get_flavor"><a class="viewcode-back" href="../../../../code/management.html#cloudmesh.management.configuration.arguments.Arguments.get_flavor">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="Arguments.get_flavor"><a class="viewcode-back" href="../../../../api/cloudmesh.management.configuration.html#cloudmesh.management.configuration.arguments.Arguments.get_flavor">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">get_flavor</span><span class="p">(</span><span class="n">arguments</span><span class="p">,</span> <span class="n">variables</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">Arguments</span><span class="o">.</span><span class="n">get_attribute</span><span class="p">(</span><span class="s2">&quot;flavor&quot;</span><span class="p">,</span> <span class="n">arguments</span><span class="p">,</span> <span class="n">variables</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Arguments.get_image"><a class="viewcode-back" href="../../../../code/management.html#cloudmesh.management.configuration.arguments.Arguments.get_image">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="Arguments.get_image"><a class="viewcode-back" href="../../../../api/cloudmesh.management.configuration.html#cloudmesh.management.configuration.arguments.Arguments.get_image">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">get_image</span><span class="p">(</span><span class="n">arguments</span><span class="p">,</span> <span class="n">variables</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">Arguments</span><span class="o">.</span><span class="n">get_attribute</span><span class="p">(</span><span class="s2">&quot;image&quot;</span><span class="p">,</span> <span class="n">arguments</span><span class="p">,</span> <span class="n">variables</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Arguments.get_command"><a class="viewcode-back" href="../../../../code/management.html#cloudmesh.management.configuration.arguments.Arguments.get_command">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="Arguments.get_command"><a class="viewcode-back" href="../../../../api/cloudmesh.management.configuration.html#cloudmesh.management.configuration.arguments.Arguments.get_command">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">get_command</span><span class="p">(</span><span class="n">arguments</span><span class="p">,</span> <span class="n">variables</span><span class="p">):</span>
         <span class="n">command</span> <span class="o">=</span> <span class="n">arguments</span><span class="p">[</span><span class="s2">&quot;command&quot;</span><span class="p">]</span> <span class="ow">or</span> <span class="n">arguments</span><span class="p">[</span><span class="s2">&quot;--command&quot;</span><span class="p">]</span>
         <span class="k">if</span> <span class="n">command</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -343,7 +333,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">command</span></div>
 
-<div class="viewcode-block" id="Arguments.get_commands"><a class="viewcode-back" href="../../../../code/management.html#cloudmesh.management.configuration.arguments.Arguments.get_commands">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="Arguments.get_commands"><a class="viewcode-back" href="../../../../api/cloudmesh.management.configuration.html#cloudmesh.management.configuration.arguments.Arguments.get_commands">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">get_commands</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">arguments</span><span class="p">,</span> <span class="n">variables</span><span class="p">):</span>
         <span class="c1">#</span>
         <span class="c1"># TODO: why are onp all commands looking for clouds and names, likely a bug</span>

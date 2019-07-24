@@ -68,7 +68,7 @@ edit_on_github_project = 'cloudmesh/cloudmesh-manual'
 edit_on_github_branch = 'master'
 
 templates_path = ['_templates']
-source_suffix = ['.md', '.rst']
+source_suffix = ['.rst', '.md']
 master_doc = 'index'
 language = None
 html_show_sourcelink = True

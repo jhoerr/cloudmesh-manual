@@ -139,4 +139,3 @@ key
         If a key is included in multiple groups they will be added
         to the grouplist of the key
 
-Timer: 0.0055s (man key --format=rst)

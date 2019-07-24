@@ -1,0 +1,652 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2.1.1.7.1.6. cloudmesh.compute.docker package &mdash; Cloudmesh v4 alpha documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="2.1.1.7.1.7. cloudmesh.compute.libcloud package" href="cloudmesh.compute.libcloud.html" />
+    <link rel="prev" title="2.1.1.7.1.5. cloudmesh.compute.azurelibcloud package" href="cloudmesh.compute.azurelibcloud.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Cloudmesh v4
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.0.28
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">PREFACE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../preface/about.html">1. About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preface/contributors.html">2. Contributors</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">1. Cloudmesh Command API</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html#cloudmesh-api">2. Cloudmesh API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.html">2.1. cloudmesh package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.abstractclass.html">2.1.1.1. cloudmesh.abstractclass package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.admin.html">2.1.1.2. cloudmesh.admin package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.cloud.html">2.1.1.3. cloudmesh.cloud package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.cmd5.html">2.1.1.4. cloudmesh.cmd5 package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.common.html">2.1.1.5. cloudmesh.common package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.common.notebook.html">2.1.1.5.1.1. cloudmesh.common.notebook package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.common.run.html">2.1.1.5.1.2. cloudmesh.common.run package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.common.ssh.html">2.1.1.5.1.3. cloudmesh.common.ssh package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.common3.html">2.1.1.6. cloudmesh.common3 package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.html">2.1.1.7. cloudmesh.compute package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.aws.html">2.1.1.7.1.1. cloudmesh.compute.aws package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.awslibcloud.html">2.1.1.7.1.2. cloudmesh.compute.awslibcloud package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.azure.html">2.1.1.7.1.3. cloudmesh.compute.azure package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.azureaz.html">2.1.1.7.1.4. cloudmesh.compute.azureaz package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.azurelibcloud.html">2.1.1.7.1.5. cloudmesh.compute.azurelibcloud package</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2.1.1.7.1.6. cloudmesh.compute.docker package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">2.1.1.7.1.6.1. Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.compute.docker.Provider">2.1.1.7.1.6.2. cloudmesh.compute.docker.Provider module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.compute.docker">2.1.1.7.1.6.3. Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.libcloud.html">2.1.1.7.1.7. cloudmesh.compute.libcloud package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.openstack.html">2.1.1.7.1.8. cloudmesh.compute.openstack package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.virtualbox.html">2.1.1.7.1.9. cloudmesh.compute.virtualbox package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.vm.html">2.1.1.7.1.10. cloudmesh.compute.vm package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.config.html">2.1.1.8. cloudmesh.config package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.container.html">2.1.1.9. cloudmesh.container package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.data.html">2.1.1.10. cloudmesh.data package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.data.api.html">2.1.1.10.1.1. cloudmesh.data.api package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.data.api.db.html">2.1.1.10.1.1.1.1. cloudmesh.data.api.db package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.data.api.storage.html">2.1.1.10.1.1.1.2. cloudmesh.data.api.storage package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.db.html">2.1.1.11. cloudmesh.db package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.default.html">2.1.1.12. cloudmesh.default package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.etc.html">2.1.1.13. cloudmesh.etc package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.flavor.html">2.1.1.14. cloudmesh.flavor package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.group.html">2.1.1.15. cloudmesh.group package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.image.html">2.1.1.16. cloudmesh.image package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.init.html">2.1.1.17. cloudmesh.init package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.ip.html">2.1.1.18. cloudmesh.ip package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.key.html">2.1.1.19. cloudmesh.key package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.man.html">2.1.1.20. cloudmesh.man package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.management.html">2.1.1.21. cloudmesh.management package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.management.configuration.html">2.1.1.21.1.1. cloudmesh.management.configuration package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.mongo.html">2.1.1.22. cloudmesh.mongo package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.open.html">2.1.1.23. cloudmesh.open package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.provider.html">2.1.1.24. cloudmesh.provider package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.register.html">2.1.1.25. cloudmesh.register package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.sec.html">2.1.1.26. cloudmesh.sec package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.secgroup.html">2.1.1.27. cloudmesh.secgroup package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.security.html">2.1.1.28. cloudmesh.security package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.service.html">2.1.1.29. cloudmesh.service package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.set.html">2.1.1.30. cloudmesh.set package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.shell.html">2.1.1.31. cloudmesh.shell package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.source.html">2.1.1.32. cloudmesh.source package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.ssh.html">2.1.1.33. cloudmesh.ssh package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.start.html">2.1.1.34. cloudmesh.start package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.stop.html">2.1.1.35. cloudmesh.stop package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.sys.html">2.1.1.36. cloudmesh.sys package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.terminal.html">2.1.1.37. cloudmesh.terminal package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.var.html">2.1.1.38. cloudmesh.var package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.vbox.html">2.1.1.39. cloudmesh.vbox package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.vcluster.html">2.1.1.40. cloudmesh.vcluster package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.vcluster.api.html">2.1.1.40.1.1. cloudmesh.vcluster.api package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.vm.html">2.1.1.41. cloudmesh.vm package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.workflow.html">2.1.1.42. cloudmesh.workflow package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules.html">2.2. cloudmesh</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">INSTALLATION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/install.html">1. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/quickstart.html">2. Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration/configuration.html">3. Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/mongo.html">4. Cloudmesh Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration/encryption.html">5. Cloudmesh Yaml file Encrytion</a></li>
+</ul>
+<p class="caption"><span class="caption-text">COMMAND SHELL</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cmd5.html">1. Cmd5</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CLOUD SERVICES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../group.html">1. Group command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vm/vm.html">2. Virtual Machine Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vm/image.html">3. Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vm/flavor.html">4. Flavors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../storage/storage.html">5. Cloudmesh Multi Cloud Storage Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workflow.html">6. Infrastructure Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter.html">7. Jupyter Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hpc/batch.html">8. Batch</a></li>
+</ul>
+<p class="caption"><span class="caption-text">openapi</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../openapi/README-storage-openapi.html">1. Cloudmesh Multi Cloud Open API Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../openapi/ufo.html">2. REST Service (outdated)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference-card.html">1. Reference Card (proposed)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/commands.html">2. Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-cmd5.html">3. Manual Cmd5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-group.html">4. Manual Group</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-compute.html">5. Compute Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-storage.html">6. Storage Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual-other.html">7. Manual Other</a></li>
+</ul>
+<p class="caption"><span class="caption-text">DATABASE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../storage/database.html">1. Cloudmesh Database</a></li>
+</ul>
+<p class="caption"><span class="caption-text">BENCHMARKS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/README.html">1. Benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/awsec2-vm-management-benchmark.html">2. AWS EC2 VM Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/awsec2_benchmark_ubuntu.html">3. AWS EC2 VM Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/awss3-storage-benchmark.html">4. AWS S3 File Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/azure-storage-benchmark.html">5. Azure Blob Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/box.html">6. Benchmark results for box Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/emr.html">7. AWS EMR Benchmarking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/test_compute_database.html">8. AWS EC2 Compute Database</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CONTRIBUTION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dev/conventions.html">1. Code Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/management.html">2. Code Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/management.html#documentation-management">3. Documentation Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/management.html#version-management">4. Version Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/pytest.html">5. Pytest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/manual.html">6. Manual Creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/todo.html">7. ToDo</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CLOUD ACCOUNTS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/aws.html">1. AWS Account Creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/azure.html">2. Azure Account Creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/google.html">3. Google Storage Providers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/box.html">4. Box Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/accountcreation-old.html">5. VM Providers (outdated)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Outdated:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../CM4README.html">1. CM4 Details (outdated)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vcluster.html">2. Virtual Cluster (in progress)</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Cloudmesh v4</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">1. Cloudmesh Command API</a> &raquo;</li>
+        
+          <li><a href="cloudmesh.html">2.1. cloudmesh package</a> &raquo;</li>
+        
+          <li><a href="cloudmesh.compute.html">2.1.1.7. cloudmesh.compute package</a> &raquo;</li>
+        
+      <li>2.1.1.7.1.6. cloudmesh.compute.docker package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/cloudmesh.compute.docker.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="cloudmesh-compute-docker-package">
+<h1>2.1.1.7.1.6. cloudmesh.compute.docker package<a class="headerlink" href="#cloudmesh-compute-docker-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>2.1.1.7.1.6.1. Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-cloudmesh.compute.docker.Provider">
+<span id="cloudmesh-compute-docker-provider-module"></span><h2>2.1.1.7.1.6.2. cloudmesh.compute.docker.Provider module<a class="headerlink" href="#module-cloudmesh.compute.docker.Provider" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cloudmesh.compute.docker.Provider.Provider">
+<em class="property">class </em><code class="sig-prename descclassname">cloudmesh.compute.docker.Provider.</code><code class="sig-name descname">Provider</code><span class="sig-paren">(</span><em class="sig-param">name=None</em>, <em class="sig-param">configuration='~/.cloudmesh/.cloudmesh4.yaml'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/docker/Provider.html#Provider"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.docker.Provider.Provider" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="cloudmesh.abstractclass.html#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC" title="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC"><code class="xref py py-class docutils literal notranslate"><span class="pre">cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC</span></code></a></p>
+<dl class="method">
+<dt id="cloudmesh.compute.docker.Provider.Provider.add_image">
+<code class="sig-name descname">add_image</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/docker/Provider.html#Provider.add_image"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.docker.Provider.Provider.add_image" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.docker.Provider.Provider.create">
+<code class="sig-name descname">create</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/docker/Provider.html#Provider.create"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.docker.Provider.Provider.create" title="Permalink to this definition">¶</a></dt>
+<dd><p>creates a named node</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>group</strong> – a list of groups the vm belongs to</p></li>
+<li><p><strong>name</strong> – the name of the node</p></li>
+<li><p><strong>image</strong> – the image used</p></li>
+<li><p><strong>size</strong> – the size of the image</p></li>
+<li><p><strong>timeout</strong> – a timeout in seconds that is invoked in case the image does not boot.
+The default is set to 3 minutes.</p></li>
+<li><p><strong>kwargs</strong> – additional arguments passed along at time of boot</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.docker.Provider.Provider.create_spec">
+<code class="sig-name descname">create_spec</code><span class="sig-paren">(</span><em class="sig-param">name=None</em>, <em class="sig-param">image=None</em>, <em class="sig-param">size=1024</em>, <em class="sig-param">timeout=360</em>, <em class="sig-param">port=80</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/docker/Provider.html#Provider.create_spec"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.docker.Provider.Provider.create_spec" title="Permalink to this definition">¶</a></dt>
+<dd><p>creates a named node</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>port</strong> – </p></li>
+<li><p><strong>name</strong> – the name of the node</p></li>
+<li><p><strong>image</strong> – the image used</p></li>
+<li><p><strong>size</strong> – the size of the image</p></li>
+<li><p><strong>timeout</strong> – a timeout in seconds that is invoked in case the
+image does not boot. The default is set to 3 minutes.</p></li>
+<li><p><strong>kwargs</strong> – additional arguments passed along at time of boot</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.docker.Provider.Provider.delete">
+<code class="sig-name descname">delete</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/docker/Provider.html#Provider.delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.docker.Provider.Provider.delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.docker.Provider.Provider.delete_image">
+<code class="sig-name descname">delete_image</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/docker/Provider.html#Provider.delete_image"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.docker.Provider.Provider.delete_image" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.docker.Provider.Provider.destroy">
+<code class="sig-name descname">destroy</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/docker/Provider.html#Provider.destroy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.docker.Provider.Provider.destroy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Destroys the node
+:param name: the name of the node
+:return: the dict of the node</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.docker.Provider.Provider.dockerfile">
+<code class="sig-name descname">dockerfile</code><span class="sig-paren">(</span><em class="sig-param">name=None</em>, <em class="sig-param">directory='~/.cloudmesh/docker/'</em>, <em class="sig-param">os='ubuntu'</em>, <em class="sig-param">version='18.04'</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/docker/Provider.html#Provider.dockerfile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.docker.Provider.Provider.dockerfile" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.docker.Provider.Provider.execute">
+<code class="sig-name descname">execute</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">command</em>, <em class="sig-param">cwd=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/docker/Provider.html#Provider.execute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.docker.Provider.Provider.execute" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.docker.Provider.Provider.flavors">
+<code class="sig-name descname">flavors</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/docker/Provider.html#Provider.flavors"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.docker.Provider.Provider.flavors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lists the flavors on the cloud</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>dict of flavors</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.docker.Provider.Provider.images">
+<code class="sig-name descname">images</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/docker/Provider.html#Provider.images"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.docker.Provider.Provider.images" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lists the images on the cloud
+:return: dict</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.docker.Provider.Provider.info">
+<code class="sig-name descname">info</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/docker/Provider.html#Provider.info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.docker.Provider.Provider.info" title="Permalink to this definition">¶</a></dt>
+<dd><p>gets the information of a node with a given name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The dict representing the node including updated status</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.docker.Provider.Provider.key_upload">
+<code class="sig-name descname">key_upload</code><span class="sig-paren">(</span><em class="sig-param">key</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/docker/Provider.html#Provider.key_upload"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.docker.Provider.Provider.key_upload" title="Permalink to this definition">¶</a></dt>
+<dd><p>uploads the key specified in the yaml configuration to the cloud
+:param key:
+:return:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.docker.Provider.Provider.keys">
+<code class="sig-name descname">keys</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/docker/Provider.html#Provider.keys"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.docker.Provider.Provider.keys" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lists the keys on the cloud</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.compute.docker.Provider.Provider.kind">
+<code class="sig-name descname">kind</code><em class="property"> = 'docker'</em><a class="headerlink" href="#cloudmesh.compute.docker.Provider.Provider.kind" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.docker.Provider.Provider.list">
+<code class="sig-name descname">list</code><span class="sig-paren">(</span><em class="sig-param">raw=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/docker/Provider.html#Provider.list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.docker.Provider.Provider.list" title="Permalink to this definition">¶</a></dt>
+<dd><p>list all nodes id</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>an array of dicts representing the nodes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.compute.docker.Provider.Provider.output">
+<code class="sig-name descname">output</code><em class="property"> = {'flavor': {'header': ['Name', 'VCPUS', 'RAM', 'Disk'], 'order': ['name', 'vcpus', 'ram', 'disk'], 'sort_keys': ['cm.name']}, 'image': {'header': ['RepoTags', 'repo', 'tags', 'Os', 'Size', 'Architecture'], 'order': ['RepoTags', 'repo', 'tags', 'Os', 'Size', 'Architecture'], 'sort_keys': ['cm.name']}, 'vm': {'header': ['cm.name', 'cm.cloud', 'Status', 'image', 'public_ips', 'kind'], 'order': ['cm.name', 'cm.cloud', 'State.Status', 'Config.Image', 'NetworkSettings.IPAddress', 'cm.kind'], 'sort_keys': ['cm.name']}}</em><a class="headerlink" href="#cloudmesh.compute.docker.Provider.Provider.output" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.docker.Provider.Provider.rename">
+<code class="sig-name descname">rename</code><span class="sig-paren">(</span><em class="sig-param">source=None</em>, <em class="sig-param">destination=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/docker/Provider.html#Provider.rename"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.docker.Provider.Provider.rename" title="Permalink to this definition">¶</a></dt>
+<dd><p>rename a node</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>destination</strong> – </p></li>
+<li><p><strong>source</strong> – the current name</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the dict with the new name</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.docker.Provider.Provider.resume">
+<code class="sig-name descname">resume</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/docker/Provider.html#Provider.resume"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.docker.Provider.Provider.resume" title="Permalink to this definition">¶</a></dt>
+<dd><p>resume the named node</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – the name of the node</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the dict of the node</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.docker.Provider.Provider.run_command">
+<code class="sig-name descname">run_command</code><span class="sig-paren">(</span><em class="sig-param">command</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/docker/Provider.html#Provider.run_command"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.docker.Provider.Provider.run_command" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.docker.Provider.Provider.start">
+<code class="sig-name descname">start</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">version</em>, <em class="sig-param">directory</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/docker/Provider.html#Provider.start"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.docker.Provider.Provider.start" title="Permalink to this definition">¶</a></dt>
+<dd><p>start a node</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>version</strong> – </p></li>
+<li><p><strong>directory</strong> – </p></li>
+<li><p><strong>name</strong> – the unique node name</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The dict representing the node</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.docker.Provider.Provider.stop">
+<code class="sig-name descname">stop</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/docker/Provider.html#Provider.stop"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.docker.Provider.Provider.stop" title="Permalink to this definition">¶</a></dt>
+<dd><p>stops the node with the given name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The dict representing the node including updated status</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.docker.Provider.Provider.suspend">
+<code class="sig-name descname">suspend</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/docker/Provider.html#Provider.suspend"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.docker.Provider.Provider.suspend" title="Permalink to this definition">¶</a></dt>
+<dd><p>suspends the node with the given name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – the name of the node</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The dict representing the node</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.docker.Provider.Provider.update_dict">
+<code class="sig-name descname">update_dict</code><span class="sig-paren">(</span><em class="sig-param">entry</em>, <em class="sig-param">kind='node'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/docker/Provider.html#Provider.update_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.docker.Provider.Provider.update_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>updates the dict with</p>
+<blockquote>
+<div><dl class="simple">
+<dt>“cm”: {</dt><dd><p>“kind”: …,
+“name”: …,
+“cloud”: …,
+“driver” …,
+}</p>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>entry</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><em>dict</em></a>) – the entry</p></li>
+<li><p><strong>kind</strong> (<em>string</em>) – a string representing the kind</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the modified entry</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)">dict</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.docker.Provider.Provider.version">
+<code class="sig-name descname">version</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/docker/Provider.html#Provider.version"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.docker.Provider.Provider.version" title="Permalink to this definition">¶</a></dt>
+<dd><p>This command returns the versions ov vagrant and virtual box
+:return: A dict with the information</p>
+<p>Description:</p>
+<blockquote>
+<div><p>The output looks like this</p>
+</div></blockquote>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-cloudmesh.compute.docker">
+<span id="module-contents"></span><h2>2.1.1.7.1.6.3. Module contents<a class="headerlink" href="#module-cloudmesh.compute.docker" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="cloudmesh.compute.libcloud.html" class="btn btn-neutral float-right" title="2.1.1.7.1.7. cloudmesh.compute.libcloud package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="cloudmesh.compute.azurelibcloud.html" class="btn btn-neutral float-left" title="2.1.1.7.1.5. cloudmesh.compute.azurelibcloud package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018-2019, Cloudmesh Community
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

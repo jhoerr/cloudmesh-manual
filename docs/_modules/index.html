@@ -88,6 +88,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../preface/about.html">1. About</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../preface/contributors.html">2. Contributors</a></li>
 </ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html">1. Cloudmesh Command API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html#cloudmesh-api">2. Cloudmesh API</a></li>
+</ul>
 <p class="caption"><span class="caption-text">INSTALLATION</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../installation/install.html">1. Installation</a></li>
@@ -96,7 +101,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../installation/mongo.html">4. Cloudmesh Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../configuration/encryption.html">5. Cloudmesh Yaml file Encrytion</a></li>
 </ul>
-<p class="caption"><span class="caption-text">SOMMAND SHELL</span></p>
+<p class="caption"><span class="caption-text">COMMAND SHELL</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../cmd5.html">1. Cmd5</a></li>
 </ul>
@@ -140,21 +145,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../benchmarks/box.html">6. Benchmark results for box Storage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../benchmarks/emr.html">7. AWS EMR Benchmarking</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../benchmarks/test_compute_database.html">8. AWS EC2 Compute Database</a></li>
-</ul>
-<p class="caption"><span class="caption-text">CODE</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../code/code.html">1. Code Documentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../code/common.html">2. Common</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../code/cmd5.html">3. CMD5</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../code/cloudmesh.html">4. Cloudmesh</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../code/management.html">5. Management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../code/mongo.html">6. Mongo</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../code/commands.html">7. Commands</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../code/inventory.html">8. Inventory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../code/storage.html">9. cloudmesh-storage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../code/cloud.html">10. cloudmesh-cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../code/batch.html">11. cloudmesh-batch</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../code/emr.html">12. cloudmesh-emr</a></li>
 </ul>
 <p class="caption"><span class="caption-text">CONTRIBUTION</span></p>
 <ul>
@@ -244,27 +234,48 @@
 <li><a href="cloudmesh/abstractclass/State.html">cloudmesh.abstractclass.State</a></li>
 <li><a href="cloudmesh/abstractclass/StorageABC.html">cloudmesh.abstractclass.StorageABC</a></li>
 <li><a href="cloudmesh/admin/command/admin.html">cloudmesh.admin.command.admin</a></li>
+<li><a href="cloudmesh/common.html">cloudmesh.common</a></li>
+<ul><li><a href="cloudmesh/common/BaseConfigDict.html">cloudmesh.common.BaseConfigDict</a></li>
+<li><a href="cloudmesh/common/ConfigDict.html">cloudmesh.common.ConfigDict</a></li>
 <li><a href="cloudmesh/common/FlatDict.html">cloudmesh.common.FlatDict</a></li>
 <li><a href="cloudmesh/common/Printer.html">cloudmesh.common.Printer</a></li>
 <li><a href="cloudmesh/common/Shell.html">cloudmesh.common.Shell</a></li>
 <li><a href="cloudmesh/common/StopWatch.html">cloudmesh.common.StopWatch</a></li>
+<li><a href="cloudmesh/common/TableParser.html">cloudmesh.common.TableParser</a></li>
+<li><a href="cloudmesh/common/config.html">cloudmesh.common.config</a></li>
 <li><a href="cloudmesh/common/console.html">cloudmesh.common.console</a></li>
 <li><a href="cloudmesh/common/debug.html">cloudmesh.common.debug</a></li>
+<li><a href="cloudmesh/common/default.html">cloudmesh.common.default</a></li>
 <li><a href="cloudmesh/common/dotdict.html">cloudmesh.common.dotdict</a></li>
 <li><a href="cloudmesh/common/error.html">cloudmesh.common.error</a></li>
 <li><a href="cloudmesh/common/locations.html">cloudmesh.common.locations</a></li>
 <li><a href="cloudmesh/common/logger.html">cloudmesh.common.logger</a></li>
 <li><a href="cloudmesh/common/parameter.html">cloudmesh.common.parameter</a></li>
+<li><a href="cloudmesh/common/prettytable.html">cloudmesh.common.prettytable</a></li>
+<li><a href="cloudmesh/common/run/background.html">cloudmesh.common.run.background</a></li>
 <li><a href="cloudmesh/common/run/file.html">cloudmesh.common.run.file</a></li>
+<li><a href="cloudmesh/common/run/subprocess.html">cloudmesh.common.run.subprocess</a></li>
 <li><a href="cloudmesh/common/ssh/authorized_keys.html">cloudmesh.common.ssh.authorized_keys</a></li>
 <li><a href="cloudmesh/common/ssh/encrypt.html">cloudmesh.common.ssh.encrypt</a></li>
 <li><a href="cloudmesh/common/ssh/ssh_config.html">cloudmesh.common.ssh.ssh_config</a></li>
+<li><a href="cloudmesh/common/systeminfo.html">cloudmesh.common.systeminfo</a></li>
+<li><a href="cloudmesh/common/todo.html">cloudmesh.common.todo</a></li>
 <li><a href="cloudmesh/common/util.html">cloudmesh.common.util</a></li>
 <li><a href="cloudmesh/common/variables.html">cloudmesh.common.variables</a></li>
+</ul><li><a href="cloudmesh/common3/Benchmark.html">cloudmesh.common3.Benchmark</a></li>
+<li><a href="cloudmesh/common3/DictList.html">cloudmesh.common3.DictList</a></li>
+<li><a href="cloudmesh/common3/Shell.html">cloudmesh.common3.Shell</a></li>
+<li><a href="cloudmesh/common3/host.html">cloudmesh.common3.host</a></li>
+<li><a href="cloudmesh/compute/aws/AwsFlavors.html">cloudmesh.compute.aws.AwsFlavors</a></li>
 <li><a href="cloudmesh/compute/aws/Provider.html">cloudmesh.compute.aws.Provider</a></li>
+<li><a href="cloudmesh/compute/aws/gregor_flavor.html">cloudmesh.compute.aws.gregor_flavor</a></li>
 <li><a href="cloudmesh/compute/azure/Provider.html">cloudmesh.compute.azure.Provider</a></li>
+<li><a href="cloudmesh/compute/azureaz/Provider.html">cloudmesh.compute.azureaz.Provider</a></li>
+<li><a href="cloudmesh/compute/azurelibcloud/Provider.html">cloudmesh.compute.azurelibcloud.Provider</a></li>
 <li><a href="cloudmesh/compute/docker/Provider.html">cloudmesh.compute.docker.Provider</a></li>
 <li><a href="cloudmesh/compute/libcloud/Provider.html">cloudmesh.compute.libcloud.Provider</a></li>
+<li><a href="cloudmesh/compute/openstack/Provider.html">cloudmesh.compute.openstack.Provider</a></li>
+<li><a href="cloudmesh/compute/openstack/test_openstacksdk.html">cloudmesh.compute.openstack.test_openstacksdk</a></li>
 <li><a href="cloudmesh/compute/virtualbox/Provider.html">cloudmesh.compute.virtualbox.Provider</a></li>
 <li><a href="cloudmesh/compute/vm/Provider.html">cloudmesh.compute.vm.Provider</a></li>
 <li><a href="cloudmesh/config/command/config.html">cloudmesh.config.command.config</a></li>
@@ -278,10 +289,13 @@
 <li><a href="cloudmesh/db/strdb.html">cloudmesh.db.strdb</a></li>
 <li><a href="cloudmesh/default/command/default.html">cloudmesh.default.command.default</a></li>
 <li><a href="cloudmesh/flavor/command/flavor.html">cloudmesh.flavor.command.flavor</a></li>
+<li><a href="cloudmesh/group/Group.html">cloudmesh.group.Group</a></li>
+<li><a href="cloudmesh/group/command/group.html">cloudmesh.group.command.group</a></li>
 <li><a href="cloudmesh/image/Image.html">cloudmesh.image.Image</a></li>
 <li><a href="cloudmesh/image/command/image.html">cloudmesh.image.command.image</a></li>
-<li><a href="cloudmesh/inventory/command/inventory.html">cloudmesh.inventory.command.inventory</a></li>
-<li><a href="cloudmesh/inventory/inventory.html">cloudmesh.inventory.inventory</a></li>
+<li><a href="cloudmesh/init/command/init.html">cloudmesh.init.command.init</a></li>
+<li><a href="cloudmesh/ip/command/ip.html">cloudmesh.ip.command.ip</a></li>
+<li><a href="cloudmesh/key/Key.html">cloudmesh.key.Key</a></li>
 <li><a href="cloudmesh/key/command/key.html">cloudmesh.key.command.key</a></li>
 <li><a href="cloudmesh/man/command/man.html">cloudmesh.man.command.man</a></li>
 <li><a href="cloudmesh/management/configuration/SSHkey.html">cloudmesh.management.configuration.SSHkey</a></li>
@@ -290,23 +304,37 @@
 <li><a href="cloudmesh/management/configuration/counter.html">cloudmesh.management.configuration.counter</a></li>
 <li><a href="cloudmesh/management/configuration/generic_config.html">cloudmesh.management.configuration.generic_config</a></li>
 <li><a href="cloudmesh/management/configuration/name.html">cloudmesh.management.configuration.name</a></li>
-<li><a href="cloudmesh/management/printer/Printer.html">cloudmesh.management.printer.Printer</a></li>
+<li><a href="cloudmesh/management/configuration/operatingsystem.html">cloudmesh.management.configuration.operatingsystem</a></li>
 <li><a href="cloudmesh/management/script.html">cloudmesh.management.script</a></li>
 <li><a href="cloudmesh/mongo/CmDatabase.html">cloudmesh.mongo.CmDatabase</a></li>
 <li><a href="cloudmesh/mongo/DataBaseDecorator.html">cloudmesh.mongo.DataBaseDecorator</a></li>
 <li><a href="cloudmesh/mongo/MongoDBController.html">cloudmesh.mongo.MongoDBController</a></li>
 <li><a href="cloudmesh/open/command/open.html">cloudmesh.open.command.open</a></li>
+<li><a href="cloudmesh/provider.html">cloudmesh.provider</a></li>
+<ul><li><a href="cloudmesh/provider/command/provider.html">cloudmesh.provider.command.provider</a></li>
+</ul><li><a href="cloudmesh/register/AWSRegister.html">cloudmesh.register.AWSRegister</a></li>
+<li><a href="cloudmesh/register/Register.html">cloudmesh.register.Register</a></li>
+<li><a href="cloudmesh/register/command/register.html">cloudmesh.register.command.register</a></li>
+<li><a href="cloudmesh/sec/command/sec.html">cloudmesh.sec.command.sec</a></li>
+<li><a href="cloudmesh/secgroup/Secgroup.html">cloudmesh.secgroup.Secgroup</a></li>
 <li><a href="cloudmesh/security/authorized_keys.html">cloudmesh.security.authorized_keys</a></li>
 <li><a href="cloudmesh/security/encrypt.html">cloudmesh.security.encrypt</a></li>
 <li><a href="cloudmesh/security/ssh_config.html">cloudmesh.security.ssh_config</a></li>
+<li><a href="cloudmesh/service/command/service.html">cloudmesh.service.command.service</a></li>
 <li><a href="cloudmesh/set/command/set.html">cloudmesh.set.command.set</a></li>
 <li><a href="cloudmesh/shell/command.html">cloudmesh.shell.command</a></li>
 <li><a href="cloudmesh/shell/plugin.html">cloudmesh.shell.plugin</a></li>
 <li><a href="cloudmesh/shell/shell.html">cloudmesh.shell.shell</a></li>
+<li><a href="cloudmesh/source/Source.html">cloudmesh.source.Source</a></li>
 <li><a href="cloudmesh/source/command/source.html">cloudmesh.source.command.source</a></li>
 <li><a href="cloudmesh/ssh/command/ssh.html">cloudmesh.ssh.command.ssh</a></li>
+<li><a href="cloudmesh/start/command/start.html">cloudmesh.start.command.start</a></li>
+<li><a href="cloudmesh/stop/command/stop.html">cloudmesh.stop.command.stop</a></li>
+<li><a href="cloudmesh/sys/command/sys.html">cloudmesh.sys.command.sys</a></li>
+<li><a href="cloudmesh/sys/manage.html">cloudmesh.sys.manage</a></li>
 <li><a href="cloudmesh/terminal/command/terminal.html">cloudmesh.terminal.command.terminal</a></li>
 <li><a href="cloudmesh/var/command/var.html">cloudmesh.var.command.var</a></li>
+<li><a href="cloudmesh/vbox/Provider.html">cloudmesh.vbox.Provider</a></li>
 <li><a href="cloudmesh/vbox/command/vbox.html">cloudmesh.vbox.command.vbox</a></li>
 <li><a href="cloudmesh/vcluster/api/VirtualCluster.html">cloudmesh.vcluster.api.VirtualCluster</a></li>
 <li><a href="cloudmesh/vcluster/command/vcluster.html">cloudmesh.vcluster.command.vcluster</a></li>
