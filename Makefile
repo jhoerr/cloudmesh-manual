@@ -85,45 +85,6 @@ inspect: dest/gitinspector/gitinspector.py
 	   		--hard=True \
 	   		--format=htmlembedded > $(SOURCE)/inspector/$$c.html; \
 	done
-
-
-o:
-	python dest/gitinspector/gitinspector.py \
-	   $(GIT)/cloudmesh-cmd5 \
-	   --grading=True \
-	   --metrics=False \
-	   --hard=True \
-	   --format=htmlembedded > $(SOURCE)/inspector/cloudmesh-cmd5.html
-	python dest/gitinspector/gitinspector.py \
-	   $(GIT)/cloudmesh-common \
-	   --grading=True \
-	   --metrics=False \
-	   --hard=True \
-	   --format=htmlembedded > $(SOURCE)/inspector/cloudmesh-common.html
-	python dest/gitinspector/gitinspector.py \
-	   $(GIT)/cloudmesh-sys \
-	   --grading=True \
-	   --metrics=False \
-	   --hard=True \
-	   --format=htmlembedded > $(SOURCE)/inspector/cloudmesh-sys.html
-	python dest/gitinspector/gitinspector.py \
-	   $(GIT)/cloudmesh-manual \
-	   --grading=True \
-	   --metrics=False \
-	   --hard=True \
-	   --format=htmlembedded > $(SOURCE)/inspector/cloudmesh-manual.html
-	python dest/gitinspector/gitinspector.py \
-	   $(GIT)/cloudmesh-storage \
-	   --grading=True \
-	   --metrics=False \
-	   --hard=True \
-	   --format=htmlembedded > $(SOURCE)/inspector/cloudmesh-storage.html
-	python dest/gitinspector/gitinspector.py \
-	   $(GIT)/cloudmesh-installer \
-	   --grading=True \
-	   --metrics=False \
-	   --hard=True \
-	   --format=htmlembedded > $(SOURCE)/inspector/cloudmesh-installer.html
 	cp -r $(SOURCE)/inspector docs/inspector
 
 contrib:
