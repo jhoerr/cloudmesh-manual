@@ -1,0 +1,582 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>cloudmesh.compute.azurelibcloud.Provider &mdash; Cloudmesh v4 alpha documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Cloudmesh v4
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.0.28
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">PREFACE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../preface/about.html">1. About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../preface/contributors.html">2. Contributors</a></li>
+</ul>
+<p class="caption"><span class="caption-text">INSTALLATION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation/install.html">1. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation/quickstart.html">2. Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../configuration/configuration.html">3. Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation/mongo.html">4. Cloudmesh Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../configuration/encryption.html">5. Cloudmesh Yaml file Encrytion</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../cmd5.html">1. Cmd5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../reference-card.html">2. Reference Card (proposed)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual/commands.html">3. Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-cmd5.html">4. Manual Cmd5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-group.html">5. Manual Group</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-compute.html">6. Compute Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-storage.html">7. Storage Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-other.html">8. Manual Other</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/index.html">1. Cloudmesh Command API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/index.html#cloudmesh-api">2. Cloudmesh API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CONTRIBUTION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/conventions.html">1. Code Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/management.html">2. Code Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/management.html#documentation-management">3. Documentation Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/management.html#version-management">4. Version Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/pytest.html">5. Pytest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/manual.html">6. Manual Creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/todo.html">7. ToDo</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CLOUD ACCOUNTS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/aws.html">1. AWS Account Creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/azure.html">2. Azure Account Creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/google.html">3. Google Storage Providers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/box.html">4. Box Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/accountcreation-old.html">5. VM Providers (outdated)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Outdated:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../CM4README.html">1. CM4 Details (outdated)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../vcluster.html">2. Virtual Cluster (in progress)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CLOUD SERVICES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../group.html">1. Group command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../vm/vm.html">2. Virtual Machine Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../vm/image.html">3. Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../vm/flavor.html">4. Flavors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../storage/storage.html">5. Cloudmesh Multi Cloud Storage Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../workflow.html">6. Infrastructure Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../jupyter.html">7. Jupyter Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../hpc/batch.html">8. Batch</a></li>
+</ul>
+<p class="caption"><span class="caption-text">openapi</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../openapi/README-storage-openapi.html">1. Cloudmesh Multi Cloud Open API Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../openapi/ufo.html">2. REST Service (outdated)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">DATABASE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../storage/database.html">1. Cloudmesh Database</a></li>
+</ul>
+<p class="caption"><span class="caption-text">BENCHMARKS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../benchmarks/README.html">1. Benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../benchmarks/awsec2-vm-management-benchmark.html">2. AWS EC2 VM Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../benchmarks/awsec2_benchmark_ubuntu.html">3. AWS EC2 VM Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../benchmarks/awss3-storage-benchmark.html">4. AWS S3 File Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../benchmarks/azure-storage-benchmark.html">5. Azure Blob Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../benchmarks/box.html">6. Benchmark results for box Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../benchmarks/emr.html">7. AWS EMR Benchmarking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../benchmarks/test_compute_database.html">8. AWS EC2 Compute Database</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Cloudmesh v4</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>cloudmesh.compute.azurelibcloud.Provider</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for cloudmesh.compute.azurelibcloud.Provider</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">time</span>
+
+<span class="kn">from</span> <span class="nn">cloudmesh.management.configuration.config</span> <span class="k">import</span> <span class="n">Config</span>
+<span class="kn">from</span> <span class="nn">libcloud.compute.base</span> <span class="k">import</span> <span class="n">NodeAuthSSHKey</span>
+<span class="kn">from</span> <span class="nn">libcloud.compute.drivers.azure_arm</span> <span class="k">import</span> <span class="n">AzureIPAddress</span>
+<span class="kn">from</span> <span class="nn">libcloud.compute.drivers.azure_arm</span> <span class="k">import</span> <span class="n">AzureNetwork</span>
+<span class="kn">from</span> <span class="nn">libcloud.compute.drivers.azure_arm</span> <span class="k">import</span> <span class="n">AzureSubnet</span>
+<span class="kn">from</span> <span class="nn">libcloud.compute.providers</span> <span class="k">import</span> <span class="n">get_driver</span>
+<span class="kn">from</span> <span class="nn">libcloud.compute.types</span> <span class="k">import</span> <span class="n">Provider</span> <span class="k">as</span> <span class="n">LibCloudProvider</span>
+
+
+<span class="c1">#</span>
+<span class="c1"># TODO: possibly replace get names, images, as there may be many images</span>
+<span class="c1">#  matching,</span>
+<span class="c1"># we should assume they are in db with download, or could check if they do</span>
+<span class="c1"># not exists so we load them.</span>
+<span class="c1">#</span>
+
+<div class="viewcode-block" id="AzureProvider"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.azurelibcloud.html#cloudmesh.compute.azurelibcloud.Provider.AzureProvider">[docs]</a><span class="k">class</span> <span class="nc">AzureProvider</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;azurelibcloud&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cloud</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize the provider for the yaml file</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">config</span> <span class="o">=</span> <span class="n">Config</span><span class="p">()</span>
+        <span class="n">cred</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;cloud.azure.credentials&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">defaults</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;cloud.azure.default&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">resource_group</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">defaults</span><span class="p">[</span><span class="s2">&quot;resource_group&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">subscription_id</span> <span class="o">=</span> <span class="n">cred</span><span class="p">[</span><span class="s2">&quot;AZURE_TENANT_ID&quot;</span><span class="p">]</span>
+
+        <span class="bp">cls</span> <span class="o">=</span> <span class="n">get_driver</span><span class="p">(</span><span class="n">LibCloudProvider</span><span class="o">.</span><span class="n">AZURE_ARM</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">api_version</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;api-version&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-08-01&quot;</span><span class="p">}</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">provider</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">(</span>
+            <span class="n">tenant_id</span><span class="o">=</span><span class="n">cred</span><span class="p">[</span><span class="s2">&quot;AZURE_TENANT_ID&quot;</span><span class="p">],</span>
+            <span class="n">subscription_id</span><span class="o">=</span><span class="n">cred</span><span class="p">[</span><span class="s2">&quot;AZURE_SUBSCRIPTION_ID&quot;</span><span class="p">],</span>
+            <span class="n">key</span><span class="o">=</span><span class="n">cred</span><span class="p">[</span><span class="s2">&quot;AZURE_APPLICATION_ID&quot;</span><span class="p">],</span>
+            <span class="n">secret</span><span class="o">=</span><span class="n">cred</span><span class="p">[</span><span class="s2">&quot;AZURE_SECRET_KEY&quot;</span><span class="p">],</span>
+            <span class="n">region</span><span class="o">=</span><span class="n">cred</span><span class="p">[</span><span class="s2">&quot;AZURE_REGION&quot;</span><span class="p">]</span>
+        <span class="p">)</span>
+
+<div class="viewcode-block" id="AzureProvider.suspend"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.azurelibcloud.html#cloudmesh.compute.azurelibcloud.Provider.AzureProvider.suspend">[docs]</a>    <span class="k">def</span> <span class="nf">suspend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Suspend a running node.</span>
+
+<span class="sd">        :param name: The name of the running node.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">provider</span><span class="o">.</span><span class="n">ex_stop_node</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_node</span><span class="p">(</span><span class="n">name</span><span class="p">),</span> <span class="n">deallocate</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="AzureProvider.destroy"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.azurelibcloud.html#cloudmesh.compute.azurelibcloud.Provider.AzureProvider.destroy">[docs]</a>    <span class="k">def</span> <span class="nf">destroy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Destroy a node.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_node</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">provider</span><span class="o">.</span><span class="n">destroy_node</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="p">)</span>
+        <span class="c1"># Managed volumes are not destroyed by `destroy_node`.</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">provider</span><span class="o">.</span><span class="n">destroy_volume</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_volume</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+        <span class="c1"># Libcloud does not delete public IP addresses</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ex_delete_public_ip</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;</span><span class="si">{name}</span><span class="s2">-ip&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="AzureProvider.create"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.azurelibcloud.html#cloudmesh.compute.azurelibcloud.Provider.AzureProvider.create">[docs]</a>    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">image_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create a node</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># id_rsa_path = f&quot;{Path.home()}/.ssh/id_rsa.pub&quot;</span>
+
+        <span class="n">auth</span> <span class="o">=</span> <span class="n">NodeAuthSSHKey</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">defaults</span><span class="p">[</span><span class="s2">&quot;public_key&quot;</span><span class="p">])</span>
+
+        <span class="c1"># TODO: must be parameter</span>
+        <span class="k">if</span> <span class="n">image_name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">image_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">defaults</span><span class="p">[</span><span class="s2">&quot;image&quot;</span><span class="p">]</span>
+
+        <span class="n">image</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">provider</span><span class="o">.</span><span class="n">get_image</span><span class="p">(</span><span class="n">image_name</span><span class="p">)</span>
+
+        <span class="c1"># TODO_ must be parameter</span>
+
+        <span class="k">if</span> <span class="n">size</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1">#</span>
+            <span class="c1"># TODO: can this be done with get, e.g. get_size seems not to</span>
+            <span class="c1">#  exist though</span>
+            <span class="c1">#</span>
+            <span class="n">sizes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">provider</span><span class="o">.</span><span class="n">list_sizes</span><span class="p">()</span>
+            <span class="n">size</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">sizes</span> <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">defaults</span><span class="p">[</span><span class="s2">&quot;size&quot;</span><span class="p">]][</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="c1"># Create a network and default subnet if none exists</span>
+        <span class="n">network_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">defaults</span><span class="p">[</span><span class="s2">&quot;network&quot;</span><span class="p">]</span>
+        <span class="n">network</span><span class="p">,</span> <span class="n">subnet</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_network</span><span class="p">(</span><span class="n">network_name</span><span class="p">)</span>
+
+        <span class="c1"># Create a NIC with public IP</span>
+        <span class="n">nic</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_create_nic</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">subnet</span><span class="p">)</span>
+
+        <span class="c1"># Create vm</span>
+        <span class="n">new_vm</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">provider</span><span class="o">.</span><span class="n">create_node</span><span class="p">(</span>
+            <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>
+            <span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">,</span>
+            <span class="n">image</span><span class="o">=</span><span class="n">image</span><span class="p">,</span>
+            <span class="n">auth</span><span class="o">=</span><span class="n">auth</span><span class="p">,</span>
+            <span class="n">ex_use_managed_disks</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">ex_resource_group</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">defaults</span><span class="p">[</span><span class="s2">&quot;resource_group&quot;</span><span class="p">],</span>
+            <span class="n">ex_storage_account</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">defaults</span><span class="p">[</span><span class="s2">&quot;storage_account&quot;</span><span class="p">],</span>
+            <span class="n">ex_nic</span><span class="o">=</span><span class="n">nic</span><span class="p">,</span>
+            <span class="n">ex_network</span><span class="o">=</span><span class="n">network_name</span>
+        <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">new_vm</span></div>
+
+    <span class="k">def</span> <span class="nf">_get_node</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get an instance of a Node returned by `list` by node name.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">node</span> <span class="o">=</span> <span class="p">[</span><span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="p">()</span> <span class="k">if</span> <span class="n">n</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">name</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">node</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="n">node</span> <span class="k">else</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="nf">_get_volume</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">volume_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the volume named after a created node.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">volume</span> <span class="o">=</span> <span class="p">[</span><span class="n">v</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">provider</span><span class="o">.</span><span class="n">list_volumes</span><span class="p">()</span> <span class="k">if</span>
+                  <span class="n">v</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">volume_id</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">volume</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="n">volume</span> <span class="k">else</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="nf">_get_network</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">network_name</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return an instance of a network if it exists.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">net</span> <span class="o">=</span> <span class="p">[</span><span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">provider</span><span class="o">.</span><span class="n">ex_list_networks</span><span class="p">()</span> <span class="k">if</span>
+               <span class="n">n</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">network_name</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">net</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="n">net</span> <span class="k">else</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="nf">_create_network</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">network_name</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create a new network resource if it does not exist or returns</span>
+<span class="sd">        an existing network resource if it exists.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">network_cidr</span> <span class="o">=</span> <span class="s2">&quot;10.0.0.0/16&quot;</span>
+        <span class="n">network</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ex_create_network</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">network_name</span><span class="p">,</span> <span class="n">cidr</span><span class="o">=</span><span class="n">network_cidr</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">subnet_name</span> <span class="o">=</span> <span class="s2">&quot;default&quot;</span>
+        <span class="n">subnet_cidr</span> <span class="o">=</span> <span class="s2">&quot;10.0.0.0/16&quot;</span>
+        <span class="n">subnet</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ex_create_subnet</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">subnet_name</span><span class="p">,</span> <span class="n">cidr</span><span class="o">=</span><span class="n">subnet_cidr</span><span class="p">,</span>
+                                        <span class="n">network_name</span><span class="o">=</span><span class="n">network_name</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">network</span><span class="p">,</span> <span class="n">subnet</span>
+
+    <span class="k">def</span> <span class="nf">_create_create_nic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">subnet</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create a network interface card with a public IP</span>
+<span class="sd">        :param name: The name of the node</span>
+<span class="sd">        :param subnet: The `AzureSubnet` where the nic will reside</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">public_ip</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">provider</span><span class="o">.</span><span class="n">ex_create_public_ip</span><span class="p">(</span>
+            <span class="n">f</span><span class="s2">&quot;</span><span class="si">{name}</span><span class="s2">-ip&quot;</span><span class="p">,</span>
+            <span class="n">resource_group</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">resource_group</span>
+        <span class="p">)</span>
+
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">provider</span><span class="o">.</span><span class="n">ex_create_network_interface</span><span class="p">(</span>
+            <span class="n">name</span><span class="o">=</span><span class="n">f</span><span class="s2">&quot;</span><span class="si">{name}</span><span class="s2">-nic&quot;</span><span class="p">,</span>
+            <span class="n">subnet</span><span class="o">=</span><span class="n">subnet</span><span class="p">,</span>
+            <span class="n">resource_group</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">resource_group</span><span class="p">,</span>
+            <span class="n">public_ip</span><span class="o">=</span><span class="n">public_ip</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_ex_create_network</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cidr</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create a network</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;location&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">provider</span><span class="o">.</span><span class="n">default_location</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+            <span class="s2">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;addressSpace&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;addressPrefixes&quot;</span><span class="p">:</span> <span class="p">[</span>
+                        <span class="n">cidr</span>
+                    <span class="p">]</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="n">subscription</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">provider</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">subscription_id</span>
+        <span class="n">resource_group</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">resource_group</span>
+
+        <span class="n">action</span> <span class="o">=</span> <span class="n">f</span><span class="s2">&quot;/subscriptions/</span><span class="si">{subscription}</span><span class="s2">/resourceGroups/&quot;</span> \
+            <span class="n">f</span><span class="s2">&quot;</span><span class="si">{resource_group}</span><span class="s2">/providers/&quot;</span> \
+            <span class="s2">&quot;Microsoft.Network/virtualNetworks/</span><span class="si">{name}</span><span class="s2">&quot;</span>
+
+        <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">provider</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">request</span><span class="p">(</span>
+            <span class="n">action</span><span class="p">,</span>
+            <span class="n">params</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">api_version</span><span class="p">,</span>
+            <span class="n">method</span><span class="o">=</span><span class="s2">&quot;PUT&quot;</span><span class="p">,</span>
+            <span class="n">data</span><span class="o">=</span><span class="n">data</span>
+        <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">AzureNetwork</span><span class="p">(</span>
+            <span class="nb">id</span><span class="o">=</span><span class="n">r</span><span class="o">.</span><span class="n">object</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">],</span>
+            <span class="n">name</span><span class="o">=</span><span class="n">r</span><span class="o">.</span><span class="n">object</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">],</span>
+            <span class="n">location</span><span class="o">=</span><span class="n">r</span><span class="o">.</span><span class="n">object</span><span class="p">[</span><span class="s2">&quot;location&quot;</span><span class="p">],</span>
+            <span class="n">extra</span><span class="o">=</span><span class="n">r</span><span class="o">.</span><span class="n">object</span><span class="p">[</span><span class="s2">&quot;properties&quot;</span><span class="p">]</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_ex_delete_network</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Delete a network</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">subscription</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">provider</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">subscription_id</span>
+        <span class="n">resource_group</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">resource_group</span>
+
+        <span class="n">action</span> <span class="o">=</span> <span class="n">f</span><span class="s2">&quot;/subscriptions/</span><span class="si">{subscription}</span><span class="s2">/resourceGroups/&quot;</span> \
+            <span class="n">f</span><span class="s2">&quot;</span><span class="si">{resource_group}</span><span class="s2">/providers/&quot;</span> \
+            <span class="s2">&quot;Microsoft.Network/virtualNetworks/</span><span class="si">{name}</span><span class="s2">&quot;</span>
+
+        <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">provider</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">request</span><span class="p">(</span>
+            <span class="n">action</span><span class="p">,</span>
+            <span class="n">params</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">api_version</span><span class="p">,</span>
+            <span class="n">method</span><span class="o">=</span><span class="s2">&quot;DELETE&quot;</span>
+        <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">r</span>
+
+    <span class="k">def</span> <span class="nf">_ex_create_subnet</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cidr</span><span class="p">,</span> <span class="n">network_name</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create a subnet</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;addressPrefix&quot;</span><span class="p">:</span> <span class="n">cidr</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="n">subscription</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">provider</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">subscription_id</span>
+        <span class="n">resource_group</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">resource_group</span>
+
+        <span class="n">action</span> <span class="o">=</span> <span class="n">f</span><span class="s2">&quot;/subscriptions/</span><span class="si">{subscription}</span><span class="s2">/resourceGroups/&quot;</span> \
+            <span class="n">f</span><span class="s2">&quot;</span><span class="si">{resource_group}</span><span class="s2">/providers/&quot;</span> \
+            <span class="n">f</span><span class="s2">&quot;Microsoft.Network/virtualNetworks/&quot;</span> \
+            <span class="n">f</span><span class="s2">&quot;</span><span class="si">{network_name}</span><span class="s2">/subnets/</span><span class="si">{name}</span><span class="s2">&quot;</span>
+
+        <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">provider</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">request</span><span class="p">(</span>
+            <span class="n">action</span><span class="p">,</span>
+            <span class="n">params</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">api_version</span><span class="p">,</span>
+            <span class="n">method</span><span class="o">=</span><span class="s2">&quot;PUT&quot;</span><span class="p">,</span>
+            <span class="n">data</span><span class="o">=</span><span class="n">data</span>
+        <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">AzureSubnet</span><span class="p">(</span>
+            <span class="nb">id</span><span class="o">=</span><span class="n">r</span><span class="o">.</span><span class="n">object</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">],</span>
+            <span class="n">name</span><span class="o">=</span><span class="n">r</span><span class="o">.</span><span class="n">object</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">],</span>
+            <span class="n">extra</span><span class="o">=</span><span class="n">r</span><span class="o">.</span><span class="n">object</span><span class="p">[</span><span class="s2">&quot;properties&quot;</span><span class="p">]</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_ex_create_public_ip</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create a public IP resources.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">subscription</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">provider</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">subscription_id</span>
+        <span class="n">resource_group</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">resource_group</span>
+
+        <span class="n">target</span> <span class="o">=</span> <span class="n">f</span><span class="s2">&quot;/subscriptions/</span><span class="si">{subscription}</span><span class="s2">/resourceGroups/&quot;</span> \
+            <span class="n">f</span><span class="s2">&quot;</span><span class="si">{resource_group}</span><span class="s2">/&quot;</span> \
+            <span class="s2">&quot;providers/Microsoft.Network/publicIPAddresses/name&quot;</span>
+
+        <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;location&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">provider</span><span class="o">.</span><span class="n">default_location</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+            <span class="s2">&quot;tags&quot;</span><span class="p">:</span> <span class="p">{},</span>
+            <span class="s2">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;publicIPAllocationMethod&quot;</span><span class="p">:</span> <span class="s2">&quot;Dynamic&quot;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">request</span><span class="p">(</span>
+            <span class="n">target</span><span class="p">,</span>
+            <span class="n">params</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">api_version</span><span class="p">,</span>
+            <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
+            <span class="n">method</span><span class="o">=</span><span class="s1">&#39;PUT&#39;</span>
+        <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">AzureIPAddress</span><span class="p">(</span>
+            <span class="nb">id</span><span class="o">=</span><span class="n">r</span><span class="o">.</span><span class="n">object</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">],</span>
+            <span class="n">name</span><span class="o">=</span><span class="n">r</span><span class="o">.</span><span class="n">object</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">],</span>
+            <span class="n">extra</span><span class="o">=</span><span class="n">r</span><span class="o">.</span><span class="n">object</span><span class="p">[</span><span class="s2">&quot;properties&quot;</span><span class="p">]</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_ex_delete_public_ip</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Delete a public IP</span>
+<span class="sd">        :param name:</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">subscription</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">provider</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">subscription_id</span>
+        <span class="n">resource_group</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">resource_group</span>
+
+        <span class="n">action</span> <span class="o">=</span> <span class="n">f</span><span class="s2">&quot;/subscriptions/</span><span class="si">{subscription}</span><span class="s2">/resourceGroups/&quot;</span> \
+            <span class="n">f</span><span class="s2">&quot;</span><span class="si">{resource_group}</span><span class="s2">/providers/&quot;</span> \
+            <span class="n">f</span><span class="s2">&quot;Microsoft.Network/publicIPAddresses/</span><span class="si">{name}</span><span class="s2">&quot;</span>
+
+        <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">provider</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">request</span><span class="p">(</span>
+            <span class="n">action</span><span class="p">,</span>
+            <span class="n">params</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">api_version</span><span class="p">,</span>
+            <span class="n">method</span><span class="o">=</span><span class="s2">&quot;DELETE&quot;</span>
+        <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">r</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018-2019, Cloudmesh Community
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,512 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>cloudmesh.compute.openstack.test_openstacksdk &mdash; Cloudmesh v4 alpha documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Cloudmesh v4
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.0.28
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">PREFACE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../preface/about.html">1. About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../preface/contributors.html">2. Contributors</a></li>
+</ul>
+<p class="caption"><span class="caption-text">INSTALLATION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation/install.html">1. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation/quickstart.html">2. Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../configuration/configuration.html">3. Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation/mongo.html">4. Cloudmesh Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../configuration/encryption.html">5. Cloudmesh Yaml file Encrytion</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../cmd5.html">1. Cmd5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../reference-card.html">2. Reference Card (proposed)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual/commands.html">3. Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-cmd5.html">4. Manual Cmd5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-group.html">5. Manual Group</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-compute.html">6. Compute Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-storage.html">7. Storage Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-other.html">8. Manual Other</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/index.html">1. Cloudmesh Command API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/index.html#cloudmesh-api">2. Cloudmesh API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CONTRIBUTION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/conventions.html">1. Code Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/management.html">2. Code Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/management.html#documentation-management">3. Documentation Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/management.html#version-management">4. Version Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/pytest.html">5. Pytest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/manual.html">6. Manual Creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/todo.html">7. ToDo</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CLOUD ACCOUNTS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/aws.html">1. AWS Account Creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/azure.html">2. Azure Account Creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/google.html">3. Google Storage Providers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/box.html">4. Box Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/accountcreation-old.html">5. VM Providers (outdated)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Outdated:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../CM4README.html">1. CM4 Details (outdated)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../vcluster.html">2. Virtual Cluster (in progress)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CLOUD SERVICES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../group.html">1. Group command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../vm/vm.html">2. Virtual Machine Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../vm/image.html">3. Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../vm/flavor.html">4. Flavors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../storage/storage.html">5. Cloudmesh Multi Cloud Storage Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../workflow.html">6. Infrastructure Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../jupyter.html">7. Jupyter Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../hpc/batch.html">8. Batch</a></li>
+</ul>
+<p class="caption"><span class="caption-text">openapi</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../openapi/README-storage-openapi.html">1. Cloudmesh Multi Cloud Open API Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../openapi/ufo.html">2. REST Service (outdated)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">DATABASE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../storage/database.html">1. Cloudmesh Database</a></li>
+</ul>
+<p class="caption"><span class="caption-text">BENCHMARKS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../benchmarks/README.html">1. Benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../benchmarks/awsec2-vm-management-benchmark.html">2. AWS EC2 VM Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../benchmarks/awsec2_benchmark_ubuntu.html">3. AWS EC2 VM Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../benchmarks/awss3-storage-benchmark.html">4. AWS S3 File Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../benchmarks/azure-storage-benchmark.html">5. Azure Blob Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../benchmarks/box.html">6. Benchmark results for box Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../benchmarks/emr.html">7. AWS EMR Benchmarking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../benchmarks/test_compute_database.html">8. AWS EC2 Compute Database</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Cloudmesh v4</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>cloudmesh.compute.openstack.test_openstacksdk</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for cloudmesh.compute.openstack.test_openstacksdk</h1><div class="highlight"><pre>
+<span></span><span class="c1">#</span>
+<span class="c1"># python cloudmesh/compute/openstack/test_openstacksdk.py</span>
+<span class="c1">#</span>
+
+<span class="kn">from</span> <span class="nn">pprint</span> <span class="k">import</span> <span class="n">pprint</span>
+
+<span class="kn">import</span> <span class="nn">openstack</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="k">import</span> <span class="n">banner</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.management.configuration.config</span> <span class="k">import</span> <span class="n">Config</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">see : https://docs.openstack.org/openstacksdk/latest/user/guides/compute.html</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">cloudmesh4.yaml file</span>
+<span class="sd">        OS_AUTH_URL: https://openstack.tacc.chameleoncloud.org:5000/v2.0/tokens</span>
+<span class="sd">        OS_USERNAME: TBD</span>
+<span class="sd">        OS_PASSWORD: TBD</span>
+<span class="sd">        OS_TENANT_NAME: CH-819337</span>
+<span class="sd">        OS_TENANT_ID: CH-819337</span>
+<span class="sd">        OS_PROJECT_NAME: CH-819337</span>
+<span class="sd">        OS_PROJECT_DOMAIN_ID: default</span>
+<span class="sd">        OS_USER_DOMAIN_ID: default</span>
+<span class="sd">        OS_VERSION: liberty</span>
+<span class="sd">        OS_REGION_NAME: RegionOne</span>
+<span class="sd">        OS_KEY_PATH: ~/.ssh/id_rsa.pub</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+<div class="viewcode-block" id="credentials"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.test_openstacksdk.credentials">[docs]</a><span class="k">def</span> <span class="nf">credentials</span><span class="p">():</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="n">config</span> <span class="o">=</span> <span class="n">Config</span><span class="p">()[</span><span class="s2">&quot;cloudmesh.cloud.chameleon.credentials&quot;</span><span class="p">]</span>
+    <span class="n">d</span><span class="p">[</span><span class="s1">&#39;version&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;2&#39;</span>
+    <span class="n">d</span><span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;OS_USERNAME&#39;</span><span class="p">]</span>
+    <span class="n">d</span><span class="p">[</span><span class="s1">&#39;password&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;OS_PASSWORD&#39;</span><span class="p">]</span>
+    <span class="c1"># while libcloud uses token, here we do not use it in auth_url</span>
+    <span class="n">d</span><span class="p">[</span><span class="s1">&#39;auth_url&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;OS_AUTH_URL&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;/tokens&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="n">d</span><span class="p">[</span><span class="s1">&#39;project_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;OS_TENANT_NAME&#39;</span><span class="p">]</span>
+    <span class="n">d</span><span class="p">[</span><span class="s1">&#39;region_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;OS_REGION_NAME&#39;</span><span class="p">]</span>
+    <span class="c1"># d[&#39;project_domain_name&#39;] = config[&#39;OS_PROJECT_NAME&#39;]</span>
+    <span class="n">d</span><span class="p">[</span><span class="s1">&#39;tenant_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;OS_TENANT_ID&#39;</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">d</span></div>
+
+
+<span class="n">config</span> <span class="o">=</span> <span class="n">credentials</span><span class="p">()</span>
+
+
+<span class="n">command</span> <span class="o">=</span> <span class="s2">&quot;openstack --version --os-auth-url=</span><span class="si">{auth_url}</span><span class="s2"> &quot;</span> \
+              <span class="s2">&quot;--os-project-name=</span><span class="si">{project_id}</span><span class="s2"> --os-username=</span><span class="si">{username}</span><span class="s2"> &quot;</span> \
+              <span class="s2">&quot;--os-password=</span><span class="si">{password}</span><span class="s2"> -f=json&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">config</span><span class="p">)</span>
+    <span class="c1"># print (command)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="kc">False</span><span class="p">:</span>
+
+    <span class="n">pprint</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+
+    <span class="n">cloud</span> <span class="o">=</span> <span class="n">openstack</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="o">**</span><span class="n">config</span><span class="p">)</span>
+
+    <span class="n">pprint</span><span class="p">(</span><span class="nb">dir</span><span class="p">(</span><span class="n">cloud</span><span class="p">))</span>
+
+    <span class="c1"># pprint (cloud.list_floating_ips())</span>
+
+    <span class="c1"># print (cloud.available_floating_ip())</span>
+
+    <span class="c1"># print (cloud.create_floating_ip())</span>
+
+    <span class="c1"># ip =&#39;129.114.33.15&#39;</span>
+
+    <span class="c1"># print (cloud.delete_floating_ip(ip))</span>
+
+    <span class="c1"># provider = Provider(name=&quot;chameleon&quot;)</span>
+    <span class="c1"># pprint (cloud.list_floating_ips())</span>
+
+    <span class="c1"># r = provider.delete_public_ip(ip)</span>
+
+    <span class="c1"># print(r)</span>
+
+    <span class="n">server</span> <span class="o">=</span> <span class="n">cloud</span><span class="o">.</span><span class="n">get_server</span><span class="p">(</span><span class="s2">&quot;gregor-vm-3&quot;</span><span class="p">)</span>
+    <span class="n">ip</span> <span class="o">=</span> <span class="n">cloud</span><span class="o">.</span><span class="n">available_floating_ip</span><span class="p">()</span>
+
+    <span class="n">banner</span><span class="p">(</span><span class="s2">&quot;SERVER&quot;</span><span class="p">)</span>
+    <span class="n">pprint</span><span class="p">(</span><span class="n">server</span><span class="p">)</span>
+    <span class="n">banner</span><span class="p">(</span><span class="s2">&quot;IP&quot;</span><span class="p">)</span>
+    <span class="n">pprint</span><span class="p">(</span><span class="n">ip</span><span class="p">)</span>
+    <span class="n">pprint</span><span class="p">(</span><span class="n">cloud</span><span class="o">.</span><span class="n">add_ips_to_server</span><span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="n">ips</span><span class="o">=</span><span class="n">ip</span><span class="p">[</span><span class="s1">&#39;floating_ip_address&#39;</span><span class="p">]))</span>
+
+<span class="c1"># pprint(cloud.add_ip_list(server,ips=[ip]))</span>
+
+
+<span class="k">if</span> <span class="kc">False</span><span class="p">:</span>
+    <span class="n">command</span> <span class="o">=</span> <span class="s2">&quot;openstack security group list --os-auth-url=</span><span class="si">{auth_url}</span><span class="s2"> &quot;</span> \
+              <span class="s2">&quot;--os-project-name=</span><span class="si">{project_id}</span><span class="s2"> --os-username=</span><span class="si">{username}</span><span class="s2"> &quot;</span> \
+              <span class="s2">&quot;--os-password=</span><span class="si">{password}</span><span class="s2"> -f=json&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">config</span><span class="p">)</span>
+    <span class="c1"># print (command)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
+
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    [</span>
+<span class="sd">      {</span>
+<span class="sd">        &quot;ID&quot;: &quot;00555968-5dad-4544-88c9-91cff2a390e6&quot;,</span>
+<span class="sd">        &quot;Name&quot;: &quot;default&quot;,</span>
+<span class="sd">        &quot;Description&quot;: &quot;Default security group&quot;,</span>
+<span class="sd">        &quot;Project&quot;: &quot;CH-819337&quot;,</span>
+<span class="sd">        &quot;Tags&quot;: []</span>
+<span class="sd">      },</span>
+<span class="sd">      {</span>
+<span class="sd">        &quot;ID&quot;: &quot;6ae7c84f-1449-4770-9ee1-2428d0ea2513&quot;,</span>
+<span class="sd">        &quot;Name&quot;: &quot;couchdb&quot;,</span>
+<span class="sd">        &quot;Description&quot;: &quot;Couchdb security group&quot;,</span>
+<span class="sd">        &quot;Project&quot;: &quot;CH-819337&quot;,</span>
+<span class="sd">        &quot;Tags&quot;: []</span>
+<span class="sd">      },</span>
+<span class="sd">      {</span>
+<span class="sd">        &quot;ID&quot;: &quot;af1480e5-2e39-4958-9ba2-81f5dd7e008f&quot;,</span>
+<span class="sd">        &quot;Name&quot;: &quot;default_test&quot;,</span>
+<span class="sd">        &quot;Description&quot;: &quot;Security Group&quot;,</span>
+<span class="sd">        &quot;Project&quot;: &quot;CH-819337&quot;,</span>
+<span class="sd">        &quot;Tags&quot;: []</span>
+<span class="sd">      },</span>
+<span class="sd">      {</span>
+<span class="sd">        &quot;ID&quot;: &quot;f881d18d-162a-4ccb-a313-b8854afaed65&quot;,</span>
+<span class="sd">        &quot;Name&quot;: &quot;api&quot;,</span>
+<span class="sd">        &quot;Description&quot;: &quot;Security Group&quot;,</span>
+<span class="sd">        &quot;Project&quot;: &quot;CH-819337&quot;,</span>
+<span class="sd">        &quot;Tags&quot;: []</span>
+<span class="sd">      }</span>
+<span class="sd">    ]</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">command</span> <span class="o">=</span> <span class="s2">&quot;openstack security group rule list --os-auth-url=</span><span class="si">{auth_url}</span><span class="s2"> &quot;</span> \
+              <span class="s2">&quot;--os-project-name=</span><span class="si">{project_id}</span><span class="s2"> --os-username=</span><span class="si">{username}</span><span class="s2"> &quot;</span> \
+              <span class="s2">&quot;--os-password=</span><span class="si">{password}</span><span class="s2"> default -f=json&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">config</span><span class="p">)</span>
+    <span class="c1"># print (command)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
+
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    [</span>
+<span class="sd">      {</span>
+<span class="sd">        &quot;ID&quot;: &quot;22849a14-7a43-486c-a14c-4096d5b69f78&quot;,</span>
+<span class="sd">        &quot;IP Protocol&quot;: &quot;tcp&quot;,</span>
+<span class="sd">        &quot;IP Range&quot;: &quot;0.0.0.0/0&quot;,</span>
+<span class="sd">        &quot;Port Range&quot;: &quot;22:22&quot;,</span>
+<span class="sd">        &quot;Remote Security Group&quot;: null</span>
+<span class="sd">      },</span>
+<span class="sd">      {</span>
+<span class="sd">        &quot;ID&quot;: &quot;553d8b40-03c6-4fba-865c-652e9a0dbf68&quot;,</span>
+<span class="sd">        &quot;IP Protocol&quot;: &quot;icmp&quot;,</span>
+<span class="sd">        &quot;IP Range&quot;: &quot;0.0.0.0/0&quot;,</span>
+<span class="sd">        &quot;Port Range&quot;: &quot;&quot;,</span>
+<span class="sd">        &quot;Remote Security Group&quot;: null</span>
+<span class="sd">      },</span>
+<span class="sd">      {</span>
+<span class="sd">        &quot;ID&quot;: &quot;5bb1d82f-9a4f-4917-9f08-efe18a5cdbb1&quot;,</span>
+<span class="sd">        &quot;IP Protocol&quot;: null,</span>
+<span class="sd">        &quot;IP Range&quot;: null,</span>
+<span class="sd">        &quot;Port Range&quot;: &quot;&quot;,</span>
+<span class="sd">        &quot;Remote Security Group&quot;: null</span>
+<span class="sd">      },</span>
+<span class="sd">      {</span>
+<span class="sd">        &quot;ID&quot;: &quot;9ca4177c-21f4-4450-9826-d0241840a7b4&quot;,</span>
+<span class="sd">        &quot;IP Protocol&quot;: &quot;tcp&quot;,</span>
+<span class="sd">        &quot;IP Range&quot;: &quot;0.0.0.0/0&quot;,</span>
+<span class="sd">        &quot;Port Range&quot;: &quot;5000:5000&quot;,</span>
+<span class="sd">        &quot;Remote Security Group&quot;: null</span>
+<span class="sd">      },</span>
+<span class="sd">      {</span>
+<span class="sd">        &quot;ID&quot;: &quot;b5273c23-c140-4e99-a634-46323c0945ae&quot;,</span>
+<span class="sd">        &quot;IP Protocol&quot;: &quot;tcp&quot;,</span>
+<span class="sd">        &quot;IP Range&quot;: &quot;0.0.0.0/0&quot;,</span>
+<span class="sd">        &quot;Port Range&quot;: &quot;80:80&quot;,</span>
+<span class="sd">        &quot;Remote Security Group&quot;: null</span>
+<span class="sd">      },</span>
+<span class="sd">      {</span>
+<span class="sd">        &quot;ID&quot;: &quot;c22a7681-93b0-4082-96ac-ba779a672943&quot;,</span>
+<span class="sd">        &quot;IP Protocol&quot;: null,</span>
+<span class="sd">        &quot;IP Range&quot;: null,</span>
+<span class="sd">        &quot;Port Range&quot;: &quot;&quot;,</span>
+<span class="sd">        &quot;Remote Security Group&quot;: null</span>
+<span class="sd">      },</span>
+<span class="sd">      {</span>
+<span class="sd">        &quot;ID&quot;: &quot;f1c86b45-5606-4844-a0b9-cad2c91bb3b5&quot;,</span>
+<span class="sd">        &quot;IP Protocol&quot;: &quot;tcp&quot;,</span>
+<span class="sd">        &quot;IP Range&quot;: &quot;0.0.0.0/0&quot;,</span>
+<span class="sd">        &quot;Port Range&quot;: &quot;443:443&quot;,</span>
+<span class="sd">        &quot;Remote Security Group&quot;: null</span>
+<span class="sd">      }</span>
+<span class="sd">    ]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<span class="k">if</span> <span class="kc">False</span><span class="p">:</span>
+    <span class="n">banner</span><span class="p">(</span><span class="s2">&quot;Flavors&quot;</span><span class="p">)</span>
+    <span class="n">flavors</span> <span class="o">=</span> <span class="n">cloud</span><span class="o">.</span><span class="n">compute</span><span class="o">.</span><span class="n">flavors</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">flavors</span><span class="p">:</span>
+        <span class="n">pprint</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="kc">False</span><span class="p">:</span>
+    <span class="n">banner</span><span class="p">(</span><span class="s2">&quot;Images&quot;</span><span class="p">)</span>
+
+    <span class="n">images</span> <span class="o">=</span> <span class="n">cloud</span><span class="o">.</span><span class="n">compute</span><span class="o">.</span><span class="n">images</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">images</span><span class="p">:</span>
+        <span class="n">pprint</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="kc">False</span><span class="p">:</span>
+    <span class="n">banner</span><span class="p">(</span><span class="s2">&quot;Servers&quot;</span><span class="p">)</span>
+
+    <span class="n">servers</span> <span class="o">=</span> <span class="n">cloud</span><span class="o">.</span><span class="n">compute</span><span class="o">.</span><span class="n">servers</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">servers</span><span class="p">:</span>
+        <span class="n">pprint</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="kc">False</span><span class="p">:</span>  <span class="c1"># does not work</span>
+    <span class="n">banner</span><span class="p">(</span><span class="s2">&quot;Secrets&quot;</span><span class="p">)</span>
+
+    <span class="n">keys</span> <span class="o">=</span> <span class="n">cloud</span><span class="o">.</span><span class="n">key_manager</span><span class="o">.</span><span class="n">secrets</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">keys</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="kc">False</span><span class="p">:</span>
+    <span class="n">command</span> <span class="o">=</span> <span class="s2">&quot;openstack keypair list --os-auth-url=</span><span class="si">{auth_url}</span><span class="s2"> &quot;</span> \
+              <span class="s2">&quot;--os-project-name=</span><span class="si">{project_id}</span><span class="s2"> --os-username=</span><span class="si">{username}</span><span class="s2"> &quot;</span> \
+              <span class="s2">&quot;--os-password=</span><span class="si">{password}</span><span class="s2"> -f=json&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">config</span><span class="p">)</span>
+    <span class="c1"># print (command)</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">Shell</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">d</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">def list_secrets_query(conn):</span>
+<span class="sd">    print(&quot;List Secrets:&quot;)</span>
+
+<span class="sd">    for secret in conn.key_manager.secrets(</span>
+<span class="sd">            secret_type=&quot;symmetric&quot;,</span>
+<span class="sd">            expiration=&quot;gte:2020-01-01T00:00:00&quot;):</span>
+<span class="sd">        print(secret)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018-2019, Cloudmesh Community
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
