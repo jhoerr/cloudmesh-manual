@@ -1,11 +1,12 @@
+q
+=
 
-Usage:
+::
 
-       man [--format=FORMAT] COMMAND
-       man [--format=FORMAT] [--noheader]
+  Usage:
+    quit
 
-ERROR: Could not execute the command. Please check usage with
+  Description:
+    Action to be performed when quit is typed
 
-    cms help man
-
-Timer: 0.0049s (man --kind=rst q)
+Timer: 0.0054s (man q --format=rst)

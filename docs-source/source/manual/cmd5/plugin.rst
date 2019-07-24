@@ -1,11 +1,25 @@
+plugin
+======
 
-Usage:
+::
 
-       man [--format=FORMAT] COMMAND
-       man [--format=FORMAT] [--noheader]
+  Usage:
+    plugin install PLUGIN [-s]
+    plugin uninstall PLUGIN
+    plugin list
+    plugin ? [--format=FORMAT]
 
-ERROR: Could not execute the command. Please check usage with
+  Arguments:
+    PLUGIN   the name of the plugin
 
-    cms help man
+  Description:
+    plugin available
+        lists the available plugins
+    plugin list
+        lists the plugin
+    plugin install
+        installs the given plugin
+    plugin uninstall
+        uninstalls the given plugin
 
-Timer: 0.0050s (man --kind=rst plugin)
+Timer: 0.0054s (man plugin --format=rst)

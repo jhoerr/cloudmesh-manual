@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>&lt;no title&gt; &mdash; Cloudmesh v4 alpha documentation</title>
+  <title>5.13. group &mdash; Cloudmesh v4 alpha documentation</title>
   
 
   
@@ -37,7 +37,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="6. Storage Manual Pages" href="../../manual-storage.html" />
-    <link rel="prev" title="&lt;no title&gt;" href="container.html" /> 
+    <link rel="prev" title="5.12. container" href="container.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -119,12 +119,27 @@
 <li class="toctree-l1"><a class="reference internal" href="../../openapi/ufo.html">2. REST Service (outdated)</a></li>
 </ul>
 <p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../reference-card.html">1. Reference Card (proposed)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../commands.html">2. Commands</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../manual-cmd5.html">3. Manual Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../manual-group.html">4. Manual Group</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../manual-compute.html">5. Compute Manual Pages</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../manual-compute.html">5. Compute Manual Pages</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="flavor.html">5.1. flavor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="image.html">5.2. image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="key.html">5.3. key</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ip.html">5.4. ip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="open.html">5.5. open</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ssh.html">5.6. ssh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vbox.html">5.7. vbox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vcluster.html">5.8. vcluster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vm.html">5.9. vm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow.html">5.10. workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config.html">5.11. config</a></li>
+<li class="toctree-l2"><a class="reference internal" href="container.html">5.12. container</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">5.13. group</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../manual-storage.html">6. Storage Manual Pages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../manual-other.html">7. Manual Other</a></li>
 </ul>
@@ -227,7 +242,7 @@
         
           <li><a href="../../manual-compute.html">5. Compute Manual Pages</a> &raquo;</li>
         
-      <li>&lt;no title&gt;</li>
+      <li>5.13. group</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -246,16 +261,66 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <p>Usage:</p>
-<blockquote>
-<div><p>man [–format=FORMAT] COMMAND
-man [–format=FORMAT] [–noheader]</p>
-</div></blockquote>
-<p>ERROR: Could not execute the command. Please check usage with</p>
-<blockquote>
-<div><p>cms help man</p>
-</div></blockquote>
-<p>Timer: 0.0048s (man –kind=rst group)</p>
+  <div class="section" id="group">
+<h1>5.13. group<a class="headerlink" href="#group" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Usage</span><span class="p">:</span>
+    <span class="n">group</span> <span class="nb">list</span> <span class="p">[</span><span class="n">GROUPNAME</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="nb">format</span><span class="o">=</span><span class="n">FORMAT</span><span class="p">]</span>
+    <span class="n">group</span> <span class="n">remove</span> <span class="n">NAMES</span> <span class="p">[</span><span class="o">--</span><span class="n">group</span><span class="o">=</span><span class="n">GROUPNAME</span><span class="p">]</span>
+    <span class="n">group</span> <span class="n">add</span> <span class="n">NAMES</span> <span class="p">[</span><span class="o">--</span><span class="nb">type</span><span class="o">=</span><span class="n">TYPE</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">group</span><span class="o">=</span><span class="n">GROUPNAME</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="nb">format</span><span class="o">=</span><span class="n">FORMAT</span><span class="p">]</span>
+    <span class="n">group</span> <span class="n">delete</span> <span class="n">GROUPS</span>
+    <span class="n">group</span> <span class="n">copy</span> <span class="n">FROM</span> <span class="n">TO</span>
+    <span class="n">group</span> <span class="n">merge</span> <span class="n">GROUPA</span> <span class="n">GROUPB</span> <span class="n">MERGEDGROUP</span>
+
+<span class="n">manage</span> <span class="n">the</span> <span class="n">groups</span>
+
+<span class="n">Arguments</span><span class="p">:</span>
+
+    <span class="n">NAMES</span>        <span class="n">names</span> <span class="n">of</span> <span class="nb">object</span> <span class="n">to</span> <span class="n">be</span> <span class="n">added</span>
+    <span class="n">GROUPS</span>       <span class="n">names</span> <span class="n">of</span> <span class="n">a</span> <span class="n">groups</span>
+    <span class="n">FROM</span>         <span class="n">name</span> <span class="n">of</span> <span class="n">a</span> <span class="n">group</span>
+    <span class="n">TO</span>           <span class="n">name</span> <span class="n">of</span> <span class="n">a</span> <span class="n">group</span>
+    <span class="n">GROUPA</span>       <span class="n">name</span> <span class="n">of</span> <span class="n">a</span> <span class="n">group</span>
+    <span class="n">GROUPB</span>       <span class="n">name</span> <span class="n">of</span> <span class="n">a</span> <span class="n">group</span>
+    <span class="n">MERGEDGROUP</span>  <span class="n">name</span> <span class="n">of</span> <span class="n">a</span> <span class="n">group</span>
+
+<span class="n">Options</span><span class="p">:</span>
+    <span class="o">--</span><span class="nb">format</span><span class="o">=</span><span class="n">FORMAT</span>     <span class="n">the</span> <span class="n">output</span> <span class="nb">format</span> <span class="p">[</span><span class="n">default</span><span class="p">:</span> <span class="n">table</span><span class="p">]</span>
+    <span class="o">--</span><span class="nb">type</span><span class="o">=</span><span class="n">TYPE</span>         <span class="n">the</span> <span class="n">resource</span> <span class="nb">type</span>
+    <span class="o">--</span><span class="n">name</span><span class="o">=</span><span class="n">NAME</span>         <span class="n">the</span> <span class="n">name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">group</span>
+    <span class="o">--</span><span class="nb">id</span><span class="o">=</span><span class="n">IDS</span>            <span class="n">the</span> <span class="n">ID</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="n">to</span> <span class="n">add</span> <span class="n">to</span> <span class="n">the</span> <span class="n">group</span>
+
+
+<span class="n">Description</span><span class="p">:</span>
+
+    <span class="n">cloudmesh</span> <span class="n">can</span> <span class="n">manage</span> <span class="n">groups</span> <span class="n">of</span> <span class="n">resources</span><span class="o">.</span> <span class="n">Operations</span> <span class="n">can</span> <span class="n">be</span>
+    <span class="n">performed</span> <span class="n">on</span> <span class="n">these</span> <span class="n">groups</span> <span class="n">including</span> <span class="n">termination</span> <span class="n">of</span> <span class="n">services</span> <span class="n">that</span>
+    <span class="n">are</span> <span class="n">registered</span> <span class="k">with</span> <span class="n">the</span> <span class="n">group</span><span class="o">.</span>
+
+    <span class="n">A</span> <span class="n">defualt</span> <span class="n">grup</span> <span class="n">can</span> <span class="n">be</span> <span class="nb">set</span> <span class="k">with</span> <span class="n">the</span> <span class="n">command</span>
+
+      <span class="n">cms</span> <span class="nb">set</span> <span class="n">group</span><span class="o">=</span><span class="n">GROUPNAME</span>
+
+    <span class="n">where</span> <span class="n">GROUPNAME</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">group</span> <span class="n">to</span> <span class="n">which</span> <span class="nb">all</span> <span class="n">future</span> <span class="n">resources</span> <span class="n">be</span>
+    <span class="n">added</span><span class="o">.</span> <span class="n">The</span> <span class="n">group</span> <span class="n">can</span> <span class="n">also</span> <span class="n">be</span> <span class="nb">set</span> <span class="k">as</span> <span class="n">part</span> <span class="n">of</span> <span class="n">other</span> <span class="n">commands</span> <span class="k">with</span>
+    <span class="n">the</span> <span class="o">--</span><span class="n">group</span><span class="o">=</span><span class="n">GROUPNAME</span> <span class="n">option</span><span class="o">.</span>
+
+
+<span class="n">Example</span><span class="p">:</span>
+    <span class="nb">set</span> <span class="n">group</span><span class="o">=</span><span class="n">mygroup</span>
+
+    <span class="n">group</span> <span class="n">add</span> <span class="o">--</span><span class="nb">type</span><span class="o">=</span><span class="n">vm</span> <span class="o">--</span><span class="nb">id</span><span class="o">=</span><span class="n">albert</span><span class="o">-</span><span class="p">[</span><span class="mi">001</span><span class="o">-</span><span class="mi">003</span><span class="p">]</span>
+        <span class="n">adds</span> <span class="n">the</span> <span class="n">vms</span> <span class="k">with</span> <span class="n">the</span> <span class="n">given</span> <span class="n">name</span> <span class="n">using</span> <span class="n">the</span> <span class="n">Parameter</span>
+        <span class="n">see</span> <span class="n">base</span>
+
+    <span class="n">group</span> <span class="n">add</span> <span class="o">--</span><span class="nb">type</span><span class="o">=</span><span class="n">vm</span>
+     <span class="n">adds</span> <span class="n">the</span> <span class="n">last</span> <span class="n">vm</span> <span class="n">to</span> <span class="n">the</span> <span class="n">group</span>
+
+    <span class="n">group</span> <span class="n">delete</span> <span class="o">--</span><span class="n">name</span><span class="o">=</span><span class="n">mygroup</span>
+        <span class="n">deletes</span> <span class="nb">all</span> <span class="n">objects</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">group</span>
+</pre></div>
+</div>
+<p>Timer: 0.0063s (man group –format=rst)</p>
+</div>
 
 
            </div>
@@ -268,7 +333,7 @@ man [–format=FORMAT] [–noheader]</p>
         <a href="../../manual-storage.html" class="btn btn-neutral float-right" title="6. Storage Manual Pages" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="container.html" class="btn btn-neutral float-left" title="&lt;no title&gt;" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="container.html" class="btn btn-neutral float-left" title="5.12. container" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

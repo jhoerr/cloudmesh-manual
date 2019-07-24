@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>&lt;no title&gt; &mdash; Cloudmesh v4 alpha documentation</title>
+  <title>5.11. config &mdash; Cloudmesh v4 alpha documentation</title>
   
 
   
@@ -36,7 +36,7 @@
   <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="container.html" />
+    <link rel="next" title="5.12. container" href="container.html" />
     <link rel="prev" title="&lt;no title&gt;" href="yaml.html" /> 
 </head>
 
@@ -119,12 +119,27 @@
 <li class="toctree-l1"><a class="reference internal" href="../../openapi/ufo.html">2. REST Service (outdated)</a></li>
 </ul>
 <p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../reference-card.html">1. Reference Card (proposed)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../commands.html">2. Commands</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../manual-cmd5.html">3. Manual Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../manual-group.html">4. Manual Group</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../manual-compute.html">5. Compute Manual Pages</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../manual-compute.html">5. Compute Manual Pages</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="flavor.html">5.1. flavor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="image.html">5.2. image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="key.html">5.3. key</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ip.html">5.4. ip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="open.html">5.5. open</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ssh.html">5.6. ssh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vbox.html">5.7. vbox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vcluster.html">5.8. vcluster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vm.html">5.9. vm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow.html">5.10. workflow</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">5.11. config</a></li>
+<li class="toctree-l2"><a class="reference internal" href="container.html">5.12. container</a></li>
+<li class="toctree-l2"><a class="reference internal" href="group.html">5.13. group</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../manual-storage.html">6. Storage Manual Pages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../manual-other.html">7. Manual Other</a></li>
 </ul>
@@ -227,7 +242,7 @@
         
           <li><a href="../../manual-compute.html">5. Compute Manual Pages</a> &raquo;</li>
         
-      <li>&lt;no title&gt;</li>
+      <li>5.11. config</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -246,16 +261,80 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <p>Usage:</p>
-<blockquote>
-<div><p>man [–format=FORMAT] COMMAND
-man [–format=FORMAT] [–noheader]</p>
-</div></blockquote>
-<p>ERROR: Could not execute the command. Please check usage with</p>
-<blockquote>
-<div><p>cms help man</p>
-</div></blockquote>
-<p>Timer: 0.0060s (man –kind=rst config)</p>
+  <div class="section" id="config">
+<h1>5.11. config<a class="headerlink" href="#config" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Usage</span><span class="p">:</span>
+  <span class="n">config</span>  <span class="o">-</span><span class="n">h</span> <span class="o">|</span> <span class="o">--</span><span class="n">help</span>
+  <span class="n">config</span> <span class="n">cat</span> <span class="p">[</span><span class="n">less</span><span class="p">]</span>
+  <span class="n">config</span> <span class="n">check</span>
+  <span class="n">config</span> <span class="n">encrypt</span> <span class="p">[</span><span class="n">SOURCE</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">keep</span><span class="p">]</span>
+  <span class="n">config</span> <span class="n">decrypt</span> <span class="p">[</span><span class="n">SOURCE</span><span class="p">]</span>
+  <span class="n">config</span> <span class="n">edit</span> <span class="p">[</span><span class="n">ATTRIBUTE</span><span class="p">]</span>
+  <span class="n">config</span> <span class="nb">set</span> <span class="n">ATTRIBUTE</span><span class="o">=</span><span class="n">VALUE</span>
+  <span class="n">config</span> <span class="n">get</span> <span class="n">ATTRIBUTE</span> <span class="p">[</span><span class="o">--</span><span class="n">ouput</span><span class="o">=</span><span class="n">OUTPUT</span><span class="p">]</span>
+  <span class="n">config</span> <span class="n">ssh</span> <span class="n">keygen</span>
+  <span class="n">config</span> <span class="n">ssh</span> <span class="n">verify</span>
+  <span class="n">config</span> <span class="n">ssh</span> <span class="n">check</span>
+  <span class="n">config</span> <span class="n">ssh</span> <span class="n">pem</span>
+  <span class="n">config</span> <span class="n">cloud</span> <span class="n">verify</span> <span class="n">NAME</span> <span class="p">[</span><span class="n">KIND</span><span class="p">]</span>
+  <span class="n">config</span> <span class="n">cloud</span> <span class="n">edit</span> <span class="p">[</span><span class="n">NAME</span><span class="p">]</span> <span class="p">[</span><span class="n">KIND</span><span class="p">]</span>
+  <span class="n">config</span> <span class="n">cloud</span> <span class="nb">list</span> <span class="n">NAME</span> <span class="p">[</span><span class="n">KIND</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">secrets</span><span class="p">]</span>
+
+
+<span class="n">Arguments</span><span class="p">:</span>
+  <span class="n">SOURCE</span>           <span class="n">the</span> <span class="n">file</span> <span class="n">to</span> <span class="n">encrypted</span> <span class="ow">or</span> <span class="n">decrypted</span><span class="o">.</span>
+                   <span class="n">an</span> <span class="o">.</span><span class="n">enc</span> <span class="ow">is</span> <span class="n">added</span> <span class="n">to</span> <span class="n">the</span> <span class="n">filename</span> <span class="ow">or</span> <span class="n">removed</span> <span class="n">form</span> <span class="n">it</span>
+                   <span class="n">dependent</span> <span class="n">of</span> <span class="k">if</span> <span class="n">you</span> <span class="n">encrypt</span> <span class="ow">or</span> <span class="n">decrypt</span>
+  <span class="n">ATTRIBUTE</span><span class="o">=</span><span class="n">VALUE</span>  <span class="n">sets</span> <span class="n">the</span> <span class="n">attribute</span> <span class="k">with</span> <span class="o">.</span> <span class="n">notation</span> <span class="ow">in</span> <span class="n">the</span>
+                   <span class="n">configuration</span> <span class="n">file</span><span class="o">.</span>
+  <span class="n">ATTRIBUTE</span>        <span class="n">reads</span> <span class="n">the</span> <span class="n">attribute</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">container</span> <span class="ow">and</span> <span class="n">sets</span> <span class="n">it</span>
+                   <span class="ow">in</span> <span class="n">the</span> <span class="n">configuration</span> <span class="n">file</span>
+                   <span class="n">If</span> <span class="n">the</span> <span class="n">attribute</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">password</span><span class="p">,</span> <span class="o">*</span> <span class="ow">is</span> <span class="n">written</span> <span class="n">instead</span>
+                   <span class="n">of</span> <span class="n">the</span> <span class="n">character</span> <span class="n">included</span>
+
+<span class="n">Options</span><span class="p">:</span>
+   <span class="o">--</span><span class="n">name</span><span class="o">=</span><span class="n">KEYNAME</span>     <span class="n">The</span> <span class="n">name</span> <span class="n">of</span> <span class="n">a</span> <span class="n">key</span>
+   <span class="o">--</span><span class="n">outpu</span><span class="o">=</span><span class="n">OUTPUT</span>     <span class="n">The</span> <span class="n">output</span> <span class="nb">format</span> <span class="p">[</span><span class="n">default</span><span class="p">:</span> <span class="n">yaml</span><span class="p">]</span>
+   <span class="o">--</span><span class="n">secrets</span>          <span class="n">Print</span> <span class="n">the</span> <span class="n">secrets</span><span class="o">.</span> <span class="n">Use</span> <span class="n">carefully</span><span class="o">.</span>
+
+<span class="n">Description</span><span class="p">:</span>
+
+  <span class="n">config</span> <span class="n">check</span>
+     <span class="n">checks</span> <span class="k">if</span> <span class="n">the</span> <span class="n">ssh</span> <span class="n">key</span> <span class="o">~/.</span><span class="n">ssh</span><span class="o">/</span><span class="n">id_rsa</span> <span class="n">has</span> <span class="n">a</span> <span class="n">password</span><span class="o">.</span> <span class="n">Verifies</span> <span class="n">it</span>
+     <span class="n">through</span> <span class="n">entering</span> <span class="n">the</span> <span class="n">passphrase</span>
+
+  <span class="n">Key</span> <span class="n">generation</span>
+
+     <span class="n">Keys</span> <span class="n">must</span> <span class="n">be</span> <span class="n">generated</span> <span class="k">with</span>
+
+         <span class="n">ssh</span><span class="o">-</span><span class="n">keygen</span> <span class="o">-</span><span class="n">t</span> <span class="n">rsa</span> <span class="o">-</span><span class="n">m</span> <span class="n">pem</span>
+         <span class="n">openssl</span> <span class="n">rsa</span> <span class="o">-</span><span class="ow">in</span> <span class="o">~/.</span><span class="n">ssh</span><span class="o">/</span><span class="n">id_rsa</span> <span class="o">-</span><span class="n">out</span> <span class="o">~/.</span><span class="n">ssh</span><span class="o">/</span><span class="n">id_rsa</span><span class="o">.</span><span class="n">pem</span>
+
+     <span class="ow">or</span>
+         <span class="n">cms</span> <span class="n">config</span> <span class="n">ssh</span> <span class="n">keygen</span>
+
+     <span class="n">Key</span> <span class="n">validity</span> <span class="n">can</span> <span class="n">be</span> <span class="n">checked</span> <span class="k">with</span>
+
+         <span class="n">cms</span> <span class="n">config</span> <span class="n">check</span>
+
+     <span class="n">The</span> <span class="n">key</span> <span class="n">password</span> <span class="n">can</span> <span class="n">be</span> <span class="n">verified</span> <span class="k">with</span>
+
+         <span class="n">cms</span> <span class="n">config</span> <span class="n">verify</span>
+
+
+     <span class="n">ssh</span><span class="o">-</span><span class="n">add</span>
+
+     <span class="n">cms</span> <span class="n">config</span> <span class="n">encrypt</span> <span class="o">~/.</span><span class="n">cloudmesh</span><span class="o">/</span><span class="n">cloudmesh4</span><span class="o">.</span><span class="n">yaml</span>
+     <span class="n">cms</span> <span class="n">config</span> <span class="n">decrypt</span> <span class="o">~/.</span><span class="n">cloudmesh</span><span class="o">/</span><span class="n">cloudmesh4</span><span class="o">.</span><span class="n">yaml</span>
+
+
+     <span class="n">config</span> <span class="nb">set</span> <span class="n">ATTRIBUTE</span><span class="o">=</span><span class="n">VALUE</span>
+
+         <span class="n">config</span> <span class="nb">set</span> <span class="n">profile</span><span class="o">.</span><span class="n">name</span><span class="o">=</span><span class="n">Gregor</span>
+</pre></div>
+</div>
+<p>Timer: 0.0053s (man config –format=rst)</p>
+</div>
 
 
            </div>
@@ -265,7 +344,7 @@ man [–format=FORMAT] [–noheader]</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="container.html" class="btn btn-neutral float-right" title="&lt;no title&gt;" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="container.html" class="btn btn-neutral float-right" title="5.12. container" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="yaml.html" class="btn btn-neutral float-left" title="&lt;no title&gt;" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

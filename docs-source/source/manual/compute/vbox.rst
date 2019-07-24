@@ -1,11 +1,20 @@
+vbox
+====
 
-Usage:
+::
 
-       man [--format=FORMAT] COMMAND
-       man [--format=FORMAT] [--noheader]
+  Usage:
+    vbox version [--output=OUTPUT]
+    vbox image list [--output=OUTPUT]
+    vbox image find KEYWORDS...
+    vbox image add NAME
+    vbox image delete NAME
+    vbox vm info NAME
+    vbox vm list [--output=OUTPUT] [-v]
+    vbox vm delete NAME
+    vbox vm ip [NAME] [--all]
+    vbox vm create [NAME] ([--memory=MEMORY] [--image=IMAGE] [--port=PORT] [--script=SCRIPT]  | list)
+    vbox vm boot [NAME] ([--memory=MEMORY] [--image=IMAGE] [--port=PORT] [--script=SCRIPT] | list)
+    vbox vm ssh [NAME] [-e COMMAND]
 
-ERROR: Could not execute the command. Please check usage with
-
-    cms help man
-
-Timer: 0.0051s (man --kind=rst vbox)
+Timer: 0.0056s (man vbox --format=rst)

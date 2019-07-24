@@ -1,11 +1,18 @@
+echo
+====
 
-Usage:
+::
 
-       man [--format=FORMAT] COMMAND
-       man [--format=FORMAT] [--noheader]
+  Usage:
+    echo  [-r COLOR] TEXT
 
-ERROR: Could not execute the command. Please check usage with
+    Arguments:
+        TEXT   The text message to print
+        COLOR  the color
 
-    cms help man
+    Options:
+        -r COLOR  The color of the text. [default: BLACK]
 
-Timer: 0.0054s (man --kind=rst echo)
+    Prints a text in the given color
+
+Timer: 0.0054s (man echo --format=rst)

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>&lt;no title&gt; &mdash; Cloudmesh v4 alpha documentation</title>
+  <title>5.6. ssh &mdash; Cloudmesh v4 alpha documentation</title>
   
 
   
@@ -36,7 +36,7 @@
   <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="vbox.html" />
+    <link rel="next" title="5.7. vbox" href="vbox.html" />
     <link rel="prev" title="&lt;no title&gt;" href="secgroup.html" /> 
 </head>
 
@@ -119,12 +119,27 @@
 <li class="toctree-l1"><a class="reference internal" href="../../openapi/ufo.html">2. REST Service (outdated)</a></li>
 </ul>
 <p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../reference-card.html">1. Reference Card (proposed)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../commands.html">2. Commands</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../manual-cmd5.html">3. Manual Cmd5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../manual-group.html">4. Manual Group</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../manual-compute.html">5. Compute Manual Pages</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../manual-compute.html">5. Compute Manual Pages</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="flavor.html">5.1. flavor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="image.html">5.2. image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="key.html">5.3. key</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ip.html">5.4. ip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="open.html">5.5. open</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">5.6. ssh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vbox.html">5.7. vbox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vcluster.html">5.8. vcluster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vm.html">5.9. vm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow.html">5.10. workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config.html">5.11. config</a></li>
+<li class="toctree-l2"><a class="reference internal" href="container.html">5.12. container</a></li>
+<li class="toctree-l2"><a class="reference internal" href="group.html">5.13. group</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../manual-storage.html">6. Storage Manual Pages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../manual-other.html">7. Manual Other</a></li>
 </ul>
@@ -227,7 +242,7 @@
         
           <li><a href="../../manual-compute.html">5. Compute Manual Pages</a> &raquo;</li>
         
-      <li>&lt;no title&gt;</li>
+      <li>5.6. ssh</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -246,16 +261,69 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <p>Usage:</p>
-<blockquote>
-<div><p>man [–format=FORMAT] COMMAND
-man [–format=FORMAT] [–noheader]</p>
-</div></blockquote>
-<p>ERROR: Could not execute the command. Please check usage with</p>
-<blockquote>
-<div><p>cms help man</p>
-</div></blockquote>
-<p>Timer: 0.0052s (man –kind=rst ssh)</p>
+  <div class="section" id="ssh">
+<h1>5.6. ssh<a class="headerlink" href="#ssh" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Usage:
+    ssh config list [--output=OUTPUT]
+    ssh config add NAME IP [USER] [KEY]
+    ssh config delete NAME
+    ssh host delete NAME
+    ssh host add NAME
+    ssh [--name=VMs] [--user=USERs] [COMMAND]
+
+Arguments:
+  NAME        Name or ip of the machine to log in
+  list        Lists the machines that are registered and
+              the commands to login to them
+  PARAMETERS  Register te resource and add the given
+              parameters to the ssh config file.  if the
+              resource exists, it will be overwritten. The
+              information will be written in /.ssh/config
+
+Options:
+   -v                verbose mode
+   --output=OUTPUT   the format in which this list is given
+                     formats includes cat, table, json, yaml,
+                     dict. If cat is used, it is just printed as
+                     is. [default: table]
+   --user=USERs      overwrites the username that is
+                     specified in ~/.ssh/config
+   --name=CMs        the names of the VMS to execute the
+                     command on
+
+Description:
+    ssh config list
+        lists the hostsnames that are present in the
+        ~/.ssh/config file
+
+    ssh config add NAME IP [USER] [KEY]
+        registers a host i ~/.ssh/config file
+        Parameters are attribute=value pairs
+        Note: Note yet implemented
+
+    ssh [--name=VMs] [--user=USERs] [COMMAND]
+        executes the command on the named hosts. If user is
+        specified and is greater than 1, it must be specified for
+        each vm. If only one username is specified it is used for
+        all vms. However, as the user is typically specified in the
+        cloudmesh database, you probably do not have to specify
+        it as it is automatically found.
+
+Examples:
+
+
+     ssh config add blue 192.168.1.245 blue
+
+         Adds the following to the !/.ssh/config file
+
+         Host blue
+              HostName 192.168.1.245
+              User blue
+              IdentityFile ~/.ssh/id_rsa.pub
+</pre></div>
+</div>
+<p>Timer: 0.0054s (man ssh –format=rst)</p>
+</div>
 
 
            </div>
@@ -265,7 +333,7 @@ man [–format=FORMAT] [–noheader]</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="vbox.html" class="btn btn-neutral float-right" title="&lt;no title&gt;" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="vbox.html" class="btn btn-neutral float-right" title="5.7. vbox" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="secgroup.html" class="btn btn-neutral float-left" title="&lt;no title&gt;" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

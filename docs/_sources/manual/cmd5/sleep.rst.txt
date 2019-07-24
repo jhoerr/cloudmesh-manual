@@ -1,11 +1,11 @@
+sleep
+=====
 
-Usage:
+::
 
-       man [--format=FORMAT] COMMAND
-       man [--format=FORMAT] [--noheader]
+  Usage:
+    sleep SECONDS
 
-ERROR: Could not execute the command. Please check usage with
+  Clears the screen.
 
-    cms help man
-
-Timer: 0.0047s (man --kind=rst sleep)
+Timer: 0.0054s (man sleep --format=rst)

@@ -1,11 +1,27 @@
+version
+=======
 
-Usage:
+::
 
-       man [--format=FORMAT] COMMAND
-       man [--format=FORMAT] [--noheader]
+  Usage:
+    version pip [PACKAGE]
+    version [--format=FORMAT] [--check=CHECK]
 
-ERROR: Could not execute the command. Please check usage with
 
-    cms help man
+  Options:
+    --format=FORMAT  the format to print the versions in [default: table]
+    --check=CHECK    boolean tp conduct an additional check [default: True]
 
-Timer: 0.0050s (man --kind=rst version)
+  Description:
+    version 
+        Prints out the version number
+    version pip
+        Prints the contents of pip list
+
+  Limitations:
+    Package names must not have a . in them instead you need to use -
+    Thus to query for cloudmesh-cmd5 use
+
+      cms version pip cloudmesh-cmd5
+
+Timer: 0.0059s (man version --format=rst)

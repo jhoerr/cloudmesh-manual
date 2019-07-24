@@ -1,11 +1,30 @@
+container
+=========
 
-Usage:
+::
 
-       man [--format=FORMAT] COMMAND
-       man [--format=FORMAT] [--noheader]
+  Usage:
+      container [--os=OS]
+                [--command=COMMAND]
+                [--shell=SHELL]
+                [--interactive=INTERACTIVE]
+                [--window=WINDOW]
 
-ERROR: Could not execute the command. Please check usage with
+  Starts a docker container in interactive mode in a new container
+  and executes the command in it.
 
-    cms help man
+  Arguments:
+      --command=COMMAND   the command
+      --os=OS        the os      [default: cloudmesh/book:latest]
+      --shell=SHELL              [default: /bin/bash]
+      --window=WINDOW            [default: True]
+      --interactive=INTERACTIVE  [default: True]
 
-Timer: 0.0049s (man --kind=rst container)
+  Options:
+      -f      specify the file
+
+
+  Description:
+      container --os="cloudmesh/book:1.7" --command=ls
+
+Timer: 0.0057s (man container --format=rst)

@@ -513,6 +513,52 @@
 <span class="sd">        :param name: name of the server</span>
 <span class="sd">        :return:</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
+
+<div class="viewcode-block" id="ComputeNodeABC.list_secgroups"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.list_secgroups">[docs]</a>    <span class="k">def</span> <span class="nf">list_secgroups</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        List the named security group</span>
+
+<span class="sd">        :param name: The name of the group, if None all will be returned</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span></div>
+
+    <span class="k">def</span> <span class="nf">list_secgroup_rules</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;default&#39;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        List the named security group</span>
+
+<span class="sd">        :param name: The name of the group, if None all will be returned</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+
+
+    <span class="k">def</span> <span class="nf">upload_secgroup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+
+<div class="viewcode-block" id="ComputeNodeABC.list_secgroup_rules"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.list_secgroup_rules">[docs]</a>    <span class="k">def</span> <span class="nf">list_secgroup_rules</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;default&#39;</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
+
+<div class="viewcode-block" id="ComputeNodeABC.add_secgroup"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.add_secgroup">[docs]</a>    <span class="k">def</span> <span class="nf">add_secgroup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
+
+<div class="viewcode-block" id="ComputeNodeABC.add_secgroup_rule"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.add_secgroup_rule">[docs]</a>    <span class="k">def</span> <span class="nf">add_secgroup_rule</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                          <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>  <span class="c1"># group name</span>
+                          <span class="n">port</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                          <span class="n">protocol</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                          <span class="n">ip_range</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
+
+<div class="viewcode-block" id="ComputeNodeABC.remove_secgroup"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.remove_secgroup">[docs]</a>    <span class="k">def</span> <span class="nf">remove_secgroup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
+
+<div class="viewcode-block" id="ComputeNodeABC.upload_secgroup"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.upload_secgroup">[docs]</a>    <span class="k">def</span> <span class="nf">upload_secgroup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
+
+<div class="viewcode-block" id="ComputeNodeABC.add_rules_to_secgroup"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.add_rules_to_secgroup">[docs]</a>    <span class="k">def</span> <span class="nf">add_rules_to_secgroup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">rules</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
+
+<div class="viewcode-block" id="ComputeNodeABC.remove_rules_from_secgroup"><a class="viewcode-back" href="../../../code/cloud.html#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.remove_rules_from_secgroup">[docs]</a>    <span class="k">def</span> <span class="nf">remove_rules_from_secgroup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">rules</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span></div></div>
 </pre></div>
 

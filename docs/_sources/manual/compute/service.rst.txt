@@ -1,11 +1,13 @@
+service
+=======
 
-Usage:
+::
 
-       man [--format=FORMAT] COMMAND
-       man [--format=FORMAT] [--noheader]
+  Usage:
+        service list
 
-ERROR: Could not execute the command. Please check usage with
+  Description:
 
-    cms help man
+      Lists the services in the yaml file
 
-Timer: 0.0048s (man --kind=rst service)
+Timer: 0.0054s (man service --format=rst)

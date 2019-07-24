@@ -1,11 +1,24 @@
+banner
+======
 
-Usage:
+::
 
-       man [--format=FORMAT] COMMAND
-       man [--format=FORMAT] [--noheader]
+  Usage:
+    banner [-c CHAR] [-n WIDTH] [-i INDENT] [-r COLOR] TEXT...
 
-ERROR: Could not execute the command. Please check usage with
+  Arguments:
+    TEXT...   The text message from which to create the banner
+    CHAR      The character for the frame.
+    WIDTH     Width of the banner
+    INDENT    indentation of the banner
+    COLOR     the color
 
-    cms help man
+    Options:
+        -c CHAR   The character for the frame. [default: #]
+        -n WIDTH  The width of the banner. [default: 70]
+        -i INDENT  The width of the banner. [default: 0]
+        -r COLOR  The color of the banner. [default: BLACK]
 
-Timer: 0.0049s (man --kind=rst banner)
+    Prints a banner form a one line text message.
+
+Timer: 0.0055s (man banner --format=rst)

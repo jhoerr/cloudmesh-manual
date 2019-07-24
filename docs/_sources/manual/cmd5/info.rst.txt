@@ -1,11 +1,13 @@
+info
+====
 
-Usage:
+::
 
-       man [--format=FORMAT] COMMAND
-       man [--format=FORMAT] [--noheader]
+  Usage:
+        info [path|commands|files|cloudmesh]
 
-ERROR: Could not execute the command. Please check usage with
+  Description:
+        info
+            provides internal info about the shell and its packages
 
-    cms help man
-
-Timer: 0.0052s (man --kind=rst info)
+Timer: 0.0168s (man info --format=rst)

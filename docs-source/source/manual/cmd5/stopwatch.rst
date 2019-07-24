@@ -1,11 +1,19 @@
+stopwatch
+=========
 
-Usage:
+::
 
-       man [--format=FORMAT] COMMAND
-       man [--format=FORMAT] [--noheader]
+  Usage:
+    stopwatch start TIMER
+    stopwatch stop TIMER
+    stopwatch print [TIMER]
+    stopwatch benchmark
 
-ERROR: Could not execute the command. Please check usage with
+  Arguments:
+    TIMER  the name of the timer
 
-    cms help man
+  Description:
+    THIS IS NOT YET WORKING
+    starts and stops named timers and prints them
 
-Timer: 0.0050s (man --kind=rst stopwatch)
+Timer: 0.0054s (man stopwatch --format=rst)

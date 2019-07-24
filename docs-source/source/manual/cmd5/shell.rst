@@ -1,11 +1,15 @@
+shell
+=====
 
-Usage:
+::
 
-       man [--format=FORMAT] COMMAND
-       man [--format=FORMAT] [--noheader]
+   Usage:
+        shell COMMAND
 
-ERROR: Could not execute the command. Please check usage with
+    Arguments:
+        COMMAND  the command to be executed
 
-    cms help man
+   Description:
+        shell COMMAND  executes the command
 
-Timer: 0.0065s (man --kind=rst shell)
+Timer: 0.0053s (man shell --format=rst)

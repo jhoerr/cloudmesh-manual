@@ -1,11 +1,13 @@
+clear
+=====
 
-Usage:
+::
 
-       man [--format=FORMAT] COMMAND
-       man [--format=FORMAT] [--noheader]
+  Usage:
+    clear
 
-ERROR: Could not execute the command. Please check usage with
 
-    cms help man
 
-Timer: 0.0061s (man --kind=rst clear)
+  Clears the screen.
+
+Timer: 0.0053s (man clear --format=rst)

@@ -27,10 +27,10 @@ inspect-book:
 	   $(COMMUNITY)/book \
 	   --grading=True \
 	   --metrics=False \
-	   --format=htmlembedded > docs-source/source/inspector/book.html
+	   --hard=True \
+		--format=htmlembedded > docs-source/source/inspector/book.html
 	cp -r docs-source/source/inspector docs/inspector
 
-#	   --hard=True \
 
 
 inspect: dest/gitinspector/gitinspector.py
@@ -127,6 +127,7 @@ COMPUTE_COMMAND= open vbox vcluster batch vm ip key secgroup image \
 STORAGE_COMMAND= storage vdir
 
 manual:
+	cms set timmer=off
 	mkdir -p docs-source/source/manual
 	cms help > /tmp/commands.rst
 	echo "Commands" > docs-source/source/manual/commands.rst
@@ -139,20 +140,20 @@ manual:
 	mkdir -p docs-source/source/manual/cmd5
 	for c in $(CMD5_COMMAND) ; do \
 	  echo Generate man page for $$c ; \
-	  cms man --kind=rst $$c > docs-source/source/manual/cmd5/$$c.rst; \
+	  cms man $$c --format=rst  > docs-source/source/manual/cmd5/$$c.rst; \
 	done
 	#
 	# GROUP
 	#
 	mkdir -p docs-source/source/manual/group
-	cms man --kind=rst group > docs-source/source/manual/group/group.rst
+	cms man group --format=rst > docs-source/source/manual/group/group.rst
 	#
 	# COMPUTE
 	#
 	mkdir -p docs-source/source/manual/compute
 	for c in $(COMPUTE_COMMAND) ; do \
 	  echo Generate man page for $$c ; \
-	  cms man --kind=rst $$c > docs-source/source/manual/compute/$$c.rst; \
+	  cms man  $$c --format=rst > docs-source/source/manual/compute/$$c.rst; \
 	done
 
 	#
@@ -161,8 +162,9 @@ manual:
 	mkdir -p docs-source/source/manual/storage
 	for c in $(STORAGE_COMMAND) ; do \
 	  echo Generate man page for $$c ; \
-	  cms man --kind=rst $$c > docs-source/source/manual/storage/$$c.rst; \
+	  cms man  $$c --format=rst > docs-source/source/manual/storage/$$c.rst; \
 	done
+	make -f Makefile doc
 
 authors:
 	bin/authors.py > docs-source/source/preface/authors.md
@@ -180,6 +182,7 @@ doc: authors
 	cp -r docs-source/build/html/ docs
 	mv ~/.cloudmesh/cloudmesh4.yaml-tmp ~/.cloudmesh/cloudmesh4.yaml
 	mv ~/.cloudmesh/cloudmesh.yaml-tmp ~/.cloudmesh/cloudmesh.yaml
+	cp -r docs-source/source/inspector docs/inspector
 
 
 pdf: authors

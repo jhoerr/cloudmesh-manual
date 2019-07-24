@@ -36,7 +36,7 @@
   <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="flavor.html" />
+    <link rel="next" title="5.1. flavor" href="flavor.html" />
     <link rel="prev" title="5. Compute Manual Pages" href="../../manual-compute.html" /> 
 </head>
 
@@ -246,16 +246,23 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <p>Usage:</p>
+  <p>‘CMShell’ object has no attribute ‘do_batch’
+Traceback (most recent call last):</p>
 <blockquote>
-<div><p>man [–format=FORMAT] COMMAND
-man [–format=FORMAT] [–noheader]</p>
+<div><dl class="simple">
+<dt>File “/Users/grey/Desktop/github/cloudmesh-community/cm/cloudmesh-cmd5/cloudmesh/shell/shell.py”, line 366, in onecmd</dt><dd><p>return func(arg)</p>
+</dd>
+<dt>File “/Users/grey/Desktop/github/cloudmesh-community/cm/cloudmesh-cmd5/cloudmesh/shell/command.py”, line 103, in new</dt><dd><p>func(instance, args, arguments)</p>
+</dd>
+<dt>File “/Users/grey/Desktop/github/cloudmesh-community/cm/cloudmesh-cmd5/cloudmesh/man/command/man.py”, line 123, in do_man</dt><dd><p>data = self._get_help(entry)</p>
+</dd>
+<dt>File “/Users/grey/Desktop/github/cloudmesh-community/cm/cloudmesh-cmd5/cloudmesh/man/command/man.py”, line 20, in _get_help</dt><dd><p>h = eval(“self.do_{what}.__doc__”.format(what=what))</p>
+</dd>
+</dl>
+<p>File “&lt;string&gt;”, line 1, in &lt;module&gt;</p>
 </div></blockquote>
-<p>ERROR: Could not execute the command. Please check usage with</p>
-<blockquote>
-<div><p>cms help man</p>
-</div></blockquote>
-<p>Timer: 0.0048s (man –kind=rst batch)</p>
+<p>AttributeError: ‘CMShell’ object has no attribute ‘do_batch’</p>
+<p>Timer: 0.0139s (man batch –format=rst)</p>
 
 
            </div>
@@ -265,7 +272,7 @@ man [–format=FORMAT] [–noheader]</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="flavor.html" class="btn btn-neutral float-right" title="&lt;no title&gt;" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="flavor.html" class="btn btn-neutral float-right" title="5.1. flavor" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../../manual-compute.html" class="btn btn-neutral float-left" title="5. Compute Manual Pages" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

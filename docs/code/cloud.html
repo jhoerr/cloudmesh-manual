@@ -1754,6 +1754,20 @@ does not boot. The default is set to 3 minutes.</p></li>
 </dd></dl>
 
 <dl class="method">
+<dt id="cloudmesh.compute.azure.Provider.Provider.delete_server_metadata">
+<code class="sig-name descname">delete_server_metadata</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">key</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.delete_server_metadata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.delete_server_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>gets the metadata for the server</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – name of the fm</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
 <dt id="cloudmesh.compute.azure.Provider.Provider.destroy">
 <code class="sig-name descname">destroy</code><span class="sig-paren">(</span><em class="sig-param">group=None</em>, <em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.destroy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.destroy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Destroys the node
@@ -1787,6 +1801,13 @@ does not boot. The default is set to 3 minutes.</p></li>
 </dd></dl>
 
 <dl class="method">
+<dt id="cloudmesh.compute.azure.Provider.Provider.get_list">
+<code class="sig-name descname">get_list</code><span class="sig-paren">(</span><em class="sig-param">d</em>, <em class="sig-param">kind=None</em>, <em class="sig-param">debug=False</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.get_list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.get_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lists the dict d on the cloud
+:return: dict or libcloud object</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="cloudmesh.compute.azure.Provider.Provider.get_resource_group">
 <code class="sig-name descname">get_resource_group</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.get_resource_group"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.get_resource_group" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -1817,7 +1838,7 @@ does not boot. The default is set to 3 minutes.</p></li>
 <dt id="cloudmesh.compute.azure.Provider.Provider.images">
 <code class="sig-name descname">images</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.images"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.images" title="Permalink to this definition">¶</a></dt>
 <dd><p>Lists the images on the cloud
-:return: dict</p>
+:return: dict or libcloud object</p>
 </dd></dl>
 
 <dl class="method">
@@ -1825,7 +1846,8 @@ does not boot. The default is set to 3 minutes.</p></li>
 <code class="sig-name descname">info</code><span class="sig-paren">(</span><em class="sig-param">group=None</em>, <em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.info" title="Permalink to this definition">¶</a></dt>
 <dd><p>gets the information of a node with a given name
 List VM in resource group
-:param name:
+:param group: the unique Resource Group name
+:param name: the unique Virtual Machine name
 :return: The dict representing the node including updated status</p>
 </dd></dl>
 
@@ -1859,7 +1881,40 @@ List VM in resource group
 <dl class="attribute">
 <dt id="cloudmesh.compute.azure.Provider.Provider.kind">
 <code class="sig-name descname">kind</code><em class="property"> = 'azure'</em><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.kind" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl>
+<dt>output = {</dt><dd><dl>
+<dt>“image”: {</dt><dd><dl>
+<dt>“sort_keys”: [“cm.name”,</dt><dd><p>“extra.minDisk”],</p>
+</dd>
+<dt>“order”: [“image.id”,</dt><dd><p>“image.name”,
+“image.type”,
+“image.location”,
+“hardware_profile.vm_size”,
+“image_reference.publisher”,
+“image_reference.offer”,
+“image_reference.sku”,
+“image_reference.version”],</p>
+</dd>
+<dt>“header”: [“Id”,</dt><dd><blockquote>
+<div><p>“Name”,
+“TYpe”,</p>
+</div></blockquote>
+<p>]</p>
+</dd>
+</dl>
+<p>},</p>
+</dd>
+</dl>
+<p>“vm”: {},
+“flavor”: {},
+“status”: {},
+“key”:{},
+“secgroup”: {},
+“secrule”: {},</p>
+</dd>
+</dl>
+<p>}</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.compute.azure.Provider.Provider.list">
@@ -1867,11 +1922,6 @@ List VM in resource group
 <dd><p>List all Azure Virtual Machines from my Account
 :return: dict or libcloud object</p>
 </dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.compute.azure.Provider.Provider.list_images">
-<code class="sig-name descname">list_images</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.list_images"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.list_images" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.compute.azure.Provider.Provider.list_public_ips">
@@ -1896,12 +1946,33 @@ List VM in resource group
 <dl class="method">
 <dt id="cloudmesh.compute.azure.Provider.Provider.list_secgroups">
 <code class="sig-name descname">list_secgroups</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.list_secgroups"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.list_secgroups" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>List the named security group</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – The name of the group, if None all will be returned</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
 
-<dl class="attribute">
-<dt id="cloudmesh.compute.azure.Provider.Provider.output">
-<code class="sig-name descname">output</code><em class="property"> = {'flavor': {'header': ['Name', 'VCPUS', 'RAM', 'Disk'], 'order': ['cm.name', 'vcpus', 'ram', 'disk'], 'sort_keys': ['cm.name', 'vcpus', 'disk']}, 'image': {'header': ['Name', 'MinDisk', 'Updated', 'Driver'], 'order': ['cm.name', 'extra.minDisk', 'updated', 'cm.driver'], 'sort_keys': ['cm.name', 'extra.minDisk']}, 'vm': {'header': ['cm.name', 'cm.cloud', 'state', 'image', 'public_ips', 'private_ips', 'cm.kind'], 'order': ['cm.name', 'cm.cloud', 'state', 'image', 'public_ips', 'private_ips', 'cm.kind'], 'sort_keys': ['cm.name']}}</em><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.output" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dl class="method">
+<dt id="cloudmesh.compute.azure.Provider.Provider.reboot">
+<code class="sig-name descname">reboot</code><span class="sig-paren">(</span><em class="sig-param">group=None</em>, <em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.reboot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.reboot" title="Permalink to this definition">¶</a></dt>
+<dd><p>restart/reboot a node</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>group</strong> – the unique Resource Group name</p></li>
+<li><p><strong>name</strong> – the unique Virtual Machine name</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The dict representing the node</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.compute.azure.Provider.Provider.remove_rules_from_secgroup">
@@ -1931,29 +2002,18 @@ List VM in resource group
 </dd></dl>
 
 <dl class="method">
-<dt id="cloudmesh.compute.azure.Provider.Provider.restart">
-<code class="sig-name descname">restart</code><span class="sig-paren">(</span><em class="sig-param">group=None</em>, <em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.restart"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.restart" title="Permalink to this definition">¶</a></dt>
-<dd><p>restart a node</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>name</strong> – </p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>The dict representing the node</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
 <dt id="cloudmesh.compute.azure.Provider.Provider.resume">
-<code class="sig-name descname">resume</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.resume"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.resume" title="Permalink to this definition">¶</a></dt>
-<dd><p>resume the named node</p>
+<code class="sig-name descname">resume</code><span class="sig-paren">(</span><em class="sig-param">group=None</em>, <em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.resume"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.resume" title="Permalink to this definition">¶</a></dt>
+<dd><p>resume the named node since Azure does not handle resume it uses start</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>name</strong> – the name of the node</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>group</strong> – the unique Resource Group name</p></li>
+<li><p><strong>name</strong> – the unique Virtual Machine name</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>the dict of the node</p>
+<dd class="field-even"><p>The dict representing the node including updated status</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2003,7 +2063,10 @@ List VM in resource group
 <dd><p>stops the node with the given name</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>name</strong> – </p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>group</strong> – the unique Resource Group name</p></li>
+<li><p><strong>name</strong> – the unique Virtstioual Machine name</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>The dict representing the node including updated status</p>
@@ -2013,14 +2076,17 @@ List VM in resource group
 
 <dl class="method">
 <dt id="cloudmesh.compute.azure.Provider.Provider.suspend">
-<code class="sig-name descname">suspend</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.suspend"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.suspend" title="Permalink to this definition">¶</a></dt>
-<dd><p>suspends the node with the given name</p>
+<code class="sig-name descname">suspend</code><span class="sig-paren">(</span><em class="sig-param">group=None</em>, <em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.suspend"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.suspend" title="Permalink to this definition">¶</a></dt>
+<dd><p>suspends the node with the given name since Azure does not handle suspend it uses stop</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>name</strong> – the name of the node</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>group</strong> – the unique Resource Group name</p></li>
+<li><p><strong>name</strong> – the unique Virtual Machine name</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>The dict representing the node</p>
+<dd class="field-even"><p>The dict representing the node including updated status</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2578,7 +2644,16 @@ ex_delete_floating_ip(ip)</p>
 <dl class="method">
 <dt id="cloudmesh.compute.libcloud.Provider.Provider.list_secgroups">
 <code class="sig-name descname">list_secgroups</code><span class="sig-paren">(</span><em class="sig-param">raw=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/libcloud/Provider.html#Provider.list_secgroups"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.libcloud.Provider.Provider.list_secgroups" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>List the named security group</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – The name of the group, if None all will be returned</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="cloudmesh.compute.libcloud.Provider.Provider.output">
@@ -2936,7 +3011,16 @@ The default is set to 3 minutes.</p></li>
 <dl class="method">
 <dt id="cloudmesh.compute.vm.Provider.Provider.list_secgroups">
 <code class="sig-name descname">list_secgroups</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/vm/Provider.html#Provider.list_secgroups"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.vm.Provider.Provider.list_secgroups" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>List the named security group</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – The name of the group, if None all will be returned</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.compute.vm.Provider.Provider.list_secgroups_rules">
@@ -3280,7 +3364,16 @@ does not boot. The default is set to 3 minutes.</p></li>
 <dl class="method">
 <dt id="cloudmesh.compute.aws.Provider.Provider.list_secgroups">
 <code class="sig-name descname">list_secgroups</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/aws/Provider.html#Provider.list_secgroups"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.aws.Provider.Provider.list_secgroups" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>List the named security group</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – The name of the group, if None all will be returned</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="cloudmesh.compute.aws.Provider.Provider.output">
@@ -3427,6 +3520,21 @@ key, vm, image, flavor.</p></li>
 <dt id="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC">
 <em class="property">class </em><code class="sig-prename descclassname">cloudmesh.abstractclass.ComputeNodeABC.</code><code class="sig-name descname">ComputeNodeABC</code><span class="sig-paren">(</span><em class="sig-param">cloud</em>, <em class="sig-param">path</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstractclass/ComputeNodeABC.html#ComputeNodeABC"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="method">
+<dt id="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.add_rules_to_secgroup">
+<code class="sig-name descname">add_rules_to_secgroup</code><span class="sig-paren">(</span><em class="sig-param">name=None</em>, <em class="sig-param">rules=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstractclass/ComputeNodeABC.html#ComputeNodeABC.add_rules_to_secgroup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.add_rules_to_secgroup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.add_secgroup">
+<code class="sig-name descname">add_secgroup</code><span class="sig-paren">(</span><em class="sig-param">name=None</em>, <em class="sig-param">description=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstractclass/ComputeNodeABC.html#ComputeNodeABC.add_secgroup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.add_secgroup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.add_secgroup_rule">
+<code class="sig-name descname">add_secgroup_rule</code><span class="sig-paren">(</span><em class="sig-param">name=None</em>, <em class="sig-param">port=None</em>, <em class="sig-param">protocol=None</em>, <em class="sig-param">ip_range=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstractclass/ComputeNodeABC.html#ComputeNodeABC.add_secgroup_rule"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.add_secgroup_rule" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="method">
 <dt id="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.attach_public_ip">
 <code class="sig-name descname">attach_public_ip</code><span class="sig-paren">(</span><em class="sig-param">name=None</em>, <em class="sig-param">ip=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstractclass/ComputeNodeABC.html#ComputeNodeABC.attach_public_ip"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.attach_public_ip" title="Permalink to this definition">¶</a></dt>
@@ -3651,6 +3759,25 @@ The default is set to 3 minutes.</p></li>
 </dd></dl>
 
 <dl class="method">
+<dt id="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.list_secgroup_rules">
+<code class="sig-name descname">list_secgroup_rules</code><span class="sig-paren">(</span><em class="sig-param">name='default'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstractclass/ComputeNodeABC.html#ComputeNodeABC.list_secgroup_rules"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.list_secgroup_rules" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.list_secgroups">
+<code class="sig-name descname">list_secgroups</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstractclass/ComputeNodeABC.html#ComputeNodeABC.list_secgroups"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.list_secgroups" title="Permalink to this definition">¶</a></dt>
+<dd><p>List the named security group</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – The name of the group, if None all will be returned</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
 <dt id="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.reboot">
 <code class="sig-name descname">reboot</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstractclass/ComputeNodeABC.html#ComputeNodeABC.reboot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.reboot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reboot a list of nodes with the given names</p>
@@ -3663,6 +3790,16 @@ The default is set to 3 minutes.</p></li>
 </dd>
 </dl>
 </dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.remove_rules_from_secgroup">
+<code class="sig-name descname">remove_rules_from_secgroup</code><span class="sig-paren">(</span><em class="sig-param">name=None</em>, <em class="sig-param">rules=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstractclass/ComputeNodeABC.html#ComputeNodeABC.remove_rules_from_secgroup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.remove_rules_from_secgroup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.remove_secgroup">
+<code class="sig-name descname">remove_secgroup</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstractclass/ComputeNodeABC.html#ComputeNodeABC.remove_secgroup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.remove_secgroup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.rename">
@@ -3753,6 +3890,11 @@ The default is set to 3 minutes.</p></li>
 </dd>
 </dl>
 </dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.upload_secgroup">
+<code class="sig-name descname">upload_secgroup</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/abstractclass/ComputeNodeABC.html#ComputeNodeABC.upload_secgroup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC.upload_secgroup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 </dd></dl>
 

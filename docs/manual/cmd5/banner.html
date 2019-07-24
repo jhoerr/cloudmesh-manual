@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>&lt;no title&gt; &mdash; Cloudmesh v4 alpha documentation</title>
+  <title>3.2. banner &mdash; Cloudmesh v4 alpha documentation</title>
   
 
   
@@ -36,8 +36,8 @@
   <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="clear.html" />
-    <link rel="prev" title="&lt;no title&gt;" href="admin.html" /> 
+    <link rel="next" title="3.3. clear" href="clear.html" />
+    <link rel="prev" title="3.1. admin" href="admin.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -119,10 +119,28 @@
 <li class="toctree-l1"><a class="reference internal" href="../../openapi/ufo.html">2. REST Service (outdated)</a></li>
 </ul>
 <p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../reference-card.html">1. Reference Card (proposed)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../commands.html">2. Commands</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../manual-cmd5.html">3. Manual Cmd5</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../manual-cmd5.html">3. Manual Cmd5</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="admin.html">3.1. admin</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">3.2. banner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="clear.html">3.3. clear</a></li>
+<li class="toctree-l2"><a class="reference internal" href="default.html">3.4. default</a></li>
+<li class="toctree-l2"><a class="reference internal" href="echo.html">3.5. echo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="info.html">3.6. info</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pause.html">3.7. pause</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugin.html">3.8. plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="q.html">3.9. q</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quit.html">3.10. quit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shell.html">3.11. shell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sleep.html">3.12. sleep</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stopwatch.html">3.13. stopwatch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sys.html">3.14. sys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="var.html">3.15. var</a></li>
+<li class="toctree-l2"><a class="reference internal" href="version.html">3.16. version</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../manual-group.html">4. Manual Group</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../manual-compute.html">5. Compute Manual Pages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../manual-storage.html">6. Storage Manual Pages</a></li>
@@ -227,7 +245,7 @@
         
           <li><a href="../../manual-cmd5.html">3. Manual Cmd5</a> &raquo;</li>
         
-      <li>&lt;no title&gt;</li>
+      <li>3.2. banner</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -246,16 +264,29 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <p>Usage:</p>
-<blockquote>
-<div><p>man [–format=FORMAT] COMMAND
-man [–format=FORMAT] [–noheader]</p>
-</div></blockquote>
-<p>ERROR: Could not execute the command. Please check usage with</p>
-<blockquote>
-<div><p>cms help man</p>
-</div></blockquote>
-<p>Timer: 0.0049s (man –kind=rst banner)</p>
+  <div class="section" id="banner">
+<h1>3.2. banner<a class="headerlink" href="#banner" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Usage</span><span class="p">:</span>
+  <span class="n">banner</span> <span class="p">[</span><span class="o">-</span><span class="n">c</span> <span class="n">CHAR</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">n</span> <span class="n">WIDTH</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">i</span> <span class="n">INDENT</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">r</span> <span class="n">COLOR</span><span class="p">]</span> <span class="n">TEXT</span><span class="o">...</span>
+
+<span class="n">Arguments</span><span class="p">:</span>
+  <span class="n">TEXT</span><span class="o">...</span>   <span class="n">The</span> <span class="n">text</span> <span class="n">message</span> <span class="kn">from</span> <span class="nn">which</span> <span class="n">to</span> <span class="n">create</span> <span class="n">the</span> <span class="n">banner</span>
+  <span class="n">CHAR</span>      <span class="n">The</span> <span class="n">character</span> <span class="k">for</span> <span class="n">the</span> <span class="n">frame</span><span class="o">.</span>
+  <span class="n">WIDTH</span>     <span class="n">Width</span> <span class="n">of</span> <span class="n">the</span> <span class="n">banner</span>
+  <span class="n">INDENT</span>    <span class="n">indentation</span> <span class="n">of</span> <span class="n">the</span> <span class="n">banner</span>
+  <span class="n">COLOR</span>     <span class="n">the</span> <span class="n">color</span>
+
+  <span class="n">Options</span><span class="p">:</span>
+      <span class="o">-</span><span class="n">c</span> <span class="n">CHAR</span>   <span class="n">The</span> <span class="n">character</span> <span class="k">for</span> <span class="n">the</span> <span class="n">frame</span><span class="o">.</span> <span class="p">[</span><span class="n">default</span><span class="p">:</span> <span class="c1">#]</span>
+      <span class="o">-</span><span class="n">n</span> <span class="n">WIDTH</span>  <span class="n">The</span> <span class="n">width</span> <span class="n">of</span> <span class="n">the</span> <span class="n">banner</span><span class="o">.</span> <span class="p">[</span><span class="n">default</span><span class="p">:</span> <span class="mi">70</span><span class="p">]</span>
+      <span class="o">-</span><span class="n">i</span> <span class="n">INDENT</span>  <span class="n">The</span> <span class="n">width</span> <span class="n">of</span> <span class="n">the</span> <span class="n">banner</span><span class="o">.</span> <span class="p">[</span><span class="n">default</span><span class="p">:</span> <span class="mi">0</span><span class="p">]</span>
+      <span class="o">-</span><span class="n">r</span> <span class="n">COLOR</span>  <span class="n">The</span> <span class="n">color</span> <span class="n">of</span> <span class="n">the</span> <span class="n">banner</span><span class="o">.</span> <span class="p">[</span><span class="n">default</span><span class="p">:</span> <span class="n">BLACK</span><span class="p">]</span>
+
+  <span class="n">Prints</span> <span class="n">a</span> <span class="n">banner</span> <span class="n">form</span> <span class="n">a</span> <span class="n">one</span> <span class="n">line</span> <span class="n">text</span> <span class="n">message</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>Timer: 0.0055s (man banner –format=rst)</p>
+</div>
 
 
            </div>
@@ -265,10 +296,10 @@ man [–format=FORMAT] [–noheader]</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="clear.html" class="btn btn-neutral float-right" title="&lt;no title&gt;" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="clear.html" class="btn btn-neutral float-right" title="3.3. clear" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="admin.html" class="btn btn-neutral float-left" title="&lt;no title&gt;" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="admin.html" class="btn btn-neutral float-left" title="3.1. admin" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
