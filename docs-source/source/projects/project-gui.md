@@ -1,5 +1,8 @@
 # Cloudmesh Graphical User Interface
 
+* This project can also be taken as independent study or as part of the Cloud
+  Engineering class
+  
 ## Goals
 
 In this project you will be developing a graphical user interface for
