@@ -19,35 +19,39 @@ Features
 --------
 
 .. list-table:: Shell
-   :widths: 25 75
+   :widths: 5 85 5
    :header-rows: 1
 
    * - Library
      - Description
-   * - Common
-     - `useful common <https://github.com/cloudmesh/cloudmesh-common>`_
-       programming library to make it easy to interface with the system
-   * - Shell
-     - extensible command line and shell with
-       `cmd5 <https://github.com/cloudmesh/cloudmesh-cmd5>`_
-   * - Installer
-     - convenient `installer <https://github.com/cloudmesh/cloudmesh-installer>`_
-       for developers
-   * - Database
-     - `MongoDB <https://github.com/cloudmesh/cloudmesh-cloud>`_ as a
-       backend for caching
-   * - Cloud
-     - `Cloud Providers <https://github.com/cloudmesh/cloudmesh-cloud>`_ ,
-       AWS, Azure, Google, Openstack
-   * - Workflow
-     - A cloud `workflow plugin <https://github.com/cloudmesh/cloudmesh-workflow>`_
-   * - Map/Reduce
-     - AWS `emr <https://github.com/cloudmesh/cloudmesh-emr>`_
-       plugin
-   * - Storage
-     - A plugin for `Storage providers <https://github.com/cloudmesh/cloudmesh-storage>`_
+     - Status
+   * - `Common  <https://github.com/cloudmesh/cloudmesh-common>`_
+     - simplifies system, console, and argument management
+     - stable
+   * - `Shell <https://github.com/cloudmesh/cloudmesh-cmd5>`_
+     - sophisticated command shell and line interpreter with plugins
+     - stable
+   * - `Installer <https://github.com/cloudmesh/cloudmesh-installer>`_
+     - convenient source code installer and manager for developers
+     - stable
+   * - `Database <https://github.com/cloudmesh/cloudmesh-cloud>`_
+     - A database for caching cloud interactions (based on MongoDB)
+     - stable
+   * - `Cloud Compute <https://github.com/cloudmesh/cloudmesh-cloud>`_
+     - Cloud Compute Providers for AWS, Azure, Google, Openstack
+     - beta/stable
+   * - `Cloud Storage <https://github.com/cloudmesh/cloudmesh-storage>`_
+     - Cloud Storage Providers for AWS, Azure, Google, Openstack
+     - beta/stable
+   * - `Workflow <https://github.com/cloudmesh/cloudmesh-workflow>`_
+     - Plugin for managing workflows
+     - alpha
+   * - `Map/Reduce <https://github.com/cloudmesh/cloudmesh-emr>`_
+     - Plugin for managing AWS Elastic MapReduce (EMR)
+     - beta
    * - OpenApi
      - OpenAPI based REST service interfaces
+     - alpha
 
 Roadmap for Future Activities
 -----------------------------

@@ -29,11 +29,11 @@ The current implementation does not have parameter management included.
 
 ## Difficulty
 
-*moderate*: The complexity of this project is moderate and allows you to look
-at advanced python language concepts as well as basic javascript features
-for rendering the workflow in real time. You will need to understand
-multiprocessing in python. An example is provided in the Host.ping class in
-cloudmesh-cloud
+* *moderate*: The complexity of this project is moderate and allows you to look
+  at advanced python language concepts as well as basic javascript features
+  for rendering the workflow in real time. You will need to understand
+  multiprocessing in python. An example is provided in the Host.ping class in
+  cloudmesh-cloud
 
 ## Deliverables
 
