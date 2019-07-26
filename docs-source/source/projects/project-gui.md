@@ -55,3 +55,17 @@ be found in the code base where examples are posted.
 * checkins into github by all team members. If only one team member checks in
   all other team members will not get credit.
 
+## References
+
+A previous code is available in 
+
+* [Github](https://github.com/cloudmesh-community/graphql)
+
+However this code uses Graphql, we like to convert it to use MongoDB and
+improve. A sample image of the dashboard is shown next
+
+![Dashboard](images/dashboard1.png)
+
+More images can be found in the [README](https://github.com/cloudmesh-community/graphql/blob/master/README.md)
+
+
