@@ -154,6 +154,7 @@
 </ul>
 <p class="caption"><span class="caption-text">CONTRIBUTION</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../projects/index.html">Cloudmesh Development Projects</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev/conventions.html">Code Conventions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev/management.html">Code Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev/management.html#documentation-management">Documentation Management</a></li>
@@ -290,8 +291,8 @@ TBD then, the command:</p>
 <p>One of the features of the cloudmesh yaml framework is that it allows
 you to use previously defined attributes in the yaml file itself. Thus
 if an attribute value contains for example <cite>{cloudmesh.attribute}</cite>
-or any environment variable, it will find the value for this dict
-entry in the yaml file and replace it with its value. For example. let
+or any environment variable such as <cite>$HOME</cite>, it will find the value for
+this dict entry in the yaml file and replace it with its value. For example. let
 us assume the yaml file contains:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>cloudmesh:
   profile:

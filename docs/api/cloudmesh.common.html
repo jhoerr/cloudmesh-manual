@@ -213,6 +213,7 @@
 </ul>
 <p class="caption"><span class="caption-text">CONTRIBUTION</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../projects/index.html">Cloudmesh Development Projects</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev/conventions.html">Code Conventions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev/management.html">Code Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev/management.html#documentation-management">Documentation Management</a></li>
@@ -831,7 +832,7 @@ TODO: needs better explanation and test example</p>
 <dl class="function">
 <dt id="cloudmesh.common.ConfigDict.main">
 <code class="sig-prename descclassname">cloudmesh.common.ConfigDict.</code><code class="sig-name descname">main</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/ConfigDict.html#main"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.ConfigDict.main" title="Permalink to this definition">¶</a></dt>
-<dd><p>TODO: A test which should actually be moved into a nosetest</p>
+<dd><p>TODO: A test which should actually be moved into a pytest</p>
 </dd></dl>
 
 <dl class="function">
@@ -1272,16 +1273,15 @@ TODO: This works well on Linux and OSX, but has not been tested much on Windows<
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>witherror</strong> – if set to False the error will not be printed</p></li>
 <li><p><strong>traceflag</strong> – if set to true the trace is printed in case of an error</p></li>
-<li><p><strong>cwd</strong> – the current working directory in whcih the command is supposed to be executed.</p></li>
-<li><p><strong>shell</strong> – if set to true the subprocess is called as part of a shell</p></li>
-<li><p><strong>cmd</strong> – command to run</p></li>
-<li><p><strong>arguments</strong> – we do not know yet</p></li>
+<li><p><strong>cwd</strong> – the current working directory in which the command is</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p></p>
-</dd>
 </dl>
+<p>supposed to be executed.
+:param shell: if set to true the subprocess is called as part of a shell
+:param cmd: command to run
+:param arguments: we do not know yet
+:return:</p>
 </dd></dl>
 
 <dl class="method">
@@ -1584,7 +1584,7 @@ THis command should not be directly called. Instead use SHell</p>
 <dl class="function">
 <dt id="cloudmesh.common.Shell.main">
 <code class="sig-prename descclassname">cloudmesh.common.Shell.</code><code class="sig-name descname">main</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/Shell.html#main"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.Shell.main" title="Permalink to this definition">¶</a></dt>
-<dd><p>a test that should actually be added into a nosetest
+<dd><p>a test that should actually be added into a pytest
 :return:</p>
 </dd></dl>
 
@@ -1601,7 +1601,7 @@ THis command should not be directly called. Instead use SHell</p>
 <dl class="method">
 <dt id="cloudmesh.common.StopWatch.StopWatch.benchmark">
 <em class="property">classmethod </em><code class="sig-name descname">benchmark</code><span class="sig-paren">(</span><em class="sig-param">sysinfo=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/StopWatch.html#StopWatch.benchmark"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.StopWatch.StopWatch.benchmark" title="Permalink to this definition">¶</a></dt>
-<dd><p>prints out all timers in a convenient benchmark tabble
+<dd><p>prints out all timers in a convenient benchmark table
 :return:
 :rtype:</p>
 </dd></dl>
@@ -1964,10 +1964,11 @@ warnings, errors, ok and regular messages.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>msg</strong> – the msg to be printed, can be a datastructure suc as a dict</p></li>
+<li><p><strong>msg</strong> – the msg to be printed, can be a data structure such as a dict</p></li>
 <li><p><strong>label</strong> – the  label to be used, defaults to the name of the msg variable</p></li>
 <li><p><strong>color</strong> – the color</p></li>
-<li><p><strong>verbose</strong> – indicates when to print it. If verbose in cloudmesh is higher than the speified value it is printed</p></li>
+<li><p><strong>verbose</strong> – indicates when to print it. If verbose in cloudmesh is
+higher than the specified value it is printed</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -2146,6 +2147,23 @@ warnings, errors, ok and regular messages.</p>
 <dl class="method">
 <dt id="cloudmesh.common.parameter.Parameter.find">
 <em class="property">static </em><code class="sig-name descname">find</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">*dicts</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/parameter.html#Parameter.find"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.parameter.Parameter.find" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds the value for the key name in multiple dicts</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – the key to find</p></li>
+<li><p><strong>dicts</strong> – the list of dicts</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.common.parameter.Parameter.find_bool">
+<em class="property">static </em><code class="sig-name descname">find_bool</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">*dicts</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/parameter.html#Parameter.find_bool"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.parameter.Parameter.find_bool" title="Permalink to this definition">¶</a></dt>
 <dd><p>Finds the value for the key name in multiple dicts</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -2557,7 +2575,7 @@ TODO.implement()</p>
 <dt id="cloudmesh.common.util.HEADING">
 <code class="sig-prename descclassname">cloudmesh.common.util.</code><code class="sig-name descname">HEADING</code><span class="sig-paren">(</span><em class="sig-param">txt=None</em>, <em class="sig-param">c='#'</em>, <em class="sig-param">color='HEADER'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common/util.html#HEADING"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common.util.HEADING" title="Permalink to this definition">¶</a></dt>
 <dd><p>Prints a message to stdout with #### surrounding it. This is useful for
-nosetests to better distinguish them.</p>
+pytests to better distinguish them.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -2648,7 +2666,7 @@ with ~ and environment variables.</p>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>files_glob</strong> – *.yaml</p></li>
-<li><p><strong>source_dir</strong> – source directiry</p></li>
+<li><p><strong>source_dir</strong> – source directory</p></li>
 <li><p><strong>dest_dir</strong> – destination directory</p></li>
 </ul>
 </dd>

@@ -3,12 +3,14 @@ Cloudmesh Version 4
 
 .. toctree::
    :caption: PREFACE
+   :maxdepth: 2
 
    preface/about
    preface/contributors
 
 .. toctree::
    :caption: INSTALLATION
+   :maxdepth: 2
 
    installation/install
    installation/quickstart
@@ -17,6 +19,7 @@ Cloudmesh Version 4
 
 .. toctree::
    :caption: MANUAL PAGES
+   :maxdepth: 2
 
    cmd5
    reference-card
@@ -29,12 +32,15 @@ Cloudmesh Version 4
 
 .. toctree::
    :caption: API
+   :maxdepth: 2
 
    api/index
 
 .. toctree::
    :caption: CONTRIBUTION
+   :maxdepth: 2
 
+   projects/index
    dev/conventions
    dev/management
    dev/pytest
@@ -44,6 +50,7 @@ Cloudmesh Version 4
 
 .. toctree::
    :caption: CLOUD ACCOUNTS
+   :maxdepth: 2
 
    accounts/aws
    accounts/azure
@@ -63,6 +70,8 @@ Other
 
 .. toctree::
    :caption: OTHER
+   :maxdepth: 2
 
    tbd
+
 

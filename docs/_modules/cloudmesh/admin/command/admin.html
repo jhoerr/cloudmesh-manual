@@ -113,6 +113,7 @@
 </ul>
 <p class="caption"><span class="caption-text">CONTRIBUTION</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../projects/index.html">Cloudmesh Development Projects</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../dev/conventions.html">Code Conventions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../dev/management.html">Code Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../dev/management.html#documentation-management">Documentation Management</a></li>
@@ -232,7 +233,7 @@
 <span class="sd">        ::</span>
 
 <span class="sd">          Usage:</span>
-<span class="sd">            admin mongo install [--brew] [--download=PATH]</span>
+<span class="sd">            admin mongo install [--brew] [--download=PATH] [--nosudo]</span>
 <span class="sd">            admin mongo create</span>
 <span class="sd">            admin mongo status</span>
 <span class="sd">            admin mongo stats</span>
@@ -291,7 +292,7 @@
 <span class="sd">              This can be very useful in case you are filing an issue or bug.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="n">map_parameters</span><span class="p">(</span><span class="n">arguments</span><span class="p">,</span> <span class="s2">&quot;output&quot;</span><span class="p">)</span>
+        <span class="n">map_parameters</span><span class="p">(</span><span class="n">arguments</span><span class="p">,</span> <span class="s2">&quot;output&quot;</span><span class="p">,</span> <span class="s2">&quot;nosudo&quot;</span><span class="p">)</span>
         <span class="n">arguments</span><span class="o">.</span><span class="n">output</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">output</span> <span class="ow">or</span> <span class="s2">&quot;table&quot;</span>
         <span class="c1"># arguments.PATH = arguments[&#39;--download&#39;] or None</span>
         <span class="n">result</span> <span class="o">=</span> <span class="kc">None</span>
@@ -303,7 +304,10 @@
                 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;MongoDB install&quot;</span><span class="p">)</span>
                 <span class="nb">print</span><span class="p">(</span><span class="mi">79</span> <span class="o">*</span> <span class="s2">&quot;=&quot;</span><span class="p">)</span>
                 <span class="n">installer</span> <span class="o">=</span> <span class="n">MongoInstaller</span><span class="p">()</span>
-                <span class="n">r</span> <span class="o">=</span> <span class="n">installer</span><span class="o">.</span><span class="n">install</span><span class="p">()</span>
+
+                <span class="n">sudo</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">arguments</span><span class="o">.</span><span class="n">nosudo</span>
+                <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;SUDO&quot;</span><span class="p">)</span>
+                <span class="n">r</span> <span class="o">=</span> <span class="n">installer</span><span class="o">.</span><span class="n">install</span><span class="p">(</span><span class="n">sudo</span><span class="o">=</span><span class="n">sudo</span><span class="p">)</span>
                 <span class="k">return</span> <span class="n">r</span>
 
             <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">status</span><span class="p">:</span>

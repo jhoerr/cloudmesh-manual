@@ -113,6 +113,7 @@
 </ul>
 <p class="caption"><span class="caption-text">CONTRIBUTION</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../projects/index.html">Cloudmesh Development Projects</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../dev/conventions.html">Code Conventions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../dev/management.html">Code Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../dev/management.html#documentation-management">Documentation Management</a></li>
@@ -297,7 +298,7 @@
 
 <span class="sd">            Options:</span>
 <span class="sd">                -v             verbose, prints the dict at the end</span>
-<span class="sd">                --output=OUTPUT   the output format [default: table]</span>
+<span class="sd">                --output=OUTPUT   the output format</span>
 <span class="sd">                -H --modify-knownhosts  Do not modify ~/.ssh/known_hosts file</span>
 <span class="sd">                                      when ssh&#39;ing into a machine</span>
 <span class="sd">                --username=USERNAME   the username to login into the vm. If not</span>
@@ -422,6 +423,14 @@
         <span class="n">variables</span> <span class="o">=</span> <span class="n">Variables</span><span class="p">()</span>
         <span class="n">database</span> <span class="o">=</span> <span class="n">CmDatabase</span><span class="p">()</span>
 
+        <span class="n">arguments</span><span class="o">.</span><span class="n">output</span> <span class="o">=</span> <span class="n">Parameter</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;output&quot;</span><span class="p">,</span>
+                                          <span class="n">arguments</span><span class="p">,</span>
+                                          <span class="n">variables</span><span class="p">,</span>
+                                          <span class="s2">&quot;table&quot;</span><span class="p">)</span>
+
+        <span class="n">arguments</span><span class="o">.</span><span class="n">refresh</span> <span class="o">=</span> <span class="n">Parameter</span><span class="o">.</span><span class="n">find_bool</span><span class="p">(</span><span class="s2">&quot;refresh&quot;</span><span class="p">,</span>
+                                                <span class="n">arguments</span><span class="p">,</span>
+                                                <span class="n">variables</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="p">(</span><span class="n">arguments</span><span class="o">.</span><span class="n">meta</span> <span class="ow">and</span> <span class="n">arguments</span><span class="o">.</span><span class="n">list</span><span class="p">):</span>
 
@@ -441,7 +450,6 @@
 
         <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">meta</span> <span class="ow">and</span> <span class="n">arguments</span><span class="o">.</span><span class="n">set</span><span class="p">:</span>
 
-            <span class="n">VERBOSE</span><span class="p">(</span><span class="n">arguments</span><span class="p">)</span>
             <span class="n">metadata</span> <span class="o">=</span> <span class="p">{}</span>
             <span class="n">pairs</span> <span class="o">=</span> <span class="n">arguments</span><span class="p">[</span><span class="s1">&#39;KEY=VALUE&#39;</span><span class="p">]</span>
             <span class="k">for</span> <span class="n">pair</span> <span class="ow">in</span> <span class="n">pairs</span><span class="p">:</span>
@@ -466,7 +474,6 @@
 
         <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">meta</span> <span class="ow">and</span> <span class="n">arguments</span><span class="o">.</span><span class="n">delete</span><span class="p">:</span>
 
-            <span class="n">VERBOSE</span><span class="p">(</span><span class="n">arguments</span><span class="p">)</span>
             <span class="n">metadata</span> <span class="o">=</span> <span class="p">{}</span>
             <span class="n">keys</span> <span class="o">=</span> <span class="n">arguments</span><span class="p">[</span><span class="s1">&#39;KEY&#39;</span><span class="p">]</span>
 
@@ -514,7 +521,6 @@
                                                           <span class="n">arguments</span><span class="p">,</span>
                                                           <span class="n">variables</span><span class="p">)</span>
 
-            <span class="nb">print</span><span class="p">(</span><span class="n">clouds</span><span class="p">,</span> <span class="n">names</span><span class="p">)</span>
             <span class="k">try</span><span class="p">:</span>
 
                 <span class="k">for</span> <span class="n">cloud</span> <span class="ow">in</span> <span class="n">clouds</span><span class="p">:</span>

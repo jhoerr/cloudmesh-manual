@@ -7,27 +7,23 @@ install from
 * pip if you are a cloudmesh user
 * source install if you are a developer
 
-At this time we do not recommend the conda install, as the conda packages are
-outdated.
+Please read the instalatio section in this manual completely, and understand
+the items explained before you install. Do not just paste and copy text in
+your terminal and execute it as it could have unexpected consequences.
 
-Please read a section in this manual completely, and understand the items
-explained. Do not just paste and copy text in your terminal and execute it as
-it could have unexpected consequences.
-
-The mongo installation has to be done by everyone.
-
-.. warning:: At this time we recommend that you do the source install as we
-             have not yet uploaded all packages to pypi.
+.. warning:: At this time we do not recommend the conda install, as the conda
+             packages are outdated.
 
 Prerequisites
 -------------
 
 .. note:: Before you install make sure that you have at minimum python 3.7.4
           installed. Likely the code will work with earlier versions, but we
-          do the development in python 3.7.4 from https://www.python.org/downloads/.
+          do the development in python 3.7.4. This version can be downloaded
+          and installed from https://www.python.org/downloads/.
 
 Prerequisits Ubuntu 19.04
-~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Python 3.7 is installed in ubuntu 19.04. Therefore, it already fulfills the
 prerequisits. However we recommend that you update to the newest version of
@@ -36,12 +32,35 @@ of python. Please visit: https://www.python.org/downloads/
 
 
 Prerequisits macOS
-~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^
 
-Installing cloudmesh in macOS is very similar to installation in Ubuntu.
-Start the process by installing the python 3 using ``homebrew``. Install the
-``homebrew`` using the instruction in their `web page
-<https://brew.sh/#install>`_:
+Installation from Apple App Store
+"""""""""""""""""""""""""""""""""
+
+You want a number of useful tool on your macOS. They are not installed by
+default, but are available via Xcode. First you need to install xcode from
+
+* https://apps.apple.com/us/app/xcode/id497799835
+
+Next you need to install macOS xcode command line tools::
+
+    xcode-select --install
+
+Installation from python.org
+""""""""""""""""""""""""""""
+
+The easiest instalation of Python for cloudmesh is to use the instaltion from
+https://www.python.org/downloads. Please, visit the page and follow the
+instructions. After this install you have `python3` avalable from the
+commandline
+
+Installation from Hoembrew
+""""""""""""""""""""""""""
+
+An alternative instalation is provided from Homebrew. To use this install
+method, you need to install Homebrew first. Start the process by installing
+the python 3 using ``homebrew``. Install ``homebrew`` using the
+instruction in their `web page <https://brew.sh/#install>`_:
 
 .. code:: bash
 
@@ -55,7 +74,7 @@ Then you should be able to install Python 3.7.4 using:
 
 
 Prerequisits Ubuntu 18.04
-~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. warning:: We recommend you update your ubuntu version to 19.04 and
              follow the instructions for that version instead, as it is
@@ -110,15 +129,50 @@ with the native pip:
     rm get-pip.py
 
 
+Prerequisits Windows 10
+^^^^^^^^^^^^^^^^^^^^^^^
+
+On Windows 10 you can install cloudmesh in either the system or a Linux
+Subsystem. We recommend that you use the Professional or the Educational
+version of Windows as the Home eddition is very limitted. Alternatively, you
+can also use the docker version of cloudmesh.
+
+.. warning:: The docker version of cloudmesh is still under development.
+
+.. warning:: We do not recommend or suppport other versions of Windows.
+
+System Install
+""""""""""""""
+
+Python 3.7 can be installed on Windows 10 using: https://www.python.org/downloads/
+
+Linux Subsystem Install
+"""""""""""""""""""""""
+
+To activate the Linux Subsystem, please follow the instructions at
+
+* https://docs.microsoft.com/en-us/windows/wsl/install-win10
+
+A suitable distribution would be
+
+* https://www.microsoft.com/en-us/p/ubuntu-1804-lts/9n9tngvndl3q?activetab=pivot:overviewtab
+
+However as it uses an older version of python you will ahve to update it.
+
 Prerequisit venv
-~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^
 
 .. _Use a venv:
 
 This step is highly recommend if you have not yet already installed a
 ``venv`` for python to make sure you are not interfering with your system
-python. This is simple. For our purposes we assume that you use the directory
- ~/ENV3. Follow these steps first:
+python. Not using a venv could have catastrophic consequences and a
+destruction of your operating system tools if they realy on Python. The use
+of venv is simple. For our purposes we assume that you use the directory::
+
+    ~/ENV3
+
+Follow these steps first:
 
 .. code:: bash
 
@@ -149,27 +203,23 @@ To make sure you have an up to date version of pip issue the command
 Installation with Pip
 ---------------------
 
-The installation can be done with pip. Make sure to have an updated version of
-pip:
-
-.. code:: bash
-
-   pip install pip -U
-
-Next, dependent on your needs you can install the cloudmesh cloud or storage
-bundle with:
+If you like to use cloudmesh as user, the installation can be done with pip.
+Cloudmesh is stritributes in different modules and you only need to install
+the modules you desire. Dependent on your needs
+you can install the cloudmesh `cloud` or `storage` bundle with:
 
 .. code:: bash
 
    pip install cloudmesh-cloud
 
-and
+or
 
 .. code:: bash
 
-   pip install cloudmesh-storage
+   pip install cloudmesh-storage # not yest supported
 
-Additional packages include but are not yet released:
+Please note that the storage bundle also includes `cloudmesh-cloud`
+.Additional packages include but are not yet released:
 
 .. code:: bash
 
@@ -196,9 +246,6 @@ in which you can find the configuration file:
     ~/.cloudmesh/cloudmesh4.yaml
 
 
-.. todo:: It would be beneficial to implement a command ``cms setup`` that
-          does not only the yaml file, but also the mongo password.
-
 Anaconda and Conda
 ------------------
 
@@ -219,9 +266,9 @@ Source Installation for Developers
 ----------------------------------
 
 As a developer you want to use our source installation. For this reason we
-wrote a ``cloudmesh-installer`` script that conveniently downloads the needed
-repositories, installs and updates them on demand. More documentation about it
-can be found at
+wrote the ``cloudmesh-installer`` script that conveniently downloads the
+needed repositories, installs and updates them on demand. More documentation
+about it can be found at
 
 -  https://github.com/cloudmesh/cloudmesh-installer
 
@@ -233,7 +280,7 @@ First make sure you have a python ``venv`` as described in the pip section
    pip install cloudmesh-installer
 
 Next, it is best to create an empty directory and decide which bundles to
-install
+install while listing them
 
 .. code:: bash
 
@@ -241,7 +288,7 @@ install
    cd cm
    cloudmesh-installer bundels
 
-First, you have to decide which cloudmesh bundle to install. If you only want
+Once you have decided whihc bundle to install you can proceed. If you only want
 to use compute resources the bundle name ``cloud`` will be what you want.
 If in addition you also like to work on storage, the bundle name ``storage``
 needs to be used.
@@ -253,9 +300,13 @@ Let, us assume you chose ``cloud``, than you can install cloudmesh with
    cloudmesh-installer git clone cloud
    cloudmesh-installer install cloud -e
 
-It will take a while to install. On newer machines 1 minute, on older
-significant longer. You can than test if you successfully installed it by
-issuing the command
+The `-e` option is very important as it compiles the code in place of the
+downloaded directories and in case of changes in the directory automatically
+makes them available to the instaled version. This is naturally very
+important. It will take a while to install. On newer machines 1 minute, on older
+significant longer. Please watch your system information if the install
+takes a long time. Afterthe instalation is complete, you can than test if you
+successfully installed it by issuing the command
 
 .. code:: bash
 
@@ -266,17 +317,30 @@ default files will be installed, that you will need to modify at one point.
 
 
 Updates
-~~~~~~~
+^^^^^^^
 
-To update the source from github, simply use the command while making sure to
- specify the desired bundle name, let us assume you use ``cloud``
+To update the source from github, simply use the `cloudmesh-installer` command
+while making sure to specify the desired bundle name, let us assume you use
+``cloud``
 
 .. code:: bash
 
     cloudmesh-installer git pull cloud
 
+If you see any conflicts make sure to resolve them. As developer sometimes it
+may be best to make a backup of the `cm` directory aor individual
+repositories in the cm directory. Then copy your changes
+into the newest code. Make sure to remove all python artifacts created with
+the -e option. See the command
+
+.. code:: bash
+
+    cd cm
+    cloudmesh-installer local purge .
+
+
 Reinstallation
-~~~~~~~~~~~~~
+^^^^^^^^^^^^^^
 
 In case you need to reinstall cloudmesh and you have used previously the
 cloudmesh-installer, you can do it as follows (We assume you have used venv
@@ -312,7 +376,11 @@ Installation of mongod
 ----------------------
 
 First, you will need to install a ``cloudmesh4.yaml`` file, if you have not
-done this before. The easiest way to do so is with the command
+done this before. If you do have mongo, you can safe this step. However,
+make sure you do not expose mongo on the internet so that you keep your
+information in mongo private. The easiest way to install mongo is with our
+build in install script. You will need to set first permission to use this
+install.  To do so start with the command
 
 .. code:: bash
 
@@ -325,16 +393,12 @@ Now you will need to edit the configuration file
     emacs ~/.cloudmesh/cloudmesh4.yaml
 
 and change the password of the mongo entry to something you like, e.g. change
-the TBD to a real strong password
-
-::
+the TBD to a real strong password::
 
    MONGO_PASSWORD: TBD
 
 In case you do not have mongod installed, you can do so for macOS and Ubuntu
-18.xx by setting the following variable:
-
-::
+18.xx by setting the following variable::
 
    MONGO_AUTOINSTALL: True
 
@@ -342,6 +406,24 @@ Now you can run the ``admin mongo install`` command. It will not only install
 mongo, but also add the path to your ``.bash_*`` file. In case
 of windows platform, you will have to set the PATH variable manually. To
 install it simply say.
+
+Alternatively you can set thes values form the commandline without using an
+editor with
+
+.. code:: bash
+
+    cms config set cloudmesh.data.mongo.MONGO_AUTOINSTALL=True
+    cms config set cloudmesh.data.mongo.MONGO_PASSWORD=YOURPASSWORD
+
+Make sure to set a good strong password for Mongo that you can remember
+
+Now you can install mongo conveniently from cloudmesh if you have not
+installed it. On macOS and ubuntu it will install it under::
+
+    ~/local/mongo/bin.
+
+Please make sure that this path is added to your PATH variable after the
+install is complete.
 
 .. code:: bash
 
@@ -365,10 +447,22 @@ In case you need to stop it you can use the command
 
    cms admin mongo stop
 
-However, please remember that for cloudmesh to work properly you need to start
+Please remember that for cloudmesh to work properly you need to start
 mongo. In case you need a different port you can configure that in the yaml
 file.
 
+Prerequisit ssh key
+^^^^^^^^^^^^^^^^^^^
+
+In order for you to use cloudmesh you will need an ssh key. This can be
+created from the command line with
+
+.. code:: bash
+
+    ssh-keygen
+
+Please make sure to use a passphrase with your key. Anyone telling you to use
+ a passwordless key is giving you a wrong advice. 
 
 
 

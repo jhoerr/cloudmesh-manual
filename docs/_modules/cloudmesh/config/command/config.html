@@ -113,6 +113,7 @@
 </ul>
 <p class="caption"><span class="caption-text">CONTRIBUTION</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../projects/index.html">Cloudmesh Development Projects</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../dev/conventions.html">Code Conventions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../dev/management.html">Code Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../dev/management.html#documentation-management">Documentation Management</a></li>
@@ -298,7 +299,7 @@
         <span class="c1"># d = Config()                #~/.cloudmesh/cloudmesh4.yaml</span>
         <span class="c1"># d = Config(encryted=True)   # ~/.cloudmesh/cloudmesh4.yaml.enc</span>
 
-        <span class="n">map_parameters</span><span class="p">(</span><span class="n">arguments</span><span class="p">,</span> <span class="s2">&quot;keep&quot;</span><span class="p">,</span> <span class="s2">&quot;secrets&quot;</span><span class="p">)</span>
+        <span class="n">map_parameters</span><span class="p">(</span><span class="n">arguments</span><span class="p">,</span> <span class="s2">&quot;keep&quot;</span><span class="p">,</span> <span class="s2">&quot;secrets&quot;</span><span class="p">,</span> <span class="s2">&quot;output&quot;</span><span class="p">)</span>
 
         <span class="n">source</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">SOURCE</span> <span class="ow">or</span> <span class="n">path_expand</span><span class="p">(</span><span class="s2">&quot;~/.cloudmesh/cloudmesh4.yaml&quot;</span><span class="p">)</span>
         <span class="n">destination</span> <span class="o">=</span> <span class="n">source</span> <span class="o">+</span> <span class="s2">&quot;.enc&quot;</span>
@@ -492,9 +493,8 @@
             <span class="n">config</span> <span class="o">=</span> <span class="n">Config</span><span class="p">()</span>
             <span class="n">value</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="n">attribute</span><span class="p">]</span>
 
-            <span class="n">output</span> <span class="o">=</span> <span class="n">arguments</span><span class="p">[</span><span class="s2">&quot;--format&quot;</span><span class="p">]</span>
             <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">==</span> <span class="nb">dict</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="n">Printer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="n">output</span><span class="p">))</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">Printer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="n">arguments</span><span class="o">.</span><span class="n">output</span><span class="p">))</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;</span><span class="si">{attribute}</span><span class="s2">=</span><span class="si">{value}</span><span class="s2">&quot;</span><span class="p">)</span>
 

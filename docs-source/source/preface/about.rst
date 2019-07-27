@@ -7,10 +7,10 @@ students and cloud practitioners to interact easily with clouds to
 create a service mashup to access common cloud services across a number
 of cloud providers.
 
-It is under active development. It is managed in github at
+It is under active development and managed in github at
 
--  Documentation: https://cloudmesh.github.io/cloudmesh-manual/
--  Code: https://github.com/cloudmesh/
+- Documentation: https://cloudmesh.github.io/cloudmesh-manual/
+- Code: https://github.com/cloudmesh/
 
 It has a variety of repositories that add features to cloudmesh based on
 needs by the user.
@@ -18,7 +18,7 @@ needs by the user.
 Features
 --------
 
-.. list-table:: Shell
+.. list-table:: Cloudmesh Features
    :widths: 5 85 5
    :header-rows: 1
 
@@ -39,29 +39,39 @@ Features
      - stable
    * - `Cloud Compute <https://github.com/cloudmesh/cloudmesh-cloud>`_
      - Cloud Compute Providers for AWS, Azure, Google, Openstack
-     - beta/stable
+     - beta
    * - `Cloud Storage <https://github.com/cloudmesh/cloudmesh-storage>`_
      - Cloud Storage Providers for AWS, Azure, Google, Openstack
-     - beta/stable
+     - beta
    * - `Workflow <https://github.com/cloudmesh/cloudmesh-workflow>`_
      - Plugin for managing workflows
      - alpha
    * - `Map/Reduce <https://github.com/cloudmesh/cloudmesh-emr>`_
      - Plugin for managing AWS Elastic MapReduce (EMR)
-     - beta
+     - alpha
    * - OpenApi
      - OpenAPI based REST service interfaces
      - alpha
 
-Roadmap for Future Activities
+Open projects for the Future
 -----------------------------
 
--  A plugin for `HPC systems <https://github.com/cloudmesh/cloudmesh-batch>`_
--  Storage: local provider
--  Compute: virtual box, ssh, slurm
--  A javascript based GUI
--  A cloud high throughput broker for pleasantly parallel parameter
-   studies
+.. list-table:: Future Projects
+   :widths: 20 65 10
+   :header-rows: 1
+
+   * - Library
+     - Description
+     - Status
+   * - `Batch Jobs <https://github.com/cloudmesh/cloudmesh-batch>`_
+     - Plugin to manage simple experiments on HPC systems
+     - progressing
+   * - Local Storage
+     - Plugin to support local storage providers
+     - open
+   * - Electron
+     - A java script interface to cloudmesh
+     - open
 
 Contact
 -------

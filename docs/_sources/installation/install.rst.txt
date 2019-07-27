@@ -150,18 +150,23 @@ Installation with Pip
 ---------------------
 
 The installation can be done with pip. Make sure to have an updated version of
-pip::
+pip:
 
 .. code:: bash
 
    pip install pip -U
 
 Next, dependent on your needs you can install the cloudmesh cloud or storage
-bundle with
+bundle with:
 
 .. code:: bash
 
    pip install cloudmesh-cloud
+
+and
+
+.. code:: bash
+
    pip install cloudmesh-storage
 
 Additional packages include but are not yet released:

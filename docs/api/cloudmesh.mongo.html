@@ -189,6 +189,7 @@
 </ul>
 <p class="caption"><span class="caption-text">CONTRIBUTION</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../projects/index.html">Cloudmesh Development Projects</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev/conventions.html">Code Conventions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev/management.html">Code Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dev/management.html#documentation-management">Documentation Management</a></li>
@@ -562,14 +563,14 @@ dict and another that is responsible for the upload to the database.</p>
 <dt>def entries(self):</dt><dd><dl>
 <dt>return {</dt><dd><dl class="simple">
 <dt>“cm”: {</dt><dd><p>“cloud”: “foo”,
-“kind”“: “entries”,
+“kind””: “entries”,
 “name”: “test01”
 “test”: “hello”}</p>
 </dd>
 </dl>
 <p>}
 “cloud”: “foo”,
-“kind”“: “entries”,
+“kind””: “entries”,
 “name”: “test01”
 “test”: “hello”}</p>
 </dd>
@@ -585,7 +586,7 @@ dict and another that is responsible for the upload to the database.</p>
 <div><dl class="simple">
 <dt>def entries(self):</dt><dd><dl class="simple">
 <dt>return {</dt><dd><p>“cloud”: “bar”,
-“kind”“: “entries”,
+“kind””: “entries”,
 “name”: “test01”
 “test”: “hello”}</p>
 </dd>
@@ -649,14 +650,14 @@ dict and another that is responsible for the upload to the database.</p>
 <dt>def entries(self):</dt><dd><dl>
 <dt>return {</dt><dd><dl class="simple">
 <dt>“cm”: {</dt><dd><p>“cloud”: “foo”,
-“kind”“: “entries”,
+“kind””: “entries”,
 “name”: “test01”
 “test”: “hello”}</p>
 </dd>
 </dl>
 <p>}
 “cloud”: “foo”,
-“kind”“: “entries”,
+“kind””: “entries”,
 “name”: “test01”
 “test”: “hello”}</p>
 </dd>
@@ -672,7 +673,7 @@ dict and another that is responsible for the upload to the database.</p>
 <div><dl class="simple">
 <dt>def entries(self):</dt><dd><dl class="simple">
 <dt>return {</dt><dd><p>“cloud”: “bar”,
-“kind”“: “entries”,
+“kind””: “entries”,
 “name”: “test01”
 “test”: “hello”}</p>
 </dd>
@@ -841,16 +842,15 @@ linux and darwin have different way to shutdown the server, the common way is ki
 
 <dl class="method">
 <dt id="cloudmesh.mongo.MongoDBController.MongoInstaller.install">
-<code class="sig-name descname">install</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/mongo/MongoDBController.html#MongoInstaller.install"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.MongoDBController.MongoInstaller.install" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">install</code><span class="sig-paren">(</span><em class="sig-param">sudo=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/mongo/MongoDBController.html#MongoInstaller.install"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.MongoDBController.MongoInstaller.install" title="Permalink to this definition">¶</a></dt>
 <dd><p>check where the MongoDB is installed in mongo location.
 if MongoDB is not installed, python help install it</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.mongo.MongoDBController.MongoInstaller.linux">
-<code class="sig-name descname">linux</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/mongo/MongoDBController.html#MongoInstaller.linux"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.MongoDBController.MongoInstaller.linux" title="Permalink to this definition">¶</a></dt>
-<dd><p>install MongoDB in Linux system (Ubuntu)</p>
-</dd></dl>
+<code class="sig-name descname">linux</code><span class="sig-paren">(</span><em class="sig-param">sudo=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/mongo/MongoDBController.html#MongoInstaller.linux"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.MongoDBController.MongoInstaller.linux" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.mongo.MongoDBController.MongoInstaller.windows">

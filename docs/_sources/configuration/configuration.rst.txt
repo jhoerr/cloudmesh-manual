@@ -59,8 +59,8 @@ Advanced Yaml Variables
 One of the features of the cloudmesh yaml framework is that it allows
 you to use previously defined attributes in the yaml file itself. Thus
 if an attribute value contains for example `{cloudmesh.attribute}`
-or any environment variable, it will find the value for this dict
-entry in the yaml file and replace it with its value. For example. let
+or any environment variable such as `$HOME`, it will find the value for
+this dict entry in the yaml file and replace it with its value. For example. let
 us assume the yaml file contains::
 
     cloudmesh:

@@ -113,6 +113,7 @@
 </ul>
 <p class="caption"><span class="caption-text">CONTRIBUTION</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../projects/index.html">Cloudmesh Development Projects</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../dev/conventions.html">Code Conventions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../dev/management.html">Code Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../dev/management.html#documentation-management">Documentation Management</a></li>
@@ -441,8 +442,8 @@
         <span class="k">try</span><span class="p">:</span>
             <span class="n">variable</span> <span class="o">=</span> <span class="n">Variables</span><span class="p">()</span>
             <span class="k">if</span> <span class="s2">&quot;timer&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">variable</span><span class="p">:</span>
-                <span class="n">variable</span><span class="p">[</span><span class="s2">&quot;timer&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;off&quot;</span>
-            <span class="k">if</span> <span class="n">variable</span><span class="p">[</span><span class="s2">&quot;timer&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;on&#39;</span><span class="p">,</span> <span class="s1">&#39;true&#39;</span><span class="p">]:</span>
+                <span class="n">variable</span><span class="p">[</span><span class="s2">&quot;timer&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;False&quot;</span>
+            <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">variable</span><span class="p">[</span><span class="s2">&quot;timer&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;on&#39;</span><span class="p">,</span> <span class="s1">&#39;true&#39;</span><span class="p">]:</span>
                 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Timer: </span><span class="si">{:.4f}</span><span class="s2">s (</span><span class="si">{}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">StopWatch</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;command&quot;</span><span class="p">),</span>
                                                    <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()))</span>
             <span class="n">variable</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
