@@ -246,4 +246,27 @@ be written as
 
    cms vm list --cloud=chameleon
 
+Configuring chameleon cloud
+---------------------------
+
+In many of the classes we teach you will have access to chameleon cloud. You
+will get a cloudmesh4.yaml file as part of the class in which you only need
+to set your username and your password. This is done on the terminal with
+
+
+.. code:: bash
+
+   cms config set cloudmesh.cloud.chameleon.credentials.OS_USERNAME=YOURUSERNAME
+   cms config set cloudmesh.cloud.chameleon.credentials.OS_PASSWORD=YOURPASSWORD
+
+
+Where YOURUSERNAME, and YOURPASSWORD is the account name and password from
+the account givving you access to
+
+* https://www.chameleoncloud.org/
+
+Thus if you have an account and are part of the class project, you can gain
+access to an openstack cloud in seconds via cloudmesh.
+
+
 
