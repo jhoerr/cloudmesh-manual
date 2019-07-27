@@ -1,6 +1,12 @@
 Quickstart
 ==========
 
+This quickstart assums you have already performed the following
+
+* installed cloudmesh
+* installed mongodb either with the help of cloudmesh or another method
+
+
 One of the features up Cloudmesh is to easily start new virtual machines
 on various clouds. It uses defaults for these clouds that can be changed,
 but are easily stored in a yaml file located at
@@ -12,38 +18,29 @@ A template for the yaml file is located at:
 
 -  https://github.com/cloudmesh/cloudmesh-cloud/blob/master/cloudmesh/etc/cloudmesh4.yaml
 
+Make sure that if you edited the yaml file that you check if it is correctly
+formated. This can be done with
+
+.. code:: bash
+
+   cms config check
 
 Manual
 ------
 
-Before we start it is important to note that cloudmesh provides a quick lin
-to its documentation. you can reach it with
+Before we start it is important to note that cloudmesh provides a quick way
+to look at its documentation with
 
 .. code:: bash
 
    cms open doc
 
-In case you are a developer and have installed the manual locally, you can
-also obtain it with
-
-.. code:: bash
-
-   cms open doc local
-
-However, in order for the local to work you must issue that command in the
-``cloudmesh-manual`` folder.
-
 Generating the Key and Certificate
 ----------------------------------
 
-.. todo:: test if the key generation works
-
-
-We can encrypt and decrypt files using generated random key as follows:
-
-First, you need to create a public-private key with a passphrase. THis
-can be achieved with the ``cms key`` command it assumes that you have
-not jet created a key
+If you do not have yet generated an ssh key you will have to do it now.
+First, you need to create a public-private key with a passphrase. This
+can be achieved with the following command
 
 .. code:: bash
 
@@ -55,8 +52,8 @@ Alternatively you can create a key as follows
 
    ssh-keygen -t rsa -m pem
 
-In case you need to convert your key, to a pem certificate you can do it
-as follows
+In case you already have a key, that is not in pem format, you can convert it
+with
 
 .. code:: bash
 
@@ -65,27 +62,24 @@ as follows
 Validate and verify the key
 ---------------------------
 
-To validate the key please use the cms command
+To validate the key please use the cms commands
 
 .. code:: bash
 
-   cms config check
-   cms config verify
+   cms config ssh check
+   cms config ssh verify
+
 
 Initialization
 --------------
 
-To initialize cloudmesh and its database the easiest way to do this is
-calling the command::
+To initialize cloudmesh and its database the easiest way is
+calling the commands::
 
    cms init
-   cms sec load
-   cms key add --ssh
-   cms stop
 
-
-This needs to be done only one time. Form now on you can start and stop
-cloudmesh with::
+Note that the init command also starts the mongodb. This needs to be done
+only one time. Form now on you can start and stop cloudmesh with::
 
    cms start
 
@@ -108,6 +102,7 @@ work on all clouds.
    cms start
 
    cms set cloud=chameleon
+   cms set refresh=True
 
    cms vm boot
    cms image list
@@ -206,9 +201,6 @@ All information about for example virtual machines are cached locally.
 The cache for various information sources can be explicitly updated with
 the ``--refresh`` flag. Thus the command
 
-.. todo:: check if the list --refresh is implemented for vm, flavor, images,
-          for all clouds
-
 .. code:: bash
 
    cms vm list --refresh
@@ -223,9 +215,8 @@ would first execute a refresh while the command
    cms flavor list
    cms image list
 
-would only read from the local cache
-
-To change the behavior and always do a refresh you can use the command
+would only read from the local cache. To change the behavior and always do a
+refresh from the cloud you can use the command
 
 .. code:: bash
 
@@ -237,28 +228,22 @@ To switch it off you can say
 
    cms set refresh=False
 
-.. todo:: check if refresh=True this is implemented.
-
 Using quotes
 ------------
 
-.. warning:: In case you need to use quotes in the command line you need to mask them with a bakslash.
+.. warning:: In case you need to use quotes in the command line you need to
+             mask them with a bakslash.
+
+Thus you would use
 
 
-New Commands for Developers
----------------------------
+.. code:: bash
 
-We added the following commands to make development easier
+   cms vm list --cloud=\"chameleon\"
 
-.. list-table:: New commands
-   :widths: 25 75
-   :header-rows: 1
+However as there are no quotes needed in the provious command it can simply
+be written as
 
-   * - Command
-     - Description
-   * - ``cms start``
-     - same as ``cms admin mongo start``
-   * - ``cms stop``
-     - same as ``cms admin mongo stop``
-   * - ``cms init``
-     - deletes the mongo, and starts it up empty
+   cms vm list --cloud=chameleon
+
+
