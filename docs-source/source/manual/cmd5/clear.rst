@@ -1,7 +1,7 @@
 clear
 =====
 
-::
+.. parsed-literal::
 
   Usage:
     clear

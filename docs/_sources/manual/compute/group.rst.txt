@@ -1,7 +1,7 @@
 group
 =====
 
-::
+.. parsed-literal::
 
     Usage:
         group list [GROUPNAME] [--format=FORMAT]

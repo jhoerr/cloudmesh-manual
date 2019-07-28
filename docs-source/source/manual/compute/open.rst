@@ -1,7 +1,7 @@
 open
 ====
 
-::
+.. parsed-literal::
 
     Usage:
         open chameleon baremetal tacc

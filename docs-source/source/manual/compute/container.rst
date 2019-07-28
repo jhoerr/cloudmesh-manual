@@ -1,7 +1,7 @@
 container
 =========
 
-::
+.. parsed-literal::
 
   Usage:
       container [--os=OS]

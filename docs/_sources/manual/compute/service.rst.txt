@@ -1,7 +1,7 @@
 service
 =======
 
-::
+.. parsed-literal::
 
   Usage:
         service list

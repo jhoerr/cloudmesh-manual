@@ -1,7 +1,7 @@
 stopwatch
 =========
 
-::
+.. parsed-literal::
 
   Usage:
     stopwatch start TIMER

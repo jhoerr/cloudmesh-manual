@@ -1,7 +1,7 @@
 version
 =======
 
-::
+.. parsed-literal::
 
   Usage:
     version pip [PACKAGE]

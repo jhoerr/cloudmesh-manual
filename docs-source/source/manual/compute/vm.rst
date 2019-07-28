@@ -1,7 +1,7 @@
 vm
 ==
 
-::
+.. parsed-literal::
 
     Usage:
         vm ping [NAMES] [--cloud=CLOUDS] [--count=N]

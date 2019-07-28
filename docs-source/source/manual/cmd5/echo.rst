@@ -1,7 +1,7 @@
 echo
 ====
 
-::
+.. parsed-literal::
 
   Usage:
     echo  [-r COLOR] TEXT

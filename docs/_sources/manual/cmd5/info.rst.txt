@@ -1,7 +1,7 @@
 info
 ====
 
-::
+.. parsed-literal::
 
   Usage:
         info [path|commands|files|cloudmesh]

@@ -1,7 +1,7 @@
 pause
 =====
 
-::
+.. parsed-literal::
 
   Usage:
     pause [MESSAGE]

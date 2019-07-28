@@ -1,7 +1,7 @@
 sys
 ===
 
-::
+.. parsed-literal::
 
   Usage:
     sys upload

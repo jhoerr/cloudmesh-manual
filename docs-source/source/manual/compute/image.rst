@@ -1,7 +1,7 @@
 image
 =====
 
-::
+.. parsed-literal::
 
     Usage:
         image list [NAMES] [--cloud=CLOUD] [--refresh] [--output=OUTPUT] [--query=QUERY]

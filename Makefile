@@ -134,6 +134,19 @@ COMPUTE_COMMAND= open vbox vcluster batch vm ip key secgroup image \
 
 STORAGE_COMMAND= storage vdir
 
+
+#MANUAL=$(CMD5_COMMAND) $(COMPUTE_COMMAND) $(STORAGE_COMMAND)
+
+#$(MANUAL): $(SOURCE)/manual/%.rst:
+# 	cms man $@ --format=rst  > $(SOURCE)/manual/cmd5/$@.rst;
+
+#pman: $(MANUAL)
+
+#man:
+#	make -j Makefile pman
+
+
+
 manual:
 	cms set timmer=False
 	mkdir -p $(SOURCE)/manual

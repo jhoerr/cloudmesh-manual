@@ -1,7 +1,7 @@
 plugin
 ======
 
-::
+.. parsed-literal::
 
   Usage:
     plugin install PLUGIN [-s]

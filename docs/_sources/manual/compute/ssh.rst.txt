@@ -1,7 +1,7 @@
 ssh
 ===
 
-::
+.. parsed-literal::
 
     Usage:
         ssh config list [--output=OUTPUT]

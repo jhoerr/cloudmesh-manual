@@ -1,7 +1,7 @@
 config
 ======
 
-::
+.. parsed-literal::
 
    Usage:
      config  -h | --help

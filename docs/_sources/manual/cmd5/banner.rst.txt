@@ -1,7 +1,7 @@
 banner
 ======
 
-::
+.. parsed-literal::
 
   Usage:
     banner [-c CHAR] [-n WIDTH] [-i INDENT] [-r COLOR] TEXT...

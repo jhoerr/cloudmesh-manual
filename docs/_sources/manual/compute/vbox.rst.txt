@@ -1,7 +1,7 @@
 vbox
 ====
 
-::
+.. parsed-literal::
 
   Usage:
     vbox version [--output=OUTPUT]

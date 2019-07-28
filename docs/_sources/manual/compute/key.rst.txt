@@ -1,7 +1,7 @@
 key
 ===
 
-::
+.. parsed-literal::
 
    Usage:
      key  -h | --help

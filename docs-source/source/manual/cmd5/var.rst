@@ -1,7 +1,7 @@
 var
 ===
 
-::
+.. parsed-literal::
 
     Usage:
         var list

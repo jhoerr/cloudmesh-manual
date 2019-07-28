@@ -1,7 +1,7 @@
 admin
 =====
 
-::
+.. parsed-literal::
 
   Usage:
     admin mongo install [--brew] [--download=PATH] [--nosudo]

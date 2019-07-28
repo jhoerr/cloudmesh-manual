@@ -19,9 +19,9 @@ Contributing to documentation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 All of the documentations are in the ``cloudmesh-manual`` repository which is
-automatically cloned when installing the cloudmesh using ``cloudmesh-installer``
-. The documentation source files are located in ``docs-source`` folder inside
-the ``cloudmesh-manual`` repository.
+automatically cloned when installing the cloudmesh using
+``cloudmesh-installer`` The documentation source files are located in
+``docs-source`` folder inside the ``cloudmesh-manual`` repository.
 
 It's very important to build the documentation locally and test the
 modifications before pushing them to the remote. To build the documentation
@@ -36,19 +36,18 @@ make the documentation:
     cd cloudmesh-manual
     pip install -r requirements.txt
     make manual # creates the manual pages
-    make doc # creates the documentation
     make doc #views the documentation
 
 After this you can open the documentation located at
-``cloudmesh-manual/docs/index.html`` in the browser of your choice. In case
-you do not develop new commands with manual page changes, you only have to
-use the ``make doc`` command after you update the source. Please note that
-`rst` and `md` files are allowed.
+``cloudmesh-manual/docs/index.html`` in the browser of your choice. In case you
+do not develop new commands with manual page changes, you can in subsecuetnt
+calls say ``make doc``. Please note that `rst` and `md` files are allowed as
+ documentation format.
 
 Version Management
 ------------------
 
-.. warnng:: Version management is o nly done by Gregor von Laszewski/
+.. warning:: Version management is only done by Gregor von Laszewski.
 
 To create a development version we say
 

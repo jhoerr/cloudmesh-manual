@@ -1,7 +1,7 @@
 vcluster
 ========
 
-::
+.. parsed-literal::
 
   Usage:
 

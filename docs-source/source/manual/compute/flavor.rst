@@ -1,7 +1,7 @@
 flavor
 ======
 
-::
+.. parsed-literal::
 
     Usage:
         flavor list [NAMES] [--cloud=CLOUD] [--refresh] [--output=OUTPUT]

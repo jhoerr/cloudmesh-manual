@@ -1,7 +1,7 @@
 quit
 ====
 
-::
+.. parsed-literal::
 
   Usage:
     quit

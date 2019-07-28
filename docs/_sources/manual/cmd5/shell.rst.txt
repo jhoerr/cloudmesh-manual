@@ -1,7 +1,7 @@
 shell
 =====
 
-::
+.. parsed-literal::
 
    Usage:
         shell COMMAND

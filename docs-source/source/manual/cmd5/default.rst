@@ -1,7 +1,7 @@
 default
 =======
 
-::
+.. parsed-literal::
 
   Usage:
       default list [--context=CONTEXT] [--format=FORMAT]

@@ -1,7 +1,7 @@
 q
 =
 
-::
+.. parsed-literal::
 
   Usage:
     quit

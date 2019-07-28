@@ -1,7 +1,7 @@
 workflow
 ========
 
-::
+.. parsed-literal::
 
     Usage:
         workflow refresh [--cloud=CLOUD] [-v]

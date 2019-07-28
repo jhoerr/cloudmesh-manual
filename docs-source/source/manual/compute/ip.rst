@@ -1,7 +1,7 @@
 ip
 ==
 
-::
+.. parsed-literal::
 
     Usage:
         ip list  [--cloud=CLOUD] [--output=OUTPUT]
