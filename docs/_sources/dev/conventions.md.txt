@@ -19,7 +19,7 @@
 
   In case you like to do debug messages use
 
-  ````python
+  ```python
   from cloudmesh.DEBUG import VERBOSE
 
   VERBOSE("this is an example")  

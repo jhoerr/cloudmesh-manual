@@ -219,9 +219,9 @@ shortcuts such as <code class="docutils literal notranslate"><span class="pre">C
 <div class="section" id="contributing-to-documentation">
 <h2>Contributing to documentation<a class="headerlink" href="#contributing-to-documentation" title="Permalink to this headline">¶</a></h2>
 <p>All of the documentations are in the <code class="docutils literal notranslate"><span class="pre">cloudmesh-manual</span></code> repository which is
-automatically cloned when installing the cloudmesh using <code class="docutils literal notranslate"><span class="pre">cloudmesh-installer</span></code>
-. The documentation source files are located in <code class="docutils literal notranslate"><span class="pre">docs-source</span></code> folder inside
-the <code class="docutils literal notranslate"><span class="pre">cloudmesh-manual</span></code> repository.</p>
+automatically cloned when installing the cloudmesh using
+<code class="docutils literal notranslate"><span class="pre">cloudmesh-installer</span></code> The documentation source files are located in
+<code class="docutils literal notranslate"><span class="pre">docs-source</span></code> folder inside the <code class="docutils literal notranslate"><span class="pre">cloudmesh-manual</span></code> repository.</p>
 <p>It’s very important to build the documentation locally and test the
 modifications before pushing them to the remote. To build the documentation
 locally you first, make sure that the proper virtual environment is activated,
@@ -232,19 +232,24 @@ make the documentation:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> cloudmesh-manual
 pip install -r requirements.txt
 make manual <span class="c1"># creates the manual pages</span>
-make doc <span class="c1"># creates the documentation</span>
 make doc <span class="c1">#views the documentation</span>
 </pre></div>
 </div>
 <p>After this you can open the documentation located at
-<code class="docutils literal notranslate"><span class="pre">cloudmesh-manual/docs/index.html</span></code> in the browser of your choice. In case
-you do not develop new commands with manual page changes, you only have to
-use the <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">doc</span></code> command after you update the source. Please note that
-<cite>rst</cite> and <cite>md</cite> files are allowed.</p>
+<code class="docutils literal notranslate"><span class="pre">cloudmesh-manual/docs/index.html</span></code> in the browser of your choice. In case you
+do not develop new commands with manual page changes, you can in subsecuetnt
+calls say <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">doc</span></code>. Please note that <cite>rst</cite> and <cite>md</cite> files are allowed as</p>
+<blockquote>
+<div><p>documentation format.</p>
+</div></blockquote>
 </div>
 </div>
 <div class="section" id="version-management">
 <h1>Version Management<a class="headerlink" href="#version-management" title="Permalink to this headline">¶</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Version management is only done by Gregor von Laszewski.</p>
+</div>
 <p>To create a development version we say</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ make build
 </pre></div>
