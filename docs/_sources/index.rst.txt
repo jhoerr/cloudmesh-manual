@@ -43,9 +43,9 @@ Cloudmesh Version 4
 
    projects/index
    dev/conventions
+   dev/manual
    dev/management
    dev/pytest
-   dev/manual
    dev/todo
 
 

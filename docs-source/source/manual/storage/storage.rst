@@ -11,4 +11,3 @@ Traceback (most recent call last):
   File "<string>", line 1, in <module>
 AttributeError: 'CMShell' object has no attribute 'do_storage'
 
-Timer: 0.0171s (man storage --format=rst)

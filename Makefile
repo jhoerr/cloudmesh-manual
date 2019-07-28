@@ -135,7 +135,7 @@ COMPUTE_COMMAND= open vbox vcluster batch vm ip key secgroup image \
 STORAGE_COMMAND= storage vdir
 
 manual:
-	cms set timmer=off
+	cms set timmer=False
 	mkdir -p $(SOURCE)/manual
 	cms help > /tmp/commands.rst
 	echo "Commands" > $(SOURCE)/manual/commands.rst

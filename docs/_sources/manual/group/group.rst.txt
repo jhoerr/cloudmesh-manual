@@ -58,4 +58,3 @@ group
         group delete --name=mygroup
             deletes all objects in the group
 
-Timer: 0.0053s (man group --format=rst)

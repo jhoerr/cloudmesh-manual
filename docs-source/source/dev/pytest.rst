@@ -1,31 +1,28 @@
 Pytest
 ======
 
-Pytest is a utility to unit test python code.
-
-We use pytest and not ``__main__`` to test all functionality so they
-can me automatically run and reports can be generated. A project that
-does not have a sufficient number of tests to make sure the module works
-can not be accepted.
+Pytest is a utility to unit test python code. We use pytest and not
+``__main__`` to test all functionality so they can me automatically run and
+reports can be generated. A project that does not have a sufficient
+number of tests to make sure the module works can not be accepted.
 
 Installation
 ------------
 
-The pytest module can be installed with the help of pip utility
+The pytest module can be installed with the help of pip utility:
 
 .. code:: bash
 
     $ pip install pytest
 
-This will install the pytest module in the current Python distribution,
-which means the test can be run using this utility as well as using
-``–m`` switch. All tests are included in the folder ``tests``.
-
-For example for the cloudmesh-cloud module they are in
+This will install the pytest module in the current Python distribution.
+All tests are included in the folder ``tests``. For example for the
+cloudmesh-cloud module they are in
 
 -  https://github.com/cloudmesh/cloudmesh-cloud/tree/master/tests
 
-Best is to add a number to identify in which order they are run
+If the order of the tests is important make sure the tests are specified in
+alphabetical order while introducing a numbering such as
 
 ::
 
@@ -48,7 +45,21 @@ To switch on debugging information for the tests you can do this with
     cms set debug=True
     cms set verbose=10
 
-After you are done testing, you may want to set them back
+After you are done testing, you may want to set them back to
+
+.. code:: bash
+
+    cms set trace=True
+    cms set debug=True
+    cms set verbose=10
+
+You can also set them within a test with the command
+
+.. code:: python
+
+    from cloudmesh.common3.Benchmark import Benchmark
+
+    Benchmark.debug()
 
 
 Test Specification and Execution
@@ -61,43 +72,35 @@ A simple example for a test is
 Note that all test python programs have specific function names of the
 form
 
-``def test_number_topic (self)``
+``def test_topic (self)``
 
-The number is defined to order them and is typically something like
-``001``, note the leading spaces. The topic is a descriptive term on
-what we test.
+Through the class decorator they are executed in order
 
-Each test starts with a setup function ``def setup(self)`` we declare a
-setup that is run prior to each test being executed. Other functions
-will use the setup prior to execution.
+A test may also have a method ``def setup(self)`` whcih is run prior to each
+ other method.
 
-A function includes one or multiple asserts that check if a particular
-test succeeds and reports this to pytest to expose the information if a
-tess succeeds or fails, when running it
+A test method includes one or multiple asserts that check if a particular test
+succeeds and reports this to pytest to expose the information if a tess
+succeeds or fails, when running it
 
-Note that all pytest functions in cloudmesh start with a ``HEADING()`` in the
-body which conveniently prints a banner with the function name and thus helps
-in debugging in case of errors.
-
-Invocation is simply done with the comment lines you see on top that you
-will include.
-
-in our case the test is called `test_key.py` so we include on the top
-
-::
+To have better visual separation of tests with the `--capture=no` option, all
+pytest functions in cloudmesh start with a ``HEADING()``, which will print a
+banner with the function name. Invocation is simply done with the comment
+lines you see on top that you will include. In our case the test is called
+`test_key.py` so we include on the top::
 
     ###############################################################
     # pytest -v --capture=no tests/test_key.py
     # pytest -v  tests/test_key.py
-    # pytest -v --capture=no -v --nocapture tests/test_key.py:Test_key.<METHIDNAME>
+    # pytest -v --capture=no -v tests/test_key.py:Test_key.<METHODNAME>
     ###############################################################
 
-You can than execute the test with either command. More information is
-printed with the command
+Make sure that you place this comment in your tests. to remind the
+developers how to execute your test from the main directory. If you need
+dpecial instructions, please add them here.
 
-Make sure that you place this comment in your tests.
 
-The following is our simple pytest for key. THe file is stored at
+The following example is our simple pytest for key. THe file is stored at
 ``tests/test_key.py``
 
 First, we import the needed classes and methods we like to test. We

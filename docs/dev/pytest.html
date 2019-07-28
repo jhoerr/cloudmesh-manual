@@ -36,7 +36,7 @@
   <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Manual Creation" href="manual.html" />
+    <link rel="next" title="ToDo" href="todo.html" />
     <link rel="prev" title="Code Management" href="management.html" /> 
 </head>
 
@@ -110,6 +110,7 @@
 </ul>
 <p class="caption"><span class="caption-text">API</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter/index.html">Jupyter Integration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api/index.html">Cloudmesh Command API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api/index.html#cloudmesh-api">Cloudmesh API</a></li>
 </ul>
@@ -117,16 +118,15 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../projects/index.html">Cloudmesh Development Projects</a></li>
 <li class="toctree-l1"><a class="reference internal" href="conventions.html">Code Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual.html">Documentation Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual.html#version-management">Version Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="management.html">Code Management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="management.html#documentation-management">Documentation Management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="management.html#version-management">Version Management</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Pytest</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#cloudmesh-debugging-information">Cloudmesh Debugging Information</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#test-specification-and-execution">Test Specification and Execution</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="manual.html">Manual Creation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="todo.html">ToDo</a></li>
 </ul>
 <p class="caption"><span class="caption-text">CLOUD ACCOUNTS</span></p>
@@ -207,25 +207,24 @@
             
   <div class="section" id="pytest">
 <h1>Pytest<a class="headerlink" href="#pytest" title="Permalink to this headline">¶</a></h1>
-<p>Pytest is a utility to unit test python code.</p>
-<p>We use pytest and not <code class="docutils literal notranslate"><span class="pre">__main__</span></code> to test all functionality so they
-can me automatically run and reports can be generated. A project that
-does not have a sufficient number of tests to make sure the module works
-can not be accepted.</p>
+<p>Pytest is a utility to unit test python code. We use pytest and not
+<code class="docutils literal notranslate"><span class="pre">__main__</span></code> to test all functionality so they can me automatically run and
+reports can be generated. A project that does not have a sufficient
+number of tests to make sure the module works can not be accepted.</p>
 <div class="section" id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
-<p>The pytest module can be installed with the help of pip utility</p>
+<p>The pytest module can be installed with the help of pip utility:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pip install pytest
 </pre></div>
 </div>
-<p>This will install the pytest module in the current Python distribution,
-which means the test can be run using this utility as well as using
-<code class="docutils literal notranslate"><span class="pre">–m</span></code> switch. All tests are included in the folder <code class="docutils literal notranslate"><span class="pre">tests</span></code>.</p>
-<p>For example for the cloudmesh-cloud module they are in</p>
+<p>This will install the pytest module in the current Python distribution.
+All tests are included in the folder <code class="docutils literal notranslate"><span class="pre">tests</span></code>. For example for the
+cloudmesh-cloud module they are in</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/cloudmesh/cloudmesh-cloud/tree/master/tests">https://github.com/cloudmesh/cloudmesh-cloud/tree/master/tests</a></p></li>
 </ul>
-<p>Best is to add a number to identify in which order they are run</p>
+<p>If the order of the tests is important make sure the tests are specified in
+alphabetical order while introducing a numbering such as</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">+</span><span class="n">cm</span>
   <span class="o">+</span> <span class="n">cloudmesh</span>
   <span class="o">+</span> <span class="n">tests</span>
@@ -243,7 +242,18 @@ cms <span class="nb">set</span> <span class="nv">debug</span><span class="o">=</
 cms <span class="nb">set</span> <span class="nv">verbose</span><span class="o">=</span><span class="m">10</span>
 </pre></div>
 </div>
-<p>After you are done testing, you may want to set them back</p>
+<p>After you are done testing, you may want to set them back to</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms <span class="nb">set</span> <span class="nv">trace</span><span class="o">=</span>True
+cms <span class="nb">set</span> <span class="nv">debug</span><span class="o">=</span>True
+cms <span class="nb">set</span> <span class="nv">verbose</span><span class="o">=</span><span class="m">10</span>
+</pre></div>
+</div>
+<p>You can also set them within a test with the command</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cloudmesh.common3.Benchmark</span> <span class="kn">import</span> <span class="n">Benchmark</span>
+
+<span class="n">Benchmark</span><span class="o">.</span><span class="n">debug</span><span class="p">()</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="test-specification-and-execution">
 <h2>Test Specification and Execution<a class="headerlink" href="#test-specification-and-execution" title="Permalink to this headline">¶</a></h2>
@@ -253,33 +263,31 @@ cms <span class="nb">set</span> <span class="nv">verbose</span><span class="o">=
 </ul>
 <p>Note that all test python programs have specific function names of the
 form</p>
-<p><code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">test_number_topic</span> <span class="pre">(self)</span></code></p>
-<p>The number is defined to order them and is typically something like
-<code class="docutils literal notranslate"><span class="pre">001</span></code>, note the leading spaces. The topic is a descriptive term on
-what we test.</p>
-<p>Each test starts with a setup function <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">setup(self)</span></code> we declare a
-setup that is run prior to each test being executed. Other functions
-will use the setup prior to execution.</p>
-<p>A function includes one or multiple asserts that check if a particular
-test succeeds and reports this to pytest to expose the information if a
-tess succeeds or fails, when running it</p>
-<p>Note that all pytest functions in cloudmesh start with a <code class="docutils literal notranslate"><span class="pre">HEADING()</span></code> in the
-body which conveniently prints a banner with the function name and thus helps
-in debugging in case of errors.</p>
-<p>Invocation is simply done with the comment lines you see on top that you
-will include.</p>
-<p>in our case the test is called <cite>test_key.py</cite> so we include on the top</p>
+<p><code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">test_topic</span> <span class="pre">(self)</span></code></p>
+<p>Through the class decorator they are executed in order</p>
+<dl class="simple">
+<dt>A test may also have a method <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">setup(self)</span></code> whcih is run prior to each</dt><dd><p>other method.</p>
+</dd>
+</dl>
+<p>A test method includes one or multiple asserts that check if a particular test
+succeeds and reports this to pytest to expose the information if a tess
+succeeds or fails, when running it</p>
+<p>To have better visual separation of tests with the <cite>–capture=no</cite> option, all
+pytest functions in cloudmesh start with a <code class="docutils literal notranslate"><span class="pre">HEADING()</span></code>, which will print a
+banner with the function name. Invocation is simply done with the comment
+lines you see on top that you will include. In our case the test is called
+<cite>test_key.py</cite> so we include on the top:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">###############################################################</span>
 <span class="c1"># pytest -v --capture=no tests/test_key.py</span>
 <span class="c1"># pytest -v  tests/test_key.py</span>
-<span class="c1"># pytest -v --capture=no -v --nocapture tests/test_key.py:Test_key.&lt;METHIDNAME&gt;</span>
+<span class="c1"># pytest -v --capture=no -v tests/test_key.py:Test_key.&lt;METHODNAME&gt;</span>
 <span class="c1">###############################################################</span>
 </pre></div>
 </div>
-<p>You can than execute the test with either command. More information is
-printed with the command</p>
-<p>Make sure that you place this comment in your tests.</p>
-<p>The following is our simple pytest for key. THe file is stored at
+<p>Make sure that you place this comment in your tests. to remind the
+developers how to execute your test from the main directory. If you need
+dpecial instructions, please add them here.</p>
+<p>The following example is our simple pytest for key. THe file is stored at
 <code class="docutils literal notranslate"><span class="pre">tests/test_key.py</span></code></p>
 <p>First, we import the needed classes and methods we like to test. We
 define a class, and than we define the methods. such as the setup and
@@ -374,7 +382,7 @@ detail, but just reports if tests fail or succeed.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="manual.html" class="btn btn-neutral float-right" title="Manual Creation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="todo.html" class="btn btn-neutral float-right" title="ToDo" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="management.html" class="btn btn-neutral float-left" title="Code Management" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

@@ -116,11 +116,10 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../projects/index.html">Cloudmesh Development Projects</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../dev/conventions.html">Code Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dev/manual.html">Documentation Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dev/manual.html#version-management">Version Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../dev/management.html">Code Management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../dev/management.html#documentation-management">Documentation Management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../dev/management.html#version-management">Version Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../dev/pytest.html">Pytest</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../dev/manual.html">Manual Creation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../dev/todo.html">ToDo</a></li>
 </ul>
 <p class="caption"><span class="caption-text">CLOUD ACCOUNTS</span></p>
@@ -205,10 +204,17 @@
 <span class="kn">import</span> <span class="nn">yaml</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.StopWatch</span> <span class="k">import</span> <span class="n">StopWatch</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="k">import</span> <span class="n">path_expand</span>
-
+<span class="kn">from</span> <span class="nn">cloudmesh.common.variables</span> <span class="k">import</span> <span class="n">Variables</span>
 
 <span class="c1"># noinspection PyPep8Naming</span>
 <div class="viewcode-block" id="Benchmark"><a class="viewcode-back" href="../../../api/cloudmesh.common3.html#cloudmesh.common3.Benchmark.Benchmark">[docs]</a><span class="k">class</span> <span class="nc">Benchmark</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+<div class="viewcode-block" id="Benchmark.debug"><a class="viewcode-back" href="../../../api/cloudmesh.common3.html#cloudmesh.common3.Benchmark.Benchmark.debug">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">debug</span><span class="p">():</span>
+        <span class="n">variables</span> <span class="o">=</span> <span class="n">Variables</span><span class="p">()</span>
+        <span class="n">variables</span><span class="p">[</span><span class="s2">&quot;trace&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">variables</span><span class="p">[</span><span class="s2">&quot;debug&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">variables</span><span class="p">[</span><span class="s2">&quot;verbose&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span></div>
 
 <div class="viewcode-block" id="Benchmark.name"><a class="viewcode-back" href="../../../api/cloudmesh.common3.html#cloudmesh.common3.Benchmark.Benchmark.name">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">name</span><span class="p">():</span>

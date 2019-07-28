@@ -34,5 +34,4 @@
   cms set debug=True
   cms set trace=True
   ```
-
-  anything that is smaller than 10will be printed.
+  anything that is smaller than 10 will be printed.

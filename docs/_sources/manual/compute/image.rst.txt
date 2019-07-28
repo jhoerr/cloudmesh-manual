@@ -16,4 +16,3 @@ image
         cm image list --output=csv
         cm image list 58c9552c-8d93-42c0-9dea-5f48d90a3188 --refresh
 
-Timer: 0.0056s (man image --format=rst)
