@@ -38,3 +38,4 @@ ip
         ip delete NAME [IP]
             deletes the ip from the vm
 
+Timer: 0.0060s (man ip --format=rst)

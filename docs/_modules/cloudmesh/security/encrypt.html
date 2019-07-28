@@ -108,6 +108,7 @@
 </ul>
 <p class="caption"><span class="caption-text">API</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../jupyter/index.html">Jupyter Integration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../api/index.html">Cloudmesh Command API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../api/index.html#cloudmesh-api">Cloudmesh API</a></li>
 </ul>
@@ -232,7 +233,6 @@
             <span class="s1">&#39;pem&#39;</span><span class="p">:</span> <span class="n">path_expand</span><span class="p">(</span><span class="s1">&#39;~/.ssh/id_rsa.pem&#39;</span><span class="p">),</span>
             <span class="s1">&#39;key&#39;</span><span class="p">:</span> <span class="n">path_expand</span><span class="p">(</span><span class="s1">&#39;~/.ssh/id_rsa&#39;</span><span class="p">)</span>
         <span class="p">})</span>
-        <span class="n">VERBOSE</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;pem&quot;</span><span class="p">]):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">pem_create</span><span class="p">()</span>
 
@@ -264,7 +264,6 @@
 
     <span class="c1"># noinspection PyMethodMayBeStatic</span>
     <span class="k">def</span> <span class="nf">_execute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">command</span><span class="p">):</span>
-        <span class="n">VERBOSE</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
         <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
 
     <span class="c1"># noinspection PyPep8,PyBroadException</span>

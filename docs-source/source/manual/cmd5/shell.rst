@@ -12,3 +12,4 @@ shell
    Description:
         shell COMMAND  executes the command
 
+Timer: 0.0062s (man shell --format=rst)

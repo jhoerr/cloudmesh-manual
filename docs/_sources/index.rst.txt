@@ -34,6 +34,7 @@ Cloudmesh Version 4
    :caption: API
    :maxdepth: 2
 
+   jupyter/index
    api/index
 
 .. toctree::

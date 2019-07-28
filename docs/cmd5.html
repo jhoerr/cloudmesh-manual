@@ -217,7 +217,7 @@
 <p><a class="reference external" href="https://zenodo.org/badge/latestdoi/82920490"><img alt="DOI" src="https://zenodo.org/badge/82920490.svg" /></a> <a class="reference external" href="https://pypi.python.org/pypi/cloudmesh-cmd5"><img alt="Version" src="https://img.shields.io/pypi/v/cloudmesh-cmd5.svg" /></a> <a class="reference external" href="https://github.com/cloudmesh/cloudmesh-cmd5/blob/master/LICENSE"><img alt="License" src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" /></a> <a class="reference external" href="https://pypi.python.org/pypi/cloudmesh-cmd5"><img alt="Python" src="https://img.shields.io/pypi/pyversions/cloudmesh-cmd5.svg" /></a> <a class="reference external" href="https://pypi.python.org/pypi/cloudmesh-cmd5"><img alt="Format" src="https://img.shields.io/pypi/format/cloudmesh-cmd5.svg" /></a> <a class="reference external" href="https://pypi.python.org/pypi/cloudmesh-cmd5"><img alt="Status" src="https://img.shields.io/pypi/status/cloudmesh-cmd5.svg" /></a> <a class="reference external" href="https://travis-ci.com/cloudmesh/cloudmesh-cmd5"><img alt="Travis" src="https://travis-ci.com/cloudmesh/cloudmesh-cmd5.svg?branch=master" /></a></p>
 <p>To run the shell you can activate it with the cms command. cms stands
 for cloudmesh shell:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cms
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cms</span>
 </pre></div>
 </div>
 <p>It will print the banner and enter the shell:</p>
@@ -281,12 +281,12 @@ cms shell pwd
 </pre></div>
 </div>
 <p>Than every command you type is timed:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cms banner hallo
-banner
-######################################################################
-# hallo
-######################################################################
-Timer: 0.0011s (banner hallo)
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cms</span> <span class="n">banner</span> <span class="n">hallo</span>
+<span class="n">banner</span>
+<span class="c1">######################################################################</span>
+<span class="c1"># hallo</span>
+<span class="c1">######################################################################</span>
+<span class="n">Timer</span><span class="p">:</span> <span class="mf">0.0011</span><span class="n">s</span> <span class="p">(</span><span class="n">banner</span> <span class="n">hallo</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -401,23 +401,23 @@ information about your machine on which you run the benchmarks. You can get this
 readily designed with the help of  sys command.</p>
 <p>The sys command can be installed either from source (as discussed
 previously) or via pip</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pip install cloudmesh-sys
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install cloudmesh-sys
 </pre></div>
 </div>
 <p>Once you have installed it, execute <code class="docutils literal notranslate"><span class="pre">cms</span> <span class="pre">help</span> <span class="pre">sys</span></code> to see the usage.
 Now you simply can in a new directory execute the sys command as
 follows, where <code class="docutils literal notranslate"><span class="pre">mycommnad</span></code> is than name of the command you like to
 implement.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ mkdir mycommand
-$ <span class="nb">cd</span> mycommand
-$ cms sys <span class="nb">command</span> generate mycommand
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir mycommand
+<span class="nb">cd</span> mycommand
+cms sys <span class="nb">command</span> generate mycommand
 </pre></div>
 </div>
 <p>A directory with the name <code class="docutils literal notranslate"><span class="pre">cloudmesh-mycommand</span></code> will be generated that
 contains the template for the command. You can enter this template and
 modify the implementation in the folders <code class="docutils literal notranslate"><span class="pre">cloudmesh/mycommand/api</span></code> and
 <code class="docutils literal notranslate"><span class="pre">cloudmesh/mycommand/command</span></code> when installing it with</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip install .
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install .
 </pre></div>
 </div>
 <p>The command will be added to the cms command&gt;</p>
@@ -426,35 +426,30 @@ modify the implementation in the folders <code class="docutils literal notransla
 <li><p><a class="reference external" href="https://github.com/cloudmesh/cloudmesh.bar/blob/master/cloudmesh/bar/command/bar.py">cloudmesh/bar/command/bar.py</a></p></li>
 </ul>
 <p>It shows how simple the command definition is (bar.py):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">code</span><span class="p">::</span> <span class="n">bash</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.shell.command</span> <span class="kn">import</span> <span class="n">command</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.shell.command</span> <span class="kn">import</span> <span class="n">PluginCommand</span>
+
+<span class="k">class</span> <span class="nc">BarCommand</span><span class="p">(</span><span class="n">PluginCommand</span><span class="p">):</span>
+
+    <span class="nd">@command</span>
+    <span class="k">def</span> <span class="nf">do_bar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">arguments</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        ::</span>
+
+<span class="sd">          Usage:</span>
+<span class="sd">                command -f FILE</span>
+<span class="sd">                command FILE</span>
+<span class="sd">                command list</span>
+<span class="sd">          This command does some useful things.</span>
+<span class="sd">          Arguments:</span>
+<span class="sd">              FILE   a file name</span>
+<span class="sd">          Options:</span>
+<span class="sd">              -f      specify the file</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">arguments</span><span class="p">)</span>
 </pre></div>
 </div>
-<blockquote>
-<div><p>from __future__ import print_function
-from cloudmesh.shell.command import command
-from cloudmesh.shell.command import PluginCommand</p>
-<p>class BarCommand(PluginCommand):</p>
-<blockquote>
-<div><p>&#64;command
-def do_bar(self, args, arguments):</p>
-<blockquote>
-<div><p>“”“</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Usage</span><span class="p">:</span>
-      <span class="n">command</span> <span class="o">-</span><span class="n">f</span> <span class="n">FILE</span>
-      <span class="n">command</span> <span class="n">FILE</span>
-      <span class="n">command</span> <span class="nb">list</span>
-<span class="n">This</span> <span class="n">command</span> <span class="n">does</span> <span class="n">some</span> <span class="n">useful</span> <span class="n">things</span><span class="o">.</span>
-<span class="n">Arguments</span><span class="p">:</span>
-    <span class="n">FILE</span>   <span class="n">a</span> <span class="n">file</span> <span class="n">name</span>
-<span class="n">Options</span><span class="p">:</span>
-    <span class="o">-</span><span class="n">f</span>      <span class="n">specify</span> <span class="n">the</span> <span class="n">file</span>
-</pre></div>
-</div>
-<p>“””
-print(arguments)</p>
-</div></blockquote>
-</div></blockquote>
-</div></blockquote>
 <p>An important difference to other CMD solutions is that our commands can
 leverage (besides the standard definition), docopts as a way to define
 the manual page. This allows us to use arguments as dict and use simple
@@ -477,30 +472,39 @@ as would normally be needed in CMD.</p>
 Dockerfile is provided as an example that you may adapt for your needs</p>
 <p>To use the docker file we have included a number or convenient targets
 also in our makefile.</p>
-<p>You can create the image with:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">image</span>
+<p>You can create the image with</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make image
 </pre></div>
 </div>
-<p>You can run teh image and enter a shell with:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">shell</span>
+<p>You can run teh image and enter a shell with</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make shell
 </pre></div>
 </div>
 <p>This allows you to try things out in the image from bash which is good
 for development and debugging. You can directly enter the cloudmesh
-shell <code class="docutils literal notranslate"><span class="pre">cms</span></code> with:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">cms</span>
+shell <code class="docutils literal notranslate"><span class="pre">cms</span></code> with</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make cms
 </pre></div>
 </div>
-<p>or say:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">-</span><span class="n">it</span> <span class="n">cloudmesh</span><span class="o">/</span><span class="n">cmd5</span><span class="p">:</span><span class="mf">1.0</span>
+<p>or say</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The docker image is not yet updated.</p>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker run -it cloudmesh/cmd5:1.0
 </pre></div>
 </div>
-<p>It will create a default .cloudmesh/yaml file which your would have to
-modify. The reason we have not mounted the yaml file in the make files
+<p>It will create a default .cloudmesh/cloudmesh.yaml file which your would
+have to modify. The reason we have not mounted the yaml file in the make files
 form your directory is that we need a clean image to test the initial
 setup.</p>
 <p>If you have an example on how to mount the yaml file please let us know
 and we add it here.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If you installed the plugin <cite>cloudmesh-cloud</cite> you will be using
+the file cloudmesh4.yaml and not cloudmehs.yaml</p>
+</div>
 </div>
 </div>
 

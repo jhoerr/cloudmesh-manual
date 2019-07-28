@@ -95,8 +95,18 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#prerequisits-ubuntu-19-04">Prerequisits Ubuntu 19.04</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#prerequisits-macos">Prerequisits macOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prerequisits-macos">Prerequisits macOS</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#installation-from-apple-app-store">Installation from Apple App Store</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#installation-from-python-org">Installation from python.org</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#installation-from-hoembrew">Installation from Hoembrew</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#prerequisits-ubuntu-18-04">Prerequisits Ubuntu 18.04</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prerequisits-windows-10">Prerequisits Windows 10</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#system-install">System Install</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#linux-subsystem-install">Linux Subsystem Install</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#prerequisit-venv">Prerequisit venv</a></li>
 </ul>
 </li>
@@ -108,7 +118,10 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#cloudmesh-directory">.cloudmesh directory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#installation-of-mongod">Installation of mongod</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installation-of-mongod">Installation of mongod</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#prerequisit-ssh-key">Prerequisit ssh key</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a></li>
@@ -226,16 +239,13 @@ install from</p>
 <li><p>pip if you are a cloudmesh user</p></li>
 <li><p>source install if you are a developer</p></li>
 </ul>
-<p>At this time we do not recommend the conda install, as the conda packages are
-outdated.</p>
-<p>Please read a section in this manual completely, and understand the items
-explained. Do not just paste and copy text in your terminal and execute it as
-it could have unexpected consequences.</p>
-<p>The mongo installation has to be done by everyone.</p>
+<p>Please read the instalatio section in this manual completely, and understand
+the items explained before you install. Do not just paste and copy text in
+your terminal and execute it as it could have unexpected consequences.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>At this time we recommend that you do the source install as we
-have not yet uploaded all packages to pypi.</p>
+<p>At this time we do not recommend the conda install, as the conda
+packages are outdated.</p>
 </div>
 <div class="section" id="prerequisites">
 <h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
@@ -243,7 +253,8 @@ have not yet uploaded all packages to pypi.</p>
 <p class="admonition-title">Note</p>
 <p>Before you install make sure that you have at minimum python 3.7.4
 installed. Likely the code will work with earlier versions, but we
-do the development in python 3.7.4 from <a class="reference external" href="https://www.python.org/downloads/">https://www.python.org/downloads/</a>.</p>
+do the development in python 3.7.4. This version can be downloaded
+and installed from <a class="reference external" href="https://www.python.org/downloads/">https://www.python.org/downloads/</a>.</p>
 </div>
 <div class="section" id="prerequisits-ubuntu-19-04">
 <h3>Prerequisits Ubuntu 19.04<a class="headerlink" href="#prerequisits-ubuntu-19-04" title="Permalink to this headline">¶</a></h3>
@@ -254,15 +265,38 @@ of python. Please visit: <a class="reference external" href="https://www.python.
 </div>
 <div class="section" id="prerequisits-macos">
 <h3>Prerequisits macOS<a class="headerlink" href="#prerequisits-macos" title="Permalink to this headline">¶</a></h3>
-<p>Installing cloudmesh in macOS is very similar to installation in Ubuntu.
-Start the process by installing the python 3 using <code class="docutils literal notranslate"><span class="pre">homebrew</span></code>. Install the
-<code class="docutils literal notranslate"><span class="pre">homebrew</span></code> using the instruction in their <a class="reference external" href="https://brew.sh/#install">web page</a>:</p>
+<div class="section" id="installation-from-apple-app-store">
+<h4>Installation from Apple App Store<a class="headerlink" href="#installation-from-apple-app-store" title="Permalink to this headline">¶</a></h4>
+<p>You want a number of useful tool on your macOS. They are not installed by
+default, but are available via Xcode. First you need to install xcode from</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://apps.apple.com/us/app/xcode/id497799835">https://apps.apple.com/us/app/xcode/id497799835</a></p></li>
+</ul>
+<p>Next you need to install macOS xcode command line tools:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">xcode</span><span class="o">-</span><span class="n">select</span> <span class="o">--</span><span class="n">install</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="installation-from-python-org">
+<h4>Installation from python.org<a class="headerlink" href="#installation-from-python-org" title="Permalink to this headline">¶</a></h4>
+<p>The easiest instalation of Python for cloudmesh is to use the instaltion from
+<a class="reference external" href="https://www.python.org/downloads">https://www.python.org/downloads</a>. Please, visit the page and follow the
+instructions. After this install you have <cite>python3</cite> avalable from the
+commandline</p>
+</div>
+<div class="section" id="installation-from-hoembrew">
+<h4>Installation from Hoembrew<a class="headerlink" href="#installation-from-hoembrew" title="Permalink to this headline">¶</a></h4>
+<p>An alternative instalation is provided from Homebrew. To use this install
+method, you need to install Homebrew first. Start the process by installing
+the python 3 using <code class="docutils literal notranslate"><span class="pre">homebrew</span></code>. Install <code class="docutils literal notranslate"><span class="pre">homebrew</span></code> using the
+instruction in their <a class="reference external" href="https://brew.sh/#install">web page</a>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/usr/bin/ruby -e <span class="s2">&quot;</span><span class="k">$(</span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install<span class="k">)</span><span class="s2">&quot;</span>
 </pre></div>
 </div>
 <p>Then you should be able to install Python 3.7.4 using:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>brew install python
 </pre></div>
+</div>
 </div>
 </div>
 <div class="section" id="prerequisits-ubuntu-18-04">
@@ -310,14 +344,48 @@ rm get-pip.py
 </pre></div>
 </div>
 </div>
+<div class="section" id="prerequisits-windows-10">
+<h3>Prerequisits Windows 10<a class="headerlink" href="#prerequisits-windows-10" title="Permalink to this headline">¶</a></h3>
+<p>On Windows 10 you can install cloudmesh in either the system or a Linux
+Subsystem. We recommend that you use the Professional or the Educational
+version of Windows as the Home eddition is very limitted. Alternatively, you
+can also use the docker version of cloudmesh.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The docker version of cloudmesh is still under development.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>We do not recommend or suppport other versions of Windows.</p>
+</div>
+<div class="section" id="system-install">
+<h4>System Install<a class="headerlink" href="#system-install" title="Permalink to this headline">¶</a></h4>
+<p>Python 3.7 can be installed on Windows 10 using: <a class="reference external" href="https://www.python.org/downloads/">https://www.python.org/downloads/</a></p>
+</div>
+<div class="section" id="linux-subsystem-install">
+<h4>Linux Subsystem Install<a class="headerlink" href="#linux-subsystem-install" title="Permalink to this headline">¶</a></h4>
+<p>To activate the Linux Subsystem, please follow the instructions at</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.microsoft.com/en-us/windows/wsl/install-win10">https://docs.microsoft.com/en-us/windows/wsl/install-win10</a></p></li>
+</ul>
+<p>A suitable distribution would be</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.microsoft.com/en-us/p/ubuntu-1804-lts/9n9tngvndl3q?activetab=pivot:overviewtab">https://www.microsoft.com/en-us/p/ubuntu-1804-lts/9n9tngvndl3q?activetab=pivot:overviewtab</a></p></li>
+</ul>
+<p>However as it uses an older version of python you will ahve to update it.</p>
+</div>
+</div>
 <div class="section" id="prerequisit-venv">
 <h3>Prerequisit venv<a class="headerlink" href="#prerequisit-venv" title="Permalink to this headline">¶</a></h3>
 <p id="use-a-venv">This step is highly recommend if you have not yet already installed a
 <code class="docutils literal notranslate"><span class="pre">venv</span></code> for python to make sure you are not interfering with your system
-python. This is simple. For our purposes we assume that you use the directory</p>
-<blockquote>
-<div><p>~/ENV3. Follow these steps first:</p>
-</div></blockquote>
+python. Not using a venv could have catastrophic consequences and a
+destruction of your operating system tools if they realy on Python. The use
+of venv is simple. For our purposes we assume that you use the directory:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">~/</span><span class="n">ENV3</span>
+</pre></div>
+</div>
+<p>Follow these steps first:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m venv  ~/ENV3
 <span class="nb">source</span> ~/ENV3/bin/activate
 </pre></div>
@@ -340,21 +408,19 @@ the line</p>
 </div>
 <div class="section" id="installation-with-pip">
 <h2>Installation with Pip<a class="headerlink" href="#installation-with-pip" title="Permalink to this headline">¶</a></h2>
-<p>The installation can be done with pip. Make sure to have an updated version of
-pip:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install pip -U
-</pre></div>
-</div>
-<p>Next, dependent on your needs you can install the cloudmesh cloud or storage
-bundle with:</p>
+<p>If you like to use cloudmesh as user, the installation can be done with pip.
+Cloudmesh is stritributes in different modules and you only need to install
+the modules you desire. Dependent on your needs
+you can install the cloudmesh <cite>cloud</cite> or <cite>storage</cite> bundle with:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install cloudmesh-cloud
 </pre></div>
 </div>
-<p>and</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install cloudmesh-storage
+<p>or</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install cloudmesh-storage <span class="c1"># not yest supported</span>
 </pre></div>
 </div>
-<p>Additional packages include but are not yet released:</p>
+<p>Please note that the storage bundle also includes <cite>cloudmesh-cloud</cite>
+.Additional packages include but are not yet released:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install cloudmesh-flow    <span class="c1"># not yet supported</span>
 pip install cloudmesh-emr     <span class="c1"># not yet supported</span>
 pip install cloudmesh-batch   <span class="c1"># not yet supported</span>
@@ -371,11 +437,6 @@ time. Thus, just type the command</p>
 in which you can find the configuration file:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">~/.</span><span class="n">cloudmesh</span><span class="o">/</span><span class="n">cloudmesh4</span><span class="o">.</span><span class="n">yaml</span>
 </pre></div>
-</div>
-<div class="admonition-todo admonition" id="id1">
-<p class="admonition-title">Todo</p>
-<p>It would be beneficial to implement a command <code class="docutils literal notranslate"><span class="pre">cms</span> <span class="pre">setup</span></code> that
-does not only the yaml file, but also the mongo password.</p>
 </div>
 </div>
 <div class="section" id="anaconda-and-conda">
@@ -397,9 +458,9 @@ find in pypi. Therefore we recommend you use the pip based installation.</p>
 <div class="section" id="source-installation-for-developers">
 <h2>Source Installation for Developers<a class="headerlink" href="#source-installation-for-developers" title="Permalink to this headline">¶</a></h2>
 <p>As a developer you want to use our source installation. For this reason we
-wrote a <code class="docutils literal notranslate"><span class="pre">cloudmesh-installer</span></code> script that conveniently downloads the needed
-repositories, installs and updates them on demand. More documentation about it
-can be found at</p>
+wrote the <code class="docutils literal notranslate"><span class="pre">cloudmesh-installer</span></code> script that conveniently downloads the
+needed repositories, installs and updates them on demand. More documentation
+about it can be found at</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/cloudmesh/cloudmesh-installer">https://github.com/cloudmesh/cloudmesh-installer</a></p></li>
 </ul>
@@ -409,13 +470,13 @@ can be found at</p>
 </pre></div>
 </div>
 <p>Next, it is best to create an empty directory and decide which bundles to
-install</p>
+install while listing them</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir cm
 <span class="nb">cd</span> cm
 cloudmesh-installer bundels
 </pre></div>
 </div>
-<p>First, you have to decide which cloudmesh bundle to install. If you only want
+<p>Once you have decided whihc bundle to install you can proceed. If you only want
 to use compute resources the bundle name <code class="docutils literal notranslate"><span class="pre">cloud</span></code> will be what you want.
 If in addition you also like to work on storage, the bundle name <code class="docutils literal notranslate"><span class="pre">storage</span></code>
 needs to be used.</p>
@@ -424,9 +485,13 @@ needs to be used.</p>
 cloudmesh-installer install cloud -e
 </pre></div>
 </div>
-<p>It will take a while to install. On newer machines 1 minute, on older
-significant longer. You can than test if you successfully installed it by
-issuing the command</p>
+<p>The <cite>-e</cite> option is very important as it compiles the code in place of the
+downloaded directories and in case of changes in the directory automatically
+makes them available to the instaled version. This is naturally very
+important. It will take a while to install. On newer machines 1 minute, on older
+significant longer. Please watch your system information if the install
+takes a long time. Afterthe instalation is complete, you can than test if you
+successfully installed it by issuing the command</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms <span class="nb">help</span>
 </pre></div>
 </div>
@@ -434,11 +499,19 @@ issuing the command</p>
 default files will be installed, that you will need to modify at one point.</p>
 <div class="section" id="updates">
 <h3>Updates<a class="headerlink" href="#updates" title="Permalink to this headline">¶</a></h3>
-<dl class="simple">
-<dt>To update the source from github, simply use the command while making sure to</dt><dd><p>specify the desired bundle name, let us assume you use <code class="docutils literal notranslate"><span class="pre">cloud</span></code></p>
-</dd>
-</dl>
+<p>To update the source from github, simply use the <cite>cloudmesh-installer</cite> command
+while making sure to specify the desired bundle name, let us assume you use
+<code class="docutils literal notranslate"><span class="pre">cloud</span></code></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cloudmesh-installer git pull cloud
+</pre></div>
+</div>
+<p>If you see any conflicts make sure to resolve them. As developer sometimes it
+may be best to make a backup of the <cite>cm</cite> directory aor individual
+repositories in the cm directory. Then copy your changes
+into the newest code. Make sure to remove all python artifacts created with
+the -e option. See the command</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> cm
+cloudmesh-installer <span class="nb">local</span> purge .
 </pre></div>
 </div>
 </div>
@@ -474,7 +547,11 @@ drive or storage media only you have access to.</p>
 <div class="section" id="installation-of-mongod">
 <h2>Installation of mongod<a class="headerlink" href="#installation-of-mongod" title="Permalink to this headline">¶</a></h2>
 <p>First, you will need to install a <code class="docutils literal notranslate"><span class="pre">cloudmesh4.yaml</span></code> file, if you have not
-done this before. The easiest way to do so is with the command</p>
+done this before. If you do have mongo, you can safe this step. However,
+make sure you do not expose mongo on the internet so that you keep your
+information in mongo private. The easiest way to install mongo is with our
+build in install script. You will need to set first permission to use this
+install.  To do so start with the command</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms <span class="nb">help</span>
 </pre></div>
 </div>
@@ -483,7 +560,7 @@ done this before. The easiest way to do so is with the command</p>
 </pre></div>
 </div>
 <p>and change the password of the mongo entry to something you like, e.g. change
-the TBD to a real strong password</p>
+the TBD to a real strong password:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MONGO_PASSWORD</span><span class="p">:</span> <span class="n">TBD</span>
 </pre></div>
 </div>
@@ -496,6 +573,20 @@ the TBD to a real strong password</p>
 mongo, but also add the path to your <code class="docutils literal notranslate"><span class="pre">.bash_*</span></code> file. In case
 of windows platform, you will have to set the PATH variable manually. To
 install it simply say.</p>
+<p>Alternatively you can set thes values form the commandline without using an
+editor with</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms config <span class="nb">set</span> cloudmesh.data.mongo.MONGO_AUTOINSTALL<span class="o">=</span>True
+cms config <span class="nb">set</span> cloudmesh.data.mongo.MONGO_PASSWORD<span class="o">=</span>YOURPASSWORD
+</pre></div>
+</div>
+<p>Make sure to set a good strong password for Mongo that you can remember</p>
+<p>Now you can install mongo conveniently from cloudmesh if you have not
+installed it. On macOS and ubuntu it will install it under:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">~/</span><span class="n">local</span><span class="o">/</span><span class="n">mongo</span><span class="o">/</span><span class="nb">bin</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>Please make sure that this path is added to your PATH variable after the
+install is complete.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms admin mongo install
 </pre></div>
 </div>
@@ -511,9 +602,19 @@ install it simply say.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms admin mongo stop
 </pre></div>
 </div>
-<p>However, please remember that for cloudmesh to work properly you need to start
+<p>Please remember that for cloudmesh to work properly you need to start
 mongo. In case you need a different port you can configure that in the yaml
 file.</p>
+<div class="section" id="prerequisit-ssh-key">
+<h3>Prerequisit ssh key<a class="headerlink" href="#prerequisit-ssh-key" title="Permalink to this headline">¶</a></h3>
+<p>In order for you to use cloudmesh you will need an ssh key. This can be
+created from the command line with</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ssh-keygen
+</pre></div>
+</div>
+<p>Please make sure to use a passphrase with your key. Anyone telling you to use
+a passwordless key is giving you a wrong advice.</p>
+</div>
 </div>
 </div>
 

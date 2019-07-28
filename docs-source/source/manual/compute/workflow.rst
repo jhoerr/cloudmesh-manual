@@ -30,3 +30,4 @@ workflow
         cm workflow show 58c9552c-8d93-42c0-9dea-5f48d90a3188 --refresh
         cm workflow run workflow1
 
+Timer: 0.0127s (man workflow --format=rst)

@@ -103,7 +103,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#command-scripts">Command scripts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#cache">Cache</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#using-quotes">Using quotes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#new-commands-for-developers">New Commands for Developers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuring-chameleon-cloud">Configuring chameleon cloud</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../configuration/configuration.html">Configuration</a></li>
@@ -214,6 +214,11 @@
             
   <div class="section" id="quickstart">
 <h1>Quickstart<a class="headerlink" href="#quickstart" title="Permalink to this headline">¶</a></h1>
+<p>This quickstart assums you have already performed the following</p>
+<ul class="simple">
+<li><p>installed cloudmesh</p></li>
+<li><p>installed mongodb either with the help of cloudmesh or another method</p></li>
+</ul>
 <p>One of the features up Cloudmesh is to easily start new virtual machines
 on various clouds. It uses defaults for these clouds that can be changed,
 but are easily stored in a yaml file located at
@@ -224,31 +229,24 @@ information.</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/cloudmesh/cloudmesh-cloud/blob/master/cloudmesh/etc/cloudmesh4.yaml">https://github.com/cloudmesh/cloudmesh-cloud/blob/master/cloudmesh/etc/cloudmesh4.yaml</a></p></li>
 </ul>
+<p>Make sure that if you edited the yaml file that you check if it is correctly
+formated. This can be done with</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms config check
+</pre></div>
+</div>
 <div class="section" id="manual">
 <h2>Manual<a class="headerlink" href="#manual" title="Permalink to this headline">¶</a></h2>
-<p>Before we start it is important to note that cloudmesh provides a quick lin
-to its documentation. you can reach it with</p>
+<p>Before we start it is important to note that cloudmesh provides a quick way
+to look at its documentation with</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms open doc
 </pre></div>
 </div>
-<p>In case you are a developer and have installed the manual locally, you can
-also obtain it with</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms open doc <span class="nb">local</span>
-</pre></div>
-</div>
-<p>However, in order for the local to work you must issue that command in the
-<code class="docutils literal notranslate"><span class="pre">cloudmesh-manual</span></code> folder.</p>
 </div>
 <div class="section" id="generating-the-key-and-certificate">
 <h2>Generating the Key and Certificate<a class="headerlink" href="#generating-the-key-and-certificate" title="Permalink to this headline">¶</a></h2>
-<div class="admonition-todo admonition" id="id1">
-<p class="admonition-title">Todo</p>
-<p>test if the key generation works</p>
-</div>
-<p>We can encrypt and decrypt files using generated random key as follows:</p>
-<p>First, you need to create a public-private key with a passphrase. THis
-can be achieved with the <code class="docutils literal notranslate"><span class="pre">cms</span> <span class="pre">key</span></code> command it assumes that you have
-not jet created a key</p>
+<p>If you do not have yet generated an ssh key you will have to do it now.
+First, you need to create a public-private key with a passphrase. This
+can be achieved with the following command</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms config ssh keygen
 </pre></div>
 </div>
@@ -256,32 +254,29 @@ not jet created a key</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ssh-keygen -t rsa -m pem
 </pre></div>
 </div>
-<p>In case you need to convert your key, to a pem certificate you can do it
-as follows</p>
+<p>In case you already have a key, that is not in pem format, you can convert it
+with</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>openssl rsa -in ~/.ssh/id_rsa -out ~/.ssh/id_rsa.pem
 </pre></div>
 </div>
 </div>
 <div class="section" id="validate-and-verify-the-key">
 <h2>Validate and verify the key<a class="headerlink" href="#validate-and-verify-the-key" title="Permalink to this headline">¶</a></h2>
-<p>To validate the key please use the cms command</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms config check
-cms config verify
+<p>To validate the key please use the cms commands</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms config ssh check
+cms config ssh verify
 </pre></div>
 </div>
 </div>
 <div class="section" id="initialization">
 <h2>Initialization<a class="headerlink" href="#initialization" title="Permalink to this headline">¶</a></h2>
-<p>To initialize cloudmesh and its database the easiest way to do this is
-calling the command:</p>
+<p>To initialize cloudmesh and its database the easiest way is
+calling the commands:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cms</span> <span class="n">init</span>
-<span class="n">cms</span> <span class="n">sec</span> <span class="n">load</span>
-<span class="n">cms</span> <span class="n">key</span> <span class="n">add</span> <span class="o">--</span><span class="n">ssh</span>
-<span class="n">cms</span> <span class="n">stop</span>
 </pre></div>
 </div>
-<p>This needs to be done only one time. Form now on you can start and stop
-cloudmesh with:</p>
+<p>Note that the init command also starts the mongodb. This needs to be done
+only one time. Form now on you can start and stop cloudmesh with:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cms</span> <span class="n">start</span>
 </pre></div>
 </div>
@@ -301,6 +296,7 @@ work on all clouds.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms start
 
 cms <span class="nb">set</span> <span class="nv">cloud</span><span class="o">=</span>chameleon
+cms <span class="nb">set</span> <span class="nv">refresh</span><span class="o">=</span>True
 
 cms vm boot
 cms image list
@@ -343,7 +339,7 @@ cms vm list --cloud aws,azure
 cms <span class="nb">set</span> <span class="nv">cloud</span><span class="o">=</span>aws,azure
 </pre></div>
 </div>
-<div class="admonition-todo admonition" id="id2">
+<div class="admonition-todo admonition" id="id1">
 <p class="admonition-title">Todo</p>
 <p>check if multiple clouds can be set and the list command works on
 multiple clouds. Check this also for image and flavor commands</p>
@@ -386,11 +382,6 @@ cms&gt; vm boot
 <p>All information about for example virtual machines are cached locally.
 The cache for various information sources can be explicitly updated with
 the <code class="docutils literal notranslate"><span class="pre">--refresh</span></code> flag. Thus the command</p>
-<div class="admonition-todo admonition" id="id3">
-<p class="admonition-title">Todo</p>
-<p>check if the list –refresh is implemented for vm, flavor, images,
-for all clouds</p>
-</div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms vm list --refresh
 cma flavor list --refresh
 cma image list --refresh
@@ -402,8 +393,8 @@ cms flavor list
 cms image list
 </pre></div>
 </div>
-<p>would only read from the local cache</p>
-<p>To change the behavior and always do a refresh you can use the command</p>
+<p>would only read from the local cache. To change the behavior and always do a
+refresh from the cloud you can use the command</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms <span class="nb">set</span> <span class="nv">refresh</span><span class="o">=</span>True
 </pre></div>
 </div>
@@ -411,44 +402,40 @@ cms image list
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms <span class="nb">set</span> <span class="nv">refresh</span><span class="o">=</span>False
 </pre></div>
 </div>
-<div class="admonition-todo admonition" id="id4">
-<p class="admonition-title">Todo</p>
-<p>check if refresh=True this is implemented.</p>
-</div>
 </div>
 <div class="section" id="using-quotes">
 <h2>Using quotes<a class="headerlink" href="#using-quotes" title="Permalink to this headline">¶</a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>In case you need to use quotes in the command line you need to mask them with a bakslash.</p>
+<p>In case you need to use quotes in the command line you need to
+mask them with a bakslash.</p>
 </div>
+<p>Thus you would use</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms vm list --cloud<span class="o">=</span><span class="se">\&quot;</span>chameleon<span class="se">\&quot;</span>
+</pre></div>
 </div>
-<div class="section" id="new-commands-for-developers">
-<h2>New Commands for Developers<a class="headerlink" href="#new-commands-for-developers" title="Permalink to this headline">¶</a></h2>
-<p>We added the following commands to make development easier</p>
-<table class="docutils align-default" id="id5">
-<caption><span class="caption-text">New commands</span><a class="headerlink" href="#id5" title="Permalink to this table">¶</a></caption>
-<colgroup>
-<col style="width: 25%" />
-<col style="width: 75%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Command</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">cms</span> <span class="pre">start</span></code></p></td>
-<td><p>same as <code class="docutils literal notranslate"><span class="pre">cms</span> <span class="pre">admin</span> <span class="pre">mongo</span> <span class="pre">start</span></code></p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">cms</span> <span class="pre">stop</span></code></p></td>
-<td><p>same as <code class="docutils literal notranslate"><span class="pre">cms</span> <span class="pre">admin</span> <span class="pre">mongo</span> <span class="pre">stop</span></code></p></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">cms</span> <span class="pre">init</span></code></p></td>
-<td><p>deletes the mongo, and starts it up empty</p></td>
-</tr>
-</tbody>
-</table>
+<p>However as there are no quotes needed in the provious command it can simply
+be written as</p>
+<blockquote>
+<div><p>cms vm list –cloud=chameleon</p>
+</div></blockquote>
+</div>
+<div class="section" id="configuring-chameleon-cloud">
+<h2>Configuring chameleon cloud<a class="headerlink" href="#configuring-chameleon-cloud" title="Permalink to this headline">¶</a></h2>
+<p>In many of the classes we teach you will have access to chameleon cloud. You
+will get a cloudmesh4.yaml file as part of the class in which you only need
+to set your username and your password. This is done on the terminal with</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms config <span class="nb">set</span> cloudmesh.cloud.chameleon.credentials.OS_USERNAME<span class="o">=</span>YOURUSERNAME
+cms config <span class="nb">set</span> cloudmesh.cloud.chameleon.credentials.OS_PASSWORD<span class="o">=</span>YOURPASSWORD
+</pre></div>
+</div>
+<p>Where YOURUSERNAME, and YOURPASSWORD is the account name and password from
+the account givving you access to</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.chameleoncloud.org/">https://www.chameleoncloud.org/</a></p></li>
+</ul>
+<p>Thus if you have an account and are part of the class project, you can gain
+access to an openstack cloud in seconds via cloudmesh.</p>
 </div>
 </div>
 

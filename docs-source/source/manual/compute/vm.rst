@@ -71,7 +71,7 @@ vm
 
     Options:
         -v             verbose, prints the dict at the end
-        --output=OUTPUT   the output format [default: table]
+        --output=OUTPUT   the output format
         -H --modify-knownhosts  Do not modify ~/.ssh/known_hosts file
                               when ssh'ing into a machine
         --username=USERNAME   the username to login into the vm. If not
@@ -166,3 +166,4 @@ vm
 
         Azure: rename is not supported
 
+Timer: 0.0055s (man vm --format=rst)

@@ -27,3 +27,4 @@ container
   Description:
       container --os="cloudmesh/book:1.7" --command=ls
 
+Timer: 0.0053s (man container --format=rst)

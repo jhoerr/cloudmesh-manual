@@ -11,3 +11,4 @@ Traceback (most recent call last):
   File "<string>", line 1, in <module>
 AttributeError: 'CMShell' object has no attribute 'do_vdir'
 
+Timer: 0.0143s (man vdir --format=rst)

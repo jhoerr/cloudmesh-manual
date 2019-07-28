@@ -108,6 +108,7 @@
 </ul>
 <p class="caption"><span class="caption-text">API</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../jupyter/index.html">Jupyter Integration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../api/index.html">Cloudmesh Command API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../api/index.html#cloudmesh-api">Cloudmesh API</a></li>
 </ul>
@@ -399,7 +400,9 @@
                             <span class="n">rule</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">group</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
                             <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rule</span><span class="p">)</span>
                     <span class="n">cloud_groups</span> <span class="o">=</span> <span class="n">result</span>
-                <span class="n">provider</span><span class="o">.</span><span class="n">Print</span><span class="p">(</span><span class="n">arguments</span><span class="o">.</span><span class="n">output</span><span class="p">,</span> <span class="s2">&quot;secrule&quot;</span><span class="p">,</span> <span class="n">cloud_groups</span><span class="p">)</span>
+                <span class="n">provider</span><span class="o">.</span><span class="n">Print</span><span class="p">(</span><span class="n">cloud_groups</span><span class="p">,</span>
+                               <span class="n">output</span><span class="o">=</span><span class="n">arguments</span><span class="o">.</span><span class="n">output</span><span class="p">,</span>
+                               <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;secrule&quot;</span><span class="p">,</span> <span class="p">)</span>
 
             <span class="k">return</span> <span class="s2">&quot;&quot;</span>
 

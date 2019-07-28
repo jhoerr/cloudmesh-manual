@@ -2,8 +2,8 @@ Reference Card
 ==============
 
 
-Shell
-------
+Shell invocation
+----------------
 
 .. list-table:: Shell
    :widths: 25 75
@@ -18,8 +18,8 @@ Shell
    * - cms script.cm
      - execute cm commands in script
 
-Shell commands that expire after a session
-------------------------------------------
+Shell basic commands
+--------------------
 
 .. list-table:: Shell
    :widths: 25 75
@@ -31,20 +31,22 @@ Shell commands that expire after a session
      - sets the shell color
    * - cms color off
      - switches off the color
-   * - cms refresh on
-     - automatic refresh from the clouds
-   * - cms refresh off
-     - data is only read from the database. Useful for managing thousands of VMs or limit your access to the cloud.
-   * - var a=xyx
+   * - cms set a=xyx
      - declares a variable
-   * - var username=cloudmesh.profile.username
+   * - cms set username=cloudmesh.profile.username
      - reads the variable from the cloudmesh.yaml file
-   * - var time=now
+   * - cms set time=now
      - gets the time and store it in the variable time
+   * - cms set debug=True
+     - activates debug messages
+   * - cms set trace=True
+     - activates traceback on an error to show which line of teh code the
+       error occured
+   * - cms set verbose=10
+     - set maximum verbosity for printing verbose debug messages
 
-
-Clouds
--------
+Cloud commands
+--------------
 
 .. list-table:: Cloud
    :widths: 25 75
@@ -60,16 +62,14 @@ Clouds
      - list vms
    * - cms vm boot
      - boot vm
-   * - cms vm boot --cloud=kilo
-     - boot vm on cloud kilo
-   * - cms default cloud=kilo
-     - set default cloud to kilo
-   * - cms select image
-     - select interactively the default image (not implemented yet).
-   * - cms select flavor
-     - select interactively the default flavor (not implemented yet).
-   * - cms select cloud
-     - select interactively the default cloud (not implemented yet).
+   * - cms vm boot --cloud=aws
+     - boots a  vm on cloud aws
+   * - cms set cloud=aws
+     - set the default cloud to kilo
+   * - cms set refresh=True
+     - automatic refresh from the clouds
+   * - cms set refresh=Fasle
+     - data is only read from the database.
 
 .. _refcard_comet:
 

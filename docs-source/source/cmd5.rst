@@ -6,7 +6,7 @@ Cmd5
 To run the shell you can activate it with the cms command. cms stands
 for cloudmesh shell::
 
-   $ cms
+   cms
 
 It will print the banner and enter the shell::
 
@@ -72,7 +72,7 @@ To switch timers on or off you can use::
 
 Than every command you type is timed::
 
-   $ cms banner hallo
+   cms banner hallo
    banner
    ######################################################################
    # hallo
@@ -198,7 +198,7 @@ previously) or via pip
 
 .. code:: bash
 
-   $ pip install cloudmesh-sys
+   pip install cloudmesh-sys
 
 Once you have installed it, execute ``cms help sys`` to see the usage.
 Now you simply can in a new directory execute the sys command as
@@ -207,18 +207,18 @@ implement.
 
 .. code:: bash
 
-   $ mkdir mycommand
-   $ cd mycommand
-   $ cms sys command generate mycommand
+   mkdir mycommand
+   cd mycommand
+   cms sys command generate mycommand
 
 A directory with the name ``cloudmesh-mycommand`` will be generated that
 contains the template for the command. You can enter this template and
 modify the implementation in the folders ``cloudmesh/mycommand/api`` and
 ``cloudmesh/mycommand/command`` when installing it with
 
-::
+.. code:: bash
 
-   $ pip install .
+   pip install .
 
 The command will be added to the cms command>
 
@@ -226,9 +226,9 @@ An example for the bar command is presented at:
 
 -  `cloudmesh/bar/command/bar.py <https://github.com/cloudmesh/cloudmesh.bar/blob/master/cloudmesh/bar/command/bar.py>`__
 
-It shows how simple the command definition is (bar.py)::
+It shows how simple the command definition is (bar.py):
 
-.. code:: bash
+.. code:: python
 
    from __future__ import print_function
    from cloudmesh.shell.command import command
@@ -298,28 +298,43 @@ Dockerfile is provided as an example that you may adapt for your needs
 To use the docker file we have included a number or convenient targets
 also in our makefile.
 
-You can create the image with::
+You can create the image with
+
+.. code:: bash
 
    make image
 
-You can run teh image and enter a shell with::
+You can run teh image and enter a shell with
+
+.. code:: bash
 
    make shell
 
 This allows you to try things out in the image from bash which is good
 for development and debugging. You can directly enter the cloudmesh
-shell ``cms`` with::
+shell ``cms`` with
+
+.. code:: bash
 
    make cms
 
-or say::
+or say
+
+
+.. warning:: The docker image is not yet updated.
+
+
+.. code:: bash
 
    docker run -it cloudmesh/cmd5:1.0
 
-It will create a default .cloudmesh/yaml file which your would have to
-modify. The reason we have not mounted the yaml file in the make files
+It will create a default .cloudmesh/cloudmesh.yaml file which your would
+have to modify. The reason we have not mounted the yaml file in the make files
 form your directory is that we need a clean image to test the initial
 setup.
 
 If you have an example on how to mount the yaml file please let us know
 and we add it here.
+
+.. warning:: If you installed the plugin `cloudmesh-cloud` you will be using
+             the file cloudmesh4.yaml and not cloudmehs.yaml

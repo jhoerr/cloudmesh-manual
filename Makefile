@@ -242,9 +242,11 @@ clean:
 	find . -name '*.pyc' -delete
 	rm -rf .tox
 	rm -f *.whl
-	rm -f ./docs/_sources/todo.md.txt ./docs/_sources/todo.rst.txt
-	rm -f ./docs/todo.html
-	rm -rf ./docs-source/source/api
+	rm -rf docs
+
+#	rm -f ./docs/_sources/todo.md.txt ./docs/_sources/todo.rst.txt
+#	rm -f ./docs/todo.html
+#	rm -rf ./docs-source/source/api
 
 ######################################################################
 # .cloudmesh

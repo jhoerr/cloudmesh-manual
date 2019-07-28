@@ -108,6 +108,7 @@
 </ul>
 <p class="caption"><span class="caption-text">API</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../jupyter/index.html">Jupyter Integration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../api/index.html">Cloudmesh Command API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../api/index.html#cloudmesh-api">Cloudmesh API</a></li>
 </ul>
@@ -229,6 +230,10 @@
             <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">r</span></div>
+
+<div class="viewcode-block" id="Shell.cms"><a class="viewcode-back" href="../../../api/cloudmesh.common3.html#cloudmesh.common3.Shell.Shell.cms">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">cms</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Shell</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;cms &quot;</span> <span class="o">+</span> <span class="n">command</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="n">encoding</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Shell.run_timed"><a class="viewcode-back" href="../../../api/cloudmesh.common3.html#cloudmesh.common3.Shell.Shell.run_timed">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">run_timed</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">command</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">service</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>

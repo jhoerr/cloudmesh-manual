@@ -270,3 +270,19 @@ The format can be changed with ``schema=`` at the initialization. Thus
 
 would create names of the form gergor1, gergor2 and so on.
 
+The format of the names cana also be controlled by the file::
+
+    ~/.cloudmesh/names.yaml
+
+An example is::
+
+    counter: 13
+    user: gregor
+    kind: vm
+    schema: '{user}-{kind}-{counter}'
+    path: /Users/grey/.cloudmesh/name.yaml
+
+In it you define variables that can be used as part of the schema. The
+counter varaiable is incresed every time a new name is generated. In case a
+yaml file is used no parameters have to be given to `Name()`
+

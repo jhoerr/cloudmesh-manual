@@ -108,6 +108,7 @@
 </ul>
 <p class="caption"><span class="caption-text">API</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../jupyter/index.html">Jupyter Integration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../api/index.html">Cloudmesh Command API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../api/index.html#cloudmesh-api">Cloudmesh API</a></li>
 </ul>
@@ -217,7 +218,7 @@
 <span class="kn">from</span> <span class="nn">cloudmesh.mongo.CmDatabase</span> <span class="k">import</span> <span class="n">CmDatabase</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.provider</span> <span class="k">import</span> <span class="n">ComputeProviderPlugin</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.secgroup.Secgroup</span> <span class="k">import</span> <span class="n">Secgroup</span><span class="p">,</span> <span class="n">SecgroupRule</span>
-
+<span class="kn">from</span> <span class="nn">cloudmesh.common.debug</span> <span class="k">import</span> <span class="n">VERBOSE</span>
 
 <div class="viewcode-block" id="Provider"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider">[docs]</a><span class="k">class</span> <span class="nc">Provider</span><span class="p">(</span><span class="n">ComputeNodeABC</span><span class="p">,</span> <span class="n">ComputeProviderPlugin</span><span class="p">):</span>
     <span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;openstack&quot;</span>
@@ -933,9 +934,17 @@
         <span class="k">raise</span> <span class="ne">NotImplementedError</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">reboot_node</span><span class="p">(</span><span class="n">name</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Provider.set_server_metadata"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.set_server_metadata">[docs]</a>    <span class="k">def</span> <span class="nf">set_server_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">m</span><span class="p">):</span>
+<div class="viewcode-block" id="Provider.set_server_metadata"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.set_server_metadata">[docs]</a>    <span class="k">def</span> <span class="nf">set_server_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">cm</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Sets the server metadata from the cm dict</span>
+
+<span class="sd">        :param name: The name of the vm</span>
+<span class="sd">        :param cm: The cm dict</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;cm&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">cm</span><span class="p">)}</span>
         <span class="n">server</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">get_server</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">set_server_metadata</span><span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="n">m</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">set_server_metadata</span><span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Provider.get_server_metadata"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider.get_server_metadata">[docs]</a>    <span class="k">def</span> <span class="nf">get_server_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
         <span class="n">server</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>

@@ -9,7 +9,7 @@ flavor
 
     Options:
        --output=OUTPUT  the output format [default: table]
-       --cloud=CLOUD    the cloud name
+       --cloud=CLOUD    the ycloud name
        --refresh        refreshes the data before displaying it
 
     Description:
@@ -25,3 +25,4 @@ flavor
         please remember that a uuid or the flavor name can be used to
         identify a flavor.
 
+Timer: 0.0053s (man flavor --format=rst)

@@ -108,6 +108,7 @@
 </ul>
 <p class="caption"><span class="caption-text">API</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../jupyter/index.html">Jupyter Integration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../api/index.html">Cloudmesh Command API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../api/index.html#cloudmesh-api">Cloudmesh API</a></li>
 </ul>
@@ -204,7 +205,7 @@
 <span class="kn">from</span> <span class="nn">cloudmesh.mongo.CmDatabase</span> <span class="k">import</span> <span class="n">CmDatabase</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.shell.command</span> <span class="k">import</span> <span class="n">PluginCommand</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.shell.command</span> <span class="k">import</span> <span class="n">command</span><span class="p">,</span> <span class="n">map_parameters</span>
-
+<span class="kn">from</span> <span class="nn">cloudmesh.common.parameter</span> <span class="k">import</span> <span class="n">Parameter</span>
 
 <div class="viewcode-block" id="ImageCommand"><a class="viewcode-back" href="../../../../api/cloudmesh.image.command.html#cloudmesh.image.command.image.ImageCommand">[docs]</a><span class="k">class</span> <span class="nc">ImageCommand</span><span class="p">(</span><span class="n">PluginCommand</span><span class="p">):</span>
 
@@ -237,6 +238,14 @@
 
         <span class="n">variables</span> <span class="o">=</span> <span class="n">Variables</span><span class="p">()</span>
 
+        <span class="n">arguments</span><span class="o">.</span><span class="n">output</span> <span class="o">=</span> <span class="n">Parameter</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;output&quot;</span><span class="p">,</span>
+                                          <span class="n">arguments</span><span class="p">,</span>
+                                          <span class="n">variables</span><span class="p">,</span>
+                                          <span class="s2">&quot;table&quot;</span><span class="p">)</span>
+
+        <span class="n">arguments</span><span class="o">.</span><span class="n">refresh</span> <span class="o">=</span> <span class="n">Parameter</span><span class="o">.</span><span class="n">find_bool</span><span class="p">(</span><span class="s2">&quot;refresh&quot;</span><span class="p">,</span>
+                                                <span class="n">arguments</span><span class="p">,</span>
+                                                <span class="n">variables</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">list</span> <span class="ow">and</span> <span class="n">arguments</span><span class="p">[</span><span class="s2">&quot;--query&quot;</span><span class="p">]:</span>
             <span class="n">names</span> <span class="o">=</span> <span class="p">[]</span>
 
@@ -272,7 +281,7 @@
                 <span class="n">provider</span> <span class="o">=</span> <span class="n">Provider</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">cloud</span><span class="p">)</span>
                 <span class="n">images</span> <span class="o">=</span> <span class="n">provider</span><span class="o">.</span><span class="n">images</span><span class="p">()</span>
 
-                <span class="n">provider</span><span class="o">.</span><span class="n">Print</span><span class="p">(</span><span class="n">arguments</span><span class="o">.</span><span class="n">output</span><span class="p">,</span> <span class="s2">&quot;image&quot;</span><span class="p">,</span> <span class="n">images</span><span class="p">)</span>
+                <span class="n">provider</span><span class="o">.</span><span class="n">Print</span><span class="p">(</span><span class="n">images</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="n">arguments</span><span class="o">.</span><span class="n">output</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;image&quot;</span><span class="p">)</span>
 
             <span class="k">return</span> <span class="s2">&quot;&quot;</span>
 
@@ -298,7 +307,8 @@
                     <span class="nb">print</span><span class="p">(</span><span class="n">images</span><span class="p">)</span>
                     <span class="nb">print</span><span class="p">(</span><span class="n">provider</span><span class="p">)</span>
 
-                    <span class="n">provider</span><span class="o">.</span><span class="n">Print</span><span class="p">(</span><span class="n">arguments</span><span class="o">.</span><span class="n">output</span><span class="p">,</span> <span class="s2">&quot;image&quot;</span><span class="p">,</span> <span class="n">images</span><span class="p">)</span>
+                    <span class="n">provider</span><span class="o">.</span><span class="n">Print</span><span class="p">(</span><span class="n">images</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="n">arguments</span><span class="o">.</span><span class="n">output</span><span class="p">,</span>
+                                   <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;image&quot;</span><span class="p">)</span>
 
             <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
 

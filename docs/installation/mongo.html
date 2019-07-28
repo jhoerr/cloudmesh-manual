@@ -444,6 +444,21 @@ for different resources and needs</p>
 </pre></div>
 </div>
 <p>would create names of the form gergor1, gergor2 and so on.</p>
+<p>The format of the names cana also be controlled by the file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">~/.</span><span class="n">cloudmesh</span><span class="o">/</span><span class="n">names</span><span class="o">.</span><span class="n">yaml</span>
+</pre></div>
+</div>
+<p>An example is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">counter</span><span class="p">:</span> <span class="mi">13</span>
+<span class="n">user</span><span class="p">:</span> <span class="n">gregor</span>
+<span class="n">kind</span><span class="p">:</span> <span class="n">vm</span>
+<span class="n">schema</span><span class="p">:</span> <span class="s1">&#39;</span><span class="si">{user}</span><span class="s1">-</span><span class="si">{kind}</span><span class="s1">-</span><span class="si">{counter}</span><span class="s1">&#39;</span>
+<span class="n">path</span><span class="p">:</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">grey</span><span class="o">/.</span><span class="n">cloudmesh</span><span class="o">/</span><span class="n">name</span><span class="o">.</span><span class="n">yaml</span>
+</pre></div>
+</div>
+<p>In it you define variables that can be used as part of the schema. The
+counter varaiable is incresed every time a new name is generated. In case a
+yaml file is used no parameters have to be given to <cite>Name()</cite></p>
 </div>
 </div>
 
