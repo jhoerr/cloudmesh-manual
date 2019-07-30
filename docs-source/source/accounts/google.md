@@ -56,7 +56,7 @@ In a broader sense Google docs is just a subset of Google Drive.
 
 
 - [ ] TODO: Google account. A program that takes the json files and integrates them
-  into [cloudmesh4.yaml]{.title-ref}
+  into [cloudmesh.yaml]{.title-ref}
 
 - [ ] TODO: Google account. The documentation for getting access to google cloud is
   incomplete, see related entries.
@@ -66,7 +66,7 @@ In a broader sense Google docs is just a subset of Google Drive.
 -   `google-drive-credentials.json`
 
 If we run the Google Drive `Provider.py` for the **First time** then the
-required keys, tokens are taken from the `cloudmesh4.yaml` file and
+required keys, tokens are taken from the `cloudmesh.yaml` file and
 creates a `client_secret.json` file in the following path
 `~/.cloudmesh/gdrive/`
 

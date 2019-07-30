@@ -149,7 +149,7 @@ AWS VM Operations (Yu)
 ----------------------
 
 Before using the AWS Vm code, user has to update their AWS information
-into ``cloudmesh4.yaml`` file in *etc* folder.
+into ``cloudmesh.yaml`` file in *etc* folder.
 
 The *Libcloud* library has enough methods to support the operations for
 managing virtual machines in AWS. We use a ``cloudmesh-cloud/vm/Aws.py``
@@ -158,7 +158,7 @@ to create the driver based on the configuration to connect to AWS.
 Inherit the *Libcloud* library, we did some modifications on
 ``AWSDriver`` to extend the operation. The ``create_node`` method would
 create a virtual machine in AWS based on the configuration of
-``cloudmesh4.yaml`` file
+``cloudmesh.yaml`` file
 
 Here are some samples for running these operations by using
 ``cloudmesh-cloud``:

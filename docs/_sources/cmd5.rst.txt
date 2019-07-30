@@ -336,5 +336,3 @@ setup.
 If you have an example on how to mount the yaml file please let us know
 and we add it here.
 
-.. warning:: If you installed the plugin `cloudmesh-cloud` you will be using
-             the file cloudmesh4.yaml and not cloudmehs.yaml

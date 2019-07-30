@@ -29,7 +29,7 @@ The storage module can be
 ## AWSS3 Cloudmesh Integration
 
 AWS S3 file storage has been integrated with cloudmesh library and is available 
-for use via commandline. As a first step we need to modify `cloudmesh4.yaml` 
+for use via commandline. As a first step we need to modify `cloudmesh.yaml` 
 config file.  Under 'storage' section, we need to add the aws section to specify
 the parameters used to store files in AWS S3. 
 
@@ -136,7 +136,7 @@ for use via commandline.
 
 Follow the below steps:
 
-- Modify `cloudmesh4.yaml` config file in 'cloudmesh-storage' section. User need to add required object storage parameters to communicate with cloud(AWS S3)
+- Modify `cloudmesh.yaml` config file in 'cloudmesh-storage' section. User need to add required object storage parameters to communicate with cloud(AWS S3)
 
 - In the credentials section under `awsobjectstore`, add the parameter values of access_key_id and secret_access_key, these credentials will be gained from appropriate cloud vendor(For ex: AWS), in the case of AWS, these will be available which will be available in the AWS console under 
 `AWS IAM service` -> `Users` -> `Security Credentials`. 
@@ -429,7 +429,7 @@ The Google Drive API needs the following two 2 credentials files.
 * `google-drive-credentials.json`  
 
 If we run the Google Drive `Provider.py` for the **First time** then the
-required keys, tokens are taken from the `cloudmesh4.yaml` file and creates a
+required keys, tokens are taken from the `cloudmesh.yaml` file and creates a
 `client_secret.json` file in the following path `~/.cloudmesh/gdrive/`
 
 The `Authentication.py` creates a `.credentials` folder under the following path

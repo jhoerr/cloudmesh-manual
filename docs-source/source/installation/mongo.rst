@@ -6,7 +6,7 @@ remember which services you used where and have an accurate account of
 them. We use as a database mongoDB to store this information. To use
 cloudmesh you simply need to create and start the database service.
 
-First you need to change the password for mongo in the ``cloudmesh4.yaml`` file
+First you need to change the password for mongo in the ``cloudmesh.yaml`` file
 Now you can create an empty database with
 
 .. code:: bash
@@ -46,7 +46,7 @@ To backup and load from the backup you can use:
 
 
 The database will be started based-on the information as specified in
-``~/.cloudmesh/cloudmesh4.yaml``. An example is
+``~/.cloudmesh/cloudmesh.yaml``. An example is
 
 ::
 

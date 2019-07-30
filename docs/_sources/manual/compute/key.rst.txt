@@ -44,7 +44,7 @@ key
 
    Description:
 
-       Please note that some values are read from the cloudmesh4.yaml
+       Please note that some values are read from the cloudmesh.yaml
        file. One such value is cloudmesh.profile.user
 
        Manages public keys is an essential component of accessing
@@ -69,7 +69,7 @@ key
 
         key list --source=git  [--username=USERNAME]
             lists all keys in git for the specified user. If the
-            name is not specified it is read from cloudmesh4.yaml
+            name is not specified it is read from cloudmesh.yaml
         key list --source=ssh  [--dir=DIR] [--output=OUTPUT]
             lists all keys in the directory. If the directory is not
             specified the default will be ~/.ssh
@@ -101,7 +101,7 @@ key
        uploading the information to the clouds. If no group name is
        specified the group name default is assumed. If no cloudnamesh
        are specified, all active clouds are assumed. active clouds
-       can be set in the cloudmesh4.yaml file.
+       can be set in the cloudmesh.yaml file.
 
         key group delete [GROUPNAMES] [NAMES] [--dryrun]
             deletes the named keys from the named groups.

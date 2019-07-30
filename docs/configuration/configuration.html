@@ -242,10 +242,10 @@
   <div class="section" id="configuration">
 <h1>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h1>
 <p>The Configuration of cloudmesh is controlled with a yaml file that is
-placed in <code class="docutils literal notranslate"><span class="pre">~/.cloudmesh/cloudmesh4.yaml</span></code>. It is created automatically
+placed in <code class="docutils literal notranslate"><span class="pre">~/.cloudmesh/cloudmesh.yaml</span></code>. It is created automatically
 from the template located at</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/cloudmesh/cloudmesh-cloud/blob/master/cloudmesh/etc/cloudmesh4.yaml">https://github.com/cloudmesh/cloudmesh-cloud/blob/master/cloudmesh/etc/cloudmesh4.yaml</a></p></li>
+<li><p><a class="reference external" href="https://github.com/cloudmesh/cloudmesh-cloud/blob/master/cloudmesh/etc/cloudmesh.yaml">https://github.com/cloudmesh/cloudmesh-cloud/blob/master/cloudmesh/etc/cloudmesh.yaml</a></p></li>
 </ul>
 <p>You can customize the file while editing it.</p>
 <div class="section" id="cloudmesh-yaml-file-object-definitions">
@@ -421,7 +421,7 @@ YOu can change these defaults and provide access to your cloud
 credentials to make the management of cloud virtual machines easier.
 Templates for AWS, Azure, Google, OpenStack are provided. Specific
 templates for Jetstream and Chameleon cloud are included in the example
-<a class="reference external" href="https://github.com/cloudmesh/cloudmesh-cloud/blob/master/cloudmesh/etc/cloudmesh4.yaml">cloudmesh4.yaml</a>.
+<a class="reference external" href="https://github.com/cloudmesh/cloudmesh-cloud/blob/master/cloudmesh/etc/cloudmesh.yaml">cloudmesh.yaml</a>.
 We list each template next.</p>
 <p>We explain in more detail the features of the configuration files for
 cloud services.</p>
@@ -599,14 +599,14 @@ following:</p>
 <div class="section" id="openstack">
 <h3>OpenStack<a class="headerlink" href="#openstack" title="Permalink to this headline">¶</a></h3>
 <p>We provide an example on how to use an OpenStack based cloud in
-cloudmesh. Please ass the following to your <code class="docutils literal notranslate"><span class="pre">cloudmesh4.yaml</span></code> file
+cloudmesh. Please ass the following to your <code class="docutils literal notranslate"><span class="pre">cloudmesh.yaml</span></code> file
 and replace the values for <code class="docutils literal notranslate"><span class="pre">TBD</span></code>. Our example uses <a class="reference external" href="https://www.chameleoncloud.org/">Chameleon Cloud</a>. This is a cloud for academic
 research. Certainly you can configure other clouds based on this
 template. We have successfully used also clouds in Canada (Cybera),
 Germany (KIT), Indiana University (jetstream). TO get started you can
 even install your local cloud with devstack and make adjustments.
 Please remember you can have multiple clouds in the
-<code class="docutils literal notranslate"><span class="pre">cloudmesh4.yaml</span></code> file so you could if you have access to them
+<code class="docutils literal notranslate"><span class="pre">cloudmesh.yaml</span></code> file so you could if you have access to them
 integrate all of them.  You will need access to a project and add your
 project number to. the credentials.  Example for chameleon cloud:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cloudmesh</span><span class="p">:</span>
@@ -700,7 +700,7 @@ the following description:</p>
 <p>It is beyond the scope of this manual to discuss how to get an account
 on Google. However we do provide a convenient documentation at
 <a class="reference internal" href="../accounts/aws.html"><span class="doc">AWS Account Creation</span></a>.</p>
-<p>In the <code class="docutils literal notranslate"><span class="pre">cloudmesh4.yaml</span></code> file, the ‘aws’ section under ‘storage’
+<p>In the <code class="docutils literal notranslate"><span class="pre">cloudmesh.yaml</span></code> file, the ‘aws’ section under ‘storage’
 describes an example configuration or a AWS S3 storage provider. In
 the credentials section under aws, specify the access key id and
 secret access key which will be available in the AWS console under AWS
@@ -739,7 +739,7 @@ Client or resource for that geographic area. Here is a sample:</p>
 <p>It is beyond the scope of this manual to discuss how to get an account
 on Google. However we do provide a convenient documentation at
 <a class="reference internal" href="../accounts/azure.html"><span class="doc">Azure Account Creation</span></a>.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">cloudmesh4.yaml</span></code> file needs to be set up as follows for the
+<p>The <code class="docutils literal notranslate"><span class="pre">cloudmesh.yaml</span></code> file needs to be set up as follows for the
 ‘azureblob’ section under ‘storage’:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cloudmesh</span><span class="p">:</span>
   <span class="o">...</span>
@@ -782,7 +782,7 @@ can do this.</p>
 <p>It is beyond the scope of this manual to discuss how to get an account
 on Google. However we do provide a convenient documentation at
 <a class="reference internal" href="../accounts/google.html"><span class="doc">Google Storage Providers</span></a>.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">cloudmesh4.yaml</span></code> file needs to be set up as follows for the
+<p>The <code class="docutils literal notranslate"><span class="pre">cloudmesh.yaml</span></code> file needs to be set up as follows for the
 ‘gdrive’ section under ‘storage’:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cloudmesh</span><span class="p">:</span>
   <span class="o">...</span>
@@ -819,7 +819,7 @@ on Google. However we do provide a convenient documentation at
 <p>It is beyond the scope of this manual to discuss how to get an account
 on Google. However we do provide a convenient documentation at
 <a class="reference internal" href="../accounts/box.html"><span class="doc">Box Account</span></a>.</p>
-<p>In the <code class="docutils literal notranslate"><span class="pre">cloudmesh4.yaml</span></code> file, find the ‘box’ section under ‘storage’.
+<p>In the <code class="docutils literal notranslate"><span class="pre">cloudmesh.yaml</span></code> file, find the ‘box’ section under ‘storage’.
 Under credentials, set <code class="docutils literal notranslate"><span class="pre">config_path</span></code> to the path of the configuration
 file you created as described in the Box chapter:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cloudmesh</span><span class="p">:</span>

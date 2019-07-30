@@ -20,14 +20,6 @@ cloudmesh.management.configuration.arguments module
    :undoc-members:
    :show-inheritance:
 
-cloudmesh.management.configuration.config module
-------------------------------------------------
-
-.. automodule:: cloudmesh.management.configuration.config
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 cloudmesh.management.configuration.counter module
 -------------------------------------------------
 

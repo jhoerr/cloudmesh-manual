@@ -243,7 +243,7 @@ in which you can find the configuration file:
 
 ::
 
-    ~/.cloudmesh/cloudmesh4.yaml
+    ~/.cloudmesh/cloudmesh.yaml
 
 
 Anaconda and Conda
@@ -375,7 +375,7 @@ drive or storage media only you have access to.
 Installation of mongod
 ----------------------
 
-First, you will need to install a ``cloudmesh4.yaml`` file, if you have not
+First, you will need to install a ``cloudmesh.yaml`` file, if you have not
 done this before. If you do have mongo, you can safe this step. However,
 make sure you do not expose mongo on the internet so that you keep your
 information in mongo private. The easiest way to install mongo is with our
@@ -390,7 +390,7 @@ Now you will need to edit the configuration file
 
 .. code:: bash
 
-    emacs ~/.cloudmesh/cloudmesh4.yaml
+    emacs ~/.cloudmesh/cloudmesh.yaml
 
 and change the password of the mongo entry to something you like, e.g. change
 the TBD to a real strong password::

@@ -222,12 +222,12 @@
 <p>One of the features up Cloudmesh is to easily start new virtual machines
 on various clouds. It uses defaults for these clouds that can be changed,
 but are easily stored in a yaml file located at
-<code class="docutils literal notranslate"><span class="pre">~/.cloudmesh/cloudmesh4.yaml</span></code> This file is created upon first start
+<code class="docutils literal notranslate"><span class="pre">~/.cloudmesh/cloudmesh.yaml</span></code> This file is created upon first start
 of the shell. You need to edit it and include some of your cloud
 information.</p>
 <p>A template for the yaml file is located at:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/cloudmesh/cloudmesh-cloud/blob/master/cloudmesh/etc/cloudmesh4.yaml">https://github.com/cloudmesh/cloudmesh-cloud/blob/master/cloudmesh/etc/cloudmesh4.yaml</a></p></li>
+<li><p><a class="reference external" href="https://github.com/cloudmesh/cloudmesh-cloud/blob/master/cloudmesh/etc/cloudmesh.yaml">https://github.com/cloudmesh/cloudmesh-cloud/blob/master/cloudmesh/etc/cloudmesh.yaml</a></p></li>
 </ul>
 <p>Make sure that if you edited the yaml file that you check if it is correctly
 formated. This can be done with</p>
@@ -423,7 +423,7 @@ be written as</p>
 <div class="section" id="configuring-chameleon-cloud">
 <h2>Configuring chameleon cloud<a class="headerlink" href="#configuring-chameleon-cloud" title="Permalink to this headline">¶</a></h2>
 <p>In many of the classes we teach you will have access to chameleon cloud. You
-will get a cloudmesh4.yaml file as part of the class in which you only need
+will get a cloudmesh.yaml file as part of the class in which you only need
 to set your username and your password. This is done on the terminal with</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms config <span class="nb">set</span> cloudmesh.cloud.chameleon.credentials.OS_USERNAME<span class="o">=</span>YOURUSERNAME
 cms config <span class="nb">set</span> cloudmesh.cloud.chameleon.credentials.OS_PASSWORD<span class="o">=</span>YOURPASSWORD

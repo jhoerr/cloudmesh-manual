@@ -227,7 +227,7 @@
 assumption you have accounts on these clouds. We demonstrate here how to start a
 single vm on each of these providers and to test if they have been creatdd we
 will also list the vm on each of the clouds. Defaults form the a configuration
-file that is located in <code class="docutils literal notranslate"><span class="pre">~/.cloudmesh/cloudmesh4.yaml</span></code> are used to select images
+file that is located in <code class="docutils literal notranslate"><span class="pre">~/.cloudmesh/cloudmesh.yaml</span></code> are used to select images
 and flavors. These defaults can naturally be changed.</p>
 <p>In order for you to follow this example you will have to edit the yaml file and
 make appropriat emodifications.</p>
@@ -266,7 +266,7 @@ refactor functions to support their management tasks.</p>
 </div>
 <div class="section" id="general-interface">
 <h2>General Interface<a class="headerlink" href="#general-interface" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms <span class="nb">set</span> <span class="nv">cloud</span><span class="o">=</span>&lt;cloudname as defined in the ~/.cloudmesh/cloudmesh4.yaml&gt;
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cms <span class="nb">set</span> <span class="nv">cloud</span><span class="o">=</span>&lt;cloudname as defined in the ~/.cloudmesh/cloudmesh.yaml&gt;
 $ cms vm start
 $ cms vm list
 
@@ -330,7 +330,7 @@ AWS hosts services in different regions, you should select the
 region where you want to start you instance.</p></li>
 </ol>
 <p>When you finish all above things, you should update information into
-the block ‘aws’ of <strong>cloudmesh4.yaml</strong> file in <strong>ETC</strong> folder</p>
+the block ‘aws’ of <strong>cloudmesh.yaml</strong> file in <strong>ETC</strong> folder</p>
 <p><strong>EC2</strong> provides On-Demand Pricing cloud services based on different
 CPU, Memory and Storage selections. Please visit this
 <a class="reference external" href="https://aws.amazon.com/ec2/pricing/on-demand/">page</a> for more

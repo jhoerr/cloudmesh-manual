@@ -30,8 +30,8 @@ To encrypt the file, pleas use the command
 
    cms config encrypt 
 
-This command will encrypt your ``cloudmesh4.yaml`` file and place it
-under ``~/.cloudmesh/cloudmesh4.yaml.enc``. It will ask you if you like
+This command will encrypt your ``cloudmesh.yaml`` file and place it
+under ``~/.cloudmesh/cloudmesh.yaml.enc``. It will ask you if you like
 to delete the original yaml file.
 
 Decryption
@@ -43,8 +43,8 @@ To decrypt the file, pleas use the command
 
    cms config decrypt 
 
-This command will decrypt your ``cloudmesh4.yaml.enc`` file and place it
-under ``~/.cloudmesh/cloudmesh4.yaml.enc.enc``. It will ask you if you
+This command will decrypt your ``cloudmesh.yaml.enc`` file and place it
+under ``~/.cloudmesh/cloudmesh.yaml.enc.enc``. It will ask you if you
 like to delete the original yaml file.
 
 Cloudmesh Integration
@@ -57,14 +57,14 @@ integrated in future (once verified it works) into the regular
 
 The functionality tht is provided by ``ConfigCrypt()`` includes
 
--  if ``cloudmesh4.yaml`` and ``cloudmesh4.yaml.enc`` exist a warning is
+-  if ``cloudmesh.yaml`` and ``cloudmesh.yaml.enc`` exist a warning is
    written that both files exist and it recommended in production to
    delete the unencrypted file.
 
--  if only ``cloudmesh4.yaml`` exist a warning is written that an
+-  if only ``cloudmesh.yaml`` exist a warning is written that an
    unencrypted yaml file is used
 
--  if only ``cloudmesh4.yaml.enc`` exists it is unencrypted and loaded
+-  if only ``cloudmesh.yaml.enc`` exists it is unencrypted and loaded
    into memory. Please note that ``ConfigCrypt()`` just as Config() is
    implemented as Borg class so that the decryption and loading loading
    is conducted only once.
@@ -84,7 +84,7 @@ assume this is emacs.
 
 .. code:: bash
 
-   emacs ~/.cloudmesh/cloudmesh4.yaml
+   emacs ~/.cloudmesh/cloudmesh.yaml
 
 Once written back quit your editor and encrypt the file with
 
@@ -114,7 +114,7 @@ Than the command
 
    cms config add ./change.yaml
 
-Will update the existing ``cloudmesh4.yaml`` or cloudmesh4.yaml.enc\`
+Will update the existing ``cloudmesh.yaml`` or cloudmesh.yaml.enc\`
 file with the provided information. This is taking place regardless if
 the yaml file is encrypted or not. If both files exist, both files will
 be modified. A warning is however issued if the unencrypted yaml file

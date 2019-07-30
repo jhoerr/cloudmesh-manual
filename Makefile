@@ -191,10 +191,8 @@ authors:
 	bin/authors.py > $(SOURCE)/preface/authors.md
 
 doc: authors
-	mv ~/.cloudmesh/cloudmesh4.yaml ~/.cloudmesh/cloudmesh4.yaml-tmp 
-	mv ~/.cloudmesh/cloudmesh.yaml ~/.cloudmesh/cloudmesh.yaml-tmp 
-	wget -P ~/.cloudmesh https://raw.githubusercontent.com/cloudmesh/cloudmesh-cloud/master/cloudmesh/etc/cloudmesh4.yaml
-	wget -P ~/.cloudmesh https://raw.githubusercontent.com/cloudmesh/cloudmesh-common/master/cloudmesh/etc/cloudmesh.yaml
+	mv ~/.cloudmesh/cloudmesh.yaml ~/.cloudmesh/cloudmesh.yaml-tmp
+	wget -P ~/.cloudmesh https://raw.githubusercontent.com/cloudmesh/cloudmesh-config/master/cloudmesh/configuration/etc/cloudmesh.yaml
 	rm -rf docs
 	mkdir -p dest
 	make -f Makefile api
@@ -202,21 +200,17 @@ doc: authors
 	cp -r $(SOURCE)/_ext docs-source/build/html
 	cp -r $(SOURCE)/_templates docs-source/build/html
 	cp -r docs-source/build/html/ docs
-	mv ~/.cloudmesh/cloudmesh4.yaml-tmp ~/.cloudmesh/cloudmesh4.yaml
 	mv ~/.cloudmesh/cloudmesh.yaml-tmp ~/.cloudmesh/cloudmesh.yaml
 	cp -r $(SOURCE)/inspector docs/inspector
 
 
 pdf: authors
-	mv ~/.cloudmesh/cloudmesh4.yaml ~/.cloudmesh/cloudmesh4.yaml-tmp 
-	mv ~/.cloudmesh/cloudmesh.yaml ~/.cloudmesh/cloudmesh.yaml-tmp 
-	wget -P ~/.cloudmesh https://raw.githubusercontent.com/cloudmesh/cloudmesh-cloud/master/cloudmesh/etc/cloudmesh4.yaml
-	wget -P ~/.cloudmesh https://raw.githubusercontent.com/cloudmesh/cloudmesh-common/master/cloudmesh/etc/cloudmesh.yaml
+	mv ~/.cloudmesh/cloudmesh.yaml ~/.cloudmesh/cloudmesh.yaml-tmp
+	wget -P ~/.cloudmesh https://raw.githubusercontent.com/cloudmesh/configuration/etc/cloudmesh.yaml
 	rm -rf docs
 	mkdir -p dest
 	cd docs-source; make latex
 	cd docs-source/build/latex; make
-	mv ~/.cloudmesh/cloudmesh4.yaml-tmp ~/.cloudmesh/cloudmesh4.yaml
 	mv ~/.cloudmesh/cloudmesh.yaml-tmp ~/.cloudmesh/cloudmesh.yaml
 
 
@@ -269,7 +263,6 @@ user:
 	echo "look at the makefile"
 #  - mkdir -p ~/.cloudmesh
 #  - wget -P ~/.cloudmesh https://raw.githubusercontent.com/cloudmesh/cloudmesh-common/master/cloudmesh/etc/cloudmesh.yaml
-#  - wget -P ~/.cloudmesh https://raw.githubusercontent.com/cloudmesh/cloudmesh-cloud/master/cloudmesh/etc/cloudmesh4.yaml
 #  - wget -P ~/.cloudmesh https://raw.githubusercontent.com/cloudmesh/cloudmesh-inventory/master/cloudmesh/inventory/etc/inventory.yaml
 
 ######################################################################

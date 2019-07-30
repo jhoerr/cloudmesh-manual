@@ -142,7 +142,7 @@ ready for use. As a first step, a `Container` should be
 created in the Blob storage. A container organizes a set of blobs,
 similar to a directory in a file system. A default
 `Container` should be set in the
-`cloudmesh4.yaml` file, details of which are outlined
+`cloudmesh.yaml` file, details of which are outlined
 [here](configuration/configuration.md)
 
 ## Azure Resource Group (for Compute)

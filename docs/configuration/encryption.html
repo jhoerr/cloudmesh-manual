@@ -261,8 +261,8 @@ it in clear text. So make sure tour ssh-key has a passphrase.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms config encrypt
 </pre></div>
 </div>
-<p>This command will encrypt your <code class="docutils literal notranslate"><span class="pre">cloudmesh4.yaml</span></code> file and place it
-under <code class="docutils literal notranslate"><span class="pre">~/.cloudmesh/cloudmesh4.yaml.enc</span></code>. It will ask you if you like
+<p>This command will encrypt your <code class="docutils literal notranslate"><span class="pre">cloudmesh.yaml</span></code> file and place it
+under <code class="docutils literal notranslate"><span class="pre">~/.cloudmesh/cloudmesh.yaml.enc</span></code>. It will ask you if you like
 to delete the original yaml file.</p>
 </div>
 <div class="section" id="decryption">
@@ -271,8 +271,8 @@ to delete the original yaml file.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms config decrypt
 </pre></div>
 </div>
-<p>This command will decrypt your <code class="docutils literal notranslate"><span class="pre">cloudmesh4.yaml.enc</span></code> file and place it
-under <code class="docutils literal notranslate"><span class="pre">~/.cloudmesh/cloudmesh4.yaml.enc.enc</span></code>. It will ask you if you
+<p>This command will decrypt your <code class="docutils literal notranslate"><span class="pre">cloudmesh.yaml.enc</span></code> file and place it
+under <code class="docutils literal notranslate"><span class="pre">~/.cloudmesh/cloudmesh.yaml.enc.enc</span></code>. It will ask you if you
 like to delete the original yaml file.</p>
 </div>
 <div class="section" id="cloudmesh-integration">
@@ -283,12 +283,12 @@ integrated in future (once verified it works) into the regular
 <code class="docutils literal notranslate"><span class="pre">Config()</span></code></p>
 <p>The functionality tht is provided by <code class="docutils literal notranslate"><span class="pre">ConfigCrypt()</span></code> includes</p>
 <ul class="simple">
-<li><p>if <code class="docutils literal notranslate"><span class="pre">cloudmesh4.yaml</span></code> and <code class="docutils literal notranslate"><span class="pre">cloudmesh4.yaml.enc</span></code> exist a warning is
+<li><p>if <code class="docutils literal notranslate"><span class="pre">cloudmesh.yaml</span></code> and <code class="docutils literal notranslate"><span class="pre">cloudmesh.yaml.enc</span></code> exist a warning is
 written that both files exist and it recommended in production to
 delete the unencrypted file.</p></li>
-<li><p>if only <code class="docutils literal notranslate"><span class="pre">cloudmesh4.yaml</span></code> exist a warning is written that an
+<li><p>if only <code class="docutils literal notranslate"><span class="pre">cloudmesh.yaml</span></code> exist a warning is written that an
 unencrypted yaml file is used</p></li>
-<li><p>if only <code class="docutils literal notranslate"><span class="pre">cloudmesh4.yaml.enc</span></code> exists it is unencrypted and loaded
+<li><p>if only <code class="docutils literal notranslate"><span class="pre">cloudmesh.yaml.enc</span></code> exists it is unencrypted and loaded
 into memory. Please note that <code class="docutils literal notranslate"><span class="pre">ConfigCrypt()</span></code> just as Config() is
 implemented as Borg class so that the decryption and loading loading
 is conducted only once.</p></li>
@@ -303,7 +303,7 @@ file with</p>
 </div>
 <p>Than you can use your favourite editor to make modifications. Let us
 assume this is emacs.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>emacs ~/.cloudmesh/cloudmesh4.yaml
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>emacs ~/.cloudmesh/cloudmesh.yaml
 </pre></div>
 </div>
 <p>Once written back quit your editor and encrypt the file with</p>
@@ -327,7 +327,7 @@ following information:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms config add ./change.yaml
 </pre></div>
 </div>
-<p>Will update the existing <code class="docutils literal notranslate"><span class="pre">cloudmesh4.yaml</span></code> or cloudmesh4.yaml.enc`
+<p>Will update the existing <code class="docutils literal notranslate"><span class="pre">cloudmesh.yaml</span></code> or cloudmesh.yaml.enc`
 file with the provided information. This is taking place regardless if
 the yaml file is encrypted or not. If both files exist, both files will
 be modified. A warning is however issued if the unencrypted yaml file

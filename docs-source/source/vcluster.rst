@@ -69,7 +69,7 @@ Cluster* created this way. When you are done with a Virtual Cluster, aka
 Creating a Virtual Cluster and testing connections
 --------------------------------------------------
 
-Consider the following two dummy clusters in the ``cloudmesh4.yaml``
+Consider the following two dummy clusters in the ``cloudmesh.yaml``
 file:
 
 ::

@@ -229,18 +229,18 @@ running shell commands with
 <p>To use the specific API calls, We recommend you to look at the API
 documentation of cloudmesh. To show you a simple example of advanced
 functionality we demonstarte how to list flavors of a cloud:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cloudmesh.compute.vm.Provider</span> <span class="k">import</span> <span class="n">Provider</span>
-<span class="n">provider</span> <span class="o">=</span> <span class="n">Provider</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;chameleon&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from cloudmesh.compute.vm.Provider import Provider
+provider = Provider(name=&quot;chameleon&quot;)
 </pre></div>
 </div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">flavors</span> <span class="o">=</span> <span class="n">provider</span><span class="o">.</span><span class="n">flavors</span><span class="p">()</span>
-<span class="n">flavors</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>flavors = provider.flavors()
+flavors[0][&#39;name&#39;]
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;m1.tiny&#39;</span>
 </pre></div>
 </div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">provider</span><span class="o">.</span><span class="n">Print</span><span class="p">(</span><span class="n">flavors</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>provider.Print(flavors)
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">+----------------+-------+-------+------+</span>

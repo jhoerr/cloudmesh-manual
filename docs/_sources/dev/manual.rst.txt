@@ -26,8 +26,8 @@ automatically cloned when installing the cloudmesh using
 It's very important to build the documentation locally and test the
 modifications before pushing them to the remote. To build the documentation
 locally you first, make sure that the proper virtual environment is activated,
-then make sure that you have a ``cloudmesh4.yaml`` file  in the path
-``~/.cloudmesh/cloudmehs4.yaml``. Please follow the cloudmesh install
+then make sure that you have a ``cloudmesh.yaml`` file  in the path
+``~/.cloudmesh/cloudmehs.yaml``. Please follow the cloudmesh install
 instructions for developer. Then you need to install the requirements and
 make the documentation:
 

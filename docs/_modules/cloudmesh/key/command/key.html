@@ -205,7 +205,7 @@
 <span class="kn">from</span> <span class="nn">cloudmesh.key.Key</span> <span class="k">import</span> <span class="n">Key</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.management.configuration.SSHkey</span> <span class="k">import</span> <span class="n">SSHkey</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.management.configuration.arguments</span> <span class="k">import</span> <span class="n">Arguments</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.management.configuration.config</span> <span class="k">import</span> <span class="n">Config</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.configuration.Config</span> <span class="k">import</span> <span class="n">Config</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.mongo.CmDatabase</span> <span class="k">import</span> <span class="n">CmDatabase</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.shell.command</span> <span class="k">import</span> <span class="n">PluginCommand</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.shell.command</span> <span class="k">import</span> <span class="n">command</span><span class="p">,</span> <span class="n">map_parameters</span>
@@ -263,7 +263,7 @@
 
 <span class="sd">           Description:</span>
 
-<span class="sd">               Please note that some values are read from the cloudmesh4.yaml</span>
+<span class="sd">               Please note that some values are read from the cloudmesh.yaml</span>
 <span class="sd">               file. One such value is cloudmesh.profile.user</span>
 
 <span class="sd">               Manages public keys is an essential component of accessing</span>
@@ -288,7 +288,7 @@
 
 <span class="sd">                key list --source=git  [--username=USERNAME]</span>
 <span class="sd">                    lists all keys in git for the specified user. If the</span>
-<span class="sd">                    name is not specified it is read from cloudmesh4.yaml</span>
+<span class="sd">                    name is not specified it is read from cloudmesh.yaml</span>
 <span class="sd">                key list --source=ssh  [--dir=DIR] [--output=OUTPUT]</span>
 <span class="sd">                    lists all keys in the directory. If the directory is not</span>
 <span class="sd">                    specified the default will be ~/.ssh</span>
@@ -320,7 +320,7 @@
 <span class="sd">               uploading the information to the clouds. If no group name is</span>
 <span class="sd">               specified the group name default is assumed. If no cloudnamesh</span>
 <span class="sd">               are specified, all active clouds are assumed. active clouds</span>
-<span class="sd">               can be set in the cloudmesh4.yaml file.</span>
+<span class="sd">               can be set in the cloudmesh.yaml file.</span>
 
 <span class="sd">                key group delete [GROUPNAMES] [NAMES] [--dryrun]</span>
 <span class="sd">                    deletes the named keys from the named groups.</span>

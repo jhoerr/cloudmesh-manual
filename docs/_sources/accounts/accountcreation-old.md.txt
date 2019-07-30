@@ -4,7 +4,7 @@ Cloudmesh works straight forward with a number of cloud providers under the
 assumption you have accounts on these clouds. We demonstrate here how to start a
 single vm on each of these providers and to test if they have been creatdd we
 will also list the vm on each of the clouds. Defaults form the a configuration
-file that is located in `~/.cloudmesh/cloudmesh4.yaml` are used to select images
+file that is located in `~/.cloudmesh/cloudmesh.yaml` are used to select images
 and flavors. These defaults can naturally be changed.
 
 In order for you to follow this example you will have to edit the yaml file and
@@ -46,7 +46,7 @@ refactor functions to support their management tasks.
 ## General Interface
 
 ```bash
-$ cms set cloud=<cloudname as defined in the ~/.cloudmesh/cloudmesh4.yaml>
+$ cms set cloud=<cloudname as defined in the ~/.cloudmesh/cloudmesh.yaml>
 $ cms vm start
 $ cms vm list
 
@@ -116,7 +116,7 @@ Before users use the **cms** platform to access **EC2**, they have to finish the
    region where you want to start you instance.
 
 When you finish all above things, you should update information into
-the block 'aws' of **cloudmesh4.yaml** file in **ETC** folder
+the block 'aws' of **cloudmesh.yaml** file in **ETC** folder
 
 **EC2** provides On-Demand Pricing cloud services based on different
 CPU, Memory and Storage selections. Please visit this

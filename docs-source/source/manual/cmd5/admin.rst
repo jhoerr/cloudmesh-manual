@@ -35,7 +35,7 @@ admin
 
       MongoDB is managed through a number of commands.
 
-      The configuration is read from ~/.cloudmesh/cloudmesh4.yaml
+      The configuration is read from ~/.cloudmesh/cloudmesh.yaml
 
       First, you need to create a MongoDB database with
 

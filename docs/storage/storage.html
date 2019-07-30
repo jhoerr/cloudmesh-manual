@@ -326,7 +326,7 @@ from:</p>
 <h2>AWSS3 Cloudmesh Integration<a class="headerlink" href="#awss3-cloudmesh-integration" title="Permalink to this headline">¶</a></h2>
 <p>AWS S3 file storage has been integrated with cloudmesh library and is
 available for use via commandline. As a first step we need to modify
-<code class="docutils literal notranslate"><span class="pre">cloudmesh4.yaml</span></code> config file. Under ‘storage’ section, we need to add
+<code class="docutils literal notranslate"><span class="pre">cloudmesh.yaml</span></code> config file. Under ‘storage’ section, we need to add
 the aws section to specify the parameters used to store files in AWS S3.</p>
 <p>In the credentials section under aws, specify the access key id and
 secret access key which will be available in the AWS console under
@@ -363,7 +363,7 @@ integrated with cloudmesh library and is available for use via
 commandline.</p>
 <p>Follow the below steps:</p>
 <ul class="simple">
-<li><p>Modify <code class="docutils literal notranslate"><span class="pre">cloudmesh4.yaml</span></code> config file in ‘cloudmesh-storage’
+<li><p>Modify <code class="docutils literal notranslate"><span class="pre">cloudmesh.yaml</span></code> config file in ‘cloudmesh-storage’
 section. User need to add required object storage parameters to
 communicate with cloud(AWS S3)</p></li>
 <li><p>In the credentials section under <code class="docutils literal notranslate"><span class="pre">awsobjectstore</span></code>, add the
@@ -618,7 +618,7 @@ mongo command. See the Mongo section for details.</p>
 <p>The Google Drive API needs the following two 2 credentials files. *
 <code class="docutils literal notranslate"><span class="pre">client_secret.json</span></code> * <code class="docutils literal notranslate"><span class="pre">google-drive-credentials.json</span></code></p>
 <p>If we run the Google Drive <code class="docutils literal notranslate"><span class="pre">Provider.py</span></code> for the <strong>First time</strong> then
-the required keys, tokens are taken from the <code class="docutils literal notranslate"><span class="pre">cloudmesh4.yaml</span></code> file
+the required keys, tokens are taken from the <code class="docutils literal notranslate"><span class="pre">cloudmesh.yaml</span></code> file
 and creates a <code class="docutils literal notranslate"><span class="pre">client_secret.json</span></code> file in the following path
 <code class="docutils literal notranslate"><span class="pre">~/.cloudmesh/gdrive/</span></code></p>
 <p>The <code class="docutils literal notranslate"><span class="pre">Authentication.py</span></code> creates a <code class="docutils literal notranslate"><span class="pre">.credentials</span></code> folder under the

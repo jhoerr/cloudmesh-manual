@@ -213,11 +213,12 @@
 <span class="kn">from</span> <span class="nn">cloudmesh.common.variables</span> <span class="k">import</span> <span class="n">Variables</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common3.DictList</span> <span class="k">import</span> <span class="n">DictList</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.image.Image</span> <span class="k">import</span> <span class="n">Image</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.management.configuration.config</span> <span class="k">import</span> <span class="n">Config</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.configuration.Config</span> <span class="k">import</span> <span class="n">Config</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.mongo.CmDatabase</span> <span class="k">import</span> <span class="n">CmDatabase</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.provider</span> <span class="k">import</span> <span class="n">ComputeProviderPlugin</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.secgroup.Secgroup</span> <span class="k">import</span> <span class="n">Secgroup</span><span class="p">,</span> <span class="n">SecgroupRule</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.debug</span> <span class="k">import</span> <span class="n">VERBOSE</span>
+
 
 <div class="viewcode-block" id="Provider"><a class="viewcode-back" href="../../../../api/cloudmesh.compute.openstack.html#cloudmesh.compute.openstack.Provider.Provider">[docs]</a><span class="k">class</span> <span class="nc">Provider</span><span class="p">(</span><span class="n">ComputeNodeABC</span><span class="p">,</span> <span class="n">ComputeProviderPlugin</span><span class="p">):</span>
     <span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;openstack&quot;</span>
@@ -388,7 +389,7 @@
         <span class="c1"># d[&#39;project_domain_name&#39;] = config[&#39;OS_PROJECT_NAME&#39;]</span>
         <span class="k">return</span> <span class="n">d</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">configuration</span><span class="o">=</span><span class="s2">&quot;~/.cloudmesh/cloudmesh4.yaml&quot;</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">configuration</span><span class="o">=</span><span class="s2">&quot;~/.cloudmesh/cloudmesh.yaml&quot;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Initializes the provider. The default parameters are read from the</span>
 <span class="sd">        configuration file that is defined in yaml format.</span>
@@ -453,8 +454,6 @@
         <span class="n">d</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">_elements</span><span class="p">:</span>
 
-
-
             <span class="k">if</span> <span class="s2">&quot;cm&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">entry</span><span class="p">:</span>
                 <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;cm&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
 
@@ -467,7 +466,6 @@
                 <span class="s2">&quot;cloud&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloud</span><span class="p">,</span>
                 <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">entry</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
             <span class="p">})</span>
-
 
             <span class="k">if</span> <span class="n">kind</span> <span class="o">==</span> <span class="s1">&#39;key&#39;</span><span class="p">:</span>
 
@@ -537,7 +535,7 @@
         <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;upload the key: </span><span class="si">{name}</span><span class="s2"> -&gt; </span><span class="si">{cloud}</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cloudman</span><span class="o">.</span><span class="n">create_keypair</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">key</span><span class="p">[</span><span class="s1">&#39;string&#39;</span><span class="p">])</span>
-        <span class="k">except</span><span class="p">:</span> <span class="c1"># openstack.exceptions.ConflictException:</span>
+        <span class="k">except</span><span class="p">:</span>  <span class="c1"># openstack.exceptions.ConflictException:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;key already exists: </span><span class="si">{name}</span><span class="s2">&quot;</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">r</span></div>
@@ -772,8 +770,7 @@
             <span class="n">entries</span> <span class="o">=</span> <span class="p">[]</span>
             <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">d</span><span class="p">:</span>
                 <span class="n">entries</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">entry</span><span class="p">))</span>
-            <span class="k">if</span> <span class="n">debug</span><span class="p">:</span>
-                <span class="n">pprint</span><span class="p">(</span><span class="n">entries</span><span class="p">)</span>
+            <span class="c1"># VERBOSE(entries)</span>
 
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update_dict</span><span class="p">(</span><span class="n">entries</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="n">kind</span><span class="p">)</span>
         <span class="k">return</span> <span class="kc">None</span></div>
@@ -906,7 +903,6 @@
             <span class="n">server</span><span class="p">[</span><span class="s1">&#39;ip_private&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_private_ip</span><span class="p">(</span><span class="n">server</span><span class="o">=</span><span class="n">server</span><span class="p">)</span>
 
             <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">server</span><span class="p">)</span>
-
 
         <span class="k">return</span> <span class="n">result</span></div>
 

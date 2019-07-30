@@ -13,22 +13,6 @@ Subpackages
 Submodules
 ----------
 
-cloudmesh.common.BaseConfigDict module
---------------------------------------
-
-.. automodule:: cloudmesh.common.BaseConfigDict
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-cloudmesh.common.ConfigDict module
-----------------------------------
-
-.. automodule:: cloudmesh.common.ConfigDict
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 cloudmesh.common.FlatDict module
 --------------------------------
 
@@ -65,14 +49,6 @@ cloudmesh.common.TableParser module
 -----------------------------------
 
 .. automodule:: cloudmesh.common.TableParser
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-cloudmesh.common.config module
-------------------------------
-
-.. automodule:: cloudmesh.common.config
    :members:
    :undoc-members:
    :show-inheritance:

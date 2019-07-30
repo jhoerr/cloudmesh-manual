@@ -207,13 +207,14 @@
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">print_function</span>
 
+<span class="kn">import</span> <span class="nn">multiprocessing</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">time</span>
+
+<span class="kn">import</span> <span class="nn">humanize</span>
+<span class="kn">import</span> <span class="nn">psutil</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.Printer</span> <span class="k">import</span> <span class="n">Printer</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.systeminfo</span> <span class="k">import</span> <span class="n">systeminfo</span>
-<span class="kn">import</span> <span class="nn">multiprocessing</span>
-<span class="kn">import</span> <span class="nn">psutil</span>
-<span class="kn">import</span> <span class="nn">humanize</span>
 
 
 <div class="viewcode-block" id="StopWatch"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.StopWatch.StopWatch">[docs]</a><span class="k">class</span> <span class="nc">StopWatch</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
@@ -325,8 +326,8 @@
         <span class="n">data_platform</span><span class="p">[</span><span class="s1">&#39;cpu_count&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">cpu_count</span><span class="p">()</span>
         <span class="n">mem</span> <span class="o">=</span> <span class="n">psutil</span><span class="o">.</span><span class="n">virtual_memory</span><span class="p">()</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="n">data_platform</span><span class="p">[</span><span class="s1">&#39;mem_total&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">humanize</span><span class="o">.</span><span class="n">naturalsize</span><span class="p">(</span><span class="n">mem</span><span class="o">.</span><span class="n">total</span><span class="p">,</span>  \
-                                                           <span class="n">binary</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">data_platform</span><span class="p">[</span><span class="s1">&#39;mem_total&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">humanize</span><span class="o">.</span><span class="n">naturalsize</span><span class="p">(</span><span class="n">mem</span><span class="o">.</span><span class="n">total</span><span class="p">,</span> \
+                                                              <span class="n">binary</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="k">except</span><span class="p">:</span>
             <span class="k">pass</span>
         <span class="k">try</span><span class="p">:</span>
@@ -335,67 +336,83 @@
         <span class="k">except</span><span class="p">:</span>
             <span class="k">pass</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="n">data_platform</span><span class="p">[</span><span class="s1">&#39;mem_percent&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">mem</span><span class="o">.</span><span class="n">percent</span><span class="p">)</span> <span class="o">+</span><span class="s2">&quot;%&quot;</span>
+            <span class="n">data_platform</span><span class="p">[</span><span class="s1">&#39;mem_percent&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">mem</span><span class="o">.</span><span class="n">percent</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;%&quot;</span>
         <span class="k">except</span><span class="p">:</span>
             <span class="k">pass</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="n">data_platform</span><span class="p">[</span><span class="s1">&#39;mem_used&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">humanize</span><span class="o">.</span><span class="n">naturalsize</span><span class="p">(</span><span class="n">mem</span><span class="o">.</span><span class="n">used</span><span class="p">,</span> <span class="n">binary</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">data_platform</span><span class="p">[</span><span class="s1">&#39;mem_used&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">humanize</span><span class="o">.</span><span class="n">naturalsize</span><span class="p">(</span><span class="n">mem</span><span class="o">.</span><span class="n">used</span><span class="p">,</span>
+                                                             <span class="n">binary</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="k">except</span><span class="p">:</span>
             <span class="k">pass</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="n">data_platform</span><span class="p">[</span><span class="s1">&#39;mem_free&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">humanize</span><span class="o">.</span><span class="n">naturalsize</span><span class="p">(</span><span class="n">mem</span><span class="o">.</span><span class="n">free</span><span class="p">,</span>
-                                                          <span class="n">binary</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                                                             <span class="n">binary</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="k">except</span><span class="p">:</span>
             <span class="k">pass</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="n">data_platform</span><span class="p">[</span><span class="s1">&#39;mem_active&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">humanize</span><span class="o">.</span><span class="n">naturalsize</span><span class="p">(</span><span class="n">mem</span><span class="o">.</span><span class="n">active</span><span class="p">,</span>
-                                                            <span class="n">binary</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                                                               <span class="n">binary</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="k">except</span><span class="p">:</span>
             <span class="k">pass</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="n">data_platform</span><span class="p">[</span><span class="s1">&#39;mem_inactive&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">humanize</span><span class="o">.</span><span class="n">naturalsize</span><span class="p">(</span><span class="n">mem</span><span class="o">.</span><span class="n">inactive</span><span class="p">,</span> <span class="n">binary</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">data_platform</span><span class="p">[</span><span class="s1">&#39;mem_inactive&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">humanize</span><span class="o">.</span><span class="n">naturalsize</span><span class="p">(</span><span class="n">mem</span><span class="o">.</span><span class="n">inactive</span><span class="p">,</span>
+                                                                 <span class="n">binary</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="k">except</span><span class="p">:</span>
             <span class="k">pass</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="n">data_platform</span><span class="p">[</span><span class="s1">&#39;mem_wired&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">humanize</span><span class="o">.</span><span class="n">naturalsize</span><span class="p">(</span><span class="n">mem</span><span class="o">.</span><span class="n">wired</span><span class="p">,</span> <span class="n">binary</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">data_platform</span><span class="p">[</span><span class="s1">&#39;mem_wired&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">humanize</span><span class="o">.</span><span class="n">naturalsize</span><span class="p">(</span><span class="n">mem</span><span class="o">.</span><span class="n">wired</span><span class="p">,</span>
+                                                              <span class="n">binary</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="k">except</span><span class="p">:</span>
             <span class="k">pass</span>
-        <span class="c1">#svmem(total=17179869184, available=6552825856, percent=61.9,</span>
+        <span class="c1"># svmem(total=17179869184, available=6552825856, percent=61.9,</span>
 
         <span class="k">if</span> <span class="n">sysinfo</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="n">Printer</span><span class="o">.</span><span class="n">attribute</span><span class="p">(</span><span class="n">data_platform</span><span class="p">,</span>
                                     <span class="p">[</span><span class="s2">&quot;Machine Attribute&quot;</span><span class="p">,</span> <span class="s2">&quot;Value&quot;</span><span class="p">]))</span>
-
 
         <span class="c1">#</span>
         <span class="c1"># PRINT TIMERS</span>
         <span class="c1">#</span>
         <span class="n">timers</span> <span class="o">=</span> <span class="n">StopWatch</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
 
-        <span class="n">data_timers</span> <span class="o">=</span> <span class="p">{}</span>
-        <span class="k">for</span> <span class="n">timer</span> <span class="ow">in</span> <span class="n">timers</span><span class="p">:</span>
-            <span class="n">data_timers</span><span class="p">[</span><span class="n">timer</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
-                <span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">StopWatch</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">timer</span><span class="p">),</span> <span class="mi">2</span><span class="p">),</span>
-                <span class="s1">&#39;timer&#39;</span><span class="p">:</span> <span class="n">timer</span>
-            <span class="p">}</span>
-            <span class="k">for</span> <span class="n">attribute</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;node&quot;</span><span class="p">,</span> <span class="s2">&quot;system&quot;</span><span class="p">,</span> <span class="s2">&quot;machine&quot;</span><span class="p">,</span> <span class="s2">&quot;mac_version&quot;</span><span class="p">,</span>
-                              <span class="s2">&quot;win_version&quot;</span><span class="p">]:</span>
-                <span class="n">data_timers</span><span class="p">[</span><span class="n">timer</span><span class="p">][</span><span class="n">attribute</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_platform</span><span class="p">[</span><span class="n">attribute</span><span class="p">]</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">timers</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
 
-        <span class="c1"># print(Printer.attribute(data_timers, header=[&quot;Command&quot;, &quot;Time/s&quot;]))</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">Printer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
-            <span class="n">data_timers</span><span class="p">,</span>
-            <span class="n">order</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;timer&quot;</span><span class="p">,</span> <span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="s2">&quot;node&quot;</span><span class="p">,</span> <span class="s2">&quot;system&quot;</span><span class="p">,</span> <span class="s2">&quot;mac_version&quot;</span><span class="p">,</span>
-                   <span class="s2">&quot;win_version&quot;</span><span class="p">]</span>
-        <span class="p">))</span>
+            <span class="n">data_timers</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="k">for</span> <span class="n">timer</span> <span class="ow">in</span> <span class="n">timers</span><span class="p">:</span>
+                <span class="n">data_timers</span><span class="p">[</span><span class="n">timer</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">StopWatch</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">timer</span><span class="p">),</span> <span class="mi">2</span><span class="p">),</span>
+                    <span class="s1">&#39;timer&#39;</span><span class="p">:</span> <span class="n">timer</span>
+                <span class="p">}</span>
+                <span class="k">for</span> <span class="n">attribute</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;node&quot;</span><span class="p">,</span>
+                                  <span class="s2">&quot;user&quot;</span><span class="p">,</span>
+                                  <span class="s2">&quot;system&quot;</span><span class="p">,</span>
+                                  <span class="s2">&quot;machine&quot;</span><span class="p">,</span>
+                                  <span class="s2">&quot;mac_version&quot;</span><span class="p">,</span>
+                                  <span class="s2">&quot;win_version&quot;</span><span class="p">]:</span>
+                    <span class="n">data_timers</span><span class="p">[</span><span class="n">timer</span><span class="p">][</span><span class="n">attribute</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_platform</span><span class="p">[</span><span class="n">attribute</span><span class="p">]</span>
 
-        <span class="nb">print</span><span class="p">()</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">Printer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
-            <span class="n">data_timers</span><span class="p">,</span>
-            <span class="n">order</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;timer&quot;</span><span class="p">,</span> <span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="s2">&quot;node&quot;</span><span class="p">,</span> <span class="s2">&quot;system&quot;</span><span class="p">,</span> <span class="s2">&quot;mac_version&quot;</span><span class="p">,</span>
-                   <span class="s2">&quot;win_version&quot;</span><span class="p">],</span>
-            <span class="n">output</span><span class="o">=</span><span class="s2">&quot;csv&quot;</span>
-        <span class="p">))</span></div></div>
+            <span class="c1"># print(Printer.attribute(data_timers, header=[&quot;Command&quot;, &quot;Time/s&quot;]))</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">Printer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
+                <span class="n">data_timers</span><span class="p">,</span>
+                <span class="n">order</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;timer&quot;</span><span class="p">,</span> <span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="s2">&quot;node&quot;</span><span class="p">,</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span>
+                       <span class="s2">&quot;system&quot;</span><span class="p">,</span>
+                       <span class="s2">&quot;mac_version&quot;</span><span class="p">,</span>
+                       <span class="s2">&quot;win_version&quot;</span><span class="p">]</span>
+            <span class="p">))</span>
+
+            <span class="nb">print</span><span class="p">()</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">Printer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
+                <span class="n">data_timers</span><span class="p">,</span>
+                <span class="n">order</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;timer&quot;</span><span class="p">,</span> <span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="s2">&quot;node&quot;</span><span class="p">,</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span>
+                       <span class="s2">&quot;system&quot;</span><span class="p">,</span>
+                       <span class="s2">&quot;mac_version&quot;</span><span class="p">,</span>
+                       <span class="s2">&quot;win_version&quot;</span><span class="p">],</span>
+                <span class="n">output</span><span class="o">=</span><span class="s2">&quot;csv&quot;</span>
+            <span class="p">))</span>
+
+        <span class="k">else</span><span class="p">:</span>
+
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ERROR: No timers found&quot;</span><span class="p">)</span></div></div>
 </pre></div>
 
            </div>

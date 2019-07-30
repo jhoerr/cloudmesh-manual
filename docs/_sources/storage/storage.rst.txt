@@ -76,7 +76,7 @@ AWSS3 Cloudmesh Integration
 
 AWS S3 file storage has been integrated with cloudmesh library and is
 available for use via commandline. As a first step we need to modify
-``cloudmesh4.yaml`` config file. Under ‘storage’ section, we need to add
+``cloudmesh.yaml`` config file. Under ‘storage’ section, we need to add
 the aws section to specify the parameters used to store files in AWS S3.
 
 In the credentials section under aws, specify the access key id and
@@ -119,7 +119,7 @@ commandline.
 
 Follow the below steps:
 
--  Modify ``cloudmesh4.yaml`` config file in ‘cloudmesh-storage’
+-  Modify ``cloudmesh.yaml`` config file in ‘cloudmesh-storage’
    section. User need to add required object storage parameters to
    communicate with cloud(AWS S3)
 
@@ -439,7 +439,7 @@ The Google Drive API needs the following two 2 credentials files. \*
 ``client_secret.json`` \* ``google-drive-credentials.json``
 
 If we run the Google Drive ``Provider.py`` for the **First time** then
-the required keys, tokens are taken from the ``cloudmesh4.yaml`` file
+the required keys, tokens are taken from the ``cloudmesh.yaml`` file
 and creates a ``client_secret.json`` file in the following path
 ``~/.cloudmesh/gdrive/``
 

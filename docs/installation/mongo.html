@@ -211,7 +211,7 @@
 remember which services you used where and have an accurate account of
 them. We use as a database mongoDB to store this information. To use
 cloudmesh you simply need to create and start the database service.</p>
-<p>First you need to change the password for mongo in the <code class="docutils literal notranslate"><span class="pre">cloudmesh4.yaml</span></code> file
+<p>First you need to change the password for mongo in the <code class="docutils literal notranslate"><span class="pre">cloudmesh.yaml</span></code> file
 Now you can create an empty database with</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cms admin mongo create
 </pre></div>
@@ -242,7 +242,7 @@ cms admin mongo list
 cms admin mongo load [–file=FILE]</p>
 </div></blockquote>
 <p>The database will be started based-on the information as specified in
-<code class="docutils literal notranslate"><span class="pre">~/.cloudmesh/cloudmesh4.yaml</span></code>. An example is</p>
+<code class="docutils literal notranslate"><span class="pre">~/.cloudmesh/cloudmesh.yaml</span></code>. An example is</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mongo</span><span class="p">:</span>
   <span class="n">MONGO_AUTOINSTALL</span><span class="p">:</span> <span class="kc">True</span>
   <span class="n">MONGO_BREWINSTALL</span><span class="p">:</span> <span class="kc">False</span>

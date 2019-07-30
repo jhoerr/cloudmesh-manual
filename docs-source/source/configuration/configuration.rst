@@ -2,10 +2,10 @@ Configuration
 =============
 
 The Configuration of cloudmesh is controlled with a yaml file that is
-placed in ``~/.cloudmesh/cloudmesh4.yaml``. It is created automatically
+placed in ``~/.cloudmesh/cloudmesh.yaml``. It is created automatically
 from the template located at
 
--  https://github.com/cloudmesh/cloudmesh-cloud/blob/master/cloudmesh/etc/cloudmesh4.yaml
+-  https://github.com/cloudmesh/cloudmesh-cloud/blob/master/cloudmesh/etc/cloudmesh.yaml
 
 You can customize the file while editing it.
 
@@ -199,7 +199,7 @@ YOu can change these defaults and provide access to your cloud
 credentials to make the management of cloud virtual machines easier.
 Templates for AWS, Azure, Google, OpenStack are provided. Specific
 templates for Jetstream and Chameleon cloud are included in the example
-`cloudmesh4.yaml <https://github.com/cloudmesh/cloudmesh-cloud/blob/master/cloudmesh/etc/cloudmesh4.yaml>`__.
+`cloudmesh.yaml <https://github.com/cloudmesh/cloudmesh-cloud/blob/master/cloudmesh/etc/cloudmesh.yaml>`__.
 We list each template next.
 
 We explain in more detail the features of the configuration files for
@@ -386,7 +386,7 @@ OpenStack
 ~~~~~~~~~
 
 We provide an example on how to use an OpenStack based cloud in
-cloudmesh. Please ass the following to your ``cloudmesh4.yaml`` file
+cloudmesh. Please ass the following to your ``cloudmesh.yaml`` file
 and replace the values for ``TBD``. Our example uses `Chameleon Cloud
 <https://www.chameleoncloud.org/>`__. This is a cloud for academic
 research. Certainly you can configure other clouds based on this
@@ -394,7 +394,7 @@ template. We have successfully used also clouds in Canada (Cybera),
 Germany (KIT), Indiana University (jetstream). TO get started you can
 even install your local cloud with devstack and make adjustments.
 Please remember you can have multiple clouds in the
-``cloudmesh4.yaml`` file so you could if you have access to them
+``cloudmesh.yaml`` file so you could if you have access to them
 integrate all of them.  You will need access to a project and add your
 project number to. the credentials.  Example for chameleon cloud::
 
@@ -486,7 +486,7 @@ on Google. However we do provide a convenient documentation at
 :doc:`../accounts/aws`.
 
 
-In the ``cloudmesh4.yaml`` file, the ‘aws’ section under ‘storage’
+In the ``cloudmesh.yaml`` file, the ‘aws’ section under ‘storage’
 describes an example configuration or a AWS S3 storage provider. In
 the credentials section under aws, specify the access key id and
 secret access key which will be available in the AWS console under AWS
@@ -527,7 +527,7 @@ It is beyond the scope of this manual to discuss how to get an account
 on Google. However we do provide a convenient documentation at
 :doc:`../accounts/azure`.
 
-The ``cloudmesh4.yaml`` file needs to be set up as follows for the
+The ``cloudmesh.yaml`` file needs to be set up as follows for the
 ‘azureblob’ section under ‘storage’::
 
    cloudmesh:
@@ -574,7 +574,7 @@ It is beyond the scope of this manual to discuss how to get an account
 on Google. However we do provide a convenient documentation at
 :doc:`../accounts/google`.
 
-The ``cloudmesh4.yaml`` file needs to be set up as follows for the
+The ``cloudmesh.yaml`` file needs to be set up as follows for the
 ‘gdrive’ section under ‘storage’::
 
    cloudmesh:
@@ -613,7 +613,7 @@ on Google. However we do provide a convenient documentation at
 :doc:`../accounts/box`.
 
 
-In the ``cloudmesh4.yaml`` file, find the ‘box’ section under ‘storage’.
+In the ``cloudmesh.yaml`` file, find the ‘box’ section under ‘storage’.
 Under credentials, set ``config_path`` to the path of the configuration
 file you created as described in the Box chapter::
 

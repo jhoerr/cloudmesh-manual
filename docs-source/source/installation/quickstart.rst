@@ -10,13 +10,13 @@ This quickstart assums you have already performed the following
 One of the features up Cloudmesh is to easily start new virtual machines
 on various clouds. It uses defaults for these clouds that can be changed,
 but are easily stored in a yaml file located at
-``~/.cloudmesh/cloudmesh4.yaml`` This file is created upon first start
+``~/.cloudmesh/cloudmesh.yaml`` This file is created upon first start
 of the shell. You need to edit it and include some of your cloud
 information.
 
 A template for the yaml file is located at:
 
--  https://github.com/cloudmesh/cloudmesh-cloud/blob/master/cloudmesh/etc/cloudmesh4.yaml
+-  https://github.com/cloudmesh/cloudmesh-cloud/blob/master/cloudmesh/etc/cloudmesh.yaml
 
 Make sure that if you edited the yaml file that you check if it is correctly
 formated. This can be done with
@@ -250,7 +250,7 @@ Configuring chameleon cloud
 ---------------------------
 
 In many of the classes we teach you will have access to chameleon cloud. You
-will get a cloudmesh4.yaml file as part of the class in which you only need
+will get a cloudmesh.yaml file as part of the class in which you only need
 to set your username and your password. This is done on the terminal with
 
 

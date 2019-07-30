@@ -64,8 +64,8 @@ config
 
         ssh-add
 
-        cms config encrypt ~/.cloudmesh/cloudmesh4.yaml
-        cms config decrypt ~/.cloudmesh/cloudmesh4.yaml
+        cms config encrypt ~/.cloudmesh/cloudmesh.yaml
+        cms config decrypt ~/.cloudmesh/cloudmesh.yaml
 
 
         config set ATTRIBUTE=VALUE
