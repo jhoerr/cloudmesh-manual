@@ -3,6 +3,9 @@
 Follow this to set a password
 * <https://askubuntu.com/questions/772050/reset-the-password-in-ubuntu-linux-bash-in-windows>
 
+
+* do not install cloudmesh-gui on Linux subsystem as GUIs are not sported
+
 ```
 
 sudo apt-get update
@@ -58,3 +61,20 @@ ssh-keygen
 cms init
 cms key list
 ``` 
+
+
+this needs to be added to the previous atthe right location
+
+mkdir cm
+add the lines 
+
+```
+source ~/ENV3/bin/activate
+cd cm
+```
+
+to your bashrc file
+
+now when you start a new ubuntu shell, you are all set and can work on the install
+
+
