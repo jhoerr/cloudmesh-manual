@@ -1,4 +1,4 @@
-# Linus Subsystem on Windows 10
+# Linux Subsystem on Windows 10
 
 Follow this to set a password
 * <https://askubuntu.com/questions/772050/reset-the-password-in-ubuntu-linux-bash-in-windows>
