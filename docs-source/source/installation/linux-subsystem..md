@@ -1,5 +1,9 @@
 # Linux Subsystem on Windows 10
 
+To check if we run in linux subsystem
+
+
+
 Follow this to set a password
 * <https://askubuntu.com/questions/772050/reset-the-password-in-ubuntu-linux-bash-in-windows>
 
@@ -14,7 +18,16 @@ psutil needs to be installed like this
 ```
 
 sudo apt-get update
-sudo apt install wget
+sudo apt install wget>>> platform.uname()
+
+platform.uname()
+uname_result(system='Linux', node='DESKTOP-NMPEM13', release='4.4.0-18362-Microsoft', version='#1-Microsoft Mon Mar 18 12:02:00 PST 2019', machine='x86_64', processor='x86_64')
+>>> platform.system()
+'Linux'
+>>> platform.version()
+'#1-Microsoft Mon Mar 18 12:02:00 PST 2019'
+
+
 sudo apt install emacs
 sudo apt-get -y install libcurl4 openssl
 
