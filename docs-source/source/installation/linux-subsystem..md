@@ -1,43 +1,57 @@
 # Linus Subsystem on Windows 10
 
-    6  sudo apt-get update
-    7  sudo apt install emacs
-    9  sudo apt install git
-   10  git config --global user.name "Gregor von Laszewski"
-   11  git config --global user.email laszewski@gmail.com
-   12  git config --global core.editor emacs
-   13  git config --list
+```
 
-  251  sudo apt update
-  252  sudo apt install software-properties-common
-  253  sudo add-apt-repository ppa:deadsnakes/ppa
-  254  sudo apt install python3.7
+sudo apt-get update
+sudo apt install wget
+sudo apt install emacs
+sudo apt-get -y install libcurl4 openssl
 
-  259  sudo apt install python3.7-dev
-  262  curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-  264  sudo python3.7 get-pip.py
-  269  sudo apt install python3.7-venv
-  271  python3.7 -m venv ~/ENV3
-  273  rm get-pip.py
+# Set up Git
 
-  276  pip install pip -U
-  277  pip install cloudmesh-installer
-  278  cloudmesh-installer git clone cloud
-  279  cloudmesh-installer install cloud -e
-  280  cms help
-  295  sudo apt-get -y install libcurl4 openssl
-  301  sudo apt install wget
-  302  cms admin mongo install --nosudo
-  304  cd *cloud
+sudo apt install git
+git config --global user.name "Gregor von Laszewski"
+git config --global user.email laszewski@gmail.com
+git config --global core.editor emacs
+git config --list
 
-  #the script has a bug as the path does not mask spaces ( and )
-   
-    
-  310  emacs ~/.bashrc
-  311  source ~/.bashrc
-  314  which mongod
+# Setup Python
+
+sudo apt install software-properties-common
+sudo add-apt-repository ppa:deadsnakes/ppa
+sudo apt install python3.7
+sudo apt install python3.7-dev
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+sudo python3.7 get-pip.py
+sudo apt install python3.7-venv
+python3.7 -m venv ~/ENV3
+rm get-pip.py
+pip install pip -U
+
+
+# Install cloudmesh
+
+pip install cloudmesh-installer
+cloudmesh-installer git clone cloud
+cloudmesh-installer install cloud -e
+
+cms help
+# There is a bug in the mongo install script that installs openssl, its better to
+# take it out and do the install outside
+
+cms admin mongo install --nosudo
+cd *cloud
+
+# The script has a bug as the path does not mask spaces ( and )
+  
+emacs ~/.bashrc
+source ~/.bashrc
+
+# Test things
+
+which mongod
  
-  318  ssh-keygen
-  319  cms init
-  320  cms key list
- 
+ssh-keygen
+cms init
+cms key list
+``` 
