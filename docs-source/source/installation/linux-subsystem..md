@@ -6,6 +6,11 @@ Follow this to set a password
 
 * do not install cloudmesh-gui on Linux subsystem as GUIs are not sported
 
+psutil needs to be installed like this
+
+* sudo apt-get install gcc python3.7-dev
+* pip install psutil
+
 ```
 
 sudo apt-get update
