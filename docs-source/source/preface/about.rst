@@ -1,7 +1,22 @@
 About
 =====
 
-`Cloudmesh version 4 <https://cloudmesh-community.github.io/cm/>`__ is
+Cloudmesh enables you to access multi-cloud environments such as AWS, Azure, Google, and OpenStack Cloudsvery easily. To start a vm on AWS you can say
+
+```
+cms set cloud=AWS
+cms vm boot
+```
+
+To start one on Azure, simply set the cloud accordingly
+
+```
+cms set cloud=AWS
+cms vm boot
+```
+
+
+`Cloudmesh <https://cloudmesh-community.github.io/cm/>`__ is
 an evolution of our previous tool that has been used by hundreds of
 students and cloud practitioners to interact easily with clouds to
 create a service mashup to access common cloud services across a number
