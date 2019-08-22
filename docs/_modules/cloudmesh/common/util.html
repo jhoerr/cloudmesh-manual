@@ -390,28 +390,39 @@
     <span class="n">Console</span><span class="o">.</span><span class="n">cprint</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">output</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="str_banner"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.util.str_banner">[docs]</a><span class="k">def</span> <span class="nf">str_banner</span><span class="p">(</span><span class="n">txt</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;prints a banner of the form with a frame of # around the txt::</span>
+<div class="viewcode-block" id="str_banner"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.util.str_banner">[docs]</a><span class="k">def</span> <span class="nf">str_banner</span><span class="p">(</span><span class="n">txt</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    prints a banner of the form with a frame of # around the txt::</span>
 
 <span class="sd">    # --------------------------</span>
 <span class="sd">    # txt</span>
 <span class="sd">    # --------------------------</span>
 
-<span class="sd">    :param debug: return &quot;&quot; if not in debug</span>
-<span class="sd">    :type debug: boolean</span>
+<span class="sd">    :param color: prints in the given color</span>
+<span class="sd">    :param label: adds a label</span>
+<span class="sd">    :param debug: prints only if debug is true</span>
 <span class="sd">    :param txt: a text message to be printed</span>
 <span class="sd">    :type txt: string</span>
 <span class="sd">    :param c: the character used instead of c</span>
 <span class="sd">    :type c: character</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">line</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
     <span class="k">if</span> <span class="n">debug</span><span class="p">:</span>
-        <span class="n">line</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
-        <span class="n">line</span> <span class="o">+=</span> <span class="s2">&quot;# &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="mi">70</span> <span class="o">*</span> <span class="n">c</span><span class="p">)</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="n">output</span> <span class="o">+=</span> <span class="s2">&quot;# &quot;</span> <span class="o">+</span> <span class="mi">70</span> <span class="o">*</span> <span class="n">c</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="k">if</span> <span class="n">label</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">output</span> <span class="o">+=</span> <span class="s2">&quot;# &quot;</span> <span class="o">+</span> <span class="n">label</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="n">output</span> <span class="o">+=</span> <span class="s2">&quot;# &quot;</span> <span class="o">+</span> <span class="mi">70</span> <span class="o">*</span> <span class="n">c</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
         <span class="k">if</span> <span class="n">txt</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">line</span> <span class="o">+=</span> <span class="s2">&quot;# &quot;</span> <span class="o">+</span> <span class="n">txt</span>
-            <span class="n">line</span> <span class="o">+=</span> <span class="s2">&quot;# &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="mi">70</span> <span class="o">*</span> <span class="n">c</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">line</span></div>
+            <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">txt</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">):</span>
+                <span class="n">output</span> <span class="o">+=</span> <span class="s2">&quot;# &quot;</span> <span class="o">+</span> <span class="n">line</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="n">output</span> <span class="o">+=</span> <span class="s2">&quot;# &quot;</span> <span class="o">+</span> <span class="mi">70</span> <span class="o">*</span> <span class="n">c</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="k">if</span> <span class="n">color</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;BLUE&quot;</span>
+
+    <span class="k">return</span> <span class="n">output</span></div>
+
+
 
 
 <span class="c1"># noinspection PyPep8Naming</span>

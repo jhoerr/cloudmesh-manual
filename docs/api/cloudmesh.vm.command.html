@@ -36,7 +36,7 @@
   <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="cloudmesh.workflow.command package" href="cloudmesh.workflow.command.html" />
+    <link rel="next" title="cloudmesh.workflow_draft.command package" href="cloudmesh.workflow_draft.command.html" />
     <link rel="prev" title="cloudmesh.vcluster.command package" href="cloudmesh.vcluster.command.html" /> 
 </head>
 
@@ -146,7 +146,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.vm.command">Module contents</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="cloudmesh.workflow.command.html">cloudmesh.workflow.command package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.workflow_draft.command.html">cloudmesh.workflow_draft.command package</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="index.html#cloudmesh-api">Cloudmesh API</a></li>
@@ -282,8 +282,12 @@
     <span class="n">vm</span> <span class="n">meta</span> <span class="nb">list</span> <span class="p">[</span><span class="n">NAME</span><span class="p">]</span>
     <span class="n">vm</span> <span class="n">meta</span> <span class="nb">set</span> <span class="p">[</span><span class="n">NAME</span><span class="p">]</span> <span class="n">KEY</span><span class="o">=</span><span class="n">VALUE</span><span class="o">...</span>
     <span class="n">vm</span> <span class="n">meta</span> <span class="n">delete</span> <span class="p">[</span><span class="n">NAME</span><span class="p">]</span> <span class="n">KEY</span><span class="o">...</span>
-    <span class="n">vm</span> <span class="n">run</span> <span class="p">[</span><span class="o">--</span><span class="n">name</span><span class="o">=</span><span class="n">VMNAMES</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">username</span><span class="o">=</span><span class="n">USERNAME</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">dryrun</span><span class="p">]</span> <span class="n">COMMAND</span>
-    <span class="n">vm</span> <span class="n">script</span> <span class="p">[</span><span class="o">--</span><span class="n">name</span><span class="o">=</span><span class="n">NAMES</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">username</span><span class="o">=</span><span class="n">USERNAME</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">dryrun</span><span class="p">]</span> <span class="n">SCRIPT</span>
+    <span class="n">vm</span> <span class="n">script</span> <span class="p">[</span><span class="o">--</span><span class="n">name</span><span class="o">=</span><span class="n">NAMES</span><span class="p">]</span>
+              <span class="p">[</span><span class="o">--</span><span class="n">username</span><span class="o">=</span><span class="n">USERNAME</span><span class="p">]</span>
+              <span class="p">[</span><span class="o">--</span><span class="n">key</span><span class="o">=</span><span class="n">KEY</span><span class="p">]</span>
+              <span class="p">[</span><span class="o">--</span><span class="n">dryrun</span><span class="p">]</span>
+              <span class="p">[</span><span class="o">--</span><span class="nb">dir</span><span class="o">=</span><span class="n">DESTINATION</span><span class="p">]</span>
+              <span class="n">SCRIPT</span>
     <span class="n">vm</span> <span class="n">ip</span> <span class="n">assign</span> <span class="p">[</span><span class="n">NAMES</span><span class="p">]</span>
               <span class="p">[</span><span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">CLOUD</span><span class="p">]</span>
     <span class="n">vm</span> <span class="n">ip</span> <span class="n">show</span> <span class="p">[</span><span class="n">NAMES</span><span class="p">]</span>
@@ -292,12 +296,14 @@
                <span class="p">[</span><span class="o">--</span><span class="n">output</span><span class="o">=</span><span class="n">OUTPUT</span><span class="p">]</span>
                <span class="p">[</span><span class="o">--</span><span class="n">refresh</span><span class="p">]</span>
     <span class="n">vm</span> <span class="n">ip</span> <span class="n">inventory</span> <span class="p">[</span><span class="n">NAMES</span><span class="p">]</span>
-    <span class="n">vm</span> <span class="n">ssh</span> <span class="p">[</span><span class="n">NAMES</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">username</span><span class="o">=</span><span class="n">USER</span><span class="p">]</span>
-             <span class="p">[</span><span class="o">--</span><span class="n">quiet</span><span class="p">]</span>
-             <span class="p">[</span><span class="o">--</span><span class="n">ip</span><span class="o">=</span><span class="n">IP</span><span class="p">]</span>
-             <span class="p">[</span><span class="o">--</span><span class="n">key</span><span class="o">=</span><span class="n">KEY</span><span class="p">]</span>
-             <span class="p">[</span><span class="o">--</span><span class="n">command</span><span class="o">=</span><span class="n">COMMAND</span><span class="p">]</span>
-             <span class="p">[</span><span class="o">--</span><span class="n">modify</span><span class="o">-</span><span class="n">knownhosts</span><span class="p">]</span>
+    <span class="n">vm</span> <span class="n">ssh</span> <span class="p">[</span><span class="n">NAMES</span><span class="p">]</span>
+           <span class="p">[</span><span class="o">--</span><span class="n">username</span><span class="o">=</span><span class="n">USER</span><span class="p">]</span>
+           <span class="p">[</span><span class="o">--</span><span class="n">quiet</span><span class="p">]</span>
+           <span class="p">[</span><span class="o">--</span><span class="n">ip</span><span class="o">=</span><span class="n">IP</span><span class="p">]</span>
+           <span class="p">[</span><span class="o">--</span><span class="n">key</span><span class="o">=</span><span class="n">KEY</span><span class="p">]</span>
+           <span class="p">[</span><span class="o">--</span><span class="n">command</span><span class="o">=</span><span class="n">COMMAND</span><span class="p">]</span>
+    <span class="n">vm</span> <span class="n">put</span> <span class="n">SOURCE</span> <span class="n">DESTINATION</span> <span class="p">[</span><span class="n">NAMES</span><span class="p">]</span>
+    <span class="n">vm</span> <span class="n">get</span> <span class="n">SOURCE</span> <span class="n">DESTINATION</span> <span class="p">[</span><span class="n">NAMES</span><span class="p">]</span>
     <span class="n">vm</span> <span class="n">rename</span> <span class="p">[</span><span class="n">OLDNAMES</span><span class="p">]</span> <span class="p">[</span><span class="n">NEWNAMES</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">force</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">dryrun</span><span class="p">]</span>
     <span class="n">vm</span> <span class="n">wait</span> <span class="p">[</span><span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">CLOUD</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">interval</span><span class="o">=</span><span class="n">SECONDS</span><span class="p">]</span>
     <span class="n">vm</span> <span class="n">info</span> <span class="p">[</span><span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">CLOUD</span><span class="p">]</span>
@@ -403,6 +409,40 @@
          <span class="n">these</span> <span class="n">clouds</span> <span class="n">are</span> <span class="n">ignored</span><span class="o">.</span> <span class="n">If</span> <span class="n">the</span> <span class="n">name</span> <span class="ow">is</span> <span class="nb">set</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">variables</span>
          <span class="n">this</span> <span class="n">name</span> <span class="ow">is</span> <span class="n">used</span><span class="o">.</span>
 
+    <span class="n">cms</span> <span class="n">vm</span> <span class="n">ssh</span> <span class="o">--</span><span class="n">command</span><span class="o">=</span><span class="s2">&quot;uname -a&quot;</span>
+
+          <span class="n">executes</span> <span class="n">the</span> <span class="n">uname</span> <span class="n">command</span> <span class="n">on</span> <span class="n">the</span> <span class="n">last</span> <span class="n">booted</span> <span class="n">vm</span>
+
+    <span class="n">vm</span> <span class="n">script</span> <span class="p">[</span><span class="o">--</span><span class="n">name</span><span class="o">=</span><span class="n">NAMES</span><span class="p">]</span>
+              <span class="p">[</span><span class="o">--</span><span class="n">username</span><span class="o">=</span><span class="n">USERNAME</span><span class="p">]</span>
+              <span class="p">[</span><span class="o">--</span><span class="n">key</span><span class="o">=</span><span class="n">KEY</span><span class="p">]</span>
+              <span class="p">[</span><span class="o">--</span><span class="n">dryrun</span><span class="p">]</span>
+              <span class="p">[</span><span class="o">--</span><span class="nb">dir</span><span class="o">=</span><span class="n">DESTINATION</span><span class="p">]</span>
+              <span class="p">[</span><span class="o">--</span><span class="n">shell</span><span class="o">=</span><span class="n">SHELL</span><span class="p">]</span>
+              <span class="n">SCRIPT</span>
+
+       <span class="n">The</span> <span class="n">script</span> <span class="n">command</span> <span class="n">copies</span> <span class="n">a</span> <span class="n">shell</span> <span class="n">script</span> <span class="n">to</span> <span class="n">the</span> <span class="n">specified</span> <span class="n">vms</span>
+       <span class="n">into</span> <span class="n">the</span> <span class="n">DESTINATION</span> <span class="n">directory</span> <span class="ow">and</span> <span class="n">than</span> <span class="n">execute</span> <span class="n">it</span><span class="o">.</span> <span class="n">With</span>
+       <span class="n">SHELL</span> <span class="n">you</span> <span class="n">can</span> <span class="nb">set</span> <span class="n">the</span> <span class="n">shell</span> <span class="k">for</span> <span class="n">executing</span> <span class="n">the</span> <span class="n">command</span><span class="p">,</span>
+       <span class="n">this</span> <span class="n">coudl</span> <span class="n">even</span> <span class="n">be</span> <span class="n">a</span> <span class="n">python</span> <span class="n">interpreter</span><span class="o">.</span> <span class="n">Examples</span> <span class="k">for</span>
+       <span class="n">SHELL</span> <span class="n">are</span> <span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">sh</span><span class="p">,</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">env</span> <span class="n">python</span>
+
+    <span class="n">vm</span> <span class="n">put</span> <span class="n">SOURCE</span> <span class="n">DESTINATION</span> <span class="p">[</span><span class="n">NAMES</span><span class="p">]</span>
+
+        <span class="n">puts</span> <span class="n">the</span> <span class="n">file</span> <span class="n">defined</span> <span class="n">by</span> <span class="n">SOURCE</span> <span class="n">into</span> <span class="n">the</span> <span class="n">DESINATION</span> <span class="n">folder</span>
+        <span class="n">on</span> <span class="n">the</span> <span class="n">specified</span> <span class="n">machines</span><span class="o">.</span> <span class="n">If</span> <span class="n">the</span> <span class="n">file</span> <span class="n">exists</span> <span class="n">it</span> <span class="ow">is</span>
+        <span class="n">overwritten</span><span class="p">,</span> <span class="n">so</span> <span class="n">be</span> <span class="n">careful</span><span class="o">.</span>
+
+    <span class="n">vm</span> <span class="n">get</span> <span class="n">SOURCE</span> <span class="n">DESTINATION</span> <span class="p">[</span><span class="n">NAMES</span><span class="p">]</span>
+
+        <span class="n">gets</span>  <span class="n">the</span> <span class="n">file</span> <span class="n">defined</span> <span class="n">by</span> <span class="n">SOURCE</span> <span class="n">into</span> <span class="n">the</span> <span class="n">DESINATION</span> <span class="n">folder</span>
+        <span class="n">on</span> <span class="n">the</span> <span class="n">specified</span> <span class="n">machines</span><span class="o">.</span> <span class="n">The</span> <span class="n">SOURCE</span> <span class="ow">is</span> <span class="n">on</span> <span class="n">the</span> <span class="n">remote</span>
+        <span class="n">machine</span><span class="o">.</span> <span class="n">If</span> <span class="n">one</span> <span class="n">machine</span> <span class="ow">is</span> <span class="n">specified</span><span class="p">,</span> <span class="n">the</span> <span class="n">SOURCE</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">same</span>
+        <span class="n">name</span> <span class="k">as</span> <span class="n">on</span> <span class="n">the</span> <span class="n">remote</span> <span class="n">machine</span><span class="o">.</span> <span class="n">If</span> <span class="n">multiple</span> <span class="n">machines</span> <span class="n">are</span>
+        <span class="n">specified</span><span class="p">,</span> <span class="n">the</span> <span class="n">name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">machine</span> <span class="n">will</span> <span class="n">be</span> <span class="n">a</span> <span class="n">prefix</span> <span class="n">to</span> <span class="n">the</span>
+        <span class="n">filename</span><span class="o">.</span> <span class="n">If</span> <span class="n">the</span> <span class="n">filenames</span> <span class="n">exists</span><span class="p">,</span> <span class="n">they</span> <span class="n">will</span> <span class="n">be</span> <span class="n">overwritten</span><span class="p">,</span>
+        <span class="n">so</span> <span class="n">be</span> <span class="n">careful</span><span class="o">.</span>
+
 <span class="n">Tip</span><span class="p">:</span>
     <span class="n">give</span> <span class="n">the</span> <span class="n">VM</span> <span class="n">name</span><span class="p">,</span> <span class="n">but</span> <span class="ow">in</span> <span class="n">a</span> <span class="n">hostlist</span> <span class="n">style</span><span class="p">,</span> <span class="n">which</span> <span class="ow">is</span> <span class="n">very</span>
     <span class="n">convenient</span> <span class="n">when</span> <span class="n">you</span> <span class="n">need</span> <span class="n">a</span> <span class="nb">range</span> <span class="n">of</span> <span class="n">VMs</span> <span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span> <span class="n">sample</span><span class="p">[</span><span class="mi">1</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span>
@@ -435,7 +475,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="cloudmesh.workflow.command.html" class="btn btn-neutral float-right" title="cloudmesh.workflow.command package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="cloudmesh.workflow_draft.command.html" class="btn btn-neutral float-right" title="cloudmesh.workflow_draft.command package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="cloudmesh.vcluster.command.html" class="btn btn-neutral float-left" title="cloudmesh.vcluster.command package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

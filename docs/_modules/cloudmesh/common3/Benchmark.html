@@ -242,14 +242,14 @@
         <span class="n">StopWatch</span><span class="o">.</span><span class="n">stop</span><span class="p">(</span><span class="n">Benchmark</span><span class="o">.</span><span class="n">name</span><span class="p">())</span></div>
 
 <div class="viewcode-block" id="Benchmark.print"><a class="viewcode-back" href="../../../api/cloudmesh.common3.html#cloudmesh.common3.Benchmark.Benchmark.print">[docs]</a>    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">print</span><span class="p">(</span><span class="n">sysinfo</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">print</span><span class="p">(</span><span class="n">sysinfo</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">csv</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">tag</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        prints the benchmark information with all timers</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">StopWatch</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="s2">&quot;benchmark_start_stop&quot;</span><span class="p">)</span>
         <span class="n">StopWatch</span><span class="o">.</span><span class="n">stop</span><span class="p">(</span><span class="s2">&quot;benchmark_start_stop&quot;</span><span class="p">)</span>
 
-        <span class="n">StopWatch</span><span class="o">.</span><span class="n">benchmark</span><span class="p">(</span><span class="n">sysinfo</span><span class="o">=</span><span class="n">sysinfo</span><span class="p">)</span></div>
+        <span class="n">StopWatch</span><span class="o">.</span><span class="n">benchmark</span><span class="p">(</span><span class="n">sysinfo</span><span class="o">=</span><span class="n">sysinfo</span><span class="p">,</span> <span class="n">csv</span><span class="o">=</span><span class="n">csv</span><span class="p">,</span> <span class="n">tag</span><span class="o">=</span><span class="n">tag</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Benchmark.yaml"><a class="viewcode-back" href="../../../api/cloudmesh.common3.html#cloudmesh.common3.Benchmark.Benchmark.yaml">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">yaml</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>

@@ -207,14 +207,14 @@
 <span class="kn">import</span> <span class="nn">json</span>
 
 <span class="kn">import</span> <span class="nn">oyaml</span> <span class="k">as</span> <span class="nn">yaml</span>
-<span class="c1"># from prettytable import PrettyTable</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.common.prettytable</span> <span class="k">import</span> <span class="n">PrettyTable</span>
-
+<span class="kn">from</span> <span class="nn">cloudmesh.common.FlatDict</span> <span class="k">import</span> <span class="n">flatten</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.console</span> <span class="k">import</span> <span class="n">Console</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.dotdict</span> <span class="k">import</span> <span class="n">dotdict</span>
+<span class="c1"># from prettytable import PrettyTable</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.prettytable</span> <span class="k">import</span> <span class="n">PrettyTable</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="k">import</span> <span class="n">convert_from_unicode</span>
-<span class="kn">from</span> <span class="nn">cloudmesh.common.FlatDict</span> <span class="k">import</span> <span class="n">flatten</span>
-
+<span class="kn">from</span> <span class="nn">humanize</span> <span class="k">import</span> <span class="n">naturaltime</span>
+<span class="kn">from</span> <span class="nn">dateutil</span> <span class="k">import</span> <span class="n">parser</span>
 
 <div class="viewcode-block" id="Printer"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Printer.Printer">[docs]</a><span class="k">class</span> <span class="nc">Printer</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
@@ -228,6 +228,7 @@
                   <span class="n">output</span><span class="o">=</span><span class="s2">&quot;table&quot;</span><span class="p">,</span>
                   <span class="n">sort_keys</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                   <span class="n">show_none</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+                  <span class="n">humanize</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                   <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;.&quot;</span>
                   <span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -248,7 +249,9 @@
                              <span class="n">sort_keys</span><span class="o">=</span><span class="n">sort_keys</span><span class="p">,</span>
                              <span class="n">order</span><span class="o">=</span><span class="n">order</span><span class="p">,</span>
                              <span class="n">header</span><span class="o">=</span><span class="n">header</span><span class="p">,</span>
-                             <span class="n">output</span><span class="o">=</span><span class="n">output</span><span class="p">)</span></div>
+                             <span class="n">output</span><span class="o">=</span><span class="n">output</span><span class="p">,</span>
+                             <span class="n">humanize</span><span class="o">=</span><span class="n">humanize</span>
+                             <span class="p">)</span></div>
 
 <div class="viewcode-block" id="Printer.write"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Printer.Printer.write">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">write</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">table</span><span class="p">,</span>
@@ -256,6 +259,7 @@
               <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
               <span class="n">output</span><span class="o">=</span><span class="s2">&quot;table&quot;</span><span class="p">,</span>
               <span class="n">sort_keys</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+              <span class="n">humanize</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
               <span class="n">show_none</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
               <span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -278,13 +282,15 @@
                             <span class="n">header</span><span class="o">=</span><span class="n">header</span><span class="p">,</span>
                             <span class="n">output</span><span class="o">=</span><span class="n">output</span><span class="p">,</span>
                             <span class="n">sort_keys</span><span class="o">=</span><span class="n">sort_keys</span><span class="p">,</span>
+                            <span class="n">humanize</span><span class="o">=</span><span class="n">humanize</span><span class="p">,</span>
                             <span class="n">show_none</span><span class="o">=</span><span class="n">show_none</span><span class="p">)</span>
 
         <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">table</span><span class="p">)</span> <span class="o">==</span> <span class="nb">list</span><span class="p">:</span>
 
             <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="n">table</span><span class="p">,</span>
                             <span class="n">order</span><span class="o">=</span><span class="n">order</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="n">header</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="n">output</span><span class="p">,</span>
-                            <span class="n">sort_keys</span><span class="o">=</span><span class="n">sort_keys</span><span class="p">,</span> <span class="n">show_none</span><span class="o">=</span><span class="n">show_none</span><span class="p">)</span>
+                            <span class="n">sort_keys</span><span class="o">=</span><span class="n">sort_keys</span><span class="p">,</span> <span class="n">humanize</span><span class="o">=</span><span class="n">humanize</span><span class="p">,</span>
+                            <span class="n">show_none</span><span class="o">=</span><span class="n">show_none</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;unkown type </span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">table</span><span class="p">)))</span></div>
 
@@ -295,6 +301,7 @@
              <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
              <span class="n">output</span><span class="o">=</span><span class="s2">&quot;table&quot;</span><span class="p">,</span>
              <span class="n">sort_keys</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+             <span class="n">humanize</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
              <span class="n">show_none</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
              <span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -318,10 +325,17 @@
                         <span class="n">header</span><span class="o">=</span><span class="n">header</span><span class="p">,</span>
                         <span class="n">sort_keys</span><span class="o">=</span><span class="n">sort_keys</span><span class="p">,</span>
                         <span class="n">output</span><span class="o">=</span><span class="n">output</span><span class="p">,</span>
+                        <span class="n">humanize</span><span class="o">=</span><span class="n">humanize</span><span class="p">,</span>
                         <span class="n">show_none</span><span class="o">=</span><span class="n">show_none</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Printer.dict"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Printer.Printer.dict">[docs]</a>    <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="nf">dict</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s2">&quot;table&quot;</span><span class="p">,</span> <span class="n">sort_keys</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">show_none</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">dict</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span>
+             <span class="n">order</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+             <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+             <span class="n">output</span><span class="o">=</span><span class="s2">&quot;table&quot;</span><span class="p">,</span>
+             <span class="n">sort_keys</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+             <span class="n">humanize</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+             <span class="n">show_none</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        :param d: A a dict with dicts of the same type.</span>
 <span class="sd">        :type d: dict</span>
@@ -347,11 +361,13 @@
                 <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">dict_table</span><span class="p">(</span><span class="n">d</span><span class="p">,</span>
                                       <span class="n">order</span><span class="o">=</span><span class="n">order</span><span class="p">,</span>
                                       <span class="n">header</span><span class="o">=</span><span class="n">header</span><span class="p">,</span>
+                                      <span class="n">humanize</span><span class="o">=</span><span class="n">humanize</span><span class="p">,</span>
                                       <span class="n">sort_keys</span><span class="o">=</span><span class="n">sort_keys</span><span class="p">)</span>
         <span class="k">elif</span> <span class="n">output</span> <span class="o">==</span> <span class="s2">&quot;csv&quot;</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">csv</span><span class="p">(</span><span class="n">d</span><span class="p">,</span>
                            <span class="n">order</span><span class="o">=</span><span class="n">order</span><span class="p">,</span>
                            <span class="n">header</span><span class="o">=</span><span class="n">header</span><span class="p">,</span>
+                           <span class="n">humanize</span><span class="o">=</span><span class="n">humanize</span><span class="p">,</span>
                            <span class="n">sort_keys</span><span class="o">=</span><span class="n">sort_keys</span><span class="p">)</span>
         <span class="k">elif</span> <span class="n">output</span> <span class="o">==</span> <span class="s2">&quot;json&quot;</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">sort_keys</span><span class="o">=</span><span class="n">sort_keys</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
@@ -363,7 +379,8 @@
             <span class="k">return</span> <span class="s2">&quot;UNKOWN FORMAT. Please use table, csv, json, yaml, dict.&quot;</span></div>
 
 <div class="viewcode-block" id="Printer.csv"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Printer.Printer.csv">[docs]</a>    <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="nf">csv</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sort_keys</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">csv</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">humanize</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">sort_keys</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        prints a table in csv format</span>
 
@@ -407,12 +424,18 @@
         <span class="n">content</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">attribute</span> <span class="ow">in</span> <span class="n">order</span><span class="p">:</span>
             <span class="n">content</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">attribute</span><span class="p">)</span>
+
         <span class="n">table</span> <span class="o">=</span> <span class="n">table</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">content</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
 
         <span class="k">for</span> <span class="n">job</span> <span class="ow">in</span> <span class="n">d</span><span class="p">:</span>
             <span class="n">content</span> <span class="o">=</span> <span class="p">[]</span>
             <span class="k">for</span> <span class="n">attribute</span> <span class="ow">in</span> <span class="n">order</span><span class="p">:</span>
                 <span class="k">try</span><span class="p">:</span>
+                    <span class="c1">#if attribute in humanize:</span>
+                    <span class="c1">#    value = parser.parse(d[job][attribute])</span>
+                    <span class="c1">#    content.append(naturaltime(value))</span>
+                    <span class="c1">#    pass</span>
+                    <span class="c1">#else:</span>
                     <span class="n">content</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="n">job</span><span class="p">][</span><span class="n">attribute</span><span class="p">])</span>
                 <span class="k">except</span><span class="p">:</span>
                     <span class="n">content</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;None&quot;</span><span class="p">)</span>
@@ -420,7 +443,13 @@
         <span class="k">return</span> <span class="n">table</span></div>
 
 <div class="viewcode-block" id="Printer.dict_table"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Printer.Printer.dict_table">[docs]</a>    <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="nf">dict_table</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sort_keys</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">show_none</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">max_width</span><span class="o">=</span><span class="mi">40</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">dict_table</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span>
+                   <span class="n">order</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                   <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                   <span class="n">sort_keys</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                   <span class="n">show_none</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+                   <span class="n">humanize</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                   <span class="n">max_width</span><span class="o">=</span><span class="mi">40</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        prints a pretty table from an dict of dicts</span>
 
@@ -451,6 +480,9 @@
                 <span class="n">tmp</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="n">item</span><span class="p">][</span><span class="n">key</span><span class="p">])</span>
                 <span class="k">if</span> <span class="n">tmp</span> <span class="o">==</span> <span class="s2">&quot;None&quot;</span><span class="p">:</span>
                     <span class="n">tmp</span> <span class="o">=</span> <span class="n">show_none</span>
+                <span class="k">elif</span> <span class="n">humanize</span> <span class="ow">and</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">humanize</span><span class="p">:</span>
+                    <span class="n">tmp</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">tmp</span><span class="p">)</span>
+                    <span class="n">tmp</span> <span class="o">=</span> <span class="n">naturaltime</span><span class="p">(</span><span class="n">tmp</span><span class="p">)</span>
             <span class="k">except</span><span class="p">:</span>
                 <span class="n">tmp</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span>
             <span class="k">return</span> <span class="n">tmp</span>
@@ -480,16 +512,19 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="n">sorted_list</span> <span class="o">=</span> <span class="n">d</span>
 
+
         <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">sorted_list</span><span class="p">:</span>
             <span class="n">values</span> <span class="o">=</span> <span class="p">[]</span>
             <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">order</span><span class="p">:</span>
-                <span class="n">values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">_get</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="n">key</span><span class="p">))</span>
+                <span class="n">value</span> <span class="o">=</span> <span class="n">_get</span><span class="p">(</span><span class="n">element</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+                <span class="n">values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
             <span class="n">x</span><span class="o">.</span><span class="n">add_row</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
         <span class="n">x</span><span class="o">.</span><span class="n">align</span> <span class="o">=</span> <span class="s2">&quot;l&quot;</span>
         <span class="k">return</span> <span class="n">x</span></div>
 
 <div class="viewcode-block" id="Printer.attribute"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Printer.Printer.attribute">[docs]</a>    <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="nf">attribute</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sort_keys</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s2">&quot;table&quot;</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">attribute</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sort_keys</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">humanize</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                  <span class="n">output</span><span class="o">=</span><span class="s2">&quot;table&quot;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        prints a attribute/key value table</span>
 

@@ -146,7 +146,7 @@
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.vbox.command.html">cloudmesh.vbox.command package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.vcluster.command.html">cloudmesh.vcluster.command package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.vm.command.html">cloudmesh.vm.command package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cloudmesh.workflow.command.html">cloudmesh.workflow.command package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.workflow_draft.command.html">cloudmesh.workflow_draft.command package</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="index.html#cloudmesh-api">Cloudmesh API</a></li>
@@ -255,7 +255,7 @@
 <code class="sig-name descname">do_ip</code><span class="sig-paren">(</span><em class="sig-param">args</em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.ip.command.ip.IpCommand.do_ip" title="Permalink to this definition">¶</a></dt>
 <dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Usage</span><span class="p">:</span>
     <span class="n">ip</span> <span class="nb">list</span>  <span class="p">[</span><span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">CLOUD</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">output</span><span class="o">=</span><span class="n">OUTPUT</span><span class="p">]</span>
-    <span class="n">ip</span> <span class="n">create</span> <span class="p">[</span><span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">CLOUD</span><span class="p">]</span>
+    <span class="n">ip</span> <span class="n">create</span> <span class="p">[</span><span class="n">N</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">CLOUD</span><span class="p">]</span>
     <span class="n">ip</span> <span class="n">delete</span> <span class="p">[</span><span class="n">IP</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">cloud</span><span class="o">=</span><span class="n">CLOUD</span><span class="p">]</span>
     <span class="n">ip</span> <span class="n">attach</span> <span class="p">[</span><span class="n">NAME</span><span class="p">]</span> <span class="p">[</span><span class="n">IP</span><span class="p">]</span>
     <span class="n">ip</span> <span class="n">detach</span> <span class="p">[</span><span class="n">NAME</span><span class="p">]</span> <span class="p">[</span><span class="n">IP</span><span class="p">]</span>
@@ -267,6 +267,7 @@
     <span class="o">--</span><span class="n">output</span><span class="o">=</span><span class="n">OUTPUT</span>             <span class="n">The</span> <span class="n">output</span> <span class="nb">format</span> <span class="p">[</span><span class="n">default</span><span class="p">:</span> <span class="n">table</span><span class="p">]</span>
 
 <span class="n">Arguments</span><span class="p">:</span>
+    <span class="n">N</span>         <span class="n">Number</span> <span class="n">of</span> <span class="n">IPS</span> <span class="n">to</span> <span class="n">create</span>
     <span class="n">IP</span>        <span class="n">IP</span> <span class="n">Address</span>
     <span class="n">NAME</span>      <span class="n">Name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">service</span>
 

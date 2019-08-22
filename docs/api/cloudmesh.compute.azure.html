@@ -37,7 +37,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="cloudmesh.compute.azureaz package" href="cloudmesh.compute.azureaz.html" />
-    <link rel="prev" title="cloudmesh.compute.awslibcloud package" href="cloudmesh.compute.awslibcloud.html" /> 
+    <link rel="prev" title="cloudmesh.compute.aws package" href="cloudmesh.compute.aws.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -125,7 +125,6 @@
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.common3.html">cloudmesh.common3 package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.html">cloudmesh.compute package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.aws.html">cloudmesh.compute.aws package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.awslibcloud.html">cloudmesh.compute.awslibcloud package</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">cloudmesh.compute.azure package</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.compute.azure.Provider">cloudmesh.compute.azure.Provider module</a></li>
@@ -181,7 +180,7 @@
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.vcluster.html">cloudmesh.vcluster package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.vcluster.api.html">cloudmesh.vcluster.api package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.vm.html">cloudmesh.vm package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cloudmesh.workflow.html">cloudmesh.workflow package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.workflow_draft.html">cloudmesh.workflow_draft package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="modules.html">cloudmesh</a></li>
 </ul>
 </li>
@@ -288,10 +287,10 @@
 <dl class="class">
 <dt id="cloudmesh.compute.azure.Provider.Provider">
 <em class="property">class </em><code class="sig-prename descclassname">cloudmesh.compute.azure.Provider.</code><code class="sig-name descname">Provider</code><span class="sig-paren">(</span><em class="sig-param">name=None</em>, <em class="sig-param">configuration='~/.cloudmesh/cloudmesh.yaml'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="cloudmesh.abstractclass.html#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC" title="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC"><code class="xref py py-class docutils literal notranslate"><span class="pre">cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="cloudmesh.abstractclass.html#cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC" title="cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC"><code class="xref py py-class docutils literal notranslate"><span class="pre">cloudmesh.abstractclass.ComputeNodeABC.ComputeNodeABC</span></code></a>, <a class="reference internal" href="cloudmesh.provider.html#cloudmesh.provider.ComputeProviderPlugin" title="cloudmesh.provider.ComputeProviderPlugin"><code class="xref py py-class docutils literal notranslate"><span class="pre">cloudmesh.provider.ComputeProviderPlugin</span></code></a></p>
 <dl class="method">
 <dt id="cloudmesh.compute.azure.Provider.Provider.Print">
-<code class="sig-name descname">Print</code><span class="sig-paren">(</span><em class="sig-param">output</em>, <em class="sig-param">kind</em>, <em class="sig-param">data</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.Print"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.Print" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">Print</code><span class="sig-paren">(</span><em class="sig-param">data</em>, <em class="sig-param">output=None</em>, <em class="sig-param">kind=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.Print"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.Print" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -302,7 +301,11 @@
 <dl class="method">
 <dt id="cloudmesh.compute.azure.Provider.Provider.add_secgroup">
 <code class="sig-name descname">add_secgroup</code><span class="sig-paren">(</span><em class="sig-param">name=None</em>, <em class="sig-param">description=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.add_secgroup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.add_secgroup" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Adds the
+:param name: Name of the group
+:param description: The description
+:return:</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.compute.azure.Provider.Provider.add_secgroup_rule">
@@ -426,7 +429,19 @@ does not boot. The default is set to 3 minutes.</p></li>
 <dl class="method">
 <dt id="cloudmesh.compute.azure.Provider.Provider.find">
 <code class="sig-name descname">find</code><span class="sig-paren">(</span><em class="sig-param">elements</em>, <em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.find"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.find" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Finds an element in elements with the specified name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>elements</strong> – The elements</p></li>
+<li><p><strong>name</strong> – The name to be found</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.compute.azure.Provider.Provider.find_available_public_ip">
@@ -445,6 +460,17 @@ does not boot. The default is set to 3 minutes.</p></li>
 <dd><p>Gets the flavor with a given name
 :param name: The name of the flavor
 :return: The dict of the flavor</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.compute.azure.Provider.Provider.flavors">
+<code class="sig-name descname">flavors</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.flavors"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.flavors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lists the flavors on the cloud</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>dict of flavors</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
@@ -528,40 +554,7 @@ List VM in resource group
 <dl class="attribute">
 <dt id="cloudmesh.compute.azure.Provider.Provider.kind">
 <code class="sig-name descname">kind</code><em class="property"> = 'azure'</em><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.kind" title="Permalink to this definition">¶</a></dt>
-<dd><dl>
-<dt>output = {</dt><dd><dl>
-<dt>“image”: {</dt><dd><dl>
-<dt>“sort_keys”: [“cm.name”,</dt><dd><p>“extra.minDisk”],</p>
-</dd>
-<dt>“order”: [“image.id”,</dt><dd><p>“image.name”,
-“image.type”,
-“image.location”,
-“hardware_profile.vm_size”,
-“image_reference.publisher”,
-“image_reference.offer”,
-“image_reference.sku”,
-“image_reference.version”],</p>
-</dd>
-<dt>“header”: [“Id”,</dt><dd><blockquote>
-<div><p>“Name”,
-“TYpe”,</p>
-</div></blockquote>
-<p>]</p>
-</dd>
-</dl>
-<p>},</p>
-</dd>
-</dl>
-<p>“vm”: {},
-“flavor”: {},
-“status”: {},
-“key”:{},
-“secgroup”: {},
-“secrule”: {},</p>
-</dd>
-</dl>
-<p>}</p>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.compute.azure.Provider.Provider.list">
@@ -588,12 +581,21 @@ returned.</p>
 <dl class="method">
 <dt id="cloudmesh.compute.azure.Provider.Provider.list_secgroup_rules">
 <code class="sig-name descname">list_secgroup_rules</code><span class="sig-paren">(</span><em class="sig-param">name='default'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.list_secgroup_rules"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.list_secgroup_rules" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>List the security group rules by for provided Network Security Group</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – The name of the group</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.compute.azure.Provider.Provider.list_secgroups">
 <code class="sig-name descname">list_secgroups</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.list_secgroups"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.list_secgroups" title="Permalink to this definition">¶</a></dt>
-<dd><p>List the named security group</p>
+<dd><p>List the security group by name</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>name</strong> – The name of the group, if None all will be returned</p>
@@ -603,6 +605,11 @@ returned.</p>
 </dd>
 </dl>
 </dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.compute.azure.Provider.Provider.output">
+<code class="sig-name descname">output</code><em class="property"> = {'flavor': {'header': ['Name', 'NumberOfCores', 'OS_Disk_Size', 'Resource_Disk_Size', 'Memory', 'Max_Data_Disk'], 'order': ['name', 'number_of_cores', 'os_disk_size_in_mb', 'resource_disk_size_in_mb', 'memory_in_mb', 'max_data_disk_count'], 'sort_keys': ['name', 'number_of_cores', 'os_disk_size_in_mb']}, 'image': {'header': ['Name', 'Location', 'Publisher', 'Plan Name', 'Product', 'Operating System'], 'order': ['cm.name', 'location', 'plan.publisher', 'plan.name', 'plan.product', 'operating_system'], 'sort_keys': ['cm.name', 'plan.publisher']}, 'key': {}, 'secgroup': {}, 'secrule': {}, 'status': {}, 'vm': {'header': ['Name', 'Cloud', 'Id', 'Type', 'Location', 'VM_Size', 'Image Reference', 'Image Offer', 'Image Sku', 'Image Version', 'Image OS Type', 'Image OS Disk Name', 'Image OS Disk Caching', 'Image OS Disk Create Option', 'Image OS Disk Size', 'Image OS Disk ID', 'Image OS Disk Storage Type', 'Image Data Disk Lun', 'Image Data Disk Name', 'Image Data Disk Caching', 'Image Data Disk Create Option', 'Image Data Disk Size', 'Image Data Disk Id', 'Image Data Disk Storage Type', 'Image Os Profile Computer Name', 'Image Os Profile Admin Username', 'Image Linux Conf Disable Password', 'Image Linux Conf Provision VM Agent', 'Image Os Profile Allow Extension Operations', 'Network Interfaces ID', 'Provisioning State', 'VM ID', 'Kind'], 'order': ['cm.name', 'cm.cloud', 'id', 'type', 'location', 'hardware_profile.vm_size', 'storage_profile.image_reference.image_reference', 'storage_profile.image_reference.offer', 'storage_profile.image_reference.sku', 'storage_profile.image_reference.version', 'storage_profile.os_disk.os_type', 'storage_profile.os_disk.name', 'storage_profile.os_disk.caching', 'storage_profile.os_disk.create_option', 'storage_profile.os_disk.disk_size_gb', 'storage_profile.os_disk.managed_disk.id', 'storage_profile.os_disk.managed_disk.storage_account_type', 'storage_profile.data_disks.lun', 'storage_profile.data_disks.name', 'storage_profile.data_disks.caching', 'storage_profile.data_disks.create_option', 'storage_profile.data_disks.disk_size_gb', 'storage_profile.data_disks.managed_disk.id', 'storage_profile.data_disks.managed_disk.storage_account_type', 'os_profile.computer_name', 'os_profile.admin_username', 'os_profile.linux_configuration.disable_password_authentication', 'os_profile.linux_configuration.provision_vm_agent', 'os_profile.allow_extension_operations', 'network_profile.network_interfaces.id', 'provisioning_state', 'vm_id', 'cm.kind'], 'sort_keys': ['cm.name']}}</em><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.output" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.compute.azure.Provider.Provider.reboot">
@@ -629,7 +636,16 @@ returned.</p>
 <dl class="method">
 <dt id="cloudmesh.compute.azure.Provider.Provider.remove_secgroup">
 <code class="sig-name descname">remove_secgroup</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.remove_secgroup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.remove_secgroup" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Delete the names security group</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – The name of the Security Group to be deleted</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.compute.azure.Provider.Provider.rename">
@@ -667,7 +683,7 @@ returned.</p>
 
 <dl class="method">
 <dt id="cloudmesh.compute.azure.Provider.Provider.set_server_metadata">
-<code class="sig-name descname">set_server_metadata</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">m</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.set_server_metadata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.set_server_metadata" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_server_metadata</code><span class="sig-paren">(</span><em class="sig-param">name=None</em>, <em class="sig-param">cm=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.set_server_metadata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.set_server_metadata" title="Permalink to this definition">¶</a></dt>
 <dd><p>sets the metadata for the server</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -762,6 +778,11 @@ internally.</p>
 <code class="sig-name descname">upload_secgroup</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/azure/Provider.html#Provider.upload_secgroup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.upload_secgroup" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<dl class="attribute">
+<dt id="cloudmesh.compute.azure.Provider.Provider.vm_state">
+<code class="sig-name descname">vm_state</code><em class="property"> = ['ACTIVE', 'BUILDING', 'DELETED', 'ERROR', 'HARD_REBOOT', 'PASSWORD', 'PAUSED', 'REBOOT', 'REBUILD', 'RESCUED', 'RESIZED', 'REVERT_RESIZE', 'SHUTOFF', 'SOFT_DELETED', 'STOPPED', 'SUSPENDED', 'UNKNOWN', 'VERIFY_RESIZE']</em><a class="headerlink" href="#cloudmesh.compute.azure.Provider.Provider.vm_state" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </dd></dl>
 
 </div>
@@ -781,7 +802,7 @@ internally.</p>
         <a href="cloudmesh.compute.azureaz.html" class="btn btn-neutral float-right" title="cloudmesh.compute.azureaz package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="cloudmesh.compute.awslibcloud.html" class="btn btn-neutral float-left" title="cloudmesh.compute.awslibcloud package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="cloudmesh.compute.aws.html" class="btn btn-neutral float-left" title="cloudmesh.compute.aws package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

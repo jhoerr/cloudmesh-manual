@@ -220,7 +220,11 @@
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;MongoDB stop&quot;</span><span class="p">)</span>
-        <span class="n">MongoDBController</span><span class="p">()</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span></div>
+        <span class="k">if</span> <span class="n">MongoDBController</span><span class="p">()</span><span class="o">.</span><span class="n">service_is_running</span><span class="p">():</span>
+            <span class="n">MongoDBController</span><span class="p">()</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">Console</span><span class="o">.</span><span class="n">ok</span><span class="p">(</span><span class="s2">&quot;MongoDB service is already stopped&quot;</span><span class="p">)</span></div>
+
 </pre></div>
 
            </div>

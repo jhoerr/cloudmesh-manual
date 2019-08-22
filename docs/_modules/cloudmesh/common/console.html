@@ -209,6 +209,7 @@
 
 <span class="kn">import</span> <span class="nn">colorama</span>
 <span class="kn">from</span> <span class="nn">colorama</span> <span class="k">import</span> <span class="n">Fore</span><span class="p">,</span> <span class="n">Back</span><span class="p">,</span> <span class="n">Style</span>
+<span class="c1"># from cloudmesh.common.variables import Variables</span>
 
 <span class="n">colorama</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
 
@@ -352,6 +353,9 @@
 <span class="sd">        :return: </span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># print (message, prefix)</span>
+        <span class="c1">#variables = Variables()</span>
+        <span class="c1">#traceflag = traceflag or variables[&#39;trace&#39;]</span>
+
         <span class="n">message</span> <span class="o">=</span> <span class="n">message</span> <span class="ow">or</span> <span class="s2">&quot;&quot;</span>
         <span class="k">if</span> <span class="n">prefix</span><span class="p">:</span>
             <span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;ERROR: &quot;</span>

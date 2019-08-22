@@ -4,6 +4,14 @@ cloudmesh.compute.aws package
 Submodules
 ----------
 
+cloudmesh.compute.aws.AwsFlavors\-Gregor module
+-----------------------------------------------
+
+.. automodule:: cloudmesh.compute.aws.AwsFlavors-Gregor
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 cloudmesh.compute.aws.AwsFlavors module
 ---------------------------------------
 

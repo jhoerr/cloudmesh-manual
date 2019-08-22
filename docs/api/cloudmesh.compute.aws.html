@@ -36,7 +36,7 @@
   <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="cloudmesh.compute.awslibcloud package" href="cloudmesh.compute.awslibcloud.html" />
+    <link rel="next" title="cloudmesh.compute.azure package" href="cloudmesh.compute.azure.html" />
     <link rel="prev" title="cloudmesh.compute package" href="cloudmesh.compute.html" /> 
 </head>
 
@@ -126,6 +126,7 @@
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.html">cloudmesh.compute package</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">cloudmesh.compute.aws package</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cloudmesh-compute-aws-awsflavors-gregor-module">cloudmesh.compute.aws.AwsFlavors-Gregor module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.compute.aws.AwsFlavors">cloudmesh.compute.aws.AwsFlavors module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.compute.aws.Provider">cloudmesh.compute.aws.Provider module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.compute.aws.gregor_flavor">cloudmesh.compute.aws.gregor_flavor module</a></li>
@@ -133,7 +134,6 @@
 <li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.compute.aws">Module contents</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.awslibcloud.html">cloudmesh.compute.awslibcloud package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.azure.html">cloudmesh.compute.azure package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.azureaz.html">cloudmesh.compute.azureaz package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.azurelibcloud.html">cloudmesh.compute.azurelibcloud package</a></li>
@@ -184,7 +184,7 @@
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.vcluster.html">cloudmesh.vcluster package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.vcluster.api.html">cloudmesh.vcluster.api package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.vm.html">cloudmesh.vm package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cloudmesh.workflow.html">cloudmesh.workflow package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.workflow_draft.html">cloudmesh.workflow_draft package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="modules.html">cloudmesh</a></li>
 </ul>
 </li>
@@ -286,75 +286,29 @@
 <div class="section" id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
 </div>
+<div class="section" id="cloudmesh-compute-aws-awsflavors-gregor-module">
+<h2>cloudmesh.compute.aws.AwsFlavors-Gregor module<a class="headerlink" href="#cloudmesh-compute-aws-awsflavors-gregor-module" title="Permalink to this headline">¶</a></h2>
+</div>
 <div class="section" id="module-cloudmesh.compute.aws.AwsFlavors">
 <span id="cloudmesh-compute-aws-awsflavors-module"></span><h2>cloudmesh.compute.aws.AwsFlavors module<a class="headerlink" href="#module-cloudmesh.compute.aws.AwsFlavors" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
-<dt id="cloudmesh.compute.aws.AwsFlavors.AwsImages">
-<em class="property">class </em><code class="sig-prename descclassname">cloudmesh.compute.aws.AwsFlavors.</code><code class="sig-name descname">AwsImages</code><a class="reference internal" href="../_modules/cloudmesh/compute/aws/AwsFlavors.html#AwsImages"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.aws.AwsFlavors.AwsImages" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a></p>
+<dt id="cloudmesh.compute.aws.AwsFlavors.AwsFlavor">
+<em class="property">class </em><code class="sig-prename descclassname">cloudmesh.compute.aws.AwsFlavors.</code><code class="sig-name descname">AwsFlavor</code><a class="reference internal" href="../_modules/cloudmesh/compute/aws/AwsFlavors.html#AwsFlavor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.aws.AwsFlavors.AwsFlavor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <dl class="method">
-<dt id="cloudmesh.compute.aws.AwsFlavors.AwsImages.extract_tables">
-<code class="sig-name descname">extract_tables</code><span class="sig-paren">(</span><em class="sig-param">html</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/aws/AwsFlavors.html#AwsImages.extract_tables"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.aws.AwsFlavors.AwsImages.extract_tables" title="Permalink to this definition">¶</a></dt>
+<dt id="cloudmesh.compute.aws.AwsFlavors.AwsFlavor.fetch">
+<code class="sig-name descname">fetch</code><span class="sig-paren">(</span><em class="sig-param">url=None</em>, <em class="sig-param">region='us-east-1'</em>, <em class="sig-param">offer='AmazonEC2'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/aws/AwsFlavors.html#AwsFlavor.fetch"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.aws.AwsFlavors.AwsFlavor.fetch" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
-<dt id="cloudmesh.compute.aws.AwsFlavors.AwsImages.fetch">
-<code class="sig-name descname">fetch</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/aws/AwsFlavors.html#AwsImages.fetch"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.aws.AwsFlavors.AwsImages.fetch" title="Permalink to this definition">¶</a></dt>
+<dt id="cloudmesh.compute.aws.AwsFlavors.AwsFlavor.fetch_json_file">
+<em class="property">static </em><code class="sig-name descname">fetch_json_file</code><span class="sig-paren">(</span><em class="sig-param">url</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/aws/AwsFlavors.html#AwsFlavor.fetch_json_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.aws.AwsFlavors.AwsFlavor.fetch_json_file" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
-<dt id="cloudmesh.compute.aws.AwsFlavors.AwsImages.keys">
-<code class="sig-name descname">keys</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; a set-like object providing a view on D's keys<a class="reference internal" href="../_modules/cloudmesh/compute/aws/AwsFlavors.html#AwsImages.keys"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.aws.AwsFlavors.AwsImages.keys" title="Permalink to this definition">¶</a></dt>
+<dt id="cloudmesh.compute.aws.AwsFlavors.AwsFlavor.list">
+<code class="sig-name descname">list</code><span class="sig-paren">(</span><em class="sig-param">offer</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/aws/AwsFlavors.html#AwsFlavor.list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.aws.AwsFlavors.AwsFlavor.list" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.compute.aws.AwsFlavors.AwsImages.pprint">
-<code class="sig-name descname">pprint</code><span class="sig-paren">(</span><em class="sig-param">key=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/aws/AwsFlavors.html#AwsImages.pprint"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.aws.AwsFlavors.AwsImages.pprint" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.compute.aws.AwsFlavors.AwsImages.print">
-<code class="sig-name descname">print</code><span class="sig-paren">(</span><em class="sig-param">key=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/aws/AwsFlavors.html#AwsImages.print"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.aws.AwsFlavors.AwsImages.print" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="cloudmesh.compute.aws.AwsFlavors.AwsImages.table">
-<code class="sig-name descname">table</code><span class="sig-paren">(</span><em class="sig-param">key</em>, <em class="sig-param">output='fancy_grid'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/aws/AwsFlavors.html#AwsImages.table"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.aws.AwsFlavors.AwsImages.table" title="Permalink to this definition">¶</a></dt>
-<dd><p>Available formats:</p>
-<blockquote>
-<div><p>“df”
-“plain”
-“simple”
-“github”
-“grid”
-“fancy_grid”
-“pipe”
-“orgtbl”
-“jira”
-“presto”
-“psql”
-“rst”
-“mediawiki”
-“moinmoin”
-“youtrack”
-“html”
-“latex”
-“latex_raw”
-“latex_booktabs”
-“textile”</p>
-</div></blockquote>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>key</strong> – </p></li>
-<li><p><strong>output</strong> – </p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p></p>
-</dd>
-</dl>
-</dd></dl>
 
 </dd></dl>
 
@@ -378,7 +332,18 @@
 <dl class="method">
 <dt id="cloudmesh.compute.aws.Provider.Provider.add_secgroup">
 <code class="sig-name descname">add_secgroup</code><span class="sig-paren">(</span><em class="sig-param">name=None</em>, <em class="sig-param">description=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/aws/Provider.html#Provider.add_secgroup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.aws.Provider.Provider.add_secgroup" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – Adds security group</p></li>
+<li><p><strong>description</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.compute.aws.Provider.Provider.add_secgroup_rule">
@@ -517,17 +482,16 @@ does not boot. The default is set to 3 minutes.</p></li>
 </dd></dl>
 
 <dl class="method">
+<dt id="cloudmesh.compute.aws.Provider.Provider.get_images_and_import">
+<code class="sig-name descname">get_images_and_import</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cloudmesh.compute.aws.Provider.Provider.get_images_and_import" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
 <dt id="cloudmesh.compute.aws.Provider.Provider.get_server_metadata">
 <code class="sig-name descname">get_server_metadata</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/aws/Provider.html#Provider.get_server_metadata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.aws.Provider.Provider.get_server_metadata" title="Permalink to this definition">¶</a></dt>
-<dd><p>gets the metadata for the server</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>name</strong> – name of the fm</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p></p>
-</dd>
-</dl>
+<dd><p>Describes the metadata tag of EC2 resource
+:param name: Virtual machine name
+:return: Dictionary with Metadata information</p>
 </dd></dl>
 
 <dl class="method">
@@ -621,25 +585,28 @@ returned.</p>
 <dl class="method">
 <dt id="cloudmesh.compute.aws.Provider.Provider.list_secgroup_rules">
 <code class="sig-name descname">list_secgroup_rules</code><span class="sig-paren">(</span><em class="sig-param">name='default'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/aws/Provider.html#Provider.list_secgroup_rules"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.aws.Provider.Provider.list_secgroup_rules" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>List the named security group
+:param name: The name of the group, if None all will be returned
+:return:</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.compute.aws.Provider.Provider.list_secgroups">
 <code class="sig-name descname">list_secgroups</code><span class="sig-paren">(</span><em class="sig-param">name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/aws/Provider.html#Provider.list_secgroups"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.aws.Provider.Provider.list_secgroups" title="Permalink to this definition">¶</a></dt>
-<dd><p>List the named security group</p>
+<dd><p>List the named security groups</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>name</strong> – The name of the group, if None all will be returned</p>
+<dd class="field-odd"><p><strong>name</strong> – Name of the security group</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p></p>
+<dd class="field-even"><p>List of dict</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cloudmesh.compute.aws.Provider.Provider.output">
-<code class="sig-name descname">output</code><em class="property"> = {'flavor': {'header': ['Name', 'VCPUS', 'RAM', 'Disk'], 'order': ['cm.name', 'vcpus', 'ram', 'disk'], 'sort_keys': ['cm.name', 'vcpus', 'disk']}, 'image': {'header': ['Name', 'Size (Bytes)', 'MinDisk (GB)', 'MinRam (MB)', 'Status', 'Driver'], 'order': ['cm.name', 'size', 'min_disk', 'min_ram', 'status', 'cm.driver'], 'sort_keys': ['cm.name', 'extra.minDisk']}, 'key': {'header': ['Name', 'Type', 'Format', 'Fingerprint', 'Comment'], 'order': ['name', 'type', 'format', 'fingerprint', 'comment'], 'sort_keys': ['name']}, 'secgroup': {'header': ['Name', 'Tags', 'Direction', 'Ethertype', 'Port range max', 'Port range min', 'Protocol', 'Range', 'Remote group id'], 'order': ['name', 'tags', 'direction', 'ethertype', 'port_range_max', 'port_range_min', 'protocol', 'remote_ip_prefix', 'remote_group_id'], 'sort_keys': ['name']}, 'vm': {'header': ['Name', 'Cloud', 'State', 'Status', 'Image', 'Public IPs', 'Private IPs', 'Project ID', 'Started at', 'Kind'], 'order': ['cm.name', 'cm.cloud', 'vm_state', 'status', 'image', 'public_ips', 'private_ips', 'project_id', 'launched_at', 'cm.kind'], 'sort_keys': ['cm.name']}}</em><a class="headerlink" href="#cloudmesh.compute.aws.Provider.Provider.output" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">output</code><em class="property"> = {'flavor': {'header': ['ID', 'Name', 'Price', 'Family', 'VCPUS', 'RAM', 'Disk', 'Processor', 'Network'], 'order': ['cm.name', 'attributes.instanceType', 'price.pricePerUnit.USD', 'attributes.instanceFamily', 'attributes.vcpu', 'attributes.memory', 'attributes.storage', 'attributes.physicalProcessor', 'attributes.networkPerformance'], 'sort_keys': ['cm.name']}, 'image': {'header': ['Name', 'Size (Bytes)', 'MinDisk (GB)', 'MinRam (MB)', 'Status', 'Driver'], 'order': ['cm.name', 'size', 'min_disk', 'min_ram', 'status', 'cm.driver'], 'sort_keys': ['cm.name', 'extra.minDisk']}, 'key': {'header': ['Name', 'Type', 'Format', 'Fingerprint', 'Comment'], 'order': ['name', 'type', 'format', 'fingerprint', 'comment'], 'sort_keys': ['name']}, 'secgroup': {'header': ['Name', 'Tags', 'Direction', 'Ethertype', 'Port range max', 'Port range min', 'Protocol', 'Range', 'Remote group id'], 'order': ['name', 'tags', 'direction', 'ethertype', 'port_range_max', 'port_range_min', 'protocol', 'remote_ip_prefix', 'remote_group_id'], 'sort_keys': ['name']}, 'vm': {'header': ['Name', 'Cloud', 'State', 'Status', 'Image', 'Public IPs', 'Private IPs', 'Project ID', 'Started at', 'Kind'], 'order': ['cm.name', 'cm.cloud', 'vm_state', 'status', 'image', 'public_ips', 'private_ips', 'project_id', 'launched_at', 'cm.kind'], 'sort_keys': ['cm.name']}}</em><a class="headerlink" href="#cloudmesh.compute.aws.Provider.Provider.output" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -685,7 +652,7 @@ returned.</p>
 
 <dl class="method">
 <dt id="cloudmesh.compute.aws.Provider.Provider.set_server_metadata">
-<code class="sig-name descname">set_server_metadata</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">m</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/aws/Provider.html#Provider.set_server_metadata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.aws.Provider.Provider.set_server_metadata" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_server_metadata</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">data</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/aws/Provider.html#Provider.set_server_metadata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.aws.Provider.Provider.set_server_metadata" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -749,7 +716,7 @@ returned.</p>
 <dl class="method">
 <dt id="cloudmesh.compute.aws.Provider.Provider.update_dict">
 <code class="sig-name descname">update_dict</code><span class="sig-paren">(</span><em class="sig-param">elements</em>, <em class="sig-param">kind=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/compute/aws/Provider.html#Provider.update_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.compute.aws.Provider.Provider.update_dict" title="Permalink to this definition">¶</a></dt>
-<dd><p>THis function adds a cloudmesh cm dict to each dict in the list
+<dd><p>This function adds a cloudmesh cm dict to each dict in the list
 elements.
 Libcloud
 returns an object or list of objects With the dict method
@@ -862,7 +829,7 @@ key, vm, image, flavor.</p></li>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="cloudmesh.compute.awslibcloud.html" class="btn btn-neutral float-right" title="cloudmesh.compute.awslibcloud package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="cloudmesh.compute.azure.html" class="btn btn-neutral float-right" title="cloudmesh.compute.azure package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="cloudmesh.compute.html" class="btn btn-neutral float-left" title="cloudmesh.compute package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

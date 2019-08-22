@@ -245,7 +245,9 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="bp">cls</span><span class="o">.</span><span class="n">debug</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Timer&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="s2">&quot;started ...&quot;</span><span class="p">)</span>
-        <span class="bp">cls</span><span class="o">.</span><span class="n">timer_start</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span></div>
+        <span class="bp">cls</span><span class="o">.</span><span class="n">timer_start</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="bp">cls</span><span class="o">.</span><span class="n">timer_end</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span></div>
+
 
 <div class="viewcode-block" id="StopWatch.stop"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.StopWatch.StopWatch.stop">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">stop</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
@@ -259,8 +261,9 @@
         <span class="k">if</span> <span class="bp">cls</span><span class="o">.</span><span class="n">debug</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Timer&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="s2">&quot;stopped ...&quot;</span><span class="p">)</span></div>
 
+
 <div class="viewcode-block" id="StopWatch.get"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.StopWatch.StopWatch.get">[docs]</a>    <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">digits</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        returns the time of the timer.</span>
 
@@ -269,9 +272,15 @@
 <span class="sd">        :rtype: the elapsed time</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">cls</span><span class="o">.</span><span class="n">timer_end</span><span class="p">:</span>
-            <span class="bp">cls</span><span class="o">.</span><span class="n">timer_elapsed</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">timer_end</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">-</span> \
-                                      <span class="bp">cls</span><span class="o">.</span><span class="n">timer_start</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
-            <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">timer_elapsed</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">diff</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">timer_end</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">-</span> <span class="bp">cls</span><span class="o">.</span><span class="n">timer_start</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+                <span class="k">if</span> <span class="nb">round</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="bp">cls</span><span class="o">.</span><span class="n">timer_elapsed</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">diff</span><span class="p">,</span> <span class="n">digits</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="bp">cls</span><span class="o">.</span><span class="n">timer_elapsed</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">diff</span>
+                <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">timer_elapsed</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+            <span class="k">except</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">None</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="s2">&quot;undefined&quot;</span></div>
 
@@ -309,7 +318,7 @@
         <span class="k">return</span> <span class="n">s</span>
 
 <div class="viewcode-block" id="StopWatch.benchmark"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.StopWatch.StopWatch.benchmark">[docs]</a>    <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="nf">benchmark</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">sysinfo</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">benchmark</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">sysinfo</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">csv</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">tag</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        prints out all timers in a convenient benchmark table</span>
 <span class="sd">        :return:</span>
@@ -319,6 +328,7 @@
         <span class="c1">#</span>
         <span class="c1"># PRINT PLATFORM</span>
         <span class="c1">#</span>
+
 
         <span class="nb">print</span><span class="p">()</span>
         <span class="n">data_platform</span> <span class="o">=</span> <span class="n">systeminfo</span><span class="p">()</span>
@@ -380,8 +390,11 @@
             <span class="n">data_timers</span> <span class="o">=</span> <span class="p">{}</span>
             <span class="k">for</span> <span class="n">timer</span> <span class="ow">in</span> <span class="n">timers</span><span class="p">:</span>
                 <span class="n">data_timers</span><span class="p">[</span><span class="n">timer</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
-                    <span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">StopWatch</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">timer</span><span class="p">),</span> <span class="mi">2</span><span class="p">),</span>
-                    <span class="s1">&#39;timer&#39;</span><span class="p">:</span> <span class="n">timer</span>
+                    <span class="s1">&#39;start&#39;</span><span class="p">:</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M:%S&quot;</span><span class="p">,</span>
+                                           <span class="n">time</span><span class="o">.</span><span class="n">gmtime</span><span class="p">(</span><span class="n">StopWatch</span><span class="o">.</span><span class="n">timer_start</span><span class="p">[</span><span class="n">timer</span><span class="p">])),</span>
+                    <span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="n">StopWatch</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">timer</span><span class="p">,</span> <span class="n">digits</span><span class="o">=</span><span class="mi">3</span><span class="p">),</span>
+                    <span class="s1">&#39;timer&#39;</span><span class="p">:</span> <span class="n">timer</span><span class="p">,</span>
+                    <span class="s1">&#39;tag&#39;</span><span class="p">:</span> <span class="n">tag</span> <span class="ow">or</span> <span class="s1">&#39;&#39;</span>
                 <span class="p">}</span>
                 <span class="k">for</span> <span class="n">attribute</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;node&quot;</span><span class="p">,</span>
                                   <span class="s2">&quot;user&quot;</span><span class="p">,</span>
@@ -394,25 +407,37 @@
             <span class="c1"># print(Printer.attribute(data_timers, header=[&quot;Command&quot;, &quot;Time/s&quot;]))</span>
             <span class="nb">print</span><span class="p">(</span><span class="n">Printer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
                 <span class="n">data_timers</span><span class="p">,</span>
-                <span class="n">order</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;timer&quot;</span><span class="p">,</span> <span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="s2">&quot;node&quot;</span><span class="p">,</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span>
+                <span class="n">order</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;timer&quot;</span><span class="p">,</span>
+                       <span class="s2">&quot;time&quot;</span><span class="p">,</span>
+                       <span class="s2">&quot;start&quot;</span><span class="p">,</span>
+                       <span class="s2">&quot;tag&quot;</span><span class="p">,</span>
+                       <span class="s2">&quot;node&quot;</span><span class="p">,</span>
+                       <span class="s2">&quot;user&quot;</span><span class="p">,</span>
                        <span class="s2">&quot;system&quot;</span><span class="p">,</span>
                        <span class="s2">&quot;mac_version&quot;</span><span class="p">,</span>
                        <span class="s2">&quot;win_version&quot;</span><span class="p">]</span>
             <span class="p">))</span>
 
             <span class="nb">print</span><span class="p">()</span>
-            <span class="nb">print</span><span class="p">(</span><span class="n">Printer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
-                <span class="n">data_timers</span><span class="p">,</span>
-                <span class="n">order</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;timer&quot;</span><span class="p">,</span> <span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="s2">&quot;node&quot;</span><span class="p">,</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span>
-                       <span class="s2">&quot;system&quot;</span><span class="p">,</span>
-                       <span class="s2">&quot;mac_version&quot;</span><span class="p">,</span>
-                       <span class="s2">&quot;win_version&quot;</span><span class="p">],</span>
-                <span class="n">output</span><span class="o">=</span><span class="s2">&quot;csv&quot;</span>
-            <span class="p">))</span>
+            <span class="k">if</span> <span class="n">csv</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">Printer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
+                    <span class="n">data_timers</span><span class="p">,</span>
+                    <span class="n">order</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;timer&quot;</span><span class="p">,</span>
+                           <span class="s2">&quot;time&quot;</span><span class="p">,</span>
+                           <span class="s2">&quot;start&quot;</span>
+                           <span class="s2">&quot;tag&quot;</span><span class="p">,</span>
+                           <span class="s2">&quot;node&quot;</span><span class="p">,</span>
+                           <span class="s2">&quot;user&quot;</span><span class="p">,</span>
+                           <span class="s2">&quot;system&quot;</span><span class="p">,</span>
+                           <span class="s2">&quot;mac_version&quot;</span><span class="p">,</span>
+                           <span class="s2">&quot;win_version&quot;</span><span class="p">],</span>
+                    <span class="n">output</span><span class="o">=</span><span class="s2">&quot;csv&quot;</span>
+                <span class="p">))</span>
 
         <span class="k">else</span><span class="p">:</span>
 
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ERROR: No timers found&quot;</span><span class="p">)</span></div></div>
+
 </pre></div>
 
            </div>

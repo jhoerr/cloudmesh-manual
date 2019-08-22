@@ -125,7 +125,6 @@
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.common3.html">cloudmesh.common3 package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.html">cloudmesh.compute package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.aws.html">cloudmesh.compute.aws package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.awslibcloud.html">cloudmesh.compute.awslibcloud package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.azure.html">cloudmesh.compute.azure package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.azureaz.html">cloudmesh.compute.azureaz package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.azurelibcloud.html">cloudmesh.compute.azurelibcloud package</a></li>
@@ -183,7 +182,7 @@
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.vcluster.html">cloudmesh.vcluster package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.vcluster.api.html">cloudmesh.vcluster.api package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.vm.html">cloudmesh.vm package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cloudmesh.workflow.html">cloudmesh.workflow package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.workflow_draft.html">cloudmesh.workflow_draft package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="modules.html">cloudmesh</a></li>
 </ul>
 </li>
@@ -289,6 +288,11 @@
 <dt id="cloudmesh.mongo.CmDatabase.CmDatabase">
 <em class="property">class </em><code class="sig-prename descclassname">cloudmesh.mongo.CmDatabase.</code><code class="sig-name descname">CmDatabase</code><span class="sig-paren">(</span><em class="sig-param">host=None</em>, <em class="sig-param">username=None</em>, <em class="sig-param">password=None</em>, <em class="sig-param">port=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/mongo/CmDatabase.html#CmDatabase"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.CmDatabase.CmDatabase" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="method">
+<dt id="cloudmesh.mongo.CmDatabase.CmDatabase.UPDATE">
+<em class="property">static </em><code class="sig-name descname">UPDATE</code><span class="sig-paren">(</span><em class="sig-param">_entries</em>, <em class="sig-param">progress=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/mongo/CmDatabase.html#CmDatabase.UPDATE"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.CmDatabase.CmDatabase.UPDATE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="method">
 <dt id="cloudmesh.mongo.CmDatabase.CmDatabase.alter">
 <code class="sig-name descname">alter</code><span class="sig-paren">(</span><em class="sig-param">entries</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/mongo/CmDatabase.html#CmDatabase.alter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.CmDatabase.CmDatabase.alter" title="Permalink to this definition">¶</a></dt>
@@ -399,6 +403,21 @@ to lists. All names from all collections are merged into the result.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="cloudmesh.mongo.CmDatabase.CmDatabase.find_all_by_name">
+<code class="sig-name descname">find_all_by_name</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">kind=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/mongo/CmDatabase.html#CmDatabase.find_all_by_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.CmDatabase.CmDatabase.find_all_by_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function returns the entry with the given name from all collections
+in mongodb. The name must be unique across all collections</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – the unique name of the entry</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
 <dt id="cloudmesh.mongo.CmDatabase.CmDatabase.find_group">
 <code class="sig-name descname">find_group</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/mongo/CmDatabase.html#CmDatabase.find_group"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.CmDatabase.CmDatabase.find_group" title="Permalink to this definition">¶</a></dt>
 <dd><p>This function returns the entry with the given name from all collections
@@ -447,6 +466,11 @@ across all collections.</p>
 <dl class="method">
 <dt id="cloudmesh.mongo.CmDatabase.CmDatabase.find_ok">
 <code class="sig-name descname">find_ok</code><span class="sig-paren">(</span><em class="sig-param">collection='cloudmesh'</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/mongo/CmDatabase.html#CmDatabase.find_ok"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.CmDatabase.CmDatabase.find_ok" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.mongo.CmDatabase.CmDatabase.importAsFile">
+<code class="sig-name descname">importAsFile</code><span class="sig-paren">(</span><em class="sig-param">data</em>, <em class="sig-param">collection</em>, <em class="sig-param">db</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/mongo/CmDatabase.html#CmDatabase.importAsFile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.CmDatabase.CmDatabase.importAsFile" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -511,7 +535,7 @@ names = cm.names(collection=”chameleon-image”, regex=”.*Ubuntu.*”)</p>
 
 <dl class="method">
 <dt id="cloudmesh.mongo.CmDatabase.CmDatabase.update">
-<code class="sig-name descname">update</code><span class="sig-paren">(</span><em class="sig-param">entries</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/mongo/CmDatabase.html#CmDatabase.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.CmDatabase.CmDatabase.update" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">update</code><span class="sig-paren">(</span><em class="sig-param">_entries</em>, <em class="sig-param">progress=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/mongo/CmDatabase.html#CmDatabase.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.CmDatabase.CmDatabase.update" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -622,6 +646,20 @@ implement different providers but only use one class with the same methods
 to interact for all providers with the database.</p>
 <p>In the combined provider a find function to for example search for entries
 by name across collections could be implemented.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="cloudmesh.mongo.DataBaseDecorator.DatabaseImportAsJson">
+<em class="property">class </em><code class="sig-prename descclassname">cloudmesh.mongo.DataBaseDecorator.</code><code class="sig-name descname">DatabaseImportAsJson</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/mongo/DataBaseDecorator.html#DatabaseImportAsJson"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.DataBaseDecorator.DatabaseImportAsJson" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Updating the database using MongoImport.</p>
+<p>expects a dictionary with the following format:</p>
+<dl class="simple">
+<dt>{ ‘db’: Name of the database (cloudmesh by default),</dt><dd><p>‘collection’: Name of the collection to be saved in the db,
+‘data’ : DATA}</p>
+</dd>
+</dl>
+<p>The data should be an array of dict.</p>
 </dd></dl>
 
 <dl class="class">
@@ -740,6 +778,30 @@ by name across collections could be implemented.</p>
 <dd></dd></dl>
 
 <dl class="method">
+<dt id="cloudmesh.mongo.MongoDBController.MongoDBController.importAsFile">
+<code class="sig-name descname">importAsFile</code><span class="sig-paren">(</span><em class="sig-param">data</em>, <em class="sig-param">collection</em>, <em class="sig-param">db</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/mongo/MongoDBController.html#MongoDBController.importAsFile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.MongoDBController.MongoDBController.importAsFile" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.mongo.MongoDBController.MongoDBController.import_collection">
+<code class="sig-name descname">import_collection</code><span class="sig-paren">(</span><em class="sig-param">security=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/mongo/MongoDBController.html#MongoDBController.import_collection"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.MongoDBController.MongoDBController.import_collection" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.mongo.MongoDBController.MongoDBController.is_installed_as_win_service">
+<code class="sig-name descname">is_installed_as_win_service</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/mongo/MongoDBController.html#MongoDBController.is_installed_as_win_service"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.MongoDBController.MongoDBController.is_installed_as_win_service" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns True if mongodb is installed as a windows service
+:return:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.mongo.MongoDBController.MongoDBController.linux_process_is_running">
+<code class="sig-name descname">linux_process_is_running</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/mongo/MongoDBController.html#MongoDBController.linux_process_is_running"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.MongoDBController.MongoDBController.linux_process_is_running" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns True if mongod is running
+:return:</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="cloudmesh.mongo.MongoDBController.MongoDBController.list">
 <code class="sig-name descname">list</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/mongo/MongoDBController.html#MongoDBController.list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.MongoDBController.MongoDBController.list" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -748,6 +810,13 @@ by name across collections could be implemented.</p>
 <dt id="cloudmesh.mongo.MongoDBController.MongoDBController.login">
 <code class="sig-name descname">login</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/mongo/MongoDBController.html#MongoDBController.login"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.MongoDBController.MongoDBController.login" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.mongo.MongoDBController.MongoDBController.mac_process_is_running">
+<code class="sig-name descname">mac_process_is_running</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/mongo/MongoDBController.html#MongoDBController.mac_process_is_running"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.MongoDBController.MongoDBController.mac_process_is_running" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns True if mongod is running
+:return:</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.mongo.MongoDBController.MongoDBController.restore">
@@ -782,6 +851,13 @@ mongod –port {MONGO_PORT} –bind_ip {MONGO_HOST} –dbpath {MONGO_PATH}/{MONG
 <dd></dd></dl>
 
 <dl class="method">
+<dt id="cloudmesh.mongo.MongoDBController.MongoDBController.service_is_running">
+<code class="sig-name descname">service_is_running</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/mongo/MongoDBController.html#MongoDBController.service_is_running"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.MongoDBController.MongoDBController.service_is_running" title="Permalink to this definition">¶</a></dt>
+<dd><p>checks if mongo service is running
+:return:</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="cloudmesh.mongo.MongoDBController.MongoDBController.set_auth">
 <code class="sig-name descname">set_auth</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/mongo/MongoDBController.html#MongoDBController.set_auth"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.MongoDBController.MongoDBController.set_auth" title="Permalink to this definition">¶</a></dt>
 <dd><p>add admin account into the MongoDB admin database</p>
@@ -791,6 +867,13 @@ mongod –port {MONGO_PORT} –bind_ip {MONGO_HOST} –dbpath {MONGO_PATH}/{MONG
 <dt id="cloudmesh.mongo.MongoDBController.MongoDBController.start">
 <code class="sig-name descname">start</code><span class="sig-paren">(</span><em class="sig-param">security=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/mongo/MongoDBController.html#MongoDBController.start"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.MongoDBController.MongoDBController.start" title="Permalink to this definition">¶</a></dt>
 <dd><p>start the MongoDB server</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.mongo.MongoDBController.MongoDBController.start_if_not_running">
+<code class="sig-name descname">start_if_not_running</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/mongo/MongoDBController.html#MongoDBController.start_if_not_running"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.MongoDBController.MongoDBController.start_if_not_running" title="Permalink to this definition">¶</a></dt>
+<dd><p>checks if mongo service is running
+:return:</p>
 </dd></dl>
 
 <dl class="method">
@@ -823,6 +906,13 @@ linux and darwin have different way to shutdown the server, the common way is ki
 <code class="sig-name descname">version</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/mongo/MongoDBController.html#MongoDBController.version"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.MongoDBController.MongoDBController.version" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<dl class="method">
+<dt id="cloudmesh.mongo.MongoDBController.MongoDBController.win_service_is_running">
+<code class="sig-name descname">win_service_is_running</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/mongo/MongoDBController.html#MongoDBController.win_service_is_running"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.MongoDBController.MongoDBController.win_service_is_running" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns True if mongodb running
+:return:</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -834,6 +924,11 @@ linux and darwin have different way to shutdown the server, the common way is ki
 <code class="sig-name descname">darwin</code><span class="sig-paren">(</span><em class="sig-param">brew=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/mongo/MongoDBController.html#MongoInstaller.darwin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.MongoDBController.MongoInstaller.darwin" title="Permalink to this definition">¶</a></dt>
 <dd><p>install MongoDB in Darwin system (Mac)</p>
 </dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.mongo.MongoDBController.MongoInstaller.docker">
+<code class="sig-name descname">docker</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/mongo/MongoDBController.html#MongoInstaller.docker"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.MongoDBController.MongoInstaller.docker" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.mongo.MongoDBController.MongoInstaller.expanduser">
@@ -850,7 +945,8 @@ if MongoDB is not installed, python help install it</p>
 <dl class="method">
 <dt id="cloudmesh.mongo.MongoDBController.MongoInstaller.linux">
 <code class="sig-name descname">linux</code><span class="sig-paren">(</span><em class="sig-param">sudo=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/mongo/MongoDBController.html#MongoInstaller.linux"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.mongo.MongoDBController.MongoInstaller.linux" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>install MongoDB in Linux system (Ubuntu)</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.mongo.MongoDBController.MongoInstaller.windows">

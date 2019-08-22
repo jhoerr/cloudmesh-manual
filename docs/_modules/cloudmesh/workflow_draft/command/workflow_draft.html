@@ -1,0 +1,294 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>cloudmesh.workflow_draft.command.workflow_draft &mdash; Cloudmesh v4 alpha documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Cloudmesh v4
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.0.28
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">PREFACE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../preface/about.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../preface/contributors.html">Contributors</a></li>
+</ul>
+<p class="caption"><span class="caption-text">INSTALLATION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation/install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation/quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../configuration/configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation/mongo.html">Cloudmesh Database</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MANUAL PAGES</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../cmd5.html">Cmd5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../reference-card.html">Reference Card</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual/commands.html">Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-cmd5.html">Manual Cmd5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-group.html">Manual Group</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-compute.html">Compute Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-storage.html">Storage Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../manual-other.html">Manual Other</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../jupyter/index.html">Jupyter Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/index.html">Cloudmesh Command API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/index.html#cloudmesh-api">Cloudmesh API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CONTRIBUTION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../projects/index.html">Cloudmesh Development Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/conventions.html">Code Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/manual.html">Documentation Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/manual.html#version-management">Version Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/management.html">Code Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/pytest.html">Pytest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../dev/todo.html">ToDo</a></li>
+</ul>
+<p class="caption"><span class="caption-text">CLOUD ACCOUNTS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/aws.html">AWS Account Creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/azure.html">Azure Account Creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/google.html">Google Storage Providers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/box.html">Box Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../accounts/accountcreation-old.html">VM Providers (outdated)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">OTHER</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tbd.html">OTHER</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tbd.html#outdated">OUTDATED</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Cloudmesh v4</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>cloudmesh.workflow_draft.command.workflow_draft</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for cloudmesh.workflow_draft.command.workflow_draft</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">cloudmesh.shell.command</span> <span class="k">import</span> <span class="n">PluginCommand</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.shell.command</span> <span class="k">import</span> <span class="n">command</span>
+
+
+<span class="c1"># see https://github.com/cloudmesh/client/blob/master/cloudmesh_client/shell/plugins/WorkflowCommand.py</span>
+
+<div class="viewcode-block" id="Workflow_draftCommand"><a class="viewcode-back" href="../../../../api/cloudmesh.workflow_draft.command.html#cloudmesh.workflow_draft.command.workflow_draft.Workflow_draftCommand">[docs]</a><span class="k">class</span> <span class="nc">Workflow_draftCommand</span><span class="p">(</span><span class="n">PluginCommand</span><span class="p">):</span>
+
+    <span class="c1"># noinspection PyUnusedLocal</span>
+    <span class="nd">@command</span>
+    <span class="k">def</span> <span class="nf">do_workflow_draft</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">arguments</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        ::</span>
+
+<span class="sd">            Usage:</span>
+<span class="sd">                workflow_draft refresh [--cloud=CLOUD] [-v]</span>
+<span class="sd">                workflow_draft list [ID] [NAME] [--cloud=CLOUD] [--output=OUTPUT] [--refresh] [-v]</span>
+<span class="sd">                workflow_draft add NAME LOCATION</span>
+<span class="sd">                workflow_draft delete ID</span>
+<span class="sd">                workflow_draft status [NAMES]</span>
+<span class="sd">                workflow_draft show ID</span>
+<span class="sd">                workflow_draft save NAME WORKFLOWSTR</span>
+<span class="sd">                workflow_draft run NAME</span>
+<span class="sd">                workflow_draft service start</span>
+<span class="sd">                workflow_draft service stop</span>
+
+<span class="sd">            This lists out the workflows present for a cloud</span>
+
+<span class="sd">            Options:</span>
+<span class="sd">               --output=OUTPUT  the output format [default: table]</span>
+<span class="sd">               --cloud=CLOUD    the cloud name</span>
+<span class="sd">               --refresh        refreshes the data before displaying it</span>
+<span class="sd">                                from the cloud</span>
+
+<span class="sd">            Examples:</span>
+<span class="sd">                cm workflow refresh</span>
+<span class="sd">                cm workflow list</span>
+<span class="sd">                cm workflow list --format=csv</span>
+<span class="sd">                cm workflow show 58c9552c-8d93-42c0-9dea-5f48d90a3188 --refresh</span>
+<span class="sd">                cm workflow run workflow1</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="n">arguments</span><span class="p">)</span></div>
+
+        <span class="c1"># m = Manager()</span>
+
+        <span class="c1"># if arguments.FILE:</span>
+        <span class="c1">#    print(&quot;option a&quot;)</span>
+        <span class="c1">#    m.list(arguments.FILE)</span>
+
+        <span class="c1"># elif arguments.list:</span>
+        <span class="c1">#    print(&quot;option b&quot;)</span>
+        <span class="c1">#    m.list(&quot;just calling list without parameter&quot;)</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018-2019, Cloudmesh Community
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

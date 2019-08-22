@@ -200,7 +200,7 @@
 <span></span><span class="kn">from</span> <span class="nn">cloudmesh.mongo.MongoDBController</span> <span class="k">import</span> <span class="n">MongoDBController</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.shell.command</span> <span class="k">import</span> <span class="n">PluginCommand</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.shell.command</span> <span class="k">import</span> <span class="n">command</span>
-
+<span class="kn">from</span> <span class="nn">cloudmesh.common.console</span> <span class="k">import</span> <span class="n">Console</span>
 
 <div class="viewcode-block" id="StartCommand"><a class="viewcode-back" href="../../../../api/cloudmesh.start.command.html#cloudmesh.start.command.start.StartCommand">[docs]</a><span class="k">class</span> <span class="nc">StartCommand</span><span class="p">(</span><span class="n">PluginCommand</span><span class="p">):</span>
 
@@ -220,7 +220,10 @@
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;MongoDB start&quot;</span><span class="p">)</span>
-        <span class="n">MongoDBController</span><span class="p">()</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="n">security</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">MongoDBController</span><span class="p">()</span><span class="o">.</span><span class="n">service_is_running</span><span class="p">():</span>
+            <span class="n">MongoDBController</span><span class="p">()</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="n">security</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">Console</span><span class="o">.</span><span class="n">ok</span><span class="p">(</span><span class="s2">&quot;MongoDB service is already running&quot;</span><span class="p">)</span></div>
 </pre></div>
 
            </div>

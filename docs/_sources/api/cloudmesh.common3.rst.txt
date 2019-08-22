@@ -12,6 +12,14 @@ cloudmesh.common3.Benchmark module
    :undoc-members:
    :show-inheritance:
 
+cloudmesh.common3.DateTime module
+---------------------------------
+
+.. automodule:: cloudmesh.common3.DateTime
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 cloudmesh.common3.DictList module
 ---------------------------------
 

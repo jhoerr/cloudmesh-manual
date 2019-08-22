@@ -231,13 +231,13 @@
         <span class="bp">self</span><span class="p">[</span><span class="s2">&quot;path&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">path_expand</span><span class="p">(</span><span class="bp">self</span><span class="p">[</span><span class="s2">&quot;profile&quot;</span><span class="p">][</span><span class="s2">&quot;publickey&quot;</span><span class="p">])</span>
 
         <span class="bp">self</span><span class="p">[</span><span class="s2">&quot;uri&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;file://</span><span class="si">{path}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="bp">self</span><span class="p">[</span><span class="s2">&quot;path&quot;</span><span class="p">])</span>
-        <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;string&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="bp">self</span><span class="p">[</span><span class="s2">&quot;path&quot;</span><span class="p">]),</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>
+        <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;public_key&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="bp">self</span><span class="p">[</span><span class="s2">&quot;path&quot;</span><span class="p">]),</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>
 
         <span class="p">(</span><span class="bp">self</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">],</span>
          <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">],</span>
-         <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;comment&#39;</span><span class="p">])</span> <span class="o">=</span> <span class="n">SSHkey</span><span class="o">.</span><span class="n">_parse</span><span class="p">(</span><span class="bp">self</span><span class="p">[</span><span class="s1">&#39;string&#39;</span><span class="p">])</span>
+         <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;comment&#39;</span><span class="p">])</span> <span class="o">=</span> <span class="n">SSHkey</span><span class="o">.</span><span class="n">_parse</span><span class="p">(</span><span class="bp">self</span><span class="p">[</span><span class="s1">&#39;public_key&#39;</span><span class="p">])</span>
 
-        <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;fingerprint&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">SSHkey</span><span class="o">.</span><span class="n">_fingerprint</span><span class="p">(</span><span class="bp">self</span><span class="p">[</span><span class="s1">&#39;string&#39;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;fingerprint&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">SSHkey</span><span class="o">.</span><span class="n">_fingerprint</span><span class="p">(</span><span class="bp">self</span><span class="p">[</span><span class="s1">&#39;public_key&#39;</span><span class="p">])</span>
         <span class="bp">self</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">basename</span><span class="p">(</span><span class="bp">self</span><span class="p">[</span><span class="s2">&quot;path&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;.pub&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;id_&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;comment&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;comment&#39;</span><span class="p">]</span>
@@ -285,7 +285,7 @@
             <span class="n">thekey</span> <span class="o">=</span> <span class="p">{</span>
                 <span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="nb">id</span><span class="p">,</span>
                 <span class="s1">&#39;uri&#39;</span><span class="p">:</span> <span class="n">uri</span><span class="p">,</span>
-                <span class="s1">&#39;string&#39;</span><span class="p">:</span> <span class="n">key</span><span class="p">,</span>
+                <span class="s1">&#39;public_key&#39;</span><span class="p">:</span> <span class="n">key</span><span class="p">,</span>
                 <span class="s1">&#39;fingerprint&#39;</span><span class="p">:</span> <span class="n">SSHkey</span><span class="o">.</span><span class="n">_fingerprint</span><span class="p">(</span><span class="n">key</span><span class="p">),</span>
                 <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span>
                 <span class="s1">&#39;comment&#39;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span>
@@ -303,7 +303,7 @@
         <span class="k">return</span> <span class="n">d</span></div>
 
     <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;string&#39;</span><span class="p">]</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="s1">&#39;public_key&#39;</span><span class="p">]</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">fingerprint</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -374,7 +374,7 @@
                 <span class="n">keystring</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
             <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
                 <span class="k">return</span> <span class="kc">False</span>
-        <span class="k">elif</span> <span class="n">keytype</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;string&quot;</span><span class="p">:</span>
+        <span class="k">elif</span> <span class="n">keytype</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;public_key&quot;</span><span class="p">:</span>
             <span class="n">keystring</span> <span class="o">=</span> <span class="n">key</span>
 
         <span class="k">try</span><span class="p">:</span>

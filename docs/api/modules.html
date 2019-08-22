@@ -37,7 +37,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Cloudmesh Development Projects" href="../projects/index.html" />
-    <link rel="prev" title="cloudmesh.workflow package" href="cloudmesh.workflow.html" /> 
+    <link rel="prev" title="cloudmesh.workflow_draft package" href="cloudmesh.workflow_draft.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -125,7 +125,6 @@
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.common3.html">cloudmesh.common3 package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.html">cloudmesh.compute package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.aws.html">cloudmesh.compute.aws package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.awslibcloud.html">cloudmesh.compute.awslibcloud package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.azure.html">cloudmesh.compute.azure package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.azureaz.html">cloudmesh.compute.azureaz package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.azurelibcloud.html">cloudmesh.compute.azurelibcloud package</a></li>
@@ -176,7 +175,7 @@
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.vcluster.html">cloudmesh.vcluster package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.vcluster.api.html">cloudmesh.vcluster.api package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.vm.html">cloudmesh.vm package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cloudmesh.workflow.html">cloudmesh.workflow package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.workflow_draft.html">cloudmesh.workflow_draft package</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">cloudmesh</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="cloudmesh.html">cloudmesh package</a></li>
 </ul>
@@ -327,6 +326,7 @@
 <li class="toctree-l3"><a class="reference internal" href="cloudmesh.common3.html">cloudmesh.common3 package</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="cloudmesh.common3.html#submodules">Submodules</a></li>
 <li class="toctree-l4"><a class="reference internal" href="cloudmesh.common3.html#module-cloudmesh.common3.Benchmark">cloudmesh.common3.Benchmark module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudmesh.common3.html#module-cloudmesh.common3.DateTime">cloudmesh.common3.DateTime module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="cloudmesh.common3.html#module-cloudmesh.common3.DictList">cloudmesh.common3.DictList module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="cloudmesh.common3.html#module-cloudmesh.common3.Shell">cloudmesh.common3.Shell module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="cloudmesh.common3.html#module-cloudmesh.common3.host">cloudmesh.common3.host module</a></li>
@@ -444,7 +444,7 @@
 <li class="toctree-l3"><a class="reference internal" href="cloudmesh.register.html">cloudmesh.register package</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="cloudmesh.register.html#subpackages">Subpackages</a></li>
 <li class="toctree-l4"><a class="reference internal" href="cloudmesh.register.html#submodules">Submodules</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cloudmesh.register.html#cloudmesh-register-awsregister-module">cloudmesh.register.AWSRegister module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudmesh.register.html#module-cloudmesh.register.AWSRegister">cloudmesh.register.AWSRegister module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="cloudmesh.register.html#module-cloudmesh.register.Register">cloudmesh.register.Register module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="cloudmesh.register.html#module-cloudmesh.register">Module contents</a></li>
 </ul>
@@ -544,9 +544,9 @@
 <li class="toctree-l4"><a class="reference internal" href="cloudmesh.vm.html#module-cloudmesh.vm">Module contents</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="cloudmesh.workflow.html">cloudmesh.workflow package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="cloudmesh.workflow.html#subpackages">Subpackages</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cloudmesh.workflow.html#module-cloudmesh.workflow">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cloudmesh.workflow_draft.html">cloudmesh.workflow_draft package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudmesh.workflow_draft.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudmesh.workflow_draft.html#module-cloudmesh.workflow_draft">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -569,7 +569,7 @@
         <a href="../projects/index.html" class="btn btn-neutral float-right" title="Cloudmesh Development Projects" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="cloudmesh.workflow.html" class="btn btn-neutral float-left" title="cloudmesh.workflow package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="cloudmesh.workflow_draft.html" class="btn btn-neutral float-left" title="cloudmesh.workflow_draft package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

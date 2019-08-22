@@ -197,20 +197,27 @@
            <div itemprop="articleBody">
             
   <h1>Source code for cloudmesh.mongo.MongoDBController</h1><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">os</span>
+<span></span><span class="kn">import</span> <span class="nn">ctypes</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">subprocess</span>
+<span class="kn">import</span> <span class="nn">urllib.parse</span>
+<span class="kn">import</span> <span class="nn">urllib.parse</span>
 <span class="kn">import</span> <span class="nn">urllib.parse</span>
 <span class="kn">from</span> <span class="nn">sys</span> <span class="k">import</span> <span class="n">platform</span>
 
+<span class="kn">import</span> <span class="nn">psutil</span>
 <span class="kn">import</span> <span class="nn">yaml</span>
-<span class="kn">from</span> <span class="nn">pymongo</span> <span class="k">import</span> <span class="n">MongoClient</span>
-
 <span class="kn">from</span> <span class="nn">cloudmesh.common.Shell</span> <span class="k">import</span> <span class="n">Shell</span><span class="p">,</span> <span class="n">Brew</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.console</span> <span class="k">import</span> <span class="n">Console</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.dotdict</span> <span class="k">import</span> <span class="n">dotdict</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="k">import</span> <span class="n">path_expand</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.common3.Shell</span> <span class="k">import</span> <span class="n">Shell</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.configuration.Config</span> <span class="k">import</span> <span class="n">Config</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.management.script</span> <span class="k">import</span> <span class="n">Script</span><span class="p">,</span> <span class="n">SystemPath</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.management.script</span> <span class="k">import</span> <span class="n">find_process</span>
+<span class="c1"># from cloudmesh.mongo.MongoDBController import MongoDBController</span>
+<span class="kn">from</span> <span class="nn">pymongo</span> <span class="k">import</span> <span class="n">MongoClient</span>
 
 
 <span class="c1"># noinspection PyUnusedLocal</span>
@@ -236,6 +243,21 @@
 
     <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">yaml</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">default_flow_style</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<div class="viewcode-block" id="MongoInstaller.docker"><a class="viewcode-back" href="../../../api/cloudmesh.mongo.html#cloudmesh.mongo.MongoDBController.MongoInstaller.docker">[docs]</a>    <span class="k">def</span> <span class="nf">docker</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">username</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;MONGO_USERNAME&quot;</span><span class="p">]</span>
+        <span class="n">password</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;MONGO_PASSWORD&quot;</span><span class="p">]</span>
+        <span class="n">port</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;MONGO_PORT&quot;</span><span class="p">]</span>
+        <span class="n">host</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;MONGO_HOST&quot;</span><span class="p">]</span>
+        <span class="n">script</span> <span class="o">=</span> \
+            <span class="n">f</span><span class="s2">&quot;docker run -d -p </span><span class="si">{host}</span><span class="s2">:</span><span class="si">{port}</span><span class="s2">:</span><span class="si">{port}</span><span class="s2">&quot;</span> \
+	        <span class="n">f</span><span class="s2">&quot; --name cloudmesh-mongo&quot;</span> \
+	        <span class="n">f</span><span class="s2">&quot; -e MONGO_INITDB_ROOT_USERNAME=</span><span class="si">{username}</span><span class="s2">&quot;</span> \
+	        <span class="n">f</span><span class="s2">&quot; -e MONGO_INITDB_ROOT_PASSWORD=</span><span class="si">{password}</span><span class="s2">&quot;</span> \
+            <span class="n">f</span><span class="s2">&quot; mongo&quot;</span>
+
+        <span class="n">installer</span> <span class="o">=</span> <span class="n">Script</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">script</span><span class="p">)</span>
+        <span class="nb">print</span> <span class="p">(</span><span class="n">installer</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="MongoInstaller.install"><a class="viewcode-back" href="../../../api/cloudmesh.mongo.html#cloudmesh.mongo.MongoDBController.MongoInstaller.install">[docs]</a>    <span class="k">def</span> <span class="nf">install</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sudo</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -274,7 +296,7 @@
 
     <span class="c1"># noinspection PyUnusedLocal</span>
 <div class="viewcode-block" id="MongoInstaller.linux"><a class="viewcode-back" href="../../../api/cloudmesh.mongo.html#cloudmesh.mongo.MongoDBController.MongoInstaller.linux">[docs]</a>    <span class="k">def</span> <span class="nf">linux</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sudo</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-        <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;PPP&quot;</span><span class="p">,</span> <span class="n">sudo</span><span class="p">)</span>
+
         <span class="c1"># TODO UNTESTED</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        install MongoDB in Linux system (Ubuntu)</span>
@@ -461,10 +483,19 @@
 
         <span class="k">if</span> <span class="n">platform</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;win32&#39;</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="n">security</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_auth</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="n">security</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">set_auth</span><span class="p">()</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="MongoDBController.import_collection"><a class="viewcode-back" href="../../../api/cloudmesh.mongo.html#cloudmesh.mongo.MongoDBController.MongoDBController.import_collection">[docs]</a>    <span class="k">def</span> <span class="nf">import_collection</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>  <span class="n">security</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="n">auth</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">security</span><span class="p">:</span>
+            <span class="n">auth</span> <span class="o">=</span> <span class="s2">&quot;--auth&quot;</span>
+        <span class="n">command</span> <span class="o">=</span> <span class="s2">&quot;mongoimport </span><span class="si">{auth}</span><span class="s2"> --bind_ip </span><span class="si">{MONGO_HOST}</span><span class="s2"> --dbpath </span><span class="si">{MONGO_PATH}</span><span class="s2"> --logpath </span><span class="si">{MONGO_LOG}</span><span class="s2">/mongod.log&quot;</span> \
+             <span class="s2">&quot; --fork&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="n">auth</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="MongoDBController.start"><a class="viewcode-back" href="../../../api/cloudmesh.mongo.html#cloudmesh.mongo.MongoDBController.MongoDBController.start">[docs]</a>    <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">security</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -474,15 +505,27 @@
         <span class="k">if</span> <span class="n">security</span><span class="p">:</span>
             <span class="n">auth</span> <span class="o">=</span> <span class="s2">&quot;--auth&quot;</span>
 
-        <span class="k">if</span> <span class="n">platform</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;win32&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">platform</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>\
+            <span class="o">==</span> <span class="s1">&#39;win32&#39;</span><span class="p">:</span>
             <span class="k">try</span><span class="p">:</span>
-                <span class="n">command</span> <span class="o">=</span> <span class="s2">&quot;-scriptblock { &quot;</span> <span class="o">+</span> <span class="s2">&quot;mongod </span><span class="si">{auth}</span><span class="s2"> --bind_ip </span><span class="si">{MONGO_HOST}</span><span class="s2"> --dbpath </span><span class="si">{MONGO_PATH}</span><span class="s2"> --logpath </span><span class="si">{MONGO_LOG}</span><span class="s2">/mongod.log&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-                    <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="n">auth</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; }&quot;</span>
-                <span class="n">script</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">                powershell -noexit start-job </span><span class="si">{command}</span><span class="s2"></span>
-<span class="s2">                &quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="n">command</span><span class="p">)</span>
-                <span class="n">Script</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">script</span><span class="p">)</span>
-                <span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;child process started successfully. Program existing now&quot;</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_installed_as_win_service</span><span class="p">():</span>
+                    <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">win_service_is_running</span><span class="p">():</span>
+                        <span class="kn">import</span> <span class="nn">win32com.shell.shell</span> <span class="k">as</span> <span class="nn">shell</span>
+                        <span class="n">script</span> <span class="o">=</span> <span class="s2">&quot;net start mongodb&quot;</span>
+                        <span class="n">shell</span><span class="o">.</span><span class="n">ShellExecuteEx</span><span class="p">(</span><span class="n">lpVerb</span><span class="o">=</span><span class="s1">&#39;runas&#39;</span><span class="p">,</span> <span class="n">lpFile</span><span class="o">=</span><span class="s1">&#39;cmd.exe&#39;</span><span class="p">,</span> <span class="n">lpParameters</span><span class="o">=</span><span class="s1">&#39;/c &#39;</span> <span class="o">+</span> <span class="n">script</span><span class="p">)</span>
+                        <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="s2">&quot;MongoDB Service should be started successfully given the permission&quot;</span><span class="p">)</span>
+                        <span class="k">return</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">Console</span><span class="o">.</span><span class="n">ok</span><span class="p">(</span><span class="s2">&quot;Windows MongoDB service is already running&quot;</span><span class="p">)</span>
+                        <span class="k">return</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">command</span> <span class="o">=</span> <span class="s2">&quot;-scriptblock { &quot;</span> <span class="o">+</span> <span class="s2">&quot;mongod </span><span class="si">{auth}</span><span class="s2"> --bind_ip </span><span class="si">{MONGO_HOST}</span><span class="s2"> --dbpath </span><span class="si">{MONGO_PATH}</span><span class="s2"> --logpath </span><span class="si">{MONGO_LOG}</span><span class="s2">/mongod.log&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                        <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="n">auth</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; }&quot;</span>
+                    <span class="n">script</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">                    powershell -noexit start-job </span><span class="si">{command}</span><span class="s2"></span>
+<span class="s2">                    &quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="n">command</span><span class="p">)</span>
+                    <span class="n">Script</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">script</span><span class="p">)</span>
+                    <span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;child process started successfully. Program existing now&quot;</span>
             <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
                 <span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;Mongo in windows could not be started.&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
@@ -506,18 +549,36 @@
 <span class="sd">        linux and darwin have different way to shutdown the server, the common way is kill</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># TODO: there  could be more mongos running, be more specific</span>
-        <span class="n">script</span> <span class="o">=</span> <span class="s1">&#39;kill -2 `pgrep mongo`&#39;</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="n">Script</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">script</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">platform</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;win32&#39;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_installed_as_win_service</span><span class="p">():</span>
+                <span class="kn">import</span> <span class="nn">win32com.shell.shell</span> <span class="k">as</span> <span class="nn">shell</span>
+                <span class="n">script</span> <span class="o">=</span> <span class="s2">&quot;net stop mongodb&quot;</span>
+                <span class="n">shell</span><span class="o">.</span><span class="n">ShellExecuteEx</span><span class="p">(</span><span class="n">lpVerb</span><span class="o">=</span><span class="s1">&#39;runas&#39;</span><span class="p">,</span> <span class="n">lpFile</span><span class="o">=</span><span class="s1">&#39;cmd.exe&#39;</span><span class="p">,</span> <span class="n">lpParameters</span><span class="o">=</span><span class="s1">&#39;/c &#39;</span><span class="o">+</span><span class="n">script</span><span class="p">)</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="s1">&#39;MongoDB should be stopped given the permission&#39;</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">script</span> <span class="o">=</span> <span class="s1">&#39;mongo admin --eval &quot;db.shutdownServer()&quot;&#39;</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="n">Script</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">script</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">script</span> <span class="o">=</span> <span class="s1">&#39;kill -2 `pgrep mongo`&#39;</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">Script</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">script</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="MongoDBController.set_auth"><a class="viewcode-back" href="../../../api/cloudmesh.mongo.html#cloudmesh.mongo.MongoDBController.MongoDBController.set_auth">[docs]</a>    <span class="k">def</span> <span class="nf">set_auth</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        add admin account into the MongoDB admin database</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">platform</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;win32&#39;</span><span class="p">:</span> <span class="c1"># don&#39;t remove this otherwise init won&#39;t work in windows, eval should start with double quote in windows</span>
+            <span class="n">script</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;mongo --eval &quot;db.getSiblingDB(&#39;admin&#39;).createUser({{user:&#39;</span><span class="si">{MONGO_USERNAME}</span><span class="s2">&#39;,pwd:&#39;</span><span class="si">{MONGO_PASSWORD}</span><span class="s2">&#39;,roles:[{{role:&#39;root&#39;,db:&#39;admin&#39;}}]}})&quot; &quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="n">Script</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">script</span><span class="p">)</span>
+            <span class="k">except</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">CalledProcessError</span><span class="p">:</span>
+                <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;admin user exists&quot;</span><span class="p">)</span>
+                <span class="k">return</span>
 
-        <span class="n">script</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;mongo --eval &#39;db.getSiblingDB(&quot;admin&quot;).createUser({{user:&quot;</span><span class="si">{MONGO_USERNAME}</span><span class="s2">&quot;,pwd:&quot;</span><span class="si">{MONGO_PASSWORD}</span><span class="s2">&quot;,roles:[{{role:&quot;root&quot;,db:&quot;admin&quot;}}]}})&#39;&quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
-
-        <span class="n">result</span> <span class="o">=</span> <span class="n">Script</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">script</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">script</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;mongo --eval &#39;db.getSiblingDB(&quot;admin&quot;).createUser({{user:&quot;</span><span class="si">{MONGO_USERNAME}</span><span class="s2">&quot;,pwd:&quot;</span><span class="si">{MONGO_PASSWORD}</span><span class="s2">&quot;,roles:[{{role:&quot;root&quot;,db:&quot;admin&quot;}}]}})&#39;&quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">Script</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">script</span><span class="p">)</span>
         <span class="k">if</span> <span class="s2">&quot;Successfully added user&quot;</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
             <span class="n">Console</span><span class="o">.</span><span class="n">ok</span><span class="p">(</span><span class="s2">&quot;Administrative user created.&quot;</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
@@ -663,7 +724,122 @@
                 <span class="n">attribute</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
                 <span class="n">output</span><span class="p">[</span><span class="n">attribute</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
 
-        <span class="k">return</span> <span class="n">output</span></div></div>
+        <span class="k">return</span> <span class="n">output</span></div>
+
+<div class="viewcode-block" id="MongoDBController.is_installed_as_win_service"><a class="viewcode-back" href="../../../api/cloudmesh.mongo.html#cloudmesh.mongo.MongoDBController.MongoDBController.is_installed_as_win_service">[docs]</a>    <span class="k">def</span> <span class="nf">is_installed_as_win_service</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        returns True if mongodb is installed as a windows service</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="n">platform</span> <span class="o">==</span> <span class="s1">&#39;win32&#39;</span><span class="p">:</span>
+            <span class="n">win_services</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">psutil</span><span class="o">.</span><span class="n">win_service_iter</span><span class="p">())</span>
+            <span class="n">mongo_service</span> <span class="o">=</span> <span class="p">[</span><span class="n">service</span> <span class="k">for</span> <span class="n">service</span> <span class="ow">in</span> <span class="n">win_services</span> <span class="k">if</span> <span class="s1">&#39;mongo&#39;</span> <span class="ow">in</span> <span class="n">service</span><span class="o">.</span><span class="n">display_name</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()]</span>
+            <span class="n">is_service</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">mongo_service</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
+            <span class="k">return</span> <span class="n">is_service</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Windows platform function called instead of </span><span class="si">{platform}</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">False</span></div>
+
+
+<div class="viewcode-block" id="MongoDBController.win_service_is_running"><a class="viewcode-back" href="../../../api/cloudmesh.mongo.html#cloudmesh.mongo.MongoDBController.MongoDBController.win_service_is_running">[docs]</a>    <span class="k">def</span> <span class="nf">win_service_is_running</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        returns True if mongodb running</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="n">platform</span> <span class="o">==</span> <span class="s1">&#39;win32&#39;</span><span class="p">:</span>
+            <span class="n">win_services</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">psutil</span><span class="o">.</span><span class="n">win_service_iter</span><span class="p">())</span>
+            <span class="n">mongo_service</span> <span class="o">=</span> <span class="p">[</span><span class="n">service</span> <span class="k">for</span> <span class="n">service</span> <span class="ow">in</span> <span class="n">win_services</span> <span class="k">if</span> <span class="s1">&#39;mongo&#39;</span> <span class="ow">in</span> <span class="n">service</span><span class="o">.</span><span class="n">display_name</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()][</span><span class="mi">0</span><span class="p">]</span>
+            <span class="k">return</span> <span class="n">mongo_service</span><span class="o">.</span><span class="n">status</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;running&#39;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Windows platform function called instead of </span><span class="si">{platform}</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">False</span></div>
+
+<div class="viewcode-block" id="MongoDBController.linux_process_is_running"><a class="viewcode-back" href="../../../api/cloudmesh.mongo.html#cloudmesh.mongo.MongoDBController.MongoDBController.linux_process_is_running">[docs]</a>    <span class="k">def</span> <span class="nf">linux_process_is_running</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        returns True if mongod is running</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="n">platform</span> <span class="o">==</span> <span class="s1">&#39;linux&#39;</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">subprocess</span><span class="o">.</span><span class="n">check_output</span><span class="p">(</span><span class="s2">&quot;pgrep mongo&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;UTF-8&#39;</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                <span class="k">return</span> <span class="kc">True</span>
+            <span class="k">except</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">CalledProcessError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Linux platform function called instead of </span><span class="si">{platform}</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">False</span></div>
+
+<div class="viewcode-block" id="MongoDBController.mac_process_is_running"><a class="viewcode-back" href="../../../api/cloudmesh.mongo.html#cloudmesh.mongo.MongoDBController.MongoDBController.mac_process_is_running">[docs]</a>    <span class="k">def</span> <span class="nf">mac_process_is_running</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        returns True if mongod is running</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="n">platform</span> <span class="o">==</span> <span class="s1">&#39;darwin&#39;</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">subprocess</span><span class="o">.</span><span class="n">check_output</span><span class="p">(</span><span class="s2">&quot;pgrep mongo&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;UTF-8&#39;</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                <span class="k">return</span> <span class="kc">True</span>
+            <span class="k">except</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">CalledProcessError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Darwin platform function called instead of </span><span class="si">{platform}</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">False</span></div>
+
+<div class="viewcode-block" id="MongoDBController.service_is_running"><a class="viewcode-back" href="../../../api/cloudmesh.mongo.html#cloudmesh.mongo.MongoDBController.MongoDBController.service_is_running">[docs]</a>    <span class="k">def</span> <span class="nf">service_is_running</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        checks if mongo service is running</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="n">platform</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;linux&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">linux_process_is_running</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">platform</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;darwin&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">mac_process_is_running</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">platform</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;win32&#39;</span><span class="p">:</span>  <span class="c1"># Replaced windows with win32</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">win_service_is_running</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;platform </span><span class="si">{platform}</span><span class="s2"> not found&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="MongoDBController.start_if_not_running"><a class="viewcode-back" href="../../../api/cloudmesh.mongo.html#cloudmesh.mongo.MongoDBController.MongoDBController.start_if_not_running">[docs]</a>    <span class="k">def</span> <span class="nf">start_if_not_running</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        checks if mongo service is running</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="n">platform</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;linux&#39;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">linux_process_is_running</span><span class="p">():</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">platform</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;darwin&#39;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">mac_process_is_running</span><span class="p">():</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">platform</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;win32&#39;</span><span class="p">:</span>  <span class="c1"># Replaced windows with win32</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">win_service_is_running</span><span class="p">():</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;platform </span><span class="si">{platform}</span><span class="s2"> not found&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="MongoDBController.importAsFile"><a class="viewcode-back" href="../../../api/cloudmesh.mongo.html#cloudmesh.mongo.MongoDBController.MongoDBController.importAsFile">[docs]</a>    <span class="k">def</span> <span class="nf">importAsFile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">collection</span><span class="p">,</span> <span class="n">db</span> <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">start_if_not_running</span><span class="p">()</span>
+        <span class="n">tmp_folder</span> <span class="o">=</span> <span class="n">path_expand</span><span class="p">(</span><span class="s1">&#39;~/.cloudmesh/tmp&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">tmp_folder</span><span class="p">):</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">tmp_folder</span><span class="p">)</span>
+        <span class="n">tmp_file</span> <span class="o">=</span> <span class="n">path_expand</span><span class="p">(</span><span class="s1">&#39;~/.cloudmesh/tmp/tmp_import_file.json&#39;</span><span class="p">)</span>
+        <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="s2">&quot;Saving the data to file &quot;</span><span class="p">)</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">tmp_file</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">dat</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+                <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">dat</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+        <span class="n">username</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;cloudmesh.data.mongo.MONGO_USERNAME&quot;</span><span class="p">]</span>
+        <span class="n">password</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="p">[</span><span class="s2">&quot;cloudmesh.data.mongo.MONGO_PASSWORD&quot;</span><span class="p">]</span>
+
+        <span class="n">cmd</span> <span class="o">=</span> <span class="n">f</span><span class="s1">&#39;mongoimport --db </span><span class="si">{db}</span><span class="s1">&#39;</span> \
+              <span class="n">f</span><span class="s1">&#39; --collection </span><span class="si">{collection}</span><span class="s1"> ^&#39;</span>\
+              <span class="n">f</span><span class="s1">&#39; --authenticationDatabase admin &#39;</span>\
+              <span class="n">f</span><span class="s1">&#39; --username </span><span class="si">{username}</span><span class="s1">&#39;</span>\
+              <span class="n">f</span><span class="s1">&#39; --password </span><span class="si">{password}</span><span class="s1"> ^&#39;</span>\
+              <span class="n">f</span><span class="s1">&#39; --drop&#39;</span> \
+              <span class="n">f</span><span class="s1">&#39; --file </span><span class="si">{tmp_file}</span><span class="s1">&#39;</span>
+
+        <span class="n">Console</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="s2">&quot;Importing the saved data to database&quot;</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">Shell</span><span class="o">.</span><span class="n">run2</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span></div></div>
 
 
 <span class="sd">&quot;&quot;&quot;</span>

@@ -7,7 +7,6 @@ Subpackages
 .. toctree::
 
    cloudmesh.compute.aws
-   cloudmesh.compute.awslibcloud
    cloudmesh.compute.azure
    cloudmesh.compute.azureaz
    cloudmesh.compute.azurelibcloud

@@ -125,6 +125,7 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">cloudmesh.common3 package</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.common3.Benchmark">cloudmesh.common3.Benchmark module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.common3.DateTime">cloudmesh.common3.DateTime module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.common3.DictList">cloudmesh.common3.DictList module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.common3.Shell">cloudmesh.common3.Shell module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-cloudmesh.common3.host">cloudmesh.common3.host module</a></li>
@@ -133,7 +134,6 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.html">cloudmesh.compute package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.aws.html">cloudmesh.compute.aws package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.awslibcloud.html">cloudmesh.compute.awslibcloud package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.azure.html">cloudmesh.compute.azure package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.azureaz.html">cloudmesh.compute.azureaz package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.compute.azurelibcloud.html">cloudmesh.compute.azurelibcloud package</a></li>
@@ -184,7 +184,7 @@
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.vcluster.html">cloudmesh.vcluster package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.vcluster.api.html">cloudmesh.vcluster.api package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cloudmesh.vm.html">cloudmesh.vm package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cloudmesh.workflow.html">cloudmesh.workflow package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudmesh.workflow_draft.html">cloudmesh.workflow_draft package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="modules.html">cloudmesh</a></li>
 </ul>
 </li>
@@ -346,7 +346,7 @@ e.g. 1,048,576 Bytes</p>
 
 <dl class="method">
 <dt id="cloudmesh.common3.Benchmark.Benchmark.print">
-<em class="property">static </em><code class="sig-name descname">print</code><span class="sig-paren">(</span><em class="sig-param">sysinfo=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common3/Benchmark.html#Benchmark.print"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common3.Benchmark.Benchmark.print" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">print</code><span class="sig-paren">(</span><em class="sig-param">sysinfo=True</em>, <em class="sig-param">csv=True</em>, <em class="sig-param">tag=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common3/Benchmark.html#Benchmark.print"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common3.Benchmark.Benchmark.print" title="Permalink to this definition">¶</a></dt>
 <dd><p>prints the benchmark information with all timers</p>
 </dd></dl>
 
@@ -367,6 +367,95 @@ e.g. 1,048,576 Bytes</p>
 </dd>
 </dl>
 </dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-cloudmesh.common3.DateTime">
+<span id="cloudmesh-common3-datetime-module"></span><h2>cloudmesh.common3.DateTime module<a class="headerlink" href="#module-cloudmesh.common3.DateTime" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cloudmesh.common3.DateTime.DateTime">
+<em class="property">class </em><code class="sig-prename descclassname">cloudmesh.common3.DateTime.</code><code class="sig-name descname">DateTime</code><a class="reference internal" href="../_modules/cloudmesh/common3/DateTime.html#DateTime"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common3.DateTime.DateTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>This class provides some simple date time functions so we can use all the
+same format. Here is a simple example</p>
+<blockquote>
+<div><p>start = DateTime.now()
+stop = DateTime.now() + DateTime.delta(1)</p>
+<p>print (“START”, start)
+print (“STOP”, stop)
+print(“HUMANIZE STOP”, DateTime.humanize(stop - start))
+print (“LOCAL”, DateTime.local(start))
+print(“UTC”, DateTime.utc(start))
+print(“NATURAL”, DateTime.natural(start))
+print(“WORDS”, DateTime.words(start))
+print(“TIMEZONE”, DateTime.timezone)</p>
+</div></blockquote>
+<p>This will result in</p>
+<blockquote>
+<div><p>START 2019-08-03 21:34:14.019147
+STOP 2019-08-03 21:34:15.019150
+HUMANIZE STOP a second ago
+LOCAL 2019-08-03 17:34:14 EST
+UTC 2019-08-03 21:34:14.019147 UTC
+NATURAL 2019-08-03 21:34:14.019147 UTC
+WORDS Sat 6 Aug 2019, 21:34:14 UTC
+TIMEZONE EST</p>
+</div></blockquote>
+<dl class="method">
+<dt id="cloudmesh.common3.DateTime.DateTime.datetime">
+<em class="property">static </em><code class="sig-name descname">datetime</code><span class="sig-paren">(</span><em class="sig-param">time</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common3/DateTime.html#DateTime.datetime"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common3.DateTime.DateTime.datetime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.common3.DateTime.DateTime.delta">
+<em class="property">static </em><code class="sig-name descname">delta</code><span class="sig-paren">(</span><em class="sig-param">n</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common3/DateTime.html#DateTime.delta"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common3.DateTime.DateTime.delta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.common3.DateTime.DateTime.humanize">
+<em class="property">static </em><code class="sig-name descname">humanize</code><span class="sig-paren">(</span><em class="sig-param">time</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common3/DateTime.html#DateTime.humanize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common3.DateTime.DateTime.humanize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.common3.DateTime.DateTime.local">
+<em class="property">static </em><code class="sig-name descname">local</code><span class="sig-paren">(</span><em class="sig-param">time</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common3/DateTime.html#DateTime.local"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common3.DateTime.DateTime.local" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.common3.DateTime.DateTime.natural">
+<em class="property">static </em><code class="sig-name descname">natural</code><span class="sig-paren">(</span><em class="sig-param">time</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common3/DateTime.html#DateTime.natural"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common3.DateTime.DateTime.natural" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.common3.DateTime.DateTime.now">
+<em class="property">static </em><code class="sig-name descname">now</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common3/DateTime.html#DateTime.now"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common3.DateTime.DateTime.now" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.common3.DateTime.DateTime.string">
+<em class="property">static </em><code class="sig-name descname">string</code><span class="sig-paren">(</span><em class="sig-param">time</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common3/DateTime.html#DateTime.string"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common3.DateTime.DateTime.string" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cloudmesh.common3.DateTime.DateTime.timezone">
+<code class="sig-name descname">timezone</code><em class="property"> = 'EST'</em><a class="headerlink" href="#cloudmesh.common3.DateTime.DateTime.timezone" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.common3.DateTime.DateTime.utc">
+<em class="property">static </em><code class="sig-name descname">utc</code><span class="sig-paren">(</span><em class="sig-param">time</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common3/DateTime.html#DateTime.utc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common3.DateTime.DateTime.utc" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.common3.DateTime.DateTime.utc_to_local">
+<code class="sig-name descname">utc_to_local</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common3/DateTime.html#DateTime.utc_to_local"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common3.DateTime.DateTime.utc_to_local" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.common3.DateTime.DateTime.words">
+<em class="property">static </em><code class="sig-name descname">words</code><span class="sig-paren">(</span><em class="sig-param">time</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common3/DateTime.html#DateTime.words"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common3.DateTime.DateTime.words" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 </dd></dl>
 
@@ -429,7 +518,10 @@ For many activities in cloudmesh this is sufficient.</p>
 <dl class="method">
 <dt id="cloudmesh.common3.Shell.Shell.cms">
 <em class="property">static </em><code class="sig-name descname">cms</code><span class="sig-paren">(</span><em class="sig-param">command</em>, <em class="sig-param">encoding='utf-8'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common3/Shell.html#Shell.cms"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common3.Shell.Shell.cms" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>executes cm with the given arguments
+:param args:
+:return:</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.common3.Shell.Shell.run">
@@ -439,6 +531,20 @@ For many activities in cloudmesh this is sufficient.</p>
 :param encoding:
 :return:</p>
 </dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.common3.Shell.Shell.run2">
+<em class="property">static </em><code class="sig-name descname">run2</code><span class="sig-paren">(</span><em class="sig-param">command</em>, <em class="sig-param">encoding='utf-8'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common3/Shell.html#Shell.run2"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common3.Shell.Shell.run2" title="Permalink to this definition">¶</a></dt>
+<dd><p>executes the command and returns the output as string
+:param command:
+:param encoding:
+:return:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cloudmesh.common3.Shell.Shell.run_os_system">
+<em class="property">static </em><code class="sig-name descname">run_os_system</code><span class="sig-paren">(</span><em class="sig-param">command</em>, <em class="sig-param">encoding='utf-8'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cloudmesh/common3/Shell.html#Shell.run_os_system"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cloudmesh.common3.Shell.Shell.run_os_system" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="method">
 <dt id="cloudmesh.common3.Shell.Shell.run_timed">

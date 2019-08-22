@@ -33,7 +33,7 @@ Cloudmesh Command API
    cloudmesh.vbox.command
    cloudmesh.vcluster.command
    cloudmesh.vm.command
-   cloudmesh.workflow.command
+   cloudmesh.workflow_draft.command
 
 Cloudmesh API
 ===============================
@@ -53,7 +53,6 @@ Cloudmesh API
    cloudmesh.common3
    cloudmesh.compute
    cloudmesh.compute.aws
-   cloudmesh.compute.awslibcloud
    cloudmesh.compute.azure
    cloudmesh.compute.azureaz
    cloudmesh.compute.azurelibcloud
@@ -104,6 +103,6 @@ Cloudmesh API
    cloudmesh.vcluster
    cloudmesh.vcluster.api
    cloudmesh.vm
-   cloudmesh.workflow
+   cloudmesh.workflow_draft
    index
    modules

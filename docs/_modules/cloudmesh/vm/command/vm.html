@@ -219,6 +219,7 @@
 <span class="kn">from</span> <span class="nn">cloudmesh.configuration.Config</span> <span class="k">import</span> <span class="n">Config</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.management.configuration.name</span> <span class="k">import</span> <span class="n">Name</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.util</span> <span class="k">import</span> <span class="n">banner</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.image.Image</span> <span class="k">import</span> <span class="n">Image</span>
 
 <div class="viewcode-block" id="VmCommand"><a class="viewcode-back" href="../../../../api/cloudmesh.vm.command.html#cloudmesh.vm.command.vm.VmCommand">[docs]</a><span class="k">class</span> <span class="nc">VmCommand</span><span class="p">(</span><span class="n">PluginCommand</span><span class="p">):</span>
 
@@ -259,8 +260,12 @@
 <span class="sd">                vm meta list [NAME]</span>
 <span class="sd">                vm meta set [NAME] KEY=VALUE...</span>
 <span class="sd">                vm meta delete [NAME] KEY...</span>
-<span class="sd">                vm run [--name=VMNAMES] [--username=USERNAME] [--dryrun] COMMAND</span>
-<span class="sd">                vm script [--name=NAMES] [--username=USERNAME] [--dryrun] SCRIPT</span>
+<span class="sd">                vm script [--name=NAMES]</span>
+<span class="sd">                          [--username=USERNAME]</span>
+<span class="sd">                          [--key=KEY]</span>
+<span class="sd">                          [--dryrun]</span>
+<span class="sd">                          [--dir=DESTINATION]</span>
+<span class="sd">                          SCRIPT</span>
 <span class="sd">                vm ip assign [NAMES]</span>
 <span class="sd">                          [--cloud=CLOUD]</span>
 <span class="sd">                vm ip show [NAMES]</span>
@@ -269,12 +274,14 @@
 <span class="sd">                           [--output=OUTPUT]</span>
 <span class="sd">                           [--refresh]</span>
 <span class="sd">                vm ip inventory [NAMES]</span>
-<span class="sd">                vm ssh [NAMES] [--username=USER]</span>
-<span class="sd">                         [--quiet]</span>
-<span class="sd">                         [--ip=IP]</span>
-<span class="sd">                         [--key=KEY]</span>
-<span class="sd">                         [--command=COMMAND]</span>
-<span class="sd">                         [--modify-knownhosts]</span>
+<span class="sd">                vm ssh [NAMES]</span>
+<span class="sd">                       [--username=USER]</span>
+<span class="sd">                       [--quiet]</span>
+<span class="sd">                       [--ip=IP]</span>
+<span class="sd">                       [--key=KEY]</span>
+<span class="sd">                       [--command=COMMAND]</span>
+<span class="sd">                vm put SOURCE DESTINATION [NAMES]</span>
+<span class="sd">                vm get SOURCE DESTINATION [NAMES]</span>
 <span class="sd">                vm rename [OLDNAMES] [NEWNAMES] [--force] [--dryrun]</span>
 <span class="sd">                vm wait [--cloud=CLOUD] [--interval=SECONDS]</span>
 <span class="sd">                vm info [--cloud=CLOUD]</span>
@@ -379,6 +386,40 @@
 <span class="sd">                     parameter format. If clouds are specified, names that are not in</span>
 <span class="sd">                     these clouds are ignored. If the name is set in the variables</span>
 <span class="sd">                     this name is used.</span>
+
+<span class="sd">                cms vm ssh --command=\&quot;uname -a\&quot;</span>
+
+<span class="sd">                      executes the uname command on the last booted vm</span>
+
+<span class="sd">                vm script [--name=NAMES]</span>
+<span class="sd">                          [--username=USERNAME]</span>
+<span class="sd">                          [--key=KEY]</span>
+<span class="sd">                          [--dryrun]</span>
+<span class="sd">                          [--dir=DESTINATION]</span>
+<span class="sd">                          [--shell=SHELL]</span>
+<span class="sd">                          SCRIPT</span>
+
+<span class="sd">                   The script command copies a shell script to the specified vms</span>
+<span class="sd">                   into the DESTINATION directory and than execute it. With</span>
+<span class="sd">                   SHELL you can set the shell for executing the command,</span>
+<span class="sd">                   this coudl even be a python interpreter. Examples for</span>
+<span class="sd">                   SHELL are /bin/sh, /usr/bin/env python</span>
+
+<span class="sd">                vm put SOURCE DESTINATION [NAMES]</span>
+
+<span class="sd">                    puts the file defined by SOURCE into the DESINATION folder</span>
+<span class="sd">                    on the specified machines. If the file exists it is</span>
+<span class="sd">                    overwritten, so be careful.</span>
+
+<span class="sd">                vm get SOURCE DESTINATION [NAMES]</span>
+
+<span class="sd">                    gets  the file defined by SOURCE into the DESINATION folder</span>
+<span class="sd">                    on the specified machines. The SOURCE is on the remote</span>
+<span class="sd">                    machine. If one machine is specified, the SOURCE is the same</span>
+<span class="sd">                    name as on the remote machine. If multiple machines are</span>
+<span class="sd">                    specified, the name of the machine will be a prefix to the</span>
+<span class="sd">                    filename. If the filenames exists, they will be overwritten,</span>
+<span class="sd">                    so be careful.</span>
 
 <span class="sd">            Tip:</span>
 <span class="sd">                give the VM name, but in a hostlist style, which is very</span>
@@ -771,6 +812,7 @@
             <span class="n">parameters</span> <span class="o">=</span> <span class="n">dotdict</span><span class="p">()</span>
 
             <span class="n">names</span> <span class="o">=</span> <span class="n">Parameter</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">arguments</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+
             <span class="n">cloud</span> <span class="o">=</span> <span class="n">Parameter</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;cloud&quot;</span><span class="p">,</span>
                                    <span class="n">arguments</span><span class="p">,</span>
                                    <span class="n">variables</span><span class="o">.</span><span class="n">dict</span><span class="p">())</span>
@@ -782,13 +824,17 @@
 
 
             <span class="n">parameters</span> <span class="o">=</span> <span class="n">dotdict</span><span class="p">()</span>
+
             <span class="n">parameters</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">name</span>
             <span class="n">parameters</span><span class="o">.</span><span class="n">group</span> <span class="o">=</span> <span class="n">groups</span>
-            <span class="k">for</span> <span class="n">attribute</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;image&quot;</span><span class="p">,</span> <span class="s2">&quot;flavor&quot;</span><span class="p">,</span> <span class="s2">&quot;key&quot;</span><span class="p">,</span> <span class="s2">&quot;secgroup&quot;</span><span class="p">]:</span>
+            <span class="k">for</span> <span class="n">attribute</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;image&quot;</span><span class="p">,</span> <span class="s2">&quot;username&quot;</span><span class="p">,</span> <span class="s2">&quot;flavor&quot;</span><span class="p">,</span> <span class="s2">&quot;key&quot;</span><span class="p">,</span> <span class="s2">&quot;secgroup&quot;</span><span class="p">]:</span>
                 <span class="n">parameters</span><span class="p">[</span><span class="n">attribute</span><span class="p">]</span> <span class="o">=</span> <span class="n">Parameter</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">attribute</span><span class="p">,</span>
                                    <span class="n">arguments</span><span class="p">,</span>
                                    <span class="n">variables</span><span class="o">.</span><span class="n">dict</span><span class="p">(),</span>
                                    <span class="n">defaults</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">username</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">parameters</span><span class="o">.</span><span class="n">user</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">guess_username</span><span class="p">(</span><span class="n">parameters</span><span class="o">.</span><span class="n">image</span><span class="p">)</span>
 
             <span class="n">provider</span> <span class="o">=</span> <span class="n">Provider</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">cloud</span><span class="p">)</span>
 
@@ -821,6 +867,9 @@
                         <span class="n">n</span> <span class="o">=</span> <span class="n">Name</span><span class="p">()</span>
                         <span class="n">n</span><span class="o">.</span><span class="n">incr</span><span class="p">()</span>
                         <span class="n">parameters</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+
+                    <span class="c1"># parameters.progress = len(parameters.names) &lt; 2</span>
+
                     <span class="n">vms</span> <span class="o">=</span> <span class="n">provider</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="o">**</span><span class="n">parameters</span><span class="p">)</span>
                     <span class="n">variables</span><span class="p">[</span><span class="s1">&#39;vm&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
                     <span class="k">if</span> <span class="n">arguments</span><span class="p">[</span><span class="s2">&quot;-v&quot;</span><span class="p">]:</span>
@@ -917,30 +966,6 @@
 
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;sets defaults for the vm&quot;</span><span class="p">)</span>
 
-        <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">run</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">NotImplementedError</span>
-            <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">            vm run [--name=NAMES] [--username=USERNAME] [--dryrun] COMMAND</span>
-
-<span class="sd">            &quot;&quot;&quot;</span>
-            <span class="n">clouds</span><span class="p">,</span> <span class="n">names</span> <span class="o">=</span> <span class="n">Arguments</span><span class="o">.</span><span class="n">get_cloud_and_names</span><span class="p">(</span><span class="s2">&quot;run&quot;</span><span class="p">,</span> <span class="n">arguments</span><span class="p">,</span> <span class="n">variables</span><span class="p">)</span>
-            <span class="n">username</span> <span class="o">=</span> <span class="n">arguments</span><span class="p">[</span><span class="s1">&#39;--username&#39;</span><span class="p">]</span>
-            <span class="n">command</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">COMMAND</span>
-
-            <span class="k">for</span> <span class="n">cloud</span> <span class="ow">in</span> <span class="n">clouds</span><span class="p">:</span>
-                <span class="n">provider</span> <span class="o">=</span> <span class="n">Provider</span><span class="p">(</span><span class="n">cloud</span><span class="p">)</span>
-
-                <span class="n">name_ips</span> <span class="o">=</span> <span class="p">{}</span>
-                <span class="n">cursor</span> <span class="o">=</span> <span class="n">database</span><span class="o">.</span><span class="n">db</span><span class="p">[</span><span class="n">f</span><span class="s1">&#39;</span><span class="si">{cloud}</span><span class="s1">-vm&#39;</span><span class="p">]</span>
-                <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
-                    <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">cursor</span><span class="o">.</span><span class="n">find</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">name</span><span class="p">}):</span>
-                        <span class="n">name_ips</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">node</span><span class="p">[</span><span class="s1">&#39;public_ips&#39;</span><span class="p">]</span>
-
-                <span class="k">if</span> <span class="n">arguments</span><span class="p">[</span><span class="s1">&#39;--dryrun&#39;</span><span class="p">]:</span>
-                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;run command </span><span class="si">{}</span><span class="s2"> on vms: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">names</span><span class="p">))</span>
-                <span class="k">else</span><span class="p">:</span>
-                    <span class="n">provider</span><span class="o">.</span><span class="n">ssh</span><span class="p">(</span><span class="n">name_ips</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="n">username</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="n">command</span><span class="p">)</span>
-
         <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">script</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">NotImplementedError</span>
             <span class="n">clouds</span><span class="p">,</span> <span class="n">names</span> <span class="o">=</span> <span class="n">Arguments</span><span class="o">.</span><span class="n">get_cloud_and_names</span><span class="p">(</span><span class="s2">&quot;run&quot;</span><span class="p">,</span> <span class="n">arguments</span><span class="p">,</span> <span class="n">variables</span><span class="p">)</span>
@@ -977,7 +1002,6 @@
             <span class="k">pass</span>
 
         <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">ssh</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">NotImplementedError</span>
 
             <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">            vm ssh [NAMES] [--username=USER]</span>
@@ -985,19 +1009,52 @@
 <span class="sd">                 [--ip=IP]</span>
 <span class="sd">                 [--key=KEY]</span>
 <span class="sd">                 [--command=COMMAND]</span>
-<span class="sd">                 [--modify-knownhosts]</span>
 <span class="sd">            &quot;&quot;&quot;</span>
-            <span class="c1"># print(&quot;ssh  the vm&quot;)</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ssh  into the vm and execute command&quot;</span><span class="p">)</span>
 
-            <span class="n">clouds</span><span class="p">,</span> <span class="n">names</span><span class="p">,</span> <span class="n">command</span> <span class="o">=</span> <span class="n">Arguments</span><span class="o">.</span><span class="n">get_commands</span><span class="p">(</span><span class="s2">&quot;ssh&quot;</span><span class="p">,</span> <span class="n">arguments</span><span class="p">,</span> <span class="n">variables</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">clouds</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">names</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">command</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># VERBOSE(arguments)</span>
+            <span class="n">clouds</span><span class="p">,</span> <span class="n">names</span><span class="p">,</span> <span class="n">command</span> <span class="o">=</span> <span class="n">Arguments</span><span class="o">.</span><span class="n">get_commands</span><span class="p">(</span><span class="s2">&quot;ssh&quot;</span><span class="p">,</span>
+                                                            <span class="n">arguments</span><span class="p">,</span>
+                                                            <span class="n">variables</span><span class="p">)</span>
+
+            <span class="c1"># print (clouds)</span>
+            <span class="c1"># print(names)</span>
+            <span class="c1"># print (command)</span>
+
+            <span class="k">if</span> <span class="n">arguments</span><span class="o">.</span><span class="n">command</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">names</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Interactive shell can only be done on one vm&quot;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+            <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">command</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">names</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">name</span> <span class="o">=</span> <span class="n">names</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">cloud</span> <span class="o">=</span> <span class="n">clouds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">cm</span> <span class="o">=</span> <span class="n">CmDatabase</span><span class="p">()</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">vm</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">find_name</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="s2">&quot;vm&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+                    <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;could not find vm </span><span class="si">{name}</span><span class="s2">&quot;</span><span class="p">)</span>
+                    <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+                <span class="c1"># VERBOSE(vm)</span>
+                <span class="n">cloud</span> <span class="o">=</span> <span class="n">vm</span><span class="p">[</span><span class="s2">&quot;cm&quot;</span><span class="p">][</span><span class="s2">&quot;cloud&quot;</span><span class="p">]</span>
+                <span class="n">provider</span> <span class="o">=</span> <span class="n">Provider</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">cloud</span><span class="p">)</span>
+                <span class="n">provider</span><span class="o">.</span><span class="n">ssh</span><span class="p">(</span><span class="n">vm</span><span class="o">=</span><span class="n">vm</span><span class="p">)</span>
                 <span class="k">return</span> <span class="s2">&quot;&quot;</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="k">for</span> <span class="n">cloud</span> <span class="ow">in</span> <span class="n">clouds</span><span class="p">:</span>
-                    <span class="n">p</span> <span class="o">=</span> <span class="n">Provider</span><span class="p">(</span><span class="n">cloud</span><span class="p">)</span>
-                    <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
-                        <span class="n">p</span><span class="o">.</span><span class="n">ssh</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="n">command</span><span class="p">)</span>
+                <span class="c1"># command on all vms</span>
+
+                <span class="k">if</span> <span class="n">clouds</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">names</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">command</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">for</span> <span class="n">cloud</span> <span class="ow">in</span> <span class="n">clouds</span><span class="p">:</span>
+                        <span class="n">p</span> <span class="o">=</span> <span class="n">Provider</span><span class="p">(</span><span class="n">cloud</span><span class="p">)</span>
+                        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
+                            <span class="n">cm</span> <span class="o">=</span> <span class="n">CmDatabase</span><span class="p">()</span>
+                            <span class="k">try</span><span class="p">:</span>
+                                <span class="n">vm</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">find_name</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="s2">&quot;vm&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+                            <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+                                <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;could not find vm </span><span class="si">{name}</span><span class="s2">&quot;</span><span class="p">)</span>
+                                <span class="k">continue</span>
+                            <span class="n">r</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">ssh</span><span class="p">(</span><span class="n">vm</span><span class="o">=</span><span class="n">vm</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="n">command</span><span class="p">)</span>
+                            <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+            <span class="k">return</span> <span class="s2">&quot;&quot;</span>
 
         <span class="k">elif</span> <span class="n">arguments</span><span class="o">.</span><span class="n">console</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">NotImplementedError</span>

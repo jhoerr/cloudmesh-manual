@@ -197,8 +197,7 @@
            <div itemprop="articleBody">
             
   <h1>Source code for cloudmesh.register.AWSRegister</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">time</span> <span class="k">import</span> <span class="n">sleep</span>
-<span class="kn">import</span> <span class="nn">random</span>
+<span></span><span class="kn">import</span> <span class="nn">random</span>
 <span class="kn">import</span> <span class="nn">getpass</span>
 <span class="kn">from</span> <span class="nn">time</span> <span class="k">import</span> <span class="n">sleep</span>
 <span class="kn">from</span> <span class="nn">cloudmesh.common.console</span> <span class="k">import</span> <span class="n">Console</span>
@@ -207,14 +206,21 @@
 <span class="kn">from</span> <span class="nn">sys</span> <span class="k">import</span> <span class="n">platform</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">subprocess</span>
-<span class="kn">import</span> <span class="nn">yaml</span>
-<span class="kn">from</span> <span class="nn">pathlib</span> <span class="k">import</span> <span class="n">Path</span><span class="p">,</span> <span class="n">PurePath</span><span class="p">,</span> <span class="n">PurePosixPath</span><span class="p">,</span> <span class="n">PureWindowsPath</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="k">import</span> <span class="n">Path</span>
 <span class="kn">import</span> <span class="nn">pandas</span>
+<span class="kn">from</span> <span class="nn">cloudmesh.configuration.Config</span> <span class="k">import</span> <span class="n">Config</span>
 
 <div class="viewcode-block" id="AWSRegister"><a class="viewcode-back" href="../../../api/cloudmesh.register.html#cloudmesh.register.AWSRegister.AWSRegister">[docs]</a><span class="k">class</span> <span class="nc">AWSRegister</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">pass</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cloud</span><span class="o">=</span><span class="s1">&#39;aws&#39;</span><span class="p">):</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="n">Config</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">credentials</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="n">f</span><span class="s1">&#39;cloudmesh.cloud.</span><span class="si">{cloud}</span><span class="s1">.credentials&#39;</span><span class="p">]</span>
+
+<div class="viewcode-block" id="AWSRegister.set_credentials"><a class="viewcode-back" href="../../../api/cloudmesh.register.html#cloudmesh.register.AWSRegister.AWSRegister.set_credentials">[docs]</a>    <span class="k">def</span> <span class="nf">set_credentials</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">creds</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">credentials</span><span class="p">[</span><span class="s1">&#39;EC2_ACCESS_ID&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">creds</span><span class="p">[</span><span class="s1">&#39;Access key ID&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">credentials</span><span class="p">[</span><span class="s1">&#39;EC2_SECRET_KEY&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">creds</span><span class="p">[</span><span class="s1">&#39;Secret access key&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">save</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="AWSRegister.register"><a class="viewcode-back" href="../../../api/cloudmesh.register.html#cloudmesh.register.AWSRegister.AWSRegister.register">[docs]</a>    <span class="k">def</span> <span class="nf">register</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cloud</span><span class="o">=</span><span class="s1">&#39;aws&#39;</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">platform</span> <span class="o">==</span> <span class="s2">&quot;linux&quot;</span> <span class="ow">or</span> <span class="n">platform</span> <span class="o">==</span> <span class="s2">&quot;linux2&quot;</span><span class="p">:</span>
@@ -222,6 +228,7 @@
 
             <span class="n">chrome_ver1</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">getoutput</span><span class="p">(</span><span class="s1">&#39;google-chrome-stable --version&#39;</span><span class="p">)</span>
             <span class="n">chrome_ver2</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">getoutput</span><span class="p">(</span><span class="s1">&#39;google-chrome --version&#39;</span><span class="p">)</span>
+
             <span class="k">if</span> <span class="s1">&#39;not found&#39;</span> <span class="ow">in</span> <span class="n">chrome_ver1</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">or</span> <span class="s1">&#39;not found&#39;</span> <span class="ow">in</span> <span class="n">chrome_ver2</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
                 <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;google chrome is not installed&quot;</span><span class="p">)</span>
                 <span class="k">return</span>
@@ -237,26 +244,22 @@
                               <span class="s2">&quot;3) Set the permission using:</span><span class="se">\n\t</span><span class="s2">&quot;</span>
                               <span class="s2">&quot;&#39;sudo chmod +x /usr/bin/chromedriver&#39;&quot;</span><span class="p">)</span>
                 <span class="k">return</span>
+
             <span class="n">credentials_file_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_user</span><span class="p">()</span>
+
             <span class="n">credentials_csv_path</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">home</span><span class="p">()</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s1">&#39;Downloads&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="n">credentials_file_name</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
             <span class="n">cloudmesh_folder</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">home</span><span class="p">()</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s1">&#39;.cloudmesh&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
+
+
             <span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">credentials_csv_path</span><span class="p">,</span> <span class="n">cloudmesh_folder</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="n">credentials_file_name</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">())</span>
             <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{filename}</span><span class="s2"> moved to ~/.cloudmesh folder&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="n">credentials_file_name</span><span class="p">))</span>
 
-            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{cm}</span><span class="s2">/cloudmesh.yaml&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cm</span><span class="o">=</span><span class="n">cloudmesh_folder</span><span class="p">))</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-                <span class="n">cloudmesh_conf</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">Loader</span><span class="o">=</span><span class="n">yaml</span><span class="o">.</span><span class="n">FullLoader</span><span class="p">)</span>
-
             <span class="n">creds</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{cm}</span><span class="s2">/</span><span class="si">{filename}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cm</span><span class="o">=</span><span class="n">cloudmesh_folder</span><span class="p">,</span><span class="n">filename</span><span class="o">=</span><span class="n">credentials_file_name</span><span class="p">))</span>
 
-            <span class="n">credentials</span> <span class="o">=</span> <span class="n">cloudmesh_conf</span><span class="p">[</span><span class="s1">&#39;cloudmesh.cloud.</span><span class="si">{cloud}</span><span class="s1">.credentials&#39;</span><span class="p">]</span>
 
-            <span class="n">credentials</span><span class="p">[</span><span class="s1">&#39;EC2_ACCESS_ID&#39;</span><span class="p">]</span> <span class="o">=</span> \
-                <span class="n">creds</span><span class="p">[</span><span class="s1">&#39;Access key ID&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-            <span class="n">credentials</span><span class="p">[</span><span class="s1">&#39;EC2_SECRET_KEY&#39;</span><span class="p">]</span> <span class="o">=</span> \
-                <span class="n">creds</span><span class="p">[</span><span class="s1">&#39;Secret access key&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_credentials</span><span class="p">(</span><span class="n">creds</span><span class="p">)</span>
 
-            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{cm}</span><span class="s2">/cloudmesh.yaml&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cm</span><span class="o">=</span><span class="n">cloudmesh_folder</span><span class="p">),</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-                <span class="n">yaml</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">cloudmesh_conf</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
 
             <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;AWS &#39;Access Key ID&#39; and &#39;Secret Access Key&#39; in the cloudmesh.yaml updated&quot;</span><span class="p">)</span>
 
@@ -275,23 +278,19 @@
                               <span class="s2">&quot;3) Set the permission using:</span><span class="se">\n\t</span><span class="s2">&quot;</span>
                               <span class="s2">&quot;&#39;chmod +x /usr/local/bin/chromedriver&#39;&quot;</span><span class="p">)</span>
                 <span class="k">return</span>
+
             <span class="n">credentials_file_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_user</span><span class="p">()</span>
             <span class="n">credentials_csv_path</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">home</span><span class="p">()</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s1">&#39;Downloads&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="n">credentials_file_name</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
+            <span class="c1"># check if the DOwanloaded file exists</span>
+            <span class="c1"># Path(&quot;~/.cloudmesh/{credentials_file_name}).resolve()</span>
+
             <span class="n">cloudmesh_folder</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">home</span><span class="p">()</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s1">&#39;.cloudmesh&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
             <span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">credentials_csv_path</span><span class="p">,</span> <span class="n">cloudmesh_folder</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="n">credentials_file_name</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">())</span>
-            <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{filename}</span><span class="s2"> moved to ~/.cloudmesh folder&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="n">credentials_file_name</span><span class="p">))</span>
-
-            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{cm}</span><span class="s2">/cloudmesh.yaml&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cm</span><span class="o">=</span><span class="n">cloudmesh_folder</span><span class="p">))</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-                <span class="n">cloudmesh_conf</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">Loader</span><span class="o">=</span><span class="n">yaml</span><span class="o">.</span><span class="n">FullLoader</span><span class="p">)</span>
+            <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;</span><span class="si">{credentials_file_name}</span><span class="s2"> moved to ~/.cloudmesh folder&quot;</span><span class="p">)</span>
 
             <span class="n">creds</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{cm}</span><span class="s2">/</span><span class="si">{filename}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cm</span><span class="o">=</span><span class="n">cloudmesh_folder</span><span class="p">,</span><span class="n">filename</span><span class="o">=</span><span class="n">credentials_file_name</span><span class="p">))</span>
 
-            <span class="n">credentials</span> <span class="o">=</span> <span class="n">cloudmesh_conf</span><span class="p">[</span><span class="s1">&#39;cloudmesh.cloud.</span><span class="si">{cloud}</span><span class="s1">.credentials&#39;</span><span class="p">]</span>
-            <span class="n">credentials</span><span class="p">[</span><span class="s1">&#39;EC2_ACCESS_ID&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">creds</span><span class="p">[</span><span class="s1">&#39;Access key ID&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-            <span class="n">credentials</span><span class="p">[</span><span class="s1">&#39;EC2_SECRET_KEY&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">creds</span><span class="p">[</span><span class="s1">&#39;Secret access key&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-
-            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{cm}</span><span class="s2">/cloudmesh.yaml&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cm</span><span class="o">=</span><span class="n">cloudmesh_folder</span><span class="p">),</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-                <span class="n">yaml</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">cloudmesh_conf</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_credentials</span><span class="p">(</span><span class="n">creds</span><span class="p">)</span>
 
             <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;AWS &#39;Access Key ID&#39; and &#39;Secret Access Key&#39; in the cloudmesh.yaml updated&quot;</span><span class="p">)</span>
 
@@ -307,25 +306,22 @@
                 <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Chrome geckodriver not installed. Follow these steps for installation: </span><span class="se">\n</span><span class="s2">&quot;</span>
                               <span class="s2">&quot;1) Download the driver from the following link: </span><span class="se">\n\t</span><span class="s2"> &quot;</span>
                               <span class="s2">&quot;https://sites.google.com/a/chromium.org/chromedriver/downloads </span><span class="se">\n</span><span class="s2">&quot;</span>
-                              <span class="s2">&quot;2) Copy the `chromedriver` to path, for instance you can add it to the followtin path: </span><span class="se">\n\t</span><span class="s2"> %USERPROFILE%\AppData\Local\Microsoft\WindowsApps&quot;</span><span class="p">)</span>
+                              <span class="s2">&quot;2) Copy the `chromedriver` to path, for instance you can add &quot;</span>
+                              <span class="s2">&quot;it to the followtin path: &quot;</span>
+                              <span class="s2">&quot;</span><span class="se">\n\t</span><span class="s2"> %USERPROFILE%\AppData\Local\Microsoft\WindowsApps&quot;</span><span class="p">)</span>
                 <span class="k">return</span>
             <span class="n">credentials_file_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_user</span><span class="p">()</span>
+
             <span class="n">credentials_csv_path</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">home</span><span class="p">()</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s1">&#39;Downloads&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="n">credentials_file_name</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
             <span class="n">cloudmesh_folder</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">home</span><span class="p">()</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s1">&#39;.cloudmesh&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
             <span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">credentials_csv_path</span><span class="p">,</span> <span class="n">cloudmesh_folder</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="n">credentials_file_name</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">())</span>
-            <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{filename}</span><span class="s2"> moved to ~/.cloudmesh folder&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="n">credentials_file_name</span><span class="p">))</span>
 
-            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{cm}</span><span class="s2">/cloudmesh.yaml&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cm</span><span class="o">=</span><span class="n">cloudmesh_folder</span><span class="p">))</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-                <span class="n">cloudmesh_conf</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">Loader</span><span class="o">=</span><span class="n">yaml</span><span class="o">.</span><span class="n">FullLoader</span><span class="p">)</span>
+            <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;</span><span class="si">{credentials_file_name}</span><span class="s2"> moved to ~/.cloudmesh folder&quot;</span><span class="p">)</span>
+
 
             <span class="n">creds</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{cm}</span><span class="s2">/</span><span class="si">{filename}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cm</span><span class="o">=</span><span class="n">cloudmesh_folder</span><span class="p">,</span><span class="n">filename</span><span class="o">=</span><span class="n">credentials_file_name</span><span class="p">))</span>
 
-            <span class="n">credentials</span> <span class="o">=</span> <span class="n">cloudmesh_conf</span><span class="p">[</span><span class="s1">&#39;cloudmesh.cloud.</span><span class="si">{cloud}</span><span class="s1">.credentials&#39;</span><span class="p">]</span>
-            <span class="n">credentials</span><span class="p">[</span><span class="s1">&#39;EC2_ACCESS_ID&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">creds</span><span class="p">[</span><span class="s1">&#39;Access key ID&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-            <span class="n">credentials</span><span class="p">[</span><span class="s1">&#39;EC2_SECRET_KEY&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">creds</span><span class="p">[</span><span class="s1">&#39;Secret access key&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-
-            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{cm}</span><span class="s2">/cloudmesh.yaml&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cm</span><span class="o">=</span><span class="n">cloudmesh_folder</span><span class="p">),</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-                <span class="n">yaml</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">cloudmesh_conf</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_credentials</span><span class="p">(</span><span class="n">creds</span><span class="p">)</span>
 
             <span class="n">Console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;AWS &#39;Access Key ID&#39; and &#39;Secret Access Key&#39; in the cloudmesh.yaml updated&quot;</span><span class="p">)</span></div>
 

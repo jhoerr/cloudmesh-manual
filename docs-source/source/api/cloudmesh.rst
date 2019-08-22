@@ -48,7 +48,7 @@ Subpackages
    cloudmesh.vbox
    cloudmesh.vcluster
    cloudmesh.vm
-   cloudmesh.workflow
+   cloudmesh.workflow_draft
 
 Module contents
 ---------------

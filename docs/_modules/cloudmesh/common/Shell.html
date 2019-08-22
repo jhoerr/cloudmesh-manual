@@ -372,6 +372,26 @@
     <span class="c1">#</span>
     <span class="c1"># ls = cls.execute(&#39;cmd&#39;, args...)</span>
 
+<div class="viewcode-block" id="Shell.dot2svg"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.dot2svg">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">dot2svg</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s1">&#39;dot&#39;</span><span class="p">):</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;engine&#39;</span><span class="p">:</span> <span class="n">engine</span><span class="p">,</span>
+            <span class="s1">&#39;file&#39;</span><span class="p">:</span> <span class="n">filename</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;.dot&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="p">}</span>
+        <span class="n">command</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{engine}</span><span class="s2"> -Tsvg </span><span class="si">{file}</span><span class="s2">.dot &gt; </span><span class="si">{file}</span><span class="s2">.svg&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">data</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="n">command</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Shell.browser"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.browser">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">browser</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;engine&#39;</span><span class="p">:</span> <span class="s1">&#39;python -m webbrowser&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;file&#39;</span><span class="p">:</span> <span class="n">filename</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="s1">&#39;file:&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">filename</span> <span class="ow">and</span> <span class="s1">&#39;http&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">filename</span><span class="p">:</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;python -m webbrowser -t file:///</span><span class="si">{file}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">data</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;python -m webbrowser -t </span><span class="si">{file}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">data</span><span class="p">))</span></div>
 
 <div class="viewcode-block" id="Shell.terminal"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.terminal">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">terminal</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="s1">&#39;pwd&#39;</span><span class="p">):</span>
@@ -556,6 +576,15 @@
 <span class="sd">        :return: </span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;cm&#39;</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Shell.cms"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.cms">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">cms</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        executes cm with the given arguments</span>
+<span class="sd">        :param args:</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;cms&#39;</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Shell.fgrep"><a class="viewcode-back" href="../../../api/cloudmesh.common.html#cloudmesh.common.Shell.Shell.fgrep">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">fgrep</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
@@ -991,11 +1020,10 @@
 <span class="sd">    a test that should actually be added into a pytest</span>
 <span class="sd">    :return: </span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">shell</span> <span class="o">=</span> <span class="n">Shell</span><span class="p">()</span>
 
-    <span class="nb">print</span><span class="p">(</span><span class="n">shell</span><span class="o">.</span><span class="n">terminal_type</span><span class="p">())</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">Shell</span><span class="o">.</span><span class="n">terminal_type</span><span class="p">())</span>
 
-    <span class="n">r</span> <span class="o">=</span> <span class="n">shell</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;pwd&#39;</span><span class="p">)</span>  <span class="c1"># copy line replace</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">Shell</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;pwd&#39;</span><span class="p">)</span>  <span class="c1"># copy line replace</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
 
     <span class="c1"># shell.list()</span>
@@ -1011,16 +1039,16 @@
 <span class="sd">        print (&quot;{:}&quot;.format(r))</span>
 <span class="sd">        print (&quot;---------------------&quot;)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">r</span> <span class="o">=</span> <span class="n">shell</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;ls&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;-l&quot;</span><span class="p">,</span> <span class="s2">&quot;-a&quot;</span><span class="p">])</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">Shell</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;ls&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;-l&quot;</span><span class="p">,</span> <span class="s2">&quot;-a&quot;</span><span class="p">])</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
 
-    <span class="n">r</span> <span class="o">=</span> <span class="n">shell</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;ls&#39;</span><span class="p">,</span> <span class="s2">&quot;-l -a&quot;</span><span class="p">)</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">Shell</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;ls&#39;</span><span class="p">,</span> <span class="s2">&quot;-l -a&quot;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
 
-    <span class="n">r</span> <span class="o">=</span> <span class="n">shell</span><span class="o">.</span><span class="n">ls</span><span class="p">(</span><span class="s2">&quot;-aux&quot;</span><span class="p">)</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">Shell</span><span class="o">.</span><span class="n">ls</span><span class="p">(</span><span class="s2">&quot;-aux&quot;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
 
-    <span class="n">r</span> <span class="o">=</span> <span class="n">shell</span><span class="o">.</span><span class="n">ls</span><span class="p">(</span><span class="s2">&quot;-a&quot;</span><span class="p">,</span> <span class="s2">&quot;-u&quot;</span><span class="p">,</span> <span class="s2">&quot;-x&quot;</span><span class="p">)</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">Shell</span><span class="o">.</span><span class="n">ls</span><span class="p">(</span><span class="s2">&quot;-a&quot;</span><span class="p">,</span> <span class="s2">&quot;-u&quot;</span><span class="p">,</span> <span class="s2">&quot;-x&quot;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
 
     <span class="n">r</span> <span class="o">=</span> <span class="n">shell</span><span class="o">.</span><span class="n">pwd</span><span class="p">()</span>

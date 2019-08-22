@@ -221,7 +221,7 @@
 
 <span class="sd">            Usage:</span>
 <span class="sd">                ip list  [--cloud=CLOUD] [--output=OUTPUT]</span>
-<span class="sd">                ip create [--cloud=CLOUD]</span>
+<span class="sd">                ip create [N] [--cloud=CLOUD]</span>
 <span class="sd">                ip delete [IP] [--cloud=CLOUD]</span>
 <span class="sd">                ip attach [NAME] [IP]</span>
 <span class="sd">                ip detach [NAME] [IP]</span>
@@ -233,6 +233,7 @@
 <span class="sd">                --output=OUTPUT             The output format [default: table]</span>
 
 <span class="sd">            Arguments:</span>
+<span class="sd">                N         Number of IPS to create</span>
 <span class="sd">                IP        IP Address</span>
 <span class="sd">                NAME      Name of the service</span>
 
@@ -288,10 +289,13 @@
 
             <span class="n">cloud</span> <span class="o">=</span> <span class="n">Parameter</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;cloud&quot;</span><span class="p">,</span> <span class="n">arguments</span><span class="p">,</span> <span class="n">variables</span><span class="p">)</span>
 
+            <span class="n">n</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">.</span><span class="n">N</span> <span class="ow">or</span> <span class="mi">1</span>
+
             <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;cloud </span><span class="si">{cloud}</span><span class="s2">&quot;</span><span class="p">)</span>
             <span class="n">provider</span> <span class="o">=</span> <span class="n">Provider</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">cloud</span><span class="p">)</span>
 
-            <span class="n">ips</span> <span class="o">=</span> <span class="n">provider</span><span class="o">.</span><span class="n">create_public_ip</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="p">)):</span>
+                <span class="n">ips</span> <span class="o">=</span> <span class="n">provider</span><span class="o">.</span><span class="n">create_public_ip</span><span class="p">()</span>
             <span class="n">ips</span> <span class="o">=</span> <span class="n">provider</span><span class="o">.</span><span class="n">list_public_ips</span><span class="p">()</span>
 
             <span class="n">provider</span><span class="o">.</span><span class="n">Print</span><span class="p">(</span><span class="n">ips</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="n">arguments</span><span class="o">.</span><span class="n">output</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;ip&quot;</span><span class="p">)</span>

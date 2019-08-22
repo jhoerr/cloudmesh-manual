@@ -260,6 +260,9 @@
             <span class="s2">&quot;--name&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">variables</span><span class="p">[</span><span class="s2">&quot;vm&quot;</span><span class="p">]</span>
         <span class="c1"># TODO: bug this only works for vm, but not images and so on</span>
         <span class="k">if</span> <span class="n">names</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># this is a temporary patch for &quot;image list --cloud=XX --refresh&quot; so not to print the error</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">arguments</span><span class="o">.</span><span class="n">cloud</span> <span class="ow">and</span> <span class="n">arguments</span><span class="o">.</span><span class="n">refresh</span> <span class="ow">and</span> <span class="n">arguments</span><span class="o">.</span><span class="n">list</span><span class="p">):</span>
+                <span class="k">return</span> <span class="kc">None</span>
             <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;you need to specify a vm&quot;</span><span class="p">)</span>
             <span class="k">return</span> <span class="kc">None</span>
         <span class="k">else</span><span class="p">:</span>
@@ -293,11 +296,11 @@
 <div class="viewcode-block" id="Arguments.get_command"><a class="viewcode-back" href="../../../../api/cloudmesh.management.configuration.html#cloudmesh.management.configuration.arguments.Arguments.get_command">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">get_command</span><span class="p">(</span><span class="n">arguments</span><span class="p">,</span> <span class="n">variables</span><span class="p">):</span>
         <span class="n">command</span> <span class="o">=</span> <span class="n">arguments</span><span class="p">[</span><span class="s2">&quot;command&quot;</span><span class="p">]</span> <span class="ow">or</span> <span class="n">arguments</span><span class="p">[</span><span class="s2">&quot;--command&quot;</span><span class="p">]</span>
-        <span class="k">if</span> <span class="n">command</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">Console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;you need to specify a command&quot;</span><span class="p">)</span>
-            <span class="k">return</span> <span class="kc">None</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">command</span></div>
+        <span class="c1"># if command is None:</span>
+        <span class="c1">#    Console.error(&quot;you need to specify a command&quot;)</span>
+        <span class="c1">#   return None</span>
+        <span class="c1"># else:</span>
+        <span class="k">return</span> <span class="n">command</span></div>
 
 <div class="viewcode-block" id="Arguments.get_commands"><a class="viewcode-back" href="../../../../api/cloudmesh.management.configuration.html#cloudmesh.management.configuration.arguments.Arguments.get_commands">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">get_commands</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">arguments</span><span class="p">,</span> <span class="n">variables</span><span class="p">):</span>
