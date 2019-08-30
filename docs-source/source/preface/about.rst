@@ -4,14 +4,14 @@ About
 Cloudmesh enables you to access multi-cloud environments such as AWS, Azure, Google, and OpenStack Cloudsvery easily. To start a vm on AWS you can say
 
 ```
-cms set cloud=AWS
+cms set cloud=aws
 cms vm boot
 ```
 
 To start one on Azure, simply set the cloud accordingly
 
 ```
-cms set cloud=AWS
+cms set cloud=azure
 cms vm boot
 ```
 
